@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Debug Keyboard Structure</title>
+    <style>
+        body { font-family: monospace; padding: 20px; }
+        .debug { background: #f0f0f0; padding: 10px; margin: 10px 0; }
+    </style>
+</head>
+<body>
+    <h1>Keyboard Structure Debug</h1>
+
+    <div class="debug" id="structure">
+        Loading keyboard structure...
+    </div>
+
+    <div class="debug" id="coords">
+        Coordinate test results...
+    </div>
+
+    <script src="assets/js/keyboard-layouts.js"></script>
+    <script src="assets/js/modal.js"></script>
+    <script>
+        setTimeout(() => {
+            const keyboard = document.getElementById('virtualKeyboard');
+            if (keyboard) {
+                document.getElementById('structure').innerHTML =
+                    'Keyboard HTML:\n' + keyboard.innerHTML.substring(0, 500) + '...';
+            } else {
+                document.getElementById('structure').innerHTML = 'No virtualKeyboard element found';
+            }
+
+            // Check if the classes exist
+            const main = document.querySelector('.keyboard-main');
+            const nav = document.querySelector('.keyboard-nav');
+            const numpad = document.querySelector('.keyboard-numpad');
+
+            document.getElementById('coords').innerHTML =
+                'Main found: ' + (main ? 'YES' : 'NO') + '\n' +
+                'Nav found: ' + (nav ? 'YES' : 'NO') + '\n' +
+                'Numpad found: ' + (numpad ? 'YES' : 'NO');
+
+        }, 1000);
+    </script>
+</body>
+</html>

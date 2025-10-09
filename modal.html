@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Клавиатурный Тренажер - Modal</title>
+
+    <!-- CSS стили -->
+    <link rel="stylesheet" href="assets/css/modal.css">
+    <link rel="stylesheet" href="assets/css/keyboard.css">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="assets/images/favicon.ico">
+</head>
+<body>
+    <!-- Modal Overlay -->
+    <div class="modal-overlay" id="modalOverlay">
+        <!-- Modal Container 1024x605px -->
+        <div class="modal-container" id="modalContainer">
+
+            <!-- Header Section 60px -->
+            <header class="modal-header">
+                <div class="header-content">
+                    <h2 class="modal-title">Тест скорости печати</h2>
+                    <div class="header-mascot">
+                        <div class="mascot-character">🤖</div>
+                    </div>
+                    <button class="modal-close" id="modalClose">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                            <path d="M18 6L6 18M6 6L18 18" stroke="currentColor" stroke-width="2"/>
+                        </svg>
+                    </button>
+                </div>
+            </header>
+
+            <!-- Main Content Area -->
+            <main class="modal-main">
+
+                <!-- Text Editor Section - flexible height -->
+                <section class="text-editor-section">
+                    <div class="progress-container">
+                        <span class="progress-label">Прогресс</span>
+                        <div class="progress-fraction" id="progressFraction">0/0</div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" id="progressFill"></div>
+                        </div>
+                    </div>
+
+                    <!-- Main Text Editor -->
+                    <div class="text-editor" id="textEditor">
+                        <div class="text-content">
+                            <span class="text-to-type" id="textToType">Нажмите кнопку начать для запуска упражнения</span>
+                            <span class="typed-text" id="typedText"></span>
+                        </div>
+                        <div class="cursor" id="cursor"></div>
+                    </div>
+
+                    <!-- Hidden Input for capturing keystrokes -->
+                    <input type="text" id="hiddenInput" class="hidden-input" autocomplete="off">
+                </section>
+
+                <!-- Functional Toolbar 45px -->
+                <section class="functional-toolbar">
+                    <div class="toolbar-group">
+                        <button class="toolbar-btn" id="fingerHintsBtn" title="Показать подсказки пальцев">
+                            <span class="btn-icon">🤏</span>
+                        </button>
+                        <button class="toolbar-btn" id="statisticsBtn" title="Показать статистику">
+                            <span class="btn-icon">📊</span>
+                        </button>
+                        <button class="toolbar-btn" id="settingsBtn" title="Настройки">
+                            <span class="btn-icon">⚙️</span>
+                        </button>
+                    </div>
+
+                    <div class="toolbar-group">
+                        <button class="toolbar-btn" id="themeBtn" title="Сменить тему">
+                            <span class="btn-icon">🎨</span>
+                        </button>
+                        <button class="toolbar-btn" id="resetBtn" title="Сброс упражнения">
+                            <span class="btn-icon">🔄</span>
+                        </button>
+                    </div>
+
+                    <div class="toolbar-group">
+                        <div class="language-selector">
+                            <button class="toolbar-btn active" id="languageBtn">
+                                <span class="btn-flag">🇷🇺</span>
+                                <span class="btn-text">RU</span>
+                            </button>
+                        </div>
+                        <div class="layout-selector">
+                            <button class="toolbar-btn dropdown-btn" id="layoutBtn">
+                                <span class="btn-icon">⌨️</span>
+                                <span class="btn-text">Стандартная</span>
+                                <span class="btn-arrow">▼</span>
+                            </button>
+                            <div class="dropdown-menu" id="layoutDropdown">
+                                <div class="dropdown-item active" data-layout="standard">
+                                    <span class="item-name">Стандартная</span>
+                                    <span class="item-desc">ЙЦУКЕН</span>
+                                </div>
+                                <div class="dropdown-item" data-layout="phonetic">
+                                    <span class="item-name">Фонетическая</span>
+                                    <span class="item-desc">Похожие английские</span>
+                                </div>
+                                <div class="dropdown-item" data-layout="typewriter">
+                                    <span class="item-name">Машинопись</span>
+                                    <span class="item-desc">Классическая</span>
+                                </div>
+                                <div class="dropdown-item" data-layout="mac">
+                                    <span class="item-name">macOS</span>
+                                    <span class="item-desc">Для Mac</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="status-indicator" id="statusIndicator">
+                            <span class="status-icon">✏️</span>
+                            <span class="status-text">Готов к печати</span>
+                        </div>
+                    </div>
+                </section>
+
+            </main>
+
+            <!-- Virtual Keyboard Section - Fixed at bottom outside main -->
+            <section class="keyboard-section">
+                <div class="keyboard" id="virtualKeyboard">
+                    <!-- Keyboard sections will be generated by JavaScript -->
+                </div>
+            </section>
+
+            <!-- Collapsible Side Panels -->
+            <aside class="side-panels">
+                <!-- Finger Hints Panel -->
+                <div class="side-panel finger-hints-panel" id="fingerHintsPanel">
+                    <div class="panel-header">
+                        <h3>Позиции пальцев</h3>
+                        <button class="panel-close">×</button>
+                    </div>
+                    <div class="panel-content">
+                        <div class="finger-diagram">
+                            <!-- Finger position diagram will be here -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Statistics Panel -->
+                <div class="side-panel statistics-panel" id="statisticsPanel">
+                    <div class="panel-header">
+                        <h3>Статистика</h3>
+                        <button class="panel-close">×</button>
+                    </div>
+                    <div class="panel-content">
+                        <div class="stat-item">
+                            <div class="stat-label">Время:</div>
+                            <div class="stat-value" id="timeValue">00:00</div>
+                            <div class="stat-best">лучшее: --:--</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-label">Скорость:</div>
+                            <div class="stat-value" id="speedValue">0 <span class="unit">зн/мин</span></div>
+                            <div class="stat-best">максимум: --</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-label">Ошибки:</div>
+                            <div class="stat-value" id="errorsValue">0 <span class="unit">/ 0.0%</span></div>
+                            <div class="stat-best">минимум: --</div>
+                        </div>
+                    </div>
+                </div>
+            </aside>
+
+            <!-- Results Screen Overlay -->
+            <div class="results-overlay" id="resultsOverlay">
+                <div class="results-card">
+                    <div class="results-header">
+                        <h2>Результат упражнения</h2>
+                        <div class="rating-stars">
+                            <span class="star">⭐</span>
+                            <span class="star">⭐</span>
+                            <span class="star">⭐</span>
+                            <span class="star">⭐</span>
+                            <span class="star">⭐</span>
+                        </div>
+                    </div>
+                    <div class="results-content">
+                        <div class="results-stats">
+                            <!-- Detailed statistics will be populated here -->
+                        </div>
+                        <div class="results-actions">
+                            <button class="btn-secondary" id="tryAgainBtn">Попробовать снова</button>
+                            <button class="btn-primary" id="nextLevelBtn">Следующий уровень</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- JavaScript modules -->
+    <script src="config/settings.js"></script>
+    <script src="assets/js/utils.js"></script>
+    <script src="assets/js/keyboard-layouts.js"></script>
+    <script src="assets/js/keyboard-controller.js"></script>
+    <script src="assets/js/modal.js"></script>
+    <script src="assets/js/keyboard.js"></script>
+    <script src="assets/js/stats.js"></script>
+    <script src="assets/js/main.js"></script>
+</body>
+</html>

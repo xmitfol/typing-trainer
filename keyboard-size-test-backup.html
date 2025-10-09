@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Keyboard Size Test</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f0f0f0;
+            padding: 20px;
+        }
+
+        .test-container {
+            width: 976px; /* Modal width 1024px - padding 48px */
+            background: white;
+            border: 2px solid red;
+            margin: 20px auto;
+            padding: 20px;
+        }
+
+        .info {
+            background: #333;
+            color: white;
+            padding: 10px;
+            margin-bottom: 20px;
+            font-family: monospace;
+            font-size: 12px;
+        }
+
+        .keyboard-section {
+            height: 220px;
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            padding: 10px;
+        }
+
+        .keyboard {
+            display: flex;
+            flex-direction: row;
+            gap: 10px;
+            width: 100%;
+            height: 180px;
+            border: 1px solid blue;
+        }
+
+        .keyboard-main {
+            width: 620px;
+            height: 180px;
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            display: flex;
+            flex-direction: column;
+            padding: 8px;
+            gap: 4px;
+        }
+
+        .keyboard-nav {
+            width: 150px;
+            height: 180px;
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            display: flex;
+            flex-direction: column;
+            padding: 8px;
+            gap: 4px;
+        }
+
+        .keyboard-numpad {
+            width: 170px;
+            height: 180px;
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            display: flex;
+            flex-direction: column;
+            padding: 8px;
+            gap: 5px;
+            position: relative;
+        }
+
+        .numpad-main-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+            margin-bottom: 0px;
+        }
+
+        .numpad-right-column {
+            position: absolute;
+            left: 140px;
+            top: 8px;
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        .numpad-bottom-row {
+            display: flex;
+            gap: 5px;
+            margin-top: 0px;
+        }
+
+        .keyboard-row {
+            display: flex;
+            gap: 2px;
+            height: auto;
+        }
+
+        .numpad-main-grid .keyboard-row {
+            gap: 4px;
+        }
+
+        .key {
+            width: 40px;
+            height: 32px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            font-weight: 500;
+            border: 1px solid #d1d5db;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.15s ease;
+            position: relative;
+            background: #f8fafc;
+            color: #374151;
+            box-sizing: border-box;
+            padding: 2px;
+        }
+
+        .key-top {
+            font-size: 10px;
+            line-height: 1;
+            margin-bottom: 2px;
+        }
+
+        .key-bottom {
+            font-size: 12px;
+            line-height: 1;
+            font-weight: bold;
+        }
+
+        /* Finger color mapping */
+        .key.pink {
+            background: #fce7f3;
+            border-color: #f9a8d4;
+            color: #be185d;
+        }
+
+        .key.orange {
+            background: #fed7aa;
+            border-color: #fb923c;
+            color: #c2410c;
+        }
+
+        .key.green {
+            background: #dcfce7;
+            border-color: #86efac;
+            color: #166534;
+        }
+
+        .key.cyan {
+            background: #cffafe;
+            border-color: #67e8f9;
+            color: #0e7490;
+        }
+
+        .key.blue {
+            background: #dbeafe;
+            border-color: #93c5fd;
+            color: #1e40af;
+        }
+
+        .key.purple {
+            background: #e9d5ff;
+            border-color: #c084fc;
+            color: #7c3aed;
+        }
+
+        /* Special keys */
+        .key.backspace, .key.tab, .key.caps, .key.enter,
+        .key.shift-left, .key.shift-right, .key.ctrl, .key.alt {
+            background: #e5e7eb;
+            color: #4b5563;
+            font-size: 10px;
+        }
+
+        .key.spacebar {
+            width: 312px;
+        }
+
+        .key.enter {
+            width: 70px;
+        }
+
+        .key.backspace {
+            width: 60px;
+        }
+
+        .key.shift-left {
+            width: 91px;
+        }
+
+        .key.shift-right {
+            width: 91px;
+        }
+
+        .key.tab {
+            width: 60px;
+        }
+
+        .key.caps {
+            width: 70px;
+        }
+
+        .key.ctrl {
+            width: 60px;
+        }
+
+        .key.fn, .key.menu {
+            width: 40px;
+        }
+
+        .key.alt {
+            width: 40px;
+        }
+
+        .key.nav-key {
+            width: 40px;
+            height: 32px;
+        }
+
+        .key.colorless {
+            background: #f8fafc;
+            border-color: #e2e8f0;
+            color: transparent;
+        }
+
+        .key.invisible {
+            background: transparent;
+            border-color: transparent;
+            color: transparent;
+        }
+
+        .key.numpad-key {
+            width: 40px;
+            height: 32px;
+        }
+
+        .key.numpad-zero {
+            width: 82px; /* 2 клавиши + gap */
+        }
+
+        .key.numpad-plus {
+            height: 66px; /* 2 ряда + gap */
+        }
+
+        .key.numpad-enter {
+            height: 66px; /* 2 ряда + gap */
+        }
+
+        /* Объединенные клавиши в новой структуре */
+        .key.numpad-plus-tall {
+            height: 67px; /* 2 ряда + gap */
+        }
+
+        .key.numpad-enter-tall {
+            height: 68px; /* 2 ряда + gap */
+        }
+
+        .key.numpad-zero-wide {
+            width: 83px; /* 2 клавиши + gap */
+        }
+
+    </style>
+</head>
+<body>
+    <h1>Keyboard Size Test - Modal Width Simulation</h1>
+
+    <div class="info" id="info">
+        Target width: 976px (modal 1024px - padding 48px)
+        Testing keyboard fit...
+    </div>
+
+    <div class="test-container">
+        <div class="keyboard-section">
+            <div class="keyboard">
+                <!-- Main Keyboard -->
+                <div class="keyboard-main">
+                    <div class="keyboard-row">
+                        <div class="key pink"><div class="key-top">Ё</div><div class="key-bottom">ё</div></div>
+                        <div class="key pink"><div class="key-top">!</div><div class="key-bottom">1</div></div>
+                        <div class="key orange"><div class="key-top">"</div><div class="key-bottom">2</div></div>
+                        <div class="key green"><div class="key-top">№</div><div class="key-bottom">3</div></div>
+                        <div class="key cyan"><div class="key-top">;</div><div class="key-bottom">4</div></div>
+                        <div class="key cyan"><div class="key-top">%</div><div class="key-bottom">5</div></div>
+                        <div class="key blue"><div class="key-top">:</div><div class="key-bottom">6</div></div>
+                        <div class="key blue"><div class="key-top">?</div><div class="key-bottom">7</div></div>
+                        <div class="key green"><div class="key-top">*</div><div class="key-bottom">8</div></div>
+                        <div class="key orange"><div class="key-top">(</div><div class="key-bottom">9</div></div>
+                        <div class="key pink"><div class="key-top">)</div><div class="key-bottom">0</div></div>
+                        <div class="key pink"><div class="key-top">_</div><div class="key-bottom">-</div></div>
+                        <div class="key pink"><div class="key-top">+</div><div class="key-bottom">=</div></div>
+                        <div class="key backspace">Backsp</div>
+                    </div>
+                    <div class="keyboard-row">
+                        <div class="key tab">Tab</div>
+                        <div class="key pink"><div class="key-top">Й</div><div class="key-bottom">й</div></div>
+                        <div class="key orange"><div class="key-top">Ц</div><div class="key-bottom">ц</div></div>
+                        <div class="key green"><div class="key-top">У</div><div class="key-bottom">у</div></div>
+                        <div class="key cyan"><div class="key-top">К</div><div class="key-bottom">к</div></div>
+                        <div class="key cyan"><div class="key-top">Е</div><div class="key-bottom">е</div></div>
+                        <div class="key blue"><div class="key-top">Н</div><div class="key-bottom">н</div></div>
+                        <div class="key blue"><div class="key-top">Г</div><div class="key-bottom">г</div></div>
+                        <div class="key green"><div class="key-top">Ш</div><div class="key-bottom">ш</div></div>
+                        <div class="key orange"><div class="key-top">Щ</div><div class="key-bottom">щ</div></div>
+                        <div class="key pink"><div class="key-top">З</div><div class="key-bottom">з</div></div>
+                        <div class="key pink"><div class="key-top">Х</div><div class="key-bottom">х</div></div>
+                        <div class="key pink"><div class="key-top">Ъ</div><div class="key-bottom">ъ</div></div>
+                        <div class="key pink"><div class="key-top">/</div><div class="key-bottom">\</div></div>
+                    </div>
+                    <div class="keyboard-row">
+                        <div class="key caps">Caps Lock</div>
+                        <div class="key pink"><div class="key-top">Ф</div><div class="key-bottom">ф</div></div>
+                        <div class="key orange"><div class="key-top">Ы</div><div class="key-bottom">ы</div></div>
+                        <div class="key green"><div class="key-top">В</div><div class="key-bottom">в</div></div>
+                        <div class="key cyan"><div class="key-top">А</div><div class="key-bottom">а</div></div>
+                        <div class="key cyan"><div class="key-top">П</div><div class="key-bottom">п</div></div>
+                        <div class="key blue"><div class="key-top">Р</div><div class="key-bottom">р</div></div>
+                        <div class="key blue"><div class="key-top">О</div><div class="key-bottom">о</div></div>
+                        <div class="key green"><div class="key-top">Л</div><div class="key-bottom">л</div></div>
+                        <div class="key orange"><div class="key-top">Д</div><div class="key-bottom">д</div></div>
+                        <div class="key pink"><div class="key-top">Ж</div><div class="key-bottom">ж</div></div>
+                        <div class="key pink"><div class="key-top">Э</div><div class="key-bottom">э</div></div>
+                        <div class="key enter">Enter</div>
+                    </div>
+                    <div class="keyboard-row">
+                        <div class="key shift-left">Shift</div>
+                        <div class="key pink"><div class="key-top">Я</div><div class="key-bottom">я</div></div>
+                        <div class="key orange"><div class="key-top">Ч</div><div class="key-bottom">ч</div></div>
+                        <div class="key green"><div class="key-top">С</div><div class="key-bottom">с</div></div>
+                        <div class="key cyan"><div class="key-top">М</div><div class="key-bottom">м</div></div>
+                        <div class="key cyan"><div class="key-top">И</div><div class="key-bottom">и</div></div>
+                        <div class="key blue"><div class="key-top">Т</div><div class="key-bottom">т</div></div>
+                        <div class="key blue"><div class="key-top">Ь</div><div class="key-bottom">ь</div></div>
+                        <div class="key green"><div class="key-top">Б</div><div class="key-bottom">б</div></div>
+                        <div class="key orange"><div class="key-top">Ю</div><div class="key-bottom">ю</div></div>
+                        <div class="key pink"><div class="key-top">,</div><div class="key-bottom">.</div></div>
+                        <div class="key shift-right">Shift</div>
+                    </div>
+                    <div class="keyboard-row">
+                        <div class="key ctrl">Ctrl</div>
+                        <div class="key fn"></div>
+                        <div class="key alt"></div>
+                        <div class="key purple spacebar">Пробел</div>
+                        <div class="key alt"></div>
+                        <div class="key menu">Menu</div>
+                        <div class="key ctrl">Ctrl</div>
+                    </div>
+                </div>
+
+                <!-- Navigation Keys -->
+                <div class="keyboard-nav">
+                    <div class="keyboard-row">
+                        <div class="key nav-key" style="font-size: 8px;">Ins</div>
+                        <div class="key nav-key" style="font-size: 8px;">Home</div>
+                        <div class="key nav-key" style="font-size: 7px;">PgUp</div>
+                    </div>
+                    <div class="keyboard-row">
+                        <div class="key nav-key" style="font-size: 8px;">Del</div>
+                        <div class="key nav-key" style="font-size: 8px;">End</div>
+                        <div class="key nav-key" style="font-size: 7px;">PgDn</div>
+                    </div>
+                    <div class="keyboard-row">
+                        <div class="key nav-key invisible"></div>
+                        <div class="key nav-key invisible"></div>
+                        <div class="key nav-key invisible"></div>
+                    </div>
+                    <div class="keyboard-row">
+                        <div class="key nav-key invisible"></div>
+                        <div class="key nav-key">↑</div>
+                        <div class="key nav-key invisible"></div>
+                    </div>
+                    <div class="keyboard-row">
+                        <div class="key nav-key">←</div>
+                        <div class="key nav-key">↓</div>
+                        <div class="key nav-key">→</div>
+                    </div>
+                </div>
+
+                <!-- Numpad -->
+                <div class="keyboard-numpad">
+                    <!-- Main 3x4 Grid -->
+                    <div class="numpad-main-grid">
+                        <div class="keyboard-row">
+                            <div class="key numpad-key" style="background: #e5e7eb; color: #4b5563; font-size: 8px;">Num</div>
+                            <div class="key numpad-key green">/</div>
+                            <div class="key numpad-key orange">*</div>
+                        </div>
+                        <div class="keyboard-row">
+                            <div class="key numpad-key cyan">7</div>
+                            <div class="key numpad-key green">8</div>
+                            <div class="key numpad-key orange">9</div>
+                        </div>
+                        <div class="keyboard-row">
+                            <div class="key numpad-key cyan">4</div>
+                            <div class="key numpad-key green">5</div>
+                            <div class="key numpad-key orange">6</div>
+                        </div>
+                        <div class="keyboard-row">
+                            <div class="key numpad-key cyan">1</div>
+                            <div class="key numpad-key green">2</div>
+                            <div class="key numpad-key orange">3</div>
+                        </div>
+                    </div>
+
+                    <!-- Right Column -->
+                    <div class="numpad-right-column">
+                        <div class="key numpad-key orange">-</div>
+                        <div class="key numpad-key orange numpad-plus-tall">+</div>
+                        <div class="key numpad-key orange numpad-enter-tall" style="font-size: 8px;">Enter</div>
+                    </div>
+
+                    <!-- Bottom Row -->
+                    <div class="numpad-bottom-row">
+                        <div class="key numpad-key purple numpad-zero-wide">0</div>
+                        <div class="key numpad-key orange">.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function testSizes() {
+            const container = document.querySelector('.test-container');
+            const keyboard = document.querySelector('.keyboard');
+            const main = document.querySelector('.keyboard-main');
+            const nav = document.querySelector('.keyboard-nav');
+            const numpad = document.querySelector('.keyboard-numpad');
+
+            const containerWidth = container.getBoundingClientRect().width;
+            const keyboardWidth = keyboard.getBoundingClientRect().width;
+            const mainWidth = main.getBoundingClientRect().width;
+            const navWidth = nav.getBoundingClientRect().width;
+            const numpadWidth = numpad.getBoundingClientRect().width;
+
+            const total = mainWidth + navWidth + numpadWidth + 30; // gaps
+            const fits = total <= 936; // container width - padding
+
+            document.getElementById('info').innerHTML = `
+                Container: ${containerWidth.toFixed(0)}px (target: 976px)
+                Keyboard total: ${keyboardWidth.toFixed(0)}px
+                Main: ${mainWidth.toFixed(0)}px | Nav: ${navWidth.toFixed(0)}px | Numpad: ${numpadWidth.toFixed(0)}px
+                Sum: ${total.toFixed(0)}px | Fits: ${fits ? 'YES ✓' : 'NO ✗'}
+                Available space: ${(936 - total).toFixed(0)}px
+            `;
+        }
+
+        window.onload = function() {
+            setTimeout(testSizes, 100);
+        };
+    </script>
+</body>
+</html>

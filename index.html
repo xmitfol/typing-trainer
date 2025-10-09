@@ -1,0 +1,351 @@
+<!-- Виртуальная клавиатура -->
+    <div class="keyboard-container">
+        <!-- Основная клавиатура -->
+        <div class="keyboard">
+            <!-- Первый ряд (цифры) -->
+            <div class="keyboard-row">
+                <div class="key pink" data-key="ё">ё</div>
+                <div class="key pink" data-key="1">1</div>
+                <div class="key orange" data-key="2">2</div>
+                <div class="key green" data-key="3">3</div>
+                <div class="key cyan" data-key="4">4</div>
+                <div class="key cyan" data-key="5">5</div>
+                <div class="key blue" data-key="6">6</div>
+                <div class="key blue" data-key="7">7</div>
+                <div class="key green" data-key="8">8</div>
+                <div class="key orange" data-key="9">9</div>
+                <div class="key pink" data-key="0">0</div>
+                <div class="key pink" data-key="-">-</div>
+                <div class="key pink" data-key="=">=</div>
+                <div class="key backspace" data-key="Backspace">Backsp</div>
+            </div>
+
+            <!-- Второй ряд -->
+            <div class="keyboard-row">
+                <div class="key tab" data-key="Tab">Tab</div>
+                <div class="key pink" data-key="й">й</div>
+                <div class="key orange" data-key="ц">ц</div>
+                <div class="key green" data-key="у">у</div>
+                <div class="key cyan" data-key="к">к</div>
+                <div class="key cyan" data-key="е">е</div>
+                <div class="key blue" data-key="н">н</div>
+                <div class="key blue" data-key="г">г</div>
+                <div class="key green" data-key="ш">ш</div>
+                <div class="key orange" data-key="щ">щ</div>
+                <div class="key pink" data-key="з">з</div>
+                <div class="key pink" data-key="х">х</div>
+                <div class="key pink" data-key="ъ">ъ</div>
+                <div class="key pink" data-key="\\">\</div>
+            </div>
+
+            <!-- Третий ряд -->
+            <div class="keyboard-row">
+                <div class="key caps" data-key="CapsLock">Caps Lock</div>
+                <div class="key pink" data-key="ф">ф</div>
+                <div class="key orange" data-key="ы">ы</div>
+                <div class="key green" data-key="в">в</div>
+                <div class="key cyan" data-key="а">а</div>
+                <div class="key cyan" data-key="п">п</div>
+                <div class="key blue" data-key="р">р</div>
+                <div class="key blue" data-key="о">о</div>
+                <div class="key green" data-key="л">л</div>
+                <div class="key orange" data-key="д">д</div>
+                <div class="key pink" data-key="ж">ж</div>
+                <div class="key pink" data-key="э">э</div>
+                <div class="key enter" data-key="Enter">Enter</div>
+            </div>
+
+            <!-- Четвертый ряд -->
+            <div class="keyboard-row">
+                <div class="key shift-left" data-key="Shift">Shift</div>
+                <div class="key pink" data-key="я">я</div>
+                <div class="key orange" data-key="ч">ч</div>
+                <div class="key green" data-key="с">с</div>
+                <div class="key cyan" data-key="м">м</div>
+                <div class="key cyan" data-key="и">и</div>
+                <div class="key blue" data-key="т">т</div>
+                <div class="key blue" data-key="ь">ь</div>
+                <div class="key green" data-key="б">б</div>
+                <div class="key orange" data-key="ю">ю</div>
+                <div class="key pink" data-key=".">.</div>
+                <div class="key shift-right" data-key="Shift">Shift</div>
+            </div>
+
+            <!-- Пятый ряд (пробел) -->
+            <div class="keyboard-row">
+                <div class="key ctrl" data-key="Control">Ctrl</div>
+                <div class="key" data-key="Meta">⊞</div>
+                <div class="key alt" data-key="Alt">Alt</div>
+                <div class="key spacebar purple" data-key=" ">Пробел</div>
+                <div class="key alt" data-key="AltGraph">Alt</div>
+                <div class="key" data-key="Meta">⊞</div>
+                <div class="key" data-key="ContextMenu">▤</div>
+                <div class="key ctrl" data-key="Control"><!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Клавиатурный Тренажер - SaaS</title>
+    
+    <!-- CSS стили -->
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/keyboard.css">
+    <link rel="stylesheet" href="assets/css/components.css">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="assets/images/favicon.ico">
+</head>
+<body>
+    <!-- Верхняя панель с цитатой -->
+    <div class="quote-panel">
+        <div class="quote-icon">💬</div>
+        <div class="quote-content">
+            <div class="quote-text" id="quoteText">«Как ни редко встречается настоящая любовь, настоящая дружба встречается ещё реже.»</div>
+            <div class="quote-author" id="quoteAuthor">Франсуа де Ларошфуко (1613-1680), герцог, французский философ и писатель</div>
+        </div>
+        <div class="start-button-container">
+            <button class="start-btn" onclick="startNewTest()">Напечатать этот текст</button>
+        </div>
+    </div>
+
+    <div class="main-container">
+        <!-- Левая панель с уровнями -->
+        <div class="sidebar">
+            <h3>Тест скорости</h3>
+            <div class="difficulty-levels">
+                <div class="level-item active" data-level="beginner">
+                    <div class="level-circle pink"></div>
+                    <span>Мизинец</span>
+                </div>
+                <div class="level-item" data-level="easy">
+                    <div class="level-circle orange"></div>
+                    <span>Безымянный</span>
+                </div>
+                <div class="level-item" data-level="medium">
+                    <div class="level-circle green"></div>
+                    <span>Средний</span>
+                </div>
+                <div class="level-item" data-level="hard">
+                    <div class="level-circle cyan"></div>
+                    <span>Указ. левый</span>
+                </div>
+                <div class="level-item" data-level="expert">
+                    <div class="level-circle blue"></div>
+                    <span>Указ. правый</span>
+                </div>
+                <div class="level-item" data-level="master">
+                    <div class="level-circle purple"></div>
+                    <span>Большой</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Центральная область -->
+        <div class="editor-container">
+            <div class="progress-container">
+                <span class="progress-label">Прогресс</span>
+                <div class="progress-fraction" id="progressFraction">0/0</div>
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progressFill"></div>
+                </div>
+            </div>
+
+            <!-- Текстовый редактор -->
+            <div class="text-editor" id="textEditor">
+                <div class="text-content">
+                    <span class="text-to-type" id="textToType">Нажмите "Напечатать этот текст" чтобы начать</span>
+                    <span class="typed-text" id="typedText"></span>
+                </div>
+                <div class="cursor" id="cursor"></div>
+            </div>
+
+            <!-- Скрытое поле ввода -->
+            <input type="text" id="hiddenInput" class="hidden-input">
+        </div>
+
+        <!-- Правая панель со статистикой -->
+        <div class="stats-panel">
+            <div class="stats-header">
+                <div class="rating-stars">
+                    <span class="star">☆</span>
+                    <span class="star">☆</span>
+                    <span class="star">☆</span>
+                    <span class="star">☆</span>
+                    <span class="star">☆</span>
+                </div>
+                <span class="rating-label">Оценка:</span>
+            </div>
+
+            <div class="stat-item">
+                <div class="stat-label">Время:</div>
+                <div class="stat-value" id="timeValue">00:00</div>
+                <div class="stat-best">лучшее: --:--</div>
+            </div>
+
+            <div class="stat-item">
+                <div class="stat-label">Скорость:</div>
+                <div class="stat-value" id="speedValue">0 <span class="unit">зн/мин</span></div>
+                <div class="stat-best">максимум: --</div>
+            </div>
+
+            <div class="stat-item">
+                <div class="stat-label">Ошибки:</div>
+                <div class="stat-value" id="errorsValue">0 <span class="unit">/ 0.0%</span></div>
+                <div class="stat-best">минимум: --</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Виртуальная клавиатура -->
+    <div class="keyboard-container">
+        <!-- Основная клавиатура -->
+        <div class="keyboard">
+            <!-- Первый ряд (цифры) -->
+            <div class="keyboard-row">
+                <div class="key pink" data-key="ё">ё</div>
+                <div class="key pink" data-key="1">1</div>
+                <div class="key orange" data-key="2">2</div>
+                <div class="key green" data-key="3">3</div>
+                <div class="key cyan" data-key="4">4</div>
+                <div class="key cyan" data-key="5">5</div>
+                <div class="key blue" data-key="6">6</div>
+                <div class="key blue" data-key="7">7</div>
+                <div class="key green" data-key="8">8</div>
+                <div class="key orange" data-key="9">9</div>
+                <div class="key pink" data-key="0">0</div>
+                <div class="key pink" data-key="-">-</div>
+                <div class="key pink" data-key="=">=</div>
+                <div class="key backspace" data-key="Backspace">Backsp</div>
+            </div>
+
+            <!-- Второй ряд -->
+            <div class="keyboard-row">
+                <div class="key tab" data-key="Tab">Tab</div>
+                <div class="key pink" data-key="й">й</div>
+                <div class="key orange" data-key="ц">ц</div>
+                <div class="key green" data-key="у">у</div>
+                <div class="key cyan" data-key="к">к</div>
+                <div class="key cyan" data-key="е">е</div>
+                <div class="key blue" data-key="н">н</div>
+                <div class="key blue" data-key="г">г</div>
+                <div class="key green" data-key="ш">ш</div>
+                <div class="key orange" data-key="щ">щ</div>
+                <div class="key pink" data-key="з">з</div>
+                <div class="key pink" data-key="х">х</div>
+                <div class="key pink" data-key="ъ">ъ</div>
+                <div class="key pink" data-key="\\">\</div>
+            </div>
+
+            <!-- Третий ряд -->
+            <div class="keyboard-row">
+                <div class="key caps" data-key="CapsLock">Caps Lock</div>
+                <div class="key pink" data-key="ф">ф</div>
+                <div class="key orange" data-key="ы">ы</div>
+                <div class="key green" data-key="в">в</div>
+                <div class="key cyan" data-key="а">а</div>
+                <div class="key cyan" data-key="п">п</div>
+                <div class="key blue" data-key="р">р</div>
+                <div class="key blue" data-key="о">о</div>
+                <div class="key green" data-key="л">л</div>
+                <div class="key orange" data-key="д">д</div>
+                <div class="key pink" data-key="ж">ж</div>
+                <div class="key pink" data-key="э">э</div>
+                <div class="key enter" data-key="Enter">Enter</div>
+            </div>
+
+            <!-- Четвертый ряд -->
+            <div class="keyboard-row">
+                <div class="key shift-left" data-key="Shift">Shift</div>
+                <div class="key pink" data-key="я">я</div>
+                <div class="key orange" data-key="ч">ч</div>
+                <div class="key green" data-key="с">с</div>
+                <div class="key cyan" data-key="м">м</div>
+                <div class="key cyan" data-key="и">и</div>
+                <div class="key blue" data-key="т">т</div>
+                <div class="key blue" data-key="ь">ь</div>
+                <div class="key green" data-key="б">б</div>
+                <div class="key orange" data-key="ю">ю</div>
+                <div class="key pink" data-key=".">.</div>
+                <div class="key shift-right" data-key="Shift">Shift</div>
+            </div>
+
+            <!-- Пятый ряд (пробел) -->
+            <div class="keyboard-row">
+                <div class="key ctrl" data-key="Control">Ctrl</div>
+                <div class="key" data-key="Meta">⊞</div>
+                <div class="key alt" data-key="Alt">Alt</div>
+                <div class="key spacebar purple" data-key=" ">Пробел</div>
+                <div class="key alt" data-key="AltGraph">Alt</div>
+                <div class="key" data-key="Meta">⊞</div>
+                <div class="key" data-key="ContextMenu">▤</div>
+                <div class="key ctrl" data-key="Control">Ctrl</div>
+            </div>
+        </div>
+
+        <!-- Правый блок: навигация + стрелки + цифровая клавиатура -->
+        <div class="right-section">
+            <!-- Навигационные клавиши -->
+            <div class="navigation-keys">
+                <div class="nav-row">
+                    <div class="key nav" data-key="Insert">Ins</div>
+                    <div class="key nav" data-key="Home">Home</div>
+                    <div class="key nav" data-key="PageUp">Page<br>Up</div>
+                </div>
+                <div class="nav-row">
+                    <div class="key nav" data-key="Delete">Del</div>
+                    <div class="key nav" data-key="End">End</div>
+                    <div class="key nav" data-key="PageDown">Page<br>Down</div>
+                </div>
+            </div>
+
+            <!-- Стрелки навигации -->
+            <div class="arrow-keys">
+                <div class="arrow-row">
+                    <div class="empty-key"></div>
+                    <div class="key nav arrow" data-key="ArrowUp">↑</div>
+                    <div class="empty-key"></div>
+                </div>
+                <div class="arrow-row">
+                    <div class="key nav arrow" data-key="ArrowLeft">←</div>
+                    <div class="key nav arrow" data-key="ArrowDown">↓</div>
+                    <div class="key nav arrow" data-key="ArrowRight">→</div>
+                </div>
+            </div>
+
+            <!-- Цифровая клавиатура -->
+            <div class="numpad">
+                <div class="key numlock" data-key="NumLock">Num<br>Lock</div>
+                <div class="key green" data-key="/">/</div>
+                <div class="key orange" data-key="*">*</div>
+                <div class="key orange" data-key="-">-</div>
+                
+                <div class="key blue" data-key="7">7</div>
+                <div class="key green" data-key="8">8</div>
+                <div class="key orange" data-key="9">9</div>
+                <div class="key orange plus" data-key="+">+</div>
+                
+                <div class="key blue" data-key="4">4</div>
+                <div class="key green" data-key="5">5</div>
+                <div class="key orange" data-key="6">6</div>
+                <!-- + продолжается -->
+                
+                <div class="key blue" data-key="1">1</div>
+                <div class="key green" data-key="2">2</div>
+                <div class="key orange" data-key="3">3</div>
+                <div class="key purple enter-num" data-key="Enter">Enter</div>
+                
+                <div class="key purple zero" data-key="0">0</div>
+                <div class="key orange dot" data-key=".">.</div>
+                <!-- Enter продолжается -->
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript модули -->
+    <script src="config/settings.js"></script>
+    <script src="assets/js/utils.js"></script>
+    <script src="assets/js/stats.js"></script>
+    <script src="assets/js/keyboard.js"></script>
+    <script src="assets/js/main.js"></script>
+</body>
+</html>

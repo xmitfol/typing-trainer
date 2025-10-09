@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Keyboard Only Test</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            font-family: Arial, sans-serif;
+            background: #f0f0f0;
+        }
+
+        .container {
+            width: 1024px;
+            height: 200px;
+            background: white;
+            border: 2px solid #333;
+            margin: 20px auto;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .keyboard {
+            display: flex;
+            flex-direction: row;
+            gap: 10px;
+            width: 100%;
+            height: 150px;
+            border: 1px solid red;
+        }
+
+        .keyboard-main {
+            width: 400px;
+            height: 150px;
+            background: lightblue;
+            border: 1px solid blue;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .keyboard-nav {
+            width: 100px;
+            height: 150px;
+            background: lightcoral;
+            border: 1px solid red;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .keyboard-numpad {
+            width: 120px;
+            height: 150px;
+            background: lightgreen;
+            border: 1px solid green;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .test-info {
+            background: #333;
+            color: white;
+            padding: 10px;
+            margin: 10px 0;
+            font-family: monospace;
+        }
+    </style>
+</head>
+<body>
+    <h1>Keyboard Layout Test</h1>
+
+    <div class="test-info" id="results">
+        Test results will appear here...
+    </div>
+
+    <div class="container">
+        <div class="keyboard">
+            <div class="keyboard-main">MAIN KEYBOARD</div>
+            <div class="keyboard-nav">NAV</div>
+            <div class="keyboard-numpad">NUMPAD</div>
+        </div>
+    </div>
+
+    <button onclick="testLayout()">Test Layout</button>
+    <button onclick="addKeys()">Add Real Keys</button>
+
+    <script>
+        function testLayout() {
+            const main = document.querySelector('.keyboard-main');
+            const nav = document.querySelector('.keyboard-nav');
+            const numpad = document.querySelector('.keyboard-numpad');
+
+            const mainRect = main.getBoundingClientRect();
+            const navRect = nav.getBoundingClientRect();
+            const numpadRect = numpad.getBoundingClientRect();
+
+            const results = document.getElementById('results');
+
+            const isHorizontal = Math.abs(mainRect.top - navRect.top) < 5 &&
+                                Math.abs(navRect.top - numpadRect.top) < 5;
+
+            results.innerHTML = `
+                Test Results:
+                Main: Top=${mainRect.top.toFixed(0)} Left=${mainRect.left.toFixed(0)}
+                Nav:  Top=${navRect.top.toFixed(0)} Left=${navRect.left.toFixed(0)}
+                Numpad: Top=${numpadRect.top.toFixed(0)} Left=${numpadRect.left.toFixed(0)}
+
+                Layout: ${isHorizontal ? 'HORIZONTAL ✓' : 'VERTICAL ✗'}
+                ${isHorizontal ? 'SUCCESS: All blocks in same row!' : 'FAIL: Blocks are stacked vertically'}
+            `;
+        }
+
+        function addKeys() {
+            // Add real keyboard keys
+            const main = document.querySelector('.keyboard-main');
+            const nav = document.querySelector('.keyboard-nav');
+            const numpad = document.querySelector('.keyboard-numpad');
+
+            main.innerHTML = `
+                <div style="display: flex; flex-direction: column; gap: 2px; width: 100%;">
+                    <div style="display: flex; gap: 2px;">
+                        <div style="background: #ff69b4; padding: 5px; min-width: 25px; text-align: center;">ё</div>
+                        <div style="background: #ff69b4; padding: 5px; min-width: 25px; text-align: center;">1</div>
+                        <div style="background: #ffa500; padding: 5px; min-width: 25px; text-align: center;">2</div>
+                        <div style="background: #32cd32; padding: 5px; min-width: 25px; text-align: center;">3</div>
+                        <div style="background: #00bfff; padding: 5px; min-width: 25px; text-align: center;">4</div>
+                    </div>
+                    <div style="display: flex; gap: 2px;">
+                        <div style="background: #ff69b4; padding: 5px; min-width: 25px; text-align: center;">й</div>
+                        <div style="background: #ffa500; padding: 5px; min-width: 25px; text-align: center;">ц</div>
+                        <div style="background: #32cd32; padding: 5px; min-width: 25px; text-align: center;">у</div>
+                        <div style="background: #00bfff; padding: 5px; min-width: 25px; text-align: center;">к</div>
+                    </div>
+                </div>
+            `;
+
+            nav.innerHTML = `
+                <div style="display: flex; flex-direction: column; gap: 5px; align-items: center;">
+                    <div style="background: #666; color: white; padding: 3px 6px; font-size: 10px;">Ins</div>
+                    <div style="background: #666; color: white; padding: 3px 6px; font-size: 10px;">Home</div>
+                    <div style="background: #666; color: white; padding: 3px 6px; font-size: 10px;">PgUp</div>
+                    <div style="background: #666; color: white; padding: 3px 6px; font-size: 10px;">↑</div>
+                </div>
+            `;
+
+            numpad.innerHTML = `
+                <div style="display: flex; flex-direction: column; gap: 2px;">
+                    <div style="display: flex; gap: 2px;">
+                        <div style="background: #ddd; padding: 5px; min-width: 20px; text-align: center; font-size: 12px;">7</div>
+                        <div style="background: #ddd; padding: 5px; min-width: 20px; text-align: center; font-size: 12px;">8</div>
+                        <div style="background: #ddd; padding: 5px; min-width: 20px; text-align: center; font-size: 12px;">9</div>
+                    </div>
+                    <div style="display: flex; gap: 2px;">
+                        <div style="background: #ddd; padding: 5px; min-width: 20px; text-align: center; font-size: 12px;">4</div>
+                        <div style="background: #ddd; padding: 5px; min-width: 20px; text-align: center; font-size: 12px;">5</div>
+                        <div style="background: #ddd; padding: 5px; min-width: 20px; text-align: center; font-size: 12px;">6</div>
+                    </div>
+                </div>
+            `;
+
+            // Test again after adding keys
+            setTimeout(testLayout, 100);
+        }
+
+        // Auto-test on load
+        window.onload = function() {
+            setTimeout(testLayout, 100);
+        };
+    </script>
+</body>
+</html>

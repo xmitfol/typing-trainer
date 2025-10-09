@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Russian Typing Trainer</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #2c3e50;
+            overflow: hidden;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(8px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+        }
+
+        .modal-container {
+            width: 1024px;
+            height: 650px;
+            background: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .modal-header {
+            height: 60px;
+            background: #f8f9fa;
+            border-bottom: 1px solid #e2e8f0;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 24px;
+            flex-shrink: 0;
+        }
+
+        .header-title {
+            font-weight: 600;
+            font-size: 16px;
+            color: #1e293b;
+        }
+
+        .close-btn {
+            background: none;
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+            color: #64748b;
+            width: 32px;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 8px;
+            transition: background-color 0.2s;
+        }
+
+        .close-btn:hover {
+            background: #f1f5f9;
+        }
+
+        .modal-body {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            background: #ffffff;
+            padding: 24px;
+        }
+
+        .text-editor {
+            height: 160px;
+            background: #f8f9fa;
+            border: 2px solid #e2e8f0;
+            border-radius: 8px;
+            padding: 20px;
+            font-family: 'Courier New', monospace;
+            font-size: 18px;
+            line-height: 1.6;
+            resize: none;
+            outline: none;
+            margin-bottom: 15px;
+        }
+
+        .text-editor:focus {
+            border-color: #3b82f6;
+        }
+
+        .stats-panel {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 15px;
+            padding: 12px;
+            background: #f8f9fa;
+            border-radius: 8px;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-value {
+            font-size: 24px;
+            font-weight: bold;
+            color: #1e293b;
+        }
+
+        .stat-label {
+            font-size: 12px;
+            color: #64748b;
+            text-transform: uppercase;
+            margin-top: 4px;
+        }
+
+        .keyboard-section {
+            height: 220px;
+            background: #ffffff;
+            border-top: 1px solid #e2e8f0;
+            flex-shrink: 0;
+            padding: 20px;
+        }
+
+        .keyboard {
+            display: flex;
+            flex-direction: row;
+            gap: 15px;
+            width: 100%;
+            height: 180px;
+        }
+
+        .keyboard-main {
+            width: 580px;
+            height: 180px;
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            display: flex;
+            flex-direction: column;
+            padding: 8px;
+            gap: 4px;
+        }
+
+        .keyboard-nav {
+            width: 140px;
+            height: 180px;
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            display: flex;
+            flex-direction: column;
+            padding: 8px;
+            gap: 4px;
+        }
+
+        .keyboard-numpad {
+            width: 160px;
+            height: 180px;
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            display: flex;
+            flex-direction: column;
+            padding: 8px;
+            gap: 4px;
+        }
+
+        .keyboard-row {
+            display: flex;
+            gap: 2px;
+            height: auto;
+        }
+
+        .key {
+            min-width: 30px;
+            height: 32px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            font-weight: 500;
+            border: 1px solid #d1d5db;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.15s ease;
+            position: relative;
+            background: #f8fafc;
+            color: #374151;
+            box-sizing: border-box;
+            padding: 2px;
+        }
+
+        .key-top {
+            font-size: 10px;
+            line-height: 1;
+            margin-bottom: 2px;
+        }
+
+        .key-bottom {
+            font-size: 12px;
+            line-height: 1;
+            font-weight: bold;
+        }
+
+        .key:hover {
+            background: #f1f5f9;
+        }
+
+        .key.active {
+            background: #3b82f6;
+            color: white;
+            transform: scale(0.95);
+        }
+
+        /* Finger color mapping */
+        .key.pink {
+            background: #fce7f3;
+            border-color: #f9a8d4;
+            color: #be185d;
+        }
+
+        .key.orange {
+            background: #fed7aa;
+            border-color: #fb923c;
+            color: #c2410c;
+        }
+
+        .key.green {
+            background: #dcfce7;
+            border-color: #86efac;
+            color: #166534;
+        }
+
+        .key.cyan {
+            background: #cffafe;
+            border-color: #67e8f9;
+            color: #0e7490;
+        }
+
+        .key.blue {
+            background: #dbeafe;
+            border-color: #93c5fd;
+            color: #1e40af;
+        }
+
+        .key.purple {
+            background: #e9d5ff;
+            border-color: #c084fc;
+            color: #7c3aed;
+        }
+
+        /* Special keys */
+        .key.backspace, .key.tab, .key.caps, .key.enter,
+        .key.shift-left, .key.shift-right, .key.ctrl, .key.alt, .key.meta, .key.menu, .key.backslash {
+            background: #e5e7eb;
+            color: #4b5563;
+            font-size: 10px;
+        }
+
+        .key.spacebar {
+            min-width: 200px;
+        }
+
+        .key.enter {
+            min-width: 60px;
+        }
+
+        .key.backspace {
+            min-width: 70px;
+        }
+
+        .key.shift-left, .key.shift-right {
+            min-width: 70px;
+        }
+
+        .key.tab {
+            min-width: 50px;
+        }
+
+        .key.caps {
+            min-width: 60px;
+        }
+    </style>
+</head>
+<body>
+    <div class="modal-overlay">
+        <div class="modal-container">
+            <!-- Header -->
+            <div class="modal-header">
+                <div class="header-title">Тренажёр русской печати</div>
+                <button class="close-btn" onclick="closeModal()">&times;</button>
+            </div>
+
+            <!-- Main Content -->
+            <div class="modal-body">
+                <!-- Text Editor -->
+                <textarea class="text-editor" id="textEditor" placeholder="Начните печатать здесь..."></textarea>
+
+                <!-- Stats Panel -->
+                <div class="stats-panel">
+                    <div class="stat-item">
+                        <div class="stat-value" id="wpmStat">0</div>
+                        <div class="stat-label">слов/мин</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value" id="accuracyStat">100%</div>
+                        <div class="stat-label">точность</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value" id="timeStat">0:00</div>
+                        <div class="stat-label">время</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value" id="errorsStat">0</div>
+                        <div class="stat-label">ошибки</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Keyboard Section -->
+            <div class="keyboard-section">
+                <div class="keyboard">
+                    <!-- Main Keyboard -->
+                    <div class="keyboard-main">
+                        <div class="keyboard-row">
+                            <div class="key pink"><div class="key-top">Ё</div><div class="key-bottom">ё</div></div>
+                            <div class="key pink"><div class="key-top">!</div><div class="key-bottom">1</div></div>
+                            <div class="key orange"><div class="key-top">"</div><div class="key-bottom">2</div></div>
+                            <div class="key green"><div class="key-top">№</div><div class="key-bottom">3</div></div>
+                            <div class="key cyan"><div class="key-top">;</div><div class="key-bottom">4</div></div>
+                            <div class="key cyan"><div class="key-top">%</div><div class="key-bottom">5</div></div>
+                            <div class="key blue"><div class="key-top">:</div><div class="key-bottom">6</div></div>
+                            <div class="key blue"><div class="key-top">?</div><div class="key-bottom">7</div></div>
+                            <div class="key green"><div class="key-top">*</div><div class="key-bottom">8</div></div>
+                            <div class="key orange"><div class="key-top">(</div><div class="key-bottom">9</div></div>
+                            <div class="key pink"><div class="key-top">)</div><div class="key-bottom">0</div></div>
+                            <div class="key pink"><div class="key-top">_</div><div class="key-bottom">-</div></div>
+                            <div class="key pink"><div class="key-top">+</div><div class="key-bottom">=</div></div>
+                            <div class="key backspace">Backsp</div>
+                        </div>
+                        <div class="keyboard-row">
+                            <div class="key tab">Tab</div>
+                            <div class="key pink"><div class="key-top">Й</div><div class="key-bottom">й</div></div>
+                            <div class="key orange"><div class="key-top">Ц</div><div class="key-bottom">ц</div></div>
+                            <div class="key green"><div class="key-top">У</div><div class="key-bottom">у</div></div>
+                            <div class="key cyan"><div class="key-top">К</div><div class="key-bottom">к</div></div>
+                            <div class="key cyan"><div class="key-top">Е</div><div class="key-bottom">е</div></div>
+                            <div class="key blue"><div class="key-top">Н</div><div class="key-bottom">н</div></div>
+                            <div class="key blue"><div class="key-top">Г</div><div class="key-bottom">г</div></div>
+                            <div class="key green"><div class="key-top">Ш</div><div class="key-bottom">ш</div></div>
+                            <div class="key orange"><div class="key-top">Щ</div><div class="key-bottom">щ</div></div>
+                            <div class="key pink"><div class="key-top">З</div><div class="key-bottom">з</div></div>
+                            <div class="key pink"><div class="key-top">Х</div><div class="key-bottom">х</div></div>
+                            <div class="key pink"><div class="key-top">Ъ</div><div class="key-bottom">ъ</div></div>
+                            <div class="key pink"><div class="key-top">/</div><div class="key-bottom">\</div></div>
+                        </div>
+                        <div class="keyboard-row">
+                            <div class="key caps">Caps Lock</div>
+                            <div class="key pink"><div class="key-top">Ф</div><div class="key-bottom">ф</div></div>
+                            <div class="key orange"><div class="key-top">Ы</div><div class="key-bottom">ы</div></div>
+                            <div class="key green"><div class="key-top">В</div><div class="key-bottom">в</div></div>
+                            <div class="key cyan"><div class="key-top">А</div><div class="key-bottom">а</div></div>
+                            <div class="key cyan"><div class="key-top">П</div><div class="key-bottom">п</div></div>
+                            <div class="key blue"><div class="key-top">Р</div><div class="key-bottom">р</div></div>
+                            <div class="key blue"><div class="key-top">О</div><div class="key-bottom">о</div></div>
+                            <div class="key green"><div class="key-top">Л</div><div class="key-bottom">л</div></div>
+                            <div class="key orange"><div class="key-top">Д</div><div class="key-bottom">д</div></div>
+                            <div class="key pink"><div class="key-top">Ж</div><div class="key-bottom">ж</div></div>
+                            <div class="key pink"><div class="key-top">Э</div><div class="key-bottom">э</div></div>
+                            <div class="key enter">Enter</div>
+                        </div>
+                        <div class="keyboard-row">
+                            <div class="key shift-left">Shift</div>
+                            <div class="key pink"><div class="key-top">Я</div><div class="key-bottom">я</div></div>
+                            <div class="key orange"><div class="key-top">Ч</div><div class="key-bottom">ч</div></div>
+                            <div class="key green"><div class="key-top">С</div><div class="key-bottom">с</div></div>
+                            <div class="key cyan"><div class="key-top">М</div><div class="key-bottom">м</div></div>
+                            <div class="key cyan"><div class="key-top">И</div><div class="key-bottom">и</div></div>
+                            <div class="key blue"><div class="key-top">Т</div><div class="key-bottom">т</div></div>
+                            <div class="key blue"><div class="key-top">Ь</div><div class="key-bottom">ь</div></div>
+                            <div class="key green"><div class="key-top">Б</div><div class="key-bottom">б</div></div>
+                            <div class="key orange"><div class="key-top">Ю</div><div class="key-bottom">ю</div></div>
+                            <div class="key pink"><div class="key-top">,</div><div class="key-bottom">.</div></div>
+                            <div class="key shift-right">Shift</div>
+                        </div>
+                        <div class="keyboard-row">
+                            <div class="key ctrl">Ctrl</div>
+                            <div class="key alt">Alt</div>
+                            <div class="key purple spacebar">Пробел</div>
+                            <div class="key alt">Alt</div>
+                            <div class="key ctrl">Ctrl</div>
+                        </div>
+                    </div>
+
+                    <!-- Navigation Keys -->
+                    <div class="keyboard-nav">
+                        <div class="keyboard-row">
+                            <div class="key" style="font-size: 10px;">Ins</div>
+                            <div class="key" style="font-size: 10px;">Home</div>
+                            <div class="key" style="font-size: 10px;">PgUp</div>
+                        </div>
+                        <div class="keyboard-row">
+                            <div class="key" style="font-size: 10px;">Del</div>
+                            <div class="key" style="font-size: 10px;">End</div>
+                            <div class="key" style="font-size: 10px;">PgDn</div>
+                        </div>
+                        <div class="keyboard-row" style="margin-top: 10px;">
+                            <div style="width: 20px;"></div>
+                            <div class="key">↑</div>
+                            <div style="width: 20px;"></div>
+                        </div>
+                        <div class="keyboard-row">
+                            <div class="key">←</div>
+                            <div class="key">↓</div>
+                            <div class="key">→</div>
+                        </div>
+                    </div>
+
+                    <!-- Numpad -->
+                    <div class="keyboard-numpad">
+                        <div class="keyboard-row">
+                            <div class="key green">Num Lock</div>
+                            <div class="key orange">/</div>
+                            <div class="key orange">*</div>
+                            <div class="key orange">-</div>
+                        </div>
+                        <div class="keyboard-row">
+                            <div class="key cyan">7</div>
+                            <div class="key green">8</div>
+                            <div class="key orange">9</div>
+                            <div class="key orange" style="min-height: 45px;">+</div>
+                        </div>
+                        <div class="keyboard-row">
+                            <div class="key cyan">4</div>
+                            <div class="key green">5</div>
+                            <div class="key orange">6</div>
+                        </div>
+                        <div class="keyboard-row">
+                            <div class="key cyan">1</div>
+                            <div class="key green">2</div>
+                            <div class="key orange">3</div>
+                            <div class="key orange" style="min-height: 45px;">Enter</div>
+                        </div>
+                        <div class="keyboard-row">
+                            <div class="key purple" style="min-width: 50px;">0</div>
+                            <div class="key orange">.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let startTime = null;
+        let errors = 0;
+        let totalChars = 0;
+
+        function closeModal() {
+            // Close modal functionality
+            console.log('Modal closed');
+        }
+
+        function updateStats() {
+            const textEditor = document.getElementById('textEditor');
+            const text = textEditor.value;
+
+            if (!startTime && text.length > 0) {
+                startTime = Date.now();
+            }
+
+            const currentTime = startTime ? (Date.now() - startTime) / 1000 : 0;
+            const minutes = currentTime / 60;
+            const wpm = minutes > 0 ? Math.round((text.length / 5) / minutes) : 0;
+            const accuracy = totalChars > 0 ? Math.round(((totalChars - errors) / totalChars) * 100) : 100;
+
+            document.getElementById('wpmStat').textContent = wpm;
+            document.getElementById('accuracyStat').textContent = accuracy + '%';
+            document.getElementById('timeStat').textContent =
+                Math.floor(currentTime / 60) + ':' + String(Math.floor(currentTime % 60)).padStart(2, '0');
+            document.getElementById('errorsStat').textContent = errors;
+        }
+
+        function highlightKey(char) {
+            // Remove previous highlights
+            document.querySelectorAll('.key.active').forEach(key => {
+                key.classList.remove('active');
+            });
+
+            // Find and highlight current key
+            const keys = document.querySelectorAll('.key');
+            keys.forEach(key => {
+                if (key.textContent.toLowerCase() === char.toLowerCase()) {
+                    key.classList.add('active');
+                }
+            });
+        }
+
+        // Text editor event listeners
+        document.getElementById('textEditor').addEventListener('input', function(e) {
+            totalChars = this.value.length;
+            updateStats();
+        });
+
+        document.getElementById('textEditor').addEventListener('keydown', function(e) {
+            highlightKey(e.key);
+        });
+
+        document.getElementById('textEditor').addEventListener('keyup', function(e) {
+            // Remove highlight after key release
+            setTimeout(() => {
+                document.querySelectorAll('.key.active').forEach(key => {
+                    key.classList.remove('active');
+                });
+            }, 100);
+        });
+
+        // Initialize
+        updateStats();
+    </script>
+</body>
+</html>

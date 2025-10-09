@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Modal Keyboard Test</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #2c3e50;
+            overflow: hidden;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: rgba(0, 0, 0, 0.8);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+        }
+
+        .modal-container {
+            width: 1024px;
+            height: 605px;
+            background: #ffffff;
+            border-radius: 12px;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .modal-header {
+            height: 60px;
+            background: #f8f9fa;
+            border-bottom: 1px solid #e2e8f0;
+            display: flex;
+            align-items: center;
+            padding: 0 24px;
+            font-weight: bold;
+        }
+
+        .modal-body {
+            flex: 1;
+            background: #ffffff;
+            padding: 24px;
+        }
+
+        .editor-section {
+            height: 300px;
+            background: #f8f9fa;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        .keyboard-section {
+            height: 180px;
+            background: #ffffff;
+            border-top: 1px solid #e2e8f0;
+            flex-shrink: 0;
+            padding: 20px;
+        }
+
+        .keyboard {
+            display: flex;
+            flex-direction: row;
+            gap: 10px;
+            width: 100%;
+            height: 150px;
+        }
+
+        .keyboard-main {
+            width: 400px;
+            height: 150px;
+            background: lightblue;
+            border: 1px solid blue;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .keyboard-nav {
+            width: 100px;
+            height: 150px;
+            background: lightcoral;
+            border: 1px solid red;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .keyboard-numpad {
+            width: 120px;
+            height: 150px;
+            background: lightgreen;
+            border: 1px solid green;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .test-info {
+            background: #333;
+            color: white;
+            padding: 10px;
+            margin: 10px 0;
+            font-family: monospace;
+        }
+    </style>
+</head>
+<body>
+    <div class="modal-overlay">
+        <div class="modal-container">
+            <div class="modal-header">
+                Russian Typing Trainer - Keyboard Test
+            </div>
+
+            <div class="modal-body">
+                <div class="editor-section">
+                    <h3>Редактор текста</h3>
+                    <p>Здесь будет редактор для печати...</p>
+
+                    <div class="test-info" id="results" style="background: #333; color: white; padding: 10px; margin: 10px 0; font-family: monospace; font-size: 12px;">
+                        Test results will appear here...
+                    </div>
+                </div>
+            </div>
+
+            <div class="keyboard-section">
+                <div class="keyboard">
+                    <div class="keyboard-main">ОСНОВНАЯ КЛАВИАТУРА</div>
+                    <div class="keyboard-nav">НАВИГАЦИЯ</div>
+                    <div class="keyboard-numpad">ЦИФРОВОЙ БЛОК</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+        function testLayout() {
+            const main = document.querySelector('.keyboard-main');
+            const nav = document.querySelector('.keyboard-nav');
+            const numpad = document.querySelector('.keyboard-numpad');
+
+            if (!main || !nav || !numpad) {
+                document.getElementById('results').innerHTML = 'ERROR: Elements not found';
+                return;
+            }
+
+            const mainRect = main.getBoundingClientRect();
+            const navRect = nav.getBoundingClientRect();
+            const numpadRect = numpad.getBoundingClientRect();
+
+            const isHorizontal = Math.abs(mainRect.top - navRect.top) < 5 &&
+                               Math.abs(navRect.top - numpadRect.top) < 5;
+
+            document.getElementById('results').innerHTML = `
+                Modal Keyboard Layout Test Results:
+                Main: Top=${mainRect.top.toFixed(0)} Left=${mainRect.left.toFixed(0)}
+                Nav:  Top=${navRect.top.toFixed(0)} Left=${navRect.left.toFixed(0)}
+                Numpad: Top=${numpadRect.top.toFixed(0)} Left=${numpadRect.left.toFixed(0)}
+
+                Layout: ${isHorizontal ? 'HORIZONTAL ✓' : 'VERTICAL ✗'}
+                ${isHorizontal ? 'SUCCESS: All blocks in same row!' : 'FAIL: Blocks are stacked vertically'}
+
+                Modal size: ${document.querySelector('.modal-container').getBoundingClientRect().width}x${document.querySelector('.modal-container').getBoundingClientRect().height}
+            `;
+        }
+
+        // Auto-test on load
+        window.onload = function() {
+            setTimeout(testLayout, 100);
+        };
+    </script>
+</body>
+</html>
