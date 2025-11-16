@@ -2,7 +2,7 @@
 
 **Ветка:** `timofey/documentation`
 **Роль:** Technical Writer
-**Последнее обновление:** 2025-11-16 23:00
+**Последнее обновление:** 2025-11-17 01:00
 
 ---
 
@@ -35,6 +35,35 @@
     - Формулы расчета лимита: 5% (Beginner), 3% (Intermediate), 2% (Advanced)
     - Обновлены критерии прохождения уровней (лимит ошибок вместо звезд)
     - Звезды теперь для мотивации, прохождение через лимит ошибок
+  - **[UPDATE v1.2]** Добавлен раздел об онбординге и персонажах (2025-11-17):
+    - "Шаг 3: Настройка профиля" — описание онбординга
+    - Информация о 4 персонажах-наставниках
+    - Объяснение выбора типа клавиатуры
+
+- **[2025-11-17 00:30]** ✅ Onboarding & Character System — полная документация
+  - Файлы:
+    - `docs/ux/Onboarding_Flow.md` (v1.0) — 450+ строк
+    - `docs/ux/Character_System.md` (v1.0) — 800+ строк
+    - `docs/specs/007_User_Profile_Onboarding.md` (v1.0 draft) — 900+ строк
+    - `data/characters/anna.json` — персонаж Анна
+    - `data/characters/maxim.json` — персонаж Максим
+    - `data/characters/knopych.json` — персонаж Кнопыч
+    - `data/characters/klavochka.json` — персонаж Клавочка
+  - **Onboarding Flow:**
+    - Один экран вместо многошаговой формы
+    - 4 секции: имя, профиль, клавиатура, язык
+    - Автоподбор персонажа по полу/возрасту
+    - Визуал виртуальной клавиатуры зависит от типа (classic/laptop/ergonomic)
+  - **Character System:**
+    - 4 персонажа с уникальными стилями общения
+    - Библиотека фраз для 9+ ситуаций
+    - JSON-структура для easy integration
+    - Интерполяция переменных ({name}, {wpm}, {accuracy})
+  - **Specification 007:**
+    - 6 Functional Requirements (FR-1 to FR-6)
+    - Implementation plan: Phase 1 (12ч), Phase 1.5 (4ч), Phase 2 (12ч+)
+    - UX wireframes, User Flow, Edge Cases
+    - Accessibility requirements (WCAG 2.1 AA)
 
 ---
 
@@ -120,6 +149,22 @@
   - Причина: "3 звезды мало для прохождения урока" — нужна строгая система для реального обучения
   - Решение: Иван (Product Owner) — "статусы будут бесить пользователей"
 
+- ✅ **User Profile & Onboarding System** — персонализация с персонажами-наставниками (2025-11-17, 00:30)
+  - Один экран онбординга вместо многошаговой формы (по решению Ивана)
+  - 4 персонажа-наставника с уникальными стилями:
+    - Анна 👩‍🏫 (для мужчин) — дружелюбная, поддерживающая
+    - Максим 👨‍💼 (для женщин) — профессиональный, с юмором
+    - Кнопыч 🤖 (для детей) — игровой, веселый
+    - Клавочка 🎨 (для детей) — милая, заботливая
+  - Автоподбор персонажа по полу/возрасту (психологически эффективнее)
+  - Тип клавиатуры определяет визуал виртуальной клавиатуры:
+    - Classic — стандартный (как сейчас)
+    - Laptop — компактный (уменьшенный на 15%)
+    - Ergonomic — раздельный split layout (Phase 2)
+  - LocalStorage для Phase 1, Backend sync для Phase 2
+  - Цель: увеличение retention на 15-25% через персонализацию
+  - Инициатор: Иван (Product Owner) — "добавить персонажа для советов"
+
 ### For Next Task:
 - Продолжать User Documentation
 - Координироваться с Клодом при вопросах
@@ -137,11 +182,17 @@
 - `docs/specs/README.md` v1.1
 - `docs/specs/template.md` v1.1
 - **`docs/architecture/c4-model.md` v1.0** ✅ APPROVED & MERGED
-- **`docs/user/Quick_Start_Guide.md` v1.1** ✅ UPDATED (Error Limit System)
+- **`docs/user/Quick_Start_Guide.md` v1.2** ✅ UPDATED (Error Limit + Onboarding)
+- **`docs/ux/Onboarding_Flow.md` v1.0** ✅ NEW (Phase 1 onboarding)
+- **`docs/ux/Character_System.md` v1.0** ✅ NEW (4 персонажа + библиотека фраз)
+- **`docs/specs/007_User_Profile_Onboarding.md` v1.0 draft** ✅ NEW (ожидает approval)
+- **`data/characters/anna.json`** ✅ NEW (персонаж Анна)
+- **`data/characters/maxim.json`** ✅ NEW (персонаж Максим)
+- **`data/characters/knopych.json`** ✅ NEW (персонаж Кнопыч)
+- **`data/characters/klavochka.json`** ✅ NEW (персонаж Клавочка)
 
 **Next Deliverables:**
 - `docs/user/FAQ.md` (NEXT!)
-- `docs/user/FAQ.md`
 - `docs/user/User_Guide.md`
 - `docs/planning/ROADMAP.md`
 
