@@ -154,7 +154,14 @@ const APP_CONFIG = {
     lessons: {
         basePath: 'data/lessons',
         defaultTier: 'tier1',
-        firstLessonNumber: 1
+        firstLessonNumber: 1,
+        // Сколько уроков в каждом тире (для cap прогрессии)
+        tierLessonCount: {
+            tier1: 39,
+            block_1: 11
+        },
+        // Задержка перед автозагрузкой следующего урока после успешного завершения (мс)
+        autoAdvanceDelay: 4500
     },
     
     // Настройки интерфейса

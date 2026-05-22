@@ -430,6 +430,19 @@
    Character messages during typing practice
    ============================================ */
 
+/* Lesson Indicator (постоянный, над редактором) */
+.lesson-indicator {
+    padding: 8px 16px;
+    margin-bottom: 12px;
+    background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+    border: 1px solid #bae6fd;
+    border-radius: 8px;
+    color: #075985;
+    font-size: 0.9rem;
+    font-weight: 500;
+    text-align: center;
+}
+
 /* Lesson Preview (показывается до старта теста) */
 .lesson-preview {
     text-align: center;

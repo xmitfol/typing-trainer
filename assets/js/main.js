@@ -119,13 +119,21 @@ class TypingTrainer {
         DebugUtils.log('✅ Тренажер успешно инициализирован');
     }
 
-    // Автозагрузка первого урока: либо после онбординга, либо по сохранённому профилю
+    // Автозагрузка урока: сохранённый прогресс или первый урок
     initLessonAutoload() {
         const autoload = () => {
             if (this.state.currentLesson) return; // уже загружен
-            const tier = (window.Settings && window.Settings.get('lessons.defaultTier', 'tier1')) || 'tier1';
+            const defaultTier = (window.Settings && window.Settings.get('lessons.defaultTier', 'tier1')) || 'tier1';
             const firstNum = (window.Settings && window.Settings.get('lessons.firstLessonNumber', 1)) || 1;
-            this.loadLesson(tier, firstNum);
+
+            // Пробуем восстановить из сохранённого прогресса
+            const savedKey = (window.Settings && window.Settings.get('storage.keys.currentLesson'))
+                || 'typing_trainer_current_lesson';
+            const saved = StorageUtils.get(savedKey);
+            const tier = (saved && saved.tier) || defaultTier;
+            const lessonNum = (saved && Number.isFinite(saved.lessonNumber)) ? saved.lessonNumber : firstNum;
+
+            this.loadLesson(tier, lessonNum);
         };
 
         // Только что прошёл онбординг
@@ -142,6 +150,59 @@ class TypingTrainer {
                 autoload();
             }
         }, 1500);
+    }
+
+    // Сколько уроков в текущем тире
+    getTierLessonCount(tier) {
+        const counts = (window.Settings && window.Settings.get('lessons.tierLessonCount', {})) || {};
+        return counts[tier] || 0;
+    }
+
+    // Авто-переход к следующему уроку (вызывается после успешной сдачи)
+    async loadNextLesson() {
+        const tier = this.state.currentLessonTier;
+        const current = this.state.currentLessonNumber;
+        if (!tier || !Number.isFinite(current)) return null;
+
+        const total = this.getTierLessonCount(tier);
+        if (total && current >= total) {
+            // Конец курса — отдельный toast вместо загрузки несуществующего урока
+            this.showCourseComplete(tier, total);
+            return null;
+        }
+
+        return this.loadLesson(tier, current + 1);
+    }
+
+    // Сообщение о завершении курса (использует toastManager напрямую,
+    // т.к. character-system не имеет сценария courseComplete во всех персонажах)
+    showCourseComplete(tier, total) {
+        const name = this.getUserName();
+        const message = name
+            ? `${name}, поздравляю! Ты прошёл все ${total} уроков курса ${tier}. 🏆`
+            : `Поздравляю! Все ${total} уроков курса ${tier} пройдены. 🏆`;
+        if (window.toastManager) {
+            const emoji = (window.characterSystem && window.characterSystem.character && window.characterSystem.character.emoji) || '🏆';
+            window.toastManager.show(message, emoji, 6000, { type: 'success' });
+        }
+    }
+
+    // Обновляет индикатор «Урок N из M» над редактором
+    updateLessonIndicator() {
+        const indicator = $('#lessonIndicator');
+        if (!indicator) return;
+
+        const lesson = this.state.currentLesson;
+        if (!lesson) {
+            indicator.textContent = '';
+            indicator.style.display = 'none';
+            return;
+        }
+        const total = this.getTierLessonCount(this.state.currentLessonTier);
+        indicator.textContent = total
+            ? `Урок ${lesson.lesson_number} из ${total} · ${lesson.title}`
+            : `Урок ${lesson.lesson_number} · ${lesson.title}`;
+        indicator.style.display = 'block';
     }
 
     // Загрузка урока через LessonLoader; отображает превью в редакторе
@@ -165,8 +226,11 @@ class TypingTrainer {
         // Сохраняем прогресс пользователя
         StorageUtils.set(
             Settings.get('storage.keys.currentLesson', 'typing_trainer_current_lesson'),
-            { tier, lessonNumber }
+            { tier, lessonNumber, lastSaved: new Date().toISOString() }
         );
+
+        // Обновляем индикатор прогресса
+        this.updateLessonIndicator();
 
         // Обновляем превью в редакторе
         if (this.elements.textEditor) {
@@ -613,6 +677,10 @@ class TypingTrainer {
                 wpm, accuracy, errors, name: this.getUserName(),
                 level: lesson.lesson_number
             });
+
+            // Авто-переход к следующему уроку через задержку, чтобы toast успел показаться
+            const delay = (window.Settings && window.Settings.get('lessons.autoAdvanceDelay', 4500)) || 4500;
+            setTimeout(() => this.loadNextLesson(), delay);
         } else if (!this.state.errorLimitFired) {
             // Если лимит уже срабатывал в процессе — не дублируем
             this.notifyCharacter('errorLimitExceeded', {
