@@ -1,86 +1,4 @@
-<!-- Виртуальная клавиатура -->
-    <div class="keyboard-container">
-        <!-- Основная клавиатура -->
-        <div class="keyboard">
-            <!-- Первый ряд (цифры) -->
-            <div class="keyboard-row">
-                <div class="key pink" data-key="ё">ё</div>
-                <div class="key pink" data-key="1">1</div>
-                <div class="key orange" data-key="2">2</div>
-                <div class="key green" data-key="3">3</div>
-                <div class="key cyan" data-key="4">4</div>
-                <div class="key cyan" data-key="5">5</div>
-                <div class="key blue" data-key="6">6</div>
-                <div class="key blue" data-key="7">7</div>
-                <div class="key green" data-key="8">8</div>
-                <div class="key orange" data-key="9">9</div>
-                <div class="key pink" data-key="0">0</div>
-                <div class="key pink" data-key="-">-</div>
-                <div class="key pink" data-key="=">=</div>
-                <div class="key backspace" data-key="Backspace">Backsp</div>
-            </div>
-
-            <!-- Второй ряд -->
-            <div class="keyboard-row">
-                <div class="key tab" data-key="Tab">Tab</div>
-                <div class="key pink" data-key="й">й</div>
-                <div class="key orange" data-key="ц">ц</div>
-                <div class="key green" data-key="у">у</div>
-                <div class="key cyan" data-key="к">к</div>
-                <div class="key cyan" data-key="е">е</div>
-                <div class="key blue" data-key="н">н</div>
-                <div class="key blue" data-key="г">г</div>
-                <div class="key green" data-key="ш">ш</div>
-                <div class="key orange" data-key="щ">щ</div>
-                <div class="key pink" data-key="з">з</div>
-                <div class="key pink" data-key="х">х</div>
-                <div class="key pink" data-key="ъ">ъ</div>
-                <div class="key pink" data-key="\\">\</div>
-            </div>
-
-            <!-- Третий ряд -->
-            <div class="keyboard-row">
-                <div class="key caps" data-key="CapsLock">Caps Lock</div>
-                <div class="key pink" data-key="ф">ф</div>
-                <div class="key orange" data-key="ы">ы</div>
-                <div class="key green" data-key="в">в</div>
-                <div class="key cyan" data-key="а">а</div>
-                <div class="key cyan" data-key="п">п</div>
-                <div class="key blue" data-key="р">р</div>
-                <div class="key blue" data-key="о">о</div>
-                <div class="key green" data-key="л">л</div>
-                <div class="key orange" data-key="д">д</div>
-                <div class="key pink" data-key="ж">ж</div>
-                <div class="key pink" data-key="э">э</div>
-                <div class="key enter" data-key="Enter">Enter</div>
-            </div>
-
-            <!-- Четвертый ряд -->
-            <div class="keyboard-row">
-                <div class="key shift-left" data-key="Shift">Shift</div>
-                <div class="key pink" data-key="я">я</div>
-                <div class="key orange" data-key="ч">ч</div>
-                <div class="key green" data-key="с">с</div>
-                <div class="key cyan" data-key="м">м</div>
-                <div class="key cyan" data-key="и">и</div>
-                <div class="key blue" data-key="т">т</div>
-                <div class="key blue" data-key="ь">ь</div>
-                <div class="key green" data-key="б">б</div>
-                <div class="key orange" data-key="ю">ю</div>
-                <div class="key pink" data-key=".">.</div>
-                <div class="key shift-right" data-key="Shift">Shift</div>
-            </div>
-
-            <!-- Пятый ряд (пробел) -->
-            <div class="keyboard-row">
-                <div class="key ctrl" data-key="Control">Ctrl</div>
-                <div class="key" data-key="Meta">⊞</div>
-                <div class="key alt" data-key="Alt">Alt</div>
-                <div class="key spacebar purple" data-key=" ">Пробел</div>
-                <div class="key alt" data-key="AltGraph">Alt</div>
-                <div class="key" data-key="Meta">⊞</div>
-                <div class="key" data-key="ContextMenu">▤</div>
-                <div class="key ctrl" data-key="Control"><!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
@@ -91,11 +9,141 @@
     <link rel="stylesheet" href="assets/css/main.css">
     <link rel="stylesheet" href="assets/css/keyboard.css">
     <link rel="stylesheet" href="assets/css/components.css">
+    <link rel="stylesheet" href="assets/css/onboarding.css">
     
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="assets/images/favicon.ico">
 </head>
 <body>
+    <!-- Onboarding Overlay (shown on first visit) -->
+    <div class="onboarding-overlay" id="onboardingOverlay">
+        <div class="onboarding-container">
+            <div class="onboarding-header">
+                <h1>👋 Добро пожаловать в Typing Trainer!</h1>
+                <p>Я помогу тебе научиться печатать быстро и точно на русской клавиатуре.<br>Давай настроим твой профиль:</p>
+            </div>
+
+            <form class="onboarding-form" id="onboardingForm">
+                <!-- Section 1: Name -->
+                <div class="form-section">
+                    <label for="userName">Как тебя зовут?</label>
+                    <input
+                        type="text"
+                        id="userName"
+                        class="name-input"
+                        placeholder="Введите имя"
+                        minlength="2"
+                        maxlength="30"
+                        required
+                        autocomplete="off"
+                    >
+                    <span class="input-hint" id="nameHint">Минимум 2 символа, максимум 30</span>
+                </div>
+
+                <!-- Section 2: Profile Selection -->
+                <div class="form-section">
+                    <label>Выбери свой профиль:</label>
+                    <div class="selection-cards profile-cards">
+                        <div class="selection-card" data-character="anna" data-gender="male" tabindex="0" role="radio" aria-label="Мужчина">
+                            <div class="card-icon">👨</div>
+                            <div class="card-title">Мужчина</div>
+                            <div class="card-subtitle">Наставник:<br>Анна 👩‍🏫</div>
+                        </div>
+
+                        <div class="selection-card" data-character="maxim" data-gender="female" tabindex="0" role="radio" aria-label="Женщина">
+                            <div class="card-icon">👩</div>
+                            <div class="card-title">Женщина</div>
+                            <div class="card-subtitle">Наставник:<br>Максим 👨‍💼</div>
+                        </div>
+
+                        <div class="selection-card" data-character="knopych" data-gender="child" tabindex="0" role="radio" aria-label="Кнопыч">
+                            <div class="card-icon">🤖</div>
+                            <div class="card-title">Кнопыч</div>
+                            <div class="card-subtitle">Робот-клавиша</div>
+                        </div>
+
+                        <div class="selection-card" data-character="klavochka" data-gender="child" tabindex="0" role="radio" aria-label="Клавочка">
+                            <div class="card-icon">🎨</div>
+                            <div class="card-title">Клавочка</div>
+                            <div class="card-subtitle">Добрая помощница</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Section 3: Keyboard Type -->
+                <div class="form-section">
+                    <label>Тип клавиатуры:</label>
+                    <div class="selection-cards keyboard-cards">
+                        <div class="selection-card selected" data-keyboard="classic" tabindex="0" role="radio" aria-label="Классическая клавиатура">
+                            <div class="card-icon">⌨️</div>
+                            <div class="card-title">Классическая</div>
+                            <div class="card-subtitle">Обычная PC</div>
+                        </div>
+
+                        <div class="selection-card" data-keyboard="laptop" tabindex="0" role="radio" aria-label="Ноутбук">
+                            <div class="card-icon">💻</div>
+                            <div class="card-title">Ноутбук</div>
+                            <div class="card-subtitle">Компактная</div>
+                        </div>
+
+                        <div class="selection-card disabled" data-keyboard="ergonomic" tabindex="-1" role="radio" aria-label="Эргономическая клавиатура (скоро)">
+                            <div class="card-icon">🎯</div>
+                            <div class="card-title">Эргономическая</div>
+                            <div class="card-subtitle">Раздельная</div>
+                            <div class="card-badge">скоро</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Section 4: Language -->
+                <div class="form-section">
+                    <label>Язык обучения:</label>
+                    <div class="selection-cards language-cards">
+                        <div class="selection-card selected" data-language="ru" tabindex="0" role="radio" aria-label="Русский язык">
+                            <div class="card-icon">🇷🇺</div>
+                            <div class="card-title">Русский</div>
+                            <div class="card-subtitle">QWERTY</div>
+                        </div>
+
+                        <div class="selection-card disabled" data-language="en" tabindex="-1" role="radio" aria-label="Английский язык (скоро)">
+                            <div class="card-icon">🇬🇧</div>
+                            <div class="card-title">Английский</div>
+                            <div class="card-subtitle">Coming soon</div>
+                            <div class="card-badge">скоро</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Submit Button -->
+                <button type="submit" class="submit-button" id="submitOnboarding" disabled>
+                    <span>Начать обучение!</span>
+                    <span>🚀</span>
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Welcome Modal (shown after onboarding) -->
+    <div class="welcome-modal" id="welcomeModal">
+        <div class="welcome-card">
+            <div class="welcome-character" id="welcomeCharacter">👩‍🏫</div>
+            <div class="welcome-title" id="welcomeTitle">Анна говорит:</div>
+            <div class="welcome-message" id="welcomeMessage">
+                Привет! Я Анна — твой персональный наставник по печати.
+
+                Вижу, у тебя классическая клавиатура — учту это в своих советах!
+
+                Готов начать свой путь к мастерству слепой печати?
+
+                Помни: точность важнее скорости! 🎯
+            </div>
+            <button class="welcome-button" id="welcomeButton">
+                <span>Поехали!</span>
+                <span>🚀</span>
+            </button>
+        </div>
+    </div>
+
     <!-- Верхняя панель с цитатой -->
     <div class="quote-panel">
         <div class="quote-icon">💬</div>
@@ -346,6 +394,10 @@
     <script src="assets/js/utils.js"></script>
     <script src="assets/js/stats.js"></script>
     <script src="assets/js/keyboard.js"></script>
+    <script src="assets/js/toast-manager.js"></script>
+    <script src="assets/js/lesson-loader.js"></script>
+    <script src="assets/js/character-system.js"></script>
+    <script src="assets/js/onboarding.js"></script>
     <script src="assets/js/main.js"></script>
 </body>
 </html>

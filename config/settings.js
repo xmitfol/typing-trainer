@@ -9,8 +9,8 @@ const APP_CONFIG = {
     
     // API настройки (для будущего использования)
     api: {
-        baseUrl: process?.env?.NODE_ENV === 'production' 
-            ? 'https://api.typing-trainer.com' 
+        baseUrl: (typeof process !== 'undefined' && process.env && process.env.NODE_ENV === 'production')
+            ? 'https://api.typing-trainer.com'
             : 'http://localhost:8000',
         timeout: 10000,
         retries: 3
@@ -140,12 +140,21 @@ const APP_CONFIG = {
         keys: {
             bestStats: 'typing_trainer_best_stats',
             userSettings: 'typing_trainer_user_settings',
+            userProfile: 'typing_trainer_user_profile',
+            currentLesson: 'typing_trainer_current_lesson',
             testHistory: 'typing_trainer_test_history',
             currentLevel: 'typing_trainer_current_level'
         },
-        
+
         // Максимальное количество сохраняемых результатов
         maxHistoryItems: 100
+    },
+
+    // Курсовая система (tier1 — канонический курс, см. data/lessons/tier1)
+    lessons: {
+        basePath: 'data/lessons',
+        defaultTier: 'tier1',
+        firstLessonNumber: 1
     },
     
     // Настройки интерфейса

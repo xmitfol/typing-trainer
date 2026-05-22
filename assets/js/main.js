@@ -13,7 +13,13 @@ class TypingTrainer {
             errors: 0,
             totalChars: 0,
             currentLevel: 'medium',
-            currentLanguage: 'ru'
+            currentLanguage: 'ru',
+            currentLesson: null,
+            currentLessonTier: null,
+            currentLessonNumber: null,
+            errorLimitFired: false,
+            tooManyErrorsFired: false,
+            goodProgressFired: false
         };
         
         // DOM элементы
@@ -89,25 +95,110 @@ class TypingTrainer {
     // Инициализация приложения
     init() {
         DebugUtils.log('🚀 Инициализация клавиатурного тренажера...');
-        
+
         // Устанавливаем фокус на скрытое поле ввода
         if (this.elements.hiddenInput) {
             this.elements.hiddenInput.focus();
         }
-        
+
         // Инициализируем обработчики событий
         this.initEventListeners();
-        
+
         // Генерируем случайную цитату
         this.generateRandomQuote();
-        
+
         // Загружаем сохраненный уровень
         this.loadSavedLevel();
-        
+
         // Инициализируем другие модули
         this.initModules();
-        
+
+        // Хуки на завершение онбординга и готовность персонажа
+        this.initLessonAutoload();
+
         DebugUtils.log('✅ Тренажер успешно инициализирован');
+    }
+
+    // Автозагрузка первого урока: либо после онбординга, либо по сохранённому профилю
+    initLessonAutoload() {
+        const autoload = () => {
+            if (this.state.currentLesson) return; // уже загружен
+            const tier = (window.Settings && window.Settings.get('lessons.defaultTier', 'tier1')) || 'tier1';
+            const firstNum = (window.Settings && window.Settings.get('lessons.firstLessonNumber', 1)) || 1;
+            this.loadLesson(tier, firstNum);
+        };
+
+        // Только что прошёл онбординг
+        document.addEventListener('typingtrainer:onboardingComplete', autoload);
+        // Профиль уже был — character-system просигналил готовность
+        document.addEventListener('typingtrainer:characterReady', autoload);
+
+        // Запасной путь: если character-system сработал раньше чем main.js (или его нет),
+        // дёргаем autoload по таймауту при наличии профиля
+        setTimeout(() => {
+            const profileKey = (window.Settings && window.Settings.get('storage.keys.userProfile', 'typing_trainer_user_profile'))
+                || 'typing_trainer_user_profile';
+            if (localStorage.getItem(profileKey)) {
+                autoload();
+            }
+        }, 1500);
+    }
+
+    // Загрузка урока через LessonLoader; отображает превью в редакторе
+    async loadLesson(tier, lessonNumber) {
+        if (!window.lessonLoader) {
+            DebugUtils.log('⚠️ LessonLoader не готов');
+            return null;
+        }
+
+        const lesson = await window.lessonLoader.loadLesson(tier, lessonNumber);
+        if (!lesson) {
+            DebugUtils.log(`⚠️ Не удалось загрузить урок ${tier}/lesson_${lessonNumber}`);
+            return null;
+        }
+
+        this.state.currentLesson = lesson;
+        this.state.currentLessonTier = tier;
+        this.state.currentLessonNumber = lessonNumber;
+        this.state.currentText = lesson.text;
+
+        // Сохраняем прогресс пользователя
+        StorageUtils.set(
+            Settings.get('storage.keys.currentLesson', 'typing_trainer_current_lesson'),
+            { tier, lessonNumber }
+        );
+
+        // Обновляем превью в редакторе
+        if (this.elements.textEditor) {
+            const textContent = this.elements.textEditor.querySelector('.text-content');
+            if (textContent) {
+                textContent.innerHTML =
+                    `<div class="lesson-preview"><strong>Урок ${lesson.lesson_number}: ${this.escapeHtml(lesson.title)}</strong><br>` +
+                    `<span class="lesson-hint">Цель: ${lesson.target_wpm} зн/мин · допустимо ошибок: ${lesson.error_limit}. ` +
+                    `Нажмите «Напечатать этот текст».</span></div>`;
+            }
+        }
+
+        DebugUtils.log(`📚 Урок загружен: ${lesson.id} — "${lesson.title}"`);
+        return lesson;
+    }
+
+    // Безопасный вызов персонажа
+    notifyCharacter(situation, variables = {}) {
+        if (window.characterSystem && window.characterSystem.isReady && window.characterSystem.isReady()) {
+            window.characterSystem.showToast(situation, variables);
+        }
+    }
+
+    // Имя пользователя из профиля (для подстановки в шаблоны)
+    getUserName() {
+        try {
+            const key = (window.Settings && window.Settings.get('storage.keys.userProfile', 'typing_trainer_user_profile'))
+                || 'typing_trainer_user_profile';
+            const raw = localStorage.getItem(key);
+            if (raw) return (JSON.parse(raw).name) || '';
+        } catch (e) {}
+        return '';
     }
     
     // Инициализация обработчиков событий
@@ -219,38 +310,49 @@ class TypingTrainer {
     // Начало нового теста
     startNewTest() {
         DebugUtils.log('🎯 Начинаем новый тест...');
-        
-        // Выбираем случайный текст для текущего уровня
-        const levelTexts = this.texts[this.state.currentLevel] || this.texts.medium;
-        this.state.currentText = TextUtils.getRandomItem(levelTexts);
-        
+
+        // Текст: либо из загруженного урока, либо случайный по уровню
+        if (this.state.currentLesson && this.state.currentLesson.text) {
+            this.state.currentText = this.state.currentLesson.text;
+        } else {
+            const levelTexts = this.texts[this.state.currentLevel] || this.texts.medium;
+            this.state.currentText = TextUtils.getRandomItem(levelTexts);
+        }
+
         // Сбрасываем состояние
         this.resetState();
-        
+
         // Устанавливаем состояние активного теста
         this.state.isTestActive = true;
         this.state.startTime = Date.now();
-        
+
         // Очищаем и фокусируем поле ввода
         if (this.elements.hiddenInput) {
             this.elements.hiddenInput.value = '';
             this.elements.hiddenInput.focus();
         }
-        
+
         // Отображаем текст и обновляем интерфейс
         this.displayText();
         this.updateProgress();
-        
+
         // Подсвечиваем первую клавишу
         if (typeof window.highlightKey === 'function') {
             window.highlightKey(this.state.currentText[0]);
         }
-        
+
         // Запускаем отслеживание статистики
         if (typeof window.startStatsTracking === 'function') {
             window.startStatsTracking();
         }
-        
+
+        // Хук персонажа: старт урока
+        const lesson = this.state.currentLesson;
+        this.notifyCharacter('lessonStart', {
+            name: this.getUserName(),
+            level: lesson ? lesson.lesson_number : this.state.currentLevel
+        });
+
         DebugUtils.log('✅ Тест успешно начат:', this.state.currentText.substring(0, 50) + '...');
     }
     
@@ -261,6 +363,9 @@ class TypingTrainer {
         this.state.errors = 0;
         this.state.totalChars = 0;
         this.state.startTime = null;
+        this.state.errorLimitFired = false;
+        this.state.tooManyErrorsFired = false;
+        this.state.goodProgressFired = false;
     }
     
     // Обработка ввода
@@ -289,14 +394,17 @@ class TypingTrainer {
             
             if (expectedChar !== typedChar) {
                 this.state.errors++;
-                
+
                 // Анимация неправильной клавиши
                 if (typeof window.animateIncorrectKey === 'function') {
                     window.animateIncorrectKey(typedChar);
                 }
-                
+
                 // Звуковой сигнал ошибки (если включен)
                 this.playErrorSound();
+
+                // Хуки персонажа на превышение порогов ошибок
+                this.checkErrorThresholds();
             } else {
                 // Анимация правильной клавиши
                 if (typeof window.animateCorrectKey === 'function') {
@@ -304,6 +412,9 @@ class TypingTrainer {
                 }
             }
         }
+
+        // Проверка прогресса (середина урока с малым числом ошибок)
+        this.checkProgressMilestone();
         
         // Обновляем отображение
         this.displayText();
@@ -408,39 +519,108 @@ class TypingTrainer {
         }
     }
     
+    // Хуки персонажа на превышение порогов ошибок
+    checkErrorThresholds() {
+        const lesson = this.state.currentLesson;
+        const errors = this.state.errors;
+        const limit = (lesson && Number.isFinite(lesson.error_limit)) ? lesson.error_limit : null;
+
+        // Половина допустимого лимита → "слишком много ошибок"
+        if (limit !== null && !this.state.tooManyErrorsFired && errors > 0 && errors >= Math.max(1, Math.floor(limit / 2))) {
+            this.state.tooManyErrorsFired = true;
+            this.notifyCharacter('tooManyErrors', { errors, limit, name: this.getUserName() });
+        }
+
+        // Превышение лимита → "лимит ошибок исчерпан"
+        if (limit !== null && !this.state.errorLimitFired && errors > limit) {
+            this.state.errorLimitFired = true;
+            this.notifyCharacter('errorLimitExceeded', { errors, limit, name: this.getUserName() });
+        }
+    }
+
+    // Хук "хороший прогресс" на середине урока без превышения порогов
+    checkProgressMilestone() {
+        if (this.state.goodProgressFired || !this.state.isTestActive) return;
+        if (!this.state.currentText) return;
+
+        const half = Math.floor(this.state.currentText.length / 2);
+        if (this.state.currentPosition < half) return;
+
+        const lesson = this.state.currentLesson;
+        const limit = (lesson && Number.isFinite(lesson.error_limit)) ? lesson.error_limit : Infinity;
+        if (this.state.errors > Math.max(1, Math.floor(limit / 2))) return;
+
+        this.state.goodProgressFired = true;
+        this.notifyCharacter('goodProgress', {
+            wpm: this.calculateWPM(),
+            accuracy: this.calculateAccuracy(),
+            name: this.getUserName()
+        });
+    }
+
     // Завершение теста
     finishTest() {
         DebugUtils.log('🏁 Завершение теста...');
-        
+
         this.state.isTestActive = false;
-        
+
         // Скрываем курсор
         this.positionCursor();
-        
+
         // Убираем подсветку клавиш
         if (typeof window.clearKeyHighlights === 'function') {
             window.clearKeyHighlights();
         }
-        
+
         // Останавливаем отслеживание статистики
         if (typeof window.stopStatsTracking === 'function') {
             window.stopStatsTracking();
         }
-        
+
         // Показываем финальную статистику
         if (typeof window.showFinalStats === 'function') {
             window.showFinalStats();
         }
-        
+
         // Сохраняем результат в историю
         this.saveTestResult();
-        
+
+        // Хук персонажа: успех или провал по критериям урока
+        this.notifyLessonOutcome();
+
         // Показываем результат через небольшую задержку
         setTimeout(() => {
             this.showTestResults();
         }, 500);
-        
+
         DebugUtils.log('✅ Тест успешно завершен');
+    }
+
+    notifyLessonOutcome() {
+        const lesson = this.state.currentLesson;
+        if (!lesson) return;
+
+        const wpm = this.calculateWPM();
+        const accuracy = this.calculateAccuracy();
+        const errors = this.state.errors;
+        const targetWpm = Number.isFinite(lesson.target_wpm) ? lesson.target_wpm : 0;
+        const errorLimit = Number.isFinite(lesson.error_limit) ? lesson.error_limit : Infinity;
+
+        const success = wpm >= targetWpm && errors <= errorLimit;
+
+        if (success) {
+            this.notifyCharacter('lessonCompleteSuccess', {
+                wpm, accuracy, errors, name: this.getUserName(),
+                level: lesson.lesson_number
+            });
+        } else if (!this.state.errorLimitFired) {
+            // Если лимит уже срабатывал в процессе — не дублируем
+            this.notifyCharacter('errorLimitExceeded', {
+                wpm, accuracy, errors,
+                limit: Number.isFinite(lesson.error_limit) ? lesson.error_limit : errors,
+                name: this.getUserName()
+            });
+        }
     }
     
     // Сохранение результата теста
