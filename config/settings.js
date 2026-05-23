@@ -142,6 +142,8 @@ const APP_CONFIG = {
             userSettings: 'typing_trainer_user_settings',
             userProfile: 'typing_trainer_user_profile',
             currentLesson: 'typing_trainer_current_lesson',
+            // Карта { "1": {stars, bestWPM, bestAccuracy, completedAt}, ... }
+            lessonProgress: 'typing_trainer_lesson_progress',
             testHistory: 'typing_trainer_test_history',
             currentLevel: 'typing_trainer_current_level'
         },

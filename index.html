@@ -157,34 +157,14 @@
     </div>
 
     <div class="main-container">
-        <!-- Левая панель с уровнями -->
+        <!-- Левая панель: список уроков курса -->
         <div class="sidebar">
-            <h3>Тест скорости</h3>
-            <div class="difficulty-levels">
-                <div class="level-item active" data-level="beginner">
-                    <div class="level-circle pink"></div>
-                    <span>Мизинец</span>
-                </div>
-                <div class="level-item" data-level="easy">
-                    <div class="level-circle orange"></div>
-                    <span>Безымянный</span>
-                </div>
-                <div class="level-item" data-level="medium">
-                    <div class="level-circle green"></div>
-                    <span>Средний</span>
-                </div>
-                <div class="level-item" data-level="hard">
-                    <div class="level-circle cyan"></div>
-                    <span>Указ. левый</span>
-                </div>
-                <div class="level-item" data-level="expert">
-                    <div class="level-circle blue"></div>
-                    <span>Указ. правый</span>
-                </div>
-                <div class="level-item" data-level="master">
-                    <div class="level-circle purple"></div>
-                    <span>Большой</span>
-                </div>
+            <div class="sidebar-header">
+                <h3>Курс</h3>
+                <span class="lesson-counter" id="lessonCounter"></span>
+            </div>
+            <div class="lesson-list" id="lessonList" role="list" aria-label="Список уроков">
+                <!-- Заполняется renderLessonList() из main.js -->
             </div>
         </div>
 

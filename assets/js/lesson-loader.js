@@ -46,6 +46,24 @@ class LessonLoader {
         const firstNum = (window.Settings && window.Settings.get('lessons.firstLessonNumber', 1)) || 1;
         return this.loadLesson(this.defaultTier, firstNum);
     }
+
+    /**
+     * Параллельная загрузка всех уроков тира — для построения lesson picker.
+     * @param {string} tier
+     * @returns {Promise<Array<Object|null>>} — индексированный по lessonNumber-1
+     */
+    async loadAllLessons(tier) {
+        const tierKey = tier || this.defaultTier;
+        const counts = (window.Settings && window.Settings.get('lessons.tierLessonCount', {})) || {};
+        const total = counts[tierKey] || 0;
+        if (!total) return [];
+
+        const promises = [];
+        for (let n = 1; n <= total; n++) {
+            promises.push(this.loadLesson(tierKey, n));
+        }
+        return Promise.all(promises);
+    }
 }
 
 document.addEventListener('DOMContentLoaded', () => {

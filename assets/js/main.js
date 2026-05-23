@@ -187,6 +187,107 @@ class TypingTrainer {
         }
     }
 
+    // === Lesson Picker: статусы, прогресс, рендер сайдбара ===
+
+    // Чтение карты прогресса из localStorage: { "5": {stars, bestWPM, ...}, ... }
+    getLessonProgress() {
+        const key = (window.Settings && window.Settings.get('storage.keys.lessonProgress'))
+            || 'typing_trainer_lesson_progress';
+        return StorageUtils.get(key, {}) || {};
+    }
+
+    // Сохранить лучший результат для конкретного урока (берём max от существующего)
+    saveLessonProgress(lessonNumber, stars, wpm, accuracy) {
+        if (!Number.isFinite(lessonNumber)) return;
+        const all = this.getLessonProgress();
+        const key = String(lessonNumber);
+        const prev = all[key] || {};
+        all[key] = {
+            stars: Math.max(prev.stars || 0, stars || 0),
+            bestWPM: Math.max(prev.bestWPM || 0, wpm || 0),
+            bestAccuracy: Math.max(prev.bestAccuracy || 0, accuracy || 0),
+            completedAt: new Date().toISOString()
+        };
+        const storageKey = (window.Settings && window.Settings.get('storage.keys.lessonProgress'))
+            || 'typing_trainer_lesson_progress';
+        StorageUtils.set(storageKey, all);
+    }
+
+    // Статус урока. Приоритет: 'current' > 'completed' > 'available' > 'locked'.
+    // current выигрывает у completed, чтобы при retry уже сданного урока его было видно в списке.
+    // Звёзды отображаются отдельно (по факту наличия записи в lessonProgress), независимо от статуса.
+    getLessonStatus(num) {
+        if (this.state.currentLessonNumber === num) return 'current';
+        const progress = this.getLessonProgress();
+        if (progress[String(num)]) return 'completed';
+        if (this.state.currentLessonNumber && num < this.state.currentLessonNumber) {
+            // Был доступен но не сдан (пропущен или сброшен) — открыт для прохождения
+            return 'available';
+        }
+        return 'locked';
+    }
+
+    // Рендер сайдбара со списком всех уроков текущего тира
+    async renderLessonList() {
+        const container = $('#lessonList');
+        if (!container) return;
+        if (!window.lessonLoader) return;
+
+        const tier = this.state.currentLessonTier
+            || (window.Settings && window.Settings.get('lessons.defaultTier', 'tier1'))
+            || 'tier1';
+        const total = this.getTierLessonCount(tier);
+        const progress = this.getLessonProgress();
+
+        // Сначала skeleton (мгновенный отклик), потом обогащаем title'ом по мере загрузки
+        const buildSkeleton = (lessonNum, title) => {
+            const status = this.getLessonStatus(lessonNum);
+            const prog = progress[String(lessonNum)];
+            const stars = prog && Number.isFinite(prog.stars) ? prog.stars : 0;
+            // Звёзды показываем при наличии любого сохранённого результата (даже на current при retry).
+            const starsHtml = stars > 0
+                ? `<span class="lesson-stars" title="${stars}/5 звёзд">${'★'.repeat(stars)}${'☆'.repeat(5 - stars)}</span>`
+                : '';
+            const lockIcon = status === 'locked' ? '🔒' : '';
+            const currentMark = status === 'current' ? '<span class="lesson-current-mark">▸</span>' : '';
+            return `<div class="lesson-item lesson-${status}" data-lesson="${lessonNum}" data-tier="${tier}" role="button" tabindex="${status === 'locked' ? -1 : 0}" aria-label="Урок ${lessonNum}: ${this.escapeHtml(title || '')}">
+                ${currentMark}
+                <span class="lesson-num">${lessonNum}</span>
+                <span class="lesson-title">${this.escapeHtml(title || `Урок ${lessonNum}`)}</span>
+                ${starsHtml}
+                ${lockIcon ? `<span class="lesson-lock">${lockIcon}</span>` : ''}
+            </div>`;
+        };
+
+        // Skeleton сразу
+        let html = '';
+        for (let n = 1; n <= total; n++) html += buildSkeleton(n, null);
+        container.innerHTML = html;
+
+        // Обновить счётчик "N / 39"
+        const counter = $('#lessonCounter');
+        if (counter) {
+            const completedCount = Object.keys(progress).length;
+            counter.textContent = `${completedCount} / ${total}`;
+        }
+
+        // Параллельно загружаем все уроки и обновляем заголовки
+        const lessons = await window.lessonLoader.loadAllLessons(tier);
+        const items = container.querySelectorAll('.lesson-item');
+        lessons.forEach((lesson, i) => {
+            if (!lesson) return;
+            const item = items[i];
+            if (!item) return;
+            const titleEl = item.querySelector('.lesson-title');
+            if (titleEl) titleEl.textContent = lesson.title || `Урок ${lesson.lesson_number}`;
+            item.setAttribute('aria-label', `Урок ${lesson.lesson_number}: ${lesson.title}`);
+        });
+
+        // Прокрутка к текущему уроку
+        const currentEl = container.querySelector('.lesson-current');
+        if (currentEl) currentEl.scrollIntoView({ block: 'center', behavior: 'auto' });
+    }
+
     // Обновляет индикатор «Урок N из M» над редактором
     updateLessonIndicator() {
         const indicator = $('#lessonIndicator');
@@ -231,6 +332,9 @@ class TypingTrainer {
 
         // Обновляем индикатор прогресса
         this.updateLessonIndicator();
+
+        // Обновляем сайдбар (статус «current» переходит на новый урок)
+        this.renderLessonList();
 
         // Обновляем превью в редакторе
         if (this.elements.textEditor) {
@@ -279,11 +383,34 @@ class TypingTrainer {
             });
         }
         
-        // Обработчики уровней сложности
+        // Обработчики уровней сложности (legacy — DOM .level-item больше не в index.html,
+        // оставлено на случай переходного состояния и для switchLevel API)
         const levelItems = $$('.level-item');
         levelItems.forEach(item => {
             item.addEventListener('click', () => this.switchLevel(item.dataset.level));
         });
+
+        // Делегированный обработчик клика по уроку в сайдбаре
+        const lessonList = $('#lessonList');
+        if (lessonList) {
+            lessonList.addEventListener('click', (e) => {
+                const item = e.target.closest('.lesson-item');
+                if (!item || item.classList.contains('lesson-locked')) return;
+                const tier = item.dataset.tier;
+                const num = parseInt(item.dataset.lesson, 10);
+                if (Number.isFinite(num)) this.loadLesson(tier, num);
+            });
+            // Клавиатурная навигация (Enter/Space на focused lesson)
+            lessonList.addEventListener('keydown', (e) => {
+                if (e.key !== 'Enter' && e.key !== ' ') return;
+                const item = document.activeElement && document.activeElement.closest('.lesson-item');
+                if (!item || item.classList.contains('lesson-locked')) return;
+                e.preventDefault();
+                const tier = item.dataset.tier;
+                const num = parseInt(item.dataset.lesson, 10);
+                if (Number.isFinite(num)) this.loadLesson(tier, num);
+            });
+        }
         
         // Клик по редактору для возврата фокуса
         if (this.elements.textEditor) {
@@ -673,12 +800,18 @@ class TypingTrainer {
         const success = wpm >= targetWpm && errors <= errorLimit;
 
         if (success) {
+            // Сохранить best результат для этого урока (для сайдбара и will-be-history)
+            this.saveLessonProgress(lesson.lesson_number, this.getRating(), wpm, accuracy);
+
             this.notifyCharacter('lessonCompleteSuccess', {
                 wpm, accuracy, errors,
                 limit: Number.isFinite(lesson.error_limit) ? lesson.error_limit : errors,
                 name: this.getUserName(),
                 level: lesson.lesson_number
             });
+
+            // Обновить сайдбар — урок переходит в completed со звёздами
+            this.renderLessonList();
 
             // Авто-переход к следующему уроку через задержку, чтобы toast успел показаться
             const delay = (window.Settings && window.Settings.get('lessons.autoAdvanceDelay', 4500)) || 4500;

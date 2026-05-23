@@ -112,22 +112,155 @@ body {
 
 /* Левая боковая панель */
 .sidebar {
-    width: 180px;
+    width: 220px;
     background: white;
     border-radius: 10px;
     padding: 15px;
     box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-    height: fit-content;
     flex-shrink: 0;
-    max-height: 400px;
+    display: flex;
+    flex-direction: column;
+    max-height: calc(100vh - 200px);
+    min-height: 320px;
 }
 
 .sidebar h3 {
     color: #2d3436;
-    margin-bottom: 15px;
     font-size: 1rem;
-    padding-bottom: 8px;
-    border-bottom: 2px solid #ddd;
+    margin: 0;
+}
+
+.sidebar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+    border-bottom: 2px solid #e5e7eb;
+}
+
+.lesson-counter {
+    font-size: 0.85rem;
+    color: #6b7280;
+    font-weight: 500;
+}
+
+/* Список уроков — скроллится если высота превышает sidebar */
+.lesson-list {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    overflow-y: auto;
+    flex: 1;
+    padding-right: 4px;
+}
+
+.lesson-list::-webkit-scrollbar { width: 6px; }
+.lesson-list::-webkit-scrollbar-thumb { background: #d1d5db; border-radius: 3px; }
+.lesson-list::-webkit-scrollbar-track { background: transparent; }
+
+/* Одна строка урока */
+.lesson-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 7px 9px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.15s ease, transform 0.15s ease;
+    user-select: none;
+    position: relative;
+    font-size: 0.85rem;
+    border: 1px solid transparent;
+}
+
+.lesson-item:focus-visible {
+    outline: 2px solid #2196f3;
+    outline-offset: 1px;
+}
+
+.lesson-num {
+    font-weight: 700;
+    color: #6b7280;
+    min-width: 22px;
+    text-align: right;
+    font-variant-numeric: tabular-nums;
+}
+
+.lesson-title {
+    flex: 1;
+    color: #1f2937;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.lesson-stars {
+    color: #f59e0b;
+    font-size: 0.75rem;
+    letter-spacing: -1px;
+    flex-shrink: 0;
+}
+
+.lesson-lock {
+    color: #9ca3af;
+    flex-shrink: 0;
+}
+
+.lesson-current-mark {
+    position: absolute;
+    left: 0;
+    color: #2196f3;
+    font-weight: 700;
+}
+
+/* Состояния */
+.lesson-item.lesson-completed {
+    background: #f0fdf4;
+    color: #166534;
+}
+.lesson-item.lesson-completed:hover {
+    background: #dcfce7;
+}
+.lesson-item.lesson-completed .lesson-num {
+    color: #16a34a;
+}
+
+.lesson-item.lesson-current {
+    background: linear-gradient(135deg, #dbeafe, #bfdbfe);
+    border-color: #60a5fa;
+    padding-left: 14px;
+}
+.lesson-item.lesson-current:hover {
+    background: linear-gradient(135deg, #bfdbfe, #93c5fd);
+}
+.lesson-item.lesson-current .lesson-num {
+    color: #1e40af;
+}
+.lesson-item.lesson-current .lesson-title {
+    font-weight: 600;
+    color: #1e3a8a;
+}
+
+.lesson-item.lesson-available {
+    background: #ffffff;
+}
+.lesson-item.lesson-available:hover {
+    background: #f9fafb;
+}
+
+.lesson-item.lesson-locked {
+    background: transparent;
+    color: #9ca3af;
+    cursor: not-allowed;
+    opacity: 0.55;
+}
+.lesson-item.lesson-locked:hover {
+    background: transparent;
+    transform: none;
+}
+.lesson-item.lesson-locked .lesson-num {
+    color: #d1d5db;
 }
 
 .difficulty-levels {
