@@ -674,7 +674,9 @@ class TypingTrainer {
 
         if (success) {
             this.notifyCharacter('lessonCompleteSuccess', {
-                wpm, accuracy, errors, name: this.getUserName(),
+                wpm, accuracy, errors,
+                limit: Number.isFinite(lesson.error_limit) ? lesson.error_limit : errors,
+                name: this.getUserName(),
                 level: lesson.lesson_number
             });
 

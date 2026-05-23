@@ -308,14 +308,13 @@ class OnboardingManager {
     }
 
     applyKeyboardLayout() {
-        const keyboard = document.querySelector('.keyboard');
-        if (!keyboard) return;
+        // Ставим класс на КОНТЕЙНЕР, чтобы CSS мог скрыть .right-section (numpad+arrows+nav)
+        // в режимах laptop / ergonomic.
+        const container = document.querySelector('.keyboard-container');
+        if (!container) return;
 
-        // Remove existing layout classes
-        keyboard.classList.remove('layout-classic', 'layout-laptop', 'layout-ergonomic');
-
-        // Add new layout class
-        keyboard.classList.add(`layout-${this.userProfile.keyboardType}`);
+        container.classList.remove('layout-classic', 'layout-laptop', 'layout-ergonomic');
+        container.classList.add(`layout-${this.userProfile.keyboardType}`);
 
         console.log(`Keyboard layout applied: ${this.userProfile.keyboardType}`);
     }

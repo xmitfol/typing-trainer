@@ -718,6 +718,66 @@
     animation: fadeInUp 0.5s ease-out;
 }
 
+/* ============================================
+   Keyboard Layout Variants
+   Класс ставится на .keyboard-container из
+   onboarding.js → applyKeyboardLayout()
+   ============================================ */
+
+/* Classic — десктоп: видна вся правая секция (numpad + nav + arrows) */
+.keyboard-container.layout-classic .right-section {
+    display: flex;
+}
+
+/* Laptop — скрыт numpad, nav и стрелки; основные клавиши чуть компактнее */
+.keyboard-container.layout-laptop .right-section {
+    display: none;
+}
+
+.keyboard-container.layout-laptop .key {
+    min-width: 36px;
+    height: 36px;
+    font-size: 0.85rem;
+}
+
+.keyboard-container.layout-laptop .key.spacebar {
+    min-width: 260px;
+}
+
+.keyboard-container.layout-laptop .key.backspace,
+.keyboard-container.layout-laptop .key.enter {
+    min-width: 70px;
+}
+
+.keyboard-container.layout-laptop .key.caps,
+.keyboard-container.layout-laptop .key.shift-left,
+.keyboard-container.layout-laptop .key.shift-right {
+    min-width: 70px;
+}
+
+/* Ergonomic — заглушка до выхода полноценного дизайна
+   (см. docs/specs/008 Split Space Bar Spec и грядущее ТЗ дизайнеру).
+   Сейчас просто скрываем правую секцию + добавляем визуальный маркер. */
+.keyboard-container.layout-ergonomic .right-section {
+    display: none;
+}
+
+.keyboard-container.layout-ergonomic::before {
+    content: 'Эргономическая раскладка — скоро';
+    position: absolute;
+    top: 8px;
+    right: 16px;
+    font-size: 0.75rem;
+    color: #6b7280;
+    background: #f3f4f6;
+    padding: 4px 10px;
+    border-radius: 12px;
+}
+
+.keyboard-container.layout-ergonomic {
+    position: relative;
+}
+
 /* Темная тема (для будущего использования) */
 @media (prefers-color-scheme: dark) {
     .keyboard-container {
