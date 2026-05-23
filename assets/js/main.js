@@ -213,6 +213,34 @@ class TypingTrainer {
         StorageUtils.set(storageKey, all);
     }
 
+    // Tooltip для урока — лучшая попытка или подсказка по статусу
+    buildLessonTooltip(lessonNum, title, status, progress) {
+        const lines = [];
+        if (title) lines.push(`Урок ${lessonNum}: ${title}`);
+        else lines.push(`Урок ${lessonNum}`);
+
+        if (progress) {
+            const wpm = progress.bestWPM || 0;
+            const acc = progress.bestAccuracy || 0;
+            const dateStr = progress.completedAt
+                ? new Date(progress.completedAt).toLocaleDateString('ru-RU')
+                : '';
+            const parts = [];
+            if (wpm) parts.push(`${wpm} зн/мин`);
+            if (acc) parts.push(`точность ${acc}%`);
+            if (dateStr) parts.push(`сдан ${dateStr}`);
+            if (parts.length) lines.push('Лучшая попытка: ' + parts.join(', '));
+        } else if (status === 'locked') {
+            lines.push('Закрыт. Сдайте предыдущие уроки чтобы открыть.');
+        } else if (status === 'current') {
+            lines.push('Текущий урок — нажмите Enter или кликните чтобы начать.');
+        } else if (status === 'available') {
+            lines.push('Открыт. Кликните чтобы перейти.');
+        }
+        // Экранируем кавычки для безопасной вставки в title=""
+        return lines.join(' · ').replace(/"/g, '&quot;');
+    }
+
     // Статус урока. Приоритет: 'current' > 'completed' > 'available' > 'locked'.
     // current выигрывает у completed, чтобы при retry уже сданного урока его было видно в списке.
     // Звёзды отображаются отдельно (по факту наличия записи в lessonProgress), независимо от статуса.
@@ -250,7 +278,9 @@ class TypingTrainer {
                 : '';
             const lockIcon = status === 'locked' ? '🔒' : '';
             const currentMark = status === 'current' ? '<span class="lesson-current-mark">▸</span>' : '';
-            return `<div class="lesson-item lesson-${status}" data-lesson="${lessonNum}" data-tier="${tier}" role="button" tabindex="${status === 'locked' ? -1 : 0}" aria-label="Урок ${lessonNum}: ${this.escapeHtml(title || '')}">
+            // Tooltip: для сданных уроков показываем лучшую попытку при hover
+            const itemTooltip = this.buildLessonTooltip(lessonNum, title, status, prog);
+            return `<div class="lesson-item lesson-${status}" data-lesson="${lessonNum}" data-tier="${tier}" role="button" tabindex="${status === 'locked' ? -1 : 0}" aria-label="Урок ${lessonNum}: ${this.escapeHtml(title || '')}" title="${itemTooltip}">
                 ${currentMark}
                 <span class="lesson-num">${lessonNum}</span>
                 <span class="lesson-title">${this.escapeHtml(title || `Урок ${lessonNum}`)}</span>
@@ -333,6 +363,9 @@ class TypingTrainer {
         // Обновляем индикатор прогресса
         this.updateLessonIndicator();
 
+        // Скрываем controls — мы загрузили новый урок (или retry того же)
+        this.hideLessonControls();
+
         // Обновляем сайдбар (статус «current» переходит на новый урок)
         this.renderLessonList();
 
@@ -389,6 +422,12 @@ class TypingTrainer {
         levelItems.forEach(item => {
             item.addEventListener('click', () => this.switchLevel(item.dataset.level));
         });
+
+        // Lesson controls: Retry / Next
+        const retryBtn = $('#lessonRetryBtn');
+        const nextBtn = $('#lessonNextBtn');
+        if (retryBtn) retryBtn.addEventListener('click', () => this.retryLesson());
+        if (nextBtn) nextBtn.addEventListener('click', () => this.skipToNext());
 
         // Делегированный обработчик клика по уроку в сайдбаре
         const lessonList = $('#lessonList');
@@ -813,17 +852,93 @@ class TypingTrainer {
             // Обновить сайдбар — урок переходит в completed со звёздами
             this.renderLessonList();
 
-            // Авто-переход к следующему уроку через задержку, чтобы toast успел показаться
-            const delay = (window.Settings && window.Settings.get('lessons.autoAdvanceDelay', 4500)) || 4500;
-            setTimeout(() => this.loadNextLesson(), delay);
-        } else if (!this.state.errorLimitFired) {
-            // Если лимит уже срабатывал в процессе — не дублируем
-            this.notifyCharacter('errorLimitExceeded', {
-                wpm, accuracy, errors,
-                limit: Number.isFinite(lesson.error_limit) ? lesson.error_limit : errors,
-                name: this.getUserName()
-            });
+            // Показать controls с countdown auto-advance
+            this.showLessonControls(true);
+        } else {
+            if (!this.state.errorLimitFired) {
+                this.notifyCharacter('errorLimitExceeded', {
+                    wpm, accuracy, errors,
+                    limit: Number.isFinite(lesson.error_limit) ? lesson.error_limit : errors,
+                    name: this.getUserName()
+                });
+            }
+            // На failure тоже показываем controls, но без auto-advance
+            this.showLessonControls(false);
         }
+    }
+
+    // === Lesson Controls (Next / Retry / countdown) ===
+
+    showLessonControls(success) {
+        const panel = $('#lessonControls');
+        const hint = $('#lessonControlsHint');
+        const nextBtn = $('#lessonNextBtn');
+        if (!panel) return;
+
+        // Если это последний урок тира — следующего нет, прячем кнопку
+        const tier = this.state.currentLessonTier;
+        const total = this.getTierLessonCount(tier);
+        const isLast = total && this.state.currentLessonNumber >= total;
+        if (nextBtn) nextBtn.style.display = isLast ? 'none' : '';
+
+        panel.style.display = 'flex';
+        panel.classList.toggle('lesson-controls-success', !!success);
+        panel.classList.toggle('lesson-controls-failure', !success);
+
+        if (success && !isLast) {
+            this.startAutoAdvanceCountdown();
+        } else if (hint) {
+            hint.textContent = '';
+        }
+    }
+
+    hideLessonControls() {
+        const panel = $('#lessonControls');
+        if (panel) panel.style.display = 'none';
+        this.cancelAutoAdvance();
+    }
+
+    startAutoAdvanceCountdown() {
+        const hint = $('#lessonControlsHint');
+        const totalMs = (window.Settings && window.Settings.get('lessons.autoAdvanceDelay', 4500)) || 4500;
+        let remainingSec = Math.ceil(totalMs / 1000);
+
+        const update = () => {
+            if (hint) hint.textContent = `Авто-переход через ${remainingSec} с… (или нажмите кнопку)`;
+        };
+        update();
+
+        this.cancelAutoAdvance();
+        this.autoAdvanceInterval = setInterval(() => {
+            remainingSec -= 1;
+            if (remainingSec <= 0) {
+                this.cancelAutoAdvance();
+                this.skipToNext();
+            } else {
+                update();
+            }
+        }, 1000);
+    }
+
+    cancelAutoAdvance() {
+        if (this.autoAdvanceInterval) {
+            clearInterval(this.autoAdvanceInterval);
+            this.autoAdvanceInterval = null;
+        }
+    }
+
+    retryLesson() {
+        this.cancelAutoAdvance();
+        this.hideLessonControls();
+        if (this.state.currentLessonTier && this.state.currentLessonNumber) {
+            this.loadLesson(this.state.currentLessonTier, this.state.currentLessonNumber);
+        }
+    }
+
+    skipToNext() {
+        this.cancelAutoAdvance();
+        this.hideLessonControls();
+        this.loadNextLesson();
     }
     
     // Сохранение результата теста

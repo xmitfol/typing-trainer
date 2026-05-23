@@ -430,6 +430,68 @@
    Character messages during typing practice
    ============================================ */
 
+/* Lesson Controls (показываются после завершения урока — успех или провал) */
+.lesson-controls {
+    display: none;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 18px;
+    margin-top: 12px;
+    border-radius: 10px;
+    background: #ffffff;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+    border: 1px solid #e5e7eb;
+    flex-wrap: wrap;
+}
+
+.lesson-controls-success {
+    background: linear-gradient(135deg, #f0fdf4, #dcfce7);
+    border-color: #86efac;
+}
+
+.lesson-controls-failure {
+    background: linear-gradient(135deg, #fef2f2, #fee2e2);
+    border-color: #fca5a5;
+}
+
+.lesson-control-btn {
+    padding: 10px 18px;
+    border: none;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.15s ease;
+    font-family: inherit;
+}
+
+.lesson-control-btn.retry {
+    background: #f3f4f6;
+    color: #374151;
+    border: 1px solid #d1d5db;
+}
+.lesson-control-btn.retry:hover {
+    background: #e5e7eb;
+    transform: translateY(-1px);
+}
+
+.lesson-control-btn.next {
+    background: linear-gradient(135deg, #2196f3, #1976d2);
+    color: white;
+}
+.lesson-control-btn.next:hover {
+    background: linear-gradient(135deg, #1976d2, #1565c0);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(33, 150, 243, 0.3);
+}
+
+.lesson-controls-hint {
+    margin-left: auto;
+    color: #6b7280;
+    font-size: 0.85rem;
+    font-style: italic;
+}
+
 /* Lesson Indicator (постоянный, над редактором) */
 .lesson-indicator {
     padding: 8px 16px;
