@@ -35,40 +35,6 @@ class TypingTrainer {
             progressFill: $('#progressFill')
         };
         
-        // Тексты для тренировки
-        this.texts = {
-            beginner: [
-                "fff jjj fff jjj ffj jjf fjf jfj",
-                "ааа ооо ааа ооо аао оо аоа оао",
-                "ссс ллл ссс ллл сл лс слс лсл"
-            ],
-            easy: [
-                "дом вода рука нога глаз рот нос ухо",
-                "мама папа сын дочь семья дети родные",
-                "стол стул окно дверь комната кухня дом"
-            ],
-            medium: [
-                "быстрая коричневая лиса прыгает через ленивую собаку",
-                "программирование это искусство решения проблем с помощью кода",
-                "тренировка помогает развить мышечную память пальцев рук"
-            ],
-            hard: [
-                "В современном мире скорость печати является важным профессиональным навыком",
-                "Технологии развиваются стремительными темпами, требуя новых цифровых умений",
-                "Эффективность работы программиста напрямую связана с владением клавиатурой"
-            ],
-            expert: [
-                "Квалифицированный разработчик программного обеспечения должен владеть слепым методом печати",
-                "Профессиональное развитие специалиста требует постоянного совершенствования технических навыков",
-                "Автоматизация рутинных процессов существенно повышает общую продуктивность команды"
-            ],
-            master: [
-                "Как ни редко встречается настоящая любовь, настоящая дружба встречается ещё реже",
-                "Великие дела совершаются не силой, а постоянством, терпением и неуклонным движением к цели",
-                "Истинное образование состоит не в механическом накоплении фактов, а в развитии способности критически мыслить"
-            ]
-        };
-        
         // Цитаты для верхней панели
         this.quotes = [
             {
@@ -106,9 +72,6 @@ class TypingTrainer {
 
         // Генерируем случайную цитату
         this.generateRandomQuote();
-
-        // Загружаем сохраненный уровень
-        this.loadSavedLevel();
 
         // Инициализируем другие модули
         this.initModules();
@@ -416,13 +379,6 @@ class TypingTrainer {
             });
         }
         
-        // Обработчики уровней сложности (legacy — DOM .level-item больше не в index.html,
-        // оставлено на случай переходного состояния и для switchLevel API)
-        const levelItems = $$('.level-item');
-        levelItems.forEach(item => {
-            item.addEventListener('click', () => this.switchLevel(item.dataset.level));
-        });
-
         // Lesson controls: Retry / Next
         const retryBtn = $('#lessonRetryBtn');
         const nextBtn = $('#lessonNextBtn');
@@ -500,54 +456,16 @@ class TypingTrainer {
         }
     }
     
-    // Переключение уровня сложности
-    switchLevel(level) {
-        // Проверяем валидность уровня
-        if (!this.texts[level]) {
-            DebugUtils.log('⚠️ Неизвестный уровень:', level);
-            return;
-        }
-        
-        // Удаляем активный класс у всех уровней
-        $$('.level-item').forEach(item => item.classList.remove('active'));
-        
-        // Добавляем активный класс к выбранному уровню
-        const selectedLevel = $(`.level-item[data-level="${level}"]`);
-        if (selectedLevel) {
-            selectedLevel.classList.add('active');
-        }
-        
-        // Сохраняем выбранный уровень
-        this.state.currentLevel = level;
-        StorageUtils.set(Settings.get('storage.keys.currentLevel'), level);
-        
-        // Сбрасываем текущий тест если активен
-        if (this.state.isTestActive) {
-            this.resetTest();
-        }
-        
-        DebugUtils.log(`📈 Переключен уровень: ${level}`);
-    }
-    
-    // Загрузка сохраненного уровня
-    loadSavedLevel() {
-        const savedLevel = StorageUtils.get(Settings.get('storage.keys.currentLevel'));
-        if (savedLevel && this.texts[savedLevel]) {
-            this.switchLevel(savedLevel);
-        }
-    }
-    
     // Начало нового теста
     startNewTest() {
         DebugUtils.log('🎯 Начинаем новый тест...');
 
-        // Текст: либо из загруженного урока, либо случайный по уровню
-        if (this.state.currentLesson && this.state.currentLesson.text) {
-            this.state.currentText = this.state.currentLesson.text;
-        } else {
-            const levelTexts = this.texts[this.state.currentLevel] || this.texts.medium;
-            this.state.currentText = TextUtils.getRandomItem(levelTexts);
+        // Текст урока должен быть загружен через LessonLoader (см. initLessonAutoload)
+        if (!this.state.currentLesson || !this.state.currentLesson.text) {
+            DebugUtils.log('⚠️ Нет загруженного урока — startNewTest прерван');
+            return;
         }
+        this.state.currentText = this.state.currentLesson.text;
 
         // Сбрасываем состояние
         this.resetState();
