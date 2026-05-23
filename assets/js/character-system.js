@@ -214,30 +214,42 @@ class CharacterSystem {
     }
 }
 
-// Initialize CharacterSystem from user profile when DOM is ready.
-// Триггер на старт урока теперь живёт в main.js (lessonStart хук),
-// здесь оставлен только bootstrap по сохранённому профилю.
-document.addEventListener('DOMContentLoaded', () => {
-    setTimeout(() => {
+// Initialize CharacterSystem when a user profile becomes available.
+// Два пути:
+//   1) Профиль уже в localStorage (повторный визит) → DOMContentLoaded + 200ms.
+//   2) Свежий онбординг → событие 'typingtrainer:onboardingComplete' от onboarding.js.
+// Главное — не создавать дважды.
+(function () {
+    function getProfile() {
         try {
             const storageKey = (window.Settings && window.Settings.get('storage.keys.userProfile', 'typing_trainer_user_profile'))
                 || 'typing_trainer_user_profile';
-            const userProfile = JSON.parse(localStorage.getItem(storageKey));
+            const raw = localStorage.getItem(storageKey);
+            return raw ? JSON.parse(raw) : null;
+        } catch (e) { return null; }
+    }
 
-            if (userProfile && userProfile.character) {
-                window.characterSystem = new CharacterSystem();
-                window.characterSystem.loadCharacter(userProfile.character).then(() => {
-                    console.log('CharacterSystem initialized for:', userProfile.name);
-                    document.dispatchEvent(new CustomEvent('typingtrainer:characterReady', {
-                        detail: { profile: userProfile }
-                    }));
-                });
-            }
-        } catch (error) {
-            console.error('Failed to initialize CharacterSystem:', error);
-        }
-    }, 200);
-});
+    function bootstrap(profile) {
+        if (window.characterSystem) return; // уже создан — не дублируем
+        const userProfile = profile || getProfile();
+        if (!userProfile || !userProfile.character) return;
+
+        window.characterSystem = new CharacterSystem();
+        window.characterSystem.loadCharacter(userProfile.character).then(() => {
+            console.log('CharacterSystem initialized for:', userProfile.name);
+            document.dispatchEvent(new CustomEvent('typingtrainer:characterReady', {
+                detail: { profile: userProfile }
+            }));
+        });
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+        setTimeout(() => bootstrap(), 200);
+    });
+    document.addEventListener('typingtrainer:onboardingComplete', (e) => {
+        bootstrap(e && e.detail && e.detail.profile);
+    });
+})();
 
 // Export for other modules
 window.CharacterSystem = CharacterSystem;
