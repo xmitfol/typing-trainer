@@ -1,0 +1,31 @@
+{
+  "id": "en_tier1_lesson_19",
+  "tier": "en_tier1",
+  "lesson_number": 19,
+  "title": "Rhythm: punctuation flow",
+  "description": "Rhythm exercise mixing all punctuation in natural sentences",
+  "target_wpm": 24,
+  "text_length": 95,
+  "error_limit_percent": 7,
+  "error_limit": 7,
+  "text": "well, today is great! she said, \"i think so too.\" then we laughed, walked home, and slept well.",
+  "text_sequence": [],
+  "keys_trained": ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", ",", ".", "!", "?", "'", "\"", "Space"],
+  "new_keys": [],
+  "finger_focus": "All learned chars — punctuation in flow",
+  "tips": [
+    "Now everything you learned dances together",
+    "Don't stop at punctuation — it's part of the rhythm",
+    "Tip: enable metronome toggle for steady pace"
+  ],
+  "character_tips": {
+    "anna": "Punctuation in flow — practice until commas don't break your rhythm.",
+    "maxim": "Pro typists treat punctuation as just more characters. Same speed.",
+    "knopych": "FLOW MODE! Punctuation = no slowdown! 🌊",
+    "klavochka": "Like a song with pauses, sunshine — beautiful and natural! 🎵"
+  },
+  "phase": 2,
+  "rhythmLesson": true,
+  "created_at": "2026-05-25",
+  "version": "1.0"
+}

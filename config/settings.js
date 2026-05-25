@@ -162,7 +162,7 @@ const APP_CONFIG = {
         tierLessonCount: {
             tier1: 39,
             block_1: 11,
-            en_tier1: 10
+            en_tier1: 20
         },
         // Default tier на каждый язык — для language-switcher в toolbar
         languageDefaultTier: {

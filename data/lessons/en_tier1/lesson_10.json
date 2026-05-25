@@ -20,10 +20,10 @@
     "Target 25 WPM with under 7 errors — graduation!"
   ],
   "character_tips": {
-    "anna": "🎓 ФИНАЛ! Ты прошёл базовый английский курс. Двигайся дальше — учи пунктуацию и цифры!",
-    "maxim": "Базовая ступень закрыта. Английский алфавит на твоих пальцах. Гордись!",
-    "knopych": "ПОБЕДА! 🏆 Английский алфавит покорён! LEVEL UP!",
-    "klavochka": "Ура! Ты настоящий мастер английской печати! ✨🎉"
+    "anna": "🎓 FINAL! You've completed the basic English alphabet course. Move on — learn punctuation and numbers!",
+    "maxim": "Basic stage closed. The English alphabet is on your fingertips. Be proud!",
+    "knopych": "VICTORY! 🏆 English alphabet conquered! LEVEL UP!",
+    "klavochka": "Yay! You're a real English typing master! ✨🎉"
   },
   "phase": 1,
   "rhythmLesson": false,

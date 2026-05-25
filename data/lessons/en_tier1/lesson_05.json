@@ -19,10 +19,10 @@
     "Real sentence! She said he is here she likes red dresses had a fair ride"
   ],
   "character_tips": {
-    "anna": "Ритм-урок! Не цели в скорость — найди плавный ритм. Музыкально печатай.",
-    "maxim": "Ровный темп. Каждый символ — клик. Не торопись, не тормози.",
-    "knopych": "РИТМ! Ту-ту-ту! Не сбивайся! 🥁",
-    "klavochka": "Музыкально, солнышко! Плавно, как танец 💃"
+    "anna": "Rhythm lesson! Don't chase speed — find a smooth rhythm. Type musically.",
+    "maxim": "Steady pace. Each symbol — one click. Don't rush, don't stall.",
+    "knopych": "RHYTHM! Tu-tu-tu! Don't break stride! 🥁",
+    "klavochka": "Musically, sunshine! Smoothly, like a dance 💃"
   },
   "phase": 1,
   "rhythmLesson": true,

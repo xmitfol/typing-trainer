@@ -19,10 +19,10 @@
     "Common letters now possible: vibe, come, voice, mind, black, many"
   ],
   "character_tips": {
-    "anna": "Bottom row сложнее — нужно тянуться вниз. Возвращайся на home после каждого нажатия.",
-    "maxim": "Bottom row даёт пять новых букв. Английский начинает звучать.",
-    "knopych": "Глубокое погружение! V, B, M, C — нижний ряд! 🌊",
-    "klavochka": "Чудесно! Теперь ты знаешь почти всю клавиатуру! 🌟"
+    "anna": "Bottom row is harder — you reach down. Return to home after each press.",
+    "maxim": "Bottom row gives you four new letters. English starts to sound real.",
+    "knopych": "Deep dive! V, B, M, C — bottom row! 🌊",
+    "klavochka": "Wonderful! Now you know almost the whole keyboard! 🌟"
   },
   "phase": 1,
   "rhythmLesson": false,

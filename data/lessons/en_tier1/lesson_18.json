@@ -1,0 +1,31 @@
+{
+  "id": "en_tier1_lesson_18",
+  "tier": "en_tier1",
+  "lesson_number": 18,
+  "title": "Apostrophe and quotes",
+  "description": "Contractions and quoted speech — ' (apostrophe) and \" (Shift + ')",
+  "target_wpm": 22,
+  "text_length": 88,
+  "error_limit_percent": 7,
+  "error_limit": 6,
+  "text": "it's a fact. don't worry. she said \"hello\" and smiled. that's the way it's done.",
+  "text_sequence": [],
+  "keys_trained": ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", ",", ".", "!", "?", "'", "\"", "Space"],
+  "new_keys": ["'", "\""],
+  "finger_focus": "Right pinky reaches to ' (next to ;), double quote = Shift + '",
+  "tips": [
+    "Apostrophe (') is next to ; — right pinky",
+    "Double quote (\") = Shift + ' — pinky for both",
+    "Contractions don't have spaces: it's, don't, that's"
+  ],
+  "character_tips": {
+    "anna": "Apostrophe makes contractions. Don't pause inside them — it's one fluid press.",
+    "maxim": "Quoted speech needs matching pairs. Open with \", close with \".",
+    "knopych": "Quote unquote! Apostrophe power! 🤖",
+    "klavochka": "Beautiful contractions, sunshine! Like little linked words! ✨"
+  },
+  "phase": 2,
+  "rhythmLesson": false,
+  "created_at": "2026-05-25",
+  "version": "1.0"
+}
