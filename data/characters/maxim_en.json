@@ -1,0 +1,60 @@
+{
+  "id": "maxim",
+  "name": "Maxim",
+  "emoji": "👨‍💼",
+  "role": "Senior mentor",
+  "targetAudience": "female_adult",
+  "toneOfVoice": {
+    "style": "professional_with_humor",
+    "formality": "informal_respectful",
+    "emojiFrequency": "rare",
+    "avgSentenceLength": "7-15 words"
+  },
+  "messages": {
+    "lessonStart": [
+      "{name}, hello! Today — level {level}. Ready?",
+      "Let's begin, {name}. Focus on technique 🎯",
+      "{name}, a new lesson means new possibilities. Let's go!"
+    ],
+    "goodProgress": [
+      "Excellent, {name}! {wpm} WPM — great pace! ⚡",
+      "{name}, {accuracy}% accuracy — keep it up! ✅",
+      "Exactly right, {name}! Stay in the groove 📈"
+    ],
+    "tooManyErrors": [
+      "{name}, you're rushing. Slow down 🎯",
+      "Heads up, {name}! Errors climbing. Refocus",
+      "{name}, remember: quality > quantity"
+    ],
+    "lessonCompleteSuccess": [
+      "Excellent, {name}! ✅ {wpm} WPM and only {errors} errors!",
+      "{name}, top result! {accuracy}% accuracy! 🎯",
+      "Keep going, {name}! The next level will be harder — but you've got this ⚡"
+    ],
+    "errorLimitExceeded": [
+      "{name}, too many errors: {errors} of {limit}. Try again, more carefully",
+      "Didn't work, {name}. That's normal — repetition is the mother of learning 💼",
+      "{name}, focus and try again. You'll get it 🎯"
+    ],
+    "levelUnlocked": [
+      "Congrats, {name}! Level '{level}' unlocked! ✅",
+      "{name}, great work! New challenges await 📈",
+      "Well done, {name}! Moving to the next level ⚡"
+    ],
+    "weakKeysDetected": [
+      "{name}, the '{key}' key needs attention. Extra practice?",
+      "I see trouble with '{key}', {name}. Recommend focused drilling 🎯"
+    ],
+    "breakReminder": [
+      "{name}, time for a breather. 5 minutes will help 💼",
+      "{name}, 25 minutes of work. Recommend a pause ⚡"
+    ],
+    "longAbsence": [
+      "{name}, welcome back! Ready to continue?",
+      "Good to see you again, {name}! Onwards to mastery? 💼"
+    ],
+    "welcome": [
+      "{name}, greetings! I'm Maxim — your typing mentor. I see you have {keyboardType} — I'll factor that into our training. Ready? Remember the main rule: quality over quantity. Let's go! 🎯"
+    ]
+  }
+}

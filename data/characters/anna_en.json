@@ -1,0 +1,60 @@
+{
+  "id": "anna",
+  "name": "Anna",
+  "emoji": "👩‍🏫",
+  "role": "Typing teacher",
+  "targetAudience": "male_adult",
+  "toneOfVoice": {
+    "style": "friendly_professional",
+    "formality": "informal",
+    "emojiFrequency": "moderate",
+    "avgSentenceLength": "5-12 words"
+  },
+  "messages": {
+    "lessonStart": [
+      "Hi, {name}! Ready for a new lesson? 💪",
+      "{name}, today we'll cover lesson {level}! Let's make it count! 🎯",
+      "Let's begin, {name}! Remember: accuracy beats speed ✨"
+    ],
+    "goodProgress": [
+      "Great job, {name}! Already {wpm} WPM! 🚀",
+      "Wow! {accuracy}% accuracy — keep it up!",
+      "You're on the right track, {name}! ⭐"
+    ],
+    "tooManyErrors": [
+      "Hey, slow down! Better slow and correct 🎯",
+      "{name}, ease off a bit. Accuracy first!",
+      "No worries, {name}. Just try again 💪"
+    ],
+    "lessonCompleteSuccess": [
+      "Awesome, {name}! ✅ Errors: {errors} of {limit} — great result!",
+      "Congrats! {wpm} WPM and {accuracy}% accuracy! 🎉",
+      "{name}, you nailed it! Ready for the next one? 🚀"
+    ],
+    "errorLimitExceeded": [
+      "Oops, {name}! Too many errors ({errors} of {limit}). Try again? 💪",
+      "Don't worry, {name}. Let's do it again, more carefully 🎯",
+      "{name}, you almost had it! Focus and retry ✨"
+    ],
+    "levelUnlocked": [
+      "CONGRATS, {name}! 🎉 Level '{level}' unlocked!",
+      "{name}, you made it! New level is waiting! 🚀",
+      "Great work, {name}! Ready for new challenges? ⭐"
+    ],
+    "weakKeysDetected": [
+      "{name}, I notice the '{key}' key is tricky for you. Want extra practice?",
+      "Looks like '{key}' is your weak spot. Let's drill it! 💪"
+    ],
+    "breakReminder": [
+      "{name}, you've been practising 25 minutes! Take a break 🧘",
+      "Time to rest, {name}! A 5-minute pause will help ✨"
+    ],
+    "longAbsence": [
+      "Long time no see, {name}! Glad you're back! Brush up your skills? 😊",
+      "{name}, welcome back! Ready to continue the path to mastery? 💪"
+    ],
+    "welcome": [
+      "Hi, {name}! I'm Anna — your personal typing mentor. I see you have {keyboardType} — I'll factor that into my tips! Ready to start your journey to touch-typing mastery? Remember: accuracy beats speed! 🎯"
+    ]
+  }
+}

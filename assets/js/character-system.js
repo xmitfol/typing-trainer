@@ -15,16 +15,26 @@ class CharacterSystem {
     }
 
     /**
-     * Load character data from JSON file
+     * Load character data from JSON file. Picks language variant based on
+     * profile.language ('ru' default / 'en' → uses _en suffix file).
+     * Fallback на ru-версию если en-файл не найден.
      * @param {string} characterId - Character ID (anna, maxim, knopych, klavochka)
      * @returns {Promise<void>}
      */
     async loadCharacter(characterId) {
         this.characterId = characterId;
 
-        try {
-            const response = await fetch(`data/characters/${characterId}.json`);
+        const lang = this.readUserLanguage();
+        const suffix = lang === 'en' ? '_en' : '';
+        const path = `data/characters/${characterId}${suffix}.json`;
 
+        try {
+            let response = await fetch(path);
+            // Fallback: если en-версия не существует — возьмём ru
+            if (!response.ok && suffix) {
+                console.warn(`No ${suffix} variant for ${characterId}, falling back to ru`);
+                response = await fetch(`data/characters/${characterId}.json`);
+            }
             if (!response.ok) {
                 throw new Error(`Failed to load character: ${response.status}`);
             }
@@ -32,7 +42,7 @@ class CharacterSystem {
             this.character = await response.json();
             this.isLoaded = true;
 
-            console.log(`Character loaded: ${this.character.name} (${this.character.emoji})`);
+            console.log(`Character loaded: ${this.character.name} (${this.character.emoji}) [${lang}]`);
         } catch (error) {
             console.error(`Failed to load character ${characterId}:`, error);
 
@@ -40,6 +50,16 @@ class CharacterSystem {
             this.character = this.getDefaultCharacter(characterId);
             this.isLoaded = false;
         }
+    }
+
+    readUserLanguage() {
+        try {
+            const storageKey = (window.Settings && window.Settings.get('storage.keys.userProfile', 'typing_trainer_user_profile'))
+                || 'typing_trainer_user_profile';
+            const raw = localStorage.getItem(storageKey);
+            if (!raw) return 'ru';
+            return JSON.parse(raw).language || 'ru';
+        } catch (e) { return 'ru'; }
     }
 
     /**

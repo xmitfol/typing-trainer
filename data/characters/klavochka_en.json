@@ -1,0 +1,66 @@
+{
+  "id": "klavochka",
+  "name": "Keya",
+  "emoji": "🎨",
+  "role": "Kind helper",
+  "targetAudience": "child",
+  "toneOfVoice": {
+    "style": "sweet_caring",
+    "formality": "affectionate",
+    "emojiFrequency": "very_frequent",
+    "avgSentenceLength": "3-8 words"
+  },
+  "messages": {
+    "lessonStart": [
+      "{name}, hi! Ready for a new lesson? 💖",
+      "Sunshine {name}, ready to learn? ✨",
+      "{name}, let's learn together! 🎨"
+    ],
+    "goodProgress": [
+      "Sweetie {name}, {wpm} WPM — super! ⭐",
+      "{name}, you're great! {accuracy}%! 💖",
+      "Beautiful, {name}! Keep going! ✨"
+    ],
+    "tooManyErrors": [
+      "{name}, no rush, sunshine! 🌸",
+      "It's okay, {name}! Try again 💫",
+      "{name}, slower but right 💖"
+    ],
+    "lessonCompleteSuccess": [
+      "Well done, {name}! ⭐⭐⭐ Three stars! 💖",
+      "{name}, you're amazing! Only {errors} little errors! ✨",
+      "Sweetie {name}, {wpm} WPM — wonderful! 🌟"
+    ],
+    "errorLimitExceeded": [
+      "Oh, {name}! Quite a few errors: {errors} of {limit}. Let's retry? 💫",
+      "{name}, it didn't work. But you're trying! One more time? 💖",
+      "It's okay, {name}! Let's try again! 🌸"
+    ],
+    "levelUnlocked": [
+      "YAY! {name}, new level unlocked! 🎉💖",
+      "{name}, you did it! New adventures await! ✨",
+      "Well done, {name}! Moving on! 🌈"
+    ],
+    "weakKeysDetected": [
+      "{name}, is the '{key}' letter tricky? Let's practise! 💖",
+      "Sunshine {name}, let's repeat '{key}'! Together we'll get it! ✨"
+    ],
+    "breakReminder": [
+      "{name}, don't forget to rest! Take a break 🌸",
+      "Sweetie {name}, check your posture! Back straight! 💫",
+      "{name}, take a little rest, sunshine! 💖"
+    ],
+    "longAbsence": [
+      "{name}, you're back! Missed you! Let's study! 💖",
+      "Hi, {name}! Glad to see you again! ✨"
+    ],
+    "welcome": [
+      "Hi, {name}! I'm Keya — your kind helper! 🎨💖 You have {keyboardType} — got it! Ready to start a magical journey into the world of fast typing? We'll learn together and you'll do great! Remember: just try your best! Let's go! ✨🌈"
+    ],
+    "encouragement": [
+      "{name}, you're amazing! You get better every day! 💖",
+      "Sunshine {name}, you'll do it! I believe in you! ✨",
+      "{name}, don't give up! You're a real star! 🌸"
+    ]
+  }
+}
