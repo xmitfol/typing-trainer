@@ -181,6 +181,17 @@ try:
         page.wait_for_timeout(800)
         shot('10-dark-classic', full_page=True)
 
+        # ---- Stage 11: settings modal open ----
+        print('Stage 11: settings modal')
+        page.emulate_media(color_scheme='light')
+        page.reload()
+        page.wait_for_selector('#settingsGearBtn', state='visible', timeout=5000)
+        page.wait_for_timeout(500)
+        page.click('#settingsGearBtn')
+        page.wait_for_selector('#settingsModal.active', timeout=3000)
+        page.wait_for_timeout(400)
+        shot('11-settings-modal')
+
         browser.close()
         print('Done.')
 

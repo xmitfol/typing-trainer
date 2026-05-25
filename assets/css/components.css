@@ -430,6 +430,206 @@
    Character messages during typing practice
    ============================================ */
 
+/* ============================================
+   Settings Panel — gear button + modal
+   ============================================ */
+
+.settings-gear {
+    position: fixed;
+    top: 16px;
+    right: 16px;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    border: 1px solid rgba(0,0,0,0.08);
+    background: #ffffff;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+    font-size: 22px;
+    cursor: pointer;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform .15s ease, box-shadow .15s ease;
+}
+
+.settings-gear:hover {
+    transform: rotate(60deg) scale(1.06);
+    box-shadow: 0 4px 14px rgba(0,0,0,0.16);
+}
+
+.settings-modal {
+    position: fixed;
+    inset: 0;
+    background: rgba(15, 23, 42, 0.55);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    padding: 20px;
+}
+
+.settings-modal.active {
+    display: flex;
+}
+
+.settings-card {
+    background: #ffffff;
+    border-radius: 16px;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+    width: 100%;
+    max-width: 560px;
+    max-height: 90vh;
+    overflow-y: auto;
+    animation: settingsAppear 0.2s ease-out;
+}
+
+@keyframes settingsAppear {
+    from { opacity: 0; transform: translateY(-12px) scale(0.98); }
+    to   { opacity: 1; transform: translateY(0)   scale(1); }
+}
+
+.settings-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 24px;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.settings-header h3 {
+    margin: 0;
+    font-size: 1.15rem;
+    color: #1f2937;
+}
+
+.settings-close {
+    background: transparent;
+    border: none;
+    font-size: 28px;
+    line-height: 1;
+    cursor: pointer;
+    color: #9ca3af;
+    padding: 4px 10px;
+    border-radius: 6px;
+    transition: all .15s ease;
+}
+
+.settings-close:hover {
+    color: #1f2937;
+    background: #f3f4f6;
+}
+
+.settings-body {
+    padding: 18px 24px 24px;
+}
+
+.settings-section {
+    margin-bottom: 22px;
+}
+
+.settings-section h4 {
+    margin: 0 0 8px;
+    font-size: 1rem;
+    color: #1f2937;
+}
+
+.settings-hint {
+    margin: 0 0 10px;
+    font-size: 0.85rem;
+    color: #6b7280;
+}
+
+.settings-character-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px;
+}
+
+.settings-character {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    padding: 10px 6px;
+    border: 2px solid #e5e7eb;
+    border-radius: 10px;
+    background: #ffffff;
+    cursor: pointer;
+    transition: all .15s ease;
+    font-family: inherit;
+}
+
+.settings-character:hover {
+    background: #f9fafb;
+    transform: translateY(-1px);
+}
+
+.settings-character.settings-character-active {
+    border-color: #2196f3;
+    background: linear-gradient(135deg, #dbeafe, #bfdbfe);
+}
+
+.settings-character-emoji {
+    font-size: 28px;
+    line-height: 1;
+}
+
+.settings-character-name {
+    font-weight: 600;
+    font-size: 0.85rem;
+    color: #1f2937;
+}
+
+.settings-character-role {
+    font-size: 0.7rem;
+    color: #6b7280;
+    text-align: center;
+    line-height: 1.2;
+}
+
+.settings-action {
+    display: block;
+    width: 100%;
+    padding: 10px 14px;
+    margin-top: 12px;
+    border: 1px solid;
+    border-radius: 8px;
+    font-size: 0.92rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all .15s ease;
+    font-family: inherit;
+    text-align: left;
+}
+
+.settings-action-warning {
+    background: #fffbeb;
+    border-color: #fde68a;
+    color: #92400e;
+}
+.settings-action-warning:hover { background: #fef3c7; }
+
+.settings-action-danger {
+    background: #fef2f2;
+    border-color: #fca5a5;
+    color: #991b1b;
+}
+.settings-action-danger:hover { background: #fee2e2; }
+
+.settings-action-note {
+    margin: 4px 0 0;
+    font-size: 0.78rem;
+    color: #6b7280;
+    padding-left: 4px;
+}
+
+@media (max-width: 600px) {
+    .settings-character-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
 /* Lesson Controls (показываются после завершения урока — успех или провал) */
 .lesson-controls {
     display: none;

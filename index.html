@@ -148,6 +148,24 @@
         </div>
     </div>
 
+    <!-- Settings gear (fixed, top-right) -->
+    <button type="button" class="settings-gear" id="settingsGearBtn" aria-label="Настройки" title="Настройки">
+        ⚙️
+    </button>
+
+    <!-- Settings Modal -->
+    <div class="settings-modal" id="settingsModal" role="dialog" aria-modal="true" aria-labelledby="settingsTitle">
+        <div class="settings-card">
+            <div class="settings-header">
+                <h3 id="settingsTitle">⚙️ Настройки</h3>
+                <button type="button" class="settings-close" aria-label="Закрыть">×</button>
+            </div>
+            <div class="settings-body">
+                <!-- заполняется SettingsPanel.renderContent() -->
+            </div>
+        </div>
+    </div>
+
     <!-- Верхняя панель с цитатой -->
     <div class="quote-panel">
         <div class="quote-icon">💬</div>
@@ -259,6 +277,7 @@
     <script src="assets/js/lesson-loader.js"></script>
     <script src="assets/js/character-system.js"></script>
     <script src="assets/js/onboarding.js"></script>
+    <script src="assets/js/settings-panel.js"></script>
     <script src="assets/js/main.js"></script>
 </body>
 </html>
