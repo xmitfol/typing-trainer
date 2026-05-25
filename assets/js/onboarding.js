@@ -227,6 +227,17 @@ class OnboardingManager {
         // Save to LocalStorage
         this.saveProfile();
 
+        // ВАЖНО: очистить saved currentLesson — иначе если пользователь ранее
+        // имел прогресс на другом языке/тире (типа tier1), main.js autoload
+        // подхватит его вместо languageDefaultTier для нового profile.language.
+        // Edge case: existing user проходит onboarding заново (Settings → «Начать
+        // заново» уже это делает, но и любой fresh onboarding тоже cleanup).
+        try {
+            const lessonKey = (window.Settings && window.Settings.get('storage.keys.currentLesson'))
+                || 'typing_trainer_current_lesson';
+            localStorage.removeItem(lessonKey);
+        } catch (e) { /* silent */ }
+
         // Hide onboarding
         this.hideOnboarding();
 
