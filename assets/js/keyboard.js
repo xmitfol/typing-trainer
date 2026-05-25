@@ -3,9 +3,26 @@
 // Сохраняет публичный API initKeyboard/highlightKey/pressKey/releaseKey/etc.
 // и data-key атрибуты — back-compat с main.js (input → highlight).
 
-const KB_DEFAULT_UNIT = 50;       // десктоп default — переопределяется в Phase 5 (responsive)
-const KB_GAP_FACTOR = 0.08;       // gap = unit * 0.08 ≈ 4px
+const KB_GAP_FACTOR = 0.08;       // gap = unit * 0.08
 const KB_KEY_HEIGHT_FACTOR = 0.92;
+
+// Responsive unit table из дизайн-handoff'а
+// (window width >= breakpoint → выбранный unit). Mobile <420 — fallback.
+const KB_UNIT_BREAKPOINTS = [
+    { minWidth: 1400, unit: 60 },   // Desktop
+    { minWidth: 1180, unit: 48 },   // Laptop
+    { minWidth: 820,  unit: 38 },   // Tablet
+    { minWidth: 0,    unit: 22 },   // Mobile
+];
+
+function getResponsiveUnit() {
+    const w = window.innerWidth || 1400;
+    const found = KB_UNIT_BREAKPOINTS.find(b => w >= b.minWidth);
+    return (found && found.unit) || 50;
+}
+
+// Legacy alias (некоторые места всё ещё могут вызывать без unit)
+const KB_DEFAULT_UNIT = 50;
 
 let currentHighlightedKey = null;
 const currentPressedKeys = new Set();
@@ -266,11 +283,13 @@ function renderErgoKeyboard(container, unit, options) {
     container.appendChild(rightWrap);
 }
 
-// Public: переключение layout без полного reinit (используется onboarding-complete listener)
+// Public: переключение layout без полного reinit (используется onboarding-complete + resize listeners)
 function renderKeyboard(variant, unit) {
     const container = document.querySelector('.keyboard-container');
     if (!container) return;
-    const u = unit || KB_DEFAULT_UNIT;
+    const u = unit || getResponsiveUnit();
+    // Сохраняем текущий variant на контейнере, чтобы resize-listener знал что перерисовать
+    container.dataset.layout = variant || 'classic';
     if (variant === 'laptop') {
         renderLaptopKeyboard(container, u);
     } else if (variant === 'ergonomic') {
@@ -305,7 +324,7 @@ function initKeyboard() {
         }
 
         const initialLayout = readProfileKeyboardType();
-        renderKeyboard(initialLayout, KB_DEFAULT_UNIT);
+        renderKeyboard(initialLayout);
 
         // Mouse-обработчики на клавишах — делегированно на контейнер
         container.addEventListener('mousedown', onKeyMouseDown);
@@ -314,10 +333,26 @@ function initKeyboard() {
 
         // Live re-render при смене профиля (welcome modal close → applyKeyboardLayout)
         document.addEventListener('typingtrainer:onboardingComplete', () => {
-            renderKeyboard(readProfileKeyboardType(), KB_DEFAULT_UNIT);
+            renderKeyboard(readProfileKeyboardType());
         });
 
-        console.log(`✅ Виртуальная клавиатура инициализирована (layout: ${initialLayout})`);
+        // Responsive: re-render с новым unit при ресайзе окна (debounced).
+        // Только если unit реально поменялся — иначе full DOM перерисовка ничего не стоит зря.
+        let resizeTimer = null;
+        let lastUnit = getResponsiveUnit();
+        window.addEventListener('resize', () => {
+            clearTimeout(resizeTimer);
+            resizeTimer = setTimeout(() => {
+                const newUnit = getResponsiveUnit();
+                if (newUnit !== lastUnit) {
+                    lastUnit = newUnit;
+                    const layout = (container.dataset.layout) || readProfileKeyboardType();
+                    renderKeyboard(layout, newUnit);
+                }
+            }, 150);
+        });
+
+        console.log(`✅ Виртуальная клавиатура инициализирована (layout: ${initialLayout}, unit: ${getResponsiveUnit()}px)`);
     } catch (error) {
         console.error('❌ Ошибка инициализации клавиатуры:', error);
     }
