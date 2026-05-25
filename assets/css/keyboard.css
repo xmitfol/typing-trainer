@@ -296,27 +296,19 @@
     display: none;
 }
 
-/* Ergonomic пока: заглушка с бейджем (Phase 4 переделает на split) */
+/* Ergonomic — split с rotate ±14° (рендерится через renderErgoKeyboard).
+   Контейнер использует extra padding-bottom — повёрнутые половины
+   занимают больше вертикали в bounding box. */
 .keyboard-container.layout-ergonomic {
-    position: relative;
+    padding-bottom: 60px;
+    perspective: 1200px;
 }
 
-.keyboard-container.layout-ergonomic .right-section {
-    display: none;
+.ergo-half {
+    flex-shrink: 0;
 }
 
-.keyboard-container.layout-ergonomic::before {
-    content: 'Эргономическая раскладка — скоро';
-    position: absolute;
-    top: 8px;
-    right: 16px;
-    font-size: 0.75rem;
-    color: #6b7280;
-    background: #f3f4f6;
-    padding: 4px 10px;
-    border-radius: 12px;
-    z-index: 5;
-}
+/* Ергономические половины наследуют все .key стили из основных правил */
 
 /* ============================================
    6. Тёмная тема (заготовка — расширим в Phase 6)

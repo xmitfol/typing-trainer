@@ -203,6 +203,69 @@ function renderLaptopKeyboard(container, unit) {
     container.appendChild(arrows);
 }
 
+// Половина клавиатуры для ergonomic (rows + thumb-row для своей стороны)
+function buildKeyboardHalf(side, unit) {
+    const Data = window.KeyboardData;
+    const gap = unit * KB_GAP_FACTOR;
+
+    const half = document.createElement('div');
+    half.className = `ergo-half ergo-half-${side}`;
+    half.style.display = 'flex';
+    half.style.flexDirection = 'column';
+    half.style.gap = `${gap}px`;
+
+    // Staggered offset — каждый ряд ниже сдвинут наружу от центра (левая — влево, правая — вправо)
+    const offsets = [0, 0, unit * 0.25, unit * 0.5];
+
+    Data.ROWS.forEach((rowData, ri) => {
+        const keys = rowData[side];
+        const row = createRow(keys, unit);
+        row.style.gap = `${gap}px`;
+        // justify: левая половина — flex-end (прижать к gap), правая — flex-start
+        row.style.justifyContent = side === 'left' ? 'flex-end' : 'flex-start';
+        const off = offsets[ri] || 0;
+        if (off) {
+            row.style.transform = `translateX(${side === 'left' ? -off : off}px)`;
+        }
+        half.appendChild(row);
+    });
+
+    // Thumb row (split-Space + модификаторы для своей стороны)
+    const thumb = Data.THUMB_ROWS.minimal[side];
+    const thumbRow = createRow(thumb, unit);
+    thumbRow.style.gap = `${gap}px`;
+    thumbRow.style.justifyContent = side === 'left' ? 'flex-end' : 'flex-start';
+    thumbRow.style.marginTop = `${unit * 0.12}px`;
+    half.appendChild(thumbRow);
+
+    return half;
+}
+
+// Layout: Ergonomic — две половины с rotate ±angle и gap между ними
+function renderErgoKeyboard(container, unit, options) {
+    const angle = (options && options.angle) || 14;
+    const gap = (options && options.gap) || 96;
+
+    container.innerHTML = '';
+    container.style.gap = `${gap}px`;
+    container.style.alignItems = 'flex-end';
+    container.style.justifyContent = 'center';
+
+    // Левая половина — поворот -angle вокруг bottom-right
+    const leftWrap = document.createElement('div');
+    leftWrap.style.transform = `rotate(-${angle}deg)`;
+    leftWrap.style.transformOrigin = 'bottom right';
+    leftWrap.appendChild(buildKeyboardHalf('left', unit));
+    container.appendChild(leftWrap);
+
+    // Правая половина — поворот +angle вокруг bottom-left
+    const rightWrap = document.createElement('div');
+    rightWrap.style.transform = `rotate(${angle}deg)`;
+    rightWrap.style.transformOrigin = 'bottom left';
+    rightWrap.appendChild(buildKeyboardHalf('right', unit));
+    container.appendChild(rightWrap);
+}
+
 // Public: переключение layout без полного reinit (используется onboarding-complete listener)
 function renderKeyboard(variant, unit) {
     const container = document.querySelector('.keyboard-container');
@@ -210,6 +273,8 @@ function renderKeyboard(variant, unit) {
     const u = unit || KB_DEFAULT_UNIT;
     if (variant === 'laptop') {
         renderLaptopKeyboard(container, u);
+    } else if (variant === 'ergonomic') {
+        renderErgoKeyboard(container, u);
     } else {
         renderClassicKeyboard(container, u);
     }

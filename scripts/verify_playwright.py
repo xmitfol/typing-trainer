@@ -156,6 +156,18 @@ try:
         page.wait_for_timeout(800)
         shot('08-laptop-full', full_page=True)
 
+        # ---- Stage 9: ergonomic split layout ----
+        print('Stage 9: ergonomic split layout')
+        page.evaluate("""() => {
+            const p = JSON.parse(localStorage.getItem('typing_trainer_user_profile') || '{}');
+            p.keyboardType = 'ergonomic';
+            localStorage.setItem('typing_trainer_user_profile', JSON.stringify(p));
+        }""")
+        page.reload()
+        page.wait_for_selector('#lessonIndicator', state='visible', timeout=8000)
+        page.wait_for_timeout(800)
+        shot('09-ergonomic-full', full_page=True)
+
         browser.close()
         print('Done.')
 
