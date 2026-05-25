@@ -43,10 +43,10 @@ try:
         page.on('console', lambda msg: print(f'  [browser/{msg.type}] {msg.text}'))
         page.on('pageerror', lambda e: print(f'  [page-error] {e}'))
 
-        def shot(name):
+        def shot(name, full_page=False):
             path = SCREENS / f'{name}.png'
-            page.screenshot(path=str(path), full_page=False)
-            print(f'  -> {path.name}')
+            page.screenshot(path=str(path), full_page=full_page)
+            print(f'  -> {path.name}{ " (full)" if full_page else ""}')
 
         # ---- Stage 1: fresh visit → onboarding overlay ----
         print('Stage 1: fresh visit')
@@ -81,6 +81,7 @@ try:
         page.wait_for_selector('#lessonIndicator', state='visible', timeout=8000)
         page.wait_for_timeout(600)
         shot('04-lesson-preview')
+        shot('04b-full-page', full_page=True)
 
         # ---- Stage 4: start test → character toast (lessonStart) ----
         print('Stage 4: start test -> lessonStart toast')
@@ -142,6 +143,18 @@ try:
             page.wait_for_timeout(40)
         page.wait_for_timeout(1500)
         shot('07-error-path')
+
+        # ---- Stage 8: laptop layout — пере-seed профиль с keyboardType=laptop ----
+        print('Stage 8: laptop layout')
+        page.evaluate("""() => {
+            const p = JSON.parse(localStorage.getItem('typing_trainer_user_profile') || '{}');
+            p.keyboardType = 'laptop';
+            localStorage.setItem('typing_trainer_user_profile', JSON.stringify(p));
+        }""")
+        page.reload()
+        page.wait_for_selector('#lessonIndicator', state='visible', timeout=8000)
+        page.wait_for_timeout(800)
+        shot('08-laptop-full', full_page=True)
 
         browser.close()
         print('Done.')

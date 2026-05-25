@@ -89,61 +89,25 @@ function createRow(keys, unit, className) {
 }
 
 // ---------------------------------------------------------------------------
-// Layout: Classic
+// Layouts
 // ---------------------------------------------------------------------------
 
-function renderClassicKeyboard(container, unit) {
-    const Data = window.KeyboardData;
-    if (!Data) {
-        console.error('KeyboardData not loaded');
-        return;
-    }
-    const { alpha, bottom } = Data.buildAlignedRows();
+// Общий alpha-блок для Classic/Laptop (5 рядов + bottom с padRow)
+function buildAlphaBlock(unit) {
+    const { alpha, bottom } = window.KeyboardData.buildAlignedRows();
     const gap = unit * KB_GAP_FACTOR;
+    const el = document.createElement('div');
+    el.className = 'keyboard';
+    el.style.gap = `${gap}px`;
+    alpha.forEach(row => el.appendChild(createRow(row, unit)));
+    el.appendChild(createRow(bottom, unit));
+    return el;
+}
 
-    container.innerHTML = '';
-
-    // Главный flex-контейнер: alpha-блок + правая секция
-    container.style.gap = `${unit * 0.4}px`;
-
-    // Alpha block (5 рядов с padRow-выравниванием)
-    const keyboardEl = document.createElement('div');
-    keyboardEl.className = 'keyboard';
-    keyboardEl.style.gap = `${gap}px`;
-    alpha.forEach(row => keyboardEl.appendChild(createRow(row, unit)));
-    keyboardEl.appendChild(createRow(bottom, unit));
-    container.appendChild(keyboardEl);
-
-    // Right section: navigation + arrows + numpad
-    const rightSection = document.createElement('div');
-    rightSection.className = 'right-section';
-    rightSection.style.gap = `${gap}px`;
-
-    // Nav block (Ins/Home/PgUp над Del/End/PgDn)
-    const navBlock = document.createElement('div');
-    navBlock.className = 'navigation-block';
-    navBlock.style.gap = `${gap}px`;
-    Data.NAV.top.forEach(rowKeys => navBlock.appendChild(createRow(rowKeys, unit, 'nav-row')));
-    rightSection.appendChild(navBlock);
-
-    // Arrows (↑ / ←↓→) — крест внизу слева
-    const arrowBlock = document.createElement('div');
-    arrowBlock.className = 'arrow-block';
-    arrowBlock.style.gap = `${gap}px`;
-    // Spacer-ряд (две пустые позиции по бокам от стрелки вверх)
-    const topArrowRow = document.createElement('div');
-    topArrowRow.className = 'arrow-row';
-    topArrowRow.style.gap = `${gap}px`;
-    const spacerL = document.createElement('div'); spacerL.style.width = `${unit}px`;
-    topArrowRow.appendChild(spacerL);
-    topArrowRow.appendChild(createKeyElement(Data.NAV.arrows.up, unit));
-    const spacerR = document.createElement('div'); spacerR.style.width = `${unit}px`;
-    topArrowRow.appendChild(spacerR);
-    arrowBlock.appendChild(topArrowRow);
-    arrowBlock.appendChild(createRow([Data.NAV.arrows.left, Data.NAV.arrows.down, Data.NAV.arrows.right], unit, 'arrow-row'));
-    rightSection.appendChild(arrowBlock);
-
-    // Numpad — CSS Grid 4x5 с span-2 для +/Enter/0
+// Numpad: CSS Grid 4×5 с span-2 для tall +/Enter и широкой 0
+function buildNumpad(unit) {
+    const Data = window.KeyboardData;
+    const gap = unit * KB_GAP_FACTOR;
     const numpad = document.createElement('div');
     numpad.className = 'numpad';
     numpad.style.gap = `${gap}px`;
@@ -153,21 +117,118 @@ function renderClassicKeyboard(container, unit) {
         const cell = document.createElement('div');
         cell.style.gridColumn = c.gc;
         cell.style.gridRow = c.gr;
-        // Для tall/wide клавиш width/height клавиши = 100% ячейки
         const keyEl = createKeyElement(c, unit);
         keyEl.style.width = '100%';
         keyEl.style.height = '100%';
         cell.appendChild(keyEl);
         numpad.appendChild(cell);
     });
-    rightSection.appendChild(numpad);
+    return numpad;
+}
 
+// Полный nav-блок (Ins/Home/PgUp + Del/End/PgDn + ↑←↓→)
+function buildNavCluster(unit) {
+    const Data = window.KeyboardData;
+    const gap = unit * KB_GAP_FACTOR;
+    const wrapper = document.createElement('div');
+    wrapper.style.display = 'flex';
+    wrapper.style.flexDirection = 'column';
+    wrapper.style.gap = `${gap}px`;
+
+    const navBlock = document.createElement('div');
+    navBlock.className = 'navigation-block';
+    navBlock.style.gap = `${gap}px`;
+    Data.NAV.top.forEach(rowKeys => navBlock.appendChild(createRow(rowKeys, unit, 'nav-row')));
+    wrapper.appendChild(navBlock);
+
+    wrapper.appendChild(buildArrowCluster(unit, /* compact */ false));
+    return wrapper;
+}
+
+// Стрелочный кластер (↑ / ←↓→). Compact-режим — уменьшенные клавиши для laptop.
+function buildArrowCluster(unit, compact) {
+    const Data = window.KeyboardData;
+    const arrowUnit = compact ? unit * 0.85 : unit;
+    const gap = arrowUnit * KB_GAP_FACTOR;
+
+    const block = document.createElement('div');
+    block.className = 'arrow-block';
+    block.style.gap = `${gap}px`;
+
+    // Ряд 1: spacer + ↑ + spacer
+    const topRow = document.createElement('div');
+    topRow.className = 'arrow-row';
+    topRow.style.gap = `${gap}px`;
+    const spacerL = document.createElement('div'); spacerL.style.width = `${arrowUnit}px`;
+    topRow.appendChild(spacerL);
+    topRow.appendChild(createKeyElement(Data.NAV.arrows.up, arrowUnit));
+    const spacerR = document.createElement('div'); spacerR.style.width = `${arrowUnit}px`;
+    topRow.appendChild(spacerR);
+    block.appendChild(topRow);
+
+    // Ряд 2: ← ↓ →
+    block.appendChild(createRow(
+        [Data.NAV.arrows.left, Data.NAV.arrows.down, Data.NAV.arrows.right],
+        arrowUnit,
+        'arrow-row'
+    ));
+    return block;
+}
+
+// Layout: Classic — alpha + nav cluster + numpad
+function renderClassicKeyboard(container, unit) {
+    container.innerHTML = '';
+    container.style.gap = `${unit * 0.4}px`;
+    container.appendChild(buildAlphaBlock(unit));
+
+    const rightSection = document.createElement('div');
+    rightSection.className = 'right-section';
+    rightSection.style.gap = `${unit * KB_GAP_FACTOR}px`;
+    rightSection.appendChild(buildNavCluster(unit));
+    rightSection.appendChild(buildNumpad(unit));
     container.appendChild(rightSection);
+}
+
+// Layout: Laptop — только alpha + компактный inline-arrow-кластер справа снизу
+function renderLaptopKeyboard(container, unit) {
+    container.innerHTML = '';
+    container.style.gap = `${unit * 0.3}px`;
+    container.style.alignItems = 'flex-end';
+
+    container.appendChild(buildAlphaBlock(unit));
+
+    // Компактные стрелки прижаты к низу alpha-блока (alignItems: flex-end)
+    const arrows = buildArrowCluster(unit, /* compact */ true);
+    arrows.classList.add('arrow-block-laptop');
+    container.appendChild(arrows);
+}
+
+// Public: переключение layout без полного reinit (используется onboarding-complete listener)
+function renderKeyboard(variant, unit) {
+    const container = document.querySelector('.keyboard-container');
+    if (!container) return;
+    const u = unit || KB_DEFAULT_UNIT;
+    if (variant === 'laptop') {
+        renderLaptopKeyboard(container, u);
+    } else {
+        renderClassicKeyboard(container, u);
+    }
 }
 
 // ---------------------------------------------------------------------------
 // Init + Public API
 // ---------------------------------------------------------------------------
+
+function readProfileKeyboardType() {
+    try {
+        const key = (window.Settings && window.Settings.get('storage.keys.userProfile'))
+            || 'typing_trainer_user_profile';
+        const raw = localStorage.getItem(key);
+        if (!raw) return 'classic';
+        const profile = JSON.parse(raw);
+        return profile.keyboardType || 'classic';
+    } catch (e) { return 'classic'; }
+}
 
 function initKeyboard() {
     console.log('🎹 Инициализация виртуальной клавиатуры (data-driven)...');
@@ -177,16 +238,21 @@ function initKeyboard() {
             console.error('.keyboard-container не найден');
             return;
         }
-        // Определить layout из класса (set'ит onboarding.js applyKeyboardLayout)
-        // В Phase 1 рендерим всегда Classic — Phase 3/4 добавят laptop/ergo
-        renderClassicKeyboard(container, KB_DEFAULT_UNIT);
 
-        // Mouse-обработчики на клавишах (симуляция нажатия)
+        const initialLayout = readProfileKeyboardType();
+        renderKeyboard(initialLayout, KB_DEFAULT_UNIT);
+
+        // Mouse-обработчики на клавишах — делегированно на контейнер
         container.addEventListener('mousedown', onKeyMouseDown);
         container.addEventListener('mouseup', onKeyMouseUp);
         container.addEventListener('contextmenu', preventContextOnKey);
 
-        console.log('✅ Виртуальная клавиатура инициализирована');
+        // Live re-render при смене профиля (welcome modal close → applyKeyboardLayout)
+        document.addEventListener('typingtrainer:onboardingComplete', () => {
+            renderKeyboard(readProfileKeyboardType(), KB_DEFAULT_UNIT);
+        });
+
+        console.log(`✅ Виртуальная клавиатура инициализирована (layout: ${initialLayout})`);
     } catch (error) {
         console.error('❌ Ошибка инициализации клавиатуры:', error);
     }
@@ -316,6 +382,7 @@ function getKeyboardInfo() {
 
 // Экспорт глобальных функций (back-compat с main.js)
 window.initKeyboard = initKeyboard;
+window.renderKeyboard = renderKeyboard;
 window.highlightKey = highlightKey;
 window.pressKey = pressKey;
 window.releaseKey = releaseKey;
