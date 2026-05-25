@@ -15,8 +15,7 @@
     "0-9",
     "Space",
     "/",
-    "."
-  ],
+    ".", "Shift"],
   "new_keys": [],
   "finger_focus": "Numbers in real context",
   "tips": [

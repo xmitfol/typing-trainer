@@ -10,7 +10,7 @@
   "error_limit": 15,
   "text": "Breaking: SpaceX Launches Starship at 12:30 PM. Markets React: Apple Up 3%, Tesla Down 2%. Meanwhile, Scientists Discover New Planet — \"Truly Remarkable!\"",
   "text_sequence": [],
-  "keys_trained": ["A-Z", "0-9", "all punctuation"],
+  "keys_trained": ["A-Z", "0-9", "all punctuation", "Shift"],
   "new_keys": [],
   "finger_focus": "News-style rhythm",
   "tips": [

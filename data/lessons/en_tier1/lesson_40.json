@@ -10,7 +10,7 @@
   "error_limit": 14,
   "text": "<h1>Welcome!</h1> <p>The site is <strong>open</strong> at https://my.app/start. Type {user: \"name\"} into the box. Press Enter.</p>",
   "text_sequence": [],
-  "keys_trained": ["A-Z", "0-9", "<", ">", "/", "=", "\"", "{", "}", ":", "!", ".", ",", "Space"],
+  "keys_trained": ["A-Z", "0-9", "<", ">", "/", "=", "\"", "{", "}", ":", "!", ".", ",", "Space", "Shift"],
   "new_keys": [],
   "finger_focus": "Markup + prose mix",
   "tips": [

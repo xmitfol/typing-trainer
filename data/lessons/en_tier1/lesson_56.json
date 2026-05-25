@@ -10,7 +10,7 @@
   "error_limit": 12,
   "text": "The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog. Pack my box with five dozen liquor jugs. Sphinx of black quartz, judge my vow.",
   "text_sequence": [],
-  "keys_trained": ["A-Z full", "Space", ".", ","],
+  "keys_trained": ["A-Z full", "Space", ".", ",", "Shift"],
   "new_keys": [],
   "finger_focus": "Every letter at least once",
   "tips": [

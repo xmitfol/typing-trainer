@@ -10,7 +10,7 @@
   "error_limit": 12,
   "text": "<div class=\"box\"><p id=\"main\">Hello, world!</p></div> <a href=\"/home\">Home</a> <img src=\"pic.jpg\" alt=\"photo\">",
   "text_sequence": [],
-  "keys_trained": ["A-Z", "0-9", "<", ">", "/", "=", "\"", ",", ".", "!", "Space"],
+  "keys_trained": ["A-Z", "0-9", "<", ">", "/", "=", "\"", ",", ".", "!", "Space", "Shift"],
   "new_keys": [],
   "finger_focus": "< > / \" combo for HTML",
   "tips": [
