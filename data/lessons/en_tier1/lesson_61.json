@@ -1,0 +1,31 @@
+{
+  "id": "en_tier1_lesson_61",
+  "tier": "en_tier1",
+  "lesson_number": 61,
+  "title": "Real-world prose: short narrative",
+  "description": "Block 5 opener — sustained narrative paragraph at higher speed",
+  "target_wpm": 58,
+  "text_length": 200,
+  "error_limit_percent": 6,
+  "error_limit": 12,
+  "text": "The morning light slipped through the curtains and fell on the wooden desk. She poured herself a coffee, opened the laptop, and started writing the report that was due by noon. Outside, the city woke up.",
+  "text_sequence": [],
+  "keys_trained": ["A-Z", "Space", ",", ".", "Shift"],
+  "new_keys": [],
+  "finger_focus": "Sustained natural prose",
+  "tips": [
+    "Block 5 starts here — speed AND accuracy together",
+    "Real narrative prose has natural rhythm — find it",
+    "Don't slow down at commas — they're tempo, not stops"
+  ],
+  "character_tips": {
+    "anna": "Block 5! From here we balance speed AND accuracy. Both must climb together.",
+    "maxim": "Real prose is your benchmark from now on. Type it like you talk it.",
+    "knopych": "BLOCK 5 BEGINS! 📖 Story mode unlocked!",
+    "klavochka": "Beautiful sentences flowing like a river, my dear 🌊"
+  },
+  "phase": 5,
+  "rhythmLesson": false,
+  "created_at": "2026-05-25",
+  "version": "1.0"
+}

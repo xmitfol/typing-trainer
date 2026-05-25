@@ -1,0 +1,31 @@
+{
+  "id": "en_tier1_lesson_88",
+  "tier": "en_tier1",
+  "lesson_number": 88,
+  "title": "Rhythm: marketing flow",
+  "description": "Multi-sentence marketing passage at high WPM",
+  "target_wpm": 87,
+  "text_length": 320,
+  "error_limit_percent": 5,
+  "error_limit": 16,
+  "text": "Built for speed. Designed for focus. Trusted by thousands of teams in over forty countries. Whether you are writing your first email or your hundredth report of the week, the right typing rhythm makes the difference between exhausted and energized. Try it free for two weeks. Cancel anytime; no card needed.",
+  "text_sequence": [],
+  "keys_trained": ["A-Z", "Space", ",", ".", ";", "Shift"],
+  "new_keys": [],
+  "finger_focus": "Marketing prose at 87 WPM",
+  "tips": [
+    "Multiple punchy sentences in a row — keep tempo high",
+    "Short fragments are part of the rhythm — don't pause longer than commas",
+    "Metronome at 87 BPM — sustain through every sentence type"
+  ],
+  "character_tips": {
+    "anna": "Marketing rhythm at 87 WPM. Punchy + sustained = pro copywriting speed.",
+    "maxim": "Copywriters hit this naturally. Now you can match them.",
+    "knopych": "ADS GO BRRR! 📢 Short, punchy, FAST!",
+    "klavochka": "Persuasive and warm, my dear — kind salesmanship 🛍️"
+  },
+  "phase": 6,
+  "rhythmLesson": true,
+  "created_at": "2026-05-25",
+  "version": "1.0"
+}

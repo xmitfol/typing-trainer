@@ -1,0 +1,31 @@
+{
+  "id": "en_tier1_lesson_94",
+  "tier": "en_tier1",
+  "lesson_number": 94,
+  "title": "Stress test: rare letters in flow",
+  "description": "Z, Q, X, J under speed pressure — the rare-letter gauntlet",
+  "target_wpm": 96,
+  "text_length": 320,
+  "error_limit_percent": 4,
+  "error_limit": 12,
+  "text": "The quiet zoologist quizzed the puzzled journalist about the strange behaviors of the jaguar, the zebra, and the quail. \"Excellent question,\" she said, jotting notes with a quick zigzag of her pen. Mexico, Quebec, Zambia — exotic places, exotic letters, all flowing now from your fingertips.",
+  "text_sequence": [],
+  "keys_trained": ["A-Z", "Space", ",", ".", "?", "\"", "—", "Shift"],
+  "new_keys": [],
+  "finger_focus": "Rare letters at speed",
+  "tips": [
+    "z, q, x, j are the slowest letters for most typists",
+    "This text has 4-5x more rare letters than average",
+    "Pass at 96 WPM = your rare letters are as fast as common ones"
+  ],
+  "character_tips": {
+    "anna": "Rare letters are the bottleneck for most fast typists. Pass this = uniform speed.",
+    "maxim": "z/q/x bottlenecks slow you down on real text. Kill them here.",
+    "knopych": "RARE LETTER BOSS! 🦓 The Z-Q-X dragon!",
+    "klavochka": "Every letter your friend, my dear — no exceptions! 💕"
+  },
+  "phase": 7,
+  "rhythmLesson": false,
+  "created_at": "2026-05-25",
+  "version": "1.0"
+}

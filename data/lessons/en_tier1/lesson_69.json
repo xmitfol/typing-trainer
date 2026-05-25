@@ -1,0 +1,31 @@
+{
+  "id": "en_tier1_lesson_69",
+  "tier": "en_tier1",
+  "lesson_number": 69,
+  "title": "Complex punctuation prose",
+  "description": "Mixed punctuation — semicolons, dashes, parentheses at speed",
+  "target_wpm": 68,
+  "text_length": 240,
+  "error_limit_percent": 6,
+  "error_limit": 14,
+  "text": "The proposal had three goals: reduce costs (by 15%), improve reliability — measured by uptime — and grow the user base; together, these would set the company up for a strong second half. The plan was bold but realistic.",
+  "text_sequence": [],
+  "keys_trained": ["A-Z", "0-9", "Space", ",", ".", ";", ":", "—", "-", "(", ")", "%", "Shift"],
+  "new_keys": [],
+  "finger_focus": "All punctuation in real prose",
+  "tips": [
+    "Semicolons + em-dashes + parens = pro writing toolkit",
+    "Each mark has its rhythm — semis are sharper, dashes wider",
+    "Don't over-think — type, then read for sense"
+  ],
+  "character_tips": {
+    "anna": "Complex punctuation separates beginner from pro. Drill until automatic.",
+    "maxim": "Real reports use all of these. Master them = master business writing.",
+    "knopych": "PUNCTUATION ZOO! 🎢 Semicolons, dashes, parens — all in one!",
+    "klavochka": "Sophisticated writing, my treasure — like a fine dinner 🍽️"
+  },
+  "phase": 5,
+  "rhythmLesson": false,
+  "created_at": "2026-05-25",
+  "version": "1.0"
+}

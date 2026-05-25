@@ -1,0 +1,31 @@
+{
+  "id": "en_tier1_lesson_80",
+  "tier": "en_tier1",
+  "lesson_number": 80,
+  "title": "80-lesson milestone: speed gate",
+  "description": "Speed gate at lesson 80 — must hold 80 WPM",
+  "target_wpm": 80,
+  "text_length": 300,
+  "error_limit_percent": 5,
+  "error_limit": 15,
+  "text": "Eighty lessons. You are no longer typing — you are translating thought directly into text. Most people will never feel this. From here, every lesson refines what you already have: sustained accuracy at speed, calm hands, and total trust in muscle memory. The last twenty lessons are pure polish.",
+  "text_sequence": [],
+  "keys_trained": ["A-Z", "Space", ",", ".", ":", "Shift"],
+  "new_keys": [],
+  "finger_focus": "Sustained 80 WPM gate",
+  "tips": [
+    "80 WPM = top 5% of typists in the world",
+    "Pass this gate = you can outpace most people's spoken words",
+    "Last 20 lessons polish you to 95+ WPM"
+  ],
+  "character_tips": {
+    "anna": "🎯 80 WPM gate. Top 5% globally. The world's average is 40 WPM — you're double.",
+    "maxim": "80 WPM sustained is the elite professional level. Carry this forward.",
+    "knopych": "80 WPM BOSS DOWN! 🏆 ELITE STATUS!",
+    "klavochka": "My star, you're soaring! ⭐ Twenty lessons to legend!"
+  },
+  "phase": 6,
+  "rhythmLesson": false,
+  "created_at": "2026-05-25",
+  "version": "1.0"
+}

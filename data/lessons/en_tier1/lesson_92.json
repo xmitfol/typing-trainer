@@ -1,0 +1,31 @@
+{
+  "id": "en_tier1_lesson_92",
+  "tier": "en_tier1",
+  "lesson_number": 92,
+  "title": "Literature-style prose",
+  "description": "Classic literary paragraph — rhythm, imagery, depth",
+  "target_wpm": 94,
+  "text_length": 330,
+  "error_limit_percent": 4,
+  "error_limit": 13,
+  "text": "It was a clear, cold afternoon in late October, the kind of day on which the trees seem to glow from inside. She walked along the river path, her hands tucked into her coat pockets, and listened to the leaves crunching softly under her boots. The world, for once, felt entirely her own.",
+  "text_sequence": [],
+  "keys_trained": ["A-Z", "Space", ",", ".", "Shift"],
+  "new_keys": [],
+  "finger_focus": "Literary prose at speed",
+  "tips": [
+    "Literary prose has a slower mental tempo but rewards fast fingers",
+    "Imagery and adjectives test sustained accuracy under speed",
+    "Read the sentence in your mind first — then let your fingers follow"
+  ],
+  "character_tips": {
+    "anna": "Literary prose at 94 WPM. Few professional writers type their own work this fast.",
+    "maxim": "Authors and editors live here. You're now at their working speed.",
+    "knopych": "POETRY POWER! 📖 Beautiful words flowing fast!",
+    "klavochka": "Like reading a favorite book aloud, my treasure 📚"
+  },
+  "phase": 7,
+  "rhythmLesson": false,
+  "created_at": "2026-05-25",
+  "version": "1.0"
+}

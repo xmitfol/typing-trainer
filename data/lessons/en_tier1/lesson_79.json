@@ -1,0 +1,31 @@
+{
+  "id": "en_tier1_lesson_79",
+  "tier": "en_tier1",
+  "lesson_number": 79,
+  "title": "Technical documentation paragraph",
+  "description": "Full technical doc passage — terms + structure + flow",
+  "target_wpm": 80,
+  "text_length": 290,
+  "error_limit_percent": 5,
+  "error_limit": 14,
+  "text": "The authentication module uses a stateless JWT design. Each request must include a valid Bearer token in the Authorization header. Tokens expire after fifteen minutes; clients should call the refresh endpoint before that window closes. All errors return a structured JSON object with status, code, and message fields.",
+  "text_sequence": [],
+  "keys_trained": ["A-Z", "Space", ",", ".", ";", "Shift"],
+  "new_keys": [],
+  "finger_focus": "Tech doc rhythm at speed",
+  "tips": [
+    "API/engineering docs are everywhere in modern work",
+    "Technical terms (JWT, JSON, Bearer) — type as words, not letters",
+    "Tech writing has rhythm too — find it"
+  ],
+  "character_tips": {
+    "anna": "Engineering documentation at speed. A career skill across all of tech.",
+    "maxim": "Every engineer writes more than they code. This is real career payoff.",
+    "knopych": "DEV DOCS UNLOCKED! 💻 API ninja!",
+    "klavochka": "Clear instructions, my dear — like a kindly teacher's notes 📝"
+  },
+  "phase": 6,
+  "rhythmLesson": false,
+  "created_at": "2026-05-25",
+  "version": "1.0"
+}

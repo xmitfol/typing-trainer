@@ -1,0 +1,31 @@
+{
+  "id": "en_tier1_lesson_76",
+  "tier": "en_tier1",
+  "lesson_number": 76,
+  "title": "Practical business writing",
+  "description": "Block 6 opener — real business memo at high speed",
+  "target_wpm": 76,
+  "text_length": 280,
+  "error_limit_percent": 5,
+  "error_limit": 14,
+  "text": "To: All staff. From: Operations. Subject: New office hours. Effective June 1, the headquarters will open at 8:00 a.m. and close at 7:00 p.m., Monday through Friday. Remote work remains flexible. Please update your calendars accordingly. Questions? Reply to ops@company.com.",
+  "text_sequence": [],
+  "keys_trained": ["A-Z", "0-9", "Space", ".", ",", ":", "?", "@", "Shift"],
+  "new_keys": [],
+  "finger_focus": "Business memo rhythm",
+  "tips": [
+    "Block 6 = real-world application. Every lesson = work scenario.",
+    "Memo format has its own rhythm — headers, body, signoff",
+    "Email addresses should be one continuous motion by now"
+  ],
+  "character_tips": {
+    "anna": "Block 6! Every lesson here you'll use in your real career.",
+    "maxim": "Memos, emails, reports — this is the bread and butter of work.",
+    "knopych": "REAL WORLD MODE! 💼 Office quest activated!",
+    "klavochka": "The writing of grown-up work, my dear — practice with care 📋"
+  },
+  "phase": 6,
+  "rhythmLesson": false,
+  "created_at": "2026-05-25",
+  "version": "1.0"
+}

@@ -1,0 +1,31 @@
+{
+  "id": "en_tier1_lesson_67",
+  "tier": "en_tier1",
+  "lesson_number": 67,
+  "title": "Long-sentence drill",
+  "description": "Complex sentences with subclauses — sustain speed through length",
+  "target_wpm": 66,
+  "text_length": 240,
+  "error_limit_percent": 6,
+  "error_limit": 14,
+  "text": "Although the meeting was scheduled for ten in the morning, several team members, including the director and the project lead, did not arrive until almost half past, which delayed the agenda by nearly forty-five minutes.",
+  "text_sequence": [],
+  "keys_trained": ["A-Z", "Space", ",", ".", "Shift"],
+  "new_keys": [],
+  "finger_focus": "Complex sentence flow",
+  "tips": [
+    "Long sentences = real legal/academic/business writing",
+    "Subclauses (', which ...') need extra rhythm awareness",
+    "Don't rush the comma — but don't pause either"
+  ],
+  "character_tips": {
+    "anna": "Long sentences test sustained focus. Don't lose steam halfway through.",
+    "maxim": "Legal and academic writing lives here. Master this length.",
+    "knopych": "ENDURANCE MODE! 🏃 Marathon sentence!",
+    "klavochka": "Like a long melody, my dear — sustained and steady 🎶"
+  },
+  "phase": 5,
+  "rhythmLesson": false,
+  "created_at": "2026-05-25",
+  "version": "1.0"
+}

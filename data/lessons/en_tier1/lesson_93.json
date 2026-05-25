@@ -1,0 +1,31 @@
+{
+  "id": "en_tier1_lesson_93",
+  "tier": "en_tier1",
+  "lesson_number": 93,
+  "title": "Rhythm: literary flow",
+  "description": "Long literary passage — sustained 95 WPM, multi-sentence",
+  "target_wpm": 95,
+  "text_length": 350,
+  "error_limit_percent": 4,
+  "error_limit": 14,
+  "text": "In every life, there comes a quiet moment when an old skill becomes a friend. You stop noticing it. It simply moves with you, as breath does, or as the swing of an arm while walking. The keyboard is like that now. You no longer think about which finger goes where, or how fast you are going. You just write, and the words appear.",
+  "text_sequence": [],
+  "keys_trained": ["A-Z", "Space", ",", ".", "Shift"],
+  "new_keys": [],
+  "finger_focus": "95 WPM literary mastery",
+  "tips": [
+    "Multi-sentence rhythm at 95 WPM = world-class fluency",
+    "This is the speed of thinking — not slower, not faster",
+    "Metronome at 95 BPM — hold the tempo across every sentence"
+  ],
+  "character_tips": {
+    "anna": "95 WPM in flow. You are at the upper edge of what humans can sustain.",
+    "maxim": "Hold this for full pages and you can take any writing job.",
+    "knopych": "FLOW STATE FOREVER! 🌊 You ARE the wave now!",
+    "klavochka": "Like dancing without thinking, my sunshine — pure grace 💃"
+  },
+  "phase": 7,
+  "rhythmLesson": true,
+  "created_at": "2026-05-25",
+  "version": "1.0"
+}

@@ -1,0 +1,31 @@
+{
+  "id": "en_tier1_lesson_72",
+  "tier": "en_tier1",
+  "lesson_number": 72,
+  "title": "Meeting notes at speed",
+  "description": "Real meeting notes — bullets, attendees, decisions",
+  "target_wpm": 71,
+  "text_length": 250,
+  "error_limit_percent": 6,
+  "error_limit": 15,
+  "text": "Meeting: Q3 Planning. Attendees: David, Sarah, Mark, Lisa. Decisions: 1) launch on August 15; 2) increase marketing budget by 20%; 3) hire two more engineers. Action items: Sarah owns the launch checklist; Mark drafts the budget proposal by Friday.",
+  "text_sequence": [],
+  "keys_trained": ["A-Z", "0-9", "Space", ",", ".", ":", ";", ")", "%", "Shift"],
+  "new_keys": [],
+  "finger_focus": "Note-taking rhythm",
+  "tips": [
+    "Note-taking is real-time speed — no time to re-type",
+    "Short fragments + colons + numbers — typical meeting format",
+    "Practice this until you can type AND listen at the same time"
+  ],
+  "character_tips": {
+    "anna": "Live note-taking is the ultimate speed test. Train this for any career.",
+    "maxim": "If you can type faster than people talk, you'll never miss a meeting detail.",
+    "knopych": "STENO MODE! 📝 Catch every word!",
+    "klavochka": "Like writing while listening, my dear — focused and quick 🎯"
+  },
+  "phase": 5,
+  "rhythmLesson": false,
+  "created_at": "2026-05-25",
+  "version": "1.0"
+}

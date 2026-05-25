@@ -1,0 +1,31 @@
+{
+  "id": "en_tier1_lesson_78",
+  "tier": "en_tier1",
+  "lesson_number": 78,
+  "title": "Rhythm: news flow paragraph",
+  "description": "Multi-sentence news paragraph — sustained 80 WPM rhythm",
+  "target_wpm": 80,
+  "text_length": 300,
+  "error_limit_percent": 5,
+  "error_limit": 15,
+  "text": "Reports from Tokyo on Thursday confirmed the launch of a new high-speed rail line connecting three major cities. The project, which took six years and cost over forty billion yen, is expected to cut commute times by nearly half. Officials say the route will carry up to ninety thousand passengers daily.",
+  "text_sequence": [],
+  "keys_trained": ["A-Z", "Space", ",", ".", "Shift"],
+  "new_keys": [],
+  "finger_focus": "Sustained 80 WPM journalism",
+  "tips": [
+    "Long news paragraph at 80 WPM = real newsroom speed",
+    "Names and places break flow — practice their entry rhythm",
+    "Metronome at 80 BPM — sustain it across all sentences"
+  ],
+  "character_tips": {
+    "anna": "Newsroom speed at 80 WPM. This is where journalists live.",
+    "maxim": "80 WPM sustained is what professional writers hit.",
+    "knopych": "WIRE SERVICE SPEED! 📰 Get the scoop!",
+    "klavochka": "Telling the world's story with grace, my sunshine ☀️"
+  },
+  "phase": 6,
+  "rhythmLesson": true,
+  "created_at": "2026-05-25",
+  "version": "1.0"
+}

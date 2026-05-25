@@ -1,0 +1,31 @@
+{
+  "id": "en_tier1_lesson_63",
+  "tier": "en_tier1",
+  "lesson_number": 63,
+  "title": "Rhythm: prose paragraph at speed",
+  "description": "Rhythm exercise — full narrative paragraph, find sustained tempo",
+  "target_wpm": 62,
+  "text_length": 230,
+  "error_limit_percent": 6,
+  "error_limit": 14,
+  "text": "She had been writing for almost an hour when the door opened. Her brother walked in with two cups of tea and a wide smile. \"How is the chapter coming along?\" he asked, sitting down beside her. \"Almost done,\" she said, and they both laughed.",
+  "text_sequence": [],
+  "keys_trained": ["A-Z", "Space", ",", ".", "?", "\"", "Shift"],
+  "new_keys": [],
+  "finger_focus": "Dialogue + narration flow",
+  "tips": [
+    "Dialogue is great rhythm practice — short bursts with structure",
+    "Quotes break flow — practice their entry/exit smoothly",
+    "Enable metronome at 62 BPM — match your finger tempo"
+  ],
+  "character_tips": {
+    "anna": "Dialogue + narration is real writing. Master both transitions.",
+    "maxim": "Quotes test your Shift timing under prose flow. Stay smooth.",
+    "knopych": "STORY FLOW! 🎬 Action and dialogue!",
+    "klavochka": "Two voices in one paragraph, my sunshine 🌷"
+  },
+  "phase": 5,
+  "rhythmLesson": true,
+  "created_at": "2026-05-25",
+  "version": "1.0"
+}

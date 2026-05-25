@@ -1,0 +1,31 @@
+{
+  "id": "en_tier1_lesson_85",
+  "tier": "en_tier1",
+  "lesson_number": 85,
+  "title": "85-lesson milestone",
+  "description": "15 lessons from the finish — checkpoint at 85 WPM",
+  "target_wpm": 85,
+  "text_length": 310,
+  "error_limit_percent": 5,
+  "error_limit": 15,
+  "text": "Eighty-five lessons. Fifteen to the finish. Your speed has nearly doubled since lesson one, and your accuracy is steady where it counts. The final stretch is not about adding new skills — it is about hardening what you have so that high speed feels effortless, even on a Monday morning after a long weekend.",
+  "text_sequence": [],
+  "keys_trained": ["A-Z", "Space", ",", ".", "Shift"],
+  "new_keys": [],
+  "finger_focus": "Sustained 85 WPM",
+  "tips": [
+    "15 lessons left = final stretch",
+    "85 WPM = professional writer / programmer speed",
+    "The remaining lessons make this speed AUTOMATIC, not effortful"
+  ],
+  "character_tips": {
+    "anna": "🎯 85 WPM. Fifteen to go. The work now is to make this speed feel effortless.",
+    "maxim": "Pro speed. The final lessons turn it from earned into automatic.",
+    "knopych": "85! FINAL STRETCH! 🏁 Sprint to victory!",
+    "klavochka": "So close to legend, my star ⭐⭐⭐"
+  },
+  "phase": 6,
+  "rhythmLesson": false,
+  "created_at": "2026-05-25",
+  "version": "1.0"
+}

@@ -1,0 +1,31 @@
+{
+  "id": "en_tier1_lesson_95",
+  "tier": "en_tier1",
+  "lesson_number": 95,
+  "title": "95-lesson milestone",
+  "description": "Five lessons from the finish — checkpoint at 97 WPM",
+  "target_wpm": 97,
+  "text_length": 320,
+  "error_limit_percent": 4,
+  "error_limit": 13,
+  "text": "Five lessons remain. You have already done the hard work. The fingers know the keys; the eyes read ahead; the mind no longer thinks in letters but in phrases and paragraphs. The remaining lessons exist not to add new skill, but to confirm what you have already built — and to give you a number to be proud of for the rest of your career.",
+  "text_sequence": [],
+  "keys_trained": ["A-Z", "Space", ",", ".", ";", "Shift"],
+  "new_keys": [],
+  "finger_focus": "97 WPM sustained",
+  "tips": [
+    "5 lessons left = victory lap",
+    "97 WPM is faster than the world's average human speaks",
+    "Final test is L99 — comprehensive at 105 WPM"
+  ],
+  "character_tips": {
+    "anna": "🎯 5 lessons left. The remaining work is celebration, not effort.",
+    "maxim": "97 WPM. Faster than most humans speak. Almost done.",
+    "knopych": "5 TO GO! 🎉 Victory lap!",
+    "klavochka": "Five steps to the summit, my hero! 🏔️"
+  },
+  "phase": 7,
+  "rhythmLesson": false,
+  "created_at": "2026-05-25",
+  "version": "1.0"
+}

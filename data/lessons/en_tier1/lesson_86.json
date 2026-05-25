@@ -1,0 +1,31 @@
+{
+  "id": "en_tier1_lesson_86",
+  "tier": "en_tier1",
+  "lesson_number": 86,
+  "title": "Legal / formal prose",
+  "description": "Contract-style language — long sentences, formal tone",
+  "target_wpm": 85,
+  "text_length": 310,
+  "error_limit_percent": 5,
+  "error_limit": 15,
+  "text": "Subject to the terms and conditions set forth in this Agreement, the Provider hereby grants to the Customer a non-exclusive, non-transferable, revocable license to access and use the Service solely for internal business purposes, during the term of this Agreement and in accordance with the documentation provided.",
+  "text_sequence": [],
+  "keys_trained": ["A-Z", "Space", ",", ".", "-", "Shift"],
+  "new_keys": [],
+  "finger_focus": "Formal long-form prose",
+  "tips": [
+    "Legal/contract prose has its own rhythm — extra-long sentences",
+    "Words like \"hereinafter\" become single units — don't slow down",
+    "Lawyers, paralegals, and contracts teams type this all day"
+  ],
+  "character_tips": {
+    "anna": "Legal English is formal but rhythmic. Most legal writers cap at 60 WPM.",
+    "maxim": "If you can type contracts at 85 WPM, you're faster than 99% of paralegals.",
+    "knopych": "LEGAL EAGLE! ⚖️ Long sentences, no fear!",
+    "klavochka": "Careful and dignified, my dear — like a proper document 📜"
+  },
+  "phase": 6,
+  "rhythmLesson": false,
+  "created_at": "2026-05-25",
+  "version": "1.0"
+}

@@ -1,0 +1,31 @@
+{
+  "id": "en_tier1_lesson_81",
+  "tier": "en_tier1",
+  "lesson_number": 81,
+  "title": "Code-like content speed",
+  "description": "Variable names, methods, brackets — coder rhythm",
+  "target_wpm": 82,
+  "text_length": 270,
+  "error_limit_percent": 5,
+  "error_limit": 13,
+  "text": "function getUserById(userId) { const user = await db.users.findOne({ id: userId }); if (!user) throw new NotFoundError('user'); return user.toJSON(); } export default getUserById; // also: validateInput, checkPermission, logAccess",
+  "text_sequence": [],
+  "keys_trained": ["A-Z", "Space", "(", ")", "{", "}", ".", ",", ";", "'", "/", "!", ":", "Shift"],
+  "new_keys": [],
+  "finger_focus": "Code symbols at speed",
+  "tips": [
+    "Real code = English words + symbols + brackets",
+    "Brackets/braces should flow as natural punctuation",
+    "Engineers type code 5+ hours daily — this is your gold mine"
+  ],
+  "character_tips": {
+    "anna": "Code is just structured English. Train the symbols, the rest is words.",
+    "maxim": "Engineers underrate typing speed — until they need to pair-program.",
+    "knopych": "CODE WIZARD! 🧙 Brackets, braces, semicolons — all friends!",
+    "klavochka": "The language of computers, my treasure — kind but precise 💻"
+  },
+  "phase": 6,
+  "rhythmLesson": false,
+  "created_at": "2026-05-25",
+  "version": "1.0"
+}

@@ -1,0 +1,31 @@
+{
+  "id": "en_tier1_lesson_66",
+  "tier": "en_tier1",
+  "lesson_number": 66,
+  "title": "65-lesson checkpoint: sustained speed",
+  "description": "Mid-Block 5 speed checkpoint — full paragraph, no breaks",
+  "target_wpm": 65,
+  "text_length": 240,
+  "error_limit_percent": 6,
+  "error_limit": 14,
+  "text": "Two-thirds through the course now. Your fingers know the keyboard better than you think. Trust them. Read ahead by a word or two, breathe steadily, and let the text flow from your hands without thinking about which finger goes where.",
+  "text_sequence": [],
+  "keys_trained": ["A-Z", "Space", ",", ".", "Shift"],
+  "new_keys": [],
+  "finger_focus": "Sustained 65 WPM — no slowdown",
+  "tips": [
+    "65 lessons = two-thirds done",
+    "Track your peak WPM — is it climbing? You're on the right curve",
+    "If you stall here, drop accuracy to 90% and push speed up"
+  ],
+  "character_tips": {
+    "anna": "Two-thirds checkpoint. Your fingers know more than your conscious mind.",
+    "maxim": "65 lessons in. Track your number — it should be above 60 by now.",
+    "knopych": "CHECKPOINT! 🚩 You're closer to victory than start!",
+    "klavochka": "Almost there, my star ⭐ Keep that beautiful rhythm!"
+  },
+  "phase": 5,
+  "rhythmLesson": false,
+  "created_at": "2026-05-25",
+  "version": "1.0"
+}

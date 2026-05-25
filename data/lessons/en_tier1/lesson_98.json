@@ -1,0 +1,31 @@
+{
+  "id": "en_tier1_lesson_98",
+  "tier": "en_tier1",
+  "lesson_number": 98,
+  "title": "Pre-final stress test",
+  "description": "Mixed real-world content at 102 WPM — last warmup before L99",
+  "target_wpm": 102,
+  "text_length": 360,
+  "error_limit_percent": 4,
+  "error_limit": 15,
+  "text": "One lesson to go. You will face a comprehensive final — long, dense, mixed-content prose covering everything you have learned. This lesson is the warmup: a stress test at 102 WPM with names, numbers, punctuation, and quoted dialogue. \"Are you ready?\" the trainer asked. \"More than ready,\" you said, hands resting calmly on the home row. \"Let's finish this.\"",
+  "text_sequence": [],
+  "keys_trained": ["A-Z", "0-9", "Space", ",", ".", ":", "?", "!", "\"", "'", "Shift"],
+  "new_keys": [],
+  "finger_focus": "102 WPM stress",
+  "tips": [
+    "Last lesson before the comprehensive final",
+    "Pass at 102 WPM = ready for L99 (105 WPM, 400+ chars)",
+    "Hands on home row, breathe, press play"
+  ],
+  "character_tips": {
+    "anna": "One lesson to go. This is the warmup — make sure your hands are calm.",
+    "maxim": "Final exam tomorrow. Tonight: warmup. Hands ready.",
+    "knopych": "FINAL BOSS APPROACHING! ⚔️ Prepare!",
+    "klavochka": "One step to victory, my hero! Be calm and brave 🌟"
+  },
+  "phase": 7,
+  "rhythmLesson": false,
+  "created_at": "2026-05-25",
+  "version": "1.0"
+}

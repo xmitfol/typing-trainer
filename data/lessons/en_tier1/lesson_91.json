@@ -1,0 +1,31 @@
+{
+  "id": "en_tier1_lesson_91",
+  "tier": "en_tier1",
+  "lesson_number": 91,
+  "title": "Mastery: full paragraph at 92 WPM",
+  "description": "Block 7 opener — sustained mastery-level paragraph",
+  "target_wpm": 92,
+  "text_length": 320,
+  "error_limit_percent": 4,
+  "error_limit": 13,
+  "text": "Mastery is quiet. The typist at ninety-two words per minute does not look fast. The hands barely move. The keyboard makes a steady, even sound. What you are seeing is the absence of effort — years of practice compressed into a few quick, certain gestures. That is what you have built over the past ninety lessons.",
+  "text_sequence": [],
+  "keys_trained": ["A-Z", "Space", ",", ".", "Shift"],
+  "new_keys": [],
+  "finger_focus": "Effortless 92 WPM",
+  "tips": [
+    "Block 7 = the final polish on a year-shaped skill",
+    "92 WPM should feel calm by now, not strained",
+    "If you have to fight for speed here, drop accuracy and try again"
+  ],
+  "character_tips": {
+    "anna": "Block 7! Mastery isn't effort — it's the absence of effort.",
+    "maxim": "Nine lessons to mastery. Each one polishes what you have.",
+    "knopych": "FINAL BLOCK! 🏔️ The summit is in sight!",
+    "klavochka": "The final ascent, my star ⭐ Steady and graceful!"
+  },
+  "phase": 7,
+  "rhythmLesson": false,
+  "created_at": "2026-05-25",
+  "version": "1.0"
+}

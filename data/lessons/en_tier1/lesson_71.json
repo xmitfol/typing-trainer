@@ -1,0 +1,31 @@
+{
+  "id": "en_tier1_lesson_71",
+  "tier": "en_tier1",
+  "lesson_number": 71,
+  "title": "Real email composition",
+  "description": "Full business email — greeting, body, signoff at speed",
+  "target_wpm": 70,
+  "text_length": 260,
+  "error_limit_percent": 6,
+  "error_limit": 15,
+  "text": "Hi Sarah, thank you for the update on the Q3 roadmap. I reviewed the projections and they look solid. One question: can we shift the marketing launch to mid-August? That would give the engineering team an extra week. Looking forward to your reply. Best, Alex.",
+  "text_sequence": [],
+  "keys_trained": ["A-Z", "Space", ",", ".", ":", "?", "Shift"],
+  "new_keys": [],
+  "finger_focus": "Email rhythm + tone",
+  "tips": [
+    "Average professional writes 30+ emails a day",
+    "Email rhythm = quick greeting + body + signoff — practice all three",
+    "Commas in greetings/signoffs are habits — train muscle memory"
+  ],
+  "character_tips": {
+    "anna": "Emails are the heartbeat of work. Train them = win every workday.",
+    "maxim": "30+ emails/day average. Master this rhythm = save hours weekly.",
+    "knopych": "INBOX ATTACK! ⚔️ Type emails like a samurai!",
+    "klavochka": "Polite, clear, friendly — like a good letter, my dear ✉️"
+  },
+  "phase": 5,
+  "rhythmLesson": false,
+  "created_at": "2026-05-25",
+  "version": "1.0"
+}
