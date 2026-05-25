@@ -337,10 +337,20 @@ class TypingTrainer {
 
     // ── Tier switcher (UI для переключения курса tier1 ↔ block_1) ──
 
-    // Human-readable labels (UI-только, не data)
+    // Tier-метаданные (UI-только, не data). Includes label, language, age-kind.
+    getTierMeta(tier) {
+        const map = {
+            tier1:    { lang: 'ru', kind: 'adult',      label: 'Основной' },
+            block_1:  { lang: 'ru', kind: 'diagnostic', label: 'Мизинец'  },
+            en_tier1: { lang: 'en', kind: 'adult',      label: 'English'  },
+            en_teen:  { lang: 'en', kind: 'teen',       label: 'Junior'   },
+            en_kids:  { lang: 'en', kind: 'kids',       label: 'Kids'     }
+        };
+        return map[tier] || { lang: 'ru', kind: 'adult', label: tier };
+    }
+
     getTierLabel(tier) {
-        const labels = { tier1: 'Основной', block_1: 'Мизинец', en_tier1: 'English', en_teen: 'EN Junior', en_kids: 'EN Kids' };
-        return labels[tier] || tier;
+        return this.getTierMeta(tier).label;
     }
 
     // Все доступные тиры из настроек
@@ -361,14 +371,31 @@ class TypingTrainer {
             || (window.Settings && window.Settings.get('lessons.defaultTier', 'tier1'))
             || 'tier1';
 
-        container.innerHTML = tiers.map(t => {
+        // Группировка по языку — RU pills сверху, EN ниже. Внутри группы сохраняем
+        // порядок из tierLessonCount (адекватный по умолчанию).
+        const groups = { ru: [], en: [] };
+        tiers.forEach(t => {
+            const meta = this.getTierMeta(t);
+            (groups[meta.lang] || (groups[meta.lang] = [])).push(t);
+        });
+
+        const renderPill = (t) => {
+            const meta = this.getTierMeta(t);
             const total = this.getTierLessonCount(t);
             const active = t === currentTier;
-            return `<button type="button" class="tier-pill${active ? ' tier-active' : ''}" data-tier="${t}" role="radio" aria-checked="${active}" title="${this.getTierLabel(t)} — ${total} уроков">
-                <span class="tier-name">${this.escapeHtml(this.getTierLabel(t))}</span>
+            const badge = meta.lang.toUpperCase();
+            return `<button type="button" class="tier-pill${active ? ' tier-active' : ''}" data-tier="${t}" data-lang="${meta.lang}" data-kind="${meta.kind}" role="radio" aria-checked="${active}" title="${badge} · ${meta.label} — ${total} уроков">
+                <span class="tier-flag">${badge}</span>
+                <span class="tier-name">${this.escapeHtml(meta.label)}</span>
                 <span class="tier-count">${total}</span>
             </button>`;
-        }).join('');
+        };
+
+        const html = ['ru', 'en']
+            .filter(lang => groups[lang] && groups[lang].length > 0)
+            .map(lang => `<div class="tier-group" data-lang="${lang}">${groups[lang].map(renderPill).join('')}</div>`)
+            .join('');
+        container.innerHTML = html;
 
         container.querySelectorAll('.tier-pill').forEach(btn => {
             btn.addEventListener('click', () => this.switchTier(btn.dataset.tier));
