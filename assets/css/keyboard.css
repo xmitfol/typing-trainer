@@ -180,25 +180,63 @@
 }
 
 /* ============================================
-   4. Состояния (legacy API: active/highlight/correct-press/incorrect-press)
-   В Phase 2 расширим до design-states (default/hover/active/highlight/error)
+   4. Состояния клавиш — дизайн-states из handoff'а
+   Каждая клавиша имеет inline-переменные --finger-solid / --finger-fill
+   (выставляются в keyboard.js createKeyElement).
    ============================================ */
 
-.key.active {
-    transform: translateY(1px) scale(0.98);
-    box-shadow: inset 0 2px 4px rgba(0,0,0,0.3);
-    filter: brightness(0.92);
+/* HOVER — outline 1.5px цветом пальца (или серый для модификаторов) */
+.key:hover {
+    box-shadow:
+        0 0 0 1.5px var(--finger-solid, rgba(0,0,0,0.2)),
+        0 1px 0 rgba(255,255,255,0.9) inset,
+        0 1px 2px rgba(0,0,0,0.06),
+        0 2px 6px rgba(0,0,0,0.04);
 }
 
+/* ACTIVE — клавиша нажата правильно: full color fill + glow.
+   Для модификаторов: pressed-look без смены фона. */
+.key.active:not(.mod) {
+    background: var(--finger-fill);
+    color: #ffffff;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.2);
+    border-color: rgba(0,0,0,0.06);
+    box-shadow:
+        0 0 0 2px var(--finger-solid),
+        0 0 0 6px color-mix(in srgb, var(--finger-solid) 20%, transparent),
+        0 4px 12px color-mix(in srgb, var(--finger-solid) 40%, transparent);
+    transform: translateY(0);
+}
+
+.key.mod.active {
+    transform: translateY(1px) scale(0.98);
+    filter: brightness(0.94);
+    box-shadow: inset 0 2px 4px rgba(0,0,0,0.25);
+}
+
+/* HIGHLIGHT — подсказка "эту клавишу нужно нажать следующей": outline + diffuse glow */
 .key.highlight {
     z-index: 10;
     box-shadow:
-        0 0 0 2px #74b9ff,
-        0 0 18px rgba(116,185,255,0.6),
+        0 0 0 2px var(--finger-solid, #74b9ff),
+        0 0 18px color-mix(in srgb, var(--finger-solid, #74b9ff) 50%, transparent),
         0 1px 2px rgba(0,0,0,0.06);
-    animation: kbKeyGlow 1.2s ease-in-out infinite;
+    animation: kbKeyGlow 1.4s ease-in-out infinite;
 }
 
+/* ERROR — нажата не та клавиша: красный fill + red glow */
+.key.error {
+    background: #ff4757;
+    color: #ffffff;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.25);
+    border-color: rgba(0,0,0,0.06);
+    box-shadow:
+        0 0 0 2px #ff4757,
+        0 0 0 6px rgba(255,71,87,0.2),
+        0 4px 12px rgba(255,71,87,0.4);
+}
+
+/* Legacy short animations (back-compat для animateCorrectKey/animateIncorrectKey API) */
 .key.correct-press {
     animation: kbCorrectPress 0.3s ease;
 }
@@ -210,14 +248,14 @@
 @keyframes kbKeyGlow {
     0%, 100% {
         box-shadow:
-            0 0 0 2px #74b9ff,
-            0 0 18px rgba(116,185,255,0.6),
+            0 0 0 2px var(--finger-solid, #74b9ff),
+            0 0 18px color-mix(in srgb, var(--finger-solid, #74b9ff) 50%, transparent),
             0 1px 2px rgba(0,0,0,0.06);
     }
     50% {
         box-shadow:
-            0 0 0 2px #74b9ff,
-            0 0 28px rgba(116,185,255,0.9),
+            0 0 0 2px var(--finger-solid, #74b9ff),
+            0 0 28px color-mix(in srgb, var(--finger-solid, #74b9ff) 80%, transparent),
             0 1px 2px rgba(0,0,0,0.06);
     }
 }
@@ -226,7 +264,9 @@
     0% { transform: scale(1); }
     50% {
         transform: scale(1.08);
-        box-shadow: 0 0 0 2px #00b894, 0 0 20px rgba(0,184,148,0.6);
+        box-shadow:
+            0 0 0 2px #00b894,
+            0 0 20px rgba(0,184,148,0.6);
     }
     100% { transform: scale(1); }
 }

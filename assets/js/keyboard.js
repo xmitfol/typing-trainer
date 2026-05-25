@@ -23,6 +23,13 @@ function createKeyElement(keyData, unit) {
     if (keyData.code) el.dataset.code = keyData.code;
     if (keyData.f) el.dataset.finger = keyData.f;
 
+    // CSS custom properties для state-shadows из дизайн-спецификации
+    // Хук: var(--finger-solid)/var(--finger-fill) в keyboard.css
+    if (fingerInfo) {
+        el.style.setProperty('--finger-solid', fingerInfo.solid);
+        el.style.setProperty('--finger-fill', fingerInfo.fill);
+    }
+
     // data-key — для back-compat с highlightKey/pressKey (ищут [data-key=…])
     // Приоритет: явное поле keyData.key (например "Backspace"/" "/"Shift"),
     // иначе lowercase label (для буквы/цифры). У символов как ё это тоже работает.
