@@ -784,8 +784,8 @@ class TypingTrainer {
             this.notifyCharacter('tooManyErrors', { errors, limit, name: this.getUserName() });
         }
 
-        // Превышение лимита → "лимит ошибок исчерпан"
-        if (limit !== null && !this.state.errorLimitFired && errors > limit) {
+        // Достижение лимита → "лимит ошибок исчерпан" (>= — toast при попадании ровно в лимит)
+        if (limit !== null && !this.state.errorLimitFired && errors >= limit) {
             this.state.errorLimitFired = true;
             this.notifyCharacter('errorLimitExceeded', { errors, limit, name: this.getUserName() });
         }
