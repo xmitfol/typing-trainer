@@ -1,0 +1,37 @@
+{
+  "id": "en_kids_lesson_42",
+  "tier": "en_kids",
+  "lesson_number": 42,
+  "title": "All colors together",
+  "description": "A rainbow in writing",
+  "target_wpm": 42,
+  "text_length": 147,
+  "error_limit_percent": 10,
+  "error_limit": 14,
+  "text": "Red apples and blue skies. Green grass and yellow sun. Purple flowers and pink hearts. Black night and white snow. Colors make the world beautiful!",
+  "text_sequence": [],
+  "keys_trained": [
+    "A-Z",
+    "Shift",
+    "Space",
+    ".",
+    "!"
+  ],
+  "new_keys": [],
+  "finger_focus": "Color vocabulary at speed",
+  "tips": [
+    "All colors in real sentences",
+    "Picture each color + object",
+    "Beautiful word painting"
+  ],
+  "character_tips": {
+    "anna": "Colors in real sentences. Word painting!",
+    "maxim": "Color-image pairing. Memory-strong content.",
+    "knopych": "🌈 RAINBOW SHOWCASE!",
+    "klavochka": "Such a colorful world, my treasure 🌈"
+  },
+  "phase": 5,
+  "rhythmLesson": false,
+  "created_at": "2026-05-25",
+  "version": "1.0"
+}

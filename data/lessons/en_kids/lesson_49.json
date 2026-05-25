@@ -1,0 +1,38 @@
+{
+  "id": "en_kids_lesson_49",
+  "tier": "en_kids",
+  "lesson_number": 49,
+  "title": "Final warmup",
+  "description": "Calm focus before the big finish",
+  "target_wpm": 49,
+  "text_length": 171,
+  "error_limit_percent": 10,
+  "error_limit": 17,
+  "text": "One lesson left, my little hero. Take a breath. Sit up tall. Place your fingers on home row. Find F and J by feel. The next lesson is your certificate exam. You can do it!",
+  "text_sequence": [],
+  "keys_trained": [
+    "A-Z",
+    "Shift",
+    "Space",
+    ".",
+    ",",
+    "!"
+  ],
+  "new_keys": [],
+  "finger_focus": "Final warmup",
+  "tips": [
+    "Calming meta-prose",
+    "One lesson to the certificate",
+    "Confidence + readiness"
+  ],
+  "character_tips": {
+    "anna": "Last warmup. Breathe. You've trained for this.",
+    "maxim": "Final warmup. Body and mind ready.",
+    "knopych": "⚔️ FINAL BOSS NEXT! Hands ready!",
+    "klavochka": "One breath away from your crown, my hero 👑🌸"
+  },
+  "phase": 5,
+  "rhythmLesson": false,
+  "created_at": "2026-05-25",
+  "version": "1.0"
+}

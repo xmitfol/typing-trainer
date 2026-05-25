@@ -1,0 +1,41 @@
+{
+  "id": "en_teen_lesson_60",
+  "tier": "en_teen",
+  "lesson_number": 60,
+  "title": "BLOCK 4 FINAL: Speed mastery",
+  "description": "Block 4 final — 85 WPM on a real news/blog hybrid passage",
+  "target_wpm": 85,
+  "text_length": 324,
+  "error_limit_percent": 4,
+  "error_limit": 12,
+  "text": "After eighteen months of beta testing, the platform officially launched on Monday with over 200,000 sign-ups in the first 24 hours. Early reviews from creators have been overwhelmingly positive: \"This finally feels like a tool built by people who actually use it,\" wrote one popular reviewer. Investors are watching closely.",
+  "text_sequence": [],
+  "keys_trained": [
+    "A-Z",
+    "0-9",
+    "Shift",
+    "Space",
+    ".",
+    ",",
+    "\"",
+    "-",
+    ":"
+  ],
+  "new_keys": [],
+  "finger_focus": "Block 4 final gate at 85 WPM",
+  "tips": [
+    "🎓 Teen Block 4 done! 85 WPM on real news/blog",
+    "From here, Block 5 = practical school + final exam",
+    "L75 is the course final at 95 WPM"
+  ],
+  "character_tips": {
+    "anna": "🎯 Teen Block 4 done! 85 WPM. Final block coming.",
+    "maxim": "Speed mastery cleared. Block 5 = real-world application.",
+    "knopych": "🐉🏆 BLOCK 4 BOSS DOWN! Speed elite!",
+    "klavochka": "Four triumphs, my hero! 🎉⭐⭐⭐⭐"
+  },
+  "phase": 4,
+  "rhythmLesson": false,
+  "created_at": "2026-05-25",
+  "version": "1.0"
+}

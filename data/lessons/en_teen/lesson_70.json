@@ -1,0 +1,38 @@
+{
+  "id": "en_teen_lesson_70",
+  "tier": "en_teen",
+  "lesson_number": 70,
+  "title": "70-lesson milestone",
+  "description": "Pre-final checkpoint at 93 WPM",
+  "target_wpm": 93,
+  "text_length": 212,
+  "error_limit_percent": 4,
+  "error_limit": 8,
+  "text": "Five lessons remain. You can type 93 words per minute on dense school content — most adults can't. The final, at lesson 75, is a tournament-style mixed-content paragraph. Stay sharp, stay accurate, finish strong.",
+  "text_sequence": [],
+  "keys_trained": [
+    "A-Z",
+    "Shift",
+    "Space",
+    ".",
+    ",",
+    "-"
+  ],
+  "new_keys": [],
+  "finger_focus": "70-lesson speed test",
+  "tips": [
+    "93 WPM on school content = elite teen",
+    "5 lessons to final tournament exam",
+    "L75 is the certificate exam"
+  ],
+  "character_tips": {
+    "anna": "🎯 93 WPM. Five lessons left. Don't peak early — hold steady.",
+    "maxim": "70 in. Five to finish. Hold the gain.",
+    "knopych": "🏆 5 TO GO! Last sprint!",
+    "klavochka": "Five steps to your crown, my hero ⭐"
+  },
+  "phase": 5,
+  "rhythmLesson": false,
+  "created_at": "2026-05-25",
+  "version": "1.0"
+}

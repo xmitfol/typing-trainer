@@ -1,0 +1,38 @@
+{
+  "id": "en_teen_lesson_65",
+  "tier": "en_teen",
+  "lesson_number": 65,
+  "title": "65-lesson milestone",
+  "description": "Two-thirds of teen course — checkpoint",
+  "target_wpm": 90,
+  "text_length": 206,
+  "error_limit_percent": 4,
+  "error_limit": 8,
+  "text": "65 lessons. You can write a school essay faster than you can think it. That's a real skill. The remaining ten lessons polish what you have, and then you'll face the final tournament-style exam at lesson 75.",
+  "text_sequence": [],
+  "keys_trained": [
+    "A-Z",
+    "Shift",
+    "Space",
+    ".",
+    ",",
+    "-"
+  ],
+  "new_keys": [],
+  "finger_focus": "65-lesson speed test",
+  "tips": [
+    "90 WPM = top 5% globally for any age",
+    "Ten lessons to teen course final",
+    "L75 is the tournament exam"
+  ],
+  "character_tips": {
+    "anna": "🎯 90 WPM. Top 5% in the world. Ten lessons to the final tournament.",
+    "maxim": "65 in. Final stretch. Hold the gain.",
+    "knopych": "🏆 65! TOURNAMENT INCOMING!",
+    "klavochka": "Ten steps to the throne, my hero 👑"
+  },
+  "phase": 5,
+  "rhythmLesson": false,
+  "created_at": "2026-05-25",
+  "version": "1.0"
+}

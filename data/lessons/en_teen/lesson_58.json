@@ -1,0 +1,37 @@
+{
+  "id": "en_teen_lesson_58",
+  "tier": "en_teen",
+  "lesson_number": 58,
+  "title": "Rhythm: forum thread flow",
+  "description": "Multiple forum replies stitched together",
+  "target_wpm": 85,
+  "text_length": 182,
+  "error_limit_percent": 5,
+  "error_limit": 9,
+  "text": "good point but i'd argue the opposite. agree to disagree but here's why i think differently. interesting take though never thought of it that way. fair enough lets just move on then.",
+  "text_sequence": [],
+  "keys_trained": [
+    "A-Z",
+    "Space",
+    ",",
+    ".",
+    "'"
+  ],
+  "new_keys": [],
+  "finger_focus": "Forum thread rhythm",
+  "tips": [
+    "Multiple voices in flow — chat-like",
+    "Lowercase intentional, apostrophes everywhere",
+    "Metronome at 85 BPM"
+  ],
+  "character_tips": {
+    "anna": "Forum thread rhythm. Multiple voices, one tempo.",
+    "maxim": "Online debate prose at 85 WPM.",
+    "knopych": "💬 FORUM DEBATE! Multiple takes!",
+    "klavochka": "Friends debating thoughtfully, my dear 🤔"
+  },
+  "phase": 4,
+  "rhythmLesson": true,
+  "created_at": "2026-05-25",
+  "version": "1.0"
+}

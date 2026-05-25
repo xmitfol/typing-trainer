@@ -1,0 +1,45 @@
+{
+  "id": "en_teen_lesson_38",
+  "tier": "en_teen",
+  "lesson_number": 38,
+  "title": "ASCII emoji and reactions",
+  "description": "Old-school emoticons + reaction phrases",
+  "target_wpm": 66,
+  "text_length": 92,
+  "error_limit_percent": 6,
+  "error_limit": 5,
+  "text": ":) :D :( ;) <3 :P xD =) :') no way!! lol haha lmao bruh wait what omg fr cap nope yikes mood",
+  "text_sequence": [],
+  "keys_trained": [
+    "A-Z",
+    "Shift",
+    "Space",
+    ":",
+    ";",
+    ")",
+    "(",
+    "<",
+    "3",
+    "=",
+    "'",
+    ",",
+    "!"
+  ],
+  "new_keys": [],
+  "finger_focus": "Symbol + word mix",
+  "tips": [
+    "ASCII emoji = colon + paren or related",
+    "Speed comes from chunking — :) = one motion",
+    "Reactions = high-frequency social vocab"
+  ],
+  "character_tips": {
+    "anna": "ASCII emoticons predate emoji. Still everywhere in chat.",
+    "maxim": "Symbol clusters = chord-like motions. Train them as units.",
+    "knopych": ":) :D <3 PRE-EMOJI ART!",
+    "klavochka": "Tiny faces made from punctuation, my dear 😊"
+  },
+  "phase": 3,
+  "rhythmLesson": false,
+  "created_at": "2026-05-25",
+  "version": "1.0"
+}

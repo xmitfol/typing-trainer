@@ -1,0 +1,36 @@
+{
+  "id": "en_kids_lesson_20",
+  "tier": "en_kids",
+  "lesson_number": 20,
+  "title": "BLOCK 2 FINAL: First short story",
+  "description": "First real story at 25 WPM",
+  "target_wpm": 25,
+  "text_length": 129,
+  "error_limit_percent": 10,
+  "error_limit": 12,
+  "text": "a cat sat on the mat. the dog came in. the cat ran fast. the dog ran too. they played in the yard. mom called them home. the end.",
+  "text_sequence": [],
+  "keys_trained": [
+    "A-Z",
+    "Space",
+    ".",
+    ","
+  ],
+  "new_keys": [],
+  "finger_focus": "Block 2 mastery gate",
+  "tips": [
+    "🎉 First real story!",
+    "Period at the end of each sentence",
+    "You're a real little writer now!"
+  ],
+  "character_tips": {
+    "anna": "🎯 First story! 25 WPM = great young typist.",
+    "maxim": "Block 2 done. Word formation mastered.",
+    "knopych": "🐉 BLOCK 2 BOSS DEFEATED! Real story written!",
+    "klavochka": "🎉 First story, my hero! 💖 So proud!"
+  },
+  "phase": 2,
+  "rhythmLesson": false,
+  "created_at": "2026-05-25",
+  "version": "1.0"
+}

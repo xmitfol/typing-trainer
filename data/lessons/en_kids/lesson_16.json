@@ -1,0 +1,34 @@
+{
+  "id": "en_kids_lesson_16",
+  "tier": "en_kids",
+  "lesson_number": 16,
+  "title": "Colors: red, blue, green",
+  "description": "Color words!",
+  "target_wpm": 23,
+  "text_length": 92,
+  "error_limit_percent": 10,
+  "error_limit": 9,
+  "text": "red red red blue blue blue green green green yellow yellow pink pink black black white white",
+  "text_sequence": [],
+  "keys_trained": [
+    "A-Z",
+    "Space"
+  ],
+  "new_keys": [],
+  "finger_focus": "Color vocabulary",
+  "tips": [
+    "Six colors!",
+    "Picture each color while you type",
+    "Memory loves pictures"
+  ],
+  "character_tips": {
+    "anna": "Colors! Picture them as you type.",
+    "maxim": "Color vocabulary. Image-anchored words.",
+    "knopych": "🌈 RAINBOW MODE! Color collector!",
+    "klavochka": "All the pretty colors, my dear 🌈"
+  },
+  "phase": 2,
+  "rhythmLesson": false,
+  "created_at": "2026-05-25",
+  "version": "1.0"
+}

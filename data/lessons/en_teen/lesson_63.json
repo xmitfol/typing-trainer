@@ -1,0 +1,39 @@
+{
+  "id": "en_teen_lesson_63",
+  "tier": "en_teen",
+  "lesson_number": 63,
+  "title": "Literary analysis snippet",
+  "description": "Book analysis with quoted phrases",
+  "target_wpm": 88,
+  "text_length": 182,
+  "error_limit_percent": 4,
+  "error_limit": 7,
+  "text": "The author uses repetition as a powerful tool. Phrases like \"the wind kept blowing\" appear in three separate chapters, suggesting that nature itself becomes a character in the novel.",
+  "text_sequence": [],
+  "keys_trained": [
+    "A-Z",
+    "Shift",
+    "Space",
+    ".",
+    ",",
+    "\"",
+    "'"
+  ],
+  "new_keys": [],
+  "finger_focus": "Literary analysis rhythm",
+  "tips": [
+    "Quotes inside analysis = high-density format",
+    "Mid-sentence quoted phrases",
+    "Real literature class writing"
+  ],
+  "character_tips": {
+    "anna": "Literary analysis. Quotes inside argument = pro-level English.",
+    "maxim": "Book analysis is the highest-skill school writing.",
+    "knopych": "📚 BOOK BREAKDOWN! Analysis mode!",
+    "klavochka": "Discovering the secrets of a book, my dear 🔍"
+  },
+  "phase": 5,
+  "rhythmLesson": false,
+  "created_at": "2026-05-25",
+  "version": "1.0"
+}

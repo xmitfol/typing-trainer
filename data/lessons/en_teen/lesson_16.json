@@ -1,0 +1,39 @@
+{
+  "id": "en_teen_lesson_16",
+  "tier": "en_teen",
+  "lesson_number": 16,
+  "title": "Top row mastery: Q W E R T",
+  "description": "Drill left top row at speed — focus on accuracy",
+  "target_wpm": 38,
+  "text_length": 101,
+  "error_limit_percent": 7,
+  "error_limit": 7,
+  "text": "we wet were quit quiet rate water write quote query trade weather quest quartz tweet rest start great",
+  "text_sequence": [],
+  "keys_trained": [
+    "Q",
+    "W",
+    "E",
+    "R",
+    "T",
+    "A-Z",
+    "Space"
+  ],
+  "new_keys": [],
+  "finger_focus": "Left top row precision",
+  "tips": [
+    "Same finger as A-S-D-F column but UP",
+    "Q is left pinky — uncommon but still needs speed",
+    "Return to home row between bursts"
+  ],
+  "character_tips": {
+    "anna": "Top row left. Stretch up, then HOME. Repeat.",
+    "maxim": "QWERT bottlenecks are common. Drill them flat now.",
+    "knopych": "TOP ROW LEFT! ⬆️ Reach high — and back home!",
+    "klavochka": "Up and down like waves, my dear 🌊"
+  },
+  "phase": 2,
+  "rhythmLesson": false,
+  "created_at": "2026-05-25",
+  "version": "1.0"
+}

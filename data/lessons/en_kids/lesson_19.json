@@ -1,0 +1,34 @@
+{
+  "id": "en_kids_lesson_19",
+  "tier": "en_kids",
+  "lesson_number": 19,
+  "title": "Pre-final: little sentences",
+  "description": "Small sentences before the milestone",
+  "target_wpm": 25,
+  "text_length": 82,
+  "error_limit_percent": 10,
+  "error_limit": 8,
+  "text": "i see a cat the dog runs fast my mom is kind the sun is hot we eat cake i love you",
+  "text_sequence": [],
+  "keys_trained": [
+    "A-Z",
+    "Space"
+  ],
+  "new_keys": [],
+  "finger_focus": "Pre-milestone sentences",
+  "tips": [
+    "Tiny sentences in flow",
+    "Speed test before block end",
+    "No capitals or punctuation yet — just words"
+  ],
+  "character_tips": {
+    "anna": "Little sentences! Almost a story.",
+    "maxim": "Pre-milestone test. Word fluency check.",
+    "knopych": "📚 ALMOST READY! Block 2 finale next!",
+    "klavochka": "So close to the next milestone, my dear ⭐"
+  },
+  "phase": 2,
+  "rhythmLesson": false,
+  "created_at": "2026-05-25",
+  "version": "1.0"
+}

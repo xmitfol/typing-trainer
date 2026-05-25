@@ -1,0 +1,37 @@
+{
+  "id": "en_kids_lesson_44",
+  "tier": "en_kids",
+  "lesson_number": 44,
+  "title": "Long story practice",
+  "description": "A longer story — sustained focus",
+  "target_wpm": 44,
+  "text_length": 257,
+  "error_limit_percent": 10,
+  "error_limit": 25,
+  "text": "Once there was a girl named Maya who loved to read. Every night she read a book under the covers with a tiny flashlight. One night the book started to glow! Inside was a tiny world with tiny people. Maya was their hero from then on. She visited every night.",
+  "text_sequence": [],
+  "keys_trained": [
+    "A-Z",
+    "Shift",
+    "Space",
+    ".",
+    "!"
+  ],
+  "new_keys": [],
+  "finger_focus": "Long story",
+  "tips": [
+    "Longer story = sustained focus",
+    "Multiple plot beats",
+    "Practice for the finale"
+  ],
+  "character_tips": {
+    "anna": "Long story practice. Focus across multiple sentences.",
+    "maxim": "Sustained narrative speed. Pre-finale conditioning.",
+    "knopych": "📖 EPIC TALE! Maya's adventures!",
+    "klavochka": "A magical reading adventure, my dear 📚✨"
+  },
+  "phase": 5,
+  "rhythmLesson": false,
+  "created_at": "2026-05-25",
+  "version": "1.0"
+}

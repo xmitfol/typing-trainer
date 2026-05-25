@@ -1,0 +1,40 @@
+{
+  "id": "en_teen_lesson_55",
+  "tier": "en_teen",
+  "lesson_number": 55,
+  "title": "Speed challenge: quick draft",
+  "description": "Type a quick draft message at speed",
+  "target_wpm": 83,
+  "text_length": 185,
+  "error_limit_percent": 5,
+  "error_limit": 9,
+  "text": "Hey team, just got off the call with the client. They want to push launch by two weeks and add the new feature we discussed. Can we sync at 4 today to plan? Quick chat — 15 minutes max.",
+  "text_sequence": [],
+  "keys_trained": [
+    "A-Z",
+    "Shift",
+    "Space",
+    ".",
+    ",",
+    "-",
+    "?",
+    "'"
+  ],
+  "new_keys": [],
+  "finger_focus": "Draft message at speed",
+  "tips": [
+    "Real team-message style at 83 WPM",
+    "Numbers + punctuation + flow",
+    "Practice writing what you would actually send"
+  ],
+  "character_tips": {
+    "anna": "Quick team message. Real work pace.",
+    "maxim": "Draft writing at 83 WPM = pro speed for daily work.",
+    "knopych": "📨 QUICK MESSAGE! Ship it fast!",
+    "klavochka": "Sending a message quickly, my dear ✉️"
+  },
+  "phase": 4,
+  "rhythmLesson": false,
+  "created_at": "2026-05-25",
+  "version": "1.0"
+}

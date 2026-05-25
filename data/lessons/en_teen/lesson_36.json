@@ -1,0 +1,34 @@
+{
+  "id": "en_teen_lesson_36",
+  "tier": "en_teen",
+  "lesson_number": 36,
+  "title": "Rhythm: social feed flow",
+  "description": "Scroll through multiple short posts at sustained tempo",
+  "target_wpm": 65,
+  "text_length": 118,
+  "error_limit_percent": 6,
+  "error_limit": 7,
+  "text": "live laugh log on grind never stop monday energy hits different fr no thoughts head empty good vibes only literally me",
+  "text_sequence": [],
+  "keys_trained": [
+    "A-Z",
+    "Space"
+  ],
+  "new_keys": [],
+  "finger_focus": "Social feed rhythm",
+  "tips": [
+    "Multiple meme phrases back to back",
+    "Find the social-media-scroll rhythm",
+    "Metronome at 65 BPM — match it"
+  ],
+  "character_tips": {
+    "anna": "Social feed style at 65 WPM. Pure modern rhythm.",
+    "maxim": "Scrolling = pattern recognition. Type like you read.",
+    "knopych": "📲 SCROLL MODE! Meme after meme!",
+    "klavochka": "Modern poetry, my dear — short and sweet 🌸"
+  },
+  "phase": 3,
+  "rhythmLesson": true,
+  "created_at": "2026-05-25",
+  "version": "1.0"
+}

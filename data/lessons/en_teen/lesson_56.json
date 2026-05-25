@@ -1,0 +1,37 @@
+{
+  "id": "en_teen_lesson_56",
+  "tier": "en_teen",
+  "lesson_number": 56,
+  "title": "Multi-paragraph news article",
+  "description": "Full news article at sustained pace",
+  "target_wpm": 83,
+  "text_length": 236,
+  "error_limit_percent": 5,
+  "error_limit": 11,
+  "text": "Scientists in Vienna announced on Monday a major breakthrough in quantum sensor technology. The discovery, detailed in Nature, could reshape medical imaging within the decade. Industry partners are already lining up to license the work.",
+  "text_sequence": [],
+  "keys_trained": [
+    "A-Z",
+    "Shift",
+    "Space",
+    ",",
+    "."
+  ],
+  "new_keys": [],
+  "finger_focus": "Article rhythm",
+  "tips": [
+    "Real journalism: facts + names + dates + flow",
+    "Hold 83 WPM across all sentences",
+    "Article rhythm = newsroom standard"
+  ],
+  "character_tips": {
+    "anna": "Real journalism. Sustained 83 WPM across full article.",
+    "maxim": "News articles are the gold standard of prose density.",
+    "knopych": "📰 FULL ARTICLE! Breaking news!",
+    "klavochka": "A whole story in one paragraph, my sunshine 📰"
+  },
+  "phase": 4,
+  "rhythmLesson": false,
+  "created_at": "2026-05-25",
+  "version": "1.0"
+}

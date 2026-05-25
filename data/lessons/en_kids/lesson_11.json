@@ -1,0 +1,35 @@
+{
+  "id": "en_kids_lesson_11",
+  "tier": "en_kids",
+  "lesson_number": 11,
+  "title": "Letters E and I",
+  "description": "Two new letters — E and I",
+  "target_wpm": 19,
+  "text_length": 65,
+  "error_limit_percent": 10,
+  "error_limit": 6,
+  "text": "e e e i i i see see see is is is if if if eel eel ice ice tie tie",
+  "text_sequence": [],
+  "keys_trained": [
+    "E",
+    "I",
+    "A-Z"
+  ],
+  "new_keys": [],
+  "finger_focus": "Top row letters E and I",
+  "tips": [
+    "E is left middle finger reaching UP",
+    "I is right middle finger reaching UP",
+    "Try \"see\" — a fun new word!"
+  ],
+  "character_tips": {
+    "anna": "Two new letters: E and I. New words like \"see\"!",
+    "maxim": "Two more letters online. Words expanding.",
+    "knopych": "🤖 E AND I! New buttons!",
+    "klavochka": "Two new friends, my dear — E and I 💕"
+  },
+  "phase": 2,
+  "rhythmLesson": false,
+  "created_at": "2026-05-25",
+  "version": "1.0"
+}

@@ -1,0 +1,34 @@
+{
+  "id": "en_teen_lesson_28",
+  "tier": "en_teen",
+  "lesson_number": 28,
+  "title": "Rhythm: song lyrics paragraph",
+  "description": "Full lyric verse at sustained tempo",
+  "target_wpm": 53,
+  "text_length": 110,
+  "error_limit_percent": 7,
+  "error_limit": 7,
+  "text": "tonight we own the city lights tonight we make the rules tonight we never close our eyes tonight we never lose",
+  "text_sequence": [],
+  "keys_trained": [
+    "A-Z",
+    "Space"
+  ],
+  "new_keys": [],
+  "finger_focus": "Sustained song-lyric rhythm",
+  "tips": [
+    "Multi-line lyric verse — find the song-like rhythm",
+    "Metronome at 53 BPM",
+    "Speed comes from feel, not effort"
+  ],
+  "character_tips": {
+    "anna": "Lyric verse at full speed. Sing along in your head.",
+    "maxim": "Lyrics = sustained rhythm at higher WPM. Real test.",
+    "knopych": "🎵 ANTHEM MODE! Sing it like you mean it!",
+    "klavochka": "A whole song verse, my sunshine 🎶"
+  },
+  "phase": 2,
+  "rhythmLesson": true,
+  "created_at": "2026-05-25",
+  "version": "1.0"
+}

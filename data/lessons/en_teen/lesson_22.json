@@ -1,0 +1,39 @@
+{
+  "id": "en_teen_lesson_22",
+  "tier": "en_teen",
+  "lesson_number": 22,
+  "title": "Movie quotes drill",
+  "description": "Iconic movie lines at speed",
+  "target_wpm": 47,
+  "text_length": 125,
+  "error_limit_percent": 7,
+  "error_limit": 8,
+  "text": "May the Force be with you. I'll be back. To infinity and beyond! Why so serious? With great power comes great responsibility.",
+  "text_sequence": [],
+  "keys_trained": [
+    "A-Z",
+    "Shift",
+    "Space",
+    "'",
+    ".",
+    "!",
+    "?"
+  ],
+  "new_keys": [],
+  "finger_focus": "Capitals + punctuation in real lines",
+  "tips": [
+    "Iconic movie quotes — already in your memory",
+    "Mix of statements, exclamations, questions",
+    "Shift timing matters — practice the entry"
+  ],
+  "character_tips": {
+    "anna": "Movie lines you already know. Type by memory, not by sight.",
+    "maxim": "Pop culture phrases live in muscle memory long after the movie.",
+    "knopych": "🎬 BLOCKBUSTER MODE! Quotes you live by!",
+    "klavochka": "Lines from beloved movies, my treasure 🎞️"
+  },
+  "phase": 2,
+  "rhythmLesson": false,
+  "created_at": "2026-05-25",
+  "version": "1.0"
+}

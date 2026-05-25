@@ -1,0 +1,34 @@
+{
+  "id": "en_kids_lesson_33",
+  "tier": "en_kids",
+  "lesson_number": 33,
+  "title": "Rhythm: animal song",
+  "description": "Cute animal song with rhythm",
+  "target_wpm": 34,
+  "text_length": 115,
+  "error_limit_percent": 10,
+  "error_limit": 11,
+  "text": "the little fox the little fox jumps and runs jumps and runs the happy bear the happy bear sings a song sings a song",
+  "text_sequence": [],
+  "keys_trained": [
+    "A-Z",
+    "Space"
+  ],
+  "new_keys": [],
+  "finger_focus": "Song-like rhythm",
+  "tips": [
+    "A song you can clap along to",
+    "Repeating phrases = rhythm",
+    "Steady beat as you type"
+  ],
+  "character_tips": {
+    "anna": "Animal song. Tap a rhythm with your fingers.",
+    "maxim": "Song-rhythm practice. Pattern repetition.",
+    "knopych": "🎵 ANIMAL SONG! Jump-jump-sing-sing!",
+    "klavochka": "A song about animals, my sunshine 🎶🦊"
+  },
+  "phase": 4,
+  "rhythmLesson": true,
+  "created_at": "2026-05-25",
+  "version": "1.0"
+}

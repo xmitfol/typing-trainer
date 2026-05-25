@@ -1,0 +1,38 @@
+{
+  "id": "en_kids_lesson_35",
+  "tier": "en_kids",
+  "lesson_number": 35,
+  "title": "35-lesson milestone",
+  "description": "Five lessons to the next block!",
+  "target_wpm": 36,
+  "text_length": 149,
+  "error_limit_percent": 10,
+  "error_limit": 14,
+  "text": "35 lessons! You read and write stories now. You ask questions. You count to ten. You are a real writer! Only 15 lessons left to your big certificate!",
+  "text_sequence": [],
+  "keys_trained": [
+    "A-Z",
+    "0-9",
+    "Shift",
+    "Space",
+    ".",
+    "!"
+  ],
+  "new_keys": [],
+  "finger_focus": "35-lesson speed test",
+  "tips": [
+    "🎉 You're a real writer now!",
+    "15 lessons to the certificate",
+    "Block 5 will have a big finale"
+  ],
+  "character_tips": {
+    "anna": "🎯 35 lessons! Real writer status. 15 to the finale!",
+    "maxim": "35 in. Final block has 15 more. Pace yourself.",
+    "knopych": "🏆 35! Almost at the top!",
+    "klavochka": "15 steps to your crown, my hero 👑"
+  },
+  "phase": 4,
+  "rhythmLesson": false,
+  "created_at": "2026-05-25",
+  "version": "1.0"
+}

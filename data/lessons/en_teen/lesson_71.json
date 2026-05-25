@@ -1,0 +1,39 @@
+{
+  "id": "en_teen_lesson_71",
+  "tier": "en_teen",
+  "lesson_number": 71,
+  "title": "Pre-tournament drill",
+  "description": "Speed drill at near-tournament pace",
+  "target_wpm": 94,
+  "text_length": 203,
+  "error_limit_percent": 4,
+  "error_limit": 8,
+  "text": "Tournament prep: type without thinking, scan ahead by two words, breathe normally, and let your fingers do what they've trained to do for 70 lessons. Numbers, names, punctuation — all in the same rhythm.",
+  "text_sequence": [],
+  "keys_trained": [
+    "A-Z",
+    "Shift",
+    "Space",
+    ".",
+    ",",
+    "-",
+    ";"
+  ],
+  "new_keys": [],
+  "finger_focus": "Tournament prep",
+  "tips": [
+    "Tournament rhythm at 94 WPM",
+    "Mental prep is half the win",
+    "Practice the headspace"
+  ],
+  "character_tips": {
+    "anna": "Tournament prep. Mental + physical rhythm.",
+    "maxim": "Pre-tournament drill. Calibrate your pace.",
+    "knopych": "🏆 PRE-TOURNAMENT! Calm fingers, focused mind!",
+    "klavochka": "Breathing and preparing, my dear 🌬️"
+  },
+  "phase": 5,
+  "rhythmLesson": false,
+  "created_at": "2026-05-25",
+  "version": "1.0"
+}

@@ -1,0 +1,35 @@
+{
+  "id": "en_teen_lesson_21",
+  "tier": "en_teen",
+  "lesson_number": 21,
+  "title": "Rhythm: alphabet song",
+  "description": "Pangram-style flow at sustained tempo",
+  "target_wpm": 46,
+  "text_length": 104,
+  "error_limit_percent": 7,
+  "error_limit": 7,
+  "text": "the quick brown fox jumps over the lazy dog while five wizards jinx my big quartz vow today and tomorrow",
+  "text_sequence": [],
+  "keys_trained": [
+    "A-Z",
+    "Space",
+    ","
+  ],
+  "new_keys": [],
+  "finger_focus": "Full alphabet rhythm",
+  "tips": [
+    "Two pangrams back to back — every letter at least once",
+    "Metronome at 46 BPM — match it",
+    "Don't slow at rare letters — keep the tempo"
+  ],
+  "character_tips": {
+    "anna": "Every letter in flow. Find the rhythm and don't drop it.",
+    "maxim": "Pangram flow = full keyboard rhythm test.",
+    "knopych": "ALPHABET SONG! 🎵 All letters dancing!",
+    "klavochka": "All letters singing together, my dear 🎶"
+  },
+  "phase": 2,
+  "rhythmLesson": true,
+  "created_at": "2026-05-25",
+  "version": "1.0"
+}

@@ -1,0 +1,41 @@
+{
+  "id": "en_teen_lesson_29",
+  "tier": "en_teen",
+  "lesson_number": 29,
+  "title": "Competition prep: speed drill",
+  "description": "Mixed real-world content — pre-final warmup",
+  "target_wpm": 54,
+  "text_length": 145,
+  "error_limit_percent": 7,
+  "error_limit": 10,
+  "text": "Hey team, the tournament starts at 7 sharp. Bring your A-game, your headphones, and stay focused. We've trained for this — let's win it together!",
+  "text_sequence": [],
+  "keys_trained": [
+    "A-Z",
+    "0-9",
+    "Shift",
+    "Space",
+    ".",
+    ",",
+    "!",
+    "-",
+    "'"
+  ],
+  "new_keys": [],
+  "finger_focus": "Mixed content pre-final",
+  "tips": [
+    "All character classes — letters, digit, punctuation",
+    "Realistic team message style",
+    "Last warmup before BLOCK 2 FINAL"
+  ],
+  "character_tips": {
+    "anna": "Real teen team-message style. One step before the final.",
+    "maxim": "Pre-final warmup. Mixed content at near-final speed.",
+    "knopych": "🏆 TOURNAMENT INCOMING! Final prep!",
+    "klavochka": "Almost at the next milestone, my dear ⭐"
+  },
+  "phase": 2,
+  "rhythmLesson": false,
+  "created_at": "2026-05-25",
+  "version": "1.0"
+}

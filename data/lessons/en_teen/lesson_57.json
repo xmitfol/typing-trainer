@@ -1,0 +1,41 @@
+{
+  "id": "en_teen_lesson_57",
+  "tier": "en_teen",
+  "lesson_number": 57,
+  "title": "Tech blog snippet",
+  "description": "Tech writer style with terms",
+  "target_wpm": 84,
+  "text_length": 222,
+  "error_limit_percent": 5,
+  "error_limit": 11,
+  "text": "We migrated from Postgres to a custom solution last quarter. The trade-offs surprised us. Queries are 3x faster, but ops overhead grew. Looking back, would I do it again? Honestly, yes — but with way more upfront planning.",
+  "text_sequence": [],
+  "keys_trained": [
+    "A-Z",
+    "Shift",
+    "Space",
+    ".",
+    ",",
+    "?",
+    "-",
+    "'",
+    "x"
+  ],
+  "new_keys": [],
+  "finger_focus": "Tech blog rhythm",
+  "tips": [
+    "Tech terms + opinion + multiple punctuation",
+    "Conversational technical writing",
+    "Real engineering blog pattern"
+  ],
+  "character_tips": {
+    "anna": "Tech blog style. Engineers write more than they code.",
+    "maxim": "Technical commentary at 84 WPM. Real career skill.",
+    "knopych": "💻 TECH BLOG! Devs writing about devs!",
+    "klavochka": "A coder telling a story, my dear ⚙️"
+  },
+  "phase": 4,
+  "rhythmLesson": false,
+  "created_at": "2026-05-25",
+  "version": "1.0"
+}

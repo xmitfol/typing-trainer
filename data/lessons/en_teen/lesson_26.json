@@ -1,0 +1,35 @@
+{
+  "id": "en_teen_lesson_26",
+  "tier": "en_teen",
+  "lesson_number": 26,
+  "title": "Capitals: pop culture names",
+  "description": "Real names from movies, games, music",
+  "target_wpm": 51,
+  "text_length": 115,
+  "error_limit_percent": 7,
+  "error_limit": 8,
+  "text": "Marvel DC Pixar Disney Netflix Spotify TikTok YouTube Instagram Nintendo PlayStation Xbox Tesla SpaceX Apple Google",
+  "text_sequence": [],
+  "keys_trained": [
+    "A-Z",
+    "Shift",
+    "Space"
+  ],
+  "new_keys": [],
+  "finger_focus": "Capital letters + brand names",
+  "tips": [
+    "Pop culture brands — capitals everywhere",
+    "Shift timing must be smooth",
+    "Brand names = real-world capital practice"
+  ],
+  "character_tips": {
+    "anna": "Brand names test your Shift timing under real-world content.",
+    "maxim": "Capitals are 5% of all writing. Drill until automatic.",
+    "knopych": "🎮 BRAND PARADE! All your favorites!",
+    "klavochka": "Names everyone knows, my dear 📱"
+  },
+  "phase": 2,
+  "rhythmLesson": false,
+  "created_at": "2026-05-25",
+  "version": "1.0"
+}

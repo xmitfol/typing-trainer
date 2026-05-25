@@ -1,0 +1,39 @@
+{
+  "id": "en_teen_lesson_54",
+  "tier": "en_teen",
+  "lesson_number": 54,
+  "title": "Trending topics commentary",
+  "description": "Quick takes on trending topics",
+  "target_wpm": 81,
+  "text_length": 208,
+  "error_limit_percent": 5,
+  "error_limit": 10,
+  "text": "Hot take: streaming services are stagnating, AI music is everywhere now, and the best content lives on small creators with under 50K followers. The big platforms know it. Question is what they'll do about it.",
+  "text_sequence": [],
+  "keys_trained": [
+    "A-Z",
+    "Shift",
+    "Space",
+    ".",
+    ",",
+    "'",
+    ":"
+  ],
+  "new_keys": [],
+  "finger_focus": "Commentary writing rhythm",
+  "tips": [
+    "Punchy opinion writing format",
+    "Numbers + punctuation + capitals mixed",
+    "Quick observational prose"
+  ],
+  "character_tips": {
+    "anna": "Hot-take commentary. Modern opinion writing format.",
+    "maxim": "Commentary at high speed = think-and-type fluency.",
+    "knopych": "🔥 HOT TAKE MODE! Opinion blazing!",
+    "klavochka": "Sharing fresh thoughts, my treasure 💭"
+  },
+  "phase": 4,
+  "rhythmLesson": false,
+  "created_at": "2026-05-25",
+  "version": "1.0"
+}

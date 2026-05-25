@@ -1,0 +1,38 @@
+{
+  "id": "en_teen_lesson_53",
+  "tier": "en_teen",
+  "lesson_number": 53,
+  "title": "Rhythm: news flow",
+  "description": "News paragraph at sustained tempo",
+  "target_wpm": 80,
+  "text_length": 211,
+  "error_limit_percent": 5,
+  "error_limit": 10,
+  "text": "Markets opened higher on Friday after positive earnings reports from three major tech firms. Analysts pointed to strong cloud growth and resilient consumer demand. The rally is expected to extend into next week.",
+  "text_sequence": [],
+  "keys_trained": [
+    "A-Z",
+    "Shift",
+    "Space",
+    ",",
+    ".",
+    "Apos"
+  ],
+  "new_keys": [],
+  "finger_focus": "News paragraph at speed",
+  "tips": [
+    "Multi-sentence news at 80 WPM",
+    "Metronome at 80 BPM — match it",
+    "Sustained journalism speed"
+  ],
+  "character_tips": {
+    "anna": "News flow at 80 WPM. Newsroom speed.",
+    "maxim": "Multi-sentence news = real journalist daily speed.",
+    "knopych": "📰 LIVE FROM NEWSROOM! 80 WPM!",
+    "klavochka": "Reporting the world at speed, my dear 🌍"
+  },
+  "phase": 4,
+  "rhythmLesson": true,
+  "created_at": "2026-05-25",
+  "version": "1.0"
+}

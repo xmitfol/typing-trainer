@@ -1,0 +1,35 @@
+{
+  "id": "en_kids_lesson_12",
+  "tier": "en_kids",
+  "lesson_number": 12,
+  "title": "Letters O and U",
+  "description": "More letters — O and U",
+  "target_wpm": 20,
+  "text_length": 68,
+  "error_limit_percent": 10,
+  "error_limit": 6,
+  "text": "o o o u u u up up up out out out you you you sun sun fun fun cup cup",
+  "text_sequence": [],
+  "keys_trained": [
+    "O",
+    "U",
+    "A-Z"
+  ],
+  "new_keys": [],
+  "finger_focus": "Top row O and U",
+  "tips": [
+    "O is right ring finger UP",
+    "U is right index UP",
+    "Now you can write \"you\" and \"sun\"!"
+  ],
+  "character_tips": {
+    "anna": "O and U. Now you can write \"you\" — say hello to someone!",
+    "maxim": "Vowels online. Words multiply fast.",
+    "knopych": "🤖 O AND U! Even MORE buttons!",
+    "klavochka": "Sunshine letters, my sweet — O and U ☀️"
+  },
+  "phase": 2,
+  "rhythmLesson": false,
+  "created_at": "2026-05-25",
+  "version": "1.0"
+}

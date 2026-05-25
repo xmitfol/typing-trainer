@@ -1,0 +1,38 @@
+{
+  "id": "en_kids_lesson_36",
+  "tier": "en_kids",
+  "lesson_number": 36,
+  "title": "Day at school",
+  "description": "A normal day at school",
+  "target_wpm": 37,
+  "text_length": 154,
+  "error_limit_percent": 10,
+  "error_limit": 15,
+  "text": "I go to school at 8 in the morning. We read books. We sing songs. We play games at lunch time. After school I run home to mom and dad. I love school days!",
+  "text_sequence": [],
+  "keys_trained": [
+    "A-Z",
+    "0-9",
+    "Shift",
+    "Space",
+    ".",
+    "!"
+  ],
+  "new_keys": [],
+  "finger_focus": "Daily life story",
+  "tips": [
+    "Real-life story with time",
+    "Numbers in context (8 morning)",
+    "Daily routine writing"
+  ],
+  "character_tips": {
+    "anna": "Daily life story. Numbers fit naturally with words.",
+    "maxim": "Routine writing. Real-world content.",
+    "knopych": "🏫 SCHOOL DAY! From morning to home!",
+    "klavochka": "A whole school day, my dear 📚"
+  },
+  "phase": 4,
+  "rhythmLesson": false,
+  "created_at": "2026-05-25",
+  "version": "1.0"
+}

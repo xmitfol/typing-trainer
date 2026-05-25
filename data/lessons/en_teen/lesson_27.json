@@ -1,0 +1,37 @@
+{
+  "id": "en_teen_lesson_27",
+  "tier": "en_teen",
+  "lesson_number": 27,
+  "title": "Numbers: gaming stats",
+  "description": "Game-style numbers + words",
+  "target_wpm": 52,
+  "text_length": 108,
+  "error_limit_percent": 7,
+  "error_limit": 7,
+  "text": "Level 99 max HP 1500 EXP 24000 won 12 lost 3 streak 7 rank 42 score 9876 kills 18 K/D 2.5 winrate 65 percent",
+  "text_sequence": [],
+  "keys_trained": [
+    "A-Z",
+    "0-9",
+    "Space",
+    "/",
+    "."
+  ],
+  "new_keys": [],
+  "finger_focus": "Numbers in real context",
+  "tips": [
+    "Gaming stats = numbers + text mixed",
+    "Numbers should flow as fast as letters by now",
+    "Slash and decimal are fluid"
+  ],
+  "character_tips": {
+    "anna": "Gaming stats are pure number+word mixing. Real teen vocab.",
+    "maxim": "Numbers in context — better than isolated digit drills.",
+    "knopych": "🎮 GAMER STATS! Numbers like a pro player!",
+    "klavochka": "Counting the wins, my hero 🏆"
+  },
+  "phase": 2,
+  "rhythmLesson": false,
+  "created_at": "2026-05-25",
+  "version": "1.0"
+}

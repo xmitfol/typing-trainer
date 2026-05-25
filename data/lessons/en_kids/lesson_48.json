@@ -1,0 +1,39 @@
+{
+  "id": "en_kids_lesson_48",
+  "tier": "en_kids",
+  "lesson_number": 48,
+  "title": "Pre-final mix",
+  "description": "Last big mix before the certificate exam",
+  "target_wpm": 48,
+  "text_length": 162,
+  "error_limit_percent": 10,
+  "error_limit": 16,
+  "text": "I write stories, I count to 10, I love my family, and I have 3 pets named Max, Coco, and Bear. My favorite color is red. My favorite food is pizza. What is yours?",
+  "text_sequence": [],
+  "keys_trained": [
+    "A-Z",
+    "0-9",
+    "Shift",
+    "Space",
+    ".",
+    ",",
+    "?"
+  ],
+  "new_keys": [],
+  "finger_focus": "Pre-final density",
+  "tips": [
+    "All content classes",
+    "Real conversational writing",
+    "Last drill before the certificate"
+  ],
+  "character_tips": {
+    "anna": "Pre-final drill. Two lessons to certificate!",
+    "maxim": "All content classes at 48 WPM. Pre-final.",
+    "knopych": "📝 PRE-CERT DRILL! 2 to go!",
+    "klavochka": "Almost at the certificate, my dear 🎓"
+  },
+  "phase": 5,
+  "rhythmLesson": false,
+  "created_at": "2026-05-25",
+  "version": "1.0"
+}

@@ -1,0 +1,38 @@
+{
+  "id": "en_teen_lesson_32",
+  "tier": "en_teen",
+  "lesson_number": 32,
+  "title": "Numbers right: 6-0 at speed",
+  "description": "Right-hand digits — same fingers as Y-U-I-O-P",
+  "target_wpm": 58,
+  "text_length": 63,
+  "error_limit_percent": 6,
+  "error_limit": 3,
+  "text": "6 7 8 9 0 67 78 89 90 06 16 27 38 49 50 67890 09876 66778 88990",
+  "text_sequence": [],
+  "keys_trained": [
+    "6",
+    "7",
+    "8",
+    "9",
+    "0",
+    "Space"
+  ],
+  "new_keys": [],
+  "finger_focus": "Right number row",
+  "tips": [
+    "6 = right index, 0 = right pinky",
+    "Mirror the QWERTY logic",
+    "Stretch UP, return to home row immediately"
+  ],
+  "character_tips": {
+    "anna": "Right side digits. Same logic — column = finger.",
+    "maxim": "All 10 digits at speed now. Mixed text next.",
+    "knopych": "🔢 RIGHT DIGITS! 6-0 same fingers as YUIOP!",
+    "klavochka": "Counting all the way to ten, my sunshine ⭐"
+  },
+  "phase": 3,
+  "rhythmLesson": false,
+  "created_at": "2026-05-25",
+  "version": "1.0"
+}
