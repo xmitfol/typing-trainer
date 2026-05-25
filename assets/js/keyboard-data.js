@@ -214,15 +214,107 @@ const NAV = {
     },
 };
 
-// Карта символ→палец (для подсветки во время печати).
-// Строим один раз из ROWS + THUMB_ROWS на загрузке.
-const CHAR_TO_FINGER = (function () {
+// ---------------------------------------------------------------------------
+// EN/QWERTY layout — те же 4 alpha-ряда + bottom + thumb, но раскладка
+// латиницей с правильным finger mapping. Используется когда
+// profile.language === 'en' (см. keyboard.js renderKeyboard).
+// ---------------------------------------------------------------------------
+const ROWS_EN = [
+    // Row 0 — number row
+    {
+        left: [
+            { l: '`', u: '~', f: 'pink',   code: 'Backquote' },
+            { l: '1', u: '!', f: 'pink',   code: 'Digit1' },
+            { l: '2', u: '@', f: 'orange', code: 'Digit2' },
+            { l: '3', u: '#', f: 'green',  code: 'Digit3' },
+            { l: '4', u: '$', f: 'blue',   code: 'Digit4' },
+            { l: '5', u: '%', f: 'blue',   code: 'Digit5' },
+        ],
+        right: [
+            { l: '6', u: '^', f: 'indigo', code: 'Digit6' },
+            { l: '7', u: '&', f: 'indigo', code: 'Digit7' },
+            { l: '8', u: '*', f: 'green',  code: 'Digit8' },
+            { l: '9', u: '(', f: 'orange', code: 'Digit9' },
+            { l: '0', u: ')', f: 'pink',   code: 'Digit0' },
+            { l: '-', u: '_', f: 'pink',   code: 'Minus' },
+            { l: '=', u: '+', f: 'pink',   code: 'Equal' },
+            { l: 'Backsp', f: 'pink', w: 2, mod: true, code: 'Backspace', key: 'Backspace' },
+        ],
+    },
+    // Row 1 — Q W E R T | Y U I O P [ ] \
+    {
+        left: [
+            { l: 'Tab', f: 'pink', w: 1.5, mod: true, code: 'Tab', key: 'Tab' },
+            { l: 'q', f: 'pink',   code: 'KeyQ' },
+            { l: 'w', f: 'orange', code: 'KeyW' },
+            { l: 'e', f: 'green',  code: 'KeyE' },
+            { l: 'r', f: 'blue',   code: 'KeyR' },
+            { l: 't', f: 'blue',   code: 'KeyT' },
+        ],
+        right: [
+            { l: 'y', f: 'indigo', code: 'KeyY' },
+            { l: 'u', f: 'indigo', code: 'KeyU' },
+            { l: 'i', f: 'green',  code: 'KeyI' },
+            { l: 'o', f: 'orange', code: 'KeyO' },
+            { l: 'p', f: 'pink',   code: 'KeyP' },
+            { l: '[', u: '{', f: 'pink', code: 'BracketLeft' },
+            { l: ']', u: '}', f: 'pink', code: 'BracketRight' },
+            { l: '\\', f: 'pink', mod: true, code: 'Backslash' },
+        ],
+    },
+    // Row 2 — A S D F G | H J K L ; ' Enter
+    {
+        left: [
+            { l: 'Caps Lock', f: 'pink', w: 1.75, mod: true, code: 'CapsLock', key: 'CapsLock' },
+            { l: 'a', f: 'pink',   code: 'KeyA' },
+            { l: 's', f: 'orange', code: 'KeyS' },
+            { l: 'd', f: 'green',  code: 'KeyD' },
+            { l: 'f', f: 'blue',   home: true, code: 'KeyF' },
+            { l: 'g', f: 'blue',   code: 'KeyG' },
+        ],
+        right: [
+            { l: 'h', f: 'indigo', code: 'KeyH' },
+            { l: 'j', f: 'indigo', home: true, code: 'KeyJ' },
+            { l: 'k', f: 'green',  code: 'KeyK' },
+            { l: 'l', f: 'orange', code: 'KeyL' },
+            { l: ';', u: ':', f: 'pink', code: 'Semicolon' },
+            { l: "'", u: '"', f: 'pink', code: 'Quote' },
+            { l: 'Enter', f: 'pink', w: 1.75, mod: true, code: 'Enter', key: 'Enter' },
+        ],
+    },
+    // Row 3 — Z X C V B | N M , . /
+    {
+        left: [
+            { l: 'Shift', f: 'pink', w: 2.25, mod: true, code: 'ShiftLeft', key: 'Shift' },
+            { l: 'z', f: 'pink',   code: 'KeyZ' },
+            { l: 'x', f: 'orange', code: 'KeyX' },
+            { l: 'c', f: 'green',  code: 'KeyC' },
+            { l: 'v', f: 'blue',   code: 'KeyV' },
+            { l: 'b', f: 'blue',   code: 'KeyB' },
+        ],
+        right: [
+            { l: 'n', f: 'indigo', code: 'KeyN' },
+            { l: 'm', f: 'indigo', code: 'KeyM' },
+            { l: ',', u: '<', f: 'green',  code: 'Comma' },
+            { l: '.', u: '>', f: 'orange', code: 'Period' },
+            { l: '/', u: '?', f: 'pink',   code: 'Slash' },
+            { l: 'Shift', f: 'pink', w: 2.25, mod: true, code: 'ShiftRight', key: 'Shift' },
+        ],
+    },
+];
+
+// CLASSIC_BOTTOM (Ctrl/Win/Alt/Space/...) и THUMB_ROWS — те же для обоих
+// языков (модификаторы и пробел не меняются).
+
+// Карта символ→палец. Делим по языку для корректной highlight
+// (русская «а» и латинская «a» имеют разные finger).
+function buildCharToFinger(rows, thumbRows) {
     const m = {};
-    const allRows = [
-        ...ROWS,
-        { left: THUMB_ROWS.minimal.left, right: THUMB_ROWS.minimal.right },
+    const all = [
+        ...rows,
+        { left: thumbRows.minimal.left, right: thumbRows.minimal.right },
     ];
-    allRows.forEach(r => {
+    all.forEach(r => {
         [...r.left, ...r.right].forEach(k => {
             if (!k.l) return;
             const ch = k.l.toLowerCase();
@@ -232,7 +324,10 @@ const CHAR_TO_FINGER = (function () {
     });
     m[' '] = 'purple';
     return m;
-})();
+}
+
+const CHAR_TO_FINGER    = buildCharToFinger(ROWS,    THUMB_ROWS);
+const CHAR_TO_FINGER_EN = buildCharToFinger(ROWS_EN, THUMB_ROWS);
 
 // ---------------------------------------------------------------------------
 // Алгоритм padRow — выравнивает правый край всех 5 рядов классической
@@ -267,8 +362,10 @@ function padRow(row, indices, anchorU) {
 }
 
 // Все 5 рядов с подгонкой; CLASSIC_BOTTOM получает весь дефицит на Space.
-function buildAlignedRows() {
-    const merged = ROWS.map(r => [...r.left, ...r.right]);
+// lang: 'ru' (default) | 'en' — выбирает ROWS или ROWS_EN.
+function buildAlignedRows(lang) {
+    const rowsSource = lang === 'en' ? ROWS_EN : ROWS;
+    const merged = rowsSource.map(r => [...r.left, ...r.right]);
     const all = [...merged, CLASSIC_BOTTOM];
     const anchorU = Math.max(...all.map(rowWidthU));
 
@@ -284,17 +381,25 @@ function buildAlignedRows() {
     return { alpha: alphaPadded, bottom: bottomPadded, anchorU };
 }
 
+// Получить ROWS для языка (helper для ergonomic renderer'а)
+function getRowsForLang(lang) {
+    return lang === 'en' ? ROWS_EN : ROWS;
+}
+
 // Экспорт
 window.KeyboardData = {
     FINGER,
     ROWS,
+    ROWS_EN,
     CLASSIC_BOTTOM,
     THUMB_ROWS,
     NUMPAD,
     NAV,
     CHAR_TO_FINGER,
+    CHAR_TO_FINGER_EN,
     GAP_U,
     rowWidthU,
     padRow,
     buildAlignedRows,
+    getRowsForLang,
 };

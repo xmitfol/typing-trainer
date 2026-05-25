@@ -109,9 +109,10 @@ function createRow(keys, unit, className) {
 // Layouts
 // ---------------------------------------------------------------------------
 
-// Общий alpha-блок для Classic/Laptop (5 рядов + bottom с padRow)
-function buildAlphaBlock(unit) {
-    const { alpha, bottom } = window.KeyboardData.buildAlignedRows();
+// Общий alpha-блок для Classic/Laptop (5 рядов + bottom с padRow).
+// lang: 'ru'|'en' — выбирает ЙЦУКЕН или QWERTY данные.
+function buildAlphaBlock(unit, lang) {
+    const { alpha, bottom } = window.KeyboardData.buildAlignedRows(lang);
     const gap = unit * KB_GAP_FACTOR;
     const el = document.createElement('div');
     el.className = 'keyboard';
@@ -193,10 +194,10 @@ function buildArrowCluster(unit, compact) {
 }
 
 // Layout: Classic — alpha + nav cluster + numpad
-function renderClassicKeyboard(container, unit) {
+function renderClassicKeyboard(container, unit, lang) {
     container.innerHTML = '';
     container.style.gap = `${unit * 0.4}px`;
-    container.appendChild(buildAlphaBlock(unit));
+    container.appendChild(buildAlphaBlock(unit, lang));
 
     const rightSection = document.createElement('div');
     rightSection.className = 'right-section';
@@ -207,12 +208,12 @@ function renderClassicKeyboard(container, unit) {
 }
 
 // Layout: Laptop — только alpha + компактный inline-arrow-кластер справа снизу
-function renderLaptopKeyboard(container, unit) {
+function renderLaptopKeyboard(container, unit, lang) {
     container.innerHTML = '';
     container.style.gap = `${unit * 0.3}px`;
     container.style.alignItems = 'flex-end';
 
-    container.appendChild(buildAlphaBlock(unit));
+    container.appendChild(buildAlphaBlock(unit, lang));
 
     // Компактные стрелки прижаты к низу alpha-блока (alignItems: flex-end)
     const arrows = buildArrowCluster(unit, /* compact */ true);
@@ -221,9 +222,10 @@ function renderLaptopKeyboard(container, unit) {
 }
 
 // Половина клавиатуры для ergonomic (rows + thumb-row для своей стороны)
-function buildKeyboardHalf(side, unit) {
+function buildKeyboardHalf(side, unit, lang) {
     const Data = window.KeyboardData;
     const gap = unit * KB_GAP_FACTOR;
+    const rows = Data.getRowsForLang(lang);
 
     const half = document.createElement('div');
     half.className = `ergo-half ergo-half-${side}`;
@@ -234,11 +236,10 @@ function buildKeyboardHalf(side, unit) {
     // Staggered offset — каждый ряд ниже сдвинут наружу от центра (левая — влево, правая — вправо)
     const offsets = [0, 0, unit * 0.25, unit * 0.5];
 
-    Data.ROWS.forEach((rowData, ri) => {
+    rows.forEach((rowData, ri) => {
         const keys = rowData[side];
         const row = createRow(keys, unit);
         row.style.gap = `${gap}px`;
-        // justify: левая половина — flex-end (прижать к gap), правая — flex-start
         row.style.justifyContent = side === 'left' ? 'flex-end' : 'flex-start';
         const off = offsets[ri] || 0;
         if (off) {
@@ -247,7 +248,7 @@ function buildKeyboardHalf(side, unit) {
         half.appendChild(row);
     });
 
-    // Thumb row (split-Space + модификаторы для своей стороны)
+    // Thumb row (split-Space + модификаторы для своей стороны) — общий для обоих языков
     const thumb = Data.THUMB_ROWS.minimal[side];
     const thumbRow = createRow(thumb, unit);
     thumbRow.style.gap = `${gap}px`;
@@ -259,7 +260,7 @@ function buildKeyboardHalf(side, unit) {
 }
 
 // Layout: Ergonomic — две половины с rotate ±angle и gap между ними
-function renderErgoKeyboard(container, unit, options) {
+function renderErgoKeyboard(container, unit, lang, options) {
     const angle = (options && options.angle) || 14;
     const gap = (options && options.gap) || 96;
 
@@ -268,43 +269,44 @@ function renderErgoKeyboard(container, unit, options) {
     container.style.alignItems = 'flex-end';
     container.style.justifyContent = 'center';
 
-    // Левая половина — поворот -angle вокруг bottom-right
     const leftWrap = document.createElement('div');
     leftWrap.style.transform = `rotate(-${angle}deg)`;
     leftWrap.style.transformOrigin = 'bottom right';
-    leftWrap.appendChild(buildKeyboardHalf('left', unit));
+    leftWrap.appendChild(buildKeyboardHalf('left', unit, lang));
     container.appendChild(leftWrap);
 
-    // Правая половина — поворот +angle вокруг bottom-left
     const rightWrap = document.createElement('div');
     rightWrap.style.transform = `rotate(${angle}deg)`;
     rightWrap.style.transformOrigin = 'bottom left';
-    rightWrap.appendChild(buildKeyboardHalf('right', unit));
+    rightWrap.appendChild(buildKeyboardHalf('right', unit, lang));
     container.appendChild(rightWrap);
 }
 
 // Public: переключение layout без полного reinit (используется onboarding-complete + resize listeners)
-function _renderKeyboardImmediate(container, variant, unit) {
+function _renderKeyboardImmediate(container, variant, unit, lang) {
     container.dataset.layout = variant || 'classic';
+    container.dataset.lang = lang || 'ru';
     if (variant === 'laptop') {
-        renderLaptopKeyboard(container, unit);
+        renderLaptopKeyboard(container, unit, lang);
     } else if (variant === 'ergonomic') {
-        renderErgoKeyboard(container, unit);
+        renderErgoKeyboard(container, unit, lang);
     } else {
-        renderClassicKeyboard(container, unit);
+        renderClassicKeyboard(container, unit, lang);
     }
 }
 
-// Public: переключение layout. Опция animated:true делает fade-transition
+// Public: переключение layout/language. Опция animated:true делает fade-transition
 // (для user-initiated смены через toolbar). Initial render / resize — instant.
+// options.lang — явный override; иначе читается из profile.language.
 function renderKeyboard(variant, unit, options) {
     const container = document.querySelector('.keyboard-container');
     if (!container) return;
     const u = unit || getResponsiveUnit();
     const animated = options && options.animated;
+    const lang = (options && options.lang) || readProfileLanguage();
 
     if (!animated) {
-        _renderKeyboardImmediate(container, variant, u);
+        _renderKeyboardImmediate(container, variant, u, lang);
         return;
     }
 
@@ -314,7 +316,7 @@ function renderKeyboard(variant, unit, options) {
     container.style.transform = 'scale(0.98)';
 
     setTimeout(() => {
-        _renderKeyboardImmediate(container, variant, u);
+        _renderKeyboardImmediate(container, variant, u, lang);
         requestAnimationFrame(() => {
             container.style.opacity = '1';
             container.style.transform = 'scale(1)';
@@ -499,7 +501,9 @@ function renderKeyboardToolbar() {
                     <span>${l.label}</span>
                 </button>`;
             }).join('')}
-            <span class="kbt-chip kbt-layout-info" title="Текущая раскладка">ЙЦУКЕН</span>
+            <span class="kbt-chip kbt-layout-info" title="Текущая раскладка">${
+                (LANGUAGE_OPTIONS.find(l => l.id === readProfileLanguage()) || LANGUAGE_OPTIONS[0]).layoutName
+            }</span>
         </div>
     `;
 
@@ -529,18 +533,22 @@ function renderKeyboardToolbar() {
         });
     });
 
-    // Language pills — клик переключает profile.language и текущий tier
-    // на default тира этого языка (lessons.languageDefaultTier в settings.js).
+    // Language pills — клик переключает profile.language, tier И layout клавиатуры
+    // (ЙЦУКЕН ↔ QWERTY) с fade-анимацией.
     toolbar.querySelectorAll('.kbt-lang').forEach(btn => {
         btn.addEventListener('click', () => {
             const lang = btn.dataset.lang;
             const opt = LANGUAGE_OPTIONS.find(l => l.id === lang);
             if (!opt || !opt.available) return;
-            if (lang === readProfileLanguage()) return; // тот же — no-op
+            if (lang === readProfileLanguage()) return;
 
             writeProfileLanguage(lang);
 
-            // Switch tier через main.js
+            // Перерендерить клавиатуру с новым языком (fade анимация)
+            const currentLayout = readProfileKeyboardType();
+            renderKeyboard(currentLayout, null, { animated: true, lang });
+
+            // Переключить tier на default для нового языка (lesson-list+editor обновятся)
             const targetTier = (window.Settings
                 && window.Settings.get(`lessons.languageDefaultTier.${lang}`, 'tier1'))
                 || 'tier1';
@@ -548,7 +556,8 @@ function renderKeyboardToolbar() {
                 window.typingTrainer.switchTier(targetTier);
             }
 
-            renderKeyboardToolbar(); // re-paint active language pill
+            renderKeyboardToolbar(); // re-paint pills + ЙЦУКЕН/QWERTY chip
+            setTimeout(applyAllDisplayToggles, 250); // re-apply hide-symbols/hide-shift
         });
     });
 }
