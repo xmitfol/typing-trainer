@@ -173,9 +173,10 @@ class TypingTrainer {
     // т.к. character-system не имеет сценария courseComplete во всех персонажах)
     showCourseComplete(tier, total) {
         const name = this.getUserName();
+        const tierLabel = this.getTierLabel(tier);
         const message = name
-            ? `${name}, поздравляю! Ты прошёл все ${total} уроков курса ${tier}. 🏆`
-            : `Поздравляю! Все ${total} уроков курса ${tier} пройдены. 🏆`;
+            ? `${name}, поздравляю! Ты прошёл все ${total} уроков курса «${tierLabel}». 🏆`
+            : `Поздравляю! Все ${total} уроков курса «${tierLabel}» пройдены. 🏆`;
         if (window.toastManager) {
             const emoji = (window.characterSystem && window.characterSystem.character && window.characterSystem.character.emoji) || '🏆';
             window.toastManager.show(message, emoji, 6000, { type: 'success' });
@@ -337,16 +338,26 @@ class TypingTrainer {
 
     // ── Tier switcher (UI для переключения курса tier1 ↔ block_1) ──
 
-    // Tier-метаданные (UI-только, не data). Includes label, language, age-kind.
+    // UI-язык интерфейса. Сейчас читаем из <html lang>, в будущем
+    // можно добавить переключатель в Settings.
+    getUiLanguage() {
+        const htmlLang = (document.documentElement && document.documentElement.lang) || 'ru';
+        return htmlLang.startsWith('en') ? 'en' : 'ru';
+    }
+
+    // Tier-метаданные (UI-только, не data). label локализован по UI-языку.
     getTierMeta(tier) {
         const map = {
-            tier1:    { lang: 'ru', kind: 'adult',      label: 'Основной' },
-            block_1:  { lang: 'ru', kind: 'diagnostic', label: 'Мизинец'  },
-            en_tier1: { lang: 'en', kind: 'adult',      label: 'English'  },
-            en_teen:  { lang: 'en', kind: 'teen',       label: 'Junior'   },
-            en_kids:  { lang: 'en', kind: 'kids',       label: 'Kids'     }
+            tier1:    { lang: 'ru', kind: 'adult',      labels: { ru: 'Основной',    en: 'Russian Main' } },
+            block_1:  { lang: 'ru', kind: 'diagnostic', labels: { ru: 'Мизинец',     en: 'Pinky drill'  } },
+            en_tier1: { lang: 'en', kind: 'adult',      labels: { ru: 'Английский',  en: 'English'      } },
+            en_teen:  { lang: 'en', kind: 'teen',       labels: { ru: 'Юниор',       en: 'Junior'       } },
+            en_kids:  { lang: 'en', kind: 'kids',       labels: { ru: 'Дети',        en: 'Kids'         } }
         };
-        return map[tier] || { lang: 'ru', kind: 'adult', label: tier };
+        const m = map[tier];
+        if (!m) return { lang: 'ru', kind: 'adult', label: tier };
+        const ui = this.getUiLanguage();
+        return { lang: m.lang, kind: m.kind, label: m.labels[ui] || m.labels.ru };
     }
 
     getTierLabel(tier) {
