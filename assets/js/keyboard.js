@@ -314,6 +314,87 @@ function readProfileKeyboardType() {
     } catch (e) { return 'classic'; }
 }
 
+function writeProfileKeyboardType(layout) {
+    try {
+        const key = (window.Settings && window.Settings.get('storage.keys.userProfile'))
+            || 'typing_trainer_user_profile';
+        const raw = localStorage.getItem(key);
+        const profile = raw ? JSON.parse(raw) : {};
+        profile.keyboardType = layout;
+        localStorage.setItem(key, JSON.stringify(profile));
+    } catch (e) { /* silent */ }
+}
+
+// ---------------------------------------------------------------------------
+// Top function toolbar (Phase 7) — функциональный layout-switcher +
+// мок toggles для display опций + read-only layout info chip.
+// ---------------------------------------------------------------------------
+
+const LAYOUT_OPTIONS = [
+    { id: 'classic',   label: 'Classic',   icon: '⌨️' },
+    { id: 'laptop',    label: 'Laptop',    icon: '💻' },
+    { id: 'ergonomic', label: 'Ergonomic', icon: '🎯' },
+];
+
+const DISPLAY_TOGGLES = [
+    { id: 'symbols', label: 'Символы',  default: true,  mock: true },
+    { id: 'shift',   label: 'Shift',     default: false, mock: true },
+    { id: 'sound',   label: 'Звук',      default: false, mock: true },
+    { id: 'rhythm',  label: 'Метроном', default: false, mock: true },
+];
+
+function renderKeyboardToolbar() {
+    const toolbar = document.getElementById('keyboardToolbar');
+    if (!toolbar) return;
+
+    const currentLayout = readProfileKeyboardType();
+
+    toolbar.innerHTML = `
+        <div class="kbt-section kbt-layout-switcher" role="radiogroup" aria-label="Раскладка клавиатуры">
+            ${LAYOUT_OPTIONS.map(opt => `
+                <button type="button" class="kbt-pill kbt-layout${opt.id === currentLayout ? ' kbt-active' : ''}"
+                        data-layout="${opt.id}" role="radio" aria-checked="${opt.id === currentLayout}">
+                    <span class="kbt-icon">${opt.icon}</span>
+                    <span>${opt.label}</span>
+                </button>
+            `).join('')}
+        </div>
+
+        <div class="kbt-section kbt-toggles" aria-label="Опции отображения">
+            ${DISPLAY_TOGGLES.map(t => `
+                <button type="button" class="kbt-pill kbt-toggle${t.default ? ' kbt-on' : ''} kbt-mock"
+                        data-toggle="${t.id}" title="${t.label} (заглушка — будет в следующих итерациях)">
+                    <span class="kbt-check">${t.default ? '☑' : '☐'}</span>
+                    <span>${t.label}</span>
+                </button>
+            `).join('')}
+        </div>
+
+        <div class="kbt-section kbt-info">
+            <span class="kbt-chip" title="Текущая раскладка">RU · ЙЦУКЕН</span>
+        </div>
+    `;
+
+    // Layout-switcher — функциональный: меняет раскладку live + сохраняет в профиль
+    toolbar.querySelectorAll('.kbt-layout').forEach(btn => {
+        btn.addEventListener('click', () => {
+            const layout = btn.dataset.layout;
+            writeProfileKeyboardType(layout);
+            renderKeyboard(layout);
+            renderKeyboardToolbar(); // re-paint active pill
+        });
+    });
+
+    // Display toggles — пока мок: подсветка вкл/выкл без эффекта
+    toolbar.querySelectorAll('.kbt-toggle').forEach(btn => {
+        btn.addEventListener('click', () => {
+            btn.classList.toggle('kbt-on');
+            const check = btn.querySelector('.kbt-check');
+            if (check) check.textContent = btn.classList.contains('kbt-on') ? '☑' : '☐';
+        });
+    });
+}
+
 function initKeyboard() {
     console.log('🎹 Инициализация виртуальной клавиатуры (data-driven)...');
     try {
@@ -325,6 +406,7 @@ function initKeyboard() {
 
         const initialLayout = readProfileKeyboardType();
         renderKeyboard(initialLayout);
+        renderKeyboardToolbar();
 
         // Mouse-обработчики на клавишах — делегированно на контейнер
         container.addEventListener('mousedown', onKeyMouseDown);
@@ -334,6 +416,7 @@ function initKeyboard() {
         // Live re-render при смене профиля (welcome modal close → applyKeyboardLayout)
         document.addEventListener('typingtrainer:onboardingComplete', () => {
             renderKeyboard(readProfileKeyboardType());
+            renderKeyboardToolbar();
         });
 
         // Responsive: re-render с новым unit при ресайзе окна (debounced).
