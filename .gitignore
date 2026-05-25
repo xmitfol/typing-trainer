@@ -1,0 +1,28 @@
+# OS / editor debris
+.DS_Store
+Thumbs.db
+nul
+*.swp
+*~
+
+# Test output (E2E screenshots)
+verify-screenshots/
+verify-screenshots-local/
+
+# Local-only artifacts
+# - error/ contains bug-report screenshots collected locally
+# - docs/temp/ holds workshop scratch
+error/
+docs/temp/
+
+# Build / dist (no build system yet, but reserve)
+node_modules/
+dist/
+build/
+
+# Local IDE
+.vscode/
+.idea/
+
+# Claude Code session state (per-machine)
+.claude/settings.local.json
