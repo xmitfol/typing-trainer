@@ -5,10 +5,10 @@
   "title": "Instagram caption style",
   "description": "Captions with punctuation + hashtags",
   "target_wpm": 65,
-  "text_length": 119,
+  "text_length": 120,
   "error_limit_percent": 6,
   "error_limit": 7,
-  "text": "sunset vibes never get old. cant wait for summer. blessed and grateful. coffee first, talk later. #goals #mood #weekend",
+  "text": "sunset vibes never get old. can't wait for summer. blessed and grateful. coffee first, talk later. #goals #mood #weekend",
   "text_sequence": [],
   "keys_trained": [
     "A-Z",

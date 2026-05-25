@@ -239,7 +239,7 @@ LESSONS = [
 
 
 for d in LESSONS:
-    fp = OUT / f'lesson_{d["lesson_number"]}.json'
+    fp = OUT / f'lesson_{d["lesson_number"]:02d}.json'
     with open(fp, 'w', encoding='utf-8') as f:
         json.dump(d, f, indent=2, ensure_ascii=False)
     print(f'  wrote en_teen/lesson_{d["lesson_number"]}.json ({d["text_length"]} chars, WPM {d["target_wpm"]})')

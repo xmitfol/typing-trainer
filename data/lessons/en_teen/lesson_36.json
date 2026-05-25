@@ -5,10 +5,10 @@
   "title": "Rhythm: social feed flow",
   "description": "Scroll through multiple short posts at sustained tempo",
   "target_wpm": 65,
-  "text_length": 118,
+  "text_length": 124,
   "error_limit_percent": 6,
   "error_limit": 7,
-  "text": "live laugh log on grind never stop monday energy hits different fr no thoughts head empty good vibes only literally me",
+  "text": "live laugh log on. grind never stop. monday energy hits different fr. no thoughts head empty. good vibes only. literally me.",
   "text_sequence": [],
   "keys_trained": [
     "A-Z",

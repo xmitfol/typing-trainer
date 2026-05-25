@@ -5,10 +5,10 @@
   "title": "Twitter-style short posts",
   "description": "Punchy short-form posts",
   "target_wpm": 63,
-  "text_length": 109,
+  "text_length": 114,
   "error_limit_percent": 6,
   "error_limit": 6,
-  "text": "ok but why is everyone sleeping on this anyway just dropped my new playlist link in bio fr fr go check it out",
+  "text": "ok but why is everyone sleeping on this. anyway just dropped my new playlist — link in bio. fr fr go check it out.",
   "text_sequence": [],
   "keys_trained": [
     "A-Z",

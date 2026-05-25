@@ -5,10 +5,10 @@
   "title": "Teen milestone: 40 lessons",
   "description": "Mid-Teen-course checkpoint at 68 WPM",
   "target_wpm": 68,
-  "text_length": 163,
+  "text_length": 159,
   "error_limit_percent": 6,
   "error_limit": 9,
-  "text": "forty lessons in and your speed is double what it was on day one — that is real progress. keep showing up; the second half is where things really click into place.",
+  "text": "Forty lessons in. Your speed is double what it was on day one — that's real progress. Keep showing up; the second half is where things really click into place.",
   "text_sequence": [],
   "keys_trained": [
     "A-Z",

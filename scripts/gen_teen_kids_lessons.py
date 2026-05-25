@@ -416,7 +416,7 @@ def write_lessons(tier, lessons, out_dir):
     for entry in lessons:
         num, title, desc, wpm, text, keys, focus, tips, char_tips, phase, rhythm, error_pct = entry
         lesson = build_lesson(tier, num, title, desc, wpm, text, keys, focus, tips, char_tips, phase, rhythm, error_pct)
-        fp = out_dir / f'lesson_{num}.json'
+        fp = out_dir / f'lesson_{num:02d}.json'
         with open(fp, 'w', encoding='utf-8') as f:
             json.dump(lesson, f, indent=2, ensure_ascii=False)
         print(f'  wrote {fp.relative_to(out_dir.parent.parent.parent)} ({lesson["text_length"]} chars, WPM {wpm})')

@@ -92,19 +92,15 @@ class TypingTrainer {
             if (this.state.currentLesson) return; // уже загружен
             const firstNum = (window.Settings && window.Settings.get('lessons.firstLessonNumber', 1)) || 1;
 
-            // Определяем default tier: для лангa пользователя (если указан) или системный default
+            // Определяем default tier: по (lang, character) — age-based routing
             const profileKey = (window.Settings && window.Settings.get('storage.keys.userProfile'))
                 || 'typing_trainer_user_profile';
-            let userLang = 'ru';
+            let profile = null;
             try {
                 const raw = localStorage.getItem(profileKey);
-                if (raw) userLang = JSON.parse(raw).language || 'ru';
+                if (raw) profile = JSON.parse(raw);
             } catch (e) {}
-            const langTier = (window.Settings
-                && window.Settings.get(`lessons.languageDefaultTier.${userLang}`)) || null;
-            const defaultTier = langTier
-                || (window.Settings && window.Settings.get('lessons.defaultTier', 'tier1'))
-                || 'tier1';
+            const defaultTier = this.pickInitialTier(profile);
 
             // Пробуем восстановить из сохранённого прогресса
             const savedKey = (window.Settings && window.Settings.get('storage.keys.currentLesson'))
@@ -136,6 +132,25 @@ class TypingTrainer {
     getTierLessonCount(tier) {
         const counts = (window.Settings && window.Settings.get('lessons.tierLessonCount', {})) || {};
         return counts[tier] || 0;
+    }
+
+    // Выбор tier'а при первой загрузке: age-based routing по (lang, character).
+    // Применяется ТОЛЬКО когда нет сохранённого currentLesson (свежий онбординг или сброс).
+    // При смене персонажа в Settings tier не меняем — у юзера уже может быть прогресс.
+    pickInitialTier(profile) {
+        const lang = (profile && profile.language) || 'ru';
+        const character = profile && profile.character;
+        const langTier = (window.Settings
+            && window.Settings.get(`lessons.languageDefaultTier.${lang}`)) || null;
+        const systemDefault = (window.Settings && window.Settings.get('lessons.defaultTier', 'tier1')) || 'tier1';
+
+        // EN: маршрутизация по персонажу
+        if (lang === 'en') {
+            if (character === 'knopych') return 'en_teen';   // Кнопыч → подростковый
+            if (character === 'klavochka') return 'en_kids'; // Клавочка → детский
+            // anna/maxim/прочее → основной EN
+        }
+        return langTier || systemDefault;
     }
 
     // Авто-переход к следующему уроку (вызывается после успешной сдачи)
@@ -324,7 +339,7 @@ class TypingTrainer {
 
     // Human-readable labels (UI-только, не data)
     getTierLabel(tier) {
-        const labels = { tier1: 'Основной', block_1: 'Мизинец', en_tier1: 'English', en_teen: 'EN Teen', en_kids: 'EN Kids' };
+        const labels = { tier1: 'Основной', block_1: 'Мизинец', en_tier1: 'English', en_teen: 'EN Junior', en_kids: 'EN Kids' };
         return labels[tier] || tier;
     }
 

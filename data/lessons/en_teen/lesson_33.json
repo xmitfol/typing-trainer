@@ -5,10 +5,10 @@
   "title": "Dates and time chat",
   "description": "Quick date/time messages",
   "target_wpm": 60,
-  "text_length": 110,
+  "text_length": 114,
   "error_limit_percent": 6,
   "error_limit": 6,
-  "text": "see you at 3 today meet at 4:30 the show starts at 8 PM on June 15 my flight at 9:45 AM tomorrow at noon sharp",
+  "text": "See you at 3 today. Meet at 4:30. The show starts at 8 PM on June 15. My flight at 9:45 AM tomorrow at noon sharp.",
   "text_sequence": [],
   "keys_trained": [
     "A-Z",
