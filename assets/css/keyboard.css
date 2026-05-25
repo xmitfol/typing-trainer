@@ -38,6 +38,19 @@
 }
 
 /* ============================================
+   0.4. Display toggles — CSS-эффекты от toolbar pills
+   (kb-hide-symbols скрывает основные метки, kb-hide-shift скрывает upper-char)
+   ============================================ */
+
+.keyboard-container.kb-hide-symbols .key-label {
+    visibility: hidden;
+}
+
+.keyboard-container.kb-hide-shift .key-upper {
+    display: none;
+}
+
+/* ============================================
    0.5. Top function toolbar (над клавиатурой)
    ============================================ */
 

@@ -336,18 +336,76 @@ const LAYOUT_OPTIONS = [
     { id: 'ergonomic', label: 'Ergonomic', icon: '🎯' },
 ];
 
+// Display toggles. functional: символы/Shift применяются через CSS-класс
+// на .keyboard-container. mock: звук/метроном пока без поведения (ждут spec'ов).
 const DISPLAY_TOGGLES = [
-    { id: 'symbols', label: 'Символы',  default: true,  mock: true },
-    { id: 'shift',   label: 'Shift',     default: false, mock: true },
-    { id: 'sound',   label: 'Звук',      default: false, mock: true },
-    { id: 'rhythm',  label: 'Метроном', default: false, mock: true },
+    { id: 'symbols', label: 'Символы',  default: true,  mock: false, hint: 'Показывать буквы на клавишах' },
+    { id: 'shift',   label: 'Shift',     default: true,  mock: false, hint: 'Показывать Shift-символы в углу' },
+    { id: 'sound',   label: 'Звук',      default: false, mock: true,  hint: 'В разработке: звук нажатий' },
+    { id: 'rhythm',  label: 'Метроном', default: false, mock: true,  hint: 'В разработке: метроном по target WPM' },
 ];
+
+// Маппинг toggle ID → CSS-класс на контейнере (когда toggle OFF, добавляется класс kb-hide-*)
+const TOGGLE_CSS_CLASS = {
+    symbols: 'kb-hide-symbols',
+    shift:   'kb-hide-shift',
+};
+
+function getDisplayTogglesStorageKey() {
+    return (window.Settings && window.Settings.get('storage.keys.displayToggles'))
+        || 'typing_trainer_display_toggles';
+}
+
+function loadDisplayToggleStates() {
+    try {
+        const raw = localStorage.getItem(getDisplayTogglesStorageKey());
+        const saved = raw ? JSON.parse(raw) : {};
+        // Слой defaults поверх saved (чтобы новые toggle подхватывались с default)
+        const state = {};
+        DISPLAY_TOGGLES.forEach(t => {
+            state[t.id] = saved.hasOwnProperty(t.id) ? !!saved[t.id] : t.default;
+        });
+        return state;
+    } catch (e) {
+        const fallback = {};
+        DISPLAY_TOGGLES.forEach(t => { fallback[t.id] = t.default; });
+        return fallback;
+    }
+}
+
+function saveDisplayToggleState(id, value) {
+    try {
+        const key = getDisplayTogglesStorageKey();
+        const raw = localStorage.getItem(key);
+        const all = raw ? JSON.parse(raw) : {};
+        all[id] = !!value;
+        localStorage.setItem(key, JSON.stringify(all));
+    } catch (e) { /* silent */ }
+}
+
+// Применить toggle к DOM: символы/Shift — настоящий effect, остальные — mock
+function applyDisplayToggle(id, isOn) {
+    const container = document.querySelector('.keyboard-container');
+    if (!container) return;
+    const cls = TOGGLE_CSS_CLASS[id];
+    if (cls) {
+        // toggle ON = элемент виден (класс снят). toggle OFF = элемент скрыт (класс добавлен).
+        container.classList.toggle(cls, !isOn);
+    }
+    // sound/rhythm — пока mock, поведение появится с feature-spec'ом
+}
+
+function applyAllDisplayToggles() {
+    const state = loadDisplayToggleStates();
+    Object.keys(state).forEach(id => applyDisplayToggle(id, state[id]));
+}
 
 function renderKeyboardToolbar() {
     const toolbar = document.getElementById('keyboardToolbar');
     if (!toolbar) return;
 
     const currentLayout = readProfileKeyboardType();
+    const toggleState = loadDisplayToggleStates();
 
     toolbar.innerHTML = `
         <div class="kbt-section kbt-layout-switcher" role="radiogroup" aria-label="Раскладка клавиатуры">
@@ -361,13 +419,14 @@ function renderKeyboardToolbar() {
         </div>
 
         <div class="kbt-section kbt-toggles" aria-label="Опции отображения">
-            ${DISPLAY_TOGGLES.map(t => `
-                <button type="button" class="kbt-pill kbt-toggle${t.default ? ' kbt-on' : ''} kbt-mock"
-                        data-toggle="${t.id}" title="${t.label} (заглушка — будет в следующих итерациях)">
-                    <span class="kbt-check">${t.default ? '☑' : '☐'}</span>
+            ${DISPLAY_TOGGLES.map(t => {
+                const isOn = !!toggleState[t.id];
+                return `<button type="button" class="kbt-pill kbt-toggle${isOn ? ' kbt-on' : ''}${t.mock ? ' kbt-mock' : ''}"
+                            data-toggle="${t.id}" title="${t.hint}">
+                    <span class="kbt-check">${isOn ? '☑' : '☐'}</span>
                     <span>${t.label}</span>
-                </button>
-            `).join('')}
+                </button>`;
+            }).join('')}
         </div>
 
         <div class="kbt-section kbt-info">
@@ -375,22 +434,27 @@ function renderKeyboardToolbar() {
         </div>
     `;
 
-    // Layout-switcher — функциональный: меняет раскладку live + сохраняет в профиль
+    // Layout-switcher — функциональный
     toolbar.querySelectorAll('.kbt-layout').forEach(btn => {
         btn.addEventListener('click', () => {
             const layout = btn.dataset.layout;
             writeProfileKeyboardType(layout);
             renderKeyboard(layout);
-            renderKeyboardToolbar(); // re-paint active pill
+            renderKeyboardToolbar();
+            applyAllDisplayToggles(); // re-apply после re-render keyboard
         });
     });
 
-    // Display toggles — пока мок: подсветка вкл/выкл без эффекта
+    // Display toggles — символы/Shift функциональные, sound/rhythm пока mock
     toolbar.querySelectorAll('.kbt-toggle').forEach(btn => {
         btn.addEventListener('click', () => {
-            btn.classList.toggle('kbt-on');
+            const id = btn.dataset.toggle;
+            const newState = !btn.classList.contains('kbt-on');
+            btn.classList.toggle('kbt-on', newState);
             const check = btn.querySelector('.kbt-check');
-            if (check) check.textContent = btn.classList.contains('kbt-on') ? '☑' : '☐';
+            if (check) check.textContent = newState ? '☑' : '☐';
+            saveDisplayToggleState(id, newState);
+            applyDisplayToggle(id, newState);
         });
     });
 }
@@ -407,6 +471,7 @@ function initKeyboard() {
         const initialLayout = readProfileKeyboardType();
         renderKeyboard(initialLayout);
         renderKeyboardToolbar();
+        applyAllDisplayToggles();
 
         // Mouse-обработчики на клавишах — делегированно на контейнер
         container.addEventListener('mousedown', onKeyMouseDown);
