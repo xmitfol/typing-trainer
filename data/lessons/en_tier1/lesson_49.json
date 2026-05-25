@@ -1,0 +1,31 @@
+{
+  "id": "en_tier1_lesson_49",
+  "tier": "en_tier1",
+  "lesson_number": 49,
+  "title": "5-letter words: speed test",
+  "description": "Longer common words — push the 5-letter speed barrier",
+  "target_wpm": 42,
+  "text_length": 160,
+  "error_limit_percent": 8,
+  "error_limit": 13,
+  "text": "about after again being below could every first found great might never other place right small sound still their there these thing think three those today under water world write",
+  "text_sequence": [],
+  "keys_trained": ["all letters", "Space"],
+  "new_keys": [],
+  "finger_focus": "Full alphabet — hand alternation",
+  "tips": [
+    "5-letter words force more hand alternation — good for speed",
+    "Don't peek at the keyboard, even on tricky words",
+    "Consistency matters more than peaks — smooth wins"
+  ],
+  "character_tips": {
+    "anna": "Hand alternation is your best speed booster. Feel both hands working in sync.",
+    "maxim": "Five letters is enough to cover any real word. Master the rhythm.",
+    "knopych": "LEVEL UP! Five-letter combos! 🎮",
+    "klavochka": "Both hands dancing together, my treasure 💃"
+  },
+  "phase": 4,
+  "rhythmLesson": false,
+  "created_at": "2026-05-25",
+  "version": "1.0"
+}

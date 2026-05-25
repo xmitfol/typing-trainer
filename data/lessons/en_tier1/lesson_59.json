@@ -1,0 +1,31 @@
+{
+  "id": "en_tier1_lesson_59",
+  "tier": "en_tier1",
+  "lesson_number": 59,
+  "title": "Mixed content speed sprint",
+  "description": "Words + numbers + light symbols at speed — pre-final warmup",
+  "target_wpm": 52,
+  "text_length": 210,
+  "error_limit_percent": 7,
+  "error_limit": 15,
+  "text": "Order #4521 ships Monday for $129.50. Customer ID 7821 (priority) needs follow-up by 14:30 today. Team meeting at 9 a.m. Slack channel: #ops-2026. Backup: 100% verified. Time saved: 45 min.",
+  "text_sequence": [],
+  "keys_trained": ["A-Z", "0-9", ":", ".", ",", "$", "#", "(", ")", "%"],
+  "new_keys": [],
+  "finger_focus": "Speed across alphanumeric + symbols",
+  "tips": [
+    "Real ops/business text mixes everything — train mixed content",
+    "Don't slow for digits — they should be as fast as letters by now",
+    "Symbols ($, #, %) flow into the same rhythm as text"
+  ],
+  "character_tips": {
+    "anna": "Mixed content is where most pros plateau. Push through it here.",
+    "maxim": "Real writing isn't just words. Drill mixed content like this until uniform.",
+    "knopych": "ALL THE KEYS! 🎮 Symbols, numbers, letters — full keyboard!",
+    "klavochka": "Every part of the keyboard your friend now, my treasure 💎"
+  },
+  "phase": 4,
+  "rhythmLesson": false,
+  "created_at": "2026-05-25",
+  "version": "1.0"
+}

@@ -1,0 +1,31 @@
+{
+  "id": "en_tier1_lesson_57",
+  "tier": "en_tier1",
+  "lesson_number": 57,
+  "title": "Rhythm: pangram paragraph",
+  "description": "Multiple pangrams in flow — full-alphabet rhythm exercise",
+  "target_wpm": 50,
+  "text_length": 200,
+  "error_limit_percent": 7,
+  "error_limit": 14,
+  "text": "The quick brown fox jumps over the lazy dog, while a wizard's job is to vex chumps quickly in fog. How vexingly quick daft zebras jump! Bright vixens jump; dozy fowl quack at the keyboard.",
+  "text_sequence": [],
+  "keys_trained": ["A-Z full", "Space", ".", ",", ";", "'", "!"],
+  "new_keys": [],
+  "finger_focus": "Full alphabet in flow",
+  "tips": [
+    "Three different pangrams back-to-back",
+    "Don't slow down on rare letters (z, q, x) — keep the tempo",
+    "If your peak hits 55 WPM here, you're ready for Block 5"
+  ],
+  "character_tips": {
+    "anna": "Three pangrams in a row tests every letter under pressure. Stay smooth.",
+    "maxim": "Rare letters break rhythm — practice them in flow, not isolation.",
+    "knopych": "TRIPLE PANGRAM MARATHON! 🏃 Don't stop!",
+    "klavochka": "All letters dancing in harmony, my precious 🎼"
+  },
+  "phase": 4,
+  "rhythmLesson": true,
+  "created_at": "2026-05-25",
+  "version": "1.0"
+}

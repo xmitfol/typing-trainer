@@ -1,0 +1,31 @@
+{
+  "id": "en_tier1_lesson_51",
+  "tier": "en_tier1",
+  "lesson_number": 51,
+  "title": "Bigram drill: th, in, er, an, re",
+  "description": "Most frequent English letter pairs — train them as single motions",
+  "target_wpm": 43,
+  "text_length": 150,
+  "error_limit_percent": 8,
+  "error_limit": 12,
+  "text": "th th th in in in er er er an an an re re re the then this that with which when where there their other under under after father mother",
+  "text_sequence": [],
+  "keys_trained": ["all letters", "Space"],
+  "new_keys": [],
+  "finger_focus": "Bigram fluidity",
+  "tips": [
+    "'th', 'in', 'er', 'an', 're' = ~20% of all bigrams in English",
+    "Type each pair as ONE motion, not two separate keys",
+    "If your fingers fight a bigram, isolate and drill it 10 times"
+  ],
+  "character_tips": {
+    "anna": "Bigrams are the building blocks of speed. Make each pair feel like one keystroke.",
+    "maxim": "Pros don't think in letters — they think in pairs and clusters.",
+    "knopych": "Combo moves! 🥋 Two keys, ONE motion!",
+    "klavochka": "Like couples dancing, my dear 💑 In step together!"
+  },
+  "phase": 4,
+  "rhythmLesson": false,
+  "created_at": "2026-05-25",
+  "version": "1.0"
+}

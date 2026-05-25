@@ -1,0 +1,31 @@
+{
+  "id": "en_tier1_lesson_48",
+  "tier": "en_tier1",
+  "lesson_number": 48,
+  "title": "4-letter words sprint",
+  "description": "Speed sprint on the most common 4-letter words",
+  "target_wpm": 41,
+  "text_length": 150,
+  "error_limit_percent": 8,
+  "error_limit": 12,
+  "text": "that with this have from they been more them what some when than time only know also will many like into back over make most well take year",
+  "text_sequence": [],
+  "keys_trained": ["all letters", "Space"],
+  "new_keys": [],
+  "finger_focus": "Full alphabet — bigger word units",
+  "tips": [
+    "4-letter words appear in every English sentence",
+    "Watch for 'th' bigrams — they should be one motion",
+    "Type ahead — read 1-2 words past your cursor"
+  ],
+  "character_tips": {
+    "anna": "Reading ahead is the secret of fast typists. Train your eyes to scan forward.",
+    "maxim": "These words are the skeleton of any sentence. Drill them mercilessly.",
+    "knopych": "Four letters, four taps — TAP-TAP-TAP-TAP! ⚡",
+    "klavochka": "Like waves rolling, my sunshine 🌊"
+  },
+  "phase": 4,
+  "rhythmLesson": false,
+  "created_at": "2026-05-25",
+  "version": "1.0"
+}

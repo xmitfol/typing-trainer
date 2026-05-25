@@ -1,0 +1,31 @@
+{
+  "id": "en_tier1_lesson_52",
+  "tier": "en_tier1",
+  "lesson_number": 52,
+  "title": "Trigram drill: the, ing, and, ion",
+  "description": "Top 3-letter sequences — speed clusters",
+  "target_wpm": 44,
+  "text_length": 160,
+  "error_limit_percent": 8,
+  "error_limit": 13,
+  "text": "the the the ing ing ing and and and ion ion ion the king is running the action and the meeting and the morning and the singing and the action",
+  "text_sequence": [],
+  "keys_trained": ["all letters", "Space"],
+  "new_keys": [],
+  "finger_focus": "Trigram clusters",
+  "tips": [
+    "'the', 'ing', 'and', 'ion' = top 4 trigrams by frequency",
+    "These should feel like single chord-like motions",
+    "Speed test: type 'ing' 10 times — should take ~1.5 seconds"
+  ],
+  "character_tips": {
+    "anna": "Three-letter chunks are the next level. Burn them in until they're effortless.",
+    "maxim": "These trigrams appear in every paragraph. Drill = compound interest.",
+    "knopych": "TRIPLE COMBO! 🎯 Three keys, ONE motion!",
+    "klavochka": "Like dancing in threes, my sweetheart 🌷"
+  },
+  "phase": 4,
+  "rhythmLesson": false,
+  "created_at": "2026-05-25",
+  "version": "1.0"
+}

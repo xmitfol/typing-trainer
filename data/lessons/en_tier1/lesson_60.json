@@ -1,0 +1,32 @@
+{
+  "id": "en_tier1_lesson_60",
+  "tier": "en_tier1",
+  "lesson_number": 60,
+  "title": "BLOCK 4 FINAL: Speed mastery",
+  "description": "Block 4 final exam — 55 WPM on a real-world mixed-content paragraph",
+  "target_wpm": 55,
+  "text_length": 260,
+  "error_limit_percent": 6,
+  "error_limit": 16,
+  "text": "By the end of Q2 2026, the team had shipped 12 features, closed 47 tickets, and gained 8,500 new users (+34% MoM). Average response time dropped to 180 ms. CEO David Lopez wrote: \"Outstanding work, everyone. Next quarter: aim for 95% retention.\"",
+  "text_sequence": [],
+  "keys_trained": ["A-Z full", "0-9", "Shift", "all punctuation", "$", "#", "(", ")", "%", "+", ":", "\"", "."],
+  "new_keys": [],
+  "finger_focus": "Full keyboard — speed gate at 55 WPM",
+  "tips": [
+    "260 characters — biggest text in the course so far",
+    "Pass at 55 WPM = officially fast typist (top ~20% of users)",
+    "Block 5 unlocks: pure speed + accuracy refinement",
+    "Save this number — Block 5 will push it past 70 WPM"
+  ],
+  "character_tips": {
+    "anna": "🎓 BLOCK 4 FINAL! 55 WPM = officially fast. Block 5 makes you blazing.",
+    "maxim": "Speed gate cleared. Next: refine and push past 70 WPM in Block 5.",
+    "knopych": "BLOCK 4 BOSS DOWN! 🐉⚔️ SPEED MASTER unlocked!",
+    "klavochka": "My speed-star! ⭐ The next blocks make you fly higher!"
+  },
+  "phase": 4,
+  "rhythmLesson": false,
+  "created_at": "2026-05-25",
+  "version": "1.0"
+}

@@ -1,0 +1,31 @@
+{
+  "id": "en_tier1_lesson_56",
+  "tier": "en_tier1",
+  "lesson_number": 56,
+  "title": "Pangram practice: brown fox classic",
+  "description": "Classic pangram — every letter, smooth flow",
+  "target_wpm": 48,
+  "text_length": 175,
+  "error_limit_percent": 7,
+  "error_limit": 12,
+  "text": "The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog. Pack my box with five dozen liquor jugs. Sphinx of black quartz, judge my vow.",
+  "text_sequence": [],
+  "keys_trained": ["A-Z full", "Space", ".", ","],
+  "new_keys": [],
+  "finger_focus": "Every letter at least once",
+  "tips": [
+    "Pangrams use every letter — perfect speed measurement",
+    "The 'brown fox' pangram is the typing classic for a reason",
+    "If you can do this at 50+ WPM, you can type anything"
+  ],
+  "character_tips": {
+    "anna": "Every letter, no exceptions. This is the universal speed benchmark.",
+    "maxim": "Type this 5 times — your speed should climb each round.",
+    "knopych": "ALL THE LETTERS! 🦊 Catch the fox, jump the dog!",
+    "klavochka": "Every letter saying hello, my sunshine ☀️"
+  },
+  "phase": 4,
+  "rhythmLesson": false,
+  "created_at": "2026-05-25",
+  "version": "1.0"
+}
