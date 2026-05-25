@@ -24,5 +24,11 @@ build/
 .vscode/
 .idea/
 
-# Claude Code session state (per-machine)
+# Claude Code session state (per-machine — settings only;
+# .claude/agents/ и .claude/SESSION_CONTEXT.md трекаем как командные)
 .claude/settings.local.json
+
+# Large binary assets — keep .txt extracted versions instead
+# (.doc файл «Соло на пишущей машинке 1992» — 12MB, исходник из docs/book/)
+docs/book/*.doc
+docs/book/*.docx
