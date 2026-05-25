@@ -724,6 +724,64 @@
     line-height: 1.2;
 }
 
+/* UI language switcher pills (Settings → 🌐 Язык интерфейса) */
+.settings-ui-lang {
+    display: flex;
+    gap: 8px;
+    margin-top: 6px;
+}
+
+.settings-ui-lang-pill {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 12px;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    background: #ffffff;
+    cursor: pointer;
+    transition: all .15s ease;
+    font-family: inherit;
+    color: #4b5563;
+}
+
+.settings-ui-lang-pill:hover {
+    background: #f9fafb;
+    transform: translateY(-1px);
+}
+
+.settings-ui-lang-pill.settings-ui-lang-active {
+    background: linear-gradient(135deg, #dbeafe, #bfdbfe);
+    border-color: #60a5fa;
+    color: #1e40af;
+    font-weight: 600;
+}
+
+.settings-ui-lang-flag {
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    padding: 2px 6px;
+    border-radius: 3px;
+    background: rgba(0,0,0,0.06);
+    color: #6b7280;
+}
+
+.settings-ui-lang-pill[data-ui-lang="ru"] .settings-ui-lang-flag {
+    background: #fef3c7;
+    color: #92400e;
+}
+
+.settings-ui-lang-pill[data-ui-lang="en"] .settings-ui-lang-flag {
+    background: #dbeafe;
+    color: #1e40af;
+}
+
+.settings-ui-lang-name {
+    font-size: 0.9rem;
+}
+
 .settings-action {
     display: block;
     width: 100%;

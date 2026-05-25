@@ -107,6 +107,21 @@ class SettingsPanel {
             </section>
 
             <section class="settings-section">
+                <h4>🌐 Язык интерфейса</h4>
+                <p class="settings-hint">Сейчас локализованы только tier-лейблы. Остальной UI — следующая Phase 2 задача.</p>
+                <div class="settings-ui-lang">
+                    <button type="button" class="settings-ui-lang-pill${this.currentUiLang() === 'ru' ? ' settings-ui-lang-active' : ''}" data-ui-lang="ru">
+                        <span class="settings-ui-lang-flag">RU</span>
+                        <span class="settings-ui-lang-name">Русский</span>
+                    </button>
+                    <button type="button" class="settings-ui-lang-pill${this.currentUiLang() === 'en' ? ' settings-ui-lang-active' : ''}" data-ui-lang="en">
+                        <span class="settings-ui-lang-flag">EN</span>
+                        <span class="settings-ui-lang-name">English</span>
+                    </button>
+                </div>
+            </section>
+
+            <section class="settings-section">
                 <h4>Прогресс</h4>
                 <p class="settings-hint">Имя: <b>${this.escapeHtml(profile.name || '—')}</b> · Раскладка: <b>${this.escapeHtml(profile.keyboardType || 'classic')}</b></p>
                 <button type="button" class="settings-action settings-action-warning" data-action="resetProgress">
@@ -125,6 +140,10 @@ class SettingsPanel {
         body.querySelectorAll('.settings-character').forEach(card => {
             card.addEventListener('click', () => this.handleChangeCharacter(card.dataset.character));
         });
+        // Wire UI language pills
+        body.querySelectorAll('.settings-ui-lang-pill').forEach(btn => {
+            btn.addEventListener('click', () => this.handleChangeUiLanguage(btn.dataset.uiLang));
+        });
         // Wire action buttons
         body.querySelectorAll('.settings-action').forEach(btn => {
             btn.addEventListener('click', () => {
@@ -133,6 +152,25 @@ class SettingsPanel {
                 if (action === 'resetAll') this.handleResetAll();
             });
         });
+    }
+
+    currentUiLang() {
+        return (window.typingTrainer && typeof window.typingTrainer.getUiLanguage === 'function')
+            ? window.typingTrainer.getUiLanguage() : 'ru';
+    }
+
+    handleChangeUiLanguage(newLang) {
+        if (this.currentUiLang() === newLang) return;
+        if (window.typingTrainer && typeof window.typingTrainer.setUiLanguage === 'function') {
+            window.typingTrainer.setUiLanguage(newLang);
+        }
+        this.renderContent(); // re-highlight active pill
+        if (window.toastManager) {
+            window.toastManager.show(
+                newLang === 'ru' ? 'UI язык: Русский 🇷🇺' : 'UI language: English 🇬🇧',
+                '🌐', 3000, { type: 'success' }
+            );
+        }
     }
 
     escapeHtml(text) {
