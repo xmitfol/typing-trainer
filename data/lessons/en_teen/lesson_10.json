@@ -1,0 +1,35 @@
+{
+  "id": "en_teen_lesson_10",
+  "tier": "en_teen",
+  "lesson_number": 10,
+  "title": "Capitals and names",
+  "description": "Shift + letter for capital letters",
+  "target_wpm": 34,
+  "text_length": 87,
+  "error_limit_percent": 8,
+  "error_limit": 6,
+  "text": "Sam Alex Maya Jake Lisa Anna Carlos Priya Diego Mei Olivia Marco Yuki Rosa David Hannah",
+  "text_sequence": [],
+  "keys_trained": [
+    "Shift",
+    "A-Z",
+    "Space"
+  ],
+  "new_keys": [],
+  "finger_focus": "Shift + letter timing",
+  "tips": [
+    "Press Shift BEFORE the letter — not after",
+    "Use the Shift on the OPPOSITE side of your letter",
+    "Names are everywhere — train them at speed"
+  ],
+  "character_tips": {
+    "anna": "Shift before letter — opposite hand. That's the pro pattern.",
+    "maxim": "Capital letters = names + sentence starts. Train them now.",
+    "knopych": "SHIFT MOVE! 🎯 Opposite hand always — got it?",
+    "klavochka": "Tall friendly capitals, my dear — like proud trees 🌳"
+  },
+  "phase": 1,
+  "rhythmLesson": false,
+  "created_at": "2026-05-25",
+  "version": "1.0"
+}

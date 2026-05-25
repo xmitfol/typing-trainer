@@ -1,0 +1,38 @@
+{
+  "id": "en_teen_lesson_08",
+  "tier": "en_teen",
+  "lesson_number": 8,
+  "title": "Bottom row: N M",
+  "description": "Right hand bottom complete",
+  "target_wpm": 32,
+  "text_length": 95,
+  "error_limit_percent": 8,
+  "error_limit": 7,
+  "text": "man man man and and and now now now men men men come come come name name name money money money",
+  "text_sequence": [],
+  "keys_trained": [
+    "N",
+    "M",
+    "J",
+    "K",
+    "L",
+    "Space"
+  ],
+  "new_keys": [],
+  "finger_focus": "Right bottom + home row",
+  "tips": [
+    "N and M are right index/middle finger reaches DOWN",
+    "Common letters — N and M appear in 90% of sentences",
+    "After this lesson, you know all 26 letters"
+  ],
+  "character_tips": {
+    "anna": "N and M complete your alphabet. From here, you can type anything.",
+    "maxim": "All 26 letters online. The rest is practice.",
+    "knopych": "ALPHABET COMPLETE! 🔓 26/26 letters unlocked!",
+    "klavochka": "Every letter your friend now, my sunshine ☀️"
+  },
+  "phase": 1,
+  "rhythmLesson": false,
+  "created_at": "2026-05-25",
+  "version": "1.0"
+}

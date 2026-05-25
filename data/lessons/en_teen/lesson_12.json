@@ -1,0 +1,38 @@
+{
+  "id": "en_teen_lesson_12",
+  "tier": "en_teen",
+  "lesson_number": 12,
+  "title": "Numbers row: 6-0 (right hand)",
+  "description": "Right hand numbers complete",
+  "target_wpm": 36,
+  "text_length": 52,
+  "error_limit_percent": 8,
+  "error_limit": 4,
+  "text": "6 7 8 9 0 67 78 89 90 66 77 88 99 00 6789 7890 67890",
+  "text_sequence": [],
+  "keys_trained": [
+    "6",
+    "7",
+    "8",
+    "9",
+    "0",
+    "Space"
+  ],
+  "new_keys": [],
+  "finger_focus": "Right number reaches",
+  "tips": [
+    "6 with right index, 0 with right pinky",
+    "Same finger logic as Y-U-I-O-P",
+    "Numbers should flow as fast as letters by the end of the course"
+  ],
+  "character_tips": {
+    "anna": "Right side numbers — same finger as Y-U-I-O-P column.",
+    "maxim": "All 10 digits now under your fingers. Time to mix them in.",
+    "knopych": "FULL NUMERIC! 🔢 0-9 unlocked!",
+    "klavochka": "Counting to ten, my star ⭐"
+  },
+  "phase": 1,
+  "rhythmLesson": false,
+  "created_at": "2026-05-25",
+  "version": "1.0"
+}

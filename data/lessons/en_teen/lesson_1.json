@@ -1,0 +1,41 @@
+{
+  "id": "en_teen_lesson_01",
+  "tier": "en_teen",
+  "lesson_number": 1,
+  "title": "Home row: ASDF JKL;",
+  "description": "Welcome to Teen Course! Start with the resting position of your fingers.",
+  "target_wpm": 18,
+  "text_length": 49,
+  "error_limit_percent": 8,
+  "error_limit": 3,
+  "text": "asdf jkl; asdf jkl; asdf jkl; asdf jkl; asdf jkl;",
+  "text_sequence": [],
+  "keys_trained": [
+    "A",
+    "S",
+    "D",
+    "F",
+    "J",
+    "K",
+    "L",
+    ";",
+    "Space"
+  ],
+  "new_keys": [],
+  "finger_focus": "Home row — left and right hands",
+  "tips": [
+    "These 8 keys are home base — return here after every keystroke",
+    "Feel the bumps on F and J — those are your anchors",
+    "Don't look at the keyboard. Trust your hands."
+  ],
+  "character_tips": {
+    "anna": "Home row first. Find F and J by feel — those bumps are your anchors.",
+    "maxim": "ASDF JKL; — eight keys you'll return to a million times. Start here.",
+    "knopych": "BEEP BOOP! Home row activated! 🤖 Find F and J — those bumps! Got 'em?",
+    "klavochka": "These are your finger pillows, my dear! Cozy and ready 💤"
+  },
+  "phase": 1,
+  "rhythmLesson": false,
+  "created_at": "2026-05-25",
+  "version": "1.0"
+}

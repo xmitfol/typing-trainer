@@ -324,7 +324,7 @@ class TypingTrainer {
 
     // Human-readable labels (UI-только, не data)
     getTierLabel(tier) {
-        const labels = { tier1: 'Основной', block_1: 'Мизинец', en_tier1: 'English' };
+        const labels = { tier1: 'Основной', block_1: 'Мизинец', en_tier1: 'English', en_teen: 'EN Teen', en_kids: 'EN Kids' };
         return labels[tier] || tier;
     }
 

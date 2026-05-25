@@ -1,0 +1,35 @@
+{
+  "id": "en_kids_lesson_03",
+  "tier": "en_kids",
+  "lesson_number": 3,
+  "title": "Letter D and the word 'sad'",
+  "description": "Letter D — left middle finger. Make the word 'sad'!",
+  "target_wpm": 10,
+  "text_length": 61,
+  "error_limit_percent": 10,
+  "error_limit": 6,
+  "text": "d d d d ad ad ad da da da sad sad sad dad dad dad add add add",
+  "text_sequence": [],
+  "keys_trained": [
+    "A",
+    "S",
+    "D"
+  ],
+  "new_keys": [],
+  "finger_focus": "Left middle finger finds D",
+  "tips": [
+    "D is left middle finger",
+    "Now you can make \"sad\", \"dad\", \"add\"",
+    "Look at that — real words!"
+  ],
+  "character_tips": {
+    "anna": "Three letters! \"Sad\", \"dad\" — real words ✨",
+    "maxim": "Three letters, four words. Fast progress.",
+    "knopych": "WORDS! 🎉 sad, dad, add — you're a writer!",
+    "klavochka": "Three little letters making words, my treasure 🌟 So clever!"
+  },
+  "phase": 1,
+  "rhythmLesson": false,
+  "created_at": "2026-05-25",
+  "version": "1.0"
+}

@@ -1,0 +1,37 @@
+{
+  "id": "en_kids_lesson_05",
+  "tier": "en_kids",
+  "lesson_number": 5,
+  "title": "Right hand starts: J",
+  "description": "Letter J — right index finger. Feel the OTHER bump!",
+  "target_wpm": 11,
+  "text_length": 54,
+  "error_limit_percent": 10,
+  "error_limit": 5,
+  "text": "j j j j j ja ja ja aj aj aj jaja jaja jaja sad sad fad",
+  "text_sequence": [],
+  "keys_trained": [
+    "A",
+    "S",
+    "D",
+    "F",
+    "J"
+  ],
+  "new_keys": [],
+  "finger_focus": "Right index finger finds J",
+  "tips": [
+    "J is your RIGHT anchor — another bump!",
+    "J and F are your two homes",
+    "Right hand wakes up now"
+  ],
+  "character_tips": {
+    "anna": "J is your right anchor — bump on the other side! Two homes now 🌸",
+    "maxim": "Two anchors: F (left) and J (right). Always find them by feel.",
+    "knopych": "J = OTHER ANCHOR! 🎯 Both hands now have homes!",
+    "klavochka": "Two cozy pillows, my dear — one for each hand 💕"
+  },
+  "phase": 1,
+  "rhythmLesson": false,
+  "created_at": "2026-05-25",
+  "version": "1.0"
+}

@@ -1,0 +1,33 @@
+{
+  "id": "en_kids_lesson_01",
+  "tier": "en_kids",
+  "lesson_number": 1,
+  "title": "Hello! Letter A",
+  "description": "Your very first letter — A. Press it with your left pinky.",
+  "target_wpm": 8,
+  "text_length": 19,
+  "error_limit_percent": 10,
+  "error_limit": 2,
+  "text": "a a a a a a a a a a",
+  "text_sequence": [],
+  "keys_trained": [
+    "A"
+  ],
+  "new_keys": [],
+  "finger_focus": "Left pinky finds A",
+  "tips": [
+    "Just one letter — letter A",
+    "Use your LEFT little finger (pinky)",
+    "Press gently, like a key on a piano"
+  ],
+  "character_tips": {
+    "anna": "Hello, little friend! Press A with your left pinky 🌸",
+    "maxim": "First letter. Pinky finger. Gentle press.",
+    "knopych": "Hi there! 🤖 Press A! That's it!",
+    "klavochka": "Hello, my dear! 🌷 Just one letter today. Press A. Soft fingers!"
+  },
+  "phase": 1,
+  "rhythmLesson": false,
+  "created_at": "2026-05-25",
+  "version": "1.0"
+}

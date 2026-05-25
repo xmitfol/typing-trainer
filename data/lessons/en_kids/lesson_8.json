@@ -1,0 +1,40 @@
+{
+  "id": "en_kids_lesson_08",
+  "tier": "en_kids",
+  "lesson_number": 8,
+  "title": "Rhythm: home row words",
+  "description": "Repeat words with rhythm",
+  "target_wpm": 14,
+  "text_length": 83,
+  "error_limit_percent": 10,
+  "error_limit": 8,
+  "text": "ask ask ask sad sad sad lad lad lad jak jak jak fall fall fall ask sad lad jak fall",
+  "text_sequence": [],
+  "keys_trained": [
+    "A",
+    "S",
+    "D",
+    "F",
+    "J",
+    "K",
+    "L",
+    "Space"
+  ],
+  "new_keys": [],
+  "finger_focus": "Home row rhythm",
+  "tips": [
+    "Same word three times = rhythm practice",
+    "Like clapping along to a song",
+    "Don't speed up — just stay steady"
+  ],
+  "character_tips": {
+    "anna": "Rhythm like a song — clap-clap-clap, type-type-type 🌷",
+    "maxim": "Repetition + rhythm = muscle memory.",
+    "knopych": "RHYTHM MODE! 🥁 Same word, same beat!",
+    "klavochka": "Like a little song, my dear 🎵 Tap-tap-tap!"
+  },
+  "phase": 1,
+  "rhythmLesson": true,
+  "created_at": "2026-05-25",
+  "version": "1.0"
+}
