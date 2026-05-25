@@ -76,6 +76,9 @@ class TypingTrainer {
         // Инициализируем другие модули
         this.initModules();
 
+        // Применить сохранённый UI-язык до первого рендера (чтобы лейблы сразу пришли локализованными)
+        this.applyStoredUiLanguage();
+
         // Миграция старого формата прогресса (если есть), затем рендер tier switcher
         this.migrateLessonProgressFormat();
         this.renderTierSwitcher();
@@ -338,11 +341,43 @@ class TypingTrainer {
 
     // ── Tier switcher (UI для переключения курса tier1 ↔ block_1) ──
 
-    // UI-язык интерфейса. Сейчас читаем из <html lang>, в будущем
-    // можно добавить переключатель в Settings.
+    // На старте применяем сохранённый UI-язык к <html lang> (если есть)
+    applyStoredUiLanguage() {
+        try {
+            const key = (window.Settings && window.Settings.get('storage.keys.uiLanguage'))
+                || 'typing_trainer_ui_language';
+            const stored = localStorage.getItem(key);
+            if ((stored === 'ru' || stored === 'en') && document.documentElement) {
+                document.documentElement.lang = stored;
+            }
+        } catch (e) { /* silent */ }
+    }
+
+    // UI-язык интерфейса. Приоритет: localStorage preference → <html lang> → 'ru'.
     getUiLanguage() {
+        try {
+            const key = (window.Settings && window.Settings.get('storage.keys.uiLanguage'))
+                || 'typing_trainer_ui_language';
+            const stored = localStorage.getItem(key);
+            if (stored === 'ru' || stored === 'en') return stored;
+        } catch (e) { /* fall through */ }
         const htmlLang = (document.documentElement && document.documentElement.lang) || 'ru';
         return htmlLang.startsWith('en') ? 'en' : 'ru';
+    }
+
+    // Установить UI-язык: persist + apply to <html lang> + re-render tier switcher.
+    setUiLanguage(lang) {
+        if (lang !== 'ru' && lang !== 'en') return;
+        try {
+            const key = (window.Settings && window.Settings.get('storage.keys.uiLanguage'))
+                || 'typing_trainer_ui_language';
+            localStorage.setItem(key, lang);
+        } catch (e) { /* silent */ }
+        if (document.documentElement) {
+            document.documentElement.lang = lang;
+        }
+        // Re-render зависимые UI элементы (tier-switcher с локализованными лейблами)
+        this.renderTierSwitcher();
     }
 
     // Tier-метаданные (UI-только, не data). label локализован по UI-языку.
