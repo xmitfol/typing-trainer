@@ -1,385 +1,262 @@
-/* assets/css/keyboard.css - Стили виртуальной клавиатуры */
+/* assets/css/keyboard.css — стили виртуальной клавиатуры (Phase 1).
+   DOM строится renderer'ом из keyboard.js, размеры/шрифты задаются inline
+   (зависят от unit). Этот файл отвечает за: цвета пальцев, состояния
+   (active/highlight/error/press-анимации), композицию, layout-варианты,
+   home-bump, темную тему-заготовку. */
 
 /* ============================================
    1. Контейнер и сетка
    ============================================ */
 
 .keyboard-container {
-    background: white;
+    background: #f5f4f0;
     padding: 20px;
-    box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
+    box-shadow: 0 -2px 10px rgba(0,0,0,0.06);
     display: flex;
     justify-content: center;
     align-items: flex-start;
     gap: 20px;
     border-top: 1px solid #e9ecef;
     margin-top: 20px;
-    animation: fadeInUp 0.5s ease-out;
+    animation: kbFadeInUp 0.4s ease-out;
+    font-family: 'Manrope', ui-sans-serif, system-ui, sans-serif;
 }
 
 .keyboard {
     display: flex;
     flex-direction: column;
-    gap: 5px;
     user-select: none;
 }
 
-.keyboard-row {
+.keyboard-row,
+.nav-row,
+.arrow-row {
     display: flex;
-    gap: 3px;
     justify-content: center;
-}
-
-/* ============================================
-   2. Базовая клавиша + finger-цвета
-   ============================================ */
-
-.key {
-    min-width: 40px;
-    height: 40px;
-    display: flex;
     align-items: center;
-    justify-content: center;
-    font-size: 0.9rem;
-    font-weight: bold;
-    border-radius: 6px;
-    cursor: pointer;
-    transition: all 0.1s ease;
-    border: 1px solid #ddd;
-    background: #f8f9fa;
-    color: #2d3436;
-    position: relative;
-    user-select: none;
-    font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
 }
 
-.key:hover {
-    transform: translateY(-1px);
-    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
-    border-color: #ccc;
+.right-section {
+    display: flex;
+    align-items: flex-end;
 }
 
-.key:active {
-    transform: translateY(0);
-    box-shadow: inset 0 2px 4px rgba(0,0,0,0.2);
-}
-
-/* Цвета пальцев — palette из APP_CONFIG.keyboard.fingerColors */
-.key.pink {
-    background: linear-gradient(135deg, #ff7675, #e84393);
-    border-color: #e17055;
-    color: white;
-    text-shadow: 0 1px 2px rgba(0,0,0,0.2);
-}
-
-.key.orange {
-    background: linear-gradient(135deg, #fdcb6e, #f39c12);
-    border-color: #e17055;
-    color: white;
-    text-shadow: 0 1px 2px rgba(0,0,0,0.2);
-}
-
-.key.green {
-    background: linear-gradient(135deg, #00b894, #00a085);
-    border-color: #00996e;
-    color: white;
-    text-shadow: 0 1px 2px rgba(0,0,0,0.2);
-}
-
-.key.cyan {
-    background: linear-gradient(135deg, #74b9ff, #0984e3);
-    border-color: #0072cc;
-    color: white;
-    text-shadow: 0 1px 2px rgba(0,0,0,0.2);
-}
-
-.key.blue {
-    background: linear-gradient(135deg, #0984e3, #2d3436);
-    border-color: #2d3436;
-    color: white;
-    text-shadow: 0 1px 2px rgba(0,0,0,0.2);
-}
-
-.key.purple {
-    background: linear-gradient(135deg, #a29bfe, #6c5ce7);
-    border-color: #5a4fcf;
-    color: white;
-    text-shadow: 0 1px 2px rgba(0,0,0,0.2);
-}
-
-/* ============================================
-   3. Специальные / служебные клавиши
-   ============================================ */
-
-.key.backspace {
-    min-width: 80px;
-    background: linear-gradient(135deg, #636e72, #2d3436);
-    color: white;
-    border-color: #2d3436;
-    font-size: 0.8rem;
-}
-
-.key.tab {
-    min-width: 60px;
-    font-size: 0.8rem;
-}
-
-.key.caps {
-    min-width: 90px;
-    font-size: 0.7rem;
-}
-
-.key.enter {
-    min-width: 90px;
-    background: linear-gradient(135deg, #636e72, #2d3436);
-    color: white;
-    border-color: #2d3436;
-    font-size: 0.8rem;
-}
-
-.key.shift-left,
-.key.shift-right {
-    min-width: 80px;
-    font-size: 0.8rem;
-}
-
-.key.spacebar {
-    min-width: 300px;
-    font-size: 0.9rem;
-}
-
-.key.ctrl,
-.key.alt {
-    min-width: 50px;
-    font-size: 0.8rem;
-}
-
-/* Скрываем placeholder'ы клавиш (если есть) */
-.key-placeholder {
-    display: none;
-}
-
-/* ============================================
-   4. Правая секция: навигация + numpad
-   ============================================ */
-
-.navigation-block {
+.navigation-block,
+.arrow-block {
     display: flex;
     flex-direction: column;
-    gap: 5px;
-    margin-left: 15px;
-}
-
-.nav-row {
-    display: flex;
-    gap: 3px;
-}
-
-.navigation-block .key {
-    min-width: 42px;
-    height: 38px;
-}
-
-.key.nav {
-    background: #f1f3f4;
-    color: #5f6368;
-    border-color: #dadce0;
-    font-size: 0.65rem;
-    line-height: 1.1;
-}
-
-.key.nav:hover {
-    background: #e8eaed;
-}
-
-.key.numlock {
-    background: #f1f3f4;
-    color: #5f6368;
-    border-color: #dadce0;
-    font-size: 0.65rem;
-    line-height: 1.1;
-}
-
-.key.numlock:hover {
-    background: #e8eaed;
+    align-self: flex-start;
 }
 
 .numpad {
     display: grid;
-    grid-template-columns: repeat(4, 42px);
-    grid-template-rows: repeat(5, 38px);
-    gap: 3px;
-    margin-left: 20px;
+    align-self: flex-start;
 }
 
-.numpad-row {
-    display: contents;
-}
+/* ============================================
+   2. Базовая клавиша (без размера — он inline)
+   ============================================ */
 
-.numpad .key {
-    min-width: 42px;
-    height: 38px;
-    font-size: 0.9rem;
+.key {
+    background: #ffffff;
+    color: #1a1a17;
+    border: 1px solid rgba(0,0,0,0.08);
+    box-shadow:
+        0 1px 0 rgba(255,255,255,0.9) inset,
+        0 1px 2px rgba(0,0,0,0.06),
+        0 2px 6px rgba(0,0,0,0.04);
     display: flex;
+    align-items: flex-end;
+    justify-content: flex-start;
+    font-weight: 600;
+    cursor: pointer;
+    user-select: none;
+    position: relative;
+    transition: transform .12s cubic-bezier(.4,0,.2,1),
+                box-shadow .12s ease,
+                background-color .12s ease;
+    flex-shrink: 0;
+    overflow: hidden;
+}
+
+.key:hover {
+    transform: translateY(-1px);
+}
+
+.key:active {
+    transform: translateY(0);
+}
+
+/* Модификаторы (Tab/Caps/Enter/Shift/Ctrl/Alt/Backspace/стрелки и т.д.) */
+.key.mod {
+    background: #f1efe8;
+    color: #6e6a5f;
     align-items: center;
     justify-content: center;
 }
 
-.numpad .key.plus {
-    grid-row: 2 / 4;
-    height: 79px;   /* 38px + 38px + 3px gap */
+/* Метки внутри клавиши */
+.key-label {
+    line-height: 1;
+    pointer-events: none;
 }
 
-.numpad .key.enter-num {
-    grid-row: 4 / 6;
-    height: 79px;
-    background: linear-gradient(135deg, #a29bfe, #6c5ce7);
-    color: white;
-    border-color: #5a4fcf;
+.key-upper {
+    position: absolute;
+    top: 4px;
+    right: 6px;
+    opacity: 0.55;
+    font-weight: 500;
+    pointer-events: none;
 }
 
-.numpad .key.zero {
-    grid-column: 1 / 3;
-    width: 87px;    /* 42px + 42px + 3px gap */
+/* Home-row bump (тактильный маркер под А, О, 5) */
+.key-home-bump {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0,0,0,0.35);
+    border-radius: 999px;
+    pointer-events: none;
+}
+
+.key.home-key { /* родительский класс — может пригодиться для CSS-хуков */ }
+
+/* ============================================
+   3. Цвета пальцев (палитра НЕ менять — пользовательская инструкция)
+   ============================================ */
+
+.key.pink {
+    background: linear-gradient(180deg, #ff7675 0%, #e84393 100%);
+    color: #ffffff;
+    border-color: rgba(0,0,0,0.06);
+    text-shadow: 0 1px 2px rgba(0,0,0,0.2);
+}
+
+.key.orange {
+    background: linear-gradient(180deg, #fdcb6e 0%, #f39c12 100%);
+    color: #ffffff;
+    border-color: rgba(0,0,0,0.06);
+    text-shadow: 0 1px 2px rgba(0,0,0,0.2);
+}
+
+.key.green {
+    background: linear-gradient(180deg, #00b894 0%, #00a085 100%);
+    color: #ffffff;
+    border-color: rgba(0,0,0,0.06);
+    text-shadow: 0 1px 2px rgba(0,0,0,0.2);
+}
+
+.key.blue {
+    background: linear-gradient(180deg, #74b9ff 0%, #0984e3 100%);
+    color: #ffffff;
+    border-color: rgba(0,0,0,0.06);
+    text-shadow: 0 1px 2px rgba(0,0,0,0.2);
+}
+
+/* НОВЫЙ цвет для правой указательной (раньше blue был универсальный) */
+.key.indigo {
+    background: linear-gradient(180deg, #4a90e2 0%, #2d3436 100%);
+    color: #ffffff;
+    border-color: rgba(0,0,0,0.06);
+    text-shadow: 0 1px 2px rgba(0,0,0,0.2);
+}
+
+.key.purple {
+    background: linear-gradient(180deg, #a29bfe 0%, #6c5ce7 100%);
+    color: #ffffff;
+    border-color: rgba(0,0,0,0.06);
+    text-shadow: 0 1px 2px rgba(0,0,0,0.2);
+}
+
+/* На home-bump поверх цветной заливки нужен светлый маркер */
+.key.pink   .key-home-bump,
+.key.orange .key-home-bump,
+.key.green  .key-home-bump,
+.key.blue   .key-home-bump,
+.key.indigo .key-home-bump,
+.key.purple .key-home-bump {
+    background: rgba(255,255,255,0.7);
 }
 
 /* ============================================
-   5. Состояния клавиш и анимации
+   4. Состояния (legacy API: active/highlight/correct-press/incorrect-press)
+   В Phase 2 расширим до design-states (default/hover/active/highlight/error)
    ============================================ */
 
 .key.active {
     transform: translateY(1px) scale(0.98);
     box-shadow: inset 0 2px 4px rgba(0,0,0,0.3);
-    filter: brightness(0.9);
+    filter: brightness(0.92);
 }
 
 .key.highlight {
-    box-shadow: 0 0 15px rgba(255,255,255,0.8),
-                0 0 25px rgba(116,185,255,0.6),
-                inset 0 0 15px rgba(255,255,255,0.3);
-    animation: keyGlow 1s ease-in-out infinite;
     z-index: 10;
-    border-color: #74b9ff;
+    box-shadow:
+        0 0 0 2px #74b9ff,
+        0 0 18px rgba(116,185,255,0.6),
+        0 1px 2px rgba(0,0,0,0.06);
+    animation: kbKeyGlow 1.2s ease-in-out infinite;
 }
 
 .key.correct-press {
-    animation: correctKeyPress 0.3s ease;
+    animation: kbCorrectPress 0.3s ease;
 }
 
 .key.incorrect-press {
-    animation: incorrectKeyPress 0.5s ease;
+    animation: kbIncorrectPress 0.5s ease;
 }
 
-@keyframes keyGlow {
+@keyframes kbKeyGlow {
     0%, 100% {
-        box-shadow: 0 0 15px rgba(255,255,255,0.8),
-                    0 0 25px rgba(116,185,255,0.6),
-                    inset 0 0 15px rgba(255,255,255,0.3);
+        box-shadow:
+            0 0 0 2px #74b9ff,
+            0 0 18px rgba(116,185,255,0.6),
+            0 1px 2px rgba(0,0,0,0.06);
     }
     50% {
-        box-shadow: 0 0 20px rgba(255,255,255,1),
-                    0 0 35px rgba(116,185,255,0.8),
-                    inset 0 0 20px rgba(255,255,255,0.5);
+        box-shadow:
+            0 0 0 2px #74b9ff,
+            0 0 28px rgba(116,185,255,0.9),
+            0 1px 2px rgba(0,0,0,0.06);
     }
 }
 
-@keyframes correctKeyPress {
-    0% {
-        transform: scale(1);
-        background-color: #00b894;
-    }
+@keyframes kbCorrectPress {
+    0% { transform: scale(1); }
     50% {
-        transform: scale(1.1);
-        background-color: #00d4aa;
-        box-shadow: 0 0 20px rgba(0,184,148,0.6);
+        transform: scale(1.08);
+        box-shadow: 0 0 0 2px #00b894, 0 0 20px rgba(0,184,148,0.6);
     }
-    100% {
-        transform: scale(1);
-    }
+    100% { transform: scale(1); }
 }
 
-@keyframes incorrectKeyPress {
-    0%, 100% { transform: translateX(0); }
-    10%, 30%, 50%, 70%, 90% { transform: translateX(-3px); }
-    20%, 40%, 60%, 80% { transform: translateX(3px); }
-    0% { background-color: #d63031; }
-    100% { background-color: inherit; }
+@keyframes kbIncorrectPress {
+    0%, 100% { transform: translateX(0); background-color: inherit; }
+    10%, 30%, 50%, 70%, 90% { transform: translateX(-3px); background-color: #ff4757; }
+    20%, 40%, 60%, 80%      { transform: translateX(3px);  background-color: #ff4757; }
 }
 
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+@keyframes kbFadeInUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to   { opacity: 1; transform: translateY(0); }
 }
 
 /* ============================================
-   6. Подсказки по пальцам (точки в углу клавиш при hover на контейнер)
+   5. Layout-варианты (класс на .keyboard-container из onboarding.js)
+   Phase 1: только Classic полностью; laptop/ergo — заглушки (Phase 3/4)
    ============================================ */
 
-.key::before {
-    content: '';
-    position: absolute;
-    top: -2px;
-    right: -2px;
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    opacity: 0;
-    transition: opacity 0.2s ease;
-}
-
-.key.pink::before   { background-color: #ff7675; }
-.key.orange::before { background-color: #fdcb6e; }
-.key.green::before  { background-color: #00b894; }
-.key.cyan::before   { background-color: #74b9ff; }
-.key.blue::before   { background-color: #0984e3; }
-.key.purple::before { background-color: #a29bfe; }
-
-.keyboard-container:hover .key::before {
-    opacity: 1;
-}
-
-/* ============================================
-   7. Layout-варианты (класс на .keyboard-container из onboarding.js)
-   ============================================ */
-
-/* Classic — десктоп: видна вся правая секция */
 .keyboard-container.layout-classic .right-section {
     display: flex;
 }
 
-/* Laptop — скрыт numpad/nav/стрелки, клавиши компактнее */
+/* Laptop пока: скрываем правую секцию (Phase 3 переделает на inline arrows) */
 .keyboard-container.layout-laptop .right-section {
     display: none;
 }
 
-.keyboard-container.layout-laptop .key {
-    min-width: 36px;
-    height: 36px;
-    font-size: 0.85rem;
-}
-
-.keyboard-container.layout-laptop .key.spacebar {
-    min-width: 260px;
-}
-
-.keyboard-container.layout-laptop .key.backspace,
-.keyboard-container.layout-laptop .key.enter {
-    min-width: 70px;
-}
-
-.keyboard-container.layout-laptop .key.caps,
-.keyboard-container.layout-laptop .key.shift-left,
-.keyboard-container.layout-laptop .key.shift-right {
-    min-width: 70px;
-}
-
-/* Ergonomic — заглушка до выхода дизайн-макетов (см. docs/specs/009) */
+/* Ergonomic пока: заглушка с бейджем (Phase 4 переделает на split) */
 .keyboard-container.layout-ergonomic {
     position: relative;
 }
@@ -398,164 +275,32 @@
     background: #f3f4f6;
     padding: 4px 10px;
     border-radius: 12px;
+    z-index: 5;
 }
 
 /* ============================================
-   8. Адаптивность
-   ============================================ */
-
-@media (max-width: 1200px) {
-    .keyboard-container {
-        flex-direction: column;
-        align-items: center;
-        gap: 15px;
-    }
-
-    .navigation-block {
-        margin-left: 0;
-    }
-
-    .numpad {
-        margin-left: 0;
-        grid-template-columns: repeat(4, 38px);
-        grid-template-rows: repeat(5, 35px);
-    }
-
-    .numpad .key {
-        min-width: 38px;
-        height: 35px;
-        font-size: 0.8rem;
-    }
-
-    .numpad .key.plus,
-    .numpad .key.enter-num {
-        height: 73px;
-    }
-
-    .numpad .key.zero {
-        width: 79px;
-    }
-
-    .key.spacebar {
-        min-width: 250px;
-    }
-}
-
-@media (max-width: 768px) {
-    .keyboard-container {
-        padding: 15px;
-    }
-
-    .key {
-        min-width: 35px;
-        height: 35px;
-        font-size: 0.8rem;
-    }
-
-    .key.backspace,
-    .key.enter {
-        min-width: 70px;
-        font-size: 0.7rem;
-    }
-
-    .key.caps {
-        min-width: 70px;
-        font-size: 0.6rem;
-    }
-
-    .key.shift-left,
-    .key.shift-right {
-        min-width: 60px;
-        font-size: 0.7rem;
-    }
-
-    .key.spacebar {
-        min-width: 200px;
-    }
-
-    .navigation-block .key {
-        min-width: 35px;
-        height: 35px;
-    }
-
-    .numpad {
-        grid-template-columns: repeat(4, 35px);
-        grid-template-rows: repeat(5, 32px);
-    }
-
-    .numpad .key {
-        min-width: 35px;
-        height: 32px;
-        font-size: 0.75rem;
-    }
-
-    .numpad .key.plus,
-    .numpad .key.enter-num {
-        height: 67px;
-    }
-
-    .numpad .key.zero {
-        width: 73px;
-    }
-}
-
-@media (max-width: 480px) {
-    .key {
-        min-width: 32px;
-        height: 32px;
-        font-size: 0.7rem;
-    }
-
-    .keyboard {
-        gap: 3px;
-    }
-
-    .keyboard-row {
-        gap: 2px;
-    }
-
-    .key.spacebar {
-        min-width: 150px;
-    }
-
-    .numpad {
-        grid-template-columns: repeat(4, 32px);
-        grid-template-rows: repeat(5, 28px);
-    }
-
-    .numpad .key {
-        min-width: 32px;
-        height: 28px;
-        font-size: 0.7rem;
-    }
-
-    .numpad .key.plus,
-    .numpad .key.enter-num {
-        height: 59px;
-    }
-
-    .numpad .key.zero {
-        width: 67px;
-    }
-}
-
-/* ============================================
-   9. Тёмная тема (заготовка)
+   6. Тёмная тема (заготовка — расширим в Phase 6)
    ============================================ */
 
 @media (prefers-color-scheme: dark) {
     .keyboard-container {
-        background: #2d3436;
-        border-color: #636e72;
+        background: #161614;
+        border-color: rgba(255,255,255,0.06);
     }
 
     .key {
-        background: #636e72;
-        border-color: #2d3436;
-        color: #ddd;
+        background: #2a2a27;
+        color: #f3f1ea;
+        border-color: rgba(255,255,255,0.06);
+        box-shadow:
+            0 1px 0 rgba(255,255,255,0.04) inset,
+            0 2px 4px rgba(0,0,0,0.5);
     }
 
-    .key:hover {
-        background: #74797e;
+    .key.mod {
+        background: #23231f;
+        color: #bcb9af;
     }
+
+    /* Цветные клавиши в dark mode оставляем те же градиенты */
 }
