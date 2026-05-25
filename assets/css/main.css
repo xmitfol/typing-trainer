@@ -303,43 +303,78 @@ body {
 }
 
 /* Состояния */
+/* Lesson item state colors — через CSS-токены чтобы dark theme работал */
+:root {
+    --lesson-completed-bg: #f0fdf4;
+    --lesson-completed-fg: #166534;
+    --lesson-completed-num: #16a34a;
+    --lesson-completed-hover: #dcfce7;
+    --lesson-current-bg: linear-gradient(135deg, #dbeafe, #bfdbfe);
+    --lesson-current-bg-hover: linear-gradient(135deg, #bfdbfe, #93c5fd);
+    --lesson-current-border: #60a5fa;
+    --lesson-current-num: #1e40af;
+    --lesson-current-fg: #1e3a8a;
+    --lesson-available-bg: #ffffff;
+    --lesson-available-hover: #f9fafb;
+    --lesson-locked-fg: #9ca3af;
+    --lesson-locked-num: #d1d5db;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --lesson-completed-bg: rgba(34, 197, 94, 0.12);
+        --lesson-completed-fg: #86efac;
+        --lesson-completed-num: #4ade80;
+        --lesson-completed-hover: rgba(34, 197, 94, 0.2);
+        --lesson-current-bg: linear-gradient(135deg, rgba(59, 130, 246, 0.25), rgba(96, 165, 250, 0.35));
+        --lesson-current-bg-hover: linear-gradient(135deg, rgba(96, 165, 250, 0.35), rgba(147, 197, 253, 0.45));
+        --lesson-current-border: #60a5fa;
+        --lesson-current-num: #93c5fd;
+        --lesson-current-fg: #dbeafe;
+        --lesson-available-bg: transparent;
+        --lesson-available-hover: rgba(255,255,255,0.04);
+        --lesson-locked-fg: #6b7280;
+        --lesson-locked-num: #4b5563;
+    }
+}
+
 .lesson-item.lesson-completed {
-    background: #f0fdf4;
-    color: #166534;
+    background: var(--lesson-completed-bg);
+    color: var(--lesson-completed-fg);
 }
 .lesson-item.lesson-completed:hover {
-    background: #dcfce7;
+    background: var(--lesson-completed-hover);
 }
 .lesson-item.lesson-completed .lesson-num {
-    color: #16a34a;
+    color: var(--lesson-completed-num);
 }
 
 .lesson-item.lesson-current {
-    background: linear-gradient(135deg, #dbeafe, #bfdbfe);
-    border-color: #60a5fa;
+    background: var(--lesson-current-bg);
+    border-color: var(--lesson-current-border);
     padding-left: 14px;
 }
 .lesson-item.lesson-current:hover {
-    background: linear-gradient(135deg, #bfdbfe, #93c5fd);
+    background: var(--lesson-current-bg-hover);
 }
 .lesson-item.lesson-current .lesson-num {
-    color: #1e40af;
+    color: var(--lesson-current-num);
 }
 .lesson-item.lesson-current .lesson-title {
     font-weight: 600;
-    color: #1e3a8a;
+    color: var(--lesson-current-fg);
 }
 
 .lesson-item.lesson-available {
-    background: #ffffff;
+    background: var(--lesson-available-bg);
 }
 .lesson-item.lesson-available:hover {
-    background: #f9fafb;
+    background: var(--lesson-available-hover);
 }
 
 .lesson-item.lesson-locked {
     background: transparent;
-    color: #9ca3af;
+    color: var(--lesson-locked-fg);
     cursor: not-allowed;
     opacity: 0.55;
 }
@@ -348,7 +383,7 @@ body {
     transform: none;
 }
 .lesson-item.lesson-locked .lesson-num {
-    color: #d1d5db;
+    color: var(--lesson-locked-num);
 }
 
 /* Центральная область редактора */

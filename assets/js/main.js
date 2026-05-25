@@ -586,6 +586,11 @@ class TypingTrainer {
             level: lesson ? lesson.lesson_number : this.state.currentLevel
         });
 
+        // Метроном (если toggle 'rhythm' ON) — тикает по lesson.target_wpm
+        if (window.AudioFeedback && lesson && lesson.target_wpm) {
+            window.AudioFeedback.startMetronome(lesson.target_wpm);
+        }
+
         DebugUtils.log('✅ Тест успешно начат:', this.state.currentText.substring(0, 50) + '...');
     }
     
@@ -633,8 +638,8 @@ class TypingTrainer {
                     window.animateIncorrectKey(typedChar);
                 }
 
-                // Звуковой сигнал ошибки (если включен)
-                this.playErrorSound();
+                // Звуковой сигнал ошибки (через display toggle 'sound')
+                if (window.AudioFeedback) window.AudioFeedback.playKeyBeep(false);
 
                 // Хуки персонажа на превышение порогов ошибок
                 this.checkErrorThresholds();
@@ -643,6 +648,8 @@ class TypingTrainer {
                 if (typeof window.animateCorrectKey === 'function') {
                     window.animateCorrectKey(typedChar);
                 }
+                // Тихий beep на правильное нажатие
+                if (window.AudioFeedback) window.AudioFeedback.playKeyBeep(true);
             }
         }
 
@@ -796,6 +803,9 @@ class TypingTrainer {
         DebugUtils.log('🏁 Завершение теста...');
 
         this.state.isTestActive = false;
+
+        // Останавливаем метроном
+        if (window.AudioFeedback) window.AudioFeedback.stopMetronome();
 
         // Скрываем курсор
         this.positionCursor();
@@ -1036,11 +1046,15 @@ class TypingTrainer {
     // Сброс теста
     resetTest() {
         DebugUtils.log('🔄 Сброс теста...');
-        
+
         this.state.isTestActive = false;
         this.resetState();
         this.state.currentText = '';
-        
+
+        // Останавливаем метроном если был запущен
+        if (window.AudioFeedback) window.AudioFeedback.stopMetronome();
+
+
         // Очищаем поле ввода
         if (this.elements.hiddenInput) {
             this.elements.hiddenInput.value = '';

@@ -284,19 +284,43 @@ function renderErgoKeyboard(container, unit, options) {
 }
 
 // Public: переключение layout без полного reinit (используется onboarding-complete + resize listeners)
-function renderKeyboard(variant, unit) {
+function _renderKeyboardImmediate(container, variant, unit) {
+    container.dataset.layout = variant || 'classic';
+    if (variant === 'laptop') {
+        renderLaptopKeyboard(container, unit);
+    } else if (variant === 'ergonomic') {
+        renderErgoKeyboard(container, unit);
+    } else {
+        renderClassicKeyboard(container, unit);
+    }
+}
+
+// Public: переключение layout. Опция animated:true делает fade-transition
+// (для user-initiated смены через toolbar). Initial render / resize — instant.
+function renderKeyboard(variant, unit, options) {
     const container = document.querySelector('.keyboard-container');
     if (!container) return;
     const u = unit || getResponsiveUnit();
-    // Сохраняем текущий variant на контейнере, чтобы resize-listener знал что перерисовать
-    container.dataset.layout = variant || 'classic';
-    if (variant === 'laptop') {
-        renderLaptopKeyboard(container, u);
-    } else if (variant === 'ergonomic') {
-        renderErgoKeyboard(container, u);
-    } else {
-        renderClassicKeyboard(container, u);
+    const animated = options && options.animated;
+
+    if (!animated) {
+        _renderKeyboardImmediate(container, variant, u);
+        return;
     }
+
+    // Fade-out + лёгкий scale-down, потом re-render и fade-in
+    container.style.transition = 'opacity 0.22s ease, transform 0.22s ease';
+    container.style.opacity = '0';
+    container.style.transform = 'scale(0.98)';
+
+    setTimeout(() => {
+        _renderKeyboardImmediate(container, variant, u);
+        requestAnimationFrame(() => {
+            container.style.opacity = '1';
+            container.style.transform = 'scale(1)';
+        });
+        setTimeout(() => { container.style.transition = ''; }, 240);
+    }, 220);
 }
 
 // ---------------------------------------------------------------------------
@@ -353,13 +377,15 @@ function readProfileLanguage() {
     } catch (e) { return 'ru'; }
 }
 
-// Display toggles. functional: символы/Shift применяются через CSS-класс
-// на .keyboard-container. mock: звук/метроном пока без поведения (ждут spec'ов).
+// Display toggles. Все 4 функциональные:
+// - symbols/shift через CSS-класс на .keyboard-container
+// - sound через Web Audio API (audio.js) при нажатиях
+// - rhythm — метроном по target_wpm урока (audio.js)
 const DISPLAY_TOGGLES = [
-    { id: 'symbols', label: 'Символы',  default: true,  mock: false, hint: 'Показывать буквы на клавишах' },
-    { id: 'shift',   label: 'Shift',     default: true,  mock: false, hint: 'Показывать Shift-символы в углу' },
-    { id: 'sound',   label: 'Звук',      default: false, mock: true,  hint: 'В разработке: звук нажатий' },
-    { id: 'rhythm',  label: 'Метроном', default: false, mock: true,  hint: 'В разработке: метроном по target WPM' },
+    { id: 'symbols', label: 'Символы',  default: true,  hint: 'Показывать буквы на клавишах' },
+    { id: 'shift',   label: 'Shift',     default: true,  hint: 'Показывать Shift-символы в углу' },
+    { id: 'sound',   label: 'Звук',      default: false, hint: 'Beep при нажатии (высокий — правильно, низкий — ошибка)' },
+    { id: 'rhythm',  label: 'Метроном', default: false, hint: 'Тик по target WPM текущего урока' },
 ];
 
 // Маппинг toggle ID → CSS-класс на контейнере (когда toggle OFF, добавляется класс kb-hide-*)
@@ -400,16 +426,21 @@ function saveDisplayToggleState(id, value) {
     } catch (e) { /* silent */ }
 }
 
-// Применить toggle к DOM: символы/Shift — настоящий effect, остальные — mock
+// Применить toggle к DOM/audio: символы/Shift через CSS, sound/rhythm
+// через Web Audio API (state читается из localStorage в audio.js)
 function applyDisplayToggle(id, isOn) {
     const container = document.querySelector('.keyboard-container');
-    if (!container) return;
-    const cls = TOGGLE_CSS_CLASS[id];
-    if (cls) {
-        // toggle ON = элемент виден (класс снят). toggle OFF = элемент скрыт (класс добавлен).
-        container.classList.toggle(cls, !isOn);
+    if (container) {
+        const cls = TOGGLE_CSS_CLASS[id];
+        if (cls) container.classList.toggle(cls, !isOn);
     }
-    // sound/rhythm — пока mock, поведение появится с feature-spec'ом
+    // Для rhythm: если выключили во время активного теста — остановить метроном.
+    // Включение нового метронома произойдёт при следующем startNewTest.
+    if (id === 'rhythm' && !isOn && window.AudioFeedback) {
+        window.AudioFeedback.stopMetronome();
+    }
+    // sound: state читается audio.js'ом из localStorage перед каждым beep,
+    // никакого DOM-эффекта не нужно
 }
 
 function applyAllDisplayToggles() {
@@ -438,7 +469,7 @@ function renderKeyboardToolbar() {
         <div class="kbt-section kbt-toggles" aria-label="Опции отображения">
             ${DISPLAY_TOGGLES.map(t => {
                 const isOn = !!toggleState[t.id];
-                return `<button type="button" class="kbt-pill kbt-toggle${isOn ? ' kbt-on' : ''}${t.mock ? ' kbt-mock' : ''}"
+                return `<button type="button" class="kbt-pill kbt-toggle${isOn ? ' kbt-on' : ''}"
                             data-toggle="${t.id}" title="${t.hint}">
                     <span class="kbt-check">${isOn ? '☑' : '☐'}</span>
                     <span>${t.label}</span>
@@ -461,14 +492,16 @@ function renderKeyboardToolbar() {
         </div>
     `;
 
-    // Layout-switcher — функциональный
+    // Layout-switcher — функциональный, с fade-анимацией перехода
     toolbar.querySelectorAll('.kbt-layout').forEach(btn => {
         btn.addEventListener('click', () => {
             const layout = btn.dataset.layout;
+            if (layout === readProfileKeyboardType()) return; // тот же layout — no-op
             writeProfileKeyboardType(layout);
-            renderKeyboard(layout);
+            renderKeyboard(layout, null, { animated: true });
             renderKeyboardToolbar();
-            applyAllDisplayToggles(); // re-apply после re-render keyboard
+            // Display toggles переприменяются после animation-завершения
+            setTimeout(applyAllDisplayToggles, 250);
         });
     });
 
