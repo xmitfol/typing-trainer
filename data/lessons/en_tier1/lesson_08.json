@@ -1,0 +1,31 @@
+{
+  "id": "en_tier1_lesson_08",
+  "tier": "en_tier1",
+  "lesson_number": 8,
+  "title": "Bottom row: V, B, M, C",
+  "description": "Reach down to bottom row — V, B (index), M (right index), C (left middle)",
+  "target_wpm": 20,
+  "text_length": 70,
+  "error_limit_percent": 5,
+  "error_limit": 4,
+  "text": "vibe move come back voice mind black many simple yes you can do",
+  "text_sequence": [],
+  "keys_trained": ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "R", "S", "T", "U", "V", "W", "Y", "Space"],
+  "new_keys": ["V", "B", "C", "M"],
+  "finger_focus": "Bottom row reaches: V/B (index), C (left middle), M (right index)",
+  "tips": [
+    "Index fingers reach down: V (left) and B (left), N (right) — already learned, M (right)",
+    "C sits below D — left middle drops",
+    "Common letters now possible: vibe, come, voice, mind, black, many"
+  ],
+  "character_tips": {
+    "anna": "Bottom row сложнее — нужно тянуться вниз. Возвращайся на home после каждого нажатия.",
+    "maxim": "Bottom row даёт пять новых букв. Английский начинает звучать.",
+    "knopych": "Глубокое погружение! V, B, M, C — нижний ряд! 🌊",
+    "klavochka": "Чудесно! Теперь ты знаешь почти всю клавиатуру! 🌟"
+  },
+  "phase": 1,
+  "rhythmLesson": false,
+  "created_at": "2026-05-25",
+  "version": "1.0"
+}

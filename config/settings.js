@@ -161,7 +161,13 @@ const APP_CONFIG = {
         // Сколько уроков в каждом тире (для cap прогрессии)
         tierLessonCount: {
             tier1: 39,
-            block_1: 11
+            block_1: 11,
+            en_tier1: 10
+        },
+        // Default tier на каждый язык — для language-switcher в toolbar
+        languageDefaultTier: {
+            ru: 'tier1',
+            en: 'en_tier1'
         },
         // Задержка перед автозагрузкой следующего урока после успешного завершения (мс)
         autoAdvanceDelay: 4500

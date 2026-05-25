@@ -192,6 +192,20 @@ try:
         page.wait_for_timeout(400)
         shot('11-settings-modal')
 
+        # ---- Stage 12: EN course (10 lessons) ----
+        print('Stage 12: English course')
+        page.evaluate("""() => {
+            const p = JSON.parse(localStorage.getItem('typing_trainer_user_profile') || '{}');
+            p.language = 'en';
+            localStorage.setItem('typing_trainer_user_profile', JSON.stringify(p));
+            // Сбросим saved currentLesson чтобы загрузился первый урок en_tier1
+            localStorage.removeItem('typing_trainer_current_lesson');
+        }""")
+        page.reload()
+        page.wait_for_selector('#lessonIndicator', state='visible', timeout=8000)
+        page.wait_for_timeout(800)
+        shot('12-en-course', full_page=True)
+
         browser.close()
         print('Done.')
 

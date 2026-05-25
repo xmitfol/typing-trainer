@@ -86,12 +86,25 @@ class TypingTrainer {
         DebugUtils.log('✅ Тренажер успешно инициализирован');
     }
 
-    // Автозагрузка урока: сохранённый прогресс или первый урок
+    // Автозагрузка урока: сохранённый прогресс или первый урок выбранного языка
     initLessonAutoload() {
         const autoload = () => {
             if (this.state.currentLesson) return; // уже загружен
-            const defaultTier = (window.Settings && window.Settings.get('lessons.defaultTier', 'tier1')) || 'tier1';
             const firstNum = (window.Settings && window.Settings.get('lessons.firstLessonNumber', 1)) || 1;
+
+            // Определяем default tier: для лангa пользователя (если указан) или системный default
+            const profileKey = (window.Settings && window.Settings.get('storage.keys.userProfile'))
+                || 'typing_trainer_user_profile';
+            let userLang = 'ru';
+            try {
+                const raw = localStorage.getItem(profileKey);
+                if (raw) userLang = JSON.parse(raw).language || 'ru';
+            } catch (e) {}
+            const langTier = (window.Settings
+                && window.Settings.get(`lessons.languageDefaultTier.${userLang}`)) || null;
+            const defaultTier = langTier
+                || (window.Settings && window.Settings.get('lessons.defaultTier', 'tier1'))
+                || 'tier1';
 
             // Пробуем восстановить из сохранённого прогресса
             const savedKey = (window.Settings && window.Settings.get('storage.keys.currentLesson'))
@@ -311,7 +324,7 @@ class TypingTrainer {
 
     // Human-readable labels (UI-только, не data)
     getTierLabel(tier) {
-        const labels = { tier1: 'Основной', block_1: 'Мизинец' };
+        const labels = { tier1: 'Основной', block_1: 'Мизинец', en_tier1: 'English' };
         return labels[tier] || tier;
     }
 

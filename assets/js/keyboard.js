@@ -360,12 +360,23 @@ const LAYOUT_OPTIONS = [
     { id: 'ergonomic', label: 'Ergonomic', icon: '🎯' },
 ];
 
-// Language options — UI scaffold. EN пока без курса (ждёт контента),
-// клик показывает info-toast вместо реального переключения.
+// Language options. Клик переключает profile.language и tier через main.js
+// (см. lessons.languageDefaultTier в settings.js).
 const LANGUAGE_OPTIONS = [
     { id: 'ru', label: 'RU', flag: '🇷🇺', layoutName: 'ЙЦУКЕН', available: true },
-    { id: 'en', label: 'EN', flag: '🇬🇧', layoutName: 'QWERTY',  available: false },
+    { id: 'en', label: 'EN', flag: '🇬🇧', layoutName: 'QWERTY',  available: true },
 ];
+
+function writeProfileLanguage(lang) {
+    try {
+        const key = (window.Settings && window.Settings.get('storage.keys.userProfile'))
+            || 'typing_trainer_user_profile';
+        const raw = localStorage.getItem(key);
+        const profile = raw ? JSON.parse(raw) : {};
+        profile.language = lang;
+        localStorage.setItem(key, JSON.stringify(profile));
+    } catch (e) { /* silent */ }
+}
 
 function readProfileLanguage() {
     try {
@@ -518,24 +529,26 @@ function renderKeyboardToolbar() {
         });
     });
 
-    // Language pills — RU функциональный, EN показывает info-toast
+    // Language pills — клик переключает profile.language и текущий tier
+    // на default тира этого языка (lessons.languageDefaultTier в settings.js).
     toolbar.querySelectorAll('.kbt-lang').forEach(btn => {
         btn.addEventListener('click', () => {
             const lang = btn.dataset.lang;
             const opt = LANGUAGE_OPTIONS.find(l => l.id === lang);
-            if (!opt) return;
-            if (!opt.available) {
-                if (window.toastManager) {
-                    window.toastManager.show(
-                        `Курс ${opt.label} ещё в разработке — контент будет добавлен в следующих релизах.`,
-                        opt.flag,
-                        4000,
-                        { type: 'info' }
-                    );
-                }
-                return;
+            if (!opt || !opt.available) return;
+            if (lang === readProfileLanguage()) return; // тот же — no-op
+
+            writeProfileLanguage(lang);
+
+            // Switch tier через main.js
+            const targetTier = (window.Settings
+                && window.Settings.get(`lessons.languageDefaultTier.${lang}`, 'tier1'))
+                || 'tier1';
+            if (window.typingTrainer && typeof window.typingTrainer.switchTier === 'function') {
+                window.typingTrainer.switchTier(targetTier);
             }
-            // RU — уже active, тут пока нет действия (EN-курс единственный возможный switch)
+
+            renderKeyboardToolbar(); // re-paint active language pill
         });
     });
 }
