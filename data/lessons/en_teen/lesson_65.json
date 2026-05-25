@@ -5,10 +5,10 @@
   "title": "65-lesson milestone",
   "description": "Two-thirds of teen course — checkpoint",
   "target_wpm": 90,
-  "text_length": 206,
+  "text_length": 205,
   "error_limit_percent": 4,
   "error_limit": 8,
-  "text": "65 lessons. You can write a school essay faster than you can think it. That's a real skill. The remaining ten lessons polish what you have, and then you'll face the final tournament-style exam at lesson 75.",
+  "text": "65 lessons. You can write a school essay faster than you can think it. That's a real skill. The remaining 10 lessons polish what you have, and then you'll face the final tournament-style exam at lesson 75.",
   "text_sequence": [],
   "keys_trained": [
     "A-Z",

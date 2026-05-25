@@ -5,10 +5,10 @@
   "title": "TEEN COURSE FINAL: Tournament + certificate",
   "description": "The final teen exam — 95 WPM on a comprehensive mixed real-world paragraph. Pass earns the Teen Mastery certificate.",
   "target_wpm": 95,
-  "text_length": 344,
+  "text_length": 339,
   "error_limit_percent": 4,
   "error_limit": 13,
-  "text": "Seventy-five lessons ago, the keyboard was a puzzle. Today, it's an extension of your thinking. You can write essays in minutes, send messages faster than you can speak, and keep up with any deadline. This final paragraph — 350 characters, 95 WPM, mixed content — is the gate. Pass it, and the Teen Mastery certificate is yours. Type with care.",
+  "text": "Seventy-five lessons ago, the keyboard was a puzzle. Today, it's an extension of your thinking. You can write essays in minutes, send messages faster than you can speak, and keep up with any deadline. This final passage is the gate — long, dense, mixed content at 95 WPM. Pass it, and the Teen Mastery certificate is yours. Type with care.",
   "text_sequence": [],
   "keys_trained": [
     "A-Z",

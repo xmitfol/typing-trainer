@@ -5,10 +5,10 @@
   "title": "Rhythm: full alphabet song",
   "description": "Sing the alphabet with a steady beat",
   "target_wpm": 47,
-  "text_length": 97,
+  "text_length": 98,
   "error_limit_percent": 10,
   "error_limit": 9,
-  "text": "a b c d e f g h i j k l m n o p q r s t u v w x y z next time wont you sing with me a b c d e f g",
+  "text": "a b c d e f g h i j k l m n o p q r s t u v w x y z next time won't you sing with me a b c d e f g",
   "text_sequence": [],
   "keys_trained": [
     "A-Z",
