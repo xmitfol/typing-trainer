@@ -178,34 +178,92 @@ body {
     font-weight: 500;
 }
 
-/* Tier switcher — pills под sidebar-header */
+/* Tier switcher — группы по языку, каждая группа в свою строку */
 .tier-switcher {
     display: flex;
+    flex-direction: column;
     gap: 6px;
     margin-bottom: 10px;
     padding-bottom: 10px;
     border-bottom: 1px solid #f3f4f6;
 }
 
-.tier-pill {
-    flex: 1;
+.tier-group {
     display: flex;
     flex-direction: column;
+    gap: 4px;
+}
+
+.tier-group + .tier-group {
+    margin-top: 4px;
+    padding-top: 6px;
+    border-top: 1px dashed #e5e7eb;
+}
+
+.tier-pill {
+    width: 100%;
+    display: flex;
     align-items: center;
-    gap: 1px;
-    padding: 6px 8px;
+    gap: 7px;
+    padding: 7px 9px;
     border: 1px solid #e5e7eb;
+    border-left-width: 3px;
     border-radius: 8px;
     background: #ffffff;
     color: #4b5563;
     font-family: inherit;
-    font-size: 0.75rem;
+    font-size: 0.78rem;
     font-weight: 500;
     cursor: pointer;
     transition: all .15s ease;
     user-select: none;
     line-height: 1.2;
+    white-space: nowrap;
+    overflow: hidden;
+    text-align: left;
 }
+
+/* Language badge — компактный текстовый бейдж (надёжнее emoji-флага кросс-платформенно) */
+.tier-flag {
+    flex-shrink: 0;
+    font-size: 0.62rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    padding: 1px 5px;
+    border-radius: 3px;
+    background: rgba(0,0,0,0.06);
+    color: #6b7280;
+}
+
+.tier-pill[data-lang="ru"] .tier-flag {
+    background: #fef3c7;
+    color: #92400e;
+}
+
+.tier-pill[data-lang="en"] .tier-flag {
+    background: #dbeafe;
+    color: #1e40af;
+}
+
+.tier-name {
+    font-size: 0.78rem;
+    flex: 1 1 auto;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.tier-count {
+    flex-shrink: 0;
+    font-size: 0.7rem;
+    color: #9ca3af;
+    font-variant-numeric: tabular-nums;
+}
+
+/* Age-kind subtle accent — left border tint */
+.tier-pill[data-kind="adult"]      { border-left-color: #cbd5e1; }
+.tier-pill[data-kind="diagnostic"] { border-left-color: #d8b4fe; }
+.tier-pill[data-kind="teen"]       { border-left-color: #93c5fd; }
+.tier-pill[data-kind="kids"]       { border-left-color: #fca5a5; }
 
 .tier-pill:hover {
     background: #f9fafb;
@@ -219,18 +277,40 @@ body {
     font-weight: 600;
 }
 
-.tier-name {
-    font-size: 0.78rem;
-}
-
-.tier-count {
-    font-size: 0.7rem;
-    color: #9ca3af;
-    font-variant-numeric: tabular-nums;
-}
-
 .tier-pill.tier-active .tier-count {
     color: #2563eb;
+}
+
+/* Dark theme tweaks */
+@media (prefers-color-scheme: dark) {
+    .tier-pill {
+        background: #1f2937;
+        border-color: #374151;
+        color: #d1d5db;
+    }
+    .tier-flag {
+        background: rgba(255,255,255,0.08);
+        color: #9ca3af;
+    }
+    .tier-pill[data-lang="ru"] .tier-flag {
+        background: rgba(252, 211, 77, 0.18);
+        color: #fcd34d;
+    }
+    .tier-pill[data-lang="en"] .tier-flag {
+        background: rgba(96, 165, 250, 0.18);
+        color: #93c5fd;
+    }
+    .tier-pill:hover {
+        background: #273043;
+    }
+    .tier-pill.tier-active {
+        background: linear-gradient(135deg, #1e3a8a, #1e40af);
+        border-color: #60a5fa;
+        color: #dbeafe;
+    }
+    .tier-group + .tier-group {
+        border-top-color: #374151;
+    }
 }
 
 /* Список уроков — скроллится если высота превышает sidebar */
