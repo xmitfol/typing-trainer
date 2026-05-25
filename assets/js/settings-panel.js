@@ -66,7 +66,31 @@ class SettingsPanel {
         const profile = readProfile() || {};
         const currentChar = profile.character;
 
+        // Достижения — выведем сертификаты если есть
+        const certs = (window.Certification && window.Certification.getAllCertifications()) || {};
+        const certKeys = Object.keys(certs);
+        const certsHtml = certKeys.length === 0
+            ? '<p class="settings-hint">Пока нет сертификатов. Пройдите финальный урок тира со скоростью ≥ 25 WPM и точностью ≥ 85%.</p>'
+            : `<div class="settings-cert-grid">${certKeys.map(tier => {
+                const c = certs[tier];
+                const levels = (window.Settings && window.Settings.get('certification.levels', [])) || [];
+                const lvl = levels.find(l => l.id === c.level) || { name: c.level, emoji: '🏆', color: '#9ca3af' };
+                const tierLabel = (window.typingTrainer && window.typingTrainer.getTierLabel)
+                    ? window.typingTrainer.getTierLabel(tier) : tier;
+                return `<div class="settings-cert-card" style="border-color: ${lvl.color}">
+                    <div class="settings-cert-emoji">${lvl.emoji}</div>
+                    <div class="settings-cert-level">${lvl.name}</div>
+                    <div class="settings-cert-tier">${this.escapeHtml(tierLabel)}</div>
+                    <div class="settings-cert-stats">${c.finalWpm} WPM · ${c.finalAccuracy}%</div>
+                </div>`;
+            }).join('')}</div>`;
+
         body.innerHTML = `
+            <section class="settings-section">
+                <h4>🏆 Достижения</h4>
+                ${certsHtml}
+            </section>
+
             <section class="settings-section">
                 <h4>Наставник</h4>
                 <p class="settings-hint">Кликни на персонажа чтобы сменить.</p>

@@ -144,6 +144,7 @@ const APP_CONFIG = {
             currentLesson: 'typing_trainer_current_lesson',
             // Карта { "1": {stars, bestWPM, bestAccuracy, completedAt}, ... }
             lessonProgress: 'typing_trainer_lesson_progress',
+            certifications: 'typing_trainer_certifications',
             displayToggles: 'typing_trainer_display_toggles',
             testHistory: 'typing_trainer_test_history',
             currentLevel: 'typing_trainer_current_level'
@@ -151,6 +152,19 @@ const APP_CONFIG = {
 
         // Максимальное количество сохраняемых результатов
         maxHistoryItems: 100
+    },
+
+    // Сертификация: пороги для уровней (применяются к финальному уроку tier'а)
+    certification: {
+        // [уровень, минимум WPM, минимум accuracy %, цвет, emoji]
+        levels: [
+            { id: 'platinum', name: 'Platinum', minWpm: 80, minAccuracy: 96, color: '#e5e4e2', emoji: '💎' },
+            { id: 'gold',     name: 'Gold',     minWpm: 60, minAccuracy: 93, color: '#ffd700', emoji: '🥇' },
+            { id: 'silver',   name: 'Silver',   minWpm: 40, minAccuracy: 90, color: '#c0c0c0', emoji: '🥈' },
+            { id: 'bronze',   name: 'Bronze',   minWpm: 25, minAccuracy: 85, color: '#cd7f32', emoji: '🥉' }
+        ],
+        // Курс считается завершённым когда сдан последний урок тира со звёздами ≥1
+        minStarsForCert: 1
     },
 
     // Курсовая система (tier1 — канонический курс, см. data/lessons/tier1)
@@ -162,7 +176,7 @@ const APP_CONFIG = {
         tierLessonCount: {
             tier1: 39,
             block_1: 11,
-            en_tier1: 20
+            en_tier1: 45
         },
         // Default tier на каждый язык — для language-switcher в toolbar
         languageDefaultTier: {

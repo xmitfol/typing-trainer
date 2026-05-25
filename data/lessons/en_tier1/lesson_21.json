@@ -1,0 +1,32 @@
+{
+  "id": "en_tier1_lesson_21",
+  "tier": "en_tier1",
+  "lesson_number": 21,
+  "title": "Colon and semicolon",
+  "description": "Two punctuation marks for structure: colon (:) and semicolon (;)",
+  "target_wpm": 24,
+  "text_length": 90,
+  "error_limit_percent": 7,
+  "error_limit": 6,
+  "text": "note: this works; that does not. listen: be careful; the path is steep; we are close.",
+  "text_sequence": [],
+  "keys_trained": ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", ":", ";", ",", ".", "!", "?", "'", "\"", "Space"],
+  "new_keys": [":", ";"],
+  "finger_focus": "Right pinky to semicolon (; — home position) and colon (: Shift+;)",
+  "tips": [
+    "Semicolon (;) is right on home row — right pinky, no Shift needed",
+    "Colon (:) is Shift + ; — right pinky for both",
+    "Use semicolon to link related thoughts: this; not that",
+    "Colon introduces lists or quotes: note: ..."
+  ],
+  "character_tips": {
+    "anna": "Semicolon links thoughts. Colon introduces. Both belong to the right pinky.",
+    "maxim": "Pros use semicolons sparingly but precisely. Colons set up the next idea.",
+    "knopych": "Combo upgrade! : and ; — pinky power! 🤖",
+    "klavochka": "Beautiful pauses — semicolons feel like a breath in writing 💖"
+  },
+  "phase": 2,
+  "rhythmLesson": false,
+  "created_at": "2026-05-25",
+  "version": "1.0"
+}

@@ -1,0 +1,31 @@
+{
+  "id": "en_tier1_lesson_33",
+  "tier": "en_tier1",
+  "lesson_number": 33,
+  "title": "Rhythm: shift-symbols paragraph",
+  "description": "Rhythm exercise with all 10 shift symbols in context",
+  "target_wpm": 27,
+  "text_length": 110,
+  "error_limit_percent": 9,
+  "error_limit": 10,
+  "text": "alex@work.com sent: \"see #task42 — it's $500 work; 80% done!\" reply: \"got it, 4 of 5 tasks (4/5).\"",
+  "text_sequence": [],
+  "keys_trained": ["A-Z", "0-9", "!", "@", "#", "$", "%", "^", "&", "*", "(", ")", ":", ";", ",", ".", "?", "\"", "/", "-", "Space"],
+  "new_keys": ["/"],
+  "finger_focus": "All symbols rhythm",
+  "tips": [
+    "Mix of email, hashtag, price, percentage, parens",
+    "Slash (/) — right pinky bottom row",
+    "Real-world text: \"4/5 tasks\" style is common"
+  ],
+  "character_tips": {
+    "anna": "All symbols in real context — email, prices, code snippets.",
+    "maxim": "Daily writing has 5-10 special symbols per paragraph. Speed comes from familiarity.",
+    "knopych": "SYMBOL STORM! All special chars flying! 🌪️",
+    "klavochka": "Like a special code in writing — pretty and useful 💖"
+  },
+  "phase": 3,
+  "rhythmLesson": true,
+  "created_at": "2026-05-25",
+  "version": "1.0"
+}

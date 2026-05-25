@@ -878,6 +878,16 @@ class TypingTrainer {
             // Обновить сайдбар — урок переходит в completed со звёздами
             this.renderLessonList();
 
+            // Сертификация — если это финальный урок тира с достаточными WPM/accuracy
+            if (window.Certification) {
+                window.Certification.maybeAwardCertification(
+                    this.state.currentLessonTier,
+                    lesson.lesson_number,
+                    wpm,
+                    accuracy
+                );
+            }
+
             // Показать controls с countdown auto-advance
             this.showLessonControls(true);
         } else {

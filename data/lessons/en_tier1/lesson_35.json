@@ -1,0 +1,32 @@
+{
+  "id": "en_tier1_lesson_35",
+  "tier": "en_tier1",
+  "lesson_number": 35,
+  "title": "Slashes and underscore",
+  "description": "/ for paths and division, \\ for escapes, _ for code/file names",
+  "target_wpm": 27,
+  "text_length": 100,
+  "error_limit_percent": 9,
+  "error_limit": 9,
+  "text": "src/main.js path: /home/user/docs my_file.txt _temp_ /usr/local 4/2 = 2 escape: \\n \\t \\\\ ok",
+  "text_sequence": [],
+  "keys_trained": ["A-Z", "0-9", "/", "\\", "_", ":", ".", "=", "Space"],
+  "new_keys": ["\\", "_"],
+  "finger_focus": "Right pinky / and \\, Shift+minus for _",
+  "tips": [
+    "/ is right pinky bottom row (no Shift)",
+    "\\ is right pinky top-right (between ] and Enter, no Shift)",
+    "_ = Shift + - (right pinky)",
+    "Common in file paths, code, technical writing"
+  ],
+  "character_tips": {
+    "anna": "Slashes for paths and division. Underscore for variable names.",
+    "maxim": "Tech-essential symbols. File paths, escapes, snake_case naming.",
+    "knopych": "PATH MAGIC! /home/user/code 🗺️",
+    "klavochka": "Like little roads in code — / leads somewhere! 💖"
+  },
+  "phase": 3,
+  "rhythmLesson": false,
+  "created_at": "2026-05-25",
+  "version": "1.0"
+}

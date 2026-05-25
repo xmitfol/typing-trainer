@@ -1,0 +1,32 @@
+{
+  "id": "en_tier1_lesson_27",
+  "tier": "en_tier1",
+  "lesson_number": 27,
+  "title": "Numbers: 6 7 8 9 0 (right hand)",
+  "description": "Right-hand number row — symmetric to left",
+  "target_wpm": 25,
+  "text_length": 95,
+  "error_limit_percent": 7,
+  "error_limit": 7,
+  "text": "67 89 0 67890 66 77 88 99 00 j6 k7 l8 ;9 take 6 add 7 see 8 try 9 win 0",
+  "text_sequence": [],
+  "keys_trained": ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "Space"],
+  "new_keys": ["6", "7", "8", "9", "0"],
+  "finger_focus": "Right hand reaches up: 6-7 (index), 8 (middle), 9 (ring), 0 (pinky)",
+  "tips": [
+    "6 is right index reach up-left (between Y and H)",
+    "7 index, 8 middle, 9 ring, 0 pinky",
+    "Mirror image of left-hand numbers",
+    "Return to home row J after each number"
+  ],
+  "character_tips": {
+    "anna": "Right-hand numbers mirror the left. Index-middle-ring-pinky.",
+    "maxim": "All 10 digits now on your fingertips. Numeric typing unlocks.",
+    "knopych": "DOUBLE DIGIT! 0-9 fully unlocked! 🔢⚡",
+    "klavochka": "All ten fingers, all ten numbers! Magic! ✨"
+  },
+  "phase": 3,
+  "rhythmLesson": false,
+  "created_at": "2026-05-25",
+  "version": "1.0"
+}

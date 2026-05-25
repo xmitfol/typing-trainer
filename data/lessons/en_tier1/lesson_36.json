@@ -1,0 +1,32 @@
+{
+  "id": "en_tier1_lesson_36",
+  "tier": "en_tier1",
+  "lesson_number": 36,
+  "title": "Code symbols: = + - < > | ~",
+  "description": "Operator and comparison symbols — code and math",
+  "target_wpm": 28,
+  "text_length": 100,
+  "error_limit_percent": 9,
+  "error_limit": 9,
+  "text": "x = 1 + 2 - 3. y < 10. z > 0. a == b. c != d. e <= f. g >= h. true | false. ~null. x += 1.",
+  "text_sequence": [],
+  "keys_trained": ["A-Z", "0-9", "=", "+", "-", "<", ">", "|", "~", "!", "Space"],
+  "new_keys": ["<", ">", "|", "~", "+"],
+  "finger_focus": "Mostly right pinky, some Shift combos",
+  "tips": [
+    "= is right pinky top, + = Shift+=",
+    "< = Shift+, (right middle), > = Shift+. (right ring)",
+    "| = Shift+\\, ~ = Shift+`",
+    "Comparison: <, >, <=, >=, ==, !="
+  ],
+  "character_tips": {
+    "anna": "Math and comparison operators. Used in code daily.",
+    "maxim": "These 7 symbols power 90% of programming logic. Master them.",
+    "knopych": "OPERATORS! ==, !=, <=, >= — code combos! ⚔️",
+    "klavochka": "Like math symbols growing up into code! 🎓"
+  },
+  "phase": 3,
+  "rhythmLesson": false,
+  "created_at": "2026-05-25",
+  "version": "1.0"
+}

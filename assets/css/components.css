@@ -432,6 +432,141 @@
    ============================================ */
 
 /* ============================================
+   Certification Modal — Bronze/Silver/Gold/Platinum
+   ============================================ */
+
+.cert-modal {
+    position: fixed;
+    inset: 0;
+    background: rgba(15, 23, 42, 0.75);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 2000;
+    padding: 20px;
+    animation: certOverlayFade 0.3s ease-out;
+}
+
+.cert-modal.active {
+    display: flex;
+}
+
+@keyframes certOverlayFade {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.cert-card {
+    background: #ffffff;
+    border-radius: 24px;
+    padding: 40px 36px 32px;
+    max-width: 480px;
+    width: 100%;
+    text-align: center;
+    box-shadow: 0 24px 70px rgba(0,0,0,0.4);
+    border: 4px solid;
+    animation: certCardAppear 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@keyframes certCardAppear {
+    from { opacity: 0; transform: scale(0.7) translateY(-30px); }
+    to { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+.cert-badge {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    margin: 0 auto 18px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2), inset 0 -4px 12px rgba(0,0,0,0.15);
+    color: #1f2937;
+}
+
+.cert-emoji {
+    font-size: 56px;
+    line-height: 1;
+}
+
+.cert-level-name {
+    font-weight: 800;
+    font-size: 0.95rem;
+    margin-top: 4px;
+    letter-spacing: 1px;
+    text-shadow: 0 1px 2px rgba(255,255,255,0.5);
+}
+
+.cert-title {
+    margin: 0 0 6px;
+    font-size: 1.5rem;
+    color: #1f2937;
+}
+
+.cert-subtitle {
+    margin: 0 0 20px;
+    color: #6b7280;
+    font-size: 0.95rem;
+}
+
+.cert-stats {
+    display: flex;
+    justify-content: space-around;
+    padding: 16px 0;
+    margin: 18px 0;
+    border-top: 1px solid #e5e7eb;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.cert-stat {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
+}
+
+.cert-stat-value {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #1f2937;
+}
+
+.cert-stat-label {
+    font-size: 0.75rem;
+    color: #9ca3af;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.cert-next {
+    margin: 0 0 22px;
+    font-size: 0.85rem;
+    color: #6b7280;
+    font-style: italic;
+    line-height: 1.5;
+}
+
+.cert-close-btn {
+    background: linear-gradient(135deg, #2196f3, #1976d2);
+    color: white;
+    border: none;
+    padding: 12px 32px;
+    border-radius: 999px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform .15s ease, box-shadow .15s ease;
+    font-family: inherit;
+}
+
+.cert-close-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 18px rgba(33, 150, 243, 0.4);
+}
+
+/* ============================================
    Settings Panel — gear button + modal
    ============================================ */
 
@@ -623,6 +758,46 @@
     font-size: 0.78rem;
     color: #6b7280;
     padding-left: 4px;
+}
+
+/* Certifications grid в Settings panel */
+.settings-cert-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 10px;
+}
+
+.settings-cert-card {
+    border: 2px solid;
+    border-radius: 10px;
+    padding: 10px 8px;
+    text-align: center;
+    background: #fafafa;
+}
+
+.settings-cert-emoji {
+    font-size: 30px;
+    line-height: 1;
+}
+
+.settings-cert-level {
+    font-weight: 700;
+    margin-top: 4px;
+    font-size: 0.85rem;
+    color: #1f2937;
+}
+
+.settings-cert-tier {
+    font-size: 0.75rem;
+    color: #6b7280;
+    margin-top: 2px;
+}
+
+.settings-cert-stats {
+    margin-top: 6px;
+    font-size: 0.75rem;
+    color: #4b5563;
+    font-variant-numeric: tabular-nums;
 }
 
 @media (max-width: 600px) {

@@ -1,0 +1,31 @@
+{
+  "id": "en_tier1_lesson_38",
+  "tier": "en_tier1",
+  "lesson_number": 38,
+  "title": "Email addresses and URLs",
+  "description": "Real-world strings: emails, URLs, usernames",
+  "target_wpm": 28,
+  "text_length": 115,
+  "error_limit_percent": 9,
+  "error_limit": 10,
+  "text": "alex.smith@work.com https://example.com/page?id=42 user_name#1234 visit www.site.org and ftp://server",
+  "text_sequence": [],
+  "keys_trained": ["A-Z", "0-9", "@", ".", "/", "_", ":", "#", "=", "?", "Space"],
+  "new_keys": [],
+  "finger_focus": "Real-world URL/email patterns",
+  "tips": [
+    "Email: user@domain.com pattern",
+    "URL: https://site.com/path?param=value",
+    "Username with # tag: user#1234 (Discord-style)"
+  ],
+  "character_tips": {
+    "anna": "URLs and emails are the daily glue of modern writing.",
+    "maxim": "Pro skill: type a URL without looking. Browser autocomplete works backwards.",
+    "knopych": "INTERNET TYPING! URLs flying! @s and .coms! 🌐",
+    "klavochka": "Like writing addresses on letters — but for the web! 💌"
+  },
+  "phase": 3,
+  "rhythmLesson": false,
+  "created_at": "2026-05-25",
+  "version": "1.0"
+}
