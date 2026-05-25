@@ -139,6 +139,20 @@
     letter-spacing: 0.5px;
 }
 
+.kbt-pill.kbt-disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.kbt-pill.kbt-disabled:hover {
+    transform: none;
+    background: var(--kb-key-bg);
+}
+
+.kbt-layout-info {
+    margin-left: 6px;
+}
+
 @media (max-width: 820px) {
     .keyboard-toolbar {
         padding: 8px 12px;

@@ -336,6 +336,23 @@ const LAYOUT_OPTIONS = [
     { id: 'ergonomic', label: 'Ergonomic', icon: '🎯' },
 ];
 
+// Language options — UI scaffold. EN пока без курса (ждёт контента),
+// клик показывает info-toast вместо реального переключения.
+const LANGUAGE_OPTIONS = [
+    { id: 'ru', label: 'RU', flag: '🇷🇺', layoutName: 'ЙЦУКЕН', available: true },
+    { id: 'en', label: 'EN', flag: '🇬🇧', layoutName: 'QWERTY',  available: false },
+];
+
+function readProfileLanguage() {
+    try {
+        const key = (window.Settings && window.Settings.get('storage.keys.userProfile'))
+            || 'typing_trainer_user_profile';
+        const raw = localStorage.getItem(key);
+        if (!raw) return 'ru';
+        return (JSON.parse(raw).language) || 'ru';
+    } catch (e) { return 'ru'; }
+}
+
 // Display toggles. functional: символы/Shift применяются через CSS-класс
 // на .keyboard-container. mock: звук/метроном пока без поведения (ждут spec'ов).
 const DISPLAY_TOGGLES = [
@@ -429,8 +446,18 @@ function renderKeyboardToolbar() {
             }).join('')}
         </div>
 
-        <div class="kbt-section kbt-info">
-            <span class="kbt-chip" title="Текущая раскладка">RU · ЙЦУКЕН</span>
+        <div class="kbt-section kbt-language" role="radiogroup" aria-label="Язык курса">
+            ${LANGUAGE_OPTIONS.map(l => {
+                const active = l.id === readProfileLanguage();
+                const disabledCls = !l.available ? ' kbt-disabled' : '';
+                return `<button type="button" class="kbt-pill kbt-lang${active ? ' kbt-active' : ''}${disabledCls}"
+                            data-lang="${l.id}" role="radio" aria-checked="${active}"
+                            title="${l.available ? `Курс ${l.label} · ${l.layoutName}` : `${l.label} — в разработке, ждём контент`}">
+                    <span class="kbt-icon">${l.flag}</span>
+                    <span>${l.label}</span>
+                </button>`;
+            }).join('')}
+            <span class="kbt-chip kbt-layout-info" title="Текущая раскладка">ЙЦУКЕН</span>
         </div>
     `;
 
@@ -455,6 +482,27 @@ function renderKeyboardToolbar() {
             if (check) check.textContent = newState ? '☑' : '☐';
             saveDisplayToggleState(id, newState);
             applyDisplayToggle(id, newState);
+        });
+    });
+
+    // Language pills — RU функциональный, EN показывает info-toast
+    toolbar.querySelectorAll('.kbt-lang').forEach(btn => {
+        btn.addEventListener('click', () => {
+            const lang = btn.dataset.lang;
+            const opt = LANGUAGE_OPTIONS.find(l => l.id === lang);
+            if (!opt) return;
+            if (!opt.available) {
+                if (window.toastManager) {
+                    window.toastManager.show(
+                        `Курс ${opt.label} ещё в разработке — контент будет добавлен в следующих релизах.`,
+                        opt.flag,
+                        4000,
+                        { type: 'info' }
+                    );
+                }
+                return;
+            }
+            // RU — уже active, тут пока нет действия (EN-курс единственный возможный switch)
         });
     });
 }
