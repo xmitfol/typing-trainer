@@ -3,13 +3,14 @@
 /* Правая панель статистики */
 .stats-panel {
     width: 250px;
-    background: white;
+    background: var(--card-bg);
+    color: var(--card-fg);
     border-radius: 10px;
     padding: 20px;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    box-shadow: var(--card-shadow);
     height: fit-content;
     flex-shrink: 0;
-    border: 1px solid #e9ecef;
+    border: 1px solid var(--card-border);
 }
 
 .stats-header {

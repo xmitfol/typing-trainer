@@ -1,5 +1,37 @@
 /* assets/css/main.css - Основные стили проекта */
 
+/* ============================================
+   Page-уровень дизайн-токены (light по умолчанию,
+   dark вариант через prefers-color-scheme).
+   Декоративные элементы (quote-panel, start-btn,
+   character cards) намеренно остаются яркими в обеих темах.
+   ============================================ */
+:root {
+    --page-bg: #f5f5f5;
+    --page-fg: #333333;
+    --card-bg: #ffffff;
+    --card-fg: #2d3436;
+    --card-muted-fg: #6b7280;
+    --card-border: #e5e7eb;
+    --card-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    --divider: #f3f4f6;
+    --accent-blue: #2196f3;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --page-bg: #161614;
+        --page-fg: #d1d5db;
+        --card-bg: #1d1d1b;
+        --card-fg: #f3f1ea;
+        --card-muted-fg: #9ca3af;
+        --card-border: rgba(255,255,255,0.08);
+        --card-shadow: 0 2px 10px rgba(0,0,0,0.5);
+        --divider: rgba(255,255,255,0.06);
+        --accent-blue: #60a5fa;
+    }
+}
+
 /* Сброс стилей */
 * {
     margin: 0;
@@ -13,8 +45,8 @@ html {
 
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #f5f5f5;
-    color: #333;
+    background-color: var(--page-bg);
+    color: var(--page-fg);
     overflow-x: hidden;
     line-height: 1.6;
 }
@@ -113,10 +145,11 @@ body {
 /* Левая боковая панель */
 .sidebar {
     width: 220px;
-    background: white;
+    background: var(--card-bg);
+    color: var(--card-fg);
     border-radius: 10px;
     padding: 15px;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    box-shadow: var(--card-shadow);
     flex-shrink: 0;
     display: flex;
     flex-direction: column;
@@ -125,7 +158,7 @@ body {
 }
 
 .sidebar h3 {
-    color: #2d3436;
+    color: var(--card-fg);
     font-size: 1rem;
     margin: 0;
 }
@@ -136,12 +169,12 @@ body {
     align-items: center;
     padding-bottom: 10px;
     margin-bottom: 10px;
-    border-bottom: 2px solid #e5e7eb;
+    border-bottom: 2px solid var(--card-border);
 }
 
 .lesson-counter {
     font-size: 0.85rem;
-    color: #6b7280;
+    color: var(--card-muted-fg);
     font-weight: 500;
 }
 
@@ -328,10 +361,11 @@ body {
 }
 
 .progress-container {
-    background: white;
+    background: var(--card-bg);
+    color: var(--card-fg);
     padding: 15px 20px;
     border-radius: 10px;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    box-shadow: var(--card-shadow);
     display: flex;
     align-items: center;
     gap: 15px;
@@ -340,13 +374,13 @@ body {
 
 .progress-label {
     font-weight: bold;
-    color: #2d3436;
+    color: var(--card-fg);
     white-space: nowrap;
 }
 
 .progress-fraction {
     font-weight: bold;
-    color: #636e72;
+    color: var(--card-muted-fg);
     white-space: nowrap;
 }
 
@@ -369,10 +403,11 @@ body {
 
 /* Текстовый редактор */
 .text-editor {
-    background: white;
+    background: var(--card-bg);
+    color: var(--card-fg);
     border-radius: 10px;
     padding: 30px;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    box-shadow: var(--card-shadow);
     min-height: 200px;
     position: relative;
     font-size: 1.2rem;
@@ -392,7 +427,7 @@ body {
 }
 
 .text-to-type {
-    color: #636e72;
+    color: var(--card-muted-fg);
 }
 
 .typed-text {
