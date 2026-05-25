@@ -145,6 +145,61 @@ body {
     font-weight: 500;
 }
 
+/* Tier switcher — pills под sidebar-header */
+.tier-switcher {
+    display: flex;
+    gap: 6px;
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #f3f4f6;
+}
+
+.tier-pill {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1px;
+    padding: 6px 8px;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    background: #ffffff;
+    color: #4b5563;
+    font-family: inherit;
+    font-size: 0.75rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all .15s ease;
+    user-select: none;
+    line-height: 1.2;
+}
+
+.tier-pill:hover {
+    background: #f9fafb;
+    transform: translateY(-1px);
+}
+
+.tier-pill.tier-active {
+    background: linear-gradient(135deg, #dbeafe, #bfdbfe);
+    border-color: #60a5fa;
+    color: #1e40af;
+    font-weight: 600;
+}
+
+.tier-name {
+    font-size: 0.78rem;
+}
+
+.tier-count {
+    font-size: 0.7rem;
+    color: #9ca3af;
+    font-variant-numeric: tabular-nums;
+}
+
+.tier-pill.tier-active .tier-count {
+    color: #2563eb;
+}
+
 /* Список уроков — скроллится если высота превышает sidebar */
 .lesson-list {
     display: flex;

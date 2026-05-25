@@ -76,6 +76,10 @@ class TypingTrainer {
         // Инициализируем другие модули
         this.initModules();
 
+        // Миграция старого формата прогресса (если есть), затем рендер tier switcher
+        this.migrateLessonProgressFormat();
+        this.renderTierSwitcher();
+
         // Хуки на завершение онбординга и готовность персонажа
         this.initLessonAutoload();
 
@@ -152,27 +156,49 @@ class TypingTrainer {
 
     // === Lesson Picker: статусы, прогресс, рендер сайдбара ===
 
-    // Чтение карты прогресса из localStorage: { "5": {stars, bestWPM, ...}, ... }
-    getLessonProgress() {
-        const key = (window.Settings && window.Settings.get('storage.keys.lessonProgress'))
+    // Storage-key helper для lesson-progress
+    progressStorageKey() {
+        return (window.Settings && window.Settings.get('storage.keys.lessonProgress'))
             || 'typing_trainer_lesson_progress';
-        return StorageUtils.get(key, {}) || {};
     }
 
-    // Сохранить лучший результат для конкретного урока (берём max от существующего)
+    // Миграция старого формата { "1": {...}, "2": {...} } → { tier1: { "1": {...}, ... } }
+    // Запускается один раз в init(). Безопасна для повторных вызовов.
+    migrateLessonProgressFormat() {
+        const key = this.progressStorageKey();
+        const raw = StorageUtils.get(key, null);
+        if (!raw || typeof raw !== 'object') return;
+        const keys = Object.keys(raw);
+        const looksOld = keys.length > 0 && keys.every(k => /^\d+$/.test(k));
+        if (looksOld) {
+            const migrated = { tier1: raw };
+            StorageUtils.set(key, migrated);
+            DebugUtils.log('🔁 Мигрировал lessonProgress в per-tier формат (tier1)');
+        }
+    }
+
+    // Чтение карты прогресса для указанного tier (или текущего)
+    getLessonProgress(tier) {
+        const t = tier || this.state.currentLessonTier || 'tier1';
+        const all = StorageUtils.get(this.progressStorageKey(), {}) || {};
+        return all[t] || {};
+    }
+
+    // Сохранить лучший результат — всегда в currentLessonTier
     saveLessonProgress(lessonNumber, stars, wpm, accuracy) {
         if (!Number.isFinite(lessonNumber)) return;
-        const all = this.getLessonProgress();
-        const key = String(lessonNumber);
-        const prev = all[key] || {};
-        all[key] = {
+        const tier = this.state.currentLessonTier || 'tier1';
+        const storageKey = this.progressStorageKey();
+        const all = StorageUtils.get(storageKey, {}) || {};
+        if (!all[tier]) all[tier] = {};
+        const numKey = String(lessonNumber);
+        const prev = all[tier][numKey] || {};
+        all[tier][numKey] = {
             stars: Math.max(prev.stars || 0, stars || 0),
             bestWPM: Math.max(prev.bestWPM || 0, wpm || 0),
             bestAccuracy: Math.max(prev.bestAccuracy || 0, accuracy || 0),
             completedAt: new Date().toISOString()
         };
-        const storageKey = (window.Settings && window.Settings.get('storage.keys.lessonProgress'))
-            || 'typing_trainer_lesson_progress';
         StorageUtils.set(storageKey, all);
     }
 
@@ -281,6 +307,64 @@ class TypingTrainer {
         if (currentEl) currentEl.scrollIntoView({ block: 'center', behavior: 'auto' });
     }
 
+    // ── Tier switcher (UI для переключения курса tier1 ↔ block_1) ──
+
+    // Human-readable labels (UI-только, не data)
+    getTierLabel(tier) {
+        const labels = { tier1: 'Основной', block_1: 'Мизинец' };
+        return labels[tier] || tier;
+    }
+
+    // Все доступные тиры из настроек
+    getAvailableTiers() {
+        const counts = (window.Settings && window.Settings.get('lessons.tierLessonCount', {})) || {};
+        return Object.keys(counts);
+    }
+
+    renderTierSwitcher() {
+        const container = $('#tierSwitcher');
+        if (!container) return;
+        const tiers = this.getAvailableTiers();
+        if (tiers.length < 2) {
+            container.style.display = 'none';
+            return;
+        }
+        const currentTier = this.state.currentLessonTier
+            || (window.Settings && window.Settings.get('lessons.defaultTier', 'tier1'))
+            || 'tier1';
+
+        container.innerHTML = tiers.map(t => {
+            const total = this.getTierLessonCount(t);
+            const active = t === currentTier;
+            return `<button type="button" class="tier-pill${active ? ' tier-active' : ''}" data-tier="${t}" role="radio" aria-checked="${active}" title="${this.getTierLabel(t)} — ${total} уроков">
+                <span class="tier-name">${this.escapeHtml(this.getTierLabel(t))}</span>
+                <span class="tier-count">${total}</span>
+            </button>`;
+        }).join('');
+
+        container.querySelectorAll('.tier-pill').forEach(btn => {
+            btn.addEventListener('click', () => this.switchTier(btn.dataset.tier));
+        });
+    }
+
+    // Переключение курса: меняет currentLessonTier, загружает первый
+    // несданный (или просто первый) урок этого tier
+    switchTier(newTier) {
+        if (!newTier || newTier === this.state.currentLessonTier) return;
+        const total = this.getTierLessonCount(newTier);
+        if (!total) return;
+
+        // Найти первый несданный урок в этом тире (или просто 1)
+        const progress = this.getLessonProgress(newTier);
+        let firstUnfinished = 1;
+        for (let n = 1; n <= total; n++) {
+            if (!progress[String(n)]) { firstUnfinished = n; break; }
+        }
+
+        this.loadLesson(newTier, firstUnfinished);
+        // renderLessonList и renderTierSwitcher триггернутся изнутри loadLesson()
+    }
+
     // Обновляет индикатор «Урок N из M» над редактором
     updateLessonIndicator() {
         const indicator = $('#lessonIndicator');
@@ -331,6 +415,7 @@ class TypingTrainer {
 
         // Обновляем сайдбар (статус «current» переходит на новый урок)
         this.renderLessonList();
+        this.renderTierSwitcher();
 
         // Обновляем превью в редакторе
         if (this.elements.textEditor) {
