@@ -168,6 +168,19 @@ try:
         page.wait_for_timeout(800)
         shot('09-ergonomic-full', full_page=True)
 
+        # ---- Stage 10: dark theme (emulate prefers-color-scheme) ----
+        print('Stage 10: dark theme')
+        page.emulate_media(color_scheme='dark')
+        page.evaluate("""() => {
+            const p = JSON.parse(localStorage.getItem('typing_trainer_user_profile') || '{}');
+            p.keyboardType = 'classic';
+            localStorage.setItem('typing_trainer_user_profile', JSON.stringify(p));
+        }""")
+        page.reload()
+        page.wait_for_selector('#lessonIndicator', state='visible', timeout=8000)
+        page.wait_for_timeout(800)
+        shot('10-dark-classic', full_page=True)
+
         browser.close()
         print('Done.')
 
