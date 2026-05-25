@@ -10,7 +10,7 @@
   "error_limit": 14,
   "text": "The quick brown fox jumps over the lazy dog, while a wizard's job is to vex chumps quickly in fog. How vexingly quick daft zebras jump! Bright vixens jump; dozy fowl quack at the keyboard.",
   "text_sequence": [],
-  "keys_trained": ["A-Z full", "Space", ".", ",", ";", "'", "!"],
+  "keys_trained": ["A-Z full", "Space", ".", ",", ";", "'", "!", "Shift"],
   "new_keys": [],
   "finger_focus": "Full alphabet in flow",
   "tips": [

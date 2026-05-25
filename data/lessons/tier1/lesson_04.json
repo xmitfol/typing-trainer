@@ -62,7 +62,7 @@
     {"char": "н", "hand": "right", "finger": "index", "key": "Н"},
     {"char": "а", "hand": "right", "finger": "index", "key": "А"}
   ],
-  "keys_trained": ["А", "О", "В", "Н", "Л", "Д", "Е", "И", "Space"],
+  "keys_trained": ["А", "О", "В", "Н", "Л", "Д", "Е", "И", "Space", "Shift"],
   "new_keys": ["Е", "И"],
   "finger_focus": "Указательные пальцы - движение вверх к верхнему ряду",
   "tips": [

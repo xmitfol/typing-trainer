@@ -10,7 +10,7 @@
   "error_limit": 12,
   "text": "London, Paris, New York, Tokyo. The CEO of TechCorp said: \"AI will change SaaS, IoT, and ML.\" Alice Brown won the Nobel Prize.",
   "text_sequence": [],
-  "keys_trained": ["A-Z (lower)", "A-Z (upper)", "0-9", ".", ",", ":", "\"", "Space"],
+  "keys_trained": ["A-Z (lower)", "A-Z (upper)", "0-9", ".", ",", ":", "\"", "Space", "Shift"],
   "new_keys": [],
   "finger_focus": "Shift + letter for capitals — opposite-hand Shift rule",
   "tips": [

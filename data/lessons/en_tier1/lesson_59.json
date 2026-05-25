@@ -10,7 +10,7 @@
   "error_limit": 15,
   "text": "Order #4521 ships Monday for $129.50. Customer ID 7821 (priority) needs follow-up by 14:30 today. Team meeting at 9 a.m. Slack channel: #ops-2026. Backup: 100% verified. Time saved: 45 min.",
   "text_sequence": [],
-  "keys_trained": ["A-Z", "0-9", ":", ".", ",", "$", "#", "(", ")", "%"],
+  "keys_trained": ["A-Z", "0-9", ":", ".", ",", "$", "#", "(", ")", "%", "Shift"],
   "new_keys": [],
   "finger_focus": "Speed across alphanumeric + symbols",
   "tips": [

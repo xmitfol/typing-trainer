@@ -10,7 +10,7 @@
   "error_limit": 16,
   "text": "Hi Alex, I hope you're well. Can we meet at 2:30 PM tomorrow? I'd like to discuss the Q3 plan. Best regards, Sam Smith sam@team.co",
   "text_sequence": [],
-  "keys_trained": ["A-Z", "0-9", ":", ".", ",", "?", "'", "@", "Space"],
+  "keys_trained": ["A-Z", "0-9", ":", ".", ",", "?", "'", "@", "Space", "Shift"],
   "new_keys": [],
   "finger_focus": "Email format",
   "tips": [

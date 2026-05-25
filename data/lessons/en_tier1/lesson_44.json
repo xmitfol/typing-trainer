@@ -10,7 +10,7 @@
   "error_limit": 18,
   "text": "Email: alex@work.com\nCode: if (x > 0) return x*2;\nNote: 80% of users (240/300) loved the update! \"Amazing,\" said Sam. Visit https://app.io for details.",
   "text_sequence": [],
-  "keys_trained": ["A-Z", "0-9", "all symbols"],
+  "keys_trained": ["A-Z", "0-9", "all symbols", "Shift"],
   "new_keys": [],
   "finger_focus": "Everything trained so far",
   "tips": [
