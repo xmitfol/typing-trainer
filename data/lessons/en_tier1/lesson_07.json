@@ -1,0 +1,31 @@
+{
+  "id": "en_tier1_lesson_07",
+  "tier": "en_tier1",
+  "lesson_number": 7,
+  "title": "Add W and N (more frequent letters)",
+  "description": "W (top ring left) and N (right index home-bottom) — both very common",
+  "target_wpm": 18,
+  "text_length": 64,
+  "error_limit_percent": 5,
+  "error_limit": 4,
+  "text": "we now then when know own one win two news any easy why see",
+  "text_sequence": [],
+  "keys_trained": ["A", "D", "E", "F", "G", "H", "I", "J", "K", "L", "N", "O", "R", "S", "T", "U", "W", "Y", "Space"],
+  "new_keys": ["W", "N"],
+  "finger_focus": "W (top, left ring), N (home-bottom, right index)",
+  "tips": [
+    "W sits above S — left ring reaches up",
+    "N sits below J — right index drops down-left",
+    "Words become real: we, when, now, one, two"
+  ],
+  "character_tips": {
+    "anna": "W and N are mega-frequent. Words \"we\", \"when\", \"now\" — almost a conversation already.",
+    "maxim": "N is the most common consonant. With it, any English text becomes possible.",
+    "knopych": "Doubling the vocab! W, N — they unlock everything! 🚀",
+    "klavochka": "You're amazing! Now you have \"we\", \"now\", \"when\" — real words! 💖"
+  },
+  "phase": 1,
+  "rhythmLesson": false,
+  "created_at": "2026-05-25",
+  "version": "1.0"
+}

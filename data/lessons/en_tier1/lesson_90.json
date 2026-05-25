@@ -1,0 +1,31 @@
+{
+  "id": "en_tier1_lesson_90",
+  "tier": "en_tier1",
+  "lesson_number": 90,
+  "title": "BLOCK 6 FINAL: Practical mastery",
+  "description": "Block 6 final — 90 WPM on a long real-world business paragraph",
+  "target_wpm": 90,
+  "text_length": 350,
+  "error_limit_percent": 5,
+  "error_limit": 17,
+  "text": "After eighteen months of careful planning and four straight quarters of double-digit growth, the leadership team announced a new chapter for the company: a global expansion into seven new markets, a fresh product line aimed at enterprise customers, and a strategic partnership with one of the largest technology vendors in the world.",
+  "text_sequence": [],
+  "keys_trained": ["A-Z", "Space", ",", ".", ":", "Shift"],
+  "new_keys": [],
+  "finger_focus": "Sustained 90 WPM real-world prose",
+  "tips": [
+    "Block 6 closes with 90 WPM on real business prose",
+    "Pass = officially top 3% of typists globally",
+    "Final block (91-99) refines this to 100+ WPM mastery"
+  ],
+  "character_tips": {
+    "anna": "🎓 BLOCK 6 FINAL! 90 WPM = elite professional. Top 3% in the world.",
+    "maxim": "Practical mastery cleared. Block 7 is pure refinement to 100+ WPM.",
+    "knopych": "BLOCK 6 BOSS DOWN! 🐉⚔️ ELITE MASTER!",
+    "klavochka": "My legend! ⭐⭐⭐⭐ Nine lessons to true mastery!"
+  },
+  "phase": 6,
+  "rhythmLesson": false,
+  "created_at": "2026-05-25",
+  "version": "1.0"
+}

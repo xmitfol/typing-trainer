@@ -1,0 +1,31 @@
+{
+  "id": "en_tier1_lesson_70",
+  "tier": "en_tier1",
+  "lesson_number": 70,
+  "title": "70-lesson milestone: speed gate",
+  "description": "Speed gate at lesson 70 — must hold 70 WPM to pass",
+  "target_wpm": 70,
+  "text_length": 250,
+  "error_limit_percent": 5,
+  "error_limit": 13,
+  "text": "Seventy lessons. Numbers do not lie — your fingers move faster than ever. The keyboard is now an extension of your thoughts, not an obstacle. Keep training; the last thirty lessons will turn this speed into automatic, lifelong muscle memory.",
+  "text_sequence": [],
+  "keys_trained": ["A-Z", "Space", ",", ";", ".", "Shift"],
+  "new_keys": [],
+  "finger_focus": "Sustained 70 WPM gate",
+  "tips": [
+    "70 WPM = top 15% of typists globally",
+    "If you pass this gate, you're objectively fast",
+    "Last 30 lessons take you to 95-100 WPM if you stay consistent"
+  ],
+  "character_tips": {
+    "anna": "🎯 70 WPM gate. If you pass here, you're officially fast. Top 15% of all typists.",
+    "maxim": "70 WPM is the professional threshold. Many writers never get past 60.",
+    "knopych": "70 WPM BOSS DEFEATED! 🏆 PRO LEVEL UNLOCKED!",
+    "klavochka": "My champion! ⭐⭐⭐ You're flying now!"
+  },
+  "phase": 5,
+  "rhythmLesson": false,
+  "created_at": "2026-05-25",
+  "version": "1.0"
+}

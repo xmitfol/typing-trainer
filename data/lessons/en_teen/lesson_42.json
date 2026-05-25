@@ -1,0 +1,38 @@
+{
+  "id": "en_teen_lesson_42",
+  "tier": "en_teen",
+  "lesson_number": 42,
+  "title": "TikTok-style commentary",
+  "description": "Quick observational posts with capitals for emphasis",
+  "target_wpm": 69,
+  "text_length": 146,
+  "error_limit_percent": 6,
+  "error_limit": 8,
+  "text": "Bro the way she just stared into the camera. THAT was the look. POV: you finally figured it out. Wait until the end. No because actually that hit.",
+  "text_sequence": [],
+  "keys_trained": [
+    "A-Z",
+    "Shift",
+    "Space",
+    ".",
+    ",",
+    ":"
+  ],
+  "new_keys": [],
+  "finger_focus": "Mixed capital emphasis + commentary",
+  "tips": [
+    "ALL CAPS for emphasis (THAT) — Shift+letter+letter",
+    "POV format is teen-native",
+    "Capital snippets in lowercase prose"
+  ],
+  "character_tips": {
+    "anna": "Modern teen prose mixes caps for emphasis. Capture both rhythms.",
+    "maxim": "Generation-Z writing pattern. Real-life applied training.",
+    "knopych": "🎬 TIKTOK STYLE! POV and reaction commentary!",
+    "klavochka": "The way teens write today, my sunshine 💫"
+  },
+  "phase": 3,
+  "rhythmLesson": false,
+  "created_at": "2026-05-25",
+  "version": "1.0"
+}

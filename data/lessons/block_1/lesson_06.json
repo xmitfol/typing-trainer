@@ -1,0 +1,658 @@
+{
+  "id": "lesson_06",
+  "block": 1,
+  "block_name": "Мизинец (Pinky)",
+  "lesson_number": 6,
+  "title": "Слова 4 буквы + фразы",
+  "description": "Слова из 4 букв и первые простые фразы",
+  "target_wpm": 15,
+  "text_length": 120,
+  "error_limit_percent": 5,
+  "error_limit": 6,
+  "text": "дала пара жало вода дала пара жало вода дала вода пара жала дало жара вора дала дала вода пара жала",
+  "text_sequence": [
+    {
+      "char": "д",
+      "hand": "left",
+      "finger": "ring",
+      "key": "Д"
+    },
+    {
+      "char": "а",
+      "hand": "left",
+      "finger": "index",
+      "key": "А"
+    },
+    {
+      "char": "л",
+      "hand": "left",
+      "finger": "middle",
+      "key": "Л"
+    },
+    {
+      "char": "а",
+      "hand": "left",
+      "finger": "index",
+      "key": "А"
+    },
+    {
+      "char": " ",
+      "hand": "right",
+      "finger": "thumb",
+      "key": "Space",
+      "space_side": "right"
+    },
+    {
+      "char": "п",
+      "hand": "right",
+      "finger": "index",
+      "key": "П"
+    },
+    {
+      "char": "а",
+      "hand": "right",
+      "finger": "index",
+      "key": "А"
+    },
+    {
+      "char": "р",
+      "hand": "right",
+      "finger": "index",
+      "key": "Р"
+    },
+    {
+      "char": "а",
+      "hand": "right",
+      "finger": "index",
+      "key": "А"
+    },
+    {
+      "char": " ",
+      "hand": "left",
+      "finger": "thumb",
+      "key": "Space",
+      "space_side": "left"
+    },
+    {
+      "char": "ж",
+      "hand": "left",
+      "finger": "pinky",
+      "key": "Ж"
+    },
+    {
+      "char": "а",
+      "hand": "left",
+      "finger": "index",
+      "key": "А"
+    },
+    {
+      "char": "л",
+      "hand": "left",
+      "finger": "middle",
+      "key": "Л"
+    },
+    {
+      "char": "о",
+      "hand": "left",
+      "finger": "index",
+      "key": "О"
+    },
+    {
+      "char": " ",
+      "hand": "right",
+      "finger": "thumb",
+      "key": "Space",
+      "space_side": "right"
+    },
+    {
+      "char": "в",
+      "hand": "right",
+      "finger": "middle",
+      "key": "В"
+    },
+    {
+      "char": "о",
+      "hand": "right",
+      "finger": "index",
+      "key": "О"
+    },
+    {
+      "char": "д",
+      "hand": "right",
+      "finger": "ring",
+      "key": "Д"
+    },
+    {
+      "char": "а",
+      "hand": "right",
+      "finger": "index",
+      "key": "А"
+    },
+    {
+      "char": " ",
+      "hand": "left",
+      "finger": "thumb",
+      "key": "Space",
+      "space_side": "left"
+    },
+    {
+      "char": "д",
+      "hand": "left",
+      "finger": "ring",
+      "key": "Д"
+    },
+    {
+      "char": "а",
+      "hand": "left",
+      "finger": "index",
+      "key": "А"
+    },
+    {
+      "char": "л",
+      "hand": "left",
+      "finger": "middle",
+      "key": "Л"
+    },
+    {
+      "char": "а",
+      "hand": "left",
+      "finger": "index",
+      "key": "А"
+    },
+    {
+      "char": " ",
+      "hand": "right",
+      "finger": "thumb",
+      "key": "Space",
+      "space_side": "right"
+    },
+    {
+      "char": "п",
+      "hand": "right",
+      "finger": "index",
+      "key": "П"
+    },
+    {
+      "char": "а",
+      "hand": "right",
+      "finger": "index",
+      "key": "А"
+    },
+    {
+      "char": "р",
+      "hand": "right",
+      "finger": "index",
+      "key": "Р"
+    },
+    {
+      "char": "а",
+      "hand": "right",
+      "finger": "index",
+      "key": "А"
+    },
+    {
+      "char": " ",
+      "hand": "left",
+      "finger": "thumb",
+      "key": "Space",
+      "space_side": "left"
+    },
+    {
+      "char": "ж",
+      "hand": "left",
+      "finger": "pinky",
+      "key": "Ж"
+    },
+    {
+      "char": "а",
+      "hand": "left",
+      "finger": "index",
+      "key": "А"
+    },
+    {
+      "char": "л",
+      "hand": "left",
+      "finger": "middle",
+      "key": "Л"
+    },
+    {
+      "char": "о",
+      "hand": "left",
+      "finger": "index",
+      "key": "О"
+    },
+    {
+      "char": " ",
+      "hand": "right",
+      "finger": "thumb",
+      "key": "Space",
+      "space_side": "right"
+    },
+    {
+      "char": "в",
+      "hand": "right",
+      "finger": "middle",
+      "key": "В"
+    },
+    {
+      "char": "о",
+      "hand": "right",
+      "finger": "index",
+      "key": "О"
+    },
+    {
+      "char": "д",
+      "hand": "right",
+      "finger": "ring",
+      "key": "Д"
+    },
+    {
+      "char": "а",
+      "hand": "right",
+      "finger": "index",
+      "key": "А"
+    },
+    {
+      "char": " ",
+      "hand": "left",
+      "finger": "thumb",
+      "key": "Space",
+      "space_side": "left"
+    },
+    {
+      "char": "д",
+      "hand": "left",
+      "finger": "ring",
+      "key": "Д"
+    },
+    {
+      "char": "а",
+      "hand": "left",
+      "finger": "index",
+      "key": "А"
+    },
+    {
+      "char": "л",
+      "hand": "left",
+      "finger": "middle",
+      "key": "Л"
+    },
+    {
+      "char": "а",
+      "hand": "left",
+      "finger": "index",
+      "key": "А"
+    },
+    {
+      "char": " ",
+      "hand": "right",
+      "finger": "thumb",
+      "key": "Space",
+      "space_side": "right"
+    },
+    {
+      "char": "в",
+      "hand": "right",
+      "finger": "middle",
+      "key": "В"
+    },
+    {
+      "char": "о",
+      "hand": "right",
+      "finger": "index",
+      "key": "О"
+    },
+    {
+      "char": "д",
+      "hand": "right",
+      "finger": "ring",
+      "key": "Д"
+    },
+    {
+      "char": "а",
+      "hand": "right",
+      "finger": "index",
+      "key": "А"
+    },
+    {
+      "char": " ",
+      "hand": "left",
+      "finger": "thumb",
+      "key": "Space",
+      "space_side": "left"
+    },
+    {
+      "char": "п",
+      "hand": "left",
+      "finger": "index",
+      "key": "П"
+    },
+    {
+      "char": "а",
+      "hand": "left",
+      "finger": "index",
+      "key": "А"
+    },
+    {
+      "char": "р",
+      "hand": "left",
+      "finger": "index",
+      "key": "Р"
+    },
+    {
+      "char": "а",
+      "hand": "left",
+      "finger": "index",
+      "key": "А"
+    },
+    {
+      "char": " ",
+      "hand": "right",
+      "finger": "thumb",
+      "key": "Space",
+      "space_side": "right"
+    },
+    {
+      "char": "ж",
+      "hand": "right",
+      "finger": "pinky",
+      "key": "Ж"
+    },
+    {
+      "char": "а",
+      "hand": "right",
+      "finger": "index",
+      "key": "А"
+    },
+    {
+      "char": "л",
+      "hand": "right",
+      "finger": "middle",
+      "key": "Л"
+    },
+    {
+      "char": "а",
+      "hand": "right",
+      "finger": "index",
+      "key": "А"
+    },
+    {
+      "char": " ",
+      "hand": "left",
+      "finger": "thumb",
+      "key": "Space",
+      "space_side": "left"
+    },
+    {
+      "char": "д",
+      "hand": "left",
+      "finger": "ring",
+      "key": "Д"
+    },
+    {
+      "char": "а",
+      "hand": "left",
+      "finger": "index",
+      "key": "А"
+    },
+    {
+      "char": "л",
+      "hand": "left",
+      "finger": "middle",
+      "key": "Л"
+    },
+    {
+      "char": "о",
+      "hand": "left",
+      "finger": "index",
+      "key": "О"
+    },
+    {
+      "char": " ",
+      "hand": "right",
+      "finger": "thumb",
+      "key": "Space",
+      "space_side": "right"
+    },
+    {
+      "char": "ж",
+      "hand": "right",
+      "finger": "pinky",
+      "key": "Ж"
+    },
+    {
+      "char": "а",
+      "hand": "right",
+      "finger": "index",
+      "key": "А"
+    },
+    {
+      "char": "р",
+      "hand": "right",
+      "finger": "index",
+      "key": "Р"
+    },
+    {
+      "char": "а",
+      "hand": "right",
+      "finger": "index",
+      "key": "А"
+    },
+    {
+      "char": " ",
+      "hand": "left",
+      "finger": "thumb",
+      "key": "Space",
+      "space_side": "left"
+    },
+    {
+      "char": "в",
+      "hand": "left",
+      "finger": "middle",
+      "key": "В"
+    },
+    {
+      "char": "о",
+      "hand": "left",
+      "finger": "index",
+      "key": "О"
+    },
+    {
+      "char": "р",
+      "hand": "left",
+      "finger": "index",
+      "key": "Р"
+    },
+    {
+      "char": "а",
+      "hand": "left",
+      "finger": "index",
+      "key": "А"
+    },
+    {
+      "char": " ",
+      "hand": "right",
+      "finger": "thumb",
+      "key": "Space",
+      "space_side": "right"
+    },
+    {
+      "char": "д",
+      "hand": "right",
+      "finger": "ring",
+      "key": "Д"
+    },
+    {
+      "char": "а",
+      "hand": "right",
+      "finger": "index",
+      "key": "А"
+    },
+    {
+      "char": "л",
+      "hand": "right",
+      "finger": "middle",
+      "key": "Л"
+    },
+    {
+      "char": "а",
+      "hand": "right",
+      "finger": "index",
+      "key": "А"
+    },
+    {
+      "char": " ",
+      "hand": "left",
+      "finger": "thumb",
+      "key": "Space",
+      "space_side": "left"
+    },
+    {
+      "char": "д",
+      "hand": "left",
+      "finger": "ring",
+      "key": "Д"
+    },
+    {
+      "char": "а",
+      "hand": "left",
+      "finger": "index",
+      "key": "А"
+    },
+    {
+      "char": "л",
+      "hand": "left",
+      "finger": "middle",
+      "key": "Л"
+    },
+    {
+      "char": "а",
+      "hand": "left",
+      "finger": "index",
+      "key": "А"
+    },
+    {
+      "char": " ",
+      "hand": "right",
+      "finger": "thumb",
+      "key": "Space",
+      "space_side": "right"
+    },
+    {
+      "char": "в",
+      "hand": "right",
+      "finger": "middle",
+      "key": "В"
+    },
+    {
+      "char": "о",
+      "hand": "right",
+      "finger": "index",
+      "key": "О"
+    },
+    {
+      "char": "д",
+      "hand": "right",
+      "finger": "ring",
+      "key": "Д"
+    },
+    {
+      "char": "а",
+      "hand": "right",
+      "finger": "index",
+      "key": "А"
+    },
+    {
+      "char": " ",
+      "hand": "left",
+      "finger": "thumb",
+      "key": "Space",
+      "space_side": "left"
+    },
+    {
+      "char": "п",
+      "hand": "left",
+      "finger": "index",
+      "key": "П"
+    },
+    {
+      "char": "а",
+      "hand": "left",
+      "finger": "index",
+      "key": "А"
+    },
+    {
+      "char": "р",
+      "hand": "left",
+      "finger": "index",
+      "key": "Р"
+    },
+    {
+      "char": "а",
+      "hand": "left",
+      "finger": "index",
+      "key": "А"
+    },
+    {
+      "char": " ",
+      "hand": "right",
+      "finger": "thumb",
+      "key": "Space",
+      "space_side": "right"
+    },
+    {
+      "char": "ж",
+      "hand": "right",
+      "finger": "pinky",
+      "key": "Ж"
+    },
+    {
+      "char": "а",
+      "hand": "right",
+      "finger": "index",
+      "key": "А"
+    },
+    {
+      "char": "л",
+      "hand": "right",
+      "finger": "middle",
+      "key": "Л"
+    },
+    {
+      "char": "а",
+      "hand": "right",
+      "finger": "index",
+      "key": "А"
+    }
+  ],
+  "keys_trained": [
+    "Ф",
+    "Ы",
+    "В",
+    "А",
+    "П",
+    "Р",
+    "О",
+    "Л",
+    "Д",
+    "Ж",
+    "Space"
+  ],
+  "finger_focus": "Все пальцы среднего ряда + фразовая структура",
+  "tips": [
+    "Слова становятся длиннее — ДАЛА, ПАРА, ЖАЛО, ВОДА!",
+    "Теперь ты видишь фразы: ДАЛА ВОДА, ПАРА ЖАЛА",
+    "Не думай о буквах — думай о смысле фраз",
+    "Пробелы между словами чередуются автоматически",
+    "Держи плавный ритм — слова перетекают друг в друга"
+  ],
+  "character_tips": {
+    "anna": "Прекрасно! Ты уже печатаешь фразы! ДАЛА ВОДА — это не просто буквы, это смысл!",
+    "maxim": "Отличная работа! Переход к фразам — большой прогресс. Скоро будешь печатать тексты!",
+    "knopych": "Вау! Ты уже как поэт! ДАЛА ВОДА, ПАРА ЖАЛА — как стихи! Продолжай!",
+    "klavochka": "Какая ты умница! Слова складываются в фразы — это волшебство! ДАЛА ВОДА — красиво!"
+  },
+  "phase": 1,
+  "created_at": "2025-11-17",
+  "version": "1.0"
+}

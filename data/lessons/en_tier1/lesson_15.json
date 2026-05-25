@@ -1,0 +1,31 @@
+{
+  "id": "en_tier1_lesson_15",
+  "tier": "en_tier1",
+  "lesson_number": 15,
+  "title": "BLOCK 1 FINAL: Alphabet mastery test",
+  "description": "Closing test for Block 1 — full alphabet, sentences, 25 WPM target",
+  "target_wpm": 25,
+  "text_length": 100,
+  "error_limit_percent": 7,
+  "error_limit": 7,
+  "text": "the quick brown fox jumps over the lazy dog and watches the river flow under a wide blue sky",
+  "text_sequence": [],
+  "keys_trained": ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", "Space"],
+  "new_keys": [],
+  "finger_focus": "Whole alphabet — speed + accuracy gate",
+  "tips": [
+    "Pangram + extension: covers all 26 letters",
+    "Pass this and Block 1 is closed — you can type any English text",
+    "Target: 25 WPM with under 7 errors"
+  ],
+  "character_tips": {
+    "anna": "🎓 BLOCK 1 FINAL! Pass this and you've mastered the alphabet. Next: punctuation.",
+    "maxim": "End of Block 1. You can type any English word now. Block 2 opens up punctuation.",
+    "knopych": "BOSS BATTLE! 🐉 Defeat the dragon to unlock Block 2! 🏆",
+    "klavochka": "Final test, sunshine! You've come so far! Believe in yourself! ✨"
+  },
+  "phase": 1,
+  "rhythmLesson": false,
+  "created_at": "2026-05-25",
+  "version": "1.0"
+}

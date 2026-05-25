@@ -1,0 +1,409 @@
+{
+  "id": "lesson_03",
+  "block": 1,
+  "block_name": "Мизинец (Pinky)",
+  "lesson_number": 3,
+  "title": "Мизинцы HOME ROW: Ф и Ж",
+  "description": "Тренировка мизинцев на клавишах Ф и Ж (средний ряд)",
+  "target_wpm": 15,
+  "text_length": 77,
+  "error_limit_percent": 5,
+  "error_limit": 3,
+  "text": "фж жф фж жф фа жо фа жо фао жао фао жао фаож жаоф фаож жаоф",
+  "text_sequence": [
+    {
+      "char": "ф",
+      "hand": "left",
+      "finger": "pinky",
+      "key": "Ф"
+    },
+    {
+      "char": "ж",
+      "hand": "left",
+      "finger": "pinky",
+      "key": "Ж"
+    },
+    {
+      "char": " ",
+      "hand": "right",
+      "finger": "thumb",
+      "key": "Space",
+      "space_side": "right"
+    },
+    {
+      "char": "ж",
+      "hand": "right",
+      "finger": "pinky",
+      "key": "Ж"
+    },
+    {
+      "char": "ф",
+      "hand": "right",
+      "finger": "pinky",
+      "key": "Ф"
+    },
+    {
+      "char": " ",
+      "hand": "left",
+      "finger": "thumb",
+      "key": "Space",
+      "space_side": "left"
+    },
+    {
+      "char": "ф",
+      "hand": "left",
+      "finger": "pinky",
+      "key": "Ф"
+    },
+    {
+      "char": "ж",
+      "hand": "left",
+      "finger": "pinky",
+      "key": "Ж"
+    },
+    {
+      "char": " ",
+      "hand": "right",
+      "finger": "thumb",
+      "key": "Space",
+      "space_side": "right"
+    },
+    {
+      "char": "ж",
+      "hand": "right",
+      "finger": "pinky",
+      "key": "Ж"
+    },
+    {
+      "char": "ф",
+      "hand": "right",
+      "finger": "pinky",
+      "key": "Ф"
+    },
+    {
+      "char": " ",
+      "hand": "left",
+      "finger": "thumb",
+      "key": "Space",
+      "space_side": "left"
+    },
+    {
+      "char": "ф",
+      "hand": "left",
+      "finger": "pinky",
+      "key": "Ф"
+    },
+    {
+      "char": "а",
+      "hand": "left",
+      "finger": "index",
+      "key": "А"
+    },
+    {
+      "char": " ",
+      "hand": "right",
+      "finger": "thumb",
+      "key": "Space",
+      "space_side": "right"
+    },
+    {
+      "char": "ж",
+      "hand": "right",
+      "finger": "pinky",
+      "key": "Ж"
+    },
+    {
+      "char": "о",
+      "hand": "right",
+      "finger": "index",
+      "key": "О"
+    },
+    {
+      "char": " ",
+      "hand": "left",
+      "finger": "thumb",
+      "key": "Space",
+      "space_side": "left"
+    },
+    {
+      "char": "ф",
+      "hand": "left",
+      "finger": "pinky",
+      "key": "Ф"
+    },
+    {
+      "char": "а",
+      "hand": "left",
+      "finger": "index",
+      "key": "А"
+    },
+    {
+      "char": " ",
+      "hand": "right",
+      "finger": "thumb",
+      "key": "Space",
+      "space_side": "right"
+    },
+    {
+      "char": "ж",
+      "hand": "right",
+      "finger": "pinky",
+      "key": "Ж"
+    },
+    {
+      "char": "о",
+      "hand": "right",
+      "finger": "index",
+      "key": "О"
+    },
+    {
+      "char": " ",
+      "hand": "left",
+      "finger": "thumb",
+      "key": "Space",
+      "space_side": "left"
+    },
+    {
+      "char": "ф",
+      "hand": "left",
+      "finger": "pinky",
+      "key": "Ф"
+    },
+    {
+      "char": "а",
+      "hand": "left",
+      "finger": "index",
+      "key": "А"
+    },
+    {
+      "char": "о",
+      "hand": "left",
+      "finger": "index",
+      "key": "О"
+    },
+    {
+      "char": " ",
+      "hand": "right",
+      "finger": "thumb",
+      "key": "Space",
+      "space_side": "right"
+    },
+    {
+      "char": "ж",
+      "hand": "right",
+      "finger": "pinky",
+      "key": "Ж"
+    },
+    {
+      "char": "а",
+      "hand": "right",
+      "finger": "index",
+      "key": "А"
+    },
+    {
+      "char": "о",
+      "hand": "right",
+      "finger": "index",
+      "key": "О"
+    },
+    {
+      "char": " ",
+      "hand": "left",
+      "finger": "thumb",
+      "key": "Space",
+      "space_side": "left"
+    },
+    {
+      "char": "ф",
+      "hand": "left",
+      "finger": "pinky",
+      "key": "Ф"
+    },
+    {
+      "char": "а",
+      "hand": "left",
+      "finger": "index",
+      "key": "А"
+    },
+    {
+      "char": "о",
+      "hand": "left",
+      "finger": "index",
+      "key": "О"
+    },
+    {
+      "char": " ",
+      "hand": "right",
+      "finger": "thumb",
+      "key": "Space",
+      "space_side": "right"
+    },
+    {
+      "char": "ж",
+      "hand": "right",
+      "finger": "pinky",
+      "key": "Ж"
+    },
+    {
+      "char": "а",
+      "hand": "right",
+      "finger": "index",
+      "key": "А"
+    },
+    {
+      "char": "о",
+      "hand": "right",
+      "finger": "index",
+      "key": "О"
+    },
+    {
+      "char": " ",
+      "hand": "left",
+      "finger": "thumb",
+      "key": "Space",
+      "space_side": "left"
+    },
+    {
+      "char": "ф",
+      "hand": "left",
+      "finger": "pinky",
+      "key": "Ф"
+    },
+    {
+      "char": "а",
+      "hand": "left",
+      "finger": "index",
+      "key": "А"
+    },
+    {
+      "char": "о",
+      "hand": "left",
+      "finger": "index",
+      "key": "О"
+    },
+    {
+      "char": "ж",
+      "hand": "left",
+      "finger": "pinky",
+      "key": "Ж"
+    },
+    {
+      "char": " ",
+      "hand": "right",
+      "finger": "thumb",
+      "key": "Space",
+      "space_side": "right"
+    },
+    {
+      "char": "ж",
+      "hand": "right",
+      "finger": "pinky",
+      "key": "Ж"
+    },
+    {
+      "char": "а",
+      "hand": "right",
+      "finger": "index",
+      "key": "А"
+    },
+    {
+      "char": "о",
+      "hand": "right",
+      "finger": "index",
+      "key": "О"
+    },
+    {
+      "char": "ф",
+      "hand": "right",
+      "finger": "pinky",
+      "key": "Ф"
+    },
+    {
+      "char": " ",
+      "hand": "left",
+      "finger": "thumb",
+      "key": "Space",
+      "space_side": "left"
+    },
+    {
+      "char": "ф",
+      "hand": "left",
+      "finger": "pinky",
+      "key": "Ф"
+    },
+    {
+      "char": "а",
+      "hand": "left",
+      "finger": "index",
+      "key": "А"
+    },
+    {
+      "char": "о",
+      "hand": "left",
+      "finger": "index",
+      "key": "О"
+    },
+    {
+      "char": "ж",
+      "hand": "left",
+      "finger": "pinky",
+      "key": "Ж"
+    },
+    {
+      "char": " ",
+      "hand": "right",
+      "finger": "thumb",
+      "key": "Space",
+      "space_side": "right"
+    },
+    {
+      "char": "ж",
+      "hand": "right",
+      "finger": "pinky",
+      "key": "Ж"
+    },
+    {
+      "char": "а",
+      "hand": "right",
+      "finger": "index",
+      "key": "А"
+    },
+    {
+      "char": "о",
+      "hand": "right",
+      "finger": "index",
+      "key": "О"
+    },
+    {
+      "char": "ф",
+      "hand": "right",
+      "finger": "pinky",
+      "key": "Ф"
+    }
+  ],
+  "keys_trained": [
+    "Ф",
+    "Ж",
+    "А",
+    "О",
+    "Space"
+  ],
+  "finger_focus": "Мизинцы (левый на Ф, правый на Ж) + большие пальцы (Space)",
+  "tips": [
+    "Мизинцы — самые слабые пальцы. Им нужна особая тренировка!",
+    "Ф — левый мизинец, Ж — правый мизинец. Оба в среднем ряду (HOME ROW)",
+    "Правило пробела работает и здесь: после левой руки → правый большой, после правой → левый большой",
+    "Не нажимай слишком сильно — легкое касание клавиши достаточно",
+    "Поднимай только нужный палец, остальные остаются на позициях",
+    "Если устал — сделай паузу! Мизинцам нужно время привыкнуть к нагрузке"
+  ],
+  "character_tips": {
+    "anna": "Отлично! Мизинцы работают! Да, они слабее, но с практикой станут сильнее. Обрати внимание: пробел чередуется правильно!",
+    "maxim": "Хорошая работа! Мизинцы отвечают за много клавиш (Shift, Enter, Backspace). Чередование пробела — это мышечная память на автомате!",
+    "knopych": "Ого! Даже самые маленькие пальчики работают! Ф слева, Ж справа, пробел между ними прыгает туда-сюда!",
+    "klavochka": "Какой ты умница! Маленькие пальчики стараются! А большие пальчики им помогают с пробелом — левый-правый, левый-правый!"
+  },
+  "phase": 1,
+  "created_at": "2025-11-17",
+  "version": "1.1"
+}

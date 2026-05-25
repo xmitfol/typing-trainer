@@ -1,0 +1,35 @@
+{
+  "id": "en_kids_lesson_28",
+  "tier": "en_kids",
+  "lesson_number": 28,
+  "title": "Rhythm: counting song",
+  "description": "Number song with a steady beat",
+  "target_wpm": 32,
+  "text_length": 118,
+  "error_limit_percent": 10,
+  "error_limit": 11,
+  "text": "1 little 2 little 3 little stars 4 little 5 little 6 little stars 7 little 8 little 9 little stars 10 stars in the sky",
+  "text_sequence": [],
+  "keys_trained": [
+    "0-9",
+    "A-Z",
+    "Space"
+  ],
+  "new_keys": [],
+  "finger_focus": "Number + word rhythm",
+  "tips": [
+    "Number song!",
+    "Like a counting rhyme",
+    "Steady beat with your fingers"
+  ],
+  "character_tips": {
+    "anna": "Number song! Steady beat as you count.",
+    "maxim": "Numbers + words rhythm. Mixed-content practice.",
+    "knopych": "🎵 COUNT-SONG! Number rhythm!",
+    "klavochka": "Singing while counting, my dear 🎶"
+  },
+  "phase": 3,
+  "rhythmLesson": true,
+  "created_at": "2026-05-25",
+  "version": "1.0"
+}

@@ -1,0 +1,37 @@
+{
+  "id": "en_teen_lesson_37",
+  "tier": "en_teen",
+  "lesson_number": 37,
+  "title": "Instagram caption style",
+  "description": "Captions with punctuation + hashtags",
+  "target_wpm": 65,
+  "text_length": 120,
+  "error_limit_percent": 6,
+  "error_limit": 7,
+  "text": "sunset vibes never get old. can't wait for summer. blessed and grateful. coffee first, talk later. #goals #mood #weekend",
+  "text_sequence": [],
+  "keys_trained": [
+    "A-Z",
+    "Space",
+    ",",
+    ".",
+    "#"
+  ],
+  "new_keys": [],
+  "finger_focus": "Caption rhythm + hashtags",
+  "tips": [
+    "Captions = short sentences + hashtag cluster",
+    "Period or no period — both common",
+    "Hashtag cluster at end is the standard format"
+  ],
+  "character_tips": {
+    "anna": "Instagram captions follow a rhythm: thought + thought + hashtags.",
+    "maxim": "Photo captions = quick prose. High-volume daily writing.",
+    "knopych": "📸 CAPTION FLOW! Picture + words!",
+    "klavochka": "Sharing a moment with words, my treasure ✨"
+  },
+  "phase": 3,
+  "rhythmLesson": false,
+  "created_at": "2026-05-25",
+  "version": "1.0"
+}

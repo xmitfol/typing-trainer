@@ -1,0 +1,31 @@
+{
+  "id": "en_tier1_lesson_73",
+  "tier": "en_tier1",
+  "lesson_number": 73,
+  "title": "Rhythm: business prose flow",
+  "description": "Multi-paragraph business writing — sustained pro rhythm",
+  "target_wpm": 72,
+  "text_length": 270,
+  "error_limit_percent": 6,
+  "error_limit": 16,
+  "text": "The quarter exceeded all our internal targets. Revenue grew, churn dropped, and the team shipped twelve major features. Looking ahead, we have three priorities: expand into Europe, hire senior engineers, and double our content output. The next ninety days will define the year.",
+  "text_sequence": [],
+  "keys_trained": ["A-Z", "Space", ",", ".", ":", "Shift"],
+  "new_keys": [],
+  "finger_focus": "Business prose tempo",
+  "tips": [
+    "This is what executives write daily — train it as a career skill",
+    "Three-part lists (\"X, Y, and Z\") have a built-in rhythm",
+    "Metronome at 72 BPM — match it through all sentences"
+  ],
+  "character_tips": {
+    "anna": "Executive-level prose at 72 WPM. This is real professional output.",
+    "maxim": "Hold this speed = type at the speed of business thinking.",
+    "knopych": "EXEC MODE ON! 💼 You're a typing CEO now!",
+    "klavochka": "Wise and steady, like a senior advisor, my precious 👔"
+  },
+  "phase": 5,
+  "rhythmLesson": true,
+  "created_at": "2026-05-25",
+  "version": "1.0"
+}

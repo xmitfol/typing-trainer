@@ -1,0 +1,35 @@
+{
+  "id": "en_kids_lesson_13",
+  "tier": "en_kids",
+  "lesson_number": 13,
+  "title": "Letters T and N",
+  "description": "Important letters — T and N",
+  "target_wpm": 21,
+  "text_length": 70,
+  "error_limit_percent": 10,
+  "error_limit": 7,
+  "text": "t t t n n n the the the an an an in in in on on on not not not tan tan",
+  "text_sequence": [],
+  "keys_trained": [
+    "T",
+    "N",
+    "A-Z"
+  ],
+  "new_keys": [],
+  "finger_focus": "T and N",
+  "tips": [
+    "T is left index UP",
+    "N is right index DOWN",
+    "\"the\" is the most common word in English"
+  ],
+  "character_tips": {
+    "anna": "T and N. \"The\" is used EVERYWHERE — type it lots!",
+    "maxim": "T and N = top frequency letters. Vital.",
+    "knopych": "🤖 T AND N! Super important!",
+    "klavochka": "Two strong letters, my treasure 💪"
+  },
+  "phase": 2,
+  "rhythmLesson": false,
+  "created_at": "2026-05-25",
+  "version": "1.0"
+}

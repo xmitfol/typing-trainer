@@ -1,0 +1,31 @@
+{
+  "id": "en_tier1_lesson_13",
+  "tier": "en_tier1",
+  "lesson_number": 13,
+  "title": "Rhythm: morning routine",
+  "description": "Rhythm exercise with a flowing sentence — find your steady tempo",
+  "target_wpm": 23,
+  "text_length": 80,
+  "error_limit_percent": 6,
+  "error_limit": 5,
+  "text": "i see the sun rise over the hills as morning starts a new day for us to share",
+  "text_sequence": [],
+  "keys_trained": ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", "Space"],
+  "new_keys": [],
+  "finger_focus": "All — pure rhythm",
+  "tips": [
+    "Set a tempo in your head — like music",
+    "If you slow down, that's fine — accuracy first",
+    "Try the metronome toggle in the toolbar for help"
+  ],
+  "character_tips": {
+    "anna": "Rhythm lesson — turn on the metronome and follow the beat.",
+    "maxim": "Smooth tempo beats sprint-and-stop. Find your groove.",
+    "knopych": "RHYTHM! Tu-tu-tu! Steady drums! 🥁",
+    "klavochka": "Like a gentle dance, sunshine 💃"
+  },
+  "phase": 1,
+  "rhythmLesson": true,
+  "created_at": "2026-05-25",
+  "version": "1.0"
+}

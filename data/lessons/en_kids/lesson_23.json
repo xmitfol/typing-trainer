@@ -1,0 +1,36 @@
+{
+  "id": "en_kids_lesson_23",
+  "tier": "en_kids",
+  "lesson_number": 23,
+  "title": "Exclamations with !",
+  "description": "Excited sentences — wow!",
+  "target_wpm": 28,
+  "text_length": 83,
+  "error_limit_percent": 10,
+  "error_limit": 8,
+  "text": "Wow! That is fun! Look at me! I did it! Yay! I love it! That is so cool! Great job!",
+  "text_sequence": [],
+  "keys_trained": [
+    "A-Z",
+    "Shift",
+    "Space",
+    "!"
+  ],
+  "new_keys": [],
+  "finger_focus": "Excited sentences with !",
+  "tips": [
+    "! is Shift + 1 — top row left!",
+    "Used for excitement",
+    "Always capital at start"
+  ],
+  "character_tips": {
+    "anna": "Excitement! Use ! when you're happy or surprised!",
+    "maxim": "Exclamation mark. Shift + 1.",
+    "knopych": "🎉 WOW MODE! Excitement unlocked!",
+    "klavochka": "Happy sentences, my treasure! 🎉"
+  },
+  "phase": 3,
+  "rhythmLesson": false,
+  "created_at": "2026-05-25",
+  "version": "1.0"
+}

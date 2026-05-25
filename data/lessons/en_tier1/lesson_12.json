@@ -1,0 +1,31 @@
+{
+  "id": "en_tier1_lesson_12",
+  "tier": "en_tier1",
+  "lesson_number": 12,
+  "title": "Phrases: connect words into sentences",
+  "description": "Move from isolated words to full phrases — your first real sentences",
+  "target_wpm": 22,
+  "text_length": 78,
+  "error_limit_percent": 5,
+  "error_limit": 4,
+  "text": "the dog and the cat had a sad day they tried hard to win at last and were happy",
+  "text_sequence": [],
+  "keys_trained": ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", "Space"],
+  "new_keys": [],
+  "finger_focus": "All alphabet — sentence rhythm",
+  "tips": [
+    "Read the sentence first, then type — better than reading character by character",
+    "Spaces are part of rhythm — don't pause before them",
+    "Aim for steady pace, not bursts"
+  ],
+  "character_tips": {
+    "anna": "Now you're typing real sentences. Notice how rhythm carries you through.",
+    "maxim": "Read ahead by 2-3 words. Your fingers will follow.",
+    "knopych": "Phrases unlock! Words connect! Combos forever! 🎮",
+    "klavochka": "Real sentences, sweetheart! You're a real writer now! ✨"
+  },
+  "phase": 1,
+  "rhythmLesson": false,
+  "created_at": "2026-05-25",
+  "version": "1.0"
+}

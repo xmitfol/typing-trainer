@@ -1,0 +1,39 @@
+{
+  "id": "en_teen_lesson_74",
+  "tier": "en_teen",
+  "lesson_number": 74,
+  "title": "Final warmup: real-world prose",
+  "description": "One step before the tournament — flowing prose",
+  "target_wpm": 95,
+  "text_length": 228,
+  "error_limit_percent": 4,
+  "error_limit": 9,
+  "text": "One lesson to go. You've come a long way: from finding F and J by feel, to writing essays faster than most adults can think them. Take a breath. The next lesson is a comprehensive exam — pass it for the Teen Mastery certificate.",
+  "text_sequence": [],
+  "keys_trained": [
+    "A-Z",
+    "Shift",
+    "Space",
+    ".",
+    ",",
+    "-",
+    ":"
+  ],
+  "new_keys": [],
+  "finger_focus": "Final warmup",
+  "tips": [
+    "Encouraging meta-prose at 95 WPM",
+    "Smooth steady rhythm",
+    "Confidence before the boss"
+  ],
+  "character_tips": {
+    "anna": "One lesson left. Breathe. You've trained for this.",
+    "maxim": "Final warmup. Hands ready, mind calm.",
+    "knopych": "⚔️ FINAL BOSS NEXT! Last warmup!",
+    "klavochka": "One step from the throne, my hero 👑"
+  },
+  "phase": 5,
+  "rhythmLesson": false,
+  "created_at": "2026-05-25",
+  "version": "1.0"
+}

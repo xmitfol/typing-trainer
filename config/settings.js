@@ -9,8 +9,8 @@ const APP_CONFIG = {
     
     // API настройки (для будущего использования)
     api: {
-        baseUrl: process?.env?.NODE_ENV === 'production' 
-            ? 'https://api.typing-trainer.com' 
+        baseUrl: (typeof process !== 'undefined' && process.env && process.env.NODE_ENV === 'production')
+            ? 'https://api.typing-trainer.com'
             : 'http://localhost:8000',
         timeout: 10000,
         retries: 3
@@ -140,12 +140,53 @@ const APP_CONFIG = {
         keys: {
             bestStats: 'typing_trainer_best_stats',
             userSettings: 'typing_trainer_user_settings',
+            userProfile: 'typing_trainer_user_profile',
+            currentLesson: 'typing_trainer_current_lesson',
+            // Карта { "1": {stars, bestWPM, bestAccuracy, completedAt}, ... }
+            lessonProgress: 'typing_trainer_lesson_progress',
+            certifications: 'typing_trainer_certifications',
+            displayToggles: 'typing_trainer_display_toggles',
             testHistory: 'typing_trainer_test_history',
             currentLevel: 'typing_trainer_current_level'
         },
-        
+
         // Максимальное количество сохраняемых результатов
         maxHistoryItems: 100
+    },
+
+    // Сертификация: пороги для уровней (применяются к финальному уроку tier'а)
+    certification: {
+        // [уровень, минимум WPM, минимум accuracy %, цвет, emoji]
+        levels: [
+            { id: 'platinum', name: 'Platinum', minWpm: 80, minAccuracy: 96, color: '#e5e4e2', emoji: '💎' },
+            { id: 'gold',     name: 'Gold',     minWpm: 60, minAccuracy: 93, color: '#ffd700', emoji: '🥇' },
+            { id: 'silver',   name: 'Silver',   minWpm: 40, minAccuracy: 90, color: '#c0c0c0', emoji: '🥈' },
+            { id: 'bronze',   name: 'Bronze',   minWpm: 25, minAccuracy: 85, color: '#cd7f32', emoji: '🥉' }
+        ],
+        // Курс считается завершённым когда сдан последний урок тира со звёздами ≥1
+        minStarsForCert: 1
+    },
+
+    // Курсовая система (tier1 — канонический курс, см. data/lessons/tier1)
+    lessons: {
+        basePath: 'data/lessons',
+        defaultTier: 'tier1',
+        firstLessonNumber: 1,
+        // Сколько уроков в каждом тире (для cap прогрессии)
+        tierLessonCount: {
+            tier1: 39,
+            block_1: 11,
+            en_tier1: 99,
+            en_teen: 75,
+            en_kids: 50
+        },
+        // Default tier на каждый язык — для language-switcher в toolbar
+        languageDefaultTier: {
+            ru: 'tier1',
+            en: 'en_tier1'
+        },
+        // Задержка перед автозагрузкой следующего урока после успешного завершения (мс)
+        autoAdvanceDelay: 4500
     },
     
     // Настройки интерфейса

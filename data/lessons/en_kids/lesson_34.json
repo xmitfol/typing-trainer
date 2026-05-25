@@ -1,0 +1,37 @@
+{
+  "id": "en_kids_lesson_34",
+  "tier": "en_kids",
+  "lesson_number": 34,
+  "title": "Princess and dragon",
+  "description": "Classic fairy tale start",
+  "target_wpm": 35,
+  "text_length": 146,
+  "error_limit_percent": 10,
+  "error_limit": 14,
+  "text": "Once there was a kind princess. She had a tiny pet dragon. The dragon was scared of mice! The princess gave him hugs. The dragon felt brave again.",
+  "text_sequence": [],
+  "keys_trained": [
+    "A-Z",
+    "Shift",
+    "Space",
+    ".",
+    "!"
+  ],
+  "new_keys": [],
+  "finger_focus": "Fairy tale rhythm",
+  "tips": [
+    "Princess + dragon = classic fairy tale",
+    "Reversal: dragon scared of mice (funny!)",
+    "Picture the princess and her dragon"
+  ],
+  "character_tips": {
+    "anna": "Fairy tale! Princess saves the dragon — fun reversal.",
+    "maxim": "Fairy tale structure. Classic narrative training.",
+    "knopych": "🏰 FAIRY TALE! Brave princess, tiny dragon!",
+    "klavochka": "A magical story, my dear 🐲👸"
+  },
+  "phase": 4,
+  "rhythmLesson": false,
+  "created_at": "2026-05-25",
+  "version": "1.0"
+}

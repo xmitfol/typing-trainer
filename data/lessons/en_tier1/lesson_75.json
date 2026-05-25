@@ -1,0 +1,31 @@
+{
+  "id": "en_tier1_lesson_75",
+  "tier": "en_tier1",
+  "lesson_number": 75,
+  "title": "BLOCK 5 FINAL: Sustained speed",
+  "description": "Block 5 final — 75 WPM on a long real-world paragraph",
+  "target_wpm": 75,
+  "text_length": 300,
+  "error_limit_percent": 5,
+  "error_limit": 15,
+  "text": "Three-quarters of the way through, you have built something rare: the ability to type at the speed of thought. Most people peak at 40 WPM and stay there for life. You are past 75. The remaining blocks will take you over 90 — well into the top 5% of typists in the world.",
+  "text_sequence": [],
+  "keys_trained": ["A-Z", "Space", ",", ".", ":", "Shift"],
+  "new_keys": [],
+  "finger_focus": "Sustained 75 WPM gate",
+  "tips": [
+    "75 WPM is faster than most people will ever type",
+    "Pass this gate = officially in the top 10% globally",
+    "Block 6 is real-world practice. Block 7 is mastery. You're earning both."
+  ],
+  "character_tips": {
+    "anna": "🎓 BLOCK 5 FINAL! 75 WPM = top 10%. Block 6 takes you to top 5%.",
+    "maxim": "Sustained 75 WPM is a real career skill. Use it well.",
+    "knopych": "BLOCK 5 BOSS DOWN! 🐉🏆 ELITE TYPIST ACHIEVED!",
+    "klavochka": "My speed star! ⭐⭐⭐ Final 25 lessons make you a legend!"
+  },
+  "phase": 5,
+  "rhythmLesson": false,
+  "created_at": "2026-05-25",
+  "version": "1.0"
+}

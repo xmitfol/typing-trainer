@@ -1,0 +1,40 @@
+{
+  "id": "en_teen_lesson_04",
+  "tier": "en_teen",
+  "lesson_number": 4,
+  "title": "Rhythm: home-row flow",
+  "description": "Find your rhythm with home-row words",
+  "target_wpm": 24,
+  "text_length": 89,
+  "error_limit_percent": 8,
+  "error_limit": 7,
+  "text": "ask ask ask sad sad sad lad lad lad jak jak jak dad dad dad fall fall fall lass lass lass",
+  "text_sequence": [],
+  "keys_trained": [
+    "A",
+    "S",
+    "D",
+    "F",
+    "J",
+    "K",
+    "L",
+    "Space"
+  ],
+  "new_keys": [],
+  "finger_focus": "Home row rhythm",
+  "tips": [
+    "Each word repeated — focus on rhythm, not novelty",
+    "Enable metronome at 24 BPM — match your finger tempo",
+    "Don't speed up — find a steady beat"
+  ],
+  "character_tips": {
+    "anna": "Repetition builds rhythm. The same word four times = muscle memory.",
+    "maxim": "Boring is gold for typing — repetition cements the path.",
+    "knopych": "REPETITION TRAINING! 🥁 Tap-tap-tap, level up!",
+    "klavochka": "Like a song chorus, my dear — same notes, sweet rhythm 🎶"
+  },
+  "phase": 1,
+  "rhythmLesson": true,
+  "created_at": "2026-05-25",
+  "version": "1.0"
+}

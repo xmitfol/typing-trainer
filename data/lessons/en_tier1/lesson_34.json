@@ -1,0 +1,31 @@
+{
+  "id": "en_tier1_lesson_34",
+  "tier": "en_tier1",
+  "lesson_number": 34,
+  "title": "Square brackets and curly braces",
+  "description": "[ ] for arrays/refs, { } for objects/groups — both above main brackets",
+  "target_wpm": 26,
+  "text_length": 95,
+  "error_limit_percent": 9,
+  "error_limit": 9,
+  "text": "list[0] = 'first'. data[1] = 'next'. obj = {key: 1, val: 2}. set = {1, 2, 3}.",
+  "text_sequence": [],
+  "keys_trained": ["A-Z", "0-9", "[", "]", "{", "}", "(", ")", ":", ",", ".", "'", "=", "Space"],
+  "new_keys": ["[", "]", "{", "}"],
+  "finger_focus": "Right pinky reaches up to [ ] (above ; ') and { } (Shift + [ ])",
+  "tips": [
+    "[ and ] — right pinky, top row, no Shift",
+    "{ = Shift + [, } = Shift + ]",
+    "Used in code: arrays list[i], objects {key: value}"
+  ],
+  "character_tips": {
+    "anna": "Square brackets for lists, curly for objects. Right pinky for both.",
+    "maxim": "Coding-essential symbols. JavaScript, Python, JSON — all use these.",
+    "knopych": "DATA BRACKETS! Arrays and objects! [code mode] {ON}! 🤖",
+    "klavochka": "Different brackets for different jobs — fancy! ✨"
+  },
+  "phase": 3,
+  "rhythmLesson": false,
+  "created_at": "2026-05-25",
+  "version": "1.0"
+}

@@ -1,0 +1,38 @@
+{
+  "id": "en_kids_lesson_46",
+  "tier": "en_kids",
+  "lesson_number": 46,
+  "title": "Numbers + letters mixed",
+  "description": "Mix everything",
+  "target_wpm": 46,
+  "text_length": 160,
+  "error_limit_percent": 10,
+  "error_limit": 16,
+  "text": "I have 4 pets, 12 books, and 8 best friends. My grandma is 65. She makes 24 cookies every Sunday at 3 in the afternoon. Life is full of numbers and good things!",
+  "text_sequence": [],
+  "keys_trained": [
+    "A-Z",
+    "0-9",
+    "Shift",
+    "Space",
+    ".",
+    ","
+  ],
+  "new_keys": [],
+  "finger_focus": "All content classes mixed",
+  "tips": [
+    "Numbers + words flowing",
+    "Multiple sentence types",
+    "All you've learned, all at once"
+  ],
+  "character_tips": {
+    "anna": "Numbers and words flowing together. Real life!",
+    "maxim": "Mixed content at 46 WPM. Pre-final density.",
+    "knopych": "🎯 ALL THE THINGS! Mixed mode!",
+    "klavochka": "Numbers and stories together, my dear 🌟"
+  },
+  "phase": 5,
+  "rhythmLesson": false,
+  "created_at": "2026-05-25",
+  "version": "1.0"
+}

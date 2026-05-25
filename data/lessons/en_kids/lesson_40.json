@@ -1,0 +1,37 @@
+{
+  "id": "en_kids_lesson_40",
+  "tier": "en_kids",
+  "lesson_number": 40,
+  "title": "BLOCK 4 FINAL: Fairy tale",
+  "description": "Block 4 final — a complete fairy tale at 40 WPM",
+  "target_wpm": 40,
+  "text_length": 226,
+  "error_limit_percent": 10,
+  "error_limit": 22,
+  "text": "There once was a tiny dragon named Pip. Pip was small but had a HUGE heart. He helped lost kittens find their homes. He gave hugs to sad bunnies. He sang songs at night. Every animal in the forest loved Pip very much. The end!",
+  "text_sequence": [],
+  "keys_trained": [
+    "A-Z",
+    "Shift",
+    "Space",
+    ".",
+    "!"
+  ],
+  "new_keys": [],
+  "finger_focus": "Block 4 mastery gate",
+  "tips": [
+    "🎉 Full fairy tale!",
+    "All capital uses included",
+    "Block 5 brings the certificate exam!"
+  ],
+  "character_tips": {
+    "anna": "🎯 Block 4 done! Real fairy tale written!",
+    "maxim": "Block 4 cleared. Story mastery achieved.",
+    "knopych": "🐉 BLOCK 4 BOSS DEFEATED! Story master!",
+    "klavochka": "🎉 Four blocks, my hero! ⭐⭐⭐⭐"
+  },
+  "phase": 4,
+  "rhythmLesson": false,
+  "created_at": "2026-05-25",
+  "version": "1.0"
+}

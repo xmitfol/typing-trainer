@@ -1,0 +1,32 @@
+{
+  "id": "en_tier1_lesson_39",
+  "tier": "en_tier1",
+  "lesson_number": 39,
+  "title": "HTML tags and markup",
+  "description": "Angle brackets, attributes, closing tags — the web's basic syntax",
+  "target_wpm": 28,
+  "text_length": 125,
+  "error_limit_percent": 10,
+  "error_limit": 12,
+  "text": "<div class=\"box\"><p id=\"main\">Hello, world!</p></div> <a href=\"/home\">Home</a> <img src=\"pic.jpg\" alt=\"photo\">",
+  "text_sequence": [],
+  "keys_trained": ["A-Z", "0-9", "<", ">", "/", "=", "\"", ",", ".", "!", "Space"],
+  "new_keys": [],
+  "finger_focus": "< > / \" combo for HTML",
+  "tips": [
+    "Tag opens with <, closes with >",
+    "Attributes inside: class=\"box\"",
+    "Close tags with </tag>",
+    "Self-closing: <img ... > (no closing tag needed)"
+  ],
+  "character_tips": {
+    "anna": "HTML — the language of the web. < > /\" are your daily symbols.",
+    "maxim": "Web developers type these patterns thousands of times per day.",
+    "knopych": "WEB BUILDER! <html> </html> magic! 🌐⚡",
+    "klavochka": "Building web pages with tags — like decorating! 🎨"
+  },
+  "phase": 3,
+  "rhythmLesson": false,
+  "created_at": "2026-05-25",
+  "version": "1.0"
+}

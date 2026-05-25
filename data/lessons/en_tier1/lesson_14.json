@@ -1,0 +1,31 @@
+{
+  "id": "en_tier1_lesson_14",
+  "tier": "en_tier1",
+  "lesson_number": 14,
+  "title": "Longer words and patterns",
+  "description": "Build endurance with 5-7 letter words — the bulk of everyday writing",
+  "target_wpm": 24,
+  "text_length": 88,
+  "error_limit_percent": 6,
+  "error_limit": 5,
+  "text": "before today we shared every story under the wide blue sky and watched the river flow",
+  "text_sequence": [],
+  "keys_trained": ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", "Space"],
+  "new_keys": [],
+  "finger_focus": "All alphabet — longer word endurance",
+  "tips": [
+    "Five-letter words start to feel natural at this WPM",
+    "Don't fear long words — break them mentally into syllables",
+    "Keep wrists straight, not bent"
+  ],
+  "character_tips": {
+    "anna": "Long words are just sequences of short patterns. Trust your fingers.",
+    "maxim": "Endurance matters — typing a long word without errors is real progress.",
+    "knopych": "MEGA WORDS! 5-7 letters of pure power! 💪",
+    "klavochka": "Big words for a big champion! 🌟"
+  },
+  "phase": 1,
+  "rhythmLesson": false,
+  "created_at": "2026-05-25",
+  "version": "1.0"
+}

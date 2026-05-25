@@ -1,0 +1,45 @@
+{
+  "id": "en_teen_lesson_44",
+  "tier": "en_teen",
+  "lesson_number": 44,
+  "title": "Pre-final: high-density social",
+  "description": "Mixed real-world content — pre-final warmup",
+  "target_wpm": 70,
+  "text_length": 143,
+  "error_limit_percent": 6,
+  "error_limit": 8,
+  "text": "OMG the new album just dropped 🎵 #blessed — link in bio: spotify.com/album/2026. Tag @bestie if you're crying too 😭. Drop your fav track below!",
+  "text_sequence": [],
+  "keys_trained": [
+    "A-Z",
+    "0-9",
+    "Shift",
+    "Space",
+    ".",
+    ",",
+    "!",
+    "#",
+    "@",
+    "/",
+    ":",
+    "-",
+    "'"
+  ],
+  "new_keys": [],
+  "finger_focus": "All content classes mixed",
+  "tips": [
+    "Letters + numbers + URLs + hashtags + mentions",
+    "Real teen social post density",
+    "Last warmup before final"
+  ],
+  "character_tips": {
+    "anna": "Real teen social post. All character classes mixed.",
+    "maxim": "Pre-final density test. Pass = ready for BLOCK 3 FINAL.",
+    "knopych": "📱 SOCIAL OVERLOAD! All the things at once!",
+    "klavochka": "Modern way of sharing joy, my dear 🎉"
+  },
+  "phase": 3,
+  "rhythmLesson": false,
+  "created_at": "2026-05-25",
+  "version": "1.0"
+}

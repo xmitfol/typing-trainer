@@ -1,0 +1,31 @@
+{
+  "id": "en_tier1_lesson_28",
+  "tier": "en_tier1",
+  "lesson_number": 28,
+  "title": "Rhythm: numeric drill",
+  "description": "Rhythm with all 10 digits — build numeric fluency",
+  "target_wpm": 27,
+  "text_length": 100,
+  "error_limit_percent": 8,
+  "error_limit": 8,
+  "text": "0123456789 9876543210 1357924680 1248163264 phone: 12345 67890 zip: 90210 year: 2025",
+  "text_sequence": [],
+  "keys_trained": ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", ":", "Space"],
+  "new_keys": [],
+  "finger_focus": "All digits — rhythm and accuracy",
+  "tips": [
+    "Sequence drills (0-9, 9-0) build muscle memory",
+    "Phone-style numbers (12345 67890) common in real typing",
+    "Don't look at the keyboard — feel the position"
+  ],
+  "character_tips": {
+    "anna": "Number rhythm — type sequences without thinking.",
+    "maxim": "Real numbers in real contexts. Phone, zip, year. This is daily typing.",
+    "knopych": "NUMBER RHYTHM! 0-9-0-9 forever! 🥁",
+    "klavochka": "Counting like a song — 1, 2, 3 dance! 💃"
+  },
+  "phase": 3,
+  "rhythmLesson": true,
+  "created_at": "2026-05-25",
+  "version": "1.0"
+}

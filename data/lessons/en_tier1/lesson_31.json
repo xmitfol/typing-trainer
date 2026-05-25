@@ -1,0 +1,31 @@
+{
+  "id": "en_tier1_lesson_31",
+  "tier": "en_tier1",
+  "lesson_number": 31,
+  "title": "Shift symbols: ! @ # $ %",
+  "description": "Symbols above 1-5 — all need Shift, left hand letters",
+  "target_wpm": 26,
+  "text_length": 80,
+  "error_limit_percent": 8,
+  "error_limit": 7,
+  "text": "wow! email@site.com #hashtag $100 dollars 50% off ! @ # $ % done !$@%# done",
+  "text_sequence": [],
+  "keys_trained": ["A-Z", "0-9", "!", "@", "#", "$", "%", "Space"],
+  "new_keys": ["@", "#", "$", "%"],
+  "finger_focus": "Right Shift held by pinky; left hand types 1-5 with own pinky/ring/middle/index",
+  "tips": [
+    "! = Shift+1, @ = Shift+2, # = Shift+3, $ = Shift+4, % = Shift+5",
+    "Hold right Shift with right pinky, then type with left hand",
+    "@ is for emails, # for hashtags/comments, $ for prices, % for percentages"
+  ],
+  "character_tips": {
+    "anna": "Shift symbols on the left side use the right pinky for Shift. Opposite hand rule.",
+    "maxim": "Email and price symbols — daily writing needs these. @ and $ especially.",
+    "knopych": "SHIFT COMBOS! ! @ # $ % — power keys! ⚡",
+    "klavochka": "Special characters open new worlds — like emails and hashtags! 💖"
+  },
+  "phase": 3,
+  "rhythmLesson": false,
+  "created_at": "2026-05-25",
+  "version": "1.0"
+}

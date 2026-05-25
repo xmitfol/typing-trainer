@@ -1,0 +1,41 @@
+{
+  "id": "en_teen_lesson_41",
+  "tier": "en_teen",
+  "lesson_number": 41,
+  "title": "URLs and links",
+  "description": "URL format + slashes + dots",
+  "target_wpm": 68,
+  "text_length": 117,
+  "error_limit_percent": 6,
+  "error_limit": 7,
+  "text": "tiktok.com/@user youtube.com/watch?v=abc123 spotify.com/playlist insta.com/p/post123 twitch.tv/user discord.gg/server",
+  "text_sequence": [],
+  "keys_trained": [
+    "A-Z",
+    "0-9",
+    "Space",
+    ".",
+    "/",
+    ":",
+    "?",
+    "=",
+    "@"
+  ],
+  "new_keys": [],
+  "finger_focus": "URL structure at speed",
+  "tips": [
+    "URLs = dot + slash + symbol mix",
+    "= and ? appear in query strings",
+    "Practice this — modern life IS URLs"
+  ],
+  "character_tips": {
+    "anna": "URLs are everywhere. Master the slash + dot rhythm.",
+    "maxim": "Most workers type 50+ URLs a day. High-payoff drill.",
+    "knopych": "🔗 LINK MODE! URLs at speed!",
+    "klavochka": "Tiny paths to places, my dear 🌐"
+  },
+  "phase": 3,
+  "rhythmLesson": false,
+  "created_at": "2026-05-25",
+  "version": "1.0"
+}

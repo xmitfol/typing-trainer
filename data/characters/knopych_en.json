@@ -1,0 +1,65 @@
+{
+  "id": "knopych",
+  "name": "Buttony",
+  "emoji": "🤖",
+  "role": "Robot-key",
+  "targetAudience": "child",
+  "toneOfVoice": {
+    "style": "playful_energetic",
+    "formality": "casual_friendly",
+    "emojiFrequency": "frequent",
+    "avgSentenceLength": "3-8 words"
+  },
+  "messages": {
+    "lessonStart": [
+      "{name}, let's go! New quest starts! 🎮",
+      "Hi, {name}! Ready for the challenge? 🤖",
+      "{name}, turbo mode ON! 🚀"
+    ],
+    "goodProgress": [
+      "WHOA! {wpm} WPM! You're on fire, {name}! 🔥",
+      "{name}, you're a typing monster! ⚡",
+      "WOOO! {accuracy}%! Keep it up! 💥"
+    ],
+    "tooManyErrors": [
+      "Hey-hey, {name}! Slow down, buddy! 🤖",
+      "{name}, ease up! Accuracy = victory! 🎯",
+      "Beep-boop! Oopsie! But you got this! 💪"
+    ],
+    "lessonCompleteSuccess": [
+      "AWESOME, {name}! ✅ {errors} errors — SUPER! 🎉",
+      "{name}, you earn the 'Fast Fingers' badge! 🏆",
+      "Level up, {name}! {wpm} WPM — that's COOL! 🚀"
+    ],
+    "errorLimitExceeded": [
+      "Oh, {name}! Too many errors: {errors} of {limit}. Retry? 🔄",
+      "Didn't work out, {name}! But you can do better! 💪",
+      "{name}, try again! You almost won! 🎮"
+    ],
+    "levelUnlocked": [
+      "YAY! {name}, new level '{level}' unlocked! 🎉",
+      "{name}, you won! New adventures await! 🏆",
+      "LEVEL UP! {name} reached a new level! 🚀"
+    ],
+    "weakKeysDetected": [
+      "{name}, the '{key}' key is your boss! Let's beat it together? 🎮",
+      "Beep-boop! '{key}' needs training! 'Weak Keys' quest? 🤖"
+    ],
+    "breakReminder": [
+      "{name}, pause time! Rest 5 minutes! 🔋",
+      "{name}, battery recharge! Rest = power! ⚡"
+    ],
+    "longAbsence": [
+      "{name}, you're back! Let's jump in again! 🎮",
+      "Beep-boop! {name} online! Starting new session! 🤖"
+    ],
+    "welcome": [
+      "Hi, {name}! I'm Buttony — robot-key! 🤖 I see you have {keyboardType} — cool! Ready for the coolest typing quest? We'll battle letters and win! Remember: it's not about speed, it's accuracy! Let's go! 🎮🚀"
+    ],
+    "achievements": [
+      "{name} earns the '⚡ Speed Demon' badge! 🏆",
+      "New achievement: '🎯 Keyboard Sniper'! Cool, {name}!",
+      "{name} unlocked '🔥 Fire Fingers'! Super!"
+    ]
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "id": "en_teen_lesson_07",
+  "tier": "en_teen",
+  "lesson_number": 7,
+  "title": "Bottom row: Z X C V B",
+  "description": "Left hand bottom — the trickiest reach",
+  "target_wpm": 30,
+  "text_length": 89,
+  "error_limit_percent": 8,
+  "error_limit": 7,
+  "text": "ax ax ax cab cab cab vex vex vex back back back zap zap zap five five five bake bake bake",
+  "text_sequence": [],
+  "keys_trained": [
+    "Z",
+    "X",
+    "C",
+    "V",
+    "B",
+    "A",
+    "S",
+    "D",
+    "F",
+    "Space"
+  ],
+  "new_keys": [],
+  "finger_focus": "Left bottom + home row",
+  "tips": [
+    "Bottom row = DOWN from home — most awkward stretch",
+    "Curl fingers under to reach",
+    "Z and X are rare — but you still need them"
+  ],
+  "character_tips": {
+    "anna": "Bottom row is hardest. Curl your fingers UNDER your palms to reach.",
+    "maxim": "Master the bottom row = master 95% of typing struggles.",
+    "knopych": "BOTTOM ROW BOSS! ⬇️ Curl those fingers!",
+    "klavochka": "Reaching low like picking flowers, my dear 🌻"
+  },
+  "phase": 1,
+  "rhythmLesson": false,
+  "created_at": "2026-05-25",
+  "version": "1.0"
+}

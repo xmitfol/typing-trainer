@@ -1,0 +1,38 @@
+{
+  "id": "en_kids_lesson_29",
+  "tier": "en_kids",
+  "lesson_number": 29,
+  "title": "Pre-final: numbers in stories",
+  "description": "Numbers mixed in real little stories",
+  "target_wpm": 32,
+  "text_length": 102,
+  "error_limit_percent": 10,
+  "error_limit": 10,
+  "text": "I have 3 cats and 2 dogs. We saw 5 birds. There are 10 stars. Mom baked 4 cakes. I read 6 books today!",
+  "text_sequence": [],
+  "keys_trained": [
+    "A-Z",
+    "0-9",
+    "Shift",
+    "Space",
+    ".",
+    "!"
+  ],
+  "new_keys": [],
+  "finger_focus": "Mixed numbers + sentences",
+  "tips": [
+    "Numbers + sentences together",
+    "All character types in flow",
+    "Pre-final test"
+  ],
+  "character_tips": {
+    "anna": "Numbers IN stories. Real life writing.",
+    "maxim": "Pre-final test. Real content density.",
+    "knopych": "🎯 ALMOST AT BOSS! Numbers + stories!",
+    "klavochka": "Real little story with numbers, my dear 🌟"
+  },
+  "phase": 3,
+  "rhythmLesson": false,
+  "created_at": "2026-05-25",
+  "version": "1.0"
+}

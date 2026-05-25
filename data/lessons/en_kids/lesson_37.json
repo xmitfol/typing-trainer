@@ -1,0 +1,37 @@
+{
+  "id": "en_kids_lesson_37",
+  "tier": "en_kids",
+  "lesson_number": 37,
+  "title": "Best friend story",
+  "description": "Story about a friend",
+  "target_wpm": 38,
+  "text_length": 153,
+  "error_limit_percent": 10,
+  "error_limit": 15,
+  "text": "My best friend is named Lily. She has a tiny puppy named Sam. We play in the park every Sunday. We share snacks. We laugh a lot. She makes every day fun!",
+  "text_sequence": [],
+  "keys_trained": [
+    "A-Z",
+    "Shift",
+    "Space",
+    ".",
+    "!"
+  ],
+  "new_keys": [],
+  "finger_focus": "Personal narrative",
+  "tips": [
+    "Personal story with names",
+    "Names with capitals (Lily, Sam)",
+    "Personal narrative tone"
+  ],
+  "character_tips": {
+    "anna": "Best friend story. Names need capital letters.",
+    "maxim": "Personal narrative. Capitals + emotion.",
+    "knopych": "👫 BEST FRIEND! Lily and Sam!",
+    "klavochka": "A story about love, my dear 💕"
+  },
+  "phase": 4,
+  "rhythmLesson": false,
+  "created_at": "2026-05-25",
+  "version": "1.0"
+}

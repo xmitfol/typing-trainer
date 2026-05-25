@@ -1,0 +1,41 @@
+{
+  "id": "en_teen_lesson_15",
+  "tier": "en_teen",
+  "lesson_number": 15,
+  "title": "BLOCK 1 FINAL: Foundation test",
+  "description": "Teen Block 1 final — full alphabet + numbers + basic punctuation at 40 WPM",
+  "target_wpm": 40,
+  "text_length": 159,
+  "error_limit_percent": 8,
+  "error_limit": 12,
+  "text": "Hey Sam! Are you free at 3 today? We're meeting at the cafe near school to plan the weekend trip. Bring snacks, your headphones, and 10 dollars. Don't be late!",
+  "text_sequence": [],
+  "keys_trained": [
+    "A-Z",
+    "0-9",
+    "Shift",
+    ".",
+    ",",
+    "!",
+    "?",
+    "'",
+    "Space"
+  ],
+  "new_keys": [],
+  "finger_focus": "Foundation gate — everything from Block 1",
+  "tips": [
+    "🎓 First milestone! 40 WPM = solid teen foundation",
+    "From here, Block 2 builds speed and adds more punctuation",
+    "If you missed by a few WPM, retry — accuracy first, speed second"
+  ],
+  "character_tips": {
+    "anna": "🎯 Teen Block 1 done! 40 WPM = strong start. Block 2 builds from here.",
+    "maxim": "Foundation cleared. From here, every block is application + speed.",
+    "knopych": "BLOCK 1 BOSS DEFEATED! 🐲🏆 Foundation mastery!",
+    "klavochka": "First triumph, my hero! 🎉 Onto bigger adventures!"
+  },
+  "phase": 1,
+  "rhythmLesson": false,
+  "created_at": "2026-05-25",
+  "version": "1.0"
+}

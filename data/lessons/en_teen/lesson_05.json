@@ -1,0 +1,42 @@
+{
+  "id": "en_teen_lesson_05",
+  "tier": "en_teen",
+  "lesson_number": 5,
+  "title": "Top row: Q W E R T",
+  "description": "Move up to top row — left hand reaches",
+  "target_wpm": 26,
+  "text_length": 85,
+  "error_limit_percent": 8,
+  "error_limit": 6,
+  "text": "we we we re re re ter ter ter wet wet wet sew sew sew red red red were were tree tree",
+  "text_sequence": [],
+  "keys_trained": [
+    "Q",
+    "W",
+    "E",
+    "R",
+    "T",
+    "A",
+    "S",
+    "D",
+    "F",
+    "Space"
+  ],
+  "new_keys": [],
+  "finger_focus": "Left top row + home row mix",
+  "tips": [
+    "Q-W-E-R-T are stretches UP from home row",
+    "Reach with the SAME finger that owns each column",
+    "Return to home row after each top-row keystroke"
+  ],
+  "character_tips": {
+    "anna": "Stretch UP to top row, then immediately return to home row.",
+    "maxim": "QWERT is left hand's reach. Every typist learns this stretch.",
+    "knopych": "TOP ROW UNLOCKED! ⬆️ Reach high, return home!",
+    "klavochka": "Tippy-toes for fingers, my dear 🌷"
+  },
+  "phase": 1,
+  "rhythmLesson": false,
+  "created_at": "2026-05-25",
+  "version": "1.0"
+}

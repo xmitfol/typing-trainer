@@ -1,0 +1,42 @@
+{
+  "id": "en_teen_lesson_75",
+  "tier": "en_teen",
+  "lesson_number": 75,
+  "title": "TEEN COURSE FINAL: Tournament + certificate",
+  "description": "The final teen exam — 95 WPM on a comprehensive mixed real-world paragraph. Pass earns the Teen Mastery certificate.",
+  "target_wpm": 95,
+  "text_length": 344,
+  "error_limit_percent": 4,
+  "error_limit": 13,
+  "text": "Seventy-five lessons ago, the keyboard was a puzzle. Today, it's an extension of your thinking. You can write essays in minutes, send messages faster than you can speak, and keep up with any deadline. This final paragraph — 350 characters, 95 WPM, mixed content — is the gate. Pass it, and the Teen Mastery certificate is yours. Type with care.",
+  "text_sequence": [],
+  "keys_trained": [
+    "A-Z",
+    "0-9",
+    "Shift",
+    "Space",
+    ".",
+    ",",
+    "-",
+    ":",
+    "'"
+  ],
+  "new_keys": [],
+  "finger_focus": "Teen mastery comprehensive exam",
+  "tips": [
+    "🎓 TEEN COURSE FINAL — 95 WPM, 350 chars",
+    "Pass at 60+ WPM = Gold cert, 80+ = Platinum",
+    "After this you are CERTIFIED teen typist",
+    "Type slowly if you must — accuracy gates cert level"
+  ],
+  "character_tips": {
+    "anna": "🎓🏆 TEEN FINAL. 75 lessons led here. Type with care — certificate is one paragraph away.",
+    "maxim": "End of teen course. Pass = certified for life. Slow + steady wins.",
+    "knopych": "🐉👑 FINAL BOSS! ONE LAST FIGHT FOR THE CROWN!",
+    "klavochka": "My hero, final moment! Breathe, type, earn your crown 👑✨"
+  },
+  "phase": 5,
+  "rhythmLesson": false,
+  "created_at": "2026-05-25",
+  "version": "1.0"
+}

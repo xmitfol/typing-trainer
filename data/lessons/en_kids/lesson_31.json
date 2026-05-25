@@ -1,0 +1,37 @@
+{
+  "id": "en_kids_lesson_31",
+  "tier": "en_kids",
+  "lesson_number": 31,
+  "title": "Animal adventure: part 1",
+  "description": "First real story chapter",
+  "target_wpm": 33,
+  "text_length": 149,
+  "error_limit_percent": 10,
+  "error_limit": 14,
+  "text": "Once upon a time there was a little fox. The fox lived in a big forest. Every day the fox played with his friends. They ran and laughed all day long!",
+  "text_sequence": [],
+  "keys_trained": [
+    "A-Z",
+    "Shift",
+    "Space",
+    ".",
+    "!"
+  ],
+  "new_keys": [],
+  "finger_focus": "Story chapter 1",
+  "tips": [
+    "Block 4 = real stories!",
+    "Multi-sentence flow",
+    "Picture the fox as you type"
+  ],
+  "character_tips": {
+    "anna": "Block 4! Real stories. Picture each scene as you type.",
+    "maxim": "Story structure: setup + character + action.",
+    "knopych": "📚 STORY MODE! Adventure begins!",
+    "klavochka": "Once upon a time, my dear 🌸 Listen and type!"
+  },
+  "phase": 4,
+  "rhythmLesson": false,
+  "created_at": "2026-05-25",
+  "version": "1.0"
+}

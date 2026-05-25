@@ -1,0 +1,31 @@
+{
+  "id": "en_tier1_lesson_17",
+  "tier": "en_tier1",
+  "lesson_number": 17,
+  "title": "Punctuation: exclamation and question",
+  "description": "Add expression with ! and ? — both need Shift",
+  "target_wpm": 23,
+  "text_length": 80,
+  "error_limit_percent": 6,
+  "error_limit": 5,
+  "text": "really! is that true? yes! when did you know? right now! how amazing! are you sure?",
+  "text_sequence": [],
+  "keys_trained": ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", ",", ".", "!", "?", "Space"],
+  "new_keys": ["!", "?"],
+  "finger_focus": "Shift + 1 = !, Shift + / = ?",
+  "tips": [
+    "! is Shift + 1 — hold Shift with right pinky, hit 1 with left pinky",
+    "? is Shift + / — hold Shift with left pinky, hit / with right pinky",
+    "Practice: hold Shift smoothly, don't stab"
+  ],
+  "character_tips": {
+    "anna": "Shift takes practice — hold smoothly, then hit the second key.",
+    "maxim": "! and ? both need Shift. Use the opposite pinky for Shift than the target letter.",
+    "knopych": "SHIFT-COMBO! ! and ? — two-key combos! Quick! 🎮",
+    "klavochka": "Exclaim joy! Ask softly! Both add feeling 💖"
+  },
+  "phase": 2,
+  "rhythmLesson": false,
+  "created_at": "2026-05-25",
+  "version": "1.0"
+}

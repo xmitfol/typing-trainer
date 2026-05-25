@@ -1,0 +1,31 @@
+{
+  "id": "en_tier1_lesson_97",
+  "tier": "en_tier1",
+  "lesson_number": 97,
+  "title": "Rhythm: full mastery paragraph",
+  "description": "Long flowing paragraph at 100 WPM — final rhythm test",
+  "target_wpm": 100,
+  "text_length": 360,
+  "error_limit_percent": 4,
+  "error_limit": 14,
+  "text": "Two lessons from the finish, you are sitting at exactly one hundred words per minute — the number that separates fast typists from elite ones. To put that in perspective: most professional writers cap at sixty; senior journalists reach eighty on a good day; only stenographers and the world's fastest typists routinely cross a hundred. You are now among them. Hold this tempo through the final lesson.",
+  "text_sequence": [],
+  "keys_trained": ["A-Z", "Space", ",", ".", ";", "—", "Shift"],
+  "new_keys": [],
+  "finger_focus": "100 WPM sustained",
+  "tips": [
+    "100 WPM = top 1% of typists in the world",
+    "Two lessons left. Hold the rhythm.",
+    "If 100 WPM here feels easy, you're ready for the final test"
+  ],
+  "character_tips": {
+    "anna": "🎯 100 WPM! Top 1% of all typists. The world barely contains people who can do this.",
+    "maxim": "100 WPM sustained = world-class. Take pride. Two lessons to go.",
+    "knopych": "100! 💯 TRIPLE DIGITS! YOU'RE A LEGEND!",
+    "klavochka": "My star reaching the heavens ⭐ One hundred! Beautiful!"
+  },
+  "phase": 7,
+  "rhythmLesson": true,
+  "created_at": "2026-05-25",
+  "version": "1.0"
+}

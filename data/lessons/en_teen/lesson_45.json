@@ -1,0 +1,45 @@
+{
+  "id": "en_teen_lesson_45",
+  "tier": "en_teen",
+  "lesson_number": 45,
+  "title": "BLOCK 3 FINAL: Social media mastery",
+  "description": "Block 3 final — 70 WPM on a realistic social media post",
+  "target_wpm": 70,
+  "text_length": 209,
+  "error_limit_percent": 5,
+  "error_limit": 10,
+  "text": "Tournament day! 🏆 We're live at 6 PM on twitch.tv/squad-2026 with the full lineup: @ace, @nova, @blaze. Drop a follow if you want to play with us next week — we're recruiting one more spot. Catch you all live!",
+  "text_sequence": [],
+  "keys_trained": [
+    "A-Z",
+    "0-9",
+    "Shift",
+    "Space",
+    ".",
+    ",",
+    "!",
+    "#",
+    "@",
+    "/",
+    ":",
+    "-",
+    "'"
+  ],
+  "new_keys": [],
+  "finger_focus": "Block 3 mastery gate at 70 WPM",
+  "tips": [
+    "🎓 Teen Block 3 done! 70 WPM on social content = elite teen typing",
+    "Block 4 next: pure speed sprints",
+    "Last finale: L75 at 90 WPM on real-world prose"
+  ],
+  "character_tips": {
+    "anna": "🎯 Teen Block 3 done! 70 WPM on social. Block 4 = pure speed.",
+    "maxim": "Social media mastery cleared. Speed lab opens in Block 4.",
+    "knopych": "🐉🏆 BLOCK 3 BOSS DOWN! Social tier achieved!",
+    "klavochka": "Three triumphs, my hero! 🎉⭐⭐⭐ Two blocks to go!"
+  },
+  "phase": 3,
+  "rhythmLesson": false,
+  "created_at": "2026-05-25",
+  "version": "1.0"
+}

@@ -1,0 +1,41 @@
+{
+  "id": "en_teen_lesson_03",
+  "tier": "en_teen",
+  "lesson_number": 3,
+  "title": "Home row: short sentences",
+  "description": "Practice rhythm with home-row sentences",
+  "target_wpm": 22,
+  "text_length": 48,
+  "error_limit_percent": 8,
+  "error_limit": 3,
+  "text": "a sad lad asks dad; a lass falls; dads ask lads;",
+  "text_sequence": [],
+  "keys_trained": [
+    "A",
+    "S",
+    "D",
+    "F",
+    "J",
+    "K",
+    "L",
+    ";",
+    "Space"
+  ],
+  "new_keys": [],
+  "finger_focus": "Home row + punctuation intro",
+  "tips": [
+    "Sentences with only home-row letters",
+    "Semicolons live on home row too — pinky right",
+    "Don't break flow at the spaces"
+  ],
+  "character_tips": {
+    "anna": "Sentences without leaving home row. Notice how little your hands move?",
+    "maxim": "Efficiency starts with minimal movement. Every keystroke earned.",
+    "knopych": "SENTENCE COMBO! 🎯 Multi-word attack!",
+    "klavochka": "A little story from home row, my sunshine ☀️"
+  },
+  "phase": 1,
+  "rhythmLesson": false,
+  "created_at": "2026-05-25",
+  "version": "1.0"
+}

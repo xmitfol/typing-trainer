@@ -1,0 +1,31 @@
+{
+  "id": "en_tier1_lesson_40",
+  "tier": "en_tier1",
+  "lesson_number": 40,
+  "title": "Rhythm: full markup paragraph",
+  "description": "Rhythm exercise with HTML + code + prose mixed",
+  "target_wpm": 30,
+  "text_length": 140,
+  "error_limit_percent": 10,
+  "error_limit": 14,
+  "text": "<h1>Welcome!</h1> <p>The site is <strong>open</strong> at https://my.app/start. Type {user: \"name\"} into the box. Press Enter.</p>",
+  "text_sequence": [],
+  "keys_trained": ["A-Z", "0-9", "<", ">", "/", "=", "\"", "{", "}", ":", "!", ".", ",", "Space"],
+  "new_keys": [],
+  "finger_focus": "Markup + prose mix",
+  "tips": [
+    "Real web content: tags + sentences",
+    "JSON-like data: {key: \"value\"}",
+    "URL inline with prose"
+  ],
+  "character_tips": {
+    "anna": "Web copy + tags + JSON — a typical webpage source.",
+    "maxim": "Modern coding = mixed media: markup, prose, data. All in one paragraph.",
+    "knopych": "MEGA MIX! Tags + words + data! Web flow! 🌊",
+    "klavochka": "All the symbols dancing together! What a show! 🎭"
+  },
+  "phase": 3,
+  "rhythmLesson": true,
+  "created_at": "2026-05-25",
+  "version": "1.0"
+}

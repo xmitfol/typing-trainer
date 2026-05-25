@@ -1,0 +1,39 @@
+{
+  "id": "en_teen_lesson_64",
+  "tier": "en_teen",
+  "lesson_number": 64,
+  "title": "Science report paragraph",
+  "description": "Lab report style with measurements",
+  "target_wpm": 89,
+  "text_length": 212,
+  "error_limit_percent": 4,
+  "error_limit": 8,
+  "text": "The experiment was conducted at 25 degrees Celsius using a 100 ml sample. After 30 minutes, the reaction reached equilibrium with a pH of 7.4. Three trials confirmed the result, with a standard deviation of 0.08.",
+  "text_sequence": [],
+  "keys_trained": [
+    "A-Z",
+    "0-9",
+    "Shift",
+    "Space",
+    ".",
+    ",",
+    "°"
+  ],
+  "new_keys": [],
+  "finger_focus": "Scientific writing rhythm",
+  "tips": [
+    "Science writing = facts + numbers + precision",
+    "Decimals, units, terminology",
+    "Highest-density real school content"
+  ],
+  "character_tips": {
+    "anna": "Science writing. Highest-density school content.",
+    "maxim": "Lab reports test mixed-content speed under accuracy.",
+    "knopych": "🧪 LAB REPORT! Numbers and findings!",
+    "klavochka": "Sharing what experiments reveal, my dear 🔬"
+  },
+  "phase": 5,
+  "rhythmLesson": false,
+  "created_at": "2026-05-25",
+  "version": "1.0"
+}

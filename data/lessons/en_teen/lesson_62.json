@@ -1,0 +1,38 @@
+{
+  "id": "en_teen_lesson_62",
+  "tier": "en_teen",
+  "lesson_number": 62,
+  "title": "Essay paragraph: body",
+  "description": "Argument paragraph with examples",
+  "target_wpm": 87,
+  "text_length": 217,
+  "error_limit_percent": 4,
+  "error_limit": 8,
+  "text": "One clear example of this trend is the rise of short-form video platforms, which have transformed not only entertainment but also how students study, share information, and even apply for jobs in the modern workplace.",
+  "text_sequence": [],
+  "keys_trained": [
+    "A-Z",
+    "Shift",
+    "Space",
+    ".",
+    ",",
+    "-"
+  ],
+  "new_keys": [],
+  "finger_focus": "Body paragraph rhythm",
+  "tips": [
+    "Argument structure: claim + example + impact",
+    "Long flowing sentences",
+    "Real essay tempo"
+  ],
+  "character_tips": {
+    "anna": "Body paragraph structure. Real essay format at speed.",
+    "maxim": "Argument prose = your real writing voice. Train it.",
+    "knopych": "📝 ESSAY POWER! Make the point!",
+    "klavochka": "Building a strong argument, my treasure 🏛️"
+  },
+  "phase": 5,
+  "rhythmLesson": false,
+  "created_at": "2026-05-25",
+  "version": "1.0"
+}

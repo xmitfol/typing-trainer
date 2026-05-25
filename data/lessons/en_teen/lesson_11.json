@@ -1,0 +1,38 @@
+{
+  "id": "en_teen_lesson_11",
+  "tier": "en_teen",
+  "lesson_number": 11,
+  "title": "Numbers row: 1-5 (left hand)",
+  "description": "Reach to the numbers row — left side",
+  "target_wpm": 35,
+  "text_length": 52,
+  "error_limit_percent": 8,
+  "error_limit": 4,
+  "text": "1 2 3 4 5 12 23 34 45 11 22 33 44 55 1234 2345 12345",
+  "text_sequence": [],
+  "keys_trained": [
+    "1",
+    "2",
+    "3",
+    "4",
+    "5",
+    "Space"
+  ],
+  "new_keys": [],
+  "finger_focus": "Left number reaches",
+  "tips": [
+    "Numbers row is FAR — biggest stretch on the keyboard",
+    "Same finger as the column letter (1=pinky, 2=ring, etc.)",
+    "Use Number Row, NOT numpad — numpad is a different skill"
+  ],
+  "character_tips": {
+    "anna": "Numbers stretch FAR up. Use the same finger as the column letter.",
+    "maxim": "Numbers on the main row, not numpad. The latter is a different skill.",
+    "knopych": "DIGITS! 🔢 1-2-3-4-5, same fingers as Q-W-E-R-T!",
+    "klavochka": "Counting up to five, my dear — like steps! 🪜"
+  },
+  "phase": 1,
+  "rhythmLesson": false,
+  "created_at": "2026-05-25",
+  "version": "1.0"
+}

@@ -1,0 +1,31 @@
+{
+  "id": "en_tier1_lesson_25",
+  "tier": "en_tier1",
+  "lesson_number": 25,
+  "title": "BLOCK 2 FINAL: Punctuation mastery",
+  "description": "Closing test for Block 2 — all punctuation marks at 30 WPM",
+  "target_wpm": 30,
+  "text_length": 180,
+  "error_limit_percent": 8,
+  "error_limit": 14,
+  "text": "she wrote: \"the path was long, but worth it; we learned much, and grew strong.\" he replied: \"that's the key — patience pays off!\" they shook hands; the year ended well.",
+  "text_sequence": [],
+  "keys_trained": ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", ":", ";", ",", ".", "!", "?", "'", "\"", "-", "Space"],
+  "new_keys": [],
+  "finger_focus": "All — punctuation mastery gate",
+  "tips": [
+    "180 chars with every punctuation mark you've learned",
+    "Pass at 30 WPM with under 14 errors = Block 2 complete",
+    "Block 3: numbers and symbols open after this"
+  ],
+  "character_tips": {
+    "anna": "🎓 BLOCK 2 FINAL! Punctuation mastered. Numbers and symbols next.",
+    "maxim": "Punctuation — done. Block 3 (numbers) brings new keys to the table.",
+    "knopych": "BLOCK 2 BOSS DEFEATED! 🐉 Numbers world unlocks! 🔢",
+    "klavochka": "Punctuation princess! Next adventure — numbers! 💖✨"
+  },
+  "phase": 2,
+  "rhythmLesson": false,
+  "created_at": "2026-05-25",
+  "version": "1.0"
+}

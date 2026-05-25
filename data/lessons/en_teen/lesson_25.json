@@ -1,0 +1,34 @@
+{
+  "id": "en_teen_lesson_25",
+  "tier": "en_teen",
+  "lesson_number": 25,
+  "title": "Mid-block speed sprint",
+  "description": "Pure speed — common short words",
+  "target_wpm": 50,
+  "text_length": 105,
+  "error_limit_percent": 7,
+  "error_limit": 7,
+  "text": "we are the best and we know it now is the time to shine and show the world we can do this together as one",
+  "text_sequence": [],
+  "keys_trained": [
+    "A-Z",
+    "Space"
+  ],
+  "new_keys": [],
+  "finger_focus": "Short common words at speed",
+  "tips": [
+    "No punctuation = pure rhythm",
+    "All home/top row friendly words",
+    "Push past 50 WPM here"
+  ],
+  "character_tips": {
+    "anna": "Pure speed test. No tricks — just words at top tempo.",
+    "maxim": "Sprint training. Don't slow for any reason.",
+    "knopych": "⚡ SPEED MODE! No brakes! GO GO GO!",
+    "klavochka": "Like racing, my star — fast but light 🌟"
+  },
+  "phase": 2,
+  "rhythmLesson": false,
+  "created_at": "2026-05-25",
+  "version": "1.0"
+}

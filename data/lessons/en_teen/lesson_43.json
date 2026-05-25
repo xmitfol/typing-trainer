@@ -1,0 +1,34 @@
+{
+  "id": "en_teen_lesson_43",
+  "tier": "en_teen",
+  "lesson_number": 43,
+  "title": "Rhythm: chat conversation flow",
+  "description": "Back-and-forth chat at sustained tempo",
+  "target_wpm": 70,
+  "text_length": 114,
+  "error_limit_percent": 6,
+  "error_limit": 6,
+  "text": "hey what time at 7 cool bring snacks ok which ones the spicy ones obvi sounds good see you then bye bye drive safe",
+  "text_sequence": [],
+  "keys_trained": [
+    "A-Z",
+    "Space"
+  ],
+  "new_keys": [],
+  "finger_focus": "Chat back-and-forth rhythm",
+  "tips": [
+    "Real chat = short bursts, no punctuation",
+    "Multiple speakers in one line",
+    "Metronome at 70 BPM"
+  ],
+  "character_tips": {
+    "anna": "Chat rhythm. Short bursts, no punctuation, full speed.",
+    "maxim": "Chat is the most-typed format of all. Master the rhythm.",
+    "knopych": "💬 CHAT FLOW! Quick fire convo!",
+    "klavochka": "Friends talking back and forth, my treasure 💕"
+  },
+  "phase": 3,
+  "rhythmLesson": true,
+  "created_at": "2026-05-25",
+  "version": "1.0"
+}

@@ -1,0 +1,31 @@
+{
+  "id": "en_tier1_lesson_65",
+  "tier": "en_tier1",
+  "lesson_number": 65,
+  "title": "Dialogue and quotes drill",
+  "description": "Pure dialogue passage — train quote+Shift+punctuation under speed",
+  "target_wpm": 64,
+  "text_length": 230,
+  "error_limit_percent": 6,
+  "error_limit": 14,
+  "text": "\"What time is the meeting?\" Sarah asked. \"At three,\" David replied, \"in the main conference room.\" She nodded. \"Should I bring the report?\" \"Yes,\" he said, \"and the projections too. They'll want to see both.\"",
+  "text_sequence": [],
+  "keys_trained": ["A-Z", "Space", ",", ".", "?", "\"", "'", "Shift"],
+  "new_keys": [],
+  "finger_focus": "Quotes + dialogue rhythm",
+  "tips": [
+    "Quotes appear in 80% of fiction and chat-style writing",
+    "Type the closing quote without thinking — muscle memory",
+    "Dialogue tags (\"he said\", \"she asked\") should flow without pause"
+  ],
+  "character_tips": {
+    "anna": "Dialogue is the hardest punctuation pattern. Master it = master writing.",
+    "maxim": "Half of business writing is quotes and dialogue. Drill them mercilessly.",
+    "knopych": "TWO PEOPLE TALKING! 💬 Type fast, switch fast!",
+    "klavochka": "A conversation on paper, my treasure 💌"
+  },
+  "phase": 5,
+  "rhythmLesson": false,
+  "created_at": "2026-05-25",
+  "version": "1.0"
+}

@@ -1,0 +1,31 @@
+{
+  "id": "en_tier1_lesson_50",
+  "tier": "en_tier1",
+  "lesson_number": 50,
+  "title": "50-lesson milestone: speed test",
+  "description": "Halfway through the course — pure speed check on real prose",
+  "target_wpm": 45,
+  "text_length": 180,
+  "error_limit_percent": 7,
+  "error_limit": 13,
+  "text": "Fifty lessons in. You started with home row and now you can write anything. Push your speed today. Read ahead, trust your hands, and stay smooth — accuracy stays at ninety-three percent.",
+  "text_sequence": [],
+  "keys_trained": ["all letters", "Space", ".", ",", "—"],
+  "new_keys": [],
+  "finger_focus": "All — milestone speed gauge",
+  "tips": [
+    "50 lessons = halfway home",
+    "If you pass 45 WPM here, you're on track for 80+ by Block 7",
+    "Set your peak today — you'll match it many times in Block 5"
+  ],
+  "character_tips": {
+    "anna": "🎯 50-lesson milestone! You're officially halfway. Look at the WPM number — that's earned.",
+    "maxim": "Halfway checkpoint. Track your number here — Block 5 will push it higher.",
+    "knopych": "MIDPOINT BOSS! 🏔️ Conquered! Onward!",
+    "klavochka": "Half a journey, my star ⭐ Look how far you've come!"
+  },
+  "phase": 4,
+  "rhythmLesson": false,
+  "created_at": "2026-05-25",
+  "version": "1.0"
+}

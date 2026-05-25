@@ -1,0 +1,37 @@
+{
+  "id": "en_kids_lesson_39",
+  "tier": "en_kids",
+  "lesson_number": 39,
+  "title": "Pre-final: full story",
+  "description": "Almost-final story practice",
+  "target_wpm": 40,
+  "text_length": 162,
+  "error_limit_percent": 10,
+  "error_limit": 16,
+  "text": "Once upon a time in a small house there lived a brave little mouse. He helped his friends. He shared his food. He told funny stories. Everyone loved him. The end!",
+  "text_sequence": [],
+  "keys_trained": [
+    "A-Z",
+    "Shift",
+    "Space",
+    ".",
+    "!"
+  ],
+  "new_keys": [],
+  "finger_focus": "Pre-final story",
+  "tips": [
+    "Full story arc",
+    "Multi-sentence flow at 40 WPM",
+    "Last warmup before block final"
+  ],
+  "character_tips": {
+    "anna": "Full mini-story. Like the block final, but easier.",
+    "maxim": "Pre-final story. Multi-sentence narrative speed.",
+    "knopych": "📖 ONE STORY TO RULE THEM ALL — almost!",
+    "klavochka": "Such a sweet story, my hero 🐭💕"
+  },
+  "phase": 4,
+  "rhythmLesson": false,
+  "created_at": "2026-05-25",
+  "version": "1.0"
+}

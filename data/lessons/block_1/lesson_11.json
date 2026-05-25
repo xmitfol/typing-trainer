@@ -1,0 +1,698 @@
+{
+  "id": "lesson_11",
+  "block": 1,
+  "block_name": "Мизинец (Pinky)",
+  "lesson_number": 11,
+  "title": "Добавляем Ё (левый мизинец)",
+  "description": "Новая клавиша Ё — левый мизинец, над цифровым рядом",
+  "target_wpm": 15,
+  "text_length": 150,
+  "error_limit_percent": 5,
+  "error_limit": 7,
+  "text": "ёж ёд ёл ёр ёж ёд ёл мёд лёд ёрш мёд лёд ёрш даём поём льём пьём даёшь поёшь льёшь пьёшь даём поём льём",
+  "text_sequence": [
+    {
+      "char": "ё",
+      "hand": "left",
+      "finger": "pinky",
+      "key": "Ё"
+    },
+    {
+      "char": "ж",
+      "hand": "left",
+      "finger": "pinky",
+      "key": "Ж"
+    },
+    {
+      "char": " ",
+      "hand": "right",
+      "finger": "thumb",
+      "key": "Space",
+      "space_side": "right"
+    },
+    {
+      "char": "ё",
+      "hand": "right",
+      "finger": "pinky",
+      "key": "Ё"
+    },
+    {
+      "char": "д",
+      "hand": "right",
+      "finger": "ring",
+      "key": "Д"
+    },
+    {
+      "char": " ",
+      "hand": "left",
+      "finger": "thumb",
+      "key": "Space",
+      "space_side": "left"
+    },
+    {
+      "char": "ё",
+      "hand": "left",
+      "finger": "pinky",
+      "key": "Ё"
+    },
+    {
+      "char": "л",
+      "hand": "left",
+      "finger": "middle",
+      "key": "Л"
+    },
+    {
+      "char": " ",
+      "hand": "right",
+      "finger": "thumb",
+      "key": "Space",
+      "space_side": "right"
+    },
+    {
+      "char": "ё",
+      "hand": "right",
+      "finger": "pinky",
+      "key": "Ё"
+    },
+    {
+      "char": "р",
+      "hand": "right",
+      "finger": "index",
+      "key": "Р"
+    },
+    {
+      "char": " ",
+      "hand": "left",
+      "finger": "thumb",
+      "key": "Space",
+      "space_side": "left"
+    },
+    {
+      "char": "ё",
+      "hand": "left",
+      "finger": "pinky",
+      "key": "Ё"
+    },
+    {
+      "char": "ж",
+      "hand": "left",
+      "finger": "pinky",
+      "key": "Ж"
+    },
+    {
+      "char": " ",
+      "hand": "right",
+      "finger": "thumb",
+      "key": "Space",
+      "space_side": "right"
+    },
+    {
+      "char": "ё",
+      "hand": "right",
+      "finger": "pinky",
+      "key": "Ё"
+    },
+    {
+      "char": "д",
+      "hand": "right",
+      "finger": "ring",
+      "key": "Д"
+    },
+    {
+      "char": " ",
+      "hand": "left",
+      "finger": "thumb",
+      "key": "Space",
+      "space_side": "left"
+    },
+    {
+      "char": "ё",
+      "hand": "left",
+      "finger": "pinky",
+      "key": "Ё"
+    },
+    {
+      "char": "л",
+      "hand": "left",
+      "finger": "middle",
+      "key": "Л"
+    },
+    {
+      "char": " ",
+      "hand": "right",
+      "finger": "thumb",
+      "key": "Space",
+      "space_side": "right"
+    },
+    {
+      "char": "м",
+      "hand": "right",
+      "finger": "index",
+      "key": "М"
+    },
+    {
+      "char": "ё",
+      "hand": "right",
+      "finger": "pinky",
+      "key": "Ё"
+    },
+    {
+      "char": "д",
+      "hand": "right",
+      "finger": "ring",
+      "key": "Д"
+    },
+    {
+      "char": " ",
+      "hand": "left",
+      "finger": "thumb",
+      "key": "Space",
+      "space_side": "left"
+    },
+    {
+      "char": "л",
+      "hand": "left",
+      "finger": "middle",
+      "key": "Л"
+    },
+    {
+      "char": "ё",
+      "hand": "left",
+      "finger": "pinky",
+      "key": "Ё"
+    },
+    {
+      "char": "д",
+      "hand": "left",
+      "finger": "ring",
+      "key": "Д"
+    },
+    {
+      "char": " ",
+      "hand": "right",
+      "finger": "thumb",
+      "key": "Space",
+      "space_side": "right"
+    },
+    {
+      "char": "ё",
+      "hand": "right",
+      "finger": "pinky",
+      "key": "Ё"
+    },
+    {
+      "char": "р",
+      "hand": "right",
+      "finger": "index",
+      "key": "Р"
+    },
+    {
+      "char": "ш",
+      "hand": "right",
+      "finger": "ring",
+      "key": "Ш"
+    },
+    {
+      "char": " ",
+      "hand": "left",
+      "finger": "thumb",
+      "key": "Space",
+      "space_side": "left"
+    },
+    {
+      "char": "м",
+      "hand": "left",
+      "finger": "index",
+      "key": "М"
+    },
+    {
+      "char": "ё",
+      "hand": "left",
+      "finger": "pinky",
+      "key": "Ё"
+    },
+    {
+      "char": "д",
+      "hand": "left",
+      "finger": "ring",
+      "key": "Д"
+    },
+    {
+      "char": " ",
+      "hand": "right",
+      "finger": "thumb",
+      "key": "Space",
+      "space_side": "right"
+    },
+    {
+      "char": "л",
+      "hand": "right",
+      "finger": "middle",
+      "key": "Л"
+    },
+    {
+      "char": "ё",
+      "hand": "right",
+      "finger": "pinky",
+      "key": "Ё"
+    },
+    {
+      "char": "д",
+      "hand": "right",
+      "finger": "ring",
+      "key": "Д"
+    },
+    {
+      "char": " ",
+      "hand": "left",
+      "finger": "thumb",
+      "key": "Space",
+      "space_side": "left"
+    },
+    {
+      "char": "ё",
+      "hand": "left",
+      "finger": "pinky",
+      "key": "Ё"
+    },
+    {
+      "char": "р",
+      "hand": "left",
+      "finger": "index",
+      "key": "Р"
+    },
+    {
+      "char": "ш",
+      "hand": "left",
+      "finger": "ring",
+      "key": "Ш"
+    },
+    {
+      "char": " ",
+      "hand": "right",
+      "finger": "thumb",
+      "key": "Space",
+      "space_side": "right"
+    },
+    {
+      "char": "д",
+      "hand": "right",
+      "finger": "ring",
+      "key": "Д"
+    },
+    {
+      "char": "а",
+      "hand": "right",
+      "finger": "index",
+      "key": "А"
+    },
+    {
+      "char": "ё",
+      "hand": "right",
+      "finger": "pinky",
+      "key": "Ё"
+    },
+    {
+      "char": "м",
+      "hand": "right",
+      "finger": "index",
+      "key": "М"
+    },
+    {
+      "char": " ",
+      "hand": "left",
+      "finger": "thumb",
+      "key": "Space",
+      "space_side": "left"
+    },
+    {
+      "char": "п",
+      "hand": "left",
+      "finger": "index",
+      "key": "П"
+    },
+    {
+      "char": "о",
+      "hand": "left",
+      "finger": "index",
+      "key": "О"
+    },
+    {
+      "char": "ё",
+      "hand": "left",
+      "finger": "pinky",
+      "key": "Ё"
+    },
+    {
+      "char": "м",
+      "hand": "left",
+      "finger": "index",
+      "key": "М"
+    },
+    {
+      "char": " ",
+      "hand": "right",
+      "finger": "thumb",
+      "key": "Space",
+      "space_side": "right"
+    },
+    {
+      "char": "л",
+      "hand": "right",
+      "finger": "middle",
+      "key": "Л"
+    },
+    {
+      "char": "ь",
+      "hand": "right",
+      "finger": "index",
+      "key": "Ь"
+    },
+    {
+      "char": "ё",
+      "hand": "right",
+      "finger": "pinky",
+      "key": "Ё"
+    },
+    {
+      "char": "м",
+      "hand": "right",
+      "finger": "index",
+      "key": "М"
+    },
+    {
+      "char": " ",
+      "hand": "left",
+      "finger": "thumb",
+      "key": "Space",
+      "space_side": "left"
+    },
+    {
+      "char": "п",
+      "hand": "left",
+      "finger": "index",
+      "key": "П"
+    },
+    {
+      "char": "ь",
+      "hand": "left",
+      "finger": "index",
+      "key": "Ь"
+    },
+    {
+      "char": "ё",
+      "hand": "left",
+      "finger": "pinky",
+      "key": "Ё"
+    },
+    {
+      "char": "м",
+      "hand": "left",
+      "finger": "index",
+      "key": "М"
+    },
+    {
+      "char": " ",
+      "hand": "right",
+      "finger": "thumb",
+      "key": "Space",
+      "space_side": "right"
+    },
+    {
+      "char": "д",
+      "hand": "right",
+      "finger": "ring",
+      "key": "Д"
+    },
+    {
+      "char": "а",
+      "hand": "right",
+      "finger": "index",
+      "key": "А"
+    },
+    {
+      "char": "ё",
+      "hand": "right",
+      "finger": "pinky",
+      "key": "Ё"
+    },
+    {
+      "char": "ш",
+      "hand": "right",
+      "finger": "ring",
+      "key": "Ш"
+    },
+    {
+      "char": "ь",
+      "hand": "right",
+      "finger": "index",
+      "key": "Ь"
+    },
+    {
+      "char": " ",
+      "hand": "left",
+      "finger": "thumb",
+      "key": "Space",
+      "space_side": "left"
+    },
+    {
+      "char": "п",
+      "hand": "left",
+      "finger": "index",
+      "key": "П"
+    },
+    {
+      "char": "о",
+      "hand": "left",
+      "finger": "index",
+      "key": "О"
+    },
+    {
+      "char": "ё",
+      "hand": "left",
+      "finger": "pinky",
+      "key": "Ё"
+    },
+    {
+      "char": "ш",
+      "hand": "left",
+      "finger": "ring",
+      "key": "Ш"
+    },
+    {
+      "char": "ь",
+      "hand": "left",
+      "finger": "index",
+      "key": "Ь"
+    },
+    {
+      "char": " ",
+      "hand": "right",
+      "finger": "thumb",
+      "key": "Space",
+      "space_side": "right"
+    },
+    {
+      "char": "л",
+      "hand": "right",
+      "finger": "middle",
+      "key": "Л"
+    },
+    {
+      "char": "ь",
+      "hand": "right",
+      "finger": "index",
+      "key": "Ь"
+    },
+    {
+      "char": "ё",
+      "hand": "right",
+      "finger": "pinky",
+      "key": "Ё"
+    },
+    {
+      "char": "ш",
+      "hand": "right",
+      "finger": "ring",
+      "key": "Ш"
+    },
+    {
+      "char": "ь",
+      "hand": "right",
+      "finger": "index",
+      "key": "Ь"
+    },
+    {
+      "char": " ",
+      "hand": "left",
+      "finger": "thumb",
+      "key": "Space",
+      "space_side": "left"
+    },
+    {
+      "char": "п",
+      "hand": "left",
+      "finger": "index",
+      "key": "П"
+    },
+    {
+      "char": "ь",
+      "hand": "left",
+      "finger": "index",
+      "key": "Ь"
+    },
+    {
+      "char": "ё",
+      "hand": "left",
+      "finger": "pinky",
+      "key": "Ё"
+    },
+    {
+      "char": "ш",
+      "hand": "left",
+      "finger": "ring",
+      "key": "Ш"
+    },
+    {
+      "char": "ь",
+      "hand": "left",
+      "finger": "index",
+      "key": "Ь"
+    },
+    {
+      "char": " ",
+      "hand": "right",
+      "finger": "thumb",
+      "key": "Space",
+      "space_side": "right"
+    },
+    {
+      "char": "д",
+      "hand": "right",
+      "finger": "ring",
+      "key": "Д"
+    },
+    {
+      "char": "а",
+      "hand": "right",
+      "finger": "index",
+      "key": "А"
+    },
+    {
+      "char": "ё",
+      "hand": "right",
+      "finger": "pinky",
+      "key": "Ё"
+    },
+    {
+      "char": "м",
+      "hand": "right",
+      "finger": "index",
+      "key": "М"
+    },
+    {
+      "char": " ",
+      "hand": "left",
+      "finger": "thumb",
+      "key": "Space",
+      "space_side": "left"
+    },
+    {
+      "char": "п",
+      "hand": "left",
+      "finger": "index",
+      "key": "П"
+    },
+    {
+      "char": "о",
+      "hand": "left",
+      "finger": "index",
+      "key": "О"
+    },
+    {
+      "char": "ё",
+      "hand": "left",
+      "finger": "pinky",
+      "key": "Ё"
+    },
+    {
+      "char": "м",
+      "hand": "left",
+      "finger": "index",
+      "key": "М"
+    },
+    {
+      "char": " ",
+      "hand": "right",
+      "finger": "thumb",
+      "key": "Space",
+      "space_side": "right"
+    },
+    {
+      "char": "л",
+      "hand": "right",
+      "finger": "middle",
+      "key": "Л"
+    },
+    {
+      "char": "ь",
+      "hand": "right",
+      "finger": "index",
+      "key": "Ь"
+    },
+    {
+      "char": "ё",
+      "hand": "right",
+      "finger": "pinky",
+      "key": "Ё"
+    },
+    {
+      "char": "м",
+      "hand": "right",
+      "finger": "index",
+      "key": "М"
+    }
+  ],
+  "keys_trained": [
+    "Ф",
+    "Ы",
+    "В",
+    "А",
+    "П",
+    "Р",
+    "О",
+    "Л",
+    "Д",
+    "Ж",
+    "Э",
+    "Я",
+    "Х",
+    "Ъ",
+    "Ё",
+    "Е",
+    "З",
+    "Б",
+    "М",
+    "Ш",
+    "Ь",
+    "Space"
+  ],
+  "finger_focus": "Левый мизинец + клавиша Ё (над цифровым рядом, крайняя слева)",
+  "tips": [
+    "Ё — особенная буква! Находится над цифровым рядом, крайняя слева",
+    "Левый мизинец тянется ОЧЕНЬ ВЫСОКО от Ф — это большое растяжение!",
+    "МЁД, ЛЁД, ЁРШ — короткие слова с Ё, очень практичные",
+    "ДАЁМ, ПОЁМ, ЛЬЁМ — глаголы с Ё звучат музыкально!",
+    "После Ё сразу возвращай мизинец на Ф (HOME ROW)",
+    "Это самое дальнее расстояние для левого мизинца — если устал, сделай паузу"
+  ],
+  "character_tips": {
+    "anna": "Отлично! Ё — самая высокая клавиша для мизинца! Это требует хорошей растяжки. Молодец, что справляешься!",
+    "maxim": "Хорошая работа! МЁД, ЛЁД, ДАЁМ, ПОЁМ — красивые слова с Ё! Мизинец учится тянуться далеко вверх!",
+    "knopych": "Вау! Ё — как звёздочка на самом верху! Мизинец прыгает ТАК высоко! МЁД-ЛЁД-ЁРШ — круто!",
+    "klavochka": "Какой ты умница! Пальчик добрался до самого верха! Ё — особенная буква с точками! Красота!"
+  },
+  "phase": 1,
+  "created_at": "2025-11-17",
+  "version": "1.0"
+}

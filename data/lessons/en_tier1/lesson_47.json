@@ -1,0 +1,31 @@
+{
+  "id": "en_tier1_lesson_47",
+  "tier": "en_tier1",
+  "lesson_number": 47,
+  "title": "3-letter words drill",
+  "description": "Speed drill on common 3-letter words — pure muscle memory",
+  "target_wpm": 40,
+  "text_length": 140,
+  "error_limit_percent": 8,
+  "error_limit": 11,
+  "text": "all any but can did far for get had has her him his how its let lot may new now nor not now one our out put say see she sit ten the too try use was way who why yes",
+  "text_sequence": [],
+  "keys_trained": ["all letters", "Space"],
+  "new_keys": [],
+  "finger_focus": "Full alphabet — short bursts",
+  "tips": [
+    "3-letter words = one hand-shift unit",
+    "Don't slow down between words — flow",
+    "Spaces are part of the rhythm, not a pause"
+  ],
+  "character_tips": {
+    "anna": "Three-letter words are pure rhythm. Find a beat and stay on it.",
+    "maxim": "These are the workhorses of English — drill until they're automatic.",
+    "knopych": "Tiny words, BIG speed! 🥁 Tap-tap-tap!",
+    "klavochka": "Like skipping stones on water, my dear! 💫"
+  },
+  "phase": 4,
+  "rhythmLesson": false,
+  "created_at": "2026-05-25",
+  "version": "1.0"
+}

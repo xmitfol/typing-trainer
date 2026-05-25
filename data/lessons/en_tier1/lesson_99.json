@@ -1,0 +1,32 @@
+{
+  "id": "en_tier1_lesson_99",
+  "tier": "en_tier1",
+  "lesson_number": 99,
+  "title": "COURSE FINAL: Complete mastery",
+  "description": "The final exam — 105 WPM on 400+ chars of comprehensive real-world prose. Pass at 80 WPM = Platinum, 60 = Gold, 40 = Silver, 25 = Bronze.",
+  "target_wpm": 105,
+  "text_length": 420,
+  "error_limit_percent": 4,
+  "error_limit": 17,
+  "text": "Ninety-nine lessons ago, you sat down at a keyboard for the first time as a student. Today, you sit down as something else entirely: a typist. Your fingers know the keyboard the way a pianist knows a piano. Your eyes scan ahead by entire phrases. Your hands no longer translate thought into text — they have become a continuation of your thinking. Take a moment. This is the last exercise. Type smoothly, breathe steadily, and finish the way you started: with care.",
+  "text_sequence": [],
+  "keys_trained": ["A-Z full", "0-9", "Shift", "all punctuation", "all symbols"],
+  "new_keys": [],
+  "finger_focus": "Comprehensive mastery exam — every skill",
+  "tips": [
+    "🎓 The final lesson. 420 characters of real prose at 105 WPM.",
+    "Pass at 80+ WPM = Platinum certificate. 60+ = Gold. 40+ = Silver. 25+ = Bronze.",
+    "After this, you are certified. The course is complete.",
+    "Type slowly if you must — accuracy gates the certificate level."
+  ],
+  "character_tips": {
+    "anna": "🎓🏆 THE FINAL. 99 lessons led to this. Type with care — your certificate is one paragraph away.",
+    "maxim": "End of the road. Pass = certified for life. Slow down if you must, but finish strong.",
+    "knopych": "FINAL BOSS! 🐲👑 ONE LAST FIGHT FOR THE PLATINUM CROWN!",
+    "klavochka": "My beloved hero, the final moment. Breathe, type, and earn your crown 👑✨"
+  },
+  "phase": 7,
+  "rhythmLesson": false,
+  "created_at": "2026-05-25",
+  "version": "1.0"
+}

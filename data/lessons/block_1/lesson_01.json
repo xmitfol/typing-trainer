@@ -1,0 +1,286 @@
+{
+  "id": "lesson_01",
+  "block": 1,
+  "block_name": "Мизинец (Pinky)",
+  "lesson_number": 1,
+  "title": "Позиция HOME ROW",
+  "description": "Базовые позиции пальцев на клавиатуре",
+  "target_wpm": 15,
+  "text_length": 47,
+  "error_limit_percent": 5,
+  "error_limit": 2,
+  "text": "фыва олджа фыва олджа фыва олджа фыва олджа",
+  "text_sequence": [
+    {
+      "char": "ф",
+      "hand": "left",
+      "finger": "pinky",
+      "key": "Ф"
+    },
+    {
+      "char": "ы",
+      "hand": "left",
+      "finger": "ring",
+      "key": "Ы"
+    },
+    {
+      "char": "в",
+      "hand": "left",
+      "finger": "middle",
+      "key": "В"
+    },
+    {
+      "char": "а",
+      "hand": "left",
+      "finger": "index",
+      "key": "А"
+    },
+    {
+      "char": " ",
+      "hand": "right",
+      "finger": "thumb",
+      "key": "Space",
+      "space_side": "right"
+    },
+    {
+      "char": "о",
+      "hand": "right",
+      "finger": "index",
+      "key": "О"
+    },
+    {
+      "char": "л",
+      "hand": "right",
+      "finger": "middle",
+      "key": "Л"
+    },
+    {
+      "char": "д",
+      "hand": "right",
+      "finger": "ring",
+      "key": "Д"
+    },
+    {
+      "char": "ж",
+      "hand": "right",
+      "finger": "pinky",
+      "key": "Ж"
+    },
+    {
+      "char": " ",
+      "hand": "left",
+      "finger": "thumb",
+      "key": "Space",
+      "space_side": "left"
+    },
+    {
+      "char": "ф",
+      "hand": "left",
+      "finger": "pinky",
+      "key": "Ф"
+    },
+    {
+      "char": "ы",
+      "hand": "left",
+      "finger": "ring",
+      "key": "Ы"
+    },
+    {
+      "char": "в",
+      "hand": "left",
+      "finger": "middle",
+      "key": "В"
+    },
+    {
+      "char": "а",
+      "hand": "left",
+      "finger": "index",
+      "key": "А"
+    },
+    {
+      "char": " ",
+      "hand": "right",
+      "finger": "thumb",
+      "key": "Space",
+      "space_side": "right"
+    },
+    {
+      "char": "о",
+      "hand": "right",
+      "finger": "index",
+      "key": "О"
+    },
+    {
+      "char": "л",
+      "hand": "right",
+      "finger": "middle",
+      "key": "Л"
+    },
+    {
+      "char": "д",
+      "hand": "right",
+      "finger": "ring",
+      "key": "Д"
+    },
+    {
+      "char": "ж",
+      "hand": "right",
+      "finger": "pinky",
+      "key": "Ж"
+    },
+    {
+      "char": " ",
+      "hand": "left",
+      "finger": "thumb",
+      "key": "Space",
+      "space_side": "left"
+    },
+    {
+      "char": "ф",
+      "hand": "left",
+      "finger": "pinky",
+      "key": "Ф"
+    },
+    {
+      "char": "ы",
+      "hand": "left",
+      "finger": "ring",
+      "key": "Ы"
+    },
+    {
+      "char": "в",
+      "hand": "left",
+      "finger": "middle",
+      "key": "В"
+    },
+    {
+      "char": "а",
+      "hand": "left",
+      "finger": "index",
+      "key": "А"
+    },
+    {
+      "char": " ",
+      "hand": "right",
+      "finger": "thumb",
+      "key": "Space",
+      "space_side": "right"
+    },
+    {
+      "char": "о",
+      "hand": "right",
+      "finger": "index",
+      "key": "О"
+    },
+    {
+      "char": "л",
+      "hand": "right",
+      "finger": "middle",
+      "key": "Л"
+    },
+    {
+      "char": "д",
+      "hand": "right",
+      "finger": "ring",
+      "key": "Д"
+    },
+    {
+      "char": "ж",
+      "hand": "right",
+      "finger": "pinky",
+      "key": "Ж"
+    },
+    {
+      "char": " ",
+      "hand": "left",
+      "finger": "thumb",
+      "key": "Space",
+      "space_side": "left"
+    },
+    {
+      "char": "ф",
+      "hand": "left",
+      "finger": "pinky",
+      "key": "Ф"
+    },
+    {
+      "char": "ы",
+      "hand": "left",
+      "finger": "ring",
+      "key": "Ы"
+    },
+    {
+      "char": "в",
+      "hand": "left",
+      "finger": "middle",
+      "key": "В"
+    },
+    {
+      "char": "а",
+      "hand": "left",
+      "finger": "index",
+      "key": "А"
+    },
+    {
+      "char": " ",
+      "hand": "right",
+      "finger": "thumb",
+      "key": "Space",
+      "space_side": "right"
+    },
+    {
+      "char": "о",
+      "hand": "right",
+      "finger": "index",
+      "key": "О"
+    },
+    {
+      "char": "л",
+      "hand": "right",
+      "finger": "middle",
+      "key": "Л"
+    },
+    {
+      "char": "д",
+      "hand": "right",
+      "finger": "ring",
+      "key": "Д"
+    },
+    {
+      "char": "ж",
+      "hand": "right",
+      "finger": "pinky",
+      "key": "Ж"
+    }
+  ],
+  "keys_trained": [
+    "Ф",
+    "Ы",
+    "В",
+    "А",
+    "О",
+    "Л",
+    "Д",
+    "Ж",
+    "Space"
+  ],
+  "finger_focus": "Все пальцы HOME ROW + большие пальцы (Space)",
+  "tips": [
+    "Поставь пальцы на ФЫВА (левая рука) и ОЛДЖА (правая рука)",
+    "Почувствуй небольшие выступы на клавишах А и О — это твои направляющие точки!",
+    "ВАЖНО: После слова левой рукой нажимай пробел ПРАВЫМ большим пальцем",
+    "ВАЖНО: После слова правой рукой нажимай пробел ЛЕВЫМ большим пальцем",
+    "Смотри на виртуальную клавиатуру — она показывает какой половиной Space нажимать (фиолетовый цвет)",
+    "Не спеши! Точность важнее скорости",
+    "После пробела возвращай пальцы в исходную позицию"
+  ],
+  "character_tips": {
+    "anna": "Отлично! Ты освоил базовую позицию. Обрати внимание на пробел — руки чередуются! Это ритм слепого набора.",
+    "maxim": "Хорошее начало! Запомни правило пробела: левая рука → правый большой, правая рука → левый большой. Это ускорит печать!",
+    "knopych": "Вау! Ты нашел свой дом на клавиатуре! А пробел — это как переключение между базами! Левый-правый, левый-правый!",
+    "klavochka": "Какая ты молодец! Пальчики танцуют: левые, потом правые, потом пробел другой рукой! Как красиво!"
+  },
+  "phase": 1,
+  "created_at": "2025-11-17",
+  "version": "1.1"
+}

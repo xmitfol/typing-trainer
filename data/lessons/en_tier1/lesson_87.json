@@ -1,0 +1,31 @@
+{
+  "id": "en_tier1_lesson_87",
+  "tier": "en_tier1",
+  "lesson_number": 87,
+  "title": "Marketing copy",
+  "description": "Punchy, rhythmic marketing language at top speed",
+  "target_wpm": 86,
+  "text_length": 290,
+  "error_limit_percent": 5,
+  "error_limit": 14,
+  "text": "Imagine doing more in less time. Imagine writing emails twice as fast, finishing reports before lunch, and never letting the keyboard slow your thinking. That is what real typing fluency feels like — quiet, confident, automatic. Start your trial today; the first thirty days are on us.",
+  "text_sequence": [],
+  "keys_trained": ["A-Z", "Space", ",", ".", "—", "—", ";", "Shift"],
+  "new_keys": [],
+  "finger_focus": "Marketing rhythm + emphasis",
+  "tips": [
+    "Marketing copy has a quick, punchy beat — match it with your fingers",
+    "Short emphatic sentences sit between long ones — feel the contrast",
+    "Imagine + dash + benefit = classic marketing rhythm pattern"
+  ],
+  "character_tips": {
+    "anna": "Marketing copy is short, rhythmic, persuasive. Type it like a pitch.",
+    "maxim": "Marketers are the fastest typists you'll meet outside of pro stenographers.",
+    "knopych": "AD ATTACK! 📣 Punchy and bold!",
+    "klavochka": "Inspiring others with words, my treasure — beautiful work ✨"
+  },
+  "phase": 6,
+  "rhythmLesson": false,
+  "created_at": "2026-05-25",
+  "version": "1.0"
+}

@@ -1,0 +1,38 @@
+{
+  "id": "en_kids_lesson_38",
+  "tier": "en_kids",
+  "lesson_number": 38,
+  "title": "Birthday party",
+  "description": "Birthday celebration!",
+  "target_wpm": 39,
+  "text_length": 147,
+  "error_limit_percent": 10,
+  "error_limit": 14,
+  "text": "Today is my birthday! I am 8 years old. Mom made a big cake with 8 candles. My friends came over. We played games. I got a new bike. Best day ever!",
+  "text_sequence": [],
+  "keys_trained": [
+    "A-Z",
+    "0-9",
+    "Shift",
+    "Space",
+    ".",
+    "!"
+  ],
+  "new_keys": [],
+  "finger_focus": "Celebration story",
+  "tips": [
+    "Age numbers mixed with words",
+    "Excited tone (lots of !)",
+    "Personal happy story"
+  ],
+  "character_tips": {
+    "anna": "Birthday story! Excitement with lots of !",
+    "maxim": "Celebration prose. Mixed content + emotion.",
+    "knopych": "🎂 BIRTHDAY MODE! Cake, candles, presents!",
+    "klavochka": "Happy birthday, my dear 🎉🎂"
+  },
+  "phase": 4,
+  "rhythmLesson": false,
+  "created_at": "2026-05-25",
+  "version": "1.0"
+}

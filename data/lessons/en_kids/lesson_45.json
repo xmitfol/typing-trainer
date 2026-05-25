@@ -1,0 +1,39 @@
+{
+  "id": "en_kids_lesson_45",
+  "tier": "en_kids",
+  "lesson_number": 45,
+  "title": "45-lesson milestone",
+  "description": "Five lessons to the certificate!",
+  "target_wpm": 45,
+  "text_length": 183,
+  "error_limit_percent": 10,
+  "error_limit": 18,
+  "text": "45 lessons! You can write real stories, ask questions, count numbers, and share your feelings. Five lessons left until you become a certified little typist. Stay calm, type with care!",
+  "text_sequence": [],
+  "keys_trained": [
+    "A-Z",
+    "0-9",
+    "Shift",
+    "Space",
+    ".",
+    "!",
+    ","
+  ],
+  "new_keys": [],
+  "finger_focus": "45-lesson speed test",
+  "tips": [
+    "🎉 Five lessons left!",
+    "Real typing skill achieved",
+    "Finale at L50 — the certificate!"
+  ],
+  "character_tips": {
+    "anna": "🎯 45 in! Five to the certificate. Stay calm.",
+    "maxim": "45 lessons. Five to finale. Hold the gain.",
+    "knopych": "🏆 5 TO GO! Certificate incoming!",
+    "klavochka": "Five steps to your special crown, my hero 👑"
+  },
+  "phase": 5,
+  "rhythmLesson": false,
+  "created_at": "2026-05-25",
+  "version": "1.0"
+}

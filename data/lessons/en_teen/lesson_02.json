@@ -1,0 +1,40 @@
+{
+  "id": "en_teen_lesson_02",
+  "tier": "en_teen",
+  "lesson_number": 2,
+  "title": "Home row: real words",
+  "description": "Build short words from home row keys only",
+  "target_wpm": 20,
+  "text_length": 60,
+  "error_limit_percent": 8,
+  "error_limit": 4,
+  "text": "ask sad lad fall sass lass dad fad jak lad dad fall sass ask",
+  "text_sequence": [],
+  "keys_trained": [
+    "A",
+    "S",
+    "D",
+    "F",
+    "J",
+    "K",
+    "L",
+    "Space"
+  ],
+  "new_keys": [],
+  "finger_focus": "Home row word formation",
+  "tips": [
+    "Real words from just home row — you can already write!",
+    "Notice your fingers barely move",
+    "Spaces with thumb — keep it light"
+  ],
+  "character_tips": {
+    "anna": "Real words already, just from home row. Your fingers know the pattern.",
+    "maxim": "Eight keys, dozens of words. The keyboard rewards efficiency.",
+    "knopych": "WORDS UNLOCKED! 🎮 Home row OP — overpowered!",
+    "klavochka": "Look at you, writing real words! 🌸 Tiny victory!"
+  },
+  "phase": 1,
+  "rhythmLesson": false,
+  "created_at": "2026-05-25",
+  "version": "1.0"
+}

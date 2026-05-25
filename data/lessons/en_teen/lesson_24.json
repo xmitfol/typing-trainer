@@ -1,0 +1,40 @@
+{
+  "id": "en_teen_lesson_24",
+  "tier": "en_teen",
+  "lesson_number": 24,
+  "title": "TV dialogue snippet",
+  "description": "Show-style banter at speed",
+  "target_wpm": 49,
+  "text_length": 113,
+  "error_limit_percent": 7,
+  "error_limit": 7,
+  "text": "Hey, did you see that? No way! That was epic. Wait, what's happening now? Just watch. Trust me on this one, okay?",
+  "text_sequence": [],
+  "keys_trained": [
+    "A-Z",
+    "Shift",
+    "Space",
+    ".",
+    ",",
+    "?",
+    "!",
+    "'"
+  ],
+  "new_keys": [],
+  "finger_focus": "Dialogue rhythm + multiple punctuation",
+  "tips": [
+    "TV banter is short, snappy, real",
+    "Multiple speakers = quick punctuation shifts",
+    "Practice the comma+space+capital pattern"
+  ],
+  "character_tips": {
+    "anna": "Real-world dialogue. Short, punctuated, fast.",
+    "maxim": "TV writing is the high-density end of dialogue. Master this.",
+    "knopych": "📺 SCRIPT MODE! Two characters arguing at speed!",
+    "klavochka": "Friends talking on a show, my dear 💬"
+  },
+  "phase": 2,
+  "rhythmLesson": false,
+  "created_at": "2026-05-25",
+  "version": "1.0"
+}

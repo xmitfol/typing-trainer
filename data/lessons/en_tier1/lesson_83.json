@@ -1,0 +1,31 @@
+{
+  "id": "en_tier1_lesson_83",
+  "tier": "en_tier1",
+  "lesson_number": 83,
+  "title": "Rhythm: technical paragraph flow",
+  "description": "Long technical passage — sustained engineering writing tempo",
+  "target_wpm": 83,
+  "text_length": 320,
+  "error_limit_percent": 5,
+  "error_limit": 16,
+  "text": "When the cache miss rate exceeded fifteen percent, latency on the read path climbed sharply. The team investigated the root cause and found that recent deploys had reduced the cache TTL from one hour to ten minutes. After restoring the original value and adding a warm-up step on startup, P95 latency dropped back to its baseline of forty milliseconds.",
+  "text_sequence": [],
+  "keys_trained": ["A-Z", "Space", ",", ".", "Shift"],
+  "new_keys": [],
+  "finger_focus": "Engineering prose tempo",
+  "tips": [
+    "Real engineering post-mortems read like this — train it as a daily skill",
+    "Long technical sentences need sustained rhythm — no slowdown at terms",
+    "Metronome at 83 BPM — match it through the whole passage"
+  ],
+  "character_tips": {
+    "anna": "Engineering writing at 83 WPM — most senior engineers can't hit this.",
+    "maxim": "Post-mortems and design docs live here. Career multiplier.",
+    "knopych": "POST-MORTEM MODE! 🔍 Debugging in prose form!",
+    "klavochka": "Like explaining a puzzle to a friend, my sunshine 🧩"
+  },
+  "phase": 6,
+  "rhythmLesson": true,
+  "created_at": "2026-05-25",
+  "version": "1.0"
+}

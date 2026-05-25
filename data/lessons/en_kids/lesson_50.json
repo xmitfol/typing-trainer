@@ -1,0 +1,39 @@
+{
+  "id": "en_kids_lesson_50",
+  "tier": "en_kids",
+  "lesson_number": 50,
+  "title": "KIDS COURSE FINAL: My adventure",
+  "description": "The final exam — 50 WPM on a complete adventure story. Pass earns the Kids Mastery certificate!",
+  "target_wpm": 50,
+  "text_length": 271,
+  "error_limit_percent": 8,
+  "error_limit": 21,
+  "text": "Once there was a brave little kid who wanted to learn to type. They started with just one letter. Then two. Then ten. Then they could write stories, ask questions, and count to a hundred! After 50 lessons, they earned the title of Real Typist. That brave kid is YOU. Yay!",
+  "text_sequence": [],
+  "keys_trained": [
+    "A-Z",
+    "0-9",
+    "Shift",
+    "Space",
+    ".",
+    "!"
+  ],
+  "new_keys": [],
+  "finger_focus": "Kids course comprehensive exam",
+  "tips": [
+    "🎓 KIDS COURSE FINAL!",
+    "Pass at 25+ WPM = Bronze, 40+ = Silver",
+    "After this you are CERTIFIED!",
+    "Type slowly if you must — accuracy first"
+  ],
+  "character_tips": {
+    "anna": "🎓🏆 KIDS FINAL! 50 lessons led here. Type with care!",
+    "maxim": "End of kids course. Pass = certified.",
+    "knopych": "🐉👑 FINAL BOSS! Crown the little hero!",
+    "klavochka": "🎉🎉🎉 My hero, the final moment! 👑✨ Crown earned!"
+  },
+  "phase": 5,
+  "rhythmLesson": false,
+  "created_at": "2026-05-25",
+  "version": "1.0"
+}

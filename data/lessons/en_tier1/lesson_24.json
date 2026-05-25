@@ -1,0 +1,31 @@
+{
+  "id": "en_tier1_lesson_24",
+  "tier": "en_tier1",
+  "lesson_number": 24,
+  "title": "Long sentences and clauses",
+  "description": "Complex sentences with multiple clauses — endurance for real writing",
+  "target_wpm": 28,
+  "text_length": 160,
+  "error_limit_percent": 8,
+  "error_limit": 12,
+  "text": "when she wrote the report, he watched closely; she paused, smiled, and said: \"this is the moment we waited for; let's celebrate it well.\" they did, with joy.",
+  "text_sequence": [],
+  "keys_trained": ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", ":", ";", ",", ".", "!", "?", "'", "\"", "-", "Space"],
+  "new_keys": [],
+  "finger_focus": "All — endurance + complex punctuation",
+  "tips": [
+    "160 chars — longest text so far",
+    "Long sentences need steady pace, not bursts",
+    "Take a breath at semicolons — let your brain catch up"
+  ],
+  "character_tips": {
+    "anna": "Long sentences build endurance. Steady tempo wins.",
+    "maxim": "Professional writing is mostly long-form. This is your stamina test.",
+    "knopych": "BIG TEXT BATTLE! 160 chars without errors! 🐉",
+    "klavochka": "Long beautiful sentences — like a story 📖"
+  },
+  "phase": 2,
+  "rhythmLesson": false,
+  "created_at": "2026-05-25",
+  "version": "1.0"
+}

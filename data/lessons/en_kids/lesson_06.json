@@ -1,0 +1,39 @@
+{
+  "id": "en_kids_lesson_06",
+  "tier": "en_kids",
+  "lesson_number": 6,
+  "title": "Letters K and L",
+  "description": "Right middle and ring fingers — K and L",
+  "target_wpm": 12,
+  "text_length": 68,
+  "error_limit_percent": 10,
+  "error_limit": 6,
+  "text": "k k k l l l ka ka ka la la la kal kal kal jak jak jak fall fall fall",
+  "text_sequence": [],
+  "keys_trained": [
+    "A",
+    "S",
+    "D",
+    "F",
+    "J",
+    "K",
+    "L"
+  ],
+  "new_keys": [],
+  "finger_focus": "Right middle + ring finger",
+  "tips": [
+    "K and L next to J",
+    "Right middle finger = K, right ring = L",
+    "More tiny words possible"
+  ],
+  "character_tips": {
+    "anna": "K and L. Two more friends. \"Fall\" is your new word 🌷",
+    "maxim": "Six home-row keys. Real words appearing.",
+    "knopych": "K + L UNLOCKED! 🎯 Six letters in your collection!",
+    "klavochka": "Two new friends joined, my sunshine ☀️"
+  },
+  "phase": 1,
+  "rhythmLesson": false,
+  "created_at": "2026-05-25",
+  "version": "1.0"
+}

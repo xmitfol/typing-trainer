@@ -1,0 +1,38 @@
+{
+  "id": "en_teen_lesson_34",
+  "tier": "en_teen",
+  "lesson_number": 34,
+  "title": "Hashtags and mentions",
+  "description": "Social media symbols — # and @ at speed",
+  "target_wpm": 62,
+  "text_length": 99,
+  "error_limit_percent": 6,
+  "error_limit": 5,
+  "text": "#fyp #foryou #vibes #2026 #goals @user @friend @mod #throwback #monday #squad #life #love @official",
+  "text_sequence": [],
+  "keys_trained": [
+    "A-Z",
+    "0-9",
+    "Shift",
+    "Space",
+    "#",
+    "@"
+  ],
+  "new_keys": [],
+  "finger_focus": "# and @ symbol drill",
+  "tips": [
+    "# is Shift+3, @ is Shift+2",
+    "Both need RIGHT pinky Shift + LEFT hand reach",
+    "These two symbols = 90% of social media posts"
+  ],
+  "character_tips": {
+    "anna": "# and @ are everywhere online. Master both = master social.",
+    "maxim": "Two symbols cover 90% of social media. Worth the drill.",
+    "knopych": "📱 # AND @ POWER! Social media engaged!",
+    "klavochka": "Like little signs pointing to friends and ideas, my dear 💕"
+  },
+  "phase": 3,
+  "rhythmLesson": false,
+  "created_at": "2026-05-25",
+  "version": "1.0"
+}

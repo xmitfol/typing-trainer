@@ -1,0 +1,34 @@
+{
+  "id": "en_teen_lesson_23",
+  "tier": "en_teen",
+  "lesson_number": 23,
+  "title": "Song lyrics: chorus repetition",
+  "description": "Repeating chorus structure — rhythm of song",
+  "target_wpm": 48,
+  "text_length": 110,
+  "error_limit_percent": 7,
+  "error_limit": 7,
+  "text": "shine shine shine on shine shine shine on we are young we are gold we will never grow old shine shine shine on",
+  "text_sequence": [],
+  "keys_trained": [
+    "A-Z",
+    "Space"
+  ],
+  "new_keys": [],
+  "finger_focus": "Song-chorus repetition rhythm",
+  "tips": [
+    "Choruses repeat for a reason — train muscle memory",
+    "Type along to a beat in your head",
+    "Speed comes from rhythm, not effort"
+  ],
+  "character_tips": {
+    "anna": "Song lyrics are repetition by design — perfect for typing speed.",
+    "maxim": "Chorus structure = pattern recognition for fingers.",
+    "knopych": "🎤 SING-ALONG MODE! Chorus on repeat!",
+    "klavochka": "Like singing in the shower, my sunshine 🚿🎵"
+  },
+  "phase": 2,
+  "rhythmLesson": false,
+  "created_at": "2026-05-25",
+  "version": "1.0"
+}

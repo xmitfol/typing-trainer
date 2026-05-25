@@ -1,0 +1,31 @@
+{
+  "id": "en_tier1_lesson_20",
+  "tier": "en_tier1",
+  "lesson_number": 20,
+  "title": "Block 2 mid-point: paragraph practice",
+  "description": "Real paragraph with full punctuation set — preview of writing fluency",
+  "target_wpm": 25,
+  "text_length": 130,
+  "error_limit_percent": 7,
+  "error_limit": 9,
+  "text": "we work hard, study every day, and never give up. \"do we?\" she asked. \"yes!\" they said. it's a good life, and we share it with friends.",
+  "text_sequence": [],
+  "keys_trained": ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", ",", ".", "!", "?", "'", "\"", "Space"],
+  "new_keys": [],
+  "finger_focus": "Everything — full paragraph endurance",
+  "tips": [
+    "Longest text so far — 130 chars with 7+ punctuation marks",
+    "If you slow down on punctuation, that's normal. Speed comes with practice",
+    "20% of Block 2 done — numbers and symbols come next"
+  ],
+  "character_tips": {
+    "anna": "Block 2 mid-point! You can already write real paragraphs. Numbers and symbols are next.",
+    "maxim": "130 characters with full punctuation — that's professional-level writing. Onwards.",
+    "knopych": "BLOCK 2 HALF DONE! 🏆 Numbers and symbols incoming! 🔢",
+    "klavochka": "Halfway through Block 2! You're growing so fast! 💖"
+  },
+  "phase": 2,
+  "rhythmLesson": false,
+  "created_at": "2026-05-25",
+  "version": "1.0"
+}

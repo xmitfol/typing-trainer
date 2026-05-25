@@ -1,0 +1,31 @@
+{
+  "id": "en_tier1_lesson_32",
+  "tier": "en_tier1",
+  "lesson_number": 32,
+  "title": "Shift symbols: ^ & * ( )",
+  "description": "Symbols above 6-0 — Shift + right-hand digits",
+  "target_wpm": 26,
+  "text_length": 80,
+  "error_limit_percent": 8,
+  "error_limit": 7,
+  "text": "2^3 = 8. a&b = and. 3*5 = 15. f(x) = y. (this) & (that) — both work great!",
+  "text_sequence": [],
+  "keys_trained": ["A-Z", "0-9", "!", "@", "#", "$", "%", "^", "&", "*", "(", ")", ".", "=", "Space"],
+  "new_keys": ["^", "&", "*", "(", ")"],
+  "finger_focus": "Left Shift held by pinky; right hand types 6-0 with own fingers",
+  "tips": [
+    "^ = Shift+6, & = Shift+7, * = Shift+8, ( = Shift+9, ) = Shift+0",
+    "Hold left Shift with left pinky, then type with right hand",
+    "Used in code: 2^3 (power), f(x) (function), if A&&B"
+  ],
+  "character_tips": {
+    "anna": "Right-side Shift symbols — use LEFT Shift, right-hand digits.",
+    "maxim": "Parentheses ( ) are everywhere — math, code, English. Master them.",
+    "knopych": "PAREN POWER! ( open ) close ⚡",
+    "klavochka": "Brackets hug ideas — like a gentle embrace 🤗"
+  },
+  "phase": 3,
+  "rhythmLesson": false,
+  "created_at": "2026-05-25",
+  "version": "1.0"
+}

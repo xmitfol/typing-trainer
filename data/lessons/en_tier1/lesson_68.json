@@ -1,0 +1,31 @@
+{
+  "id": "en_tier1_lesson_68",
+  "tier": "en_tier1",
+  "lesson_number": 68,
+  "title": "Rhythm: long paragraph",
+  "description": "Multi-sentence paragraph at high WPM — sustained tempo",
+  "target_wpm": 67,
+  "text_length": 250,
+  "error_limit_percent": 6,
+  "error_limit": 15,
+  "text": "The team worked late into the evening. Every screen glowed, every keyboard clicked. By eight o'clock, the bug was fixed, the tests were passing, and the new feature was ready to ship. Someone ordered pizza. The week was finally over.",
+  "text_sequence": [],
+  "keys_trained": ["A-Z", "Space", ",", ".", "'", "Shift"],
+  "new_keys": [],
+  "finger_focus": "Multi-sentence flow",
+  "tips": [
+    "Real prose has multiple sentences in flow",
+    "Periods are tempo breaks, not full stops — barely a pause",
+    "Enable metronome at 67 BPM — hold the tempo across all sentences"
+  ],
+  "character_tips": {
+    "anna": "Multi-sentence rhythm is real-world writing speed. Hold the tempo.",
+    "maxim": "Each period is a beat, not a stop. Keep the flow.",
+    "knopych": "FULL PARAGRAPH FLOW! 🌊 Don't let it dip!",
+    "klavochka": "Like a song with many verses, my sunshine 🎵"
+  },
+  "phase": 5,
+  "rhythmLesson": true,
+  "created_at": "2026-05-25",
+  "version": "1.0"
+}

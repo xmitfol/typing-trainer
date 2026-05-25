@@ -1,0 +1,42 @@
+{
+  "id": "en_teen_lesson_69",
+  "tier": "en_teen",
+  "lesson_number": 69,
+  "title": "Research notes",
+  "description": "Quick research-note style — facts + sources",
+  "target_wpm": 93,
+  "text_length": 227,
+  "error_limit_percent": 4,
+  "error_limit": 9,
+  "text": "Source 1 (Nature, 2024): The fastest typing speed recorded is 216 WPM, set in 1946 on a manual typewriter. Source 2 (Guinness): Modern computer-typing record is 248 WPM. Both rely on extensive muscle-memory training over years.",
+  "text_sequence": [],
+  "keys_trained": [
+    "A-Z",
+    "0-9",
+    "Shift",
+    "Space",
+    ".",
+    ",",
+    "(",
+    ")",
+    ":",
+    ";"
+  ],
+  "new_keys": [],
+  "finger_focus": "Research note rhythm",
+  "tips": [
+    "Note format = source + fact + parens",
+    "High-density factual prose",
+    "Real research workflow"
+  ],
+  "character_tips": {
+    "anna": "Research notes. Highest-density factual format.",
+    "maxim": "If you can type research at 93 WPM, papers fly by.",
+    "knopych": "🔬 RESEARCH MODE! Sources locked!",
+    "klavochka": "Notes from learning, my dear 📚"
+  },
+  "phase": 5,
+  "rhythmLesson": false,
+  "created_at": "2026-05-25",
+  "version": "1.0"
+}

@@ -1,0 +1,31 @@
+{
+  "id": "en_tier1_lesson_64",
+  "tier": "en_tier1",
+  "lesson_number": 64,
+  "title": "Technical documentation snippet",
+  "description": "Tech writing — precise, structured, with technical terms",
+  "target_wpm": 63,
+  "text_length": 220,
+  "error_limit_percent": 6,
+  "error_limit": 13,
+  "text": "The API returns a JSON response with three fields: status, data, and error. If status equals \"ok\", the data field contains the requested resource. Otherwise, error provides a human-readable message and an error code.",
+  "text_sequence": [],
+  "keys_trained": ["A-Z", "Space", ",", ".", ":", "\"", "Shift"],
+  "new_keys": [],
+  "finger_focus": "Technical terms + structure",
+  "tips": [
+    "Technical writing has consistent terminology — same words repeat",
+    "Colons signal structure: ok with them and you're a tech writer",
+    "Code-ish terms (API, JSON) should flow as words, not letter-by-letter"
+  ],
+  "character_tips": {
+    "anna": "Technical docs are everywhere in modern work. Master the rhythm.",
+    "maxim": "Engineers write more than they code. Tech prose = career skill.",
+    "knopych": "TECH MODE! ⚙️ JSON, API, all the buzzwords!",
+    "klavochka": "Clear and precise, like recipe instructions, my dear 📋"
+  },
+  "phase": 5,
+  "rhythmLesson": false,
+  "created_at": "2026-05-25",
+  "version": "1.0"
+}

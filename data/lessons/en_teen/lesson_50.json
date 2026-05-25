@@ -1,0 +1,37 @@
+{
+  "id": "en_teen_lesson_50",
+  "tier": "en_teen",
+  "lesson_number": 50,
+  "title": "50-lesson teen milestone",
+  "description": "Two-thirds through teen course",
+  "target_wpm": 75,
+  "text_length": 175,
+  "error_limit_percent": 5,
+  "error_limit": 8,
+  "text": "fifty lessons done and your fingers are flying. the next 25 lessons turn this speed into sustainable habit. dont stop now — momentum is everything in this part of the journey.",
+  "text_sequence": [],
+  "keys_trained": [
+    "A-Z",
+    "Space",
+    ",",
+    ".",
+    "-"
+  ],
+  "new_keys": [],
+  "finger_focus": "50-lesson speed test",
+  "tips": [
+    "50 = two-thirds of teen course",
+    "Track your peak — should be 70+ by now",
+    "Final block (B5) takes you to 90+"
+  ],
+  "character_tips": {
+    "anna": "🎯 50 lessons in! Two-thirds done. Final stretch coming.",
+    "maxim": "Halfway+? Track your peak. Final block is application.",
+    "knopych": "🏁 50! HOMESTRETCH MODE!",
+    "klavochka": "Two-thirds to legend, my star ⭐⭐"
+  },
+  "phase": 4,
+  "rhythmLesson": false,
+  "created_at": "2026-05-25",
+  "version": "1.0"
+}

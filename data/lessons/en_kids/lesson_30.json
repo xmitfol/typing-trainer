@@ -1,0 +1,39 @@
+{
+  "id": "en_kids_lesson_30",
+  "tier": "en_kids",
+  "lesson_number": 30,
+  "title": "BLOCK 3 FINAL: Story with sentences",
+  "description": "Real story with all three sentence kinds at 32 WPM",
+  "target_wpm": 32,
+  "text_length": 143,
+  "error_limit_percent": 10,
+  "error_limit": 14,
+  "text": "I have 2 cats. They love to play! Where do they go all day? They climb trees. They chase bees. They sleep in the sun. I love my 2 cats so much!",
+  "text_sequence": [],
+  "keys_trained": [
+    "A-Z",
+    "0-9",
+    "Shift",
+    "Space",
+    ".",
+    "?",
+    "!"
+  ],
+  "new_keys": [],
+  "finger_focus": "Block 3 mastery gate",
+  "tips": [
+    "🎉 Real story with all three sentence kinds!",
+    "Numbers too!",
+    "32 WPM = great young typist"
+  ],
+  "character_tips": {
+    "anna": "🎯 Block 3 done! Real story with all sentence types!",
+    "maxim": "Block 3 cleared. Sentences mastered.",
+    "knopych": "🐉 BLOCK 3 BOSS DEFEATED! Sentence mastery!",
+    "klavochka": "🎉 Three blocks done! My hero! ⭐⭐⭐"
+  },
+  "phase": 3,
+  "rhythmLesson": false,
+  "created_at": "2026-05-25",
+  "version": "1.0"
+}

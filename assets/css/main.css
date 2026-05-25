@@ -1,5 +1,37 @@
 /* assets/css/main.css - Основные стили проекта */
 
+/* ============================================
+   Page-уровень дизайн-токены (light по умолчанию,
+   dark вариант через prefers-color-scheme).
+   Декоративные элементы (quote-panel, start-btn,
+   character cards) намеренно остаются яркими в обеих темах.
+   ============================================ */
+:root {
+    --page-bg: #f5f5f5;
+    --page-fg: #333333;
+    --card-bg: #ffffff;
+    --card-fg: #2d3436;
+    --card-muted-fg: #6b7280;
+    --card-border: #e5e7eb;
+    --card-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    --divider: #f3f4f6;
+    --accent-blue: #2196f3;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --page-bg: #161614;
+        --page-fg: #d1d5db;
+        --card-bg: #1d1d1b;
+        --card-fg: #f3f1ea;
+        --card-muted-fg: #9ca3af;
+        --card-border: rgba(255,255,255,0.08);
+        --card-shadow: 0 2px 10px rgba(0,0,0,0.5);
+        --divider: rgba(255,255,255,0.06);
+        --accent-blue: #60a5fa;
+    }
+}
+
 /* Сброс стилей */
 * {
     margin: 0;
@@ -13,8 +45,8 @@ html {
 
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #f5f5f5;
-    color: #333;
+    background-color: var(--page-bg);
+    color: var(--page-fg);
     overflow-x: hidden;
     line-height: 1.6;
 }
@@ -112,64 +144,247 @@ body {
 
 /* Левая боковая панель */
 .sidebar {
-    width: 180px;
-    background: white;
+    width: 220px;
+    background: var(--card-bg);
+    color: var(--card-fg);
     border-radius: 10px;
     padding: 15px;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-    height: fit-content;
+    box-shadow: var(--card-shadow);
     flex-shrink: 0;
-    max-height: 400px;
+    display: flex;
+    flex-direction: column;
+    max-height: calc(100vh - 200px);
+    min-height: 320px;
 }
 
 .sidebar h3 {
-    color: #2d3436;
-    margin-bottom: 15px;
+    color: var(--card-fg);
     font-size: 1rem;
-    padding-bottom: 8px;
-    border-bottom: 2px solid #ddd;
+    margin: 0;
 }
 
-.difficulty-levels {
+.sidebar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+    border-bottom: 2px solid var(--card-border);
+}
+
+.lesson-counter {
+    font-size: 0.85rem;
+    color: var(--card-muted-fg);
+    font-weight: 500;
+}
+
+/* Tier switcher — pills под sidebar-header */
+.tier-switcher {
+    display: flex;
+    gap: 6px;
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #f3f4f6;
+}
+
+.tier-pill {
+    flex: 1;
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    align-items: center;
+    gap: 1px;
+    padding: 6px 8px;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    background: #ffffff;
+    color: #4b5563;
+    font-family: inherit;
+    font-size: 0.75rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all .15s ease;
+    user-select: none;
+    line-height: 1.2;
 }
 
-.level-item {
+.tier-pill:hover {
+    background: #f9fafb;
+    transform: translateY(-1px);
+}
+
+.tier-pill.tier-active {
+    background: linear-gradient(135deg, #dbeafe, #bfdbfe);
+    border-color: #60a5fa;
+    color: #1e40af;
+    font-weight: 600;
+}
+
+.tier-name {
+    font-size: 0.78rem;
+}
+
+.tier-count {
+    font-size: 0.7rem;
+    color: #9ca3af;
+    font-variant-numeric: tabular-nums;
+}
+
+.tier-pill.tier-active .tier-count {
+    color: #2563eb;
+}
+
+/* Список уроков — скроллится если высота превышает sidebar */
+.lesson-list {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    overflow-y: auto;
+    flex: 1;
+    padding-right: 4px;
+}
+
+.lesson-list::-webkit-scrollbar { width: 6px; }
+.lesson-list::-webkit-scrollbar-thumb { background: #d1d5db; border-radius: 3px; }
+.lesson-list::-webkit-scrollbar-track { background: transparent; }
+
+/* Одна строка урока */
+.lesson-item {
     display: flex;
     align-items: center;
-    gap: 10px;
-    padding: 10px;
-    border-radius: 8px;
+    gap: 8px;
+    padding: 7px 9px;
+    border-radius: 6px;
     cursor: pointer;
-    transition: all 0.2s ease;
+    transition: background-color 0.15s ease, transform 0.15s ease;
     user-select: none;
+    position: relative;
+    font-size: 0.85rem;
+    border: 1px solid transparent;
 }
 
-.level-item:hover {
-    background-color: #f8f9fa;
-    transform: translateX(2px);
+.lesson-item:focus-visible {
+    outline: 2px solid #2196f3;
+    outline-offset: 1px;
 }
 
-.level-item.active {
-    background-color: #e3f2fd;
-    border-left: 4px solid #2196f3;
+.lesson-num {
+    font-weight: 700;
+    color: #6b7280;
+    min-width: 22px;
+    text-align: right;
+    font-variant-numeric: tabular-nums;
 }
 
-.level-circle {
-    width: 20px;
-    height: 20px;
-    border-radius: 50%;
+.lesson-title {
+    flex: 1;
+    color: #1f2937;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.lesson-stars {
+    color: #f59e0b;
+    font-size: 0.75rem;
+    letter-spacing: -1px;
     flex-shrink: 0;
 }
 
-.level-circle.pink { background-color: #ff7675; }
-.level-circle.orange { background-color: #fdcb6e; }
-.level-circle.green { background-color: #00b894; }
-.level-circle.cyan { background-color: #74b9ff; }
-.level-circle.blue { background-color: #0984e3; }
-.level-circle.purple { background-color: #a29bfe; }
+.lesson-lock {
+    color: #9ca3af;
+    flex-shrink: 0;
+}
+
+.lesson-current-mark {
+    position: absolute;
+    left: 0;
+    color: #2196f3;
+    font-weight: 700;
+}
+
+/* Состояния */
+/* Lesson item state colors — через CSS-токены чтобы dark theme работал */
+:root {
+    --lesson-completed-bg: #f0fdf4;
+    --lesson-completed-fg: #166534;
+    --lesson-completed-num: #16a34a;
+    --lesson-completed-hover: #dcfce7;
+    --lesson-current-bg: linear-gradient(135deg, #dbeafe, #bfdbfe);
+    --lesson-current-bg-hover: linear-gradient(135deg, #bfdbfe, #93c5fd);
+    --lesson-current-border: #60a5fa;
+    --lesson-current-num: #1e40af;
+    --lesson-current-fg: #1e3a8a;
+    --lesson-available-bg: #ffffff;
+    --lesson-available-hover: #f9fafb;
+    --lesson-locked-fg: #9ca3af;
+    --lesson-locked-num: #d1d5db;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --lesson-completed-bg: rgba(34, 197, 94, 0.12);
+        --lesson-completed-fg: #86efac;
+        --lesson-completed-num: #4ade80;
+        --lesson-completed-hover: rgba(34, 197, 94, 0.2);
+        --lesson-current-bg: linear-gradient(135deg, rgba(59, 130, 246, 0.25), rgba(96, 165, 250, 0.35));
+        --lesson-current-bg-hover: linear-gradient(135deg, rgba(96, 165, 250, 0.35), rgba(147, 197, 253, 0.45));
+        --lesson-current-border: #60a5fa;
+        --lesson-current-num: #93c5fd;
+        --lesson-current-fg: #dbeafe;
+        --lesson-available-bg: transparent;
+        --lesson-available-hover: rgba(255,255,255,0.04);
+        --lesson-locked-fg: #6b7280;
+        --lesson-locked-num: #4b5563;
+    }
+}
+
+.lesson-item.lesson-completed {
+    background: var(--lesson-completed-bg);
+    color: var(--lesson-completed-fg);
+}
+.lesson-item.lesson-completed:hover {
+    background: var(--lesson-completed-hover);
+}
+.lesson-item.lesson-completed .lesson-num {
+    color: var(--lesson-completed-num);
+}
+
+.lesson-item.lesson-current {
+    background: var(--lesson-current-bg);
+    border-color: var(--lesson-current-border);
+    padding-left: 14px;
+}
+.lesson-item.lesson-current:hover {
+    background: var(--lesson-current-bg-hover);
+}
+.lesson-item.lesson-current .lesson-num {
+    color: var(--lesson-current-num);
+}
+.lesson-item.lesson-current .lesson-title {
+    font-weight: 600;
+    color: var(--lesson-current-fg);
+}
+
+.lesson-item.lesson-available {
+    background: var(--lesson-available-bg);
+}
+.lesson-item.lesson-available:hover {
+    background: var(--lesson-available-hover);
+}
+
+.lesson-item.lesson-locked {
+    background: transparent;
+    color: var(--lesson-locked-fg);
+    cursor: not-allowed;
+    opacity: 0.55;
+}
+.lesson-item.lesson-locked:hover {
+    background: transparent;
+    transform: none;
+}
+.lesson-item.lesson-locked .lesson-num {
+    color: var(--lesson-locked-num);
+}
 
 /* Центральная область редактора */
 .editor-container {
@@ -181,10 +396,11 @@ body {
 }
 
 .progress-container {
-    background: white;
+    background: var(--card-bg);
+    color: var(--card-fg);
     padding: 15px 20px;
     border-radius: 10px;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    box-shadow: var(--card-shadow);
     display: flex;
     align-items: center;
     gap: 15px;
@@ -193,13 +409,13 @@ body {
 
 .progress-label {
     font-weight: bold;
-    color: #2d3436;
+    color: var(--card-fg);
     white-space: nowrap;
 }
 
 .progress-fraction {
     font-weight: bold;
-    color: #636e72;
+    color: var(--card-muted-fg);
     white-space: nowrap;
 }
 
@@ -222,10 +438,11 @@ body {
 
 /* Текстовый редактор */
 .text-editor {
-    background: white;
+    background: var(--card-bg);
+    color: var(--card-fg);
     border-radius: 10px;
     padding: 30px;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    box-shadow: var(--card-shadow);
     min-height: 200px;
     position: relative;
     font-size: 1.2rem;
@@ -245,7 +462,7 @@ body {
 }
 
 .text-to-type {
-    color: #636e72;
+    color: var(--card-muted-fg);
 }
 
 .typed-text {
@@ -317,17 +534,6 @@ body {
         max-width: none;
     }
     
-    .difficulty-levels {
-        flex-direction: row;
-        flex-wrap: wrap;
-        justify-content: center;
-    }
-    
-    .level-item {
-        flex: 1;
-        min-width: 120px;
-        max-width: 150px;
-    }
 }
 
 @media (max-width: 768px) {
@@ -385,11 +591,4 @@ body {
         font-size: 0.95rem;
     }
     
-    .difficulty-levels {
-        flex-direction: column;
-    }
-    
-    .level-item {
-        max-width: none;
-    }
 }

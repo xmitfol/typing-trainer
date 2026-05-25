@@ -1,0 +1,38 @@
+{
+  "id": "en_kids_lesson_43",
+  "tier": "en_kids",
+  "lesson_number": 43,
+  "title": "My favorite things",
+  "description": "Personal favorites list",
+  "target_wpm": 43,
+  "text_length": 156,
+  "error_limit_percent": 10,
+  "error_limit": 15,
+  "text": "I love sunny days. I love my family. I love books and music. I love cookies and ice cream. I love playing outside. I love sleeping in too! What do you love?",
+  "text_sequence": [],
+  "keys_trained": [
+    "A-Z",
+    "Shift",
+    "Space",
+    ".",
+    "!",
+    "?"
+  ],
+  "new_keys": [],
+  "finger_focus": "Personal preferences at speed",
+  "tips": [
+    "Personal love list",
+    "Multiple sentence types",
+    "Real personal writing"
+  ],
+  "character_tips": {
+    "anna": "Favorites list! What do YOU love?",
+    "maxim": "Personal preference writing. High engagement.",
+    "knopych": "❤️ LOVE LIST! All the things!",
+    "klavochka": "Sharing what makes you happy, my dear 💝"
+  },
+  "phase": 5,
+  "rhythmLesson": false,
+  "created_at": "2026-05-25",
+  "version": "1.0"
+}

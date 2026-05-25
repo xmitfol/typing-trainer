@@ -1,0 +1,39 @@
+{
+  "id": "en_teen_lesson_66",
+  "tier": "en_teen",
+  "lesson_number": 66,
+  "title": "History essay paragraph",
+  "description": "Historical narrative with dates",
+  "target_wpm": 90,
+  "text_length": 225,
+  "error_limit_percent": 4,
+  "error_limit": 9,
+  "text": "By 1969, the moon landing had captured the imagination of the entire world. Nearly 600 million people watched live on television. The mission demonstrated what was possible when nations invested in long-term, ambitious goals.",
+  "text_sequence": [],
+  "keys_trained": [
+    "A-Z",
+    "0-9",
+    "Shift",
+    "Space",
+    ".",
+    ",",
+    "-"
+  ],
+  "new_keys": [],
+  "finger_focus": "History writing rhythm",
+  "tips": [
+    "History = dates + names + narrative",
+    "Long sentences with embedded facts",
+    "School-essay realism"
+  ],
+  "character_tips": {
+    "anna": "History essay format. Dates and narrative in flow.",
+    "maxim": "History writing = storytelling with anchors. Train it.",
+    "knopych": "🚀 HISTORY MODE! Moon landing facts!",
+    "klavochka": "Stories of the past, my dear 📜"
+  },
+  "phase": 5,
+  "rhythmLesson": false,
+  "created_at": "2026-05-25",
+  "version": "1.0"
+}
