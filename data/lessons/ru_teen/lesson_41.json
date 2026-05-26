@@ -1,0 +1,41 @@
+{
+  "id": "ru_teen_lesson_41",
+  "tier": "ru_teen",
+  "lesson_number": 41,
+  "title": "URL и ссылки",
+  "description": "Формат URL + слэши + точки",
+  "target_wpm": 68,
+  "text_length": 117,
+  "error_limit_percent": 6,
+  "error_limit": 7,
+  "text": "tiktok.com/@user youtube.com/watch?v=abc123 spotify.com/playlist insta.com/p/post123 twitch.tv/user discord.gg/server",
+  "text_sequence": [],
+  "keys_trained": [
+    "A-Z",
+    "0-9",
+    "Space",
+    ".",
+    "/",
+    ":",
+    "?",
+    "=",
+    "@"
+  ],
+  "new_keys": [],
+  "finger_focus": "Структура URL на скорости",
+  "tips": [
+    "URL = точка + слэш + смесь символов",
+    "= и ? появляются в query-параметрах",
+    "Современная жизнь = URL-ы"
+  ],
+  "character_tips": {
+    "anna": "URL повсюду. Освой ритм слэш + точка.",
+    "maxim": "Среднестатистический работник печатает 50+ URL в день. Высокая отдача.",
+    "knopych": "🔗 РЕЖИМ ССЫЛОК! URL-ы на скорости!",
+    "klavochka": "Маленькие пути к местам, мой милый 🌐"
+  },
+  "phase": 3,
+  "rhythmLesson": false,
+  "created_at": "2026-05-26",
+  "version": "1.0"
+}
