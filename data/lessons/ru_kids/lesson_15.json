@@ -1,0 +1,34 @@
+{
+  "id": "ru_kids_lesson_15",
+  "tier": "ru_kids",
+  "lesson_number": 15,
+  "title": "Ритм: слова из 3 букв",
+  "description": "Тройки букв с ритмом",
+  "target_wpm": 22,
+  "text_length": 59,
+  "error_limit_percent": 10,
+  "error_limit": 5,
+  "text": "кот кот кот ест ест ест дом дом дом сон сон сон она она она",
+  "text_sequence": [],
+  "keys_trained": [
+    "А-Я",
+    "Space"
+  ],
+  "new_keys": [],
+  "finger_focus": "Ритм 3-буквенных слов",
+  "tips": [
+    "Тройки букв — лёгкие и быстрые",
+    "Каждое слово трижды",
+    "Как стук маленького барабанчика"
+  ],
+  "character_tips": {
+    "anna": "Тройки букв — лёгкие и быстрые. Послушай ритм 🌷",
+    "maxim": "Повторение строит уверенность.",
+    "knopych": "ТРОЙНОЕ КОМБО! 🥁 Кот-кот-кот!",
+    "klavochka": "Как маленький барабанчик, мой милый 🥁"
+  },
+  "phase": 2,
+  "rhythmLesson": true,
+  "created_at": "2026-05-26",
+  "version": "1.0"
+}

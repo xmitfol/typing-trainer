@@ -1,0 +1,35 @@
+{
+  "id": "ru_kids_lesson_11",
+  "tier": "ru_kids",
+  "lesson_number": 11,
+  "title": "Новые буквы: Л и Д",
+  "description": "Две новые буквы — Л и Д",
+  "target_wpm": 19,
+  "text_length": 52,
+  "error_limit_percent": 10,
+  "error_limit": 5,
+  "text": "л л л д д д ло ло ло да да да дело дело дом дом дама",
+  "text_sequence": [],
+  "keys_trained": [
+    "Л",
+    "Д",
+    "А-Я"
+  ],
+  "new_keys": [],
+  "finger_focus": "Буквы Л и Д",
+  "tips": [
+    "Л и Д на домашнем ряду",
+    "«Дело», «дом», «дама» — новые слова",
+    "Загибай пальчики мягко"
+  ],
+  "character_tips": {
+    "anna": "Две новые буковки: Л и Д. Слова «дом», «дело»!",
+    "maxim": "Две буквы добавлены. Словарь растёт.",
+    "knopych": "🤖 Л И Д! Новые кнопочки!",
+    "klavochka": "Два новых дружочка, мой милый — Л и Д 💕"
+  },
+  "phase": 2,
+  "rhythmLesson": false,
+  "created_at": "2026-05-26",
+  "version": "1.0"
+}

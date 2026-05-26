@@ -1,0 +1,38 @@
+{
+  "id": "ru_kids_lesson_24",
+  "tier": "ru_kids",
+  "lesson_number": 24,
+  "title": "Три знака вместе",
+  "description": "Смешиваем точку, вопрос, восклицание",
+  "target_wpm": 29,
+  "text_length": 68,
+  "error_limit_percent": 10,
+  "error_limit": 6,
+  "text": "Я вижу кота. Он чёрный? Да! Смотри как он бежит. Куда? Домой! Конец!",
+  "text_sequence": [],
+  "keys_trained": [
+    "А-Я",
+    "Shift",
+    "Space",
+    ".",
+    "?",
+    "!"
+  ],
+  "new_keys": [],
+  "finger_focus": "Три типа предложений",
+  "tips": [
+    "Утверждения с .",
+    "Вопросы с ?",
+    "Радость с !"
+  ],
+  "character_tips": {
+    "anna": "Три типа предложений. У каждого свой знак.",
+    "maxim": "Три знака конца. Тренируй смешивание.",
+    "knopych": "🎯 ТРИПЛ МИКС! Три типа предложений!",
+    "klavochka": "Все три друга вместе, мой милый 💖"
+  },
+  "phase": 3,
+  "rhythmLesson": false,
+  "created_at": "2026-05-26",
+  "version": "1.0"
+}
