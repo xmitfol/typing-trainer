@@ -179,7 +179,8 @@ const APP_CONFIG = {
             block_1: 11,
             en_tier1: 99,
             en_teen: 75,
-            en_kids: 50
+            en_kids: 50,
+            ru_teen: 75
         },
         // Default tier на каждый язык — для language-switcher в toolbar
         languageDefaultTier: {

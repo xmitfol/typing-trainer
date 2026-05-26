@@ -1,0 +1,36 @@
+{
+  "id": "ru_teen_lesson_10",
+  "tier": "ru_teen",
+  "lesson_number": 10,
+  "title": "Заглавные и имена",
+  "description": "Shift + буква = большая буква",
+  "target_wpm": 34,
+  "text_length": 83,
+  "error_limit_percent": 8,
+  "error_limit": 6,
+  "text": "Анна, Виктор, Максим, Юля, Лиза, Дима, Катя, Илья, Маша, Олег, Артём, Полина, Денис",
+  "text_sequence": [],
+  "keys_trained": [
+    "Shift",
+    "А-Я",
+    "Space",
+    ","
+  ],
+  "new_keys": [],
+  "finger_focus": "Тайминг Shift + буква",
+  "tips": [
+    "Жми Shift ДО буквы, не после",
+    "Используй Shift ПРОТИВОПОЛОЖНОЙ руки",
+    "Имена везде — тренируй"
+  ],
+  "character_tips": {
+    "anna": "Shift до буквы — противоположная рука. Это про-паттерн.",
+    "maxim": "Заглавные = имена + начала предложений. Тренируй сейчас.",
+    "knopych": "ДВИЖЕНИЕ SHIFT! 🎯 Противоположная рука всегда!",
+    "klavochka": "Высокие гордые заглавные, мой милый — как деревья 🌳"
+  },
+  "phase": 1,
+  "rhythmLesson": false,
+  "created_at": "2026-05-26",
+  "version": "1.0"
+}

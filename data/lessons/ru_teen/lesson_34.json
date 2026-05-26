@@ -1,0 +1,39 @@
+{
+  "id": "ru_teen_lesson_34",
+  "tier": "ru_teen",
+  "lesson_number": 34,
+  "title": "Хэштеги и упоминания",
+  "description": "Символы соц-сетей — # и @",
+  "target_wpm": 62,
+  "text_length": 95,
+  "error_limit_percent": 6,
+  "error_limit": 5,
+  "text": "#fyp #foryou #вайбы #2026 #цели @user @friend @mod #throwback #пнд #squad #life #love @official",
+  "text_sequence": [],
+  "keys_trained": [
+    "А-Я",
+    "A-Z",
+    "0-9",
+    "Shift",
+    "Space",
+    "#",
+    "@"
+  ],
+  "new_keys": [],
+  "finger_focus": "# и @ — спринт",
+  "tips": [
+    "# — Shift+3, @ — Shift+2",
+    "Оба требуют правый мизинец Shift + левая рука",
+    "Эти два символа = 90% соц-сетей"
+  ],
+  "character_tips": {
+    "anna": "# и @ повсюду онлайн. Освой оба = освой соц-сети.",
+    "maxim": "Два символа покрывают 90% социальных медиа. Стоит дрилла.",
+    "knopych": "📱 СИЛА # И @! Соц-сети активированы!",
+    "klavochka": "Маленькие знаки, указывающие на друзей и идеи, мой милый 💕"
+  },
+  "phase": 3,
+  "rhythmLesson": false,
+  "created_at": "2026-05-26",
+  "version": "1.0"
+}

@@ -153,6 +153,11 @@ class TypingTrainer {
             if (character === 'klavochka') return 'en_kids'; // Клавочка → детский
             // anna/maxim/прочее → основной EN
         }
+        // RU: подростки получают ru_teen, остальные — tier1 (детского пока нет)
+        if (lang === 'ru') {
+            if (character === 'knopych') return 'ru_teen';
+            // klavochka в RU пока маршрутится в tier1 (ru_kids ещё не создан)
+        }
         return langTier || systemDefault;
     }
 
@@ -385,6 +390,7 @@ class TypingTrainer {
         const map = {
             tier1:    { lang: 'ru', kind: 'adult',      labels: { ru: 'Основной',    en: 'Russian Main' } },
             block_1:  { lang: 'ru', kind: 'diagnostic', labels: { ru: 'Мизинец',     en: 'Pinky drill'  } },
+            ru_teen:  { lang: 'ru', kind: 'teen',       labels: { ru: 'Юниор',       en: 'Russian Junior' } },
             en_tier1: { lang: 'en', kind: 'adult',      labels: { ru: 'Английский',  en: 'English'      } },
             en_teen:  { lang: 'en', kind: 'teen',       labels: { ru: 'Юниор',       en: 'Junior'       } },
             en_kids:  { lang: 'en', kind: 'kids',       labels: { ru: 'Дети',        en: 'Kids'         } }
