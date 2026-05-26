@@ -7,186 +7,174 @@
 
 ---
 
-## [Unreleased] - MVP Phase 1
+## [Unreleased]
 
-### Added
-- 🎨 Виртуальная клавиатура с цветовой кодировкой пальцев
-- 📝 **39 уроков базового курса** (Tier 1-3) - **ЗАВЕРШЕНО 2025-12-02**
-  - Tier 1 (уроки 1-10): Базовый алфавит (19 букв, WPM 10→22)
-  - Tier 2 (уроки 11-30): Полный алфавит + цифры + пунктуация (WPM 24→40)
-  - Tier 3 (уроки 31-39): Профессиональный уровень + программирование (WPM 42→50)
-  - 13 ритм-уроков для закрепления навыков
-  - Все 33 русские буквы, цифры 0-9, все спецсимволы
-  - 4 персонажа с уникальными советами (Анна, Максим, Кнопыч, Клавочка)
-  - Методология из книги "Соло на пишущей машинке" (1992)
-- 📊 Система статистики (WPM, точность, количество ошибок)
-- ⭐ Рейтинговая система (1-5 звезд)
-- 💾 LocalStorage для сохранения лучших результатов
-- 🤖 AI Weak Keys Analyzer (в разработке)
-- 📚 Документация проекта (архитектура, планирование, требования)
-- 👥 Команда из 11 AI-агентов
-- 📋 MVP Product Requirements Document (PRD)
-- 🎯 Мастер-план системы курсов (99 уроков для взрослых)
-- 📖 Детальный план реализации (24 спринта)
+Следующая фаза работы — Phase 2 фичи из [docs/planning/PHASE_2_BACKLOG.md](docs/planning/PHASE_2_BACKLOG.md). Каждая — отдельный квартал работы.
 
-### Changed
-- 🎨 Улучшена структура кода (модульная архитектура)
-- 📐 Обновлена конфигурация приложения (APP_CONFIG)
-- 📝 Переработана система уровней сложности
-
-### In Progress
-- 🤖 **Ася (AI/ML):** AI Weak Keys Analyzer (12h)
-- 🎨 **Алекс (Frontend):** Интеграция 39 уроков в приложение (16h)
-- 🧪 **Квинн (QA):** Testing всех 39 уроков (20h)
-- 🚀 **Дима (DevOps):** Netlify deployment setup (8h)
-- 🛡️ **Сергей (Security):** Pre-launch security audit (8h)
-- 📣 **Марина (Marketing):** Domain research (4h)
-- 📚 **Тимофей (Technical Writer):** Documentation overhaul (28h)
-
-### Completed
-- ✅ **Катя (Content):** 39 уроков базового курса - ЗАВЕРШЕНО 2025-12-02
+### Planned
+- **P0:** Backend + accounts + multi-device sync (~6-8 недель)
+- **P0:** Analytics / telemetry (~3-4 недели)
+- **P1:** Tournament / multiplayer mode (~8-10 недель)
+- **P1:** Mobile touch-keyboard layout (~4-5 недель)
+- **P2:** Full UI localization (расширение PR #7 на весь UI) (~3-4 недели)
+- **P3:** Lesson Builder, AI tutor (LLM), Premium tier (Stripe), Achievements/badges
 
 ---
 
-## [0.1.0] - 2025-11-14 - Team & Planning
+## [0.2.0-parity] - 2026-05-26 — Full RU↔EN parity
+
+11 PR замержено после v0.1-mvp. Полный паритет русских и английских курсов: 459 уроков в 7 тирах. Все остаточные находки закрыты, репо в чистом state.
 
 ### Added
-- 👥 Создана команда из 11 специализированных AI-агентов:
-  - 🎨 Алекс (Frontend Developer)
-  - ⚙️ Борис (Backend Developer)
-  - 🤖 Ася (AI/ML Specialist)
-  - 📝 Катя (Content Creator)
-  - 🎯 Полина (Product Manager)
-  - 📣 Марина (Marketing Specialist)
-  - 🔍 Юля (UX Researcher)
-  - 🧪 Квинн (QA Engineer)
-  - 🚀 Дима (DevOps Engineer)
-  - 🛡️ Сергей (Security Engineer)
-  - 📚 Тимофей (Technical Writer)
-
-- 📋 **MVP Product Requirements Document** создан:
-  - Target audience: Офисные работники + Программисты
-  - MVP Scope: 30 уроков (Блоки 1-2)
-  - Freemium модель: 15 free / 84 premium
-  - AI Level 1 (Weak Keys Analyzer only)
-  - Desktop only в MVP
-  - Launch: ASAP (конец ноября 2025)
-
-- 💰 **Pricing Strategy** утвержден:
-  - Early Bird (100 users): 299₽/мес, 2990₽/год (lifetime lock)
-  - Regular: 399₽/мес, 3990₽/год
-  - NO Lifetime tier (только recurring подписки)
-
-- 📚 **Documentation Structure** создана:
-  - `docs/planning/` - планы и roadmap
-  - `docs/architecture/` - архитектурные решения
-  - `docs/requirements/` - требования и спецификации
-  - `docs/Learning/` - методология спецификаций
-  - `.claude/agents/` - профили всех 11 агентов
-  - `.claude/SESSION_CONTEXT.md` - контекст сессии
-
-- 🎯 **Мастер-план курсов** (99 уроков):
-  - 7 блоков для взрослых
-  - MVP: Блоки 1-2 (30 уроков)
-  - Post-launch: +1 блок каждые 2-3 недели
-  - Детский курс: 50 уроков (Phase 3)
-
-- 📈 **Success Metrics** (Month 1):
-  - 100 DAU
-  - 50% completion rate первого урока
-  - >4.0 user satisfaction
-  - <5 critical bugs
-  - D7 retention >30%
+- 🇷🇺 **tier1 расширен 39 → 99 уроков** ([PR #9](https://github.com/xmitfol/typing-trainer/pull/9))
+  - B4 (L40-54): Скорость — биграммы, триграммы, панграммы (WPM 52→64)
+  - B5 (L55-69): Точность — реальная проза, новости, диалоги (WPM 66→78)
+  - B6 (L70-84): Практика — деловые тексты, OKR, маркетинг (WPM 80→92)
+  - B7 (L85-99): Мастерство — литература, Чехов/Толстой (WPM 94→105)
+  - L39 переименован в «БЛОК 3 ФИНАЛ», курс-финал теперь L99
+- 🇷🇺 **ru_teen курс** — 75 уроков с Кнопычом ([PR #10](https://github.com/xmitfol/typing-trainer/pull/10))
+  - B1 (L1-15): Основы (ФЫВА ОЛДЖ → алфавит)
+  - B2 (L16-30): Поп-культура (кино-цитаты, песни, диалоги)
+  - B3 (L31-45): Соц-сети (хэштеги, VK/Telegram, TikTok-комменты)
+  - B4 (L46-60): Скорость (новости, блоги, форумы)
+  - B5 (L61-75): Школа + турнир-финал на 95 WPM
+- 🇷🇺 **ru_kids курс** — 50 уроков с Клавочкой ([PR #11](https://github.com/xmitfol/typing-trainer/pull/11))
+  - Полный паритет с en_kids — Колобок, принцесса+дракон, Пип
+- 🎨 **Tier-switcher polish** ([PR #2](https://github.com/xmitfol/typing-trainer/pull/2)) — column-layout с группировкой RU/EN, language badges (RU/EN), border-left accents (Junior/Kids/Diagnostic)
+- 🌐 **Tier labels i18n структура** ([PR #3](https://github.com/xmitfol/typing-trainer/pull/3)) — `labels: { ru, en }` для всех тиров, перевод «EN Junior» → «Юниор»
+- 🌐 **UI language switcher** ([PR #7](https://github.com/xmitfol/typing-trainer/pull/7)) — RU/EN toggle в Settings, persistence через localStorage
+- 📋 **Phase 2 backlog** ([PR #8](https://github.com/xmitfol/typing-trainer/pull/8)) — детальный документ оставшихся фич с sizing/dependencies/stakeholders
 
 ### Changed
-- 🎯 Product vision: **Quality over Quantity**
-- 🚀 Launch strategy: Build & Learn (ASAP launch + iterative improvement)
-- 🌍 Geography: Russia first, expansion позже
+- `tierLessonCount.tier1`: 39 → **99**
+- `tierLessonCount.ru_teen`: 0 → **75** (новый tier)
+- `tierLessonCount.ru_kids`: 0 → **50** (новый tier)
+- `pickInitialTier`: добавлена RU-маршрутизация по character (Кнопыч → ru_teen, Клавочка → ru_kids)
+- `getTierMeta`: новая structure с `labels: { ru, en }` + UI-language picker через `getUiLanguage()`
+- Сертификация теперь триггерится на финалах ВСЕХ 5 контент-курсов (L99 RU, L99 EN, L75 ru_teen, L75 en_teen, L50 ru_kids, L50 en_kids)
+- L39 переименован: «🎉 ФИНАЛ: Мастер слепой печати» → «БЛОК 3 ФИНАЛ: Освоение алфавита и символов»
 
-### Decisions Made
-- ✅ NO Lifetime subscription tier
-- ✅ Desktop ONLY в MVP (no mobile/tablet)
-- ✅ Simplified AI в MVP (only Weak Keys Analyzer)
+### Fixed
+- 🐛 `errorLimitExceeded` срабатывал на (limit+1)-й ошибке вместо limit-й — исправлено `>` → `>=` ([в PR #1 уже]) 
+- 🐛 **Filename padding** в en_teen/en_kids ([PR #2 inline]) — lesson_1.json → lesson_01.json, иначе L1-L9 не загружались (HTTP 404)
+- 🐛 **keys-trained metadata** ([PR #6](https://github.com/xmitfol/typing-trainer/pull/6)) — 31 урок имели capitals в text без Shift в keys_trained
+- 📝 **Content review pass** ([PR #4](https://github.com/xmitfol/typing-trainer/pull/4)) — Teen B5 L65/L75 + Kids B5 L47 (missing apostrophe)
+- 🌐 `showCourseComplete` toast теперь показывает локализованный лейбл вместо raw tier ID
+
+### Removed
+- 5 orphan HTML-файлов из корня (debug-keyboard, keyboard-only, keyboard-size-test/-backup, modal-keyboard-test) — все были debris из initial commit ([PR #5](https://github.com/xmitfol/typing-trainer/pull/5))
+
+### Infrastructure
+- `.gitignore` создан + 12MB DOC-исходник «Соло на пишущей машинке» гитигнор'нут ([PR #5](https://github.com/xmitfol/typing-trainer/pull/5))
+- Все project-артефакты в docs/, .claude/agents/, README, AGENTS.md, CHANGELOG.md, scripts/generate_lesson_sequence.py — массовый `git add` ([PR #5])
+- 11 generator-скриптов в `scripts/gen_*.py` — переиспользуемая инфраструктура для будущих контент-итераций
+
+### Stats
+- Уроков: 50 → **459** (RU 235 + EN 224)
+- Тиров: 5 → **7** (добавлены `ru_teen`, `ru_kids`)
+- PR замержено: **11** (после v0.1-mvp)
+- Лейн контента: 6 (3 возрастных × 2 языка)
+
+---
+
+## [0.1.0-mvp] - 2026-05-25 — MVP launch
+
+Первый production-ready release. End-to-end client-only тренажёр с полным онбордингом, lesson picker, keyboard redesign, и сертификацией.
+
+См. [PR #1 description](docs/.sessions/pr1_description.md) для полного списка.
+
+### Added
+- 🎓 **274 lessons across 5 courses**:
+  - RU `tier1` (Основной) — 39 lessons
+  - RU `block_1` (Мизинец) — 11 lessons (диагностический)
+  - EN `en_tier1` (English) — 99 lessons (L1-99, финал WPM 105)
+  - EN `en_teen` (Junior) — 75 lessons с Кнопычом
+  - EN `en_kids` (Kids) — 50 lessons с Клавочкой
+- 👤 **4-section онбординг** — имя + персонаж + клавиатура + язык
+- 🤖 **4 наставника** с собственными голосами:
+  - Анна (учительница), Максим (опытный) — для взрослых
+  - Кнопыч (робот) — для подростков
+  - Клавочка (добрая) — для детей
+  - 10 character-сценариев на лесон (lessonStart, goodProgress, tooManyErrors, etc.)
+  - Локализация RU+EN для всех персонажей
+- 🎯 **Age-based routing**: Кнопыч+EN → en_teen, Клавочка+EN → en_kids, остальные → en_tier1
+- ⌨️ **Keyboard redesign (7 phases)**:
+  - Data-driven рендер из keyboard-data.js
+  - 3 layouts: Classic / Laptop / Ergonomic (split)
+  - 5 design-состояний (default/hover/active/highlight/error) через per-key CSS variables
+  - Responsive unit (60/48/38/22px) + debounced resize
+  - **Live RU↔EN keyboard switching** (ЙЦУКЕН ↔ QWERTY)
+  - Dark theme через prefers-color-scheme
+- 🏆 **Сертификация Bronze/Silver/Gold/Platinum**:
+  - Bronze: ≥25 WPM, ≥85% точность
+  - Silver: ≥40 WPM, ≥90%
+  - Gold: ≥60 WPM, ≥93%
+  - Platinum: ≥80 WPM, ≥96%
+  - Ceremonial modal + грид в Settings → Достижения
+  - Upgrade-only логика, триггерится на L99 EN
+- 🔊 **Audio** — keystroke sound + metronome (Web Audio API, sine 800Hz)
+- ⚙️ **Settings panel** — gear icon, character switch, progress reset
+- 📊 **Lesson Picker** — sidebar со статусами (current/completed/available/locked) и звёздами
+- 🎨 **Top toolbar** — Classic/Laptop/Ergonomic switcher + Символы/Shift/Звук/Метроном toggles + RU/EN pills
+
+### Fixed
+- `errorLimitExceeded` теперь срабатывает на limit-й ошибке (было limit+1)
+- Onboarding: clear currentLesson при submit (edge case с language switch)
+- CharacterSystem race condition на first-visit onboarding
+- `process?.env` crash в браузере (нет process в global scope)
+
+### Stats
+- 274 lessons, 5 courses, 4 mentors, 3 keyboard layouts, 2 languages
+
+---
+
+## [0.0.5] - 2025-11-14 — Team formation & planning
+
+Подготовительная фаза перед MVP-разработкой.
+
+### Added
+- 👥 Команда из 11 AI-агентов (Алекс/Борис/Ася/Катя/Полина/Марина/Юля/Квинн/Дима/Сергей/Тимофей)
+- 📋 MVP Product Requirements Document
+- 💰 Pricing strategy (Early Bird 299₽/мес, Regular 399₽/мес)
+- 🎯 Мастер-план курсов (99 уроков для взрослых)
+- 📚 Documentation structure (planning, architecture, requirements, Learning)
+
+### Decisions
+- ✅ No Lifetime subscription tier
+- ✅ Desktop only в MVP
 - ✅ Freemium from Day 1
-- ✅ Recurring subscriptions only
 - ✅ Russian market first
-- ✅ 99 lessons total (30 in MVP)
-- ✅ Recommended domain: typingtrainer.com
-- ✅ Hosting: Netlify (рекомендация)
-- ✅ Analytics: Google Analytics + Yandex.Metrica
 
 ---
 
-## [0.0.1] - 2025-11-03 - Initial Commit
+## [0.0.1] - 2025-11-03 — Initial commit
 
 ### Added
-- 🎨 Базовая HTML структура приложения
-- 💻 Vanilla JavaScript реализация
-- 🎹 Виртуальная клавиатура (HTML/CSS)
-- 📊 Система статистики
-- 💾 LocalStorage для персистентности
+- 🎨 Базовая HTML/CSS/Vanilla JS структура
+- 🎹 Виртуальная клавиатура (russian QWERTY layout)
+- 📊 Система статистики (WPM, accuracy, errors)
+- 💾 LocalStorage для persistence
 - 📝 Первые 5 уроков
-- 🎨 CSS стили (main.css, keyboard.css, components.css)
-- ⚙️ Конфигурация приложения (config/settings.js)
-- 📚 Начальная документация
-
-### Technical Details
-- **Frontend:** Vanilla JavaScript (ES6+)
-- **No build system:** Простые HTML/CSS/JS файлы
-- **Storage:** Browser LocalStorage
-- **Layout:** Russian QWERTY keyboard
-- **Responsive:** Desktop-focused design
+- ⚙️ `config/settings.js` — APP_CONFIG
 
 ---
 
-## Типы изменений
+## Roadmap
 
-В этом changelog используются следующие типы изменений:
+См. [docs/planning/PHASE_2_BACKLOG.md](docs/planning/PHASE_2_BACKLOG.md) для детального бэклога Phase 2 фич.
 
-- **Added** - новые функции и возможности
-- **Changed** - изменения в существующей функциональности
-- **Deprecated** - функции, которые скоро будут удалены
-- **Removed** - удаленные функции
-- **Fixed** - исправления багов
-- **Security** - исправления уязвимостей
-- **In Progress** - текущая работа (для Unreleased секции)
-- **Decisions Made** - ключевые продуктовые решения
+### v0.3 — Backend + Accounts (Phase 2 P0)
+Multi-device sync, аккаунты, JWT, server-side прогресс. ~6-8 недель.
 
----
+### v0.4 — Analytics + Mobile (Phase 2 P0-P1)
+Event tracking, funnels, Metabase. Параллельно с mobile touch-keyboard.
 
-## Roadmap (ближайшие релизы)
+### v0.5 — Tournament + Full i18n (Phase 2 P1-P2)
+Multiplayer, leaderboards, ELO. Полная UI локализация.
 
-### [0.2.0] - MVP Launch (Конец ноября 2025)
-- ✅ 30 уроков (Блоки 1-2)
-- ✅ AI Weak Keys Analyzer
-- ✅ Freemium модель (15 free / 84 premium)
-- ✅ Payment integration (Stripe + ЮКасса)
-- ✅ Production deployment (Netlify)
-- ✅ Analytics (GA + Yandex.Metrica)
-- ✅ Security audit passed
-
-### [0.3.0] - Content Expansion (Декабрь 2025 - Январь 2026)
-- ➕ Блок 3 (уроки 31-45)
-- ➕ Блок 4 (уроки 46-60)
-- ➕ Additional motivational quotes (200+)
-- ➕ User feedback integration
-
-### [0.4.0] - Backend Integration (Phase 2)
-- 🔐 User authentication (JWT)
-- ☁️ Cloud sync (progress across devices)
-- 📊 Advanced analytics
-- 🤖 AI Level 2 (ML models)
-- 📱 Mobile responsive (Phase 2+)
-
-### [1.0.0] - Full Release
-- 📚 99 уроков для взрослых
-- 🤖 AI Level 3 (LLM персонализация)
-- 👶 Детский курс (50 уроков)
-- 🌍 Multi-language support (English)
-- 📱 Mobile apps (iOS/Android)
+### v1.0 — Phase 2 complete
+Полный SaaS-стек: accounts + multi-device + analytics + tournament + mobile.
 
 ---
 
-**Maintained by:** Тимофей (Technical Writer)
-**Last Updated:** 15 ноября 2025
 **Format:** Keep a Changelog 1.0.0
