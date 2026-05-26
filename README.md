@@ -1,43 +1,51 @@
-# Typing Trainer - AI-Powered Клавиатурный Тренажер
+# Typing Trainer
 
-> Умный клавиатурный тренажер с AI-персонализацией для обучения слепой печати
+> Клавиатурный тренажёр на 459 уроков. 7 курсов в 3 возрастных дорожках (взрослые/подростки/дети) × 2 языка (RU/EN). Сертификация Bronze→Platinum.
 
-[![Status](https://img.shields.io/badge/status-MVP-orange)](https://github.com/typing-trainer)
+[![Release](https://img.shields.io/badge/release-v0.2--parity-success)](https://github.com/xmitfol/typing-trainer/releases)
+[![Lessons](https://img.shields.io/badge/lessons-459-blue)](#course-catalog)
+[![Tiers](https://img.shields.io/badge/tiers-7-blue)](#course-catalog)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
-[![Platform](https://img.shields.io/badge/platform-Desktop-green)](https://github.com/typing-trainer)
 
 ---
 
-## 🎯 О проекте
+## О проекте
 
-**Typing Trainer** - это современный SaaS-сервис для обучения слепой печати на русской клавиатуре. Наше главное конкурентное преимущество - **AI-powered персонализация** обучения на основе анализа слабых клавиш и прогресса пользователя.
+Клиентское веб-приложение для обучения слепой печати. Vanilla JavaScript, без build-системы, прогресс в localStorage. Полная параллель русских и английских курсов с возрастной дифференциацией (взрослые, подростки 12-17, дети 6-11).
 
-### Для кого:
-- 👔 **Офисные работники** - повышение продуктивности работы
-- 💻 **Программисты** - ускорение написания кода
-- 🎓 **Студенты** - эффективное освоение навыка слепой печати
-
-### Ключевые особенности:
-- 🤖 **AI-анализ слабых клавиш** - умная система рекомендаций
-- 🎨 **Виртуальная клавиатура** с цветовой кодировкой пальцев
-- 📊 **Детальная статистика** - WPM, точность, прогресс
-- 🎯 **99 уроков** для взрослых (30 в MVP)
-- 🌟 **Система рейтингов** - мотивация через звезды
-- 💎 **Freemium модель** - 15 бесплатных уроков, 84 premium
+**Чем отличается от других тренажёров:**
+- 🎯 **Возрастные дорожки**: подросткам — гейминг/поп-культура/соц-сети, детям — сказки/животные, взрослым — деловые тексты/литература
+- 🌍 **Полный паритет RU↔EN**: каждый английский курс имеет русский аналог идентичной структуры
+- 🤖 **4 наставника с уникальными голосами**: Анна (учительница), Максим (опытный), Кнопыч (робот-геймер), Клавочка (добрая сказочница)
+- 🏆 **Сертификация Bronze/Silver/Gold/Platinum** при завершении любого из 5 контент-курсов
+- ⌨️ **3 layout клавиатуры**: Classic / Laptop / Ergonomic + live RU↔EN switching (ЙЦУКЕН↔QWERTY)
+- 🌗 **Dark theme** auto через `prefers-color-scheme`
 
 ---
 
-## 🚀 Быстрый старт
+## Course Catalog
 
-### Локальная разработка:
+459 уроков в 7 тирах:
+
+| Tier | Audience | Lang | Mentor | Lessons | Final WPM | Final chars |
+|---|---|---|---|---|---|---|
+| `tier1` | Adult | 🇷🇺 RU | Anna/Maxim | 99 | 105 | 419 |
+| `block_1` | Diagnostic | 🇷🇺 RU | — | 11 | — | — |
+| `ru_teen` | **Teen (12-17)** | 🇷🇺 RU | Кнопыч | 75 | 95 | 349 |
+| `ru_kids` | **Kids (6-11)** | 🇷🇺 RU | Клавочка | 50 | 50 | 270 |
+| `en_tier1` | Adult | 🇬🇧 EN | Anna/Maxim | 99 | 105 | 420 |
+| `en_teen` | Teen (12-17) | 🇬🇧 EN | Knopych | 75 | 95 | 344 |
+| `en_kids` | Kids (6-11) | 🇬🇧 EN | Klavochka | 50 | 50 | 271 |
+
+Каждый контент-курс структурирован в 5-7 блоков с ритм-упражнениями, milestone-чекпойнтами, и финал-экзаменом для сертификации.
+
+---
+
+## Quick start
+
+Статический сайт без build-системы. Запусти любой HTTP-сервер из корня:
 
 ```bash
-# 1. Клонировать репозиторий
-git clone https://github.com/your-username/typing-trainer.git
-cd typing-trainer
-
-# 2. Запустить локальный сервер (любой из вариантов):
-
 # Python
 python -m http.server 8000
 
@@ -46,206 +54,179 @@ php -S localhost:8000
 
 # Node.js
 npx http-server -p 8000
-
-# 3. Открыть в браузере
-# http://localhost:8000
 ```
 
-### Требования:
-- Современный браузер (Chrome, Firefox, Safari, Edge)
-- Разрешение экрана: минимум 1024x768
-- **Desktop only** (мобильные устройства не поддерживаются в MVP)
+Открой `http://localhost:8000` — на первой загрузке появится онбординг (имя + персонаж + клавиатура + язык). После онбординга курс автоматически выбирается по character+language (см. [Age-based routing](#age-based-routing)).
+
+**Требования:** современный браузер (Chrome 90+, Firefox 88+, Safari 14+, Edge 90+). Desktop-focused; mobile touch-keyboard layout — в Phase 2 backlog.
 
 ---
 
-## 📦 Структура проекта
+## Age-based routing
+
+Выбор персонажа + языка на онбординге определяет курс:
+
+| Character + Language | Tier |
+|---|---|
+| Anna/Maxim + RU | `tier1` (99 уроков, взрослый) |
+| Anna/Maxim + EN | `en_tier1` (99 уроков, взрослый) |
+| **Кнопыч + RU** | **`ru_teen`** (75 уроков, подросток) |
+| **Knopych + EN** | **`en_teen`** (75 уроков, подросток) |
+| **Клавочка + RU** | **`ru_kids`** (50 уроков, ребёнок) |
+| **Klavochka + EN** | **`en_kids`** (50 уроков, ребёнок) |
+
+Routing работает только на свежем онбординге — смена персонажа в Settings не трогает текущий tier (защита прогресса). Можно переключаться вручную через tier-switcher в sidebar.
+
+---
+
+## Features
+
+### Content
+- 459 уроков в 7 тирах с прогрессивной WPM (8 → 105)
+- 4 наставника с локализованными character_tips (RU+EN, по 10 сценариев каждый)
+- Rhythm-упражнения встроены в каждый блок для тренировки темпа
+- Milestone-чекпойнты на L15/30/45/60/75/90 для больших курсов
+
+### Interface
+- **Lesson Picker** в sidebar со статусами (current/completed/available/locked) и star-rating
+- **Tier-switcher** с группировкой по языку и age-kind border accents
+- **Settings panel** — смена персонажа, сброс прогресса, UI language switcher, грид сертификатов
+- **Top toolbar** — Classic/Laptop/Ergonomic switcher + Символы/Shift/Звук/Метроном toggles + RU/EN language pills
+
+### Technical
+- Vanilla JavaScript (ES6+), без build-системы
+- Per-tier progress в localStorage с миграцией со старого flat-формата
+- Web Audio API для keystroke sound + metronome
+- CSS custom properties + `prefers-color-scheme` для auto dark theme
+- Data-driven keyboard renderer (3 layouts × 2 языка)
+- E2E tests via Playwright (см. [scripts/verify_*.py](scripts/))
+
+---
+
+## Project structure
 
 ```
 typing-trainer/
-├── index.html              # Главная страница приложения
+├── index.html                  # Главная страница
 ├── assets/
-│   ├── css/               # Стили
-│   │   ├── main.css       # Основные стили
-│   │   ├── keyboard.css   # Стили виртуальной клавиатуры
-│   │   └── components.css # UI компоненты
-│   └── js/                # JavaScript модули
-│       ├── main.js        # Основная логика приложения
-│       ├── keyboard.js    # Управление клавиатурой
-│       ├── stats.js       # Статистика и расчеты
-│       └── utils.js       # Утилиты и LocalStorage
+│   ├── css/                    # main.css, keyboard.css, components.css, onboarding.css
+│   └── js/                     # main.js, keyboard.js, onboarding.js, character-system.js,
+│                               # certification.js, lesson-loader.js, settings-panel.js, etc.
 ├── config/
-│   └── settings.js        # Конфигурация приложения
+│   └── settings.js             # APP_CONFIG: tiers, certification thresholds, storage keys
 ├── data/
-│   ├── texts/            # Тексты для уроков
-│   │   └── ru.json       # Русские тексты
-│   └── quotes.json       # Мотивационные цитаты
-└── docs/                 # Документация
-    ├── INDEX.md          # Индекс документации
-    ├── architecture/     # Архитектурные решения
-    ├── planning/         # Планы и roadmap
-    └── requirements/     # Требования и спецификации
+│   ├── lessons/
+│   │   ├── tier1/              # 99 lessons (RU adult)
+│   │   ├── block_1/            # 11 lessons (RU diagnostic)
+│   │   ├── ru_teen/            # 75 lessons (RU teen)
+│   │   ├── ru_kids/            # 50 lessons (RU kids)
+│   │   ├── en_tier1/           # 99 lessons (EN adult)
+│   │   ├── en_teen/            # 75 lessons (EN teen)
+│   │   └── en_kids/            # 50 lessons (EN kids)
+│   ├── characters/             # 8 character JSON-файлов (4 чарактеров × RU/EN)
+│   └── quotes.json             # Цитаты для quote-panel
+├── scripts/
+│   ├── gen_*.py                # 14 lesson generators (для каждого блока/курса)
+│   ├── verify_*.py             # Playwright E2E tests
+│   └── fix_*.py                # Metadata fix scripts
+└── docs/
+    ├── planning/PHASE_2_BACKLOG.md   # Что осталось на Phase 2
+    ├── architecture/                  # C4 модель, frontend/backend архитектура
+    ├── design/                        # Design briefs (keyboard layouts, page variants)
+    └── INDEX.md                       # Полный индекс документации
 ```
 
 ---
 
-## 📚 Документация
+## Certification
 
-### Для пользователей:
-- [Быстрый старт](docs/user/getting-started/quick-start.md) *(скоро)*
-- [Руководство пользователя](docs/user/guides/complete-guide.md) *(скоро)*
-- [FAQ](docs/user/faq.md) *(скоро)*
+Сертификация триггерится автоматически на финале любого контент-курса (L99/L75/L50) через `Certification.maybeAwardCertification()`.
 
-### Для разработчиков:
-- [Архитектура системы](docs/architecture/Архитектура%20системы.md)
+| Level | WPM | Accuracy | Color |
+|---|---|---|---|
+| 💎 Platinum | ≥80 | ≥96% | `#e5e4e2` |
+| 🥇 Gold | ≥60 | ≥93% | `#ffd700` |
+| 🥈 Silver | ≥40 | ≥90% | `#c0c0c0` |
+| 🥉 Bronze | ≥25 | ≥85% | `#cd7f32` |
+
+Логика **upgrade-only**: новый сертификат пишется только если его уровень выше предыдущего. WPM/accuracy могут расти независимо. Грид всех заработанных сертификатов — в Settings → Достижения.
+
+---
+
+## Documentation
+
+### Для разработчиков
 - [Frontend Architecture](docs/architecture/Frontend%20Architecture.md)
-- [AI/ML Architecture](docs/architecture/AIML%20Architecture.md)
-- [Техническое задание](docs/requirements/Техническое%20задание%20SaaS%20Клавиатурный%20Тренажер.md)
+- [C4 Architecture Model](docs/architecture/c4-model.md) (контекст / контейнеры / компоненты / код)
+- [Design briefs](docs/design/) — keyboard layouts, page variants
 
-### Планирование:
-- [MVP PRD](docs/planning/MVP_PRD.md) - Product Requirements Document
-- [Детальный план реализации](docs/planning/Детальный%20план%20реализации.md) - 24 спринта
-- [Мастер-план курсов](docs/planning/Мастер-план%20системы%20курсов.md) - 99 уроков
+### Планирование
+- [PHASE_2_BACKLOG](docs/planning/PHASE_2_BACKLOG.md) — что осталось на Phase 2
+- [Мастер-план системы курсов](docs/planning/Мастер-план%20системы%20курсов.md) — исходный контент-roadmap
+- [MVP PRD](docs/planning/MVP_PRD.md)
 
-### Команда:
-- [Знакомство с командой](docs/TEAM_INTRODUCTION.md) - 11 AI-агентов
-- [Agent Team](docs/AGENT_TEAM.md) - Структура команды
+### Команда
+- [AGENTS.md](AGENTS.md) — команда AI-агентов
+- [docs/AGENT_TEAM.md](docs/AGENT_TEAM.md) — структура и роли
 
 **Полный индекс:** [docs/INDEX.md](docs/INDEX.md)
 
 ---
 
-## 🛠️ Технологии
+## Tech stack
 
-### Phase 1 (MVP - текущая фаза):
-- **Frontend:** Vanilla JavaScript (ES6+), HTML5, CSS3
-- **Storage:** LocalStorage (браузер)
-- **Build:** Нет build-системы (простые файлы)
-- **Deployment:** Netlify / Vercel (рекомендация)
+**Сейчас (Phase 1):**
+- Frontend: Vanilla JavaScript ES6+, HTML5, CSS3 custom properties
+- Audio: Web Audio API
+- Storage: LocalStorage (per-tier + per-lesson progress)
+- Build: none — статические файлы
+- Tests: Playwright (E2E), скрипты в `scripts/verify_*.py`
 
-### Phase 2 (Backend Integration - планируется):
-- **Frontend:** React + TypeScript
-- **Backend:** Python FastAPI
-- **Database:** PostgreSQL + Redis
-- **Auth:** JWT tokens
-- **Payments:** Stripe + ЮКасса
-
-### Phase 3 (Expansion - будущее):
-- **AI/ML:** TensorFlow.js, scikit-learn
-- **LLM:** OpenAI API / Yandex GPT
-- **Analytics:** Google Analytics, Yandex.Metrica
-- **Monitoring:** Sentry, LogRocket
+**Phase 2 (см. backlog):**
+- Backend: TBD (Node.js / Ruby / Go)
+- DB: PostgreSQL + Redis
+- Auth: JWT, OAuth (Google/GitHub)
+- Realtime: WebSocket (для multiplayer/tournament)
+- Analytics: TBD (Metabase / Grafana)
 
 ---
 
-## 👥 Команда
+## Roadmap
 
-Над проектом работает команда из **11 специализированных AI-агентов**:
+См. [docs/planning/PHASE_2_BACKLOG.md](docs/planning/PHASE_2_BACKLOG.md) для деталей.
 
-### Core Team:
-- 🎨 **Алекс** - Frontend Developer
-- ⚙️ **Борис** - Backend Developer (Phase 2)
-- 🤖 **Ася** - AI/ML Specialist
-- 📝 **Катя** - Content Creator
-
-### Business Team:
-- 🎯 **Полина** - Product Manager
-- 📣 **Марина** - Marketing Specialist
-- 🔍 **Юля** - UX Researcher
-
-### Support Team:
-- 🧪 **Квинн** - QA Engineer
-- 🚀 **Дима** - DevOps Engineer
-- 🛡️ **Сергей** - Security Engineer
-- 📚 **Тимофей** - Technical Writer
-
-**Подробнее:** [docs/TEAM_INTRODUCTION.md](docs/TEAM_INTRODUCTION.md)
+- **v0.3 — Backend + accounts** (~6-8 недель): multi-device sync, JWT, серверный прогресс
+- **v0.4 — Analytics + Mobile** (~7-8 недель параллельно): event tracking, mobile touch-keyboard
+- **v0.5 — Tournament + i18n** (~10-12 недель параллельно): realtime multiplayer, полная UI локализация
+- **v1.0 — Phase 2 complete**: SaaS-стек с accounts/multi-device/analytics/tournament/mobile
 
 ---
 
-## 📈 Статус проекта
+## Releases
 
-### Текущая фаза: **MVP (Phase 1)**
+- **[v0.2-parity](https://github.com/xmitfol/typing-trainer/releases/tag/v0.2-parity)** (2026-05-26) — Full RU↔EN parity (459 lessons, 7 tiers)
+- **[v0.1-mvp](https://github.com/xmitfol/typing-trainer/releases/tag/v0.1-mvp)** (2026-05-25) — MVP launch (274 lessons, 5 tiers, certification)
 
-**Готово:**
-- ✅ Виртуальная клавиатура с цветовой кодировкой
-- ✅ Уроки 1-5 (базовые)
-- ✅ Система статистики (WPM, точность)
-- ✅ Рейтинговая система (звезды)
-- ✅ LocalStorage для сохранения прогресса
-
-**В работе:**
-- 🔄 AI Weak Keys Analyzer (Ася - 12h)
-- 🔄 Уроки 6-30 (Катя - 32h)
-- 🔄 UI polish (Алекс - 12h)
-- 🔄 Security audit (Сергей - 8h)
-- 🔄 Deployment setup (Дима - 8h)
-
-**Планируется:**
-- 📋 Freemium модель (15 free / 84 premium)
-- 📋 Payment integration (Stripe + ЮКасса)
-- 📋 Backend API (Phase 2)
-- 📋 Cloud sync (Phase 2)
-- 📋 Детский курс (50 уроков, Phase 3)
-
-**Target Launch:** Конец ноября 2025
+Полный лог изменений: [CHANGELOG.md](CHANGELOG.md)
 
 ---
 
-## 💰 Монетизация
+## Contributing
 
-### Freemium Model:
-- 🎁 **FREE:** 15 уроков (Блок 1)
-- 💎 **PREMIUM:** 84 урока (Блоки 2-7)
+Проект в активной разработке. Contributing guidelines будут добавлены вместе с Backend в Phase 2.
 
-### Pricing (Early Bird - первые 100 users):
-- **299₽/месяц** (lifetime lock)
-- **2990₽/год** (lifetime lock)
-
-### Regular Pricing:
-- **399₽/месяц**
-- **3990₽/год**
-
-**Важно:** Только recurring подписки, NO lifetime tier
+Для содействия контентом — посмотри генераторы в `scripts/gen_*.py`, они content-table-driven и удобны для добавления уроков.
 
 ---
 
-## 🎯 Success Metrics (Month 1)
+## License
 
-- **DAU:** 100 активных пользователей
-- **Completion Rate:** 50% завершают первый урок
-- **User Satisfaction:** >4.0/5.0
-- **Critical Bugs:** <5
-- **D7 Retention:** >30%
+MIT License — [LICENSE](LICENSE)
 
 ---
 
-## 🤝 Contributing
+## Team
 
-Проект находится в активной разработке. Contributing guidelines будут добавлены в Phase 2.
+Над проектом работает команда из 11 AI-агентов (см. [docs/AGENT_TEAM.md](docs/AGENT_TEAM.md)) + Product Owner Иван. Архитектура и реализация в паре с Claude (Opus 4.7).
 
----
-
-## 📄 Лицензия
-
-MIT License - детали в файле [LICENSE](LICENSE)
-
----
-
-## 📞 Контакты
-
-- **Product Owner:** Иван
-- **Architecture:** Claude (AI Architect)
-- **Website:** *(coming soon)*
-- **Email:** *(coming soon)*
-
----
-
-## 🙏 Благодарности
-
-Спасибо всем участникам проекта за вклад в создание современного клавиатурного тренажера!
-
----
-
-**Сделано с ❤️ командой Typing Trainer**
-
-*Last Updated: 15 ноября 2025*
+**Made with 🤖 + ❤️**
