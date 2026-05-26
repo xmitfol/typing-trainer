@@ -1,0 +1,47 @@
+{
+  "id": "tier1_lesson_75",
+  "tier": "tier1",
+  "lesson_number": 75,
+  "title": "Код-подобный контент",
+  "description": "Имена переменных, методы, скобки — ритм кодера",
+  "target_wpm": 85,
+  "text_length": 231,
+  "error_limit_percent": 4,
+  "error_limit": 9,
+  "text": "function getUserById(userId) { const user = await db.users.findOne({ id: userId }); if (!user) throw new NotFoundError('user'); return user.toJSON(); } export default getUserById; // также: validateInput, checkPermission, logAccess",
+  "text_sequence": [],
+  "keys_trained": [
+    "A-Z",
+    "А-Я",
+    "Space",
+    "(",
+    ")",
+    "{",
+    "}",
+    ".",
+    ",",
+    ";",
+    "'",
+    "/",
+    "!",
+    ":",
+    "Shift"
+  ],
+  "new_keys": [],
+  "finger_focus": "Кодовые символы на скорости",
+  "tips": [
+    "Реальный код = английские слова + символы + скобки",
+    "Скобки/фигурные должны течь как естественная пунктуация",
+    "Инженеры печатают код 5+ часов в день"
+  ],
+  "character_tips": {
+    "anna": "Код — это структурированный английский. Тренируй символы, остальное — слова.",
+    "maxim": "Инженеры недооценивают скорость печати — до парного программирования.",
+    "knopych": "КОД-ВОЛШЕБНИК! 🧙 Скобки, кавычки — все друзья!",
+    "klavochka": "Язык компьютеров, моё сокровище — добрый, но точный 💻"
+  },
+  "phase": 6,
+  "rhythmLesson": false,
+  "created_at": "2026-05-26",
+  "version": "1.0"
+}
