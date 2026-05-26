@@ -1,0 +1,35 @@
+{
+  "id": "ru_kids_lesson_12",
+  "tier": "ru_kids",
+  "lesson_number": 12,
+  "title": "Буквы Е и К",
+  "description": "Ещё буквы — Е и К",
+  "target_wpm": 20,
+  "text_length": 50,
+  "error_limit_percent": 10,
+  "error_limit": 5,
+  "text": "е е е к к к ел ел ел кот кот кот ока ока кино кино",
+  "text_sequence": [],
+  "keys_trained": [
+    "Е",
+    "К",
+    "А-Я"
+  ],
+  "new_keys": [],
+  "finger_focus": "Е и К",
+  "tips": [
+    "Е — левый средний наверх",
+    "К — правый средний внизу",
+    "Теперь можем «кино», «кот», «ел»"
+  ],
+  "character_tips": {
+    "anna": "Е и К. Слова «кот», «кино» — увидимся в кино! 🌷",
+    "maxim": "Две новые. Кино, кот — приятные слова.",
+    "knopych": "🤖 Е И К! Ещё кнопочки!",
+    "klavochka": "Солнечные буковки, мой милый — Е и К ☀️"
+  },
+  "phase": 2,
+  "rhythmLesson": false,
+  "created_at": "2026-05-26",
+  "version": "1.0"
+}

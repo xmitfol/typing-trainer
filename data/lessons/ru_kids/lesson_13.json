@@ -1,0 +1,35 @@
+{
+  "id": "ru_kids_lesson_13",
+  "tier": "ru_kids",
+  "lesson_number": 13,
+  "title": "Буквы Т и С",
+  "description": "Важные буквы — Т и С",
+  "target_wpm": 21,
+  "text_length": 53,
+  "error_limit_percent": 10,
+  "error_limit": 5,
+  "text": "т т т с с с те те те со со со это это это так так так",
+  "text_sequence": [],
+  "keys_trained": [
+    "Т",
+    "С",
+    "А-Я"
+  ],
+  "new_keys": [],
+  "finger_focus": "Т и С",
+  "tips": [
+    "Т — левый указательный наверх",
+    "С — левый мизинец внизу",
+    "«Это», «так», «то» — очень частые слова"
+  ],
+  "character_tips": {
+    "anna": "Т и С. «Это», «так» — слова на каждый день 🌷",
+    "maxim": "Т и С — самые частые буквы. Очень важные.",
+    "knopych": "🤖 Т И С! Супер-важные!",
+    "klavochka": "Две сильные буковки, моя радость 💪"
+  },
+  "phase": 2,
+  "rhythmLesson": false,
+  "created_at": "2026-05-26",
+  "version": "1.0"
+}
