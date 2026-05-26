@@ -175,7 +175,7 @@ const APP_CONFIG = {
         firstLessonNumber: 1,
         // Сколько уроков в каждом тире (для cap прогрессии)
         tierLessonCount: {
-            tier1: 39,
+            tier1: 99,
             block_1: 11,
             en_tier1: 99,
             en_teen: 75,
