@@ -62,8 +62,11 @@ class TypingTrainer {
     init() {
         DebugUtils.log('🚀 Инициализация клавиатурного тренажера...');
 
-        // Устанавливаем фокус на скрытое поле ввода
-        if (this.elements.hiddenInput) {
+        // Устанавливаем фокус на скрытое поле ввода — НО только если на старте
+        // не открыт модал (онбординг на первом визите, welcome после онбординга).
+        // Иначе мешаем юзеру вводить имя в форму онбординга.
+        if (this.elements.hiddenInput
+            && !document.querySelector('.onboarding-overlay.active, .welcome-modal.active')) {
             this.elements.hiddenInput.focus();
         }
 
@@ -559,6 +562,25 @@ class TypingTrainer {
         return '';
     }
     
+    // Можно ли возвращать фокус на hiddenInput?
+    // Нельзя если открыт модал (онбординг/welcome/settings/cert) или
+    // активен другой реальный input/textarea/button (юзер взаимодействует с формой).
+    shouldStealFocus() {
+        // Открытый модал — не трогаем фокус, юзер работает с формой
+        if (document.querySelector('.onboarding-overlay.active, .welcome-modal.active, .settings-modal.active, .cert-modal.active')) {
+            return false;
+        }
+        // Юзер уже сфокусирован на другом интерактивном элементе
+        const active = document.activeElement;
+        if (active && active !== document.body && active !== this.elements.hiddenInput) {
+            const tag = active.tagName;
+            if (tag === 'INPUT' || tag === 'TEXTAREA' || tag === 'BUTTON' || tag === 'SELECT' || active.isContentEditable) {
+                return false;
+            }
+        }
+        return true;
+    }
+
     // Инициализация обработчиков событий
     initEventListeners() {
         // Основные обработчики ввода
@@ -566,10 +588,14 @@ class TypingTrainer {
             this.elements.hiddenInput.addEventListener('input', (e) => this.handleInput(e));
             this.elements.hiddenInput.addEventListener('keydown', (e) => this.handleKeyDown(e));
             this.elements.hiddenInput.addEventListener('keyup', (e) => this.handleKeyUp(e));
-            
-            // Предотвращаем потерю фокуса
+
+            // Предотвращаем потерю фокуса — но НЕ когда юзер работает с модалом/формой
             this.elements.hiddenInput.addEventListener('blur', () => {
-                setTimeout(() => this.elements.hiddenInput?.focus(), 100);
+                setTimeout(() => {
+                    if (this.shouldStealFocus()) {
+                        this.elements.hiddenInput?.focus();
+                    }
+                }, 100);
             });
         }
         
@@ -601,10 +627,12 @@ class TypingTrainer {
             });
         }
         
-        // Клик по редактору для возврата фокуса
+        // Клик по редактору для возврата фокуса (не во время открытого модала)
         if (this.elements.textEditor) {
             this.elements.textEditor.addEventListener('click', () => {
-                this.elements.hiddenInput?.focus();
+                if (this.shouldStealFocus()) {
+                    this.elements.hiddenInput?.focus();
+                }
             });
         }
         
@@ -624,7 +652,9 @@ class TypingTrainer {
         });
         
         window.addEventListener('focus', () => {
-            this.elements.hiddenInput?.focus();
+            if (this.shouldStealFocus()) {
+                this.elements.hiddenInput?.focus();
+            }
         });
     }
     
