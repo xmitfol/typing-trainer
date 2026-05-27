@@ -9,9 +9,20 @@
 
 ## [Unreleased]
 
-Следующая фаза работы — Phase 2 фичи из [docs/planning/PHASE_2_BACKLOG.md](docs/planning/PHASE_2_BACKLOG.md). Каждая — отдельный квартал работы.
+Параллельно с Phase 2 (бекенд) идёт **дизайн-апдейт** — 8-фазный handoff от дизайнера (`docs/design/update1/vanilla_handoff/`). Архитектура: vanilla JS + Web Components, без React/build-step.
 
-### Planned
+### Прогресс дизайн-апдейта
+- ✅ **Phase 0 — Foundation** ([PR #15](https://github.com/xmitfol/typing-trainer/pull/15)) — `tokens.css`, `base.css`, `ui-primitives.js`, `portraits.js` (10 SVG-портретов + `detectGender()`)
+- ✅ **Phase 1 — Keyboard Web Component** ([PR #15](https://github.com/xmitfol/typing-trainer/pull/15)) — `<typing-keyboard>` с Shadow DOM
+- ✅ **Phase 2 — Onboarding redesign** ([PR #16](https://github.com/xmitfol/typing-trainer/pull/16), [#17](https://github.com/xmitfol/typing-trainer/pull/17)) — минимальный 3-секционный флоу (name+gender → audience → mentor), удалён welcome modal, фикс focus-race на старте
+- ✅ **Phase 3 — Landing page** ([PR #18](https://github.com/xmitfol/typing-trainer/pull/18)) — публичная маркетинг-страница, 8 секций, anon/auth состояния через localStorage
+- 🚧 **Phase 4 — Dashboard** (WIP) — `dashboard.css` готов локально (~500 строк, все компоненты), `dashboard.html` следующий шаг
+- ⏳ Phase 5 — Course Roadmap, Phase 6 — Lesson Reading, Phase 7 — Task Execution, Phase 8 — Pricing
+
+### Fixed (Unreleased)
+- 🐛 **Boundary-конфликт тостов** ([PR #19](https://github.com/xmitfol/typing-trainer/pull/19)) — `errorLimitExceeded` срабатывал при `errors >= limit`, а `notifyLessonOutcome()` считал `errors <= limit` успехом. Юзер видел конфликтующую пару «попробуй ещё раз» + «молодец» на одном и том же исходе (типичный кейс на первом уроке tier1 с `error_limit=2`). Ужесточил условие во время typing до `errors > limit`. Регрессионный E2E-скрипт `scripts/verify_e2e_lesson1.py` гейтит поведение.
+
+### Planned (Phase 2 backend, отдельный поток)
 - **P0:** Backend + accounts + multi-device sync (~6-8 недель)
 - **P0:** Analytics / telemetry (~3-4 недели)
 - **P1:** Tournament / multiplayer mode (~8-10 недель)
