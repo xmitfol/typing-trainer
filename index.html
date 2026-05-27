@@ -11,141 +11,21 @@
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
 
     <!-- CSS стили -->
+    <!-- v2 design tokens (Phase 0): CSS variables, без глобальных сбросов -->
+    <link rel="stylesheet" href="assets/css/tokens.css">
     <link rel="stylesheet" href="assets/css/main.css">
     <link rel="stylesheet" href="assets/css/keyboard.css">
     <link rel="stylesheet" href="assets/css/components.css">
     <link rel="stylesheet" href="assets/css/onboarding.css">
+    <!-- v2 onboarding (Phase 2): scoped под .onboarding-v2 -->
+    <link rel="stylesheet" href="assets/css/onboarding-v2.css">
 
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="assets/images/favicon.ico">
 </head>
 <body>
-    <!-- Onboarding Overlay (shown on first visit) -->
-    <div class="onboarding-overlay" id="onboardingOverlay">
-        <div class="onboarding-container">
-            <div class="onboarding-header">
-                <h1>👋 Добро пожаловать в Typing Trainer!</h1>
-                <p>Я помогу тебе научиться печатать быстро и точно на русской клавиатуре.<br>Давай настроим твой профиль:</p>
-            </div>
-
-            <form class="onboarding-form" id="onboardingForm">
-                <!-- Section 1: Name -->
-                <div class="form-section">
-                    <label for="userName">Как тебя зовут?</label>
-                    <input
-                        type="text"
-                        id="userName"
-                        class="name-input"
-                        placeholder="Введите имя"
-                        minlength="2"
-                        maxlength="30"
-                        required
-                        autocomplete="off"
-                    >
-                    <span class="input-hint" id="nameHint">Минимум 2 символа, максимум 30</span>
-                </div>
-
-                <!-- Section 2: Profile Selection -->
-                <div class="form-section">
-                    <label>Выбери свой профиль:</label>
-                    <div class="selection-cards profile-cards">
-                        <div class="selection-card" data-character="anna" data-gender="male" tabindex="0" role="radio" aria-label="Мужчина">
-                            <div class="card-icon">👨</div>
-                            <div class="card-title">Мужчина</div>
-                            <div class="card-subtitle">Наставник:<br>Анна 👩‍🏫</div>
-                        </div>
-
-                        <div class="selection-card" data-character="maxim" data-gender="female" tabindex="0" role="radio" aria-label="Женщина">
-                            <div class="card-icon">👩</div>
-                            <div class="card-title">Женщина</div>
-                            <div class="card-subtitle">Наставник:<br>Максим 👨‍💼</div>
-                        </div>
-
-                        <div class="selection-card" data-character="knopych" data-gender="child" tabindex="0" role="radio" aria-label="Кнопыч">
-                            <div class="card-icon">🤖</div>
-                            <div class="card-title">Кнопыч</div>
-                            <div class="card-subtitle">Робот-клавиша</div>
-                        </div>
-
-                        <div class="selection-card" data-character="klavochka" data-gender="child" tabindex="0" role="radio" aria-label="Клавочка">
-                            <div class="card-icon">🎨</div>
-                            <div class="card-title">Клавочка</div>
-                            <div class="card-subtitle">Добрая помощница</div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Section 3: Keyboard Type -->
-                <div class="form-section">
-                    <label>Тип клавиатуры:</label>
-                    <div class="selection-cards keyboard-cards">
-                        <div class="selection-card selected" data-keyboard="classic" tabindex="0" role="radio" aria-label="Классическая клавиатура">
-                            <div class="card-icon">⌨️</div>
-                            <div class="card-title">Классическая</div>
-                            <div class="card-subtitle">Обычная PC</div>
-                        </div>
-
-                        <div class="selection-card" data-keyboard="laptop" tabindex="0" role="radio" aria-label="Ноутбук">
-                            <div class="card-icon">💻</div>
-                            <div class="card-title">Ноутбук</div>
-                            <div class="card-subtitle">Компактная</div>
-                        </div>
-
-                        <div class="selection-card" data-keyboard="ergonomic" tabindex="0" role="radio" aria-label="Эргономическая клавиатура (split)">
-                            <div class="card-icon">🎯</div>
-                            <div class="card-title">Эргономическая</div>
-                            <div class="card-subtitle">Split с разворотом</div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Section 4: Language -->
-                <div class="form-section">
-                    <label>Язык обучения:</label>
-                    <div class="selection-cards language-cards">
-                        <div class="selection-card selected" data-language="ru" tabindex="0" role="radio" aria-label="Русский язык">
-                            <div class="card-icon">🇷🇺</div>
-                            <div class="card-title">Русский</div>
-                            <div class="card-subtitle">QWERTY</div>
-                        </div>
-
-                        <div class="selection-card" data-language="en" tabindex="0" role="radio" aria-label="Английский язык (QWERTY)">
-                            <div class="card-icon">🇬🇧</div>
-                            <div class="card-title">English</div>
-                            <div class="card-subtitle">QWERTY · 10 lessons</div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Submit Button -->
-                <button type="submit" class="submit-button" id="submitOnboarding" disabled>
-                    <span>Начать обучение!</span>
-                    <span>🚀</span>
-                </button>
-            </form>
-        </div>
-    </div>
-
-    <!-- Welcome Modal (shown after onboarding) -->
-    <div class="welcome-modal" id="welcomeModal">
-        <div class="welcome-card">
-            <div class="welcome-character" id="welcomeCharacter">👩‍🏫</div>
-            <div class="welcome-title" id="welcomeTitle">Анна говорит:</div>
-            <div class="welcome-message" id="welcomeMessage">
-                Привет! Я Анна — твой персональный наставник по печати.
-
-                Вижу, у тебя классическая клавиатура — учту это в своих советах!
-
-                Готов начать свой путь к мастерству слепой печати?
-
-                Помни: точность важнее скорости! 🎯
-            </div>
-            <button class="welcome-button" id="welcomeButton">
-                <span>Поехали!</span>
-                <span>🚀</span>
-            </button>
-        </div>
-    </div>
+    <!-- Onboarding Overlay v2 — содержимое генерируется assets/js/onboarding.js -->
+    <div class="onboarding-v2" id="onboardingOverlay"></div>
 
     <!-- Settings gear (fixed, top-right) -->
     <button type="button" class="settings-gear" id="settingsGearBtn" aria-label="Настройки" title="Настройки">
@@ -276,6 +156,8 @@
     <script src="assets/js/toast-manager.js"></script>
     <script src="assets/js/lesson-loader.js"></script>
     <script src="assets/js/character-system.js"></script>
+    <!-- v2 SVG-фабрика портретов (требуется для нового онбординга) -->
+    <script src="assets/js/portraits.js"></script>
     <script src="assets/js/onboarding.js"></script>
     <script src="assets/js/settings-panel.js"></script>
     <script src="assets/js/certification.js"></script>
