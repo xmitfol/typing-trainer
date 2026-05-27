@@ -91,7 +91,9 @@ class OnboardingManager {
     // Render
 
     show() {
-        setTimeout(() => this.overlay.classList.add('active'), 50);
+        // Сразу, без setTimeout — иначе main.js init() успевает фокус
+        // на hiddenInput до того как shouldStealFocus() увидит .active overlay.
+        this.overlay.classList.add('active');
     }
 
     hide() {
