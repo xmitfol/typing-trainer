@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Упражнение — typing-trainer</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&family=Source+Serif+4:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="assets/css/tokens.css">
+    <link rel="stylesheet" href="assets/css/task.css">
+    <link rel="icon" type="image/x-icon" href="assets/images/favicon.ico">
+</head>
+<body class="task-page" id="taskPage">
+
+    <div class="tp-modal">
+        <a class="tp-close" id="tpClose" href="lesson.html" aria-label="Закрыть">✕</a>
+
+        <!-- Mentor speech bubble (shared между task и success) -->
+        <div class="tp-mentor">
+            <div class="tp-mentor__speech">
+                <div class="tp-mentor__icon">i</div>
+                <div>
+                    <div class="tp-mentor__head" id="tpMentorHead">СОВЕТ НАСТАВНИКА</div>
+                    <div class="tp-mentor__tip" id="tpMentorTip">—</div>
+                    <div class="tp-mentor__hint" id="tpMentorHint" hidden></div>
+                </div>
+            </div>
+            <div class="tp-mentor__portrait" id="tpMentorPortrait"></div>
+        </div>
+
+        <!-- ═══ TASK SCREEN (in-progress) ═══ -->
+        <div class="tp-task" id="tpTask">
+            <div class="tp-body">
+                <!-- Left column -->
+                <div>
+                    <div class="tp-leftcol__number" id="tpExerciseNum">1.1</div>
+                    <div class="tp-leftcol__attempt">( попытка: <span id="tpAttempt">1</span> )</div>
+                    <div class="tp-legend">
+                        <div class="tp-legend__row"><div class="tp-legend__dot tp-legend__dot--pink"></div><span class="tp-legend__label">Мизинец</span></div>
+                        <div class="tp-legend__row"><div class="tp-legend__dot tp-legend__dot--orange"></div><span class="tp-legend__label">Безымянный</span></div>
+                        <div class="tp-legend__row"><div class="tp-legend__dot tp-legend__dot--green"></div><span class="tp-legend__label">Средний</span></div>
+                        <div class="tp-legend__row"><div class="tp-legend__dot tp-legend__dot--blue"></div><span class="tp-legend__label">Указ. левый</span></div>
+                        <div class="tp-legend__row"><div class="tp-legend__dot tp-legend__dot--indigo"></div><span class="tp-legend__label">Указ. правый</span></div>
+                        <div class="tp-legend__row"><div class="tp-legend__dot tp-legend__dot--purple"></div><span class="tp-legend__label">Большой</span></div>
+                    </div>
+                </div>
+
+                <!-- Center: progress + target -->
+                <div>
+                    <div class="tp-progress-row">
+                        <div class="tp-progress-row__top">
+                            <span class="tp-progress-row__label">Прогресс</span>
+                            <span id="tpProgressCount">0/0</span>
+                        </div>
+                        <div class="tp-progress-bar-row">
+                            <div class="tp-progress-bar"><div class="tp-progress-bar__fill" id="tpProgressFill" style="width:0%"></div></div>
+                            <button type="button" class="tp-retry" id="tpRetry" title="Заново">↻</button>
+                        </div>
+                    </div>
+
+                    <div class="tp-target" id="tpTarget">Загружаем упражнение…</div>
+
+                    <input type="text" class="tp-hidden-input" id="tpHiddenInput" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
+                </div>
+
+                <!-- Right: stats -->
+                <div class="tp-stats">
+                    <div class="tp-stat">
+                        <div class="tp-stat__label">ОЦЕНКА</div>
+                        <div class="tp-stars" id="tpStars">
+                            <svg class="tp-star" viewBox="0 0 14 14"><path d="M7 1.5L8.5 5L12 5.5L9.5 8L10 11.5L7 9.8L4 11.5L4.5 8L2 5.5L5.5 5Z"/></svg>
+                            <svg class="tp-star" viewBox="0 0 14 14"><path d="M7 1.5L8.5 5L12 5.5L9.5 8L10 11.5L7 9.8L4 11.5L4.5 8L2 5.5L5.5 5Z"/></svg>
+                            <svg class="tp-star" viewBox="0 0 14 14"><path d="M7 1.5L8.5 5L12 5.5L9.5 8L10 11.5L7 9.8L4 11.5L4.5 8L2 5.5L5.5 5Z"/></svg>
+                            <svg class="tp-star" viewBox="0 0 14 14"><path d="M7 1.5L8.5 5L12 5.5L9.5 8L10 11.5L7 9.8L4 11.5L4.5 8L2 5.5L5.5 5Z"/></svg>
+                            <svg class="tp-star" viewBox="0 0 14 14"><path d="M7 1.5L8.5 5L12 5.5L9.5 8L10 11.5L7 9.8L4 11.5L4.5 8L2 5.5L5.5 5Z"/></svg>
+                        </div>
+                        <div class="tp-stat__sub">Будет начислена после окончания</div>
+                    </div>
+                    <div class="tp-stat">
+                        <div class="tp-stat__hd">
+                            <span class="tp-stat__label">ВРЕМЯ</span>
+                            <span class="tp-stat__val" id="tpTime">00:00</span>
+                        </div>
+                        <div class="tp-stat__sub">лучшее: <span id="tpBestTime">—:—</span></div>
+                    </div>
+                    <div class="tp-stat">
+                        <div class="tp-stat__hd">
+                            <span class="tp-stat__label">СКОРОСТЬ</span>
+                            <span><span class="tp-stat__val tp-stat__val--accent" id="tpSpeed">0</span><span class="tp-stat__unit">зн/мин</span></span>
+                        </div>
+                        <div class="tp-stat__sub">максимум: <span id="tpBestSpeed">—</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ═══ SUCCESS SCREEN ═══ -->
+        <div class="tp-success" id="tpSuccess">
+            <div class="tp-success__body">
+                <!-- Left: big mentor visual -->
+                <div class="tp-success__mentor">
+                    <div class="tp-success__halo"></div>
+                    <div class="tp-confetti"></div><div class="tp-confetti"></div>
+                    <div class="tp-confetti"></div><div class="tp-confetti"></div>
+                    <div class="tp-confetti"></div><div class="tp-confetti"></div>
+                    <div class="tp-confetti"></div><div class="tp-confetti"></div>
+                    <div class="tp-success__avatar" id="tpSuccessAvatar"></div>
+                </div>
+
+                <!-- Center: success message -->
+                <div class="tp-success__center">
+                    <div class="tp-success__title-row">
+                        <span class="tp-success__exercise-num" id="tpSuccessNum">1.1</span>
+                        <span class="tp-success__attempt">( попытка: <span id="tpSuccessAttempt">1</span> )</span>
+                        <span class="tp-success__badge">
+                            <svg width="12" height="12" viewBox="0 0 14 14" fill="none"><path d="M3 7.5L6 10L11 4" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                            ВЫПОЛНЕНО
+                        </span>
+                    </div>
+                    <h1 class="tp-success__h1" id="tpSuccessTitle">Всё верно.</h1>
+                    <p class="tp-success__lead" id="tpSuccessLead">Упражнение завершено. Идём дальше.</p>
+                    <div class="tp-success__actions">
+                        <a class="tp-btn tp-btn--secondary" href="#" id="tpSuccessRetry">↻ Повторить</a>
+                        <a class="tp-btn tp-btn--primary" href="#" id="tpSuccessNext">Продолжить →</a>
+                    </div>
+                </div>
+
+                <!-- Right: final stats -->
+                <div class="tp-stats">
+                    <div class="tp-stat">
+                        <div class="tp-stat__label">ОЦЕНКА</div>
+                        <div class="tp-stars" id="tpSuccessStars">
+                            <!-- заполняется JS -->
+                        </div>
+                        <div class="tp-stat__sub" id="tpSuccessGrade">— / 5.0</div>
+                    </div>
+                    <div class="tp-stat">
+                        <div class="tp-stat__hd">
+                            <span class="tp-stat__label">ВРЕМЯ</span>
+                            <span class="tp-stat__val" id="tpFinalTime">00:00</span>
+                        </div>
+                        <div class="tp-stat__sub">лучшее: <span id="tpFinalBestTime">—:—</span></div>
+                    </div>
+                    <div class="tp-stat">
+                        <div class="tp-stat__hd">
+                            <span class="tp-stat__label">СКОРОСТЬ</span>
+                            <span><span class="tp-stat__val tp-stat__val--success" id="tpFinalSpeed">0</span><span class="tp-stat__unit">зн/мин</span></span>
+                        </div>
+                        <div class="tp-stat__sub">максимум: <span id="tpFinalBestSpeed">—</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ─── JS ─────────────────────────────────────────────────────── -->
+    <script src="config/settings.js"></script>
+    <script src="assets/js/portraits.js"></script>
+    <script src="assets/js/lesson-loader.js"></script>
+    <script src="assets/js/task.js"></script>
+</body>
+</html>
