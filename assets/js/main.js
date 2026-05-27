@@ -66,7 +66,7 @@ class TypingTrainer {
         // не открыт модал (онбординг на первом визите, welcome после онбординга).
         // Иначе мешаем юзеру вводить имя в форму онбординга.
         if (this.elements.hiddenInput
-            && !document.querySelector('.onboarding-overlay.active, .welcome-modal.active')) {
+            && !document.querySelector('.onboarding-overlay.active, .onboarding-v2.active, .welcome-modal.active')) {
             this.elements.hiddenInput.focus();
         }
 
@@ -567,7 +567,7 @@ class TypingTrainer {
     // активен другой реальный input/textarea/button (юзер взаимодействует с формой).
     shouldStealFocus() {
         // Открытый модал — не трогаем фокус, юзер работает с формой
-        if (document.querySelector('.onboarding-overlay.active, .welcome-modal.active, .settings-modal.active, .cert-modal.active')) {
+        if (document.querySelector('.onboarding-overlay.active, .onboarding-v2.active, .welcome-modal.active, .settings-modal.active, .cert-modal.active')) {
             return false;
         }
         // Юзер уже сфокусирован на другом интерактивном элементе
