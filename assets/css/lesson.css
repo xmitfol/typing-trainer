@@ -73,6 +73,11 @@
     font-size: 12.5px; font-weight: 600; color: var(--ink);
     font-family: var(--font-ui);
 }
+.lp-topbar__nav--task {
+    background: var(--accent); color: #fff;
+    border-color: var(--accent);
+    box-shadow: 0 4px 10px rgba(59,130,246,0.25);
+}
 
 /* ─── Article container ──────────────────────────────────────────── */
 .lp-article {

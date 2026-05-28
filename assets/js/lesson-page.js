@@ -198,11 +198,19 @@ document.addEventListener('DOMContentLoaded', async function () {
         } catch (err) {}
     });
 
+    // «Выполнить задание →» в топбаре — прямой шорткат к практике (повтор/переделка)
+    const topTask = $('#lpTopTask');
+    if (topTask) topTask.href = `task.html?tier=${encodeURIComponent(tier)}&lesson=${lessonNum}`;
+
     // ─── Prev/Next nav ───────────────────────────────────────────
     const prevN = lessonNum - 1;
     const nextN = lessonNum + 1;
     const prevEl = $('#lpNavPrev');
     const nextEl = $('#lpNavNext');
+
+    // Текущий урок пройден? (есть звёзды в прогрессе) — линейная прогрессия:
+    // следующий урок недоступен, пока текущий не сдан.
+    const currentDone = !!(prog && prog.stars > 0);
 
     if (prevN < 1) {
         prevEl.classList.add('lp-nav__btn--disabled');
@@ -222,6 +230,13 @@ document.addEventListener('DOMContentLoaded', async function () {
         $('#lpNavNextHint').textContent = 'КОНЕЦ КУРСА →';
         $('#lpNavNextTitle').textContent = '—';
         nextEl.href = '#';
+    } else if (!currentDone) {
+        // Текущий урок ещё не пройден — блокируем переход к следующему
+        nextEl.classList.add('lp-nav__btn--disabled');
+        nextEl.href = '#';
+        nextEl.addEventListener('click', (e) => e.preventDefault());
+        $('#lpNavNextHint').textContent = `УРОК ${nextN} 🔒`;
+        $('#lpNavNextTitle').textContent = 'Сначала пройди этот урок';
     } else {
         nextEl.href = `lesson.html?tier=${encodeURIComponent(tier)}&lesson=${nextN}`;
         $('#lpNavNextHint').textContent = `УРОК ${nextN} →`;
