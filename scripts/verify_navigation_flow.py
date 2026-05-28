@@ -70,7 +70,7 @@ def main():
         page.wait_for_selector('#dhWelcomeName', timeout=6000)
         page.wait_for_timeout(800)
         check('dashboard shows name Тест', page.locator('#dhWelcomeName').inner_text(), 'Тест')
-        check('dhContinue → task.html', page.locator('#dhContinue').get_attribute('href'), lambda s: s.startswith('task.html?tier='))
+        check('dhContinue → lesson.html (теория, НЕ task)', page.locator('#dhContinue').get_attribute('href'), lambda s: s.startswith('lesson.html?tier='))
         page.screenshot(path=str(SHOTS / '4_dashboard.png'))
 
         # 5. onboarding with profile → dashboard (guard)
@@ -111,6 +111,21 @@ def main():
         page.wait_for_timeout(800)
         check('task target rendered', page.locator('#tpTarget span').count(), lambda n: n > 0)
         page.screenshot(path=str(SHOTS / '8_task.png'))
+
+        # 9. Complete exercise → success «Продолжить» ведёт на lesson.html (теория следующего)
+        print("\n=== 9. task success «Продолжить» → lesson.html (не task) ===")
+        page.evaluate(
+            """() => {
+                const txt = Array.from(document.querySelectorAll('#tpTarget span')).map(s => s.textContent).join('').replace(/ /g, ' ');
+                const inp = document.getElementById('tpHiddenInput');
+                inp.focus();
+                for (const ch of txt) { inp.value += ch; inp.dispatchEvent(new Event('input', {bubbles:true})); }
+            }"""
+        )
+        page.wait_for_timeout(800)
+        check('success screen shown', page.locator('body').get_attribute('class'), lambda s: 'task-page--done' in s)
+        check('success «Продолжить» → lesson.html', page.locator('#tpSuccessNext').get_attribute('href'), lambda s: s.startswith('lesson.html?tier=') and 'lesson=2' in s)
+        page.screenshot(path=str(SHOTS / '9_task_success.png'))
 
         ctx.close()
         browser.close()

@@ -277,7 +277,8 @@ document.addEventListener('DOMContentLoaded', async function () {
             location.reload();
         });
         const nextN = lessonNum + 1;
-        const nextHref = nextN <= totalLessons ? `task.html?tier=${encodeURIComponent(tier)}&lesson=${nextN}` : 'course.html';
+        // Следующий урок — снова с теории (lesson.html), не сразу в тренажёр.
+        const nextHref = nextN <= totalLessons ? `lesson.html?tier=${encodeURIComponent(tier)}&lesson=${nextN}` : 'course.html';
         const nextEl = $('#tpSuccessNext');
         nextEl.href = nextHref;
         nextEl.querySelector('span') || (nextEl.textContent = nextN <= totalLessons ? `Продолжить · ${moduleN}.${nextN} →` : 'К списку уроков →');
