@@ -118,7 +118,14 @@ document.addEventListener('DOMContentLoaded', function () {
         .filter(n => Number.isFinite(n) && progress[String(n)] && progress[String(n)].stars > 0);
     const doneCount = completedNums.length;
     const donePct = totalLessons ? (doneCount / totalLessons) * 100 : 0;
-    const lessonNum = Number.isFinite(currentLesson.lessonNumber) ? currentLesson.lessonNumber : (doneCount + 1);
+    // Линейная прогрессия: «текущий» = первый НЕпройденный урок (а не stored
+    // currentLesson, который может указывать вперёд). Только он разблокирован.
+    const doneSet = new Set(completedNums);
+    let firstUncompleted = totalLessons + 1;
+    for (let n = 1; n <= totalLessons; n++) {
+        if (!doneSet.has(n)) { firstUncompleted = n; break; }
+    }
+    const lessonNum = Math.min(firstUncompleted, totalLessons);
 
     // Average accuracy from completed lessons
     let avgAcc = null;
@@ -260,14 +267,18 @@ document.addEventListener('DOMContentLoaded', function () {
             row.href = isLocked ? '#' : `lesson.html?tier=${encodeURIComponent(tier)}&lesson=${n}`;
             if (isLocked) row.addEventListener('click', e => e.preventDefault());
 
+            // Номер упражнения видим ВСЕГДА; статус — отдельным значком слева.
             const numClass = isDone ? 'cp-lesson__num--done'
                 : isNext ? `cp-lesson__num--next-${m.accent}`
-                : '';
-            const numContent = isDone
-                ? '<svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8L7 12L13 5" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>'
+                : 'cp-lesson__num--locked';
+            const numContent = String(n).padStart(2, '0');
+
+            const statusState = isDone ? 'done' : isLocked ? 'locked' : 'next';
+            const statusIcon = isDone
+                ? '<svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8L7 12L13 5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>'
                 : isLocked
-                ? '<svg width="11" height="11" viewBox="0 0 14 14" fill="none"><rect x="3" y="6" width="8" height="6" rx="1" fill="#fff"/><path d="M5 6V4a2 2 0 014 0v2" stroke="#fff" stroke-width="1.4" fill="none"/></svg>'
-                : String(n).padStart(2, '0');
+                ? '<svg width="12" height="12" viewBox="0 0 14 14" fill="none"><rect x="3" y="6" width="8" height="6" rx="1.2" fill="currentColor"/><path d="M5 6V4a2 2 0 014 0v2" stroke="currentColor" stroke-width="1.4" fill="none"/></svg>'
+                : '<svg width="11" height="11" viewBox="0 0 12 12" fill="none"><path d="M3 2.5L9 6L3 9.5Z" fill="currentColor"/></svg>';
 
             const title = (lesson && lesson.title) || `Урок ${n}`;
             const desc = (lesson && lesson.description) || '';
@@ -280,6 +291,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 : '';
 
             row.innerHTML = `
+                <div class="cp-lesson__status cp-lesson__status--${statusState}">${statusIcon}</div>
                 <div class="cp-lesson__num ${numClass}">${numContent}</div>
                 <div class="cp-lesson__info">
                     <div class="cp-lesson__title${titleClass}">

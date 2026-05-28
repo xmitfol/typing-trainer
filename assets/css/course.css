@@ -250,6 +250,15 @@
 .cp-lesson--next.cp-lesson--accent-indigo { border-left-color: var(--f-indigo); background: rgba(74,144,226,0.08); }
 .cp-lesson--next.cp-lesson--accent-purple { border-left-color: var(--f-purple); background: rgba(162,155,254,0.10); }
 
+/* Статус прохождения — отдельный значок СЛЕВА от номера (номер не перекрывается) */
+.cp-lesson__status {
+    width: 18px; flex-shrink: 0;
+    display: grid; place-items: center;
+}
+.cp-lesson__status--done   { color: var(--success); }
+.cp-lesson__status--next   { color: var(--accent); }
+.cp-lesson__status--locked { color: var(--faint); }
+
 .cp-lesson__num {
     width: 30px; height: 30px; border-radius: 7px;
     background: #1a1a17;
