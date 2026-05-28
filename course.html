@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Курс — typing-trainer</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="assets/css/tokens.css">
+    <link rel="stylesheet" href="assets/css/course.css">
+    <link rel="icon" type="image/x-icon" href="assets/images/favicon.ico">
+</head>
+<body class="course-page">
+
+    <!-- ─── Header ─────────────────────────────────────────────────── -->
+    <header class="cp-header">
+        <a href="landing.html" class="cp-logo">
+            <span class="cp-logo__mark">Ё</span>
+            <span class="cp-logo__name">typing-trainer</span>
+        </a>
+        <div class="cp-crumbs">
+            <a href="dashboard.html">Главная</a>
+            <span>/</span>
+            <span class="cp-crumbs__current" id="cpCourseCrumb">Русский курс</span>
+            <span>/</span>
+            <span class="cp-crumbs__current">Уроки</span>
+        </div>
+        <div class="cp-spacer"></div>
+        <a class="cp-profile-pill" href="dashboard.html">
+            <span id="cpProfileAvatar"></span>
+            <span class="cp-profile-pill__name" id="cpProfileName">—</span>
+        </a>
+    </header>
+
+    <!-- ─── Course summary ─────────────────────────────────────────── -->
+    <div class="cp-summary">
+        <div class="cp-summary__inner">
+            <div>
+                <div class="cp-summary__eyebrow" id="cpEyebrow">🇷🇺 РУССКИЙ КУРС · ЙЦУКЕН · 99 УРОКОВ</div>
+                <h1 class="cp-summary__h1">Все уроки курса</h1>
+                <p class="cp-summary__lead" id="cpLead">Десятипальцевый метод: от среднего ряда до полной раскладки.</p>
+            </div>
+            <div class="cp-metrics">
+                <div>
+                    <div class="cp-metric__label">ОТКРЫТО</div>
+                    <div class="cp-metric__row">
+                        <span class="cp-metric__val" id="cpMetricOpen">0</span>
+                        <span class="cp-metric__sub" id="cpMetricOpenSub">из 99</span>
+                    </div>
+                </div>
+                <div>
+                    <div class="cp-metric__label">ПРОЙДЕНО</div>
+                    <div class="cp-metric__row">
+                        <span class="cp-metric__val cp-metric__val--success" id="cpMetricDone">0</span>
+                        <span class="cp-metric__sub" id="cpMetricDoneSub">0%</span>
+                    </div>
+                </div>
+                <div>
+                    <div class="cp-metric__label">СРЕДНЯЯ</div>
+                    <div class="cp-metric__row">
+                        <span class="cp-metric__val" id="cpMetricAcc">—</span>
+                        <span class="cp-metric__sub">% точность</span>
+                    </div>
+                </div>
+                <a class="cp-summary__cta" href="index.html" id="cpContinue">Продолжить · урок 1 →</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- ─── Roadmap ────────────────────────────────────────────────── -->
+    <div class="cp-roadmap-wrap">
+        <div class="cp-roadmap">
+            <div class="cp-roadmap__hd">
+                <h3>Roadmap курса</h3>
+                <div class="cp-roadmap__progress" id="cpRoadmapProgress">0/99 · 0%</div>
+            </div>
+            <div class="cp-roadmap__heads" id="cpRoadmapHeads">
+                <!-- module column heads — заполняется JS -->
+            </div>
+            <div class="cp-roadmap__track" id="cpRoadmapTrack">
+                <div class="cp-roadmap__track-base"></div>
+                <div class="cp-roadmap__track-fill" id="cpRoadmapFill" style="width:0%"></div>
+                <!-- pills + dividers заполняются JS -->
+            </div>
+            <div class="cp-roadmap__axis" id="cpRoadmapAxis">
+                <!-- 0% / 15% / ... 100% заполняется JS -->
+            </div>
+        </div>
+    </div>
+
+    <!-- ─── Modules ────────────────────────────────────────────────── -->
+    <div class="cp-modules" id="cpModules">
+        <!-- module accordions заполняются JS -->
+    </div>
+
+    <!-- ─── Grading legend ─────────────────────────────────────────── -->
+    <div class="cp-grading">
+        <div class="cp-grading__card">
+            <h3>Оценка уроков</h3>
+            <p class="cp-grading__lead">
+                Каждый урок оценивается звёздочками. Чтобы получить сертификат — нужна средняя скорость 120 знаков/мин и средний балл не ниже 4.0.
+            </p>
+            <div class="cp-grading__grid" id="cpGradingGrid">
+                <!-- заполняется JS -->
+            </div>
+        </div>
+    </div>
+
+    <!-- ─── JS ─────────────────────────────────────────────────────── -->
+    <script src="config/settings.js"></script>
+    <script src="assets/js/portraits.js"></script>
+    <script src="assets/js/lesson-loader.js"></script>
+    <script src="assets/js/course.js"></script>
+</body>
+</html>

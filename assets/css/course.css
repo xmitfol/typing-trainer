@@ -1,0 +1,365 @@
+/* course.css — Phase 5 Course Roadmap. Scoped under .course-page. Uses tokens.css. */
+
+.course-page {
+    font-family: var(--font-ui);
+    background: var(--bg);
+    color: var(--ink);
+    min-height: 100vh;
+    -webkit-font-smoothing: antialiased;
+}
+.course-page *, .course-page *::before, .course-page *::after { box-sizing: border-box; }
+.course-page a { color: inherit; text-decoration: none; }
+
+/* ─── Header ─────────────────────────────────────────────────────── */
+.cp-header {
+    position: sticky; top: 0; z-index: 10;
+    background: rgba(245, 244, 240, 0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--divider);
+    padding: 12px 32px;
+    display: flex; align-items: center; gap: 24px;
+}
+.cp-logo { display: flex; align-items: center; gap: 10px; }
+.cp-logo__mark {
+    width: 30px; height: 30px; border-radius: 7px;
+    background: var(--brand-grad);
+    display: grid; place-items: center;
+    color: #fff; font-family: var(--font-mono);
+    font-weight: 700; font-size: 12px;
+}
+.cp-logo__name { font-weight: 800; font-size: 14px; }
+.cp-crumbs {
+    font-size: 13px; color: var(--faint);
+    font-family: var(--font-mono);
+    display: flex; gap: 8px; align-items: center;
+}
+.cp-crumbs__current { color: var(--ink); font-weight: 600; }
+.cp-spacer { flex: 1; }
+.cp-profile-pill {
+    display: flex; align-items: center; gap: 6px;
+    padding: 4px 14px 4px 4px;
+    background: var(--surface); border: 1px solid var(--divider);
+    border-radius: 999px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+}
+.cp-profile-pill__name { font-size: 12.5px; font-weight: 600; }
+
+/* ─── Course summary ──────────────────────────────────────────────── */
+.cp-summary {
+    max-width: 1180px; margin: 0 auto;
+    padding: 28px 32px 14px;
+}
+.cp-summary__inner {
+    display: flex; align-items: flex-end;
+    justify-content: space-between; gap: 24px;
+    flex-wrap: wrap;
+}
+.cp-summary__eyebrow {
+    font-family: var(--font-mono); font-size: 11px;
+    color: var(--faint); letter-spacing: 0.06em; margin-bottom: 6px;
+}
+.cp-summary__h1 {
+    margin: 0; font-size: 36px; font-weight: 800;
+    letter-spacing: -0.02em;
+}
+.cp-summary__lead {
+    margin: 8px 0 0; font-size: 14px;
+    color: var(--sub); max-width: 480px; line-height: 1.5;
+}
+.cp-metrics {
+    display: flex; gap: 18px; align-items: flex-end;
+}
+.cp-metric__label {
+    font-family: var(--font-mono); font-size: 10px;
+    color: var(--faint); letter-spacing: 0.06em; margin-bottom: 2px;
+}
+.cp-metric__row { display: flex; align-items: baseline; gap: 4px; }
+.cp-metric__val {
+    font-size: 22px; font-weight: 800;
+    font-family: var(--font-mono); letter-spacing: -0.02em;
+}
+.cp-metric__val--success { color: var(--success); }
+.cp-metric__sub {
+    font-size: 11px; color: var(--faint);
+    font-family: var(--font-mono);
+}
+.cp-summary__cta {
+    padding: 12px 22px; margin-bottom: 4px;
+    background: var(--accent); color: #fff;
+    border: none; border-radius: 11px;
+    font-size: 14px; font-weight: 700; font-family: var(--font-ui);
+    cursor: pointer;
+    box-shadow: 0 6px 14px rgba(59,130,246,0.3);
+    display: inline-flex; align-items: center; gap: 8px;
+}
+
+/* ─── Roadmap ─────────────────────────────────────────────────────── */
+.cp-roadmap-wrap {
+    max-width: 1180px; margin: 0 auto;
+    padding: 20px 32px 8px;
+}
+.cp-roadmap {
+    background: var(--surface);
+    border: 1px solid var(--divider);
+    border-radius: 18px;
+    padding: 26px 30px 22px;
+}
+.cp-roadmap__hd {
+    display: flex; align-items: center; justify-content: space-between;
+    margin-bottom: 24px;
+}
+.cp-roadmap__hd h3 { margin: 0; font-size: 16px; font-weight: 700; }
+.cp-roadmap__progress {
+    font-family: var(--font-mono); font-size: 11.5px; color: var(--sub);
+}
+.cp-roadmap__heads {
+    display: grid;
+    grid-template-columns: repeat(var(--modules-count, 5), 1fr);
+    gap: 8px; margin-bottom: 14px;
+}
+.cp-roadmap__head { padding: 0 4px; }
+.cp-roadmap__head-eyebrow {
+    font-family: var(--font-mono); font-size: 10.5px;
+    color: var(--faint); letter-spacing: 0.06em; margin-bottom: 3px;
+}
+.cp-roadmap__head-label {
+    font-size: 13px; font-weight: 700;
+    color: var(--sub); line-height: 1.25;
+}
+.cp-roadmap__head--active .cp-roadmap__head-label { color: var(--ink); }
+
+.cp-roadmap__track {
+    position: relative; height: 30px; margin-bottom: 4px;
+}
+.cp-roadmap__track-base {
+    position: absolute; top: 12px; left: 0; right: 0;
+    height: 6px; background: var(--divider); border-radius: 999px;
+}
+.cp-roadmap__track-fill {
+    position: absolute; top: 12px; left: 0; height: 6px;
+    background: linear-gradient(90deg, var(--f-blue) 0%, var(--f-purple) 100%);
+    border-radius: 999px;
+    box-shadow: 0 0 12px rgba(116,185,255,0.5);
+}
+.cp-roadmap__divider {
+    position: absolute; top: 8px;
+    width: 2px; height: 14px;
+    background: #fff; border-radius: 1px;
+    transform: translateX(-1px);
+}
+.cp-roadmap__pill {
+    position: absolute; top: 22px;
+    transform: translateX(-50%);
+    padding: 3px 10px;
+    background: #e9e6dd; color: var(--sub);
+    font-size: 10px; font-weight: 700;
+    font-family: var(--font-mono);
+    border-radius: 999px; white-space: nowrap;
+    letter-spacing: 0.02em;
+}
+.cp-roadmap__pill--active { color: #fff; box-shadow: 0 4px 10px rgba(0,0,0,0.15); }
+.cp-roadmap__pill--pink   { background: var(--f-pink); }
+.cp-roadmap__pill--orange { background: var(--f-orange); }
+.cp-roadmap__pill--green  { background: var(--f-green); }
+.cp-roadmap__pill--blue   { background: var(--f-blue); }
+.cp-roadmap__pill--indigo { background: var(--f-indigo); }
+.cp-roadmap__pill--purple { background: var(--f-purple); }
+.cp-roadmap__axis {
+    display: flex; justify-content: space-between;
+    margin-top: 26px;
+    font-family: var(--font-mono); font-size: 10px;
+    color: var(--faint);
+}
+
+/* ─── Modules accordion ───────────────────────────────────────────── */
+.cp-modules {
+    max-width: 1180px; margin: 0 auto;
+    padding: 20px 32px 0;
+}
+.cp-module {
+    background: var(--bg-alt);
+    border: 1px solid var(--divider);
+    border-radius: 14px;
+    padding: 4px;
+    margin-bottom: 12px;
+    transition: background 0.15s ease;
+}
+.cp-module.cp-module--open { background: #f1efe7; }
+.cp-module__head {
+    width: 100%; display: flex; align-items: center; gap: 14px;
+    padding: 14px 18px;
+    background: transparent; border: none; cursor: pointer;
+    text-align: left; font-family: var(--font-ui);
+}
+.cp-module__num {
+    padding: 6px 12px;
+    background: #1a1a17; color: #fff;
+    border-radius: 8px;
+    font-size: 12px; font-weight: 700;
+    font-family: var(--font-mono);
+    letter-spacing: 0.04em;
+    white-space: nowrap;
+}
+.cp-module__title {
+    flex: 1;
+    font-size: 17px; font-weight: 700; color: var(--ink);
+}
+.cp-module__meta {
+    display: flex; align-items: center; gap: 6px;
+    font-family: var(--font-mono); font-size: 11px;
+    color: var(--sub);
+}
+.cp-module__now {
+    padding: 3px 9px;
+    border-radius: 999px;
+    font-weight: 700; letter-spacing: 0.04em;
+    background: rgba(59,130,246,0.13);
+    color: var(--accent);
+}
+.cp-module__chevron {
+    font-size: 14px; color: var(--faint);
+    transition: transform 0.2s ease;
+}
+.cp-module--open .cp-module__chevron { transform: rotate(180deg); }
+
+.cp-module__body {
+    background: var(--surface);
+    border-radius: 11px;
+    margin: 0 4px 4px;
+    padding: 8px 0;
+    display: none;
+}
+.cp-module--open .cp-module__body { display: block; }
+
+.cp-lesson {
+    display: flex; align-items: center; gap: 14px;
+    padding: 10px 18px;
+    border-left: 3px solid transparent;
+    transition: background 0.12s ease;
+    cursor: pointer;
+}
+.cp-lesson--locked { cursor: not-allowed; opacity: 0.55; }
+.cp-lesson--next {
+    border-left-color: var(--accent);
+}
+.cp-lesson--next.cp-lesson--accent-pink   { border-left-color: var(--f-pink);   background: rgba(255,118,117,0.08); }
+.cp-lesson--next.cp-lesson--accent-orange { border-left-color: var(--f-orange); background: rgba(253,203,110,0.10); }
+.cp-lesson--next.cp-lesson--accent-green  { border-left-color: var(--f-green);  background: rgba(0,184,148,0.08); }
+.cp-lesson--next.cp-lesson--accent-blue   { border-left-color: var(--f-blue);   background: rgba(116,185,255,0.10); }
+.cp-lesson--next.cp-lesson--accent-indigo { border-left-color: var(--f-indigo); background: rgba(74,144,226,0.08); }
+.cp-lesson--next.cp-lesson--accent-purple { border-left-color: var(--f-purple); background: rgba(162,155,254,0.10); }
+
+.cp-lesson__num {
+    width: 30px; height: 30px; border-radius: 7px;
+    background: #1a1a17;
+    color: #fff;
+    font-family: var(--font-mono);
+    font-weight: 700; font-size: 12px;
+    display: grid; place-items: center;
+    flex-shrink: 0;
+}
+.cp-lesson__num--done { background: var(--success); }
+.cp-lesson__num--next-pink   { background: var(--f-pink); }
+.cp-lesson__num--next-orange { background: var(--f-orange); }
+.cp-lesson__num--next-green  { background: var(--f-green); }
+.cp-lesson__num--next-blue   { background: var(--f-blue); }
+.cp-lesson__num--next-indigo { background: var(--f-indigo); }
+.cp-lesson__num--next-purple { background: var(--f-purple); }
+.cp-lesson__info { flex: 1; min-width: 0; }
+.cp-lesson__title {
+    font-size: 14px; font-weight: 600;
+    color: var(--ink);
+    display: flex; align-items: center; gap: 8px;
+}
+.cp-lesson__title--done { color: var(--success); }
+.cp-lesson__title--locked { color: var(--faint); }
+.cp-lesson--next .cp-lesson__title { font-weight: 700; }
+.cp-lesson__now-chip {
+    font-size: 9.5px; padding: 2px 7px;
+    background: var(--accent); color: #fff;
+    border-radius: 999px;
+    font-weight: 700; font-family: var(--font-mono);
+    letter-spacing: 0.04em;
+}
+.cp-lesson__desc {
+    font-size: 11.5px; color: var(--faint);
+    margin-top: 2px;
+}
+.cp-lesson__tail {
+    display: flex; align-items: center; gap: 14px;
+    flex-shrink: 0;
+}
+.cp-lesson__acc {
+    font-size: 11px; color: var(--faint);
+    font-family: var(--font-mono);
+    width: 36px; text-align: right;
+}
+.cp-lesson__start {
+    padding: 6px 14px;
+    background: var(--accent); color: #fff;
+    border: none; border-radius: 7px;
+    font-size: 12px; font-weight: 700;
+    font-family: var(--font-ui);
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.cp-stars { display: flex; gap: 1px; }
+.cp-star { width: 13px; height: 13px; }
+.cp-star path { stroke: #d6d3c8; fill: #e5e3da; stroke-width: 0.8; }
+.cp-star--on path { stroke: #d97706; fill: #f59e0b; }
+
+/* ─── Grading legend ──────────────────────────────────────────────── */
+.cp-grading {
+    max-width: 1180px; margin: 24px auto 60px;
+    padding: 0 32px;
+}
+.cp-grading__card {
+    background: var(--surface);
+    border: 1px solid var(--divider);
+    border-radius: 18px; padding: 24px;
+}
+.cp-grading__card h3 {
+    margin: 0; font-size: 15px; font-weight: 700;
+    margin-bottom: 6px;
+}
+.cp-grading__lead {
+    margin: 0 0 18px;
+    font-size: 12.5px; color: var(--sub);
+    line-height: 1.5;
+}
+.cp-grading__grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px;
+}
+.cp-grading__item {
+    display: flex; align-items: center; gap: 10px;
+    padding: 10px 12px;
+    background: var(--bg);
+    border-radius: 9px;
+}
+.cp-grading__item-label { font-size: 12.5px; font-weight: 700; color: var(--ink); }
+.cp-grading__item-desc {
+    font-size: 10.5px; color: var(--faint);
+    font-family: var(--font-mono);
+}
+
+/* ─── Responsive ──────────────────────────────────────────────────── */
+@media (max-width: 960px) {
+    .cp-header { padding: 10px 18px; gap: 14px; }
+    .cp-crumbs { display: none; }
+    .cp-summary, .cp-roadmap-wrap, .cp-modules, .cp-grading { padding-left: 18px; padding-right: 18px; }
+    .cp-summary__inner { flex-direction: column; align-items: stretch; gap: 16px; }
+    .cp-summary__h1 { font-size: 28px; }
+    .cp-roadmap__heads { grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); }
+    .cp-grading__grid { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 540px) {
+    .cp-roadmap__pill { display: none; }
+    .cp-roadmap__axis { display: none; }
+    .cp-grading__grid { grid-template-columns: 1fr; }
+    .cp-module__head { padding: 12px 14px; gap: 10px; }
+    .cp-module__title { font-size: 15px; }
+    .cp-lesson { padding: 10px 14px; gap: 10px; }
+    .cp-lesson__acc { display: none; }
+}
