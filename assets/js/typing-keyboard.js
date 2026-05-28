@@ -110,25 +110,25 @@
 
   const CLASSIC_BOTTOM = [
     { l: 'Ctrl', f: 'pink', mod: true, w: 1.5, code: 'ControlLeft' },
-    { l: 'Win',  f: 'pink', mod: true, w: 1.25, code: 'MetaLeft' },
+    { l: '',  f: 'pink', mod: true, w: 1.25, code: 'MetaLeft' },
     { l: 'Alt',  f: 'pink', mod: true, w: 1.25, code: 'AltLeft' },
     { l: 'Space', f: 'purple', w: 6.5, code: 'Space' },
     { l: 'Alt',  f: 'pink', mod: true, w: 1.25, code: 'AltRight' },
-    { l: 'Fn',   f: 'pink', mod: true, w: 1.25 },
+    { l: '',   f: 'pink', mod: true, w: 1.25 },
     { l: 'Ctrl', f: 'pink', mod: true, w: 1.5, code: 'ControlRight' },
   ];
 
   const THUMB_MIN = {
     left:  [
       { l: 'Ctrl', f: 'pink', w: 1.25, mod: true, code: 'ControlLeft' },
-      { l: 'Win',  f: 'pink', w: 1, mod: true, code: 'MetaLeft' },
+      { l: '',  f: 'pink', w: 1, mod: true, code: 'MetaLeft' },
       { l: 'Alt',  f: 'pink', w: 1, mod: true, code: 'AltLeft' },
       { l: 'Space', f: 'purple', w: 3, code: 'Space' },
     ],
     right: [
       { l: 'Space', f: 'purple', w: 3, code: 'Space' },
       { l: 'Alt',  f: 'pink', w: 1, mod: true, code: 'AltRight' },
-      { l: 'Fn',   f: 'pink', w: 1, mod: true },
+      { l: '',   f: 'pink', w: 1, mod: true },
       { l: 'Ctrl', f: 'pink', w: 1.25, mod: true, code: 'ControlRight' },
     ],
   };
@@ -399,7 +399,7 @@
     const nav = renderNav(unit, opts);
     const numpad = renderNumpad(unit, opts);
 
-    return `<div class="kb" style="gap:${unit * 0.55}px;align-items:flex-start">${alpha}${nav}${numpad}</div>`;
+    return `<div class="kb" style="gap:${unit * 0.34}px;align-items:flex-start">${alpha}${nav}${numpad}</div>`;
   }
 
   function renderLaptop(unit, opts) {
@@ -410,35 +410,29 @@
     ).join('');
     const bottomRow = `<div class="row" style="gap:${unit * 0.08}px;height:${rowH}px">${padBot.map(k => keyHtml(k, unit, opts)).join('')}</div>`;
     const alpha = `<div class="col" style="gap:${unit * 0.08}px">${alphaRows}${bottomRow}</div>`;
-    // Small arrows in bottom-right
-    const arrows = `
-      <div style="display:grid;grid-template-columns:repeat(3, ${unit * 0.85}px);grid-template-rows:${unit * 0.46}px ${unit * 0.46}px;gap:${unit * 0.08}px;align-self:flex-end">
-        <div style="grid-column:2;grid-row:1">${keyHtml({ l: '↑', mod: true }, unit * 0.85, opts)}</div>
-        <div style="grid-column:1;grid-row:2">${keyHtml({ l: '←', mod: true }, unit * 0.85, opts)}</div>
-        <div style="grid-column:2;grid-row:2">${keyHtml({ l: '↓', mod: true }, unit * 0.85, opts)}</div>
-        <div style="grid-column:3;grid-row:2">${keyHtml({ l: '→', mod: true }, unit * 0.85, opts)}</div>
-      </div>
-    `;
-    return `<div class="kb" style="gap:${unit * 0.4}px;align-items:flex-end">${alpha}${arrows}</div>`;
+    // Laptop: no nav/arrows cluster — not relevant for the trainer.
+    return `<div class="kb" style="gap:${unit * 0.4}px;align-items:flex-end">${alpha}</div>`;
   }
 
   function renderNav(unit, opts) {
     const rowH = unit * 0.92;
-    const blank = `<div style="height:${rowH}px"></div>`;
+    const gap = unit * 0.08;
     const navKey = (l) => keyHtml({ l, mod: true }, unit, opts);
-    const navRow = (cells) => `<div class="row" style="gap:${unit * 0.08}px">${cells.map(c => navKey(c.l)).join('')}</div>`;
-    const arrows = `
-      <div class="col" style="gap:${unit * 0.08}px;align-items:center">
-        <div class="row" style="gap:${unit * 0.08}px"><div style="width:${unit}px"></div>${navKey('↑')}<div style="width:${unit}px"></div></div>
-        <div class="row" style="gap:${unit * 0.08}px">${navKey('←')}${navKey('↓')}${navKey('→')}</div>
-      </div>
-    `;
-    return `<div class="col" style="gap:${unit * 0.08}px">
-      ${blank}
-      ${navRow(NAV_TOP[0])}
-      ${navRow(NAV_TOP[1])}
-      ${blank}
-      ${arrows}
+    // A row slot with explicit height = rowH so it aligns 1:1 with the alpha block rows.
+    const slot = (inner = '') =>
+      `<div class="row" style="gap:${gap}px;height:${rowH}px;justify-content:center">${inner}</div>`;
+    // 5 slots, matching the 5 alpha rows exactly:
+    //   row0 (numbers): Ins Home PgUp
+    //   row1 (Tab):     Del End PgDn
+    //   row2 (Caps):    empty
+    //   row3 (Shift):   ↑ centered
+    //   row4 (Ctrl):    ← ↓ →
+    return `<div class="col" style="gap:${gap}px">
+      ${slot(NAV_TOP[0].map(c => navKey(c.l)).join(''))}
+      ${slot(NAV_TOP[1].map(c => navKey(c.l)).join(''))}
+      ${slot('')}
+      ${slot(`<div style="width:${unit}px"></div>${navKey('↑')}<div style="width:${unit}px"></div>`)}
+      ${slot(`${navKey('←')}${navKey('↓')}${navKey('→')}`)}
     </div>`;
   }
 

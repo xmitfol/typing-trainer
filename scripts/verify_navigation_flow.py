@@ -102,29 +102,33 @@ def main():
         check('lpOpenTrainer → task.html', page.locator('#lpOpenTrainer').get_attribute('href'), lambda s: s and 'task.html?tier=' in s)
         page.screenshot(path=str(SHOTS / '7_lesson.png'))
 
-        # 8. lesson → task
-        print("\n=== 8. lesson «Открыть тренажёр» → task ===")
+        # 8. lesson -> task (новый task.html с клавиатурой)
+        print("\n=== 8. lesson lesson->task ===")
         page.click('#lpOpenTrainer')
         page.wait_for_timeout(900)
         check('on task.html', page.url, lambda u: 'task.html' in u)
-        page.wait_for_selector('#tpTarget', timeout=6000)
+        page.wait_for_selector('#target .word', timeout=6000)
         page.wait_for_timeout(800)
-        check('task target rendered', page.locator('#tpTarget span').count(), lambda n: n > 0)
+        check('task target rendered (words)', page.locator('#target .word').count(), lambda n: n > 0)
+        check('keyboard rendered', page.evaluate("document.getElementById('kb').shadowRoot.querySelectorAll('.key').length"), lambda n: n and n > 20)
         page.screenshot(path=str(SHOTS / '8_task.png'))
 
-        # 9. Complete exercise → success «Продолжить» ведёт на lesson.html (теория следующего)
-        print("\n=== 9. task success «Продолжить» → lesson.html (не task) ===")
+        # 9. Complete exercise -> success Продолжить -> lesson.html (теория следующего)
+        print("\n=== 9. task success ->lesson.html ===")
+        target = page.evaluate("""() => Array.from(document.querySelectorAll('#target > *')).map(node =>
+            node.classList.contains('space') ? ' ' : Array.from(node.querySelectorAll('span')).map(s => s.textContent).join('')
+        ).join('')""")
         page.evaluate(
-            """() => {
-                const txt = Array.from(document.querySelectorAll('#tpTarget span')).map(s => s.textContent).join('').replace(/ /g, ' ');
-                const inp = document.getElementById('tpHiddenInput');
-                inp.focus();
-                for (const ch of txt) { inp.value += ch; inp.dispatchEvent(new Event('input', {bubbles:true})); }
-            }"""
+            """(txt) => {
+                const cap = document.getElementById('capture');
+                cap.focus();
+                for (const ch of txt) { cap.dispatchEvent(new KeyboardEvent('keydown', { key: ch, code: 'KeyX', bubbles: true, cancelable: true })); }
+            }""",
+            target
         )
         page.wait_for_timeout(800)
-        check('success screen shown', page.locator('body').get_attribute('class'), lambda s: 'task-page--done' in s)
-        check('success «Продолжить» → lesson.html', page.locator('#tpSuccessNext').get_attribute('href'), lambda s: s.startswith('lesson.html?tier=') and 'lesson=2' in s)
+        check('success screen shown', page.locator('#success').get_attribute('class'), lambda s: 'show' in s)
+        check('success Продолжить -> lesson.html', page.locator('#next-btn').get_attribute('href'), lambda s: s.startswith('lesson.html?tier=') and 'lesson=2' in s)
         page.screenshot(path=str(SHOTS / '9_task_success.png'))
 
         ctx.close()

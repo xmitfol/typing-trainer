@@ -1,339 +1,246 @@
 /**
- * task.js — Phase 7 task execution (фокусный typing-режим).
- * URL: task.html?tier=tier1&lesson=N (по умолчанию — currentLesson).
- * Standalone typing engine — без main.js / virtual keyboard.
- *   - Загрузка урока через lesson-loader
- *   - Реалтайм отслеживание typed/errors/wpm/time
- *   - Подсветка символов: done / current / error
- *   - При завершении (typed.length == target.length) → SuccessScreen variant
- *   - Сохранение прогресса в lessonProgress
+ * task.js — экран упражнения (Phase 7 + клавиатура из дизайн-handoff).
+ * Клавиатура <typing-keyboard> (designer) + НАШИ данные/guard'ы:
+ *   - router-guard (профиль) подключён отдельным скриптом
+ *   - линейная прогрессия: прямой URL на закрытый урок → редирект на lesson.html
+ *   - реальный урок через lesson-loader (data/lessons/{tier}/lesson_NN.json)
+ *   - наставник из profile.character, цитата из lesson.character_tips
+ *   - сохранение lessonProgress (звёзды по ошибкам) — открывает следующий урок
+ *   - success «Продолжить» → lesson.html?lesson=N+1 (теория следующего)
+ * URL: task.html?tier=tier1&lesson=N
  */
 document.addEventListener('DOMContentLoaded', async function () {
-    const $ = (sel) => document.querySelector(sel);
+    const $ = (s) => document.getElementById(s);
     const profileKey = (window.Settings && window.Settings.get('storage.keys.userProfile', 'typing_trainer_user_profile')) || 'typing_trainer_user_profile';
     const progressKey = (window.Settings && window.Settings.get('storage.keys.lessonProgress', 'typing_trainer_lesson_progress')) || 'typing_trainer_lesson_progress';
     const currentKey = (window.Settings && window.Settings.get('storage.keys.currentLesson', 'typing_trainer_current_lesson')) || 'typing_trainer_current_lesson';
 
-    function readJSON(key) { try { const raw = localStorage.getItem(key); return raw ? JSON.parse(raw) : null; } catch (e) { return null; } }
-    function writeJSON(key, obj) { try { localStorage.setItem(key, JSON.stringify(obj)); } catch (e) {} }
+    const readJSON = (k) => { try { const r = localStorage.getItem(k); return r ? JSON.parse(r) : null; } catch (e) { return null; } };
+    const writeJSON = (k, o) => { try { localStorage.setItem(k, JSON.stringify(o)); } catch (e) {} };
 
     const profile = readJSON(profileKey);
-    if (!profile || !profile.onboardingCompleted || !profile.name) {
-        window.location.href = 'index.html';
-        return;
-    }
+    if (!profile || !profile.onboardingCompleted || !profile.name) { window.location.href = 'index.html'; return; }
     const progress = readJSON(progressKey) || {};
     const currentLesson = readJSON(currentKey) || {};
 
-    function pickTier(prof) {
-        const lang = prof.language || 'ru';
-        const ch = prof.character;
-        if (lang === 'en') {
-            if (ch === 'knopych')   return 'en_teen';
-            if (ch === 'klavochka') return 'en_kids';
-            return 'en_tier1';
-        }
-        if (ch === 'knopych')   return 'ru_teen';
-        if (ch === 'klavochka') return 'ru_kids';
-        return 'tier1';
+    function pickTier(p) {
+        const lang = p.language || 'ru';
+        const ch = p.character;
+        if (lang === 'en') { if (ch === 'knopych') return 'en_teen'; if (ch === 'klavochka') return 'en_kids'; return 'en_tier1'; }
+        if (ch === 'knopych') return 'ru_teen'; if (ch === 'klavochka') return 'ru_kids'; return 'tier1';
     }
 
-    // ─── Parse URL ───────────────────────────────────────────────
     const params = new URLSearchParams(window.location.search);
     const tier = params.get('tier') || currentLesson.tier || pickTier(profile);
     const lessonNum = parseInt(params.get('lesson'), 10) || currentLesson.lessonNumber || 1;
     const counts = (window.Settings && window.Settings.get('lessons.tierLessonCount', {})) || {};
     const totalLessons = counts[tier] || 99;
 
-    // ─── Линейная прогрессия: прямой URL на заблокированное упражнение → ───
-    // обратно к теории доступного урока (task достижим только из lesson.html).
+    // ─── Линейная прогрессия: прямой URL на закрытое упражнение → теория доступного ───
     let firstUncompleted = totalLessons;
     for (let n = 1; n <= totalLessons; n++) {
         if (!(progress[String(n)] && progress[String(n)].stars > 0)) { firstUncompleted = n; break; }
     }
-    const taskLessonDone = !!(progress[String(lessonNum)] && progress[String(lessonNum)].stars > 0);
-    if (!taskLessonDone && lessonNum !== firstUncompleted) {
+    const lessonDone = !!(progress[String(lessonNum)] && progress[String(lessonNum)].stars > 0);
+    if (!lessonDone && lessonNum !== firstUncompleted) {
         window.location.replace(`lesson.html?tier=${encodeURIComponent(tier)}&lesson=${lessonNum}`);
         return;
     }
 
-    // ─── Mentor setup ────────────────────────────────────────────
-    const mentorId = profile.character || (profile.audience === 'teen' ? 'knopych' : profile.audience === 'kid' ? 'klavochka' : 'anna');
-    if (window.portraits && window.portraits.mentor) {
-        $('#tpMentorPortrait').innerHTML = window.portraits.mentor(mentorId, 80);
-        $('#tpSuccessAvatar').innerHTML = window.portraits.mentor(mentorId, 170);
-    }
+    // ─── DOM refs ────────────────────────────────────────────────
+    const kb = $('kb'), capture = $('capture'), targetEl = $('target');
+    const fillEl = $('progress-fill'), countEl = $('progress-count');
+    const numEl = $('task-num'), attemptEl = $('attempt-n');
+    const statTime = $('stat-time'), statSpeed = $('stat-speed'), statAcc = $('stat-acc');
+    const legendEl = $('legend'), tipEl = $('mentor-tip'), hintEl = $('mentor-hint'), avatarEl = $('mentor-avatar');
+    const successEl = $('success'), taskBody = $('task-body'), toolbar = $('toolbar'), kbStage = $('kb-stage');
 
-    // ─── Fetch lesson ────────────────────────────────────────────
-    if (!window.lessonLoader) {
-        console.error('lesson-loader не готов');
-        return;
-    }
+    // ─── Mentor ──────────────────────────────────────────────────
+    const mentorId = profile.character || (profile.audience === 'teen' ? 'knopych' : profile.audience === 'kid' ? 'klavochka' : 'anna');
+    if (window.portraits && window.portraits.mentor) avatarEl.innerHTML = window.portraits.mentor(mentorId, 80);
+
+    // ─── Finger legend ───────────────────────────────────────────
+    const FCOLOR = { pink: '#ff7675', orange: '#fdcb6e', green: '#00b894', blue: '#74b9ff', indigo: '#0984e3', purple: '#a29bfe' };
+    legendEl.innerHTML = [
+        ['pink', 'Мизинец'], ['orange', 'Безымянный'], ['green', 'Средний'],
+        ['blue', 'Указ. левый'], ['indigo', 'Указ. правый'], ['purple', 'Большой']
+    ].map(([f, l]) => `<div class="legend__item"><span class="legend__chip" style="background:${FCOLOR[f]}"></span><span>${l}</span></div>`).join('');
+
+    // ─── Load lesson ─────────────────────────────────────────────
     const lesson = await window.lessonLoader.loadLesson(tier, lessonNum);
-    if (!lesson || !lesson.text) {
-        $('#tpTarget').textContent = `Урок ${lessonNum} не загружен`;
-        return;
-    }
+    if (!lesson || !lesson.text) { targetEl.textContent = `Урок ${lessonNum} не загружен`; return; }
 
     const targetText = lesson.text;
-    const targetLen = targetText.length;
-    const errorLimit = Number.isFinite(lesson.error_limit) ? lesson.error_limit : 99;
-    const targetWpm = Number.isFinite(lesson.target_wpm) ? lesson.target_wpm : 10;
-
-    // Module + lesson number в формате "M.L" (M = phase, L = relative)
     const moduleN = lesson.phase || 1;
-    const relN = lessonNum; // упрощение: показываем глобальный номер
-    $('#tpExerciseNum').textContent = `${moduleN}.${relN}`;
-    $('#tpSuccessNum').textContent  = `${moduleN}.${relN}`;
+    const exId = `${moduleN}.${lessonNum}`;
+    numEl.textContent = exId;
 
-    // Initial mentor tip из lesson.character_tips
     const initTip = (lesson.character_tips && lesson.character_tips[mentorId])
-        || `Печатай ровно. Цель: ${targetWpm} зн/мин, допустимо ошибок: ${errorLimit}.`;
-    $('#tpMentorTip').textContent = initTip;
-    $('#tpMentorHint').textContent = `Указательные пальцы — твои якоря на буквах А и О.`;
-    $('#tpMentorHint').hidden = false;
+        || `Печатай ровно. Цель: ${lesson.target_wpm || '—'} зн/мин, допустимо ошибок: ${Number.isFinite(lesson.error_limit) ? lesson.error_limit : '—'}.`;
+    tipEl.textContent = initTip;
+    hintEl.textContent = lesson.finger_focus || 'Указательные пальцы — твои якоря на буквах А и О.';
 
-    // Previous best from progress
-    const prevBest = progress[String(lessonNum)] || null;
-    if (prevBest) {
-        if (prevBest.bestWPM)  $('#tpBestSpeed').textContent = Math.round(prevBest.bestWPM);
-        if (prevBest.bestTime) $('#tpBestTime').textContent = formatTime(prevBest.bestTime);
+    // ─── State ───────────────────────────────────────────────────
+    let typed = 0, errors = 0, attempt = 1, startTime = null, timer = null, done = false;
+
+    function escapeHtml(s) { return String(s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#039;' }[c])); }
+
+    // ─── Render target (слова — неразрывные, перенос целиком) ─────
+    function renderTarget() {
+        let html = '', openWord = false;
+        for (let i = 0; i < targetText.length; i++) {
+            const ch = targetText[i];
+            const cls = i < typed ? 'done' : (i === typed && !done ? 'cur' : '');
+            if (ch === ' ') {
+                if (openWord) { html += '</span>'; openWord = false; }
+                html += `<span class="space ${cls}"> </span>`;
+            } else {
+                if (!openWord) { html += '<span class="word">'; openWord = true; }
+                html += `<span class="${cls}">${escapeHtml(ch)}</span>`;
+            }
+        }
+        if (openWord) html += '</span>';
+        targetEl.innerHTML = html;
+        countEl.textContent = `${typed}/${targetText.length}`;
+        fillEl.style.width = `${(typed / targetText.length) * 100}%`;
+
+        const nextCh = targetText[typed];
+        if (nextCh === ' ') kb.setAttribute('highlight-char', ' ');
+        else if (nextCh) kb.setAttribute('highlight-char', nextCh);
+        else kb.removeAttribute('highlight-char');
     }
 
-    // ─── Render target chars ─────────────────────────────────────
-    // Буквы группируются в неразрывные обёртки .tp-target__word, пробелы —
-    // отдельные разрывные точки. Перенос строки — только по словам целиком.
-    const targetEl = $('#tpTarget');
-    targetEl.innerHTML = '';
-    const charSpans = [];
-    let wordWrap = null;
-    for (let i = 0; i < targetLen; i++) {
-        const ch = targetText[i];
-        const span = document.createElement('span');
-        if (ch === ' ') {
-            span.className = 'tp-target__char tp-target__space';
-            span.textContent = ' ';
-            targetEl.appendChild(span);   // пробел вне слова — точка переноса
-            wordWrap = null;
+    // ─── Metrics ─────────────────────────────────────────────────
+    function calcWpm(elapsed) { return elapsed > 0 ? Math.round((typed) / (elapsed / 60)) : 0; }
+    function calcAcc() { return typed > 0 ? Math.max(0, Math.round(((typed - errors) / typed) * 100)) : 100; }
+    function updateStats() {
+        const elapsed = startTime ? (Date.now() - startTime) / 1000 : 0;
+        const m = Math.floor(elapsed / 60), s = Math.floor(elapsed % 60);
+        statTime.textContent = `${String(m).padStart(2, '0')}:${String(s).padStart(2, '0')}`;
+        statSpeed.innerHTML = `${calcWpm(elapsed)} <span style="font-size:11px;color:var(--faint)">зн/мин</span>`;
+        statAcc.innerHTML = `${calcAcc()}<span style="font-size:11px;color:var(--faint)">%</span>`;
+    }
+
+    // ─── Input ───────────────────────────────────────────────────
+    function handleKey(e) {
+        if (done) return;
+        if (e.key === 'Backspace') {
+            if (typed > 0) { typed--; renderTarget(); updateStats(); }
+            e.preventDefault(); return;
+        }
+        if (e.key.length !== 1) return;
+        e.preventDefault();
+
+        if (!startTime) { startTime = Date.now(); timer = setInterval(updateStats, 500); }
+
+        const expected = targetText[typed];
+        if (e.key === expected) {
+            kb.flashActive(e.code, 140);
         } else {
-            span.className = 'tp-target__char';
-            span.textContent = ch;
-            if (!wordWrap) {
-                wordWrap = document.createElement('span');
-                wordWrap.className = 'tp-target__word';
-                targetEl.appendChild(wordWrap);
-            }
-            wordWrap.appendChild(span);   // буква внутри неразрывного слова
+            kb.flashError(e.code);
+            errors++;
         }
-        charSpans.push(span);
-    }
-    updateCharStates(0);
-
-    function updateCharStates(typedLen, errorAt = -1) {
-        for (let i = 0; i < charSpans.length; i++) {
-            const cls = 'tp-target__char';
-            if (i < typedLen) charSpans[i].className = cls + ' tp-target__char--done';
-            else if (i === errorAt) charSpans[i].className = cls + ' tp-target__char--err';
-            else if (i === typedLen) charSpans[i].className = cls + ' tp-target__char--cur';
-            else charSpans[i].className = cls;
-        }
+        typed++;
+        renderTarget();
+        updateStats();
+        if (typed >= targetText.length) finishExercise();
     }
 
-    // ─── State + input ───────────────────────────────────────────
-    const state = {
-        typed: '',
-        errors: 0,
-        startTime: null,
-        elapsedMs: 0,
-        attempt: 1,
-        done: false,
-        timer: null
-    };
-    $('#tpProgressCount').textContent = `0/${targetLen}`;
+    // ─── Finish ──────────────────────────────────────────────────
+    function finishExercise() {
+        done = true;
+        clearInterval(timer);
+        const elapsed = startTime ? (Date.now() - startTime) / 1000 : 0;
+        const wpm = calcWpm(elapsed);
+        const acc = calcAcc();
+        const stars = errors === 0 ? 5 : errors <= 2 ? 4 : errors <= 5 ? 3 : errors <= 10 ? 2 : 1;
 
-    const hidden = $('#tpHiddenInput');
-    hidden.focus();
-    document.addEventListener('click', (e) => {
-        // не перехватываем клики по ссылкам/кнопкам — иначе success buttons не работают
-        if (state.done) return;
-        if (e.target.closest('a, button')) return;
-        hidden.focus();
-    });
-
-    hidden.addEventListener('input', (e) => {
-        if (state.done) { e.target.value = state.typed; return; }
-        const val = e.target.value;
-        if (val.length > targetLen) { e.target.value = val.slice(0, targetLen); return; }
-
-        // Старт таймера на первом символе
-        if (state.startTime === null && val.length > 0) {
-            state.startTime = Date.now();
-            state.timer = setInterval(tick, 200);
-        }
-
-        // Найти новые символы и проверить
-        const oldLen = state.typed.length;
-        if (val.length > oldLen) {
-            for (let i = oldLen; i < val.length; i++) {
-                if (val[i] !== targetText[i]) {
-                    state.errors++;
-                    // Подсветить ошибку, но позицию не двигаем — пусть пользователь корректирует
-                    updateCharStates(oldLen, i);
-                    // Откатить input до правильного состояния
-                    e.target.value = state.typed;
-                    flashMentorOnError();
-                    return;
-                }
-            }
-        }
-        state.typed = val;
-        updateCharStates(state.typed.length);
-        updateProgress();
-
-        if (state.typed.length === targetLen) {
-            finish();
-        }
-    });
-
-    function flashMentorOnError() {
-        // На каждой пятой ошибке — обновляем mentor tip
-        if (state.errors > 0 && state.errors % 5 === 0) {
-            const tips = [
-                'Не торопись — точность важнее скорости.',
-                'Глубокий вдох. Ещё раз медленно.',
-                'Расслабь плечи. Пальцы лёгкие.',
-                'Смотри на текст, не на клавиатуру.'
-            ];
-            $('#tpMentorTip').textContent = tips[(state.errors / 5 - 1) % tips.length];
-        }
-    }
-
-    function tick() {
-        if (state.done) return;
-        state.elapsedMs = Date.now() - state.startTime;
-        $('#tpTime').textContent = formatTime(state.elapsedMs / 1000);
-        const wpm = computeWpm();
-        $('#tpSpeed').textContent = wpm;
-    }
-
-    function computeWpm() {
-        if (!state.elapsedMs) return 0;
-        const minutes = state.elapsedMs / 60000;
-        const cps = state.typed.length / minutes;
-        return Math.round(cps);
-    }
-
-    function formatTime(secs) {
-        const s = Math.round(secs);
-        const mm = String(Math.floor(s / 60)).padStart(2, '0');
-        const ss = String(s % 60).padStart(2, '0');
-        return `${mm}:${ss}`;
-    }
-
-    function updateProgress() {
-        const pct = Math.round((state.typed.length / targetLen) * 100);
-        $('#tpProgressFill').style.width = pct + '%';
-        $('#tpProgressCount').textContent = `${state.typed.length}/${targetLen}`;
-    }
-
-    // ─── Finish & success screen ─────────────────────────────────
-    function finish() {
-        state.done = true;
-        if (state.timer) { clearInterval(state.timer); state.timer = null; }
-        const totalSec = state.elapsedMs / 1000;
-        const wpm = computeWpm();
-        const accuracy = state.errors === 0
-            ? 100
-            : Math.max(0, Math.round(((state.typed.length - state.errors) / state.typed.length) * 100));
-
-        // Звёзды по той же шкале что в design (по ошибкам)
-        const stars = state.errors === 0 ? 5
-                    : state.errors <= 2 ? 4
-                    : state.errors <= 5 ? 3
-                    : state.errors <= 10 ? 2
-                    : 1;
-
-        // Save progress (best только если улучшение)
+        // Сохранить прогресс (best) — открывает следующий урок
         const prev = progress[String(lessonNum)] || {};
         const newProg = {
             stars: Math.max(stars, prev.stars || 0),
             bestWPM: Math.max(wpm, prev.bestWPM || 0),
-            bestAccuracy: Math.max(accuracy, prev.bestAccuracy || 0),
-            bestTime: prev.bestTime ? Math.min(totalSec, prev.bestTime) : totalSec,
+            bestAccuracy: Math.max(acc, prev.bestAccuracy || 0),
+            bestTime: prev.bestTime ? Math.min(elapsed, prev.bestTime) : elapsed,
             completedAt: new Date().toISOString()
         };
         progress[String(lessonNum)] = newProg;
         writeJSON(progressKey, progress);
         writeJSON(currentKey, { tier, lessonNumber: lessonNum, lastSaved: new Date().toISOString() });
 
-        // Populate success screen
-        $('#tpSuccessAttempt').textContent = state.attempt;
-        $('#tpFinalTime').textContent = formatTime(totalSec);
-        $('#tpFinalSpeed').textContent = wpm;
-        $('#tpFinalBestTime').textContent = formatTime(newProg.bestTime);
-        $('#tpFinalBestSpeed').textContent = Math.round(newProg.bestWPM);
-        $('#tpSuccessGrade').textContent = `${stars}.0 / 5.0 · ${qualLabel(stars)}`;
+        $('success-num').textContent = exId;
+        $('success-avatar').innerHTML = window.portraits ? window.portraits.mentor(mentorId, 150) : '';
+        $('final-grade').textContent = '★'.repeat(stars) + '☆'.repeat(5 - stars);
+        $('final-speed').innerHTML = `${wpm} <span style="font-size:11px;color:var(--faint)">зн/мин</span>`;
+        $('final-acc').innerHTML = `${acc}<span style="font-size:11px;color:var(--faint)">%</span>`;
 
-        // Stars in success screen
-        const starsEl = $('#tpSuccessStars');
-        starsEl.innerHTML = '';
-        for (let i = 1; i <= 5; i++) {
-            const on = i <= stars ? ' tp-star--on' : '';
-            starsEl.innerHTML += `<svg class="tp-star${on}" viewBox="0 0 14 14"><path d="M7 1.5L8.5 5L12 5.5L9.5 8L10 11.5L7 9.8L4 11.5L4.5 8L2 5.5L5.5 5Z"/></svg>`;
+        const titles = { 5: 'Идеально.', 4: 'Всё верно.', 3: 'Сойдёт.', 2: 'Можно лучше.', 1: 'Повторим?' };
+        $('success-title').textContent = titles[stars];
+        $('success-msg').textContent = acc === 100
+            ? 'Без единой ошибки. Отличный ритм — идём дальше.'
+            : `Точность ${acc}%. ${stars >= 4 ? 'Хорошо, можно дальше.' : 'Рекомендую повторить для закрепления.'}`;
+        tipEl.textContent = stars >= 4 ? 'Отлично! Ритм уверенный, можно чуть ускориться.' : 'Неплохо. На следующей попытке целься в 95%+.';
+        hintEl.textContent = '';
+
+        // «Продолжить» → теория следующего урока (или к списку, если последний)
+        const nextN = lessonNum + 1;
+        const nextBtn = $('next-btn');
+        if (nextN <= totalLessons) {
+            nextBtn.textContent = `Продолжить · урок ${nextN} →`;
+            nextBtn.href = `lesson.html?tier=${encodeURIComponent(tier)}&lesson=${nextN}`;
+        } else {
+            nextBtn.textContent = 'К списку уроков →';
+            nextBtn.href = 'course.html';
         }
 
-        // Final mentor message
-        const successTips = {
-            5: { title: 'Идеально.',     lead: `Без единой ошибки. ${wpm} зн/мин — крепкий результат. Идём дальше.` },
-            4: { title: 'Всё верно.',    lead: `${state.errors} ошибки — норма для этого уровня. Скорость ${wpm} зн/мин.` },
-            3: { title: 'Сойдёт.',       lead: `${state.errors} ошибок — рекомендую повторить, чтобы закрепить ритм.` },
-            2: { title: 'Можно лучше.',  lead: `Слишком много ошибок (${state.errors}). Повторим без спешки.` },
-            1: { title: 'Повторим?',     lead: `Не страшно. Глубокий вдох — и заново, точнее.` }
-        };
-        const msg = successTips[stars];
-        $('#tpSuccessTitle').textContent = msg.title;
-        $('#tpSuccessLead').textContent  = msg.lead;
-        $('#tpMentorTip').textContent = `Точность ${accuracy}%, ритм ${wpm} зн/мин. ${stars >= 4 ? 'Закрепи и двигайся дальше.' : 'Стоит повторить для закрепления.'}`;
-        $('#tpMentorHint').textContent = stars >= 4
-            ? 'Совет: на следующей попытке можно чуть ускориться.'
-            : 'Совет: вернись к этому упражнению — без спешки.';
-
-        // Wire success buttons
-        $('#tpSuccessRetry').addEventListener('click', (e) => {
-            e.preventDefault();
-            state.attempt++;
-            location.reload();
-        });
-        const nextN = lessonNum + 1;
-        // Следующий урок — снова с теории (lesson.html), не сразу в тренажёр.
-        const nextHref = nextN <= totalLessons ? `lesson.html?tier=${encodeURIComponent(tier)}&lesson=${nextN}` : 'course.html';
-        const nextEl = $('#tpSuccessNext');
-        nextEl.href = nextHref;
-        nextEl.querySelector('span') || (nextEl.textContent = nextN <= totalLessons ? `Продолжить · ${moduleN}.${nextN} →` : 'К списку уроков →');
-
-        // Show success screen
-        document.body.classList.add('task-page--done');
+        kb.removeAttribute('highlight-char');
+        taskBody.classList.add('hide');
+        toolbar.classList.add('hide');
+        kbStage.classList.add('hide');
+        successEl.classList.add('show');
     }
 
-    function qualLabel(stars) {
-        return { 5: 'превосходно', 4: 'отлично', 3: 'можно лучше', 2: 'удовлетворительно', 1: 'плохо' }[stars] || '—';
+    // ─── Buttons ─────────────────────────────────────────────────
+    function reset() {
+        typed = 0; errors = 0; startTime = null; done = false; clearInterval(timer);
+        attempt++; attemptEl.textContent = attempt;
+        statTime.textContent = '00:00';
+        renderTarget(); updateStats(); capture.focus();
     }
-
-    // ─── Retry ───────────────────────────────────────────────────
-    $('#tpRetry').addEventListener('click', () => {
-        if (state.timer) { clearInterval(state.timer); state.timer = null; }
-        state.attempt++;
-        state.typed = '';
-        state.errors = 0;
-        state.startTime = null;
-        state.elapsedMs = 0;
-        state.done = false;
-        hidden.value = '';
-        $('#tpAttempt').textContent = state.attempt;
-        $('#tpTime').textContent = '00:00';
-        $('#tpSpeed').textContent = '0';
-        updateProgress();
-        updateCharStates(0);
-        hidden.focus();
+    $('restart-btn').addEventListener('click', reset);
+    $('retry-btn').addEventListener('click', () => {
+        successEl.classList.remove('show');
+        taskBody.classList.remove('hide'); toolbar.classList.remove('hide'); kbStage.classList.remove('hide');
+        reset();
     });
+
+    $('task-close').href = `lesson.html?tier=${encodeURIComponent(tier)}&lesson=${lessonNum}`;
+
+    // ─── Toolbar ─────────────────────────────────────────────────
+    $('hide-hint-btn').addEventListener('click', (e) => {
+        const btn = e.currentTarget;
+        const active = btn.dataset.active === 'true';
+        btn.dataset.active = (!active).toString();
+        kb.setAttribute('intensity', active ? 'full' : 'highlight');
+    });
+    $('type-select').addEventListener('change', (e) => {
+        const v = e.target.value;
+        kb.setAttribute('type', v);
+        if (v === 'ergonomic') { kb.setAttribute('unit', '48'); kb.setAttribute('gap', '72'); }
+        else if (v === 'laptop') kb.setAttribute('unit', '44');
+        else kb.setAttribute('unit', '40');
+    });
+
+    // ─── Focus ───────────────────────────────────────────────────
+    capture.addEventListener('keydown', handleKey);
+    document.querySelector('.task-card').addEventListener('click', (e) => {
+        if (e.target.closest('a, button, select')) return;
+        capture.focus();
+    });
+
+    // ─── Init ────────────────────────────────────────────────────
+    attemptEl.textContent = attempt;
+    renderTarget();
+    updateStats();
+    capture.focus();
 });
