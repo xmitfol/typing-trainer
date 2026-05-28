@@ -8,6 +8,7 @@ nul
 # Test output (E2E screenshots)
 verify-screenshots/
 verify-screenshots-local/
+scripts/screenshots/
 
 # Local-only artifacts
 # - error/ contains bug-report screenshots collected locally
