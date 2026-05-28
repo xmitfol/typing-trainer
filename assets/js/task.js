@@ -101,14 +101,30 @@ document.addEventListener('DOMContentLoaded', async function () {
     }
 
     // ─── Render target chars ─────────────────────────────────────
+    // Буквы группируются в неразрывные обёртки .tp-target__word, пробелы —
+    // отдельные разрывные точки. Перенос строки — только по словам целиком.
     const targetEl = $('#tpTarget');
     targetEl.innerHTML = '';
     const charSpans = [];
+    let wordWrap = null;
     for (let i = 0; i < targetLen; i++) {
+        const ch = targetText[i];
         const span = document.createElement('span');
-        span.className = 'tp-target__char';
-        span.textContent = targetText[i] === ' ' ? ' ' : targetText[i];
-        targetEl.appendChild(span);
+        if (ch === ' ') {
+            span.className = 'tp-target__char tp-target__space';
+            span.textContent = ' ';
+            targetEl.appendChild(span);   // пробел вне слова — точка переноса
+            wordWrap = null;
+        } else {
+            span.className = 'tp-target__char';
+            span.textContent = ch;
+            if (!wordWrap) {
+                wordWrap = document.createElement('span');
+                wordWrap.className = 'tp-target__word';
+                targetEl.appendChild(wordWrap);
+            }
+            wordWrap.appendChild(span);   // буква внутри неразрывного слова
+        }
         charSpans.push(span);
     }
     updateCharStates(0);

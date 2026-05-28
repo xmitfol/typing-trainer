@@ -176,9 +176,15 @@
     color: var(--faint); letter-spacing: 0.08em;
     position: relative;
     min-height: 80px;
-    word-break: break-word;
+    /* перенос только по словам — слово целиком уходит на след. строку */
+    white-space: normal;
+    overflow-wrap: normal;
+    word-break: normal;
 }
-.tp-target__char { white-space: pre; }
+/* слово — неразрывная единица: буквы внутри не переносятся по отдельности */
+.tp-target__word { white-space: nowrap; }
+/* пробел между словами — разрывная точка переноса */
+.tp-target__space { white-space: normal; }
 .tp-target__char--done {
     color: var(--ink);
 }
