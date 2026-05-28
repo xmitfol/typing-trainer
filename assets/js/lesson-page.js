@@ -188,7 +188,8 @@ document.addEventListener('DOMContentLoaded', async function () {
     }
     $('#lpExerciseCount').textContent = `0/${total}`;
 
-    // «Открыть тренажёр» сохраняет currentLesson и идёт на index.html
+    // «Открыть тренажёр» сохраняет currentLesson и идёт в task.html
+    $('#lpOpenTrainer').href = `task.html?tier=${encodeURIComponent(tier)}&lesson=${lessonNum}`;
     $('#lpOpenTrainer').addEventListener('click', (e) => {
         try {
             localStorage.setItem(currentKey, JSON.stringify({

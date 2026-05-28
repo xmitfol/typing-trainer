@@ -146,6 +146,8 @@ document.addEventListener('DOMContentLoaded', function () {
     $('#dhCourseBarFill').style.width = pct + '%';
     $('#dhNextNum').textContent = lessonNum;
     $('#dhAllLessons').textContent = `Все ${totalLessons} →`;
+    // «Продолжить» → тренажёр текущего урока
+    $('#dhContinue').href = `task.html?tier=${encodeURIComponent(tier)}&lesson=${lessonNum}`;
 
     // ── Load next lesson title via lesson-loader ───────────────────
     function fetchLessonTitle(t, n) {
@@ -199,7 +201,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     meta = `<div class="dh-lesson__meta">Урок ${r.n}</div>`;
                 }
                 const nowChip = r.next ? '<span class="dh-lesson__now-chip">· СЕЙЧАС</span>' : '';
-                const startBtn = r.next ? '<a class="dh-lesson__start" href="index.html">Начать →</a>' : '';
+                const startBtn = r.next ? `<a class="dh-lesson__start" href="task.html?tier=${encodeURIComponent(tier)}&lesson=${r.n}">Начать →</a>` : '';
                 row.innerHTML = `
                     <div class="dh-lesson__num ${numClass}">${numContent}</div>
                     <div class="dh-lesson__info">
@@ -301,6 +303,6 @@ document.addEventListener('DOMContentLoaded', function () {
     $('#dhLogout').addEventListener('click', () => {
         if (!confirm('Выйти? Прогресс сохранится, но онбординг откроется заново.')) return;
         try { localStorage.removeItem(profileKey); } catch (e) {}
-        window.location.href = 'landing.html';
+        window.location.href = 'index.html';
     });
 });

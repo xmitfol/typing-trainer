@@ -134,7 +134,7 @@ document.addEventListener('DOMContentLoaded', function () {
     $('#cpMetricDoneSub').textContent = `${Math.round(donePct)}%`;
     $('#cpMetricAcc').textContent     = avgAcc !== null ? String(avgAcc) : '—';
     $('#cpContinue').textContent      = `Продолжить · урок ${lessonNum} →`;
-    $('#cpContinue').href             = 'index.html';
+    $('#cpContinue').href             = `lesson.html?tier=${encodeURIComponent(tier)}&lesson=${lessonNum}`;
 
     // ─── Roadmap heads + track ───────────────────────────────────
     $('#cpRoadmapTrack').style.setProperty('--modules-count', modules.length);
@@ -257,7 +257,7 @@ document.addEventListener('DOMContentLoaded', function () {
             const row = document.createElement('a');
             row.className = 'cp-lesson'
                 + (isDone ? '' : isNext ? ` cp-lesson--next cp-lesson--accent-${m.accent}` : ' cp-lesson--locked');
-            row.href = isLocked ? '#' : 'index.html';
+            row.href = isLocked ? '#' : `lesson.html?tier=${encodeURIComponent(tier)}&lesson=${n}`;
             if (isLocked) row.addEventListener('click', e => e.preventDefault());
 
             const numClass = isDone ? 'cp-lesson__num--done'

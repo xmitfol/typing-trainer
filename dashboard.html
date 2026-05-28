@@ -17,14 +17,14 @@
 
     <!-- ─── Header ─────────────────────────────────────────────────── -->
     <header class="dh-header">
-        <a href="landing.html" class="dh-logo">
+        <a href="index.html" class="dh-logo">
             <span class="dh-logo__mark">Ё</span>
             <span class="dh-logo__name">typing-trainer</span>
         </a>
 
         <nav class="dh-nav">
             <a class="dh-nav__item dh-nav__item--active" href="#">Главная</a>
-            <a class="dh-nav__item" href="index.html">Уроки</a>
+            <a class="dh-nav__item" href="course.html">Уроки</a>
             <a class="dh-nav__item" href="#">Тренажёр скорости</a>
             <a class="dh-nav__item" href="#">Игры</a>
             <a class="dh-nav__item" href="#">Статистика</a>
@@ -57,9 +57,9 @@
                     <div class="dh-profile-menu__name" id="dhProfileMenuName">—</div>
                     <div class="dh-profile-menu__sub" id="dhProfileMenuSub">—</div>
                 </div>
-                <a class="dh-profile-menu__item" href="index.html"><span class="dh-profile-menu__icon">◐</span><span style="flex:1">Мой профиль</span></a>
-                <button class="dh-profile-menu__item"><span class="dh-profile-menu__icon">🏆</span><span style="flex:1">Достижения</span></button>
-                <a class="dh-profile-menu__item" href="index.html"><span class="dh-profile-menu__icon">⚙</span><span style="flex:1">Настройки</span></a>
+                <a class="dh-profile-menu__item" href="#"><span class="dh-profile-menu__icon">◐</span><span style="flex:1">Мой профиль</span></a>
+                <a class="dh-profile-menu__item" href="course.html"><span class="dh-profile-menu__icon">🏆</span><span style="flex:1">Достижения</span></a>
+                <a class="dh-profile-menu__item" href="#"><span class="dh-profile-menu__icon">⚙</span><span style="flex:1">Настройки</span></a>
                 <button class="dh-profile-menu__item"><span class="dh-profile-menu__icon">?</span><span style="flex:1">Помощь</span></button>
                 <div class="dh-lang-menu__divider"></div>
                 <button class="dh-profile-menu__item" id="dhLogout" style="color:#ef4444"><span class="dh-profile-menu__icon">↩</span><span style="flex:1">Выйти</span></button>
@@ -109,7 +109,7 @@
                             <div class="dh-course__next-title" id="dhNextTitle">Первые буквы</div>
                             <div class="dh-course__next-meta" id="dhNextMeta">~ 5 минут · начальный уровень</div>
                         </div>
-                        <a class="dh-course__continue" href="index.html" id="dhContinue">Продолжить →</a>
+                        <a class="dh-course__continue" href="task.html" id="dhContinue">Продолжить →</a>
                     </div>
                 </div>
             </section>
@@ -118,7 +118,7 @@
             <section class="dh-card">
                 <div class="dh-card__hd">
                     <h3>Ближайшие уроки</h3>
-                    <a class="dh-card__link" href="index.html" id="dhAllLessons">Все 99 →</a>
+                    <a class="dh-card__link" href="course.html" id="dhAllLessons">Все 99 →</a>
                 </div>
                 <div class="dh-lessons" id="dhLessons">
                     <!-- Заполняется JS -->
@@ -127,7 +127,7 @@
 
             <!-- Quick actions -->
             <div class="dh-qa">
-                <a class="dh-qa__card" href="index.html">
+                <a class="dh-qa__card" href="task.html">
                     <span class="dh-qa__icon dh-qa__icon--orange">⚡</span>
                     <div>
                         <div class="dh-qa__label">Тренажёр скорости</div>
@@ -222,6 +222,7 @@
     </main>
 
     <!-- ─── JS ─────────────────────────────────────────────────────── -->
+    <script src="assets/js/router-guard.js"></script>
     <script src="config/settings.js"></script>
     <script src="assets/js/portraits.js"></script>
     <script src="assets/js/lesson-loader.js"></script>

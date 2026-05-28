@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Знакомство — typing-trainer</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="assets/css/tokens.css">
+    <link rel="stylesheet" href="assets/css/onboarding-v2.css">
+    <link rel="icon" type="image/x-icon" href="assets/images/favicon.ico">
+</head>
+<body>
+    <!-- Onboarding Overlay v2 — содержимое генерируется assets/js/onboarding.js -->
+    <div class="onboarding-v2 active" id="onboardingOverlay"></div>
+
+    <!-- router-guard ПЕРВЫМ: если профиль уже готов → dashboard -->
+    <script src="assets/js/router-guard.js"></script>
+    <script src="config/settings.js"></script>
+    <script src="assets/js/portraits.js"></script>
+    <script src="assets/js/onboarding.js"></script>
+    <script>
+        // По завершении онбординга → личный кабинет
+        document.addEventListener('typingtrainer:onboardingComplete', function () {
+            window.location.href = 'dashboard.html';
+        });
+    </script>
+</body>
+</html>

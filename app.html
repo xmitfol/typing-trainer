@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Клавиатурный Тренажер - SaaS</title>
+    
+    <!-- Шрифты для клавиатуры (Manrope для UI/модификаторов, JetBrains Mono для буквенных меток) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- CSS стили -->
+    <!-- v2 design tokens (Phase 0): CSS variables, без глобальных сбросов -->
+    <link rel="stylesheet" href="assets/css/tokens.css">
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/keyboard.css">
+    <link rel="stylesheet" href="assets/css/components.css">
+    <link rel="stylesheet" href="assets/css/onboarding.css">
+    <!-- v2 onboarding (Phase 2): scoped под .onboarding-v2 -->
+    <link rel="stylesheet" href="assets/css/onboarding-v2.css">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="assets/images/favicon.ico">
+</head>
+<body>
+    <!-- Onboarding Overlay v2 — содержимое генерируется assets/js/onboarding.js -->
+    <div class="onboarding-v2" id="onboardingOverlay"></div>
+
+    <!-- Settings gear (fixed, top-right) -->
+    <button type="button" class="settings-gear" id="settingsGearBtn" aria-label="Настройки" title="Настройки">
+        ⚙️
+    </button>
+
+    <!-- Settings Modal -->
+    <div class="settings-modal" id="settingsModal" role="dialog" aria-modal="true" aria-labelledby="settingsTitle">
+        <div class="settings-card">
+            <div class="settings-header">
+                <h3 id="settingsTitle">⚙️ Настройки</h3>
+                <button type="button" class="settings-close" aria-label="Закрыть">×</button>
+            </div>
+            <div class="settings-body">
+                <!-- заполняется SettingsPanel.renderContent() -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Верхняя панель с цитатой -->
+    <div class="quote-panel">
+        <div class="quote-icon">💬</div>
+        <div class="quote-content">
+            <div class="quote-text" id="quoteText">«Как ни редко встречается настоящая любовь, настоящая дружба встречается ещё реже.»</div>
+            <div class="quote-author" id="quoteAuthor">Франсуа де Ларошфуко (1613-1680), герцог, французский философ и писатель</div>
+        </div>
+        <div class="start-button-container">
+            <button class="start-btn" onclick="startNewTest()">Напечатать этот текст</button>
+        </div>
+    </div>
+
+    <div class="main-container">
+        <!-- Левая панель: список уроков курса -->
+        <div class="sidebar">
+            <div class="sidebar-header">
+                <h3>Курс</h3>
+                <span class="lesson-counter" id="lessonCounter"></span>
+            </div>
+            <div class="tier-switcher" id="tierSwitcher" role="radiogroup" aria-label="Выбор курса">
+                <!-- Заполняется renderTierSwitcher() из main.js -->
+            </div>
+            <div class="lesson-list" id="lessonList" role="list" aria-label="Список уроков">
+                <!-- Заполняется renderLessonList() из main.js -->
+            </div>
+        </div>
+
+        <!-- Центральная область -->
+        <div class="editor-container">
+            <div class="lesson-indicator" id="lessonIndicator" style="display:none"></div>
+            <div class="progress-container">
+                <span class="progress-label">Прогресс</span>
+                <div class="progress-fraction" id="progressFraction">0/0</div>
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progressFill"></div>
+                </div>
+            </div>
+
+            <!-- Текстовый редактор -->
+            <div class="text-editor" id="textEditor">
+                <div class="text-content">
+                    <span class="text-to-type" id="textToType">Нажмите "Напечатать этот текст" чтобы начать</span>
+                    <span class="typed-text" id="typedText"></span>
+                </div>
+                <div class="cursor" id="cursor"></div>
+            </div>
+
+            <!-- Контролы после завершения урока -->
+            <div class="lesson-controls" id="lessonControls" style="display:none">
+                <button type="button" class="lesson-control-btn retry" id="lessonRetryBtn">↻ Повторить</button>
+                <button type="button" class="lesson-control-btn next" id="lessonNextBtn">Следующий урок →</button>
+                <span class="lesson-controls-hint" id="lessonControlsHint"></span>
+            </div>
+
+            <!-- Скрытое поле ввода -->
+            <input type="text" id="hiddenInput" class="hidden-input">
+        </div>
+
+        <!-- Правая панель со статистикой -->
+        <div class="stats-panel">
+            <div class="stats-header">
+                <div class="rating-stars">
+                    <span class="star">☆</span>
+                    <span class="star">☆</span>
+                    <span class="star">☆</span>
+                    <span class="star">☆</span>
+                    <span class="star">☆</span>
+                </div>
+                <span class="rating-label">Оценка:</span>
+            </div>
+
+            <div class="stat-item">
+                <div class="stat-label">Время:</div>
+                <div class="stat-value" id="timeValue">00:00</div>
+                <div class="stat-best">лучшее: --:--</div>
+            </div>
+
+            <div class="stat-item">
+                <div class="stat-label">Скорость:</div>
+                <div class="stat-value" id="speedValue">0 <span class="unit">зн/мин</span></div>
+                <div class="stat-best">максимум: --</div>
+            </div>
+
+            <div class="stat-item">
+                <div class="stat-label">Ошибки:</div>
+                <div class="stat-value" id="errorsValue">0 <span class="unit">/ 0.0%</span></div>
+                <div class="stat-best">минимум: --</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Top function toolbar над клавиатурой -->
+    <div class="keyboard-toolbar" id="keyboardToolbar">
+        <!-- содержимое генерируется renderKeyboardToolbar() в keyboard.js -->
+    </div>
+
+    <!-- Виртуальная клавиатура — рендерится из data-структур (keyboard-data.js) -->
+    <div class="keyboard-container">
+        <!-- содержимое генерируется renderClassicKeyboard() в keyboard.js -->
+    </div>
+
+    <!-- JavaScript модули -->
+    <script src="config/settings.js"></script>
+    <script src="assets/js/utils.js"></script>
+    <script src="assets/js/stats.js"></script>
+    <script src="assets/js/audio.js"></script>
+    <script src="assets/js/keyboard-data.js"></script>
+    <script src="assets/js/keyboard.js"></script>
+    <script src="assets/js/toast-manager.js"></script>
+    <script src="assets/js/lesson-loader.js"></script>
+    <script src="assets/js/character-system.js"></script>
+    <!-- v2 SVG-фабрика портретов (требуется для нового онбординга) -->
+    <script src="assets/js/portraits.js"></script>
+    <script src="assets/js/onboarding.js"></script>
+    <script src="assets/js/settings-panel.js"></script>
+    <script src="assets/js/certification.js"></script>
+    <script src="assets/js/main.js"></script>
+</body>
+</html>

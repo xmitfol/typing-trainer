@@ -3,164 +3,487 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Клавиатурный Тренажер - SaaS</title>
-    
-    <!-- Шрифты для клавиатуры (Manrope для UI/модификаторов, JetBrains Mono для буквенных меток) -->
+    <title>Тренажёр слепой печати — typing-trainer</title>
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&family=Source+Serif+4:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet">
 
-    <!-- CSS стили -->
-    <!-- v2 design tokens (Phase 0): CSS variables, без глобальных сбросов -->
     <link rel="stylesheet" href="assets/css/tokens.css">
-    <link rel="stylesheet" href="assets/css/main.css">
-    <link rel="stylesheet" href="assets/css/keyboard.css">
-    <link rel="stylesheet" href="assets/css/components.css">
-    <link rel="stylesheet" href="assets/css/onboarding.css">
-    <!-- v2 onboarding (Phase 2): scoped под .onboarding-v2 -->
-    <link rel="stylesheet" href="assets/css/onboarding-v2.css">
-
-    <!-- Favicon -->
+    <link rel="stylesheet" href="assets/css/landing.css">
     <link rel="icon" type="image/x-icon" href="assets/images/favicon.ico">
 </head>
-<body>
-    <!-- Onboarding Overlay v2 — содержимое генерируется assets/js/onboarding.js -->
-    <div class="onboarding-v2" id="onboardingOverlay"></div>
+<body class="landing-page">
 
-    <!-- Settings gear (fixed, top-right) -->
-    <button type="button" class="settings-gear" id="settingsGearBtn" aria-label="Настройки" title="Настройки">
-        ⚙️
-    </button>
+    <!-- ─── Header ─────────────────────────────────────────────────── -->
+    <header class="lp-header">
+        <a href="#" class="lp-logo">
+            <span class="lp-logo__mark">Ё</span>
+            <span class="lp-logo__name">typing-trainer</span>
+        </a>
+        <nav class="lp-nav">
+            <a href="#how">Как это работает</a>
+            <a href="#kb">Клавиатуры</a>
+            <a href="#audience">Для кого</a>
+            <a href="#pricing">Тарифы</a>
+        </nav>
 
-    <!-- Settings Modal -->
-    <div class="settings-modal" id="settingsModal" role="dialog" aria-modal="true" aria-labelledby="settingsTitle">
-        <div class="settings-card">
-            <div class="settings-header">
-                <h3 id="settingsTitle">⚙️ Настройки</h3>
-                <button type="button" class="settings-close" aria-label="Закрыть">×</button>
-            </div>
-            <div class="settings-body">
-                <!-- заполняется SettingsPanel.renderContent() -->
-            </div>
-        </div>
-    </div>
-
-    <!-- Верхняя панель с цитатой -->
-    <div class="quote-panel">
-        <div class="quote-icon">💬</div>
-        <div class="quote-content">
-            <div class="quote-text" id="quoteText">«Как ни редко встречается настоящая любовь, настоящая дружба встречается ещё реже.»</div>
-            <div class="quote-author" id="quoteAuthor">Франсуа де Ларошфуко (1613-1680), герцог, французский философ и писатель</div>
-        </div>
-        <div class="start-button-container">
-            <button class="start-btn" onclick="startNewTest()">Напечатать этот текст</button>
-        </div>
-    </div>
-
-    <div class="main-container">
-        <!-- Левая панель: список уроков курса -->
-        <div class="sidebar">
-            <div class="sidebar-header">
-                <h3>Курс</h3>
-                <span class="lesson-counter" id="lessonCounter"></span>
-            </div>
-            <div class="tier-switcher" id="tierSwitcher" role="radiogroup" aria-label="Выбор курса">
-                <!-- Заполняется renderTierSwitcher() из main.js -->
-            </div>
-            <div class="lesson-list" id="lessonList" role="list" aria-label="Список уроков">
-                <!-- Заполняется renderLessonList() из main.js -->
-            </div>
+        <!-- Anonymous CTA (default) — JS toggles to profile pill if logged in -->
+        <div class="lp-cta-row" id="lpCtaAnon">
+            <button type="button" class="lp-link-btn">Войти</button>
+            <a href="onboarding.html" class="lp-primary">Начать бесплатно</a>
         </div>
 
-        <!-- Центральная область -->
-        <div class="editor-container">
-            <div class="lesson-indicator" id="lessonIndicator" style="display:none"></div>
-            <div class="progress-container">
-                <span class="progress-label">Прогресс</span>
-                <div class="progress-fraction" id="progressFraction">0/0</div>
-                <div class="progress-bar">
-                    <div class="progress-fill" id="progressFill"></div>
+        <!-- Authorized profile pill (hidden by default, JS shows if profile exists) -->
+        <div class="lp-profile-wrap" id="lpCtaAuth" hidden>
+            <button type="button" class="lp-profile-pill" id="lpProfileBtn">
+                <span id="lpProfileAvatar"></span>
+                <span class="lp-profile-pill__name" id="lpProfileName">—</span>
+                <svg width="12" height="12" viewBox="0 0 12 12"><path d="M3 4.5L6 7.5L9 4.5" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round"/></svg>
+            </button>
+            <div class="lp-profile-menu" id="lpProfileMenu">
+                <div class="lp-profile-menu__head">
+                    <div class="lp-profile-menu__name" id="lpMenuName">—</div>
+                    <div class="lp-profile-menu__sub" id="lpMenuSub">—</div>
+                </div>
+                <a href="dashboard.html" class="lp-profile-menu__item"><span class="lp-profile-menu__icon">◐</span><span style="flex:1">Мой курс</span></a>
+                <a href="dashboard.html" class="lp-profile-menu__item"><span class="lp-profile-menu__icon">↗</span><span style="flex:1">Прогресс</span></a>
+                <a href="course.html" class="lp-profile-menu__item"><span class="lp-profile-menu__icon">⚑</span><span style="flex:1">Достижения</span></a>
+                <a href="dashboard.html" class="lp-profile-menu__item"><span class="lp-profile-menu__icon">⚙</span><span style="flex:1">Настройки</span></a>
+                <div class="lp-profile-menu__divider"></div>
+                <button class="lp-profile-menu__item lp-profile-menu__item--logout" id="lpLogout"><span class="lp-profile-menu__icon">↩</span><span style="flex:1">Выйти</span></button>
+            </div>
+        </div>
+    </header>
+
+    <!-- ─── Hero ───────────────────────────────────────────────────── -->
+    <section class="lp-hero">
+        <div>
+            <div class="lp-badge">
+                <span class="lp-badge__dot"></span>
+                СЛЕПАЯ ПЕЧАТЬ · ЙЦУКЕН / QWERTY
+            </div>
+            <h1 class="lp-h1">Печатай <span class="lp-h1__grad">не глядя</span><br>на клавиатуру</h1>
+            <p class="lp-lead">6 цветов пальцев, 3 типа клавиатуры (включая эргономическую), наставник под возраст. От «двух пальцев» до 60+ знаков в минуту за 4 недели.</p>
+            <div class="lp-hero__ctas">
+                <a href="onboarding.html" class="lp-hero__primary" id="lpHeroPrimary">
+                    <span id="lpHeroPrimaryLabel">Начать бесплатно</span>
+                    <span>→</span>
+                </a>
+                <button type="button" class="lp-hero__secondary" id="lpHeroDemo">Посмотреть демо</button>
+            </div>
+            <div class="lp-hero__checks">
+                <span class="lp-hero__check"><svg width="12" height="12" viewBox="0 0 14 14" fill="none"><path d="M3 7.5L6 10L11 4" stroke="#10b981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Бесплатный старт</span>
+                <span class="lp-hero__check"><svg width="12" height="12" viewBox="0 0 14 14" fill="none"><path d="M3 7.5L6 10L11 4" stroke="#10b981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Без рекламы</span>
+                <span class="lp-hero__check"><svg width="12" height="12" viewBox="0 0 14 14" fill="none"><path d="M3 7.5L6 10L11 4" stroke="#10b981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Сертификат</span>
+            </div>
+        </div>
+
+        <div class="lp-hero__visual">
+            <!-- Mini split keyboard SVG visual -->
+            <svg width="420" height="280" viewBox="0 0 420 280" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <g transform="rotate(-10 110 200)">
+                    <rect x="20" y="80" width="170" height="120" rx="14" fill="#fff" stroke="rgba(0,0,0,0.08)" stroke-width="1.5"/>
+                    <!-- 4 rows × 6 cols, colored by finger -->
+                    <g>
+                        <!-- row 1 (top numbers) -->
+                        <rect x="28" y="88" width="22" height="22" rx="3" fill="#ff7675"/>
+                        <rect x="54" y="88" width="22" height="22" rx="3" fill="#fdcb6e"/>
+                        <rect x="80" y="88" width="22" height="22" rx="3" fill="#00b894"/>
+                        <rect x="106" y="88" width="22" height="22" rx="3" fill="#74b9ff"/>
+                        <rect x="132" y="88" width="22" height="22" rx="3" fill="#74b9ff"/>
+                        <rect x="158" y="88" width="22" height="22" rx="3" fill="rgba(0,0,0,0.06)"/>
+                        <!-- row 2 -->
+                        <rect x="28" y="114" width="22" height="22" rx="3" fill="#ff7675"/>
+                        <rect x="54" y="114" width="22" height="22" rx="3" fill="#fdcb6e"/>
+                        <rect x="80" y="114" width="22" height="22" rx="3" fill="#00b894"/>
+                        <rect x="106" y="114" width="22" height="22" rx="3" fill="#74b9ff"/>
+                        <rect x="132" y="114" width="22" height="22" rx="3" fill="#74b9ff"/>
+                        <rect x="158" y="114" width="22" height="22" rx="3" fill="rgba(0,0,0,0.06)"/>
+                        <!-- row 3 (home row, with bump on F) -->
+                        <rect x="28" y="140" width="22" height="22" rx="3" fill="#ff7675"/>
+                        <rect x="54" y="140" width="22" height="22" rx="3" fill="#fdcb6e"/>
+                        <rect x="80" y="140" width="22" height="22" rx="3" fill="#00b894"/>
+                        <rect x="106" y="140" width="22" height="22" rx="3" fill="#74b9ff"/>
+                        <rect x="118" y="158" width="8" height="2" fill="rgba(255,255,255,0.8)" rx="1"/>
+                        <rect x="132" y="140" width="22" height="22" rx="3" fill="#74b9ff"/>
+                        <rect x="158" y="140" width="22" height="22" rx="3" fill="rgba(0,0,0,0.06)"/>
+                        <!-- row 4 -->
+                        <rect x="28" y="166" width="22" height="22" rx="3" fill="#ff7675"/>
+                        <rect x="54" y="166" width="22" height="22" rx="3" fill="#fdcb6e"/>
+                        <rect x="80" y="166" width="22" height="22" rx="3" fill="#00b894"/>
+                        <rect x="106" y="166" width="22" height="22" rx="3" fill="#74b9ff"/>
+                        <rect x="132" y="166" width="22" height="22" rx="3" fill="#74b9ff"/>
+                    </g>
+                    <!-- Space (purple, split) -->
+                    <rect x="60" y="206" width="100" height="14" rx="7" fill="#a29bfe"/>
+                </g>
+
+                <g transform="rotate(10 310 200)">
+                    <rect x="240" y="80" width="170" height="120" rx="14" fill="#fff" stroke="rgba(0,0,0,0.08)" stroke-width="1.5"/>
+                    <g>
+                        <rect x="248" y="88" width="22" height="22" rx="3" fill="rgba(0,0,0,0.06)"/>
+                        <rect x="274" y="88" width="22" height="22" rx="3" fill="#0984e3"/>
+                        <rect x="300" y="88" width="22" height="22" rx="3" fill="#0984e3"/>
+                        <rect x="326" y="88" width="22" height="22" rx="3" fill="#00b894"/>
+                        <rect x="352" y="88" width="22" height="22" rx="3" fill="#fdcb6e"/>
+                        <rect x="378" y="88" width="22" height="22" rx="3" fill="#ff7675"/>
+
+                        <rect x="248" y="114" width="22" height="22" rx="3" fill="rgba(0,0,0,0.06)"/>
+                        <rect x="274" y="114" width="22" height="22" rx="3" fill="#0984e3"/>
+                        <rect x="300" y="114" width="22" height="22" rx="3" fill="#0984e3"/>
+                        <rect x="326" y="114" width="22" height="22" rx="3" fill="#00b894"/>
+                        <rect x="352" y="114" width="22" height="22" rx="3" fill="#fdcb6e"/>
+                        <rect x="378" y="114" width="22" height="22" rx="3" fill="#ff7675"/>
+
+                        <rect x="248" y="140" width="22" height="22" rx="3" fill="rgba(0,0,0,0.06)"/>
+                        <rect x="274" y="140" width="22" height="22" rx="3" fill="#0984e3"/>
+                        <rect x="286" y="158" width="8" height="2" fill="rgba(255,255,255,0.8)" rx="1"/>
+                        <rect x="300" y="140" width="22" height="22" rx="3" fill="#0984e3"/>
+                        <rect x="326" y="140" width="22" height="22" rx="3" fill="#00b894"/>
+                        <rect x="352" y="140" width="22" height="22" rx="3" fill="#fdcb6e"/>
+                        <rect x="378" y="140" width="22" height="22" rx="3" fill="#ff7675"/>
+
+                        <rect x="248" y="166" width="22" height="22" rx="3" fill="rgba(0,0,0,0.06)"/>
+                        <rect x="274" y="166" width="22" height="22" rx="3" fill="#0984e3"/>
+                        <rect x="300" y="166" width="22" height="22" rx="3" fill="#0984e3"/>
+                        <rect x="326" y="166" width="22" height="22" rx="3" fill="#00b894"/>
+                        <rect x="352" y="166" width="22" height="22" rx="3" fill="#fdcb6e"/>
+                        <rect x="378" y="166" width="22" height="22" rx="3" fill="#ff7675"/>
+                    </g>
+                    <rect x="262" y="206" width="100" height="14" rx="7" fill="#a29bfe"/>
+                </g>
+            </svg>
+        </div>
+    </section>
+
+    <!-- ─── Section 01: Keyboards ──────────────────────────────────── -->
+    <section id="kb" class="lp-section">
+        <div class="lp-section__hd--row">
+            <div>
+                <div class="lp-section__num">01 · ПОДДЕРЖИВАЕМ</div>
+                <h2 class="lp-h2">Работаем с любой клавиатурой</h2>
+            </div>
+            <p class="lp-section__sub">Тренажёр подстраивается под вашу железку. Геометрию выберете в онбординге.</p>
+        </div>
+        <div class="lp-grid-3">
+            <div class="lp-card">
+                <div class="lp-card__visual">
+                    <svg width="180" height="90" viewBox="0 0 180 90" fill="none">
+                        <rect x="6" y="20" width="120" height="60" rx="6" fill="#fff" stroke="rgba(0,0,0,0.08)" stroke-width="1.5"/>
+                        <rect x="132" y="30" width="42" height="50" rx="5" fill="#fff" stroke="rgba(0,0,0,0.08)" stroke-width="1.5"/>
+                        <g>
+                            <rect x="14" y="34" width="7" height="7" rx="1" fill="#ff7675"/>
+                            <rect x="23.5" y="34" width="7" height="7" rx="1" fill="#fdcb6e"/>
+                            <rect x="33" y="34" width="7" height="7" rx="1" fill="#00b894"/>
+                            <rect x="42.5" y="34" width="7" height="7" rx="1" fill="#74b9ff"/>
+                            <rect x="52" y="34" width="7" height="7" rx="1" fill="#74b9ff"/>
+                            <rect x="61.5" y="34" width="7" height="7" rx="1" fill="#0984e3"/>
+                            <rect x="71" y="34" width="7" height="7" rx="1" fill="#0984e3"/>
+                            <rect x="80.5" y="34" width="7" height="7" rx="1" fill="#00b894"/>
+                            <rect x="90" y="34" width="7" height="7" rx="1" fill="#fdcb6e"/>
+                            <rect x="99.5" y="34" width="7" height="7" rx="1" fill="#ff7675"/>
+                        </g>
+                        <g>
+                            <rect x="135" y="38" width="9" height="7" rx="1" fill="#74b9ff"/>
+                            <rect x="147" y="38" width="9" height="7" rx="1" fill="#00b894"/>
+                            <rect x="159" y="38" width="9" height="7" rx="1" fill="#fdcb6e"/>
+                        </g>
+                    </svg>
+                </div>
+                <div class="lp-card__title">Полноразмерная</div>
+                <div class="lp-card__sub">С цифровым блоком и nav-кластером</div>
+            </div>
+            <div class="lp-card">
+                <div class="lp-card__visual">
+                    <svg width="180" height="90" viewBox="0 0 180 90" fill="none">
+                        <rect x="12" y="8" width="156" height="62" rx="6" fill="#2d3436"/>
+                        <rect x="16" y="12" width="148" height="54" rx="3" fill="#74b9ff" opacity="0.2"/>
+                        <rect x="4" y="68" width="172" height="12" rx="3" fill="#dfe6e9"/>
+                    </svg>
+                </div>
+                <div class="lp-card__title">Ноутбук</div>
+                <div class="lp-card__sub">Без numpad, компактная</div>
+            </div>
+            <div class="lp-card">
+                <div class="lp-card__visual">
+                    <svg width="180" height="90" viewBox="0 0 180 90" fill="none">
+                        <g transform="rotate(-12 50 70)">
+                            <rect x="10" y="32" width="72" height="46" rx="6" fill="#fff" stroke="rgba(0,0,0,0.08)" stroke-width="1.5"/>
+                            <rect x="14" y="36" width="9" height="7" rx="1" fill="#ff7675"/>
+                            <rect x="25" y="36" width="9" height="7" rx="1" fill="#fdcb6e"/>
+                            <rect x="36" y="36" width="9" height="7" rx="1" fill="#00b894"/>
+                            <rect x="47" y="36" width="9" height="7" rx="1" fill="#74b9ff"/>
+                            <rect x="58" y="36" width="9" height="7" rx="1" fill="#74b9ff"/>
+                            <rect x="69" y="36" width="9" height="7" rx="1" fill="#0984e3"/>
+                            <rect x="35" y="78" width="40" height="6" rx="2" fill="#a29bfe"/>
+                        </g>
+                        <g transform="rotate(12 130 70)">
+                            <rect x="98" y="32" width="72" height="46" rx="6" fill="#fff" stroke="rgba(0,0,0,0.08)" stroke-width="1.5"/>
+                            <rect x="102" y="36" width="9" height="7" rx="1" fill="#0984e3"/>
+                            <rect x="113" y="36" width="9" height="7" rx="1" fill="#0984e3"/>
+                            <rect x="124" y="36" width="9" height="7" rx="1" fill="#00b894"/>
+                            <rect x="135" y="36" width="9" height="7" rx="1" fill="#fdcb6e"/>
+                            <rect x="146" y="36" width="9" height="7" rx="1" fill="#ff7675"/>
+                            <rect x="157" y="36" width="9" height="7" rx="1" fill="#ff7675"/>
+                            <rect x="105" y="78" width="40" height="6" rx="2" fill="#a29bfe"/>
+                        </g>
+                    </svg>
+                </div>
+                <div class="lp-card__title">Эргономическая</div>
+                <div class="lp-card__sub">Split-раскладка для рук</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ─── Section 02: Audience ───────────────────────────────────── -->
+    <section id="audience" class="lp-section">
+        <div>
+            <div class="lp-section__num">02 · АДАПТИРУЕМ</div>
+            <h2 class="lp-h2">Курс под возраст</h2>
+            <p class="lp-section__sub">Тон, темы, длительность урока — разные для взрослого, подростка и ребёнка. И наставник у каждого свой.</p>
+        </div>
+        <div class="lp-grid-3" style="margin-top:36px">
+            <div class="lp-aud">
+                <div class="lp-aud__halo" style="background:rgba(116,185,255,0.13)"></div>
+                <div class="lp-aud__inner">
+                    <div class="lp-aud__portrait" data-portrait="user" data-audience="adult" data-gender="m" data-size="72"></div>
+                    <div class="lp-aud__heading"><span class="lp-aud__label">Взрослый</span><span class="lp-aud__age">18+</span></div>
+                    <div class="lp-aud__desc">Профессиональная программа, психотренинг, темп под взрослого. Анна или Максим — на выбор.</div>
+                    <div class="lp-aud__chip">99 уроков</div>
                 </div>
             </div>
-
-            <!-- Текстовый редактор -->
-            <div class="text-editor" id="textEditor">
-                <div class="text-content">
-                    <span class="text-to-type" id="textToType">Нажмите "Напечатать этот текст" чтобы начать</span>
-                    <span class="typed-text" id="typedText"></span>
+            <div class="lp-aud">
+                <div class="lp-aud__halo" style="background:rgba(0,184,148,0.15)"></div>
+                <div class="lp-aud__inner">
+                    <div class="lp-aud__portrait" data-portrait="user" data-audience="teen" data-gender="f" data-size="72"></div>
+                    <div class="lp-aud__heading"><span class="lp-aud__label">Подросток</span><span class="lp-aud__age">12-17</span></div>
+                    <div class="lp-aud__desc">Мемы, темы про игры и соц-сети. Кнопыч ведёт через геймификацию.</div>
+                    <div class="lp-aud__chip">75 уроков</div>
                 </div>
-                <div class="cursor" id="cursor"></div>
             </div>
-
-            <!-- Контролы после завершения урока -->
-            <div class="lesson-controls" id="lessonControls" style="display:none">
-                <button type="button" class="lesson-control-btn retry" id="lessonRetryBtn">↻ Повторить</button>
-                <button type="button" class="lesson-control-btn next" id="lessonNextBtn">Следующий урок →</button>
-                <span class="lesson-controls-hint" id="lessonControlsHint"></span>
-            </div>
-
-            <!-- Скрытое поле ввода -->
-            <input type="text" id="hiddenInput" class="hidden-input">
-        </div>
-
-        <!-- Правая панель со статистикой -->
-        <div class="stats-panel">
-            <div class="stats-header">
-                <div class="rating-stars">
-                    <span class="star">☆</span>
-                    <span class="star">☆</span>
-                    <span class="star">☆</span>
-                    <span class="star">☆</span>
-                    <span class="star">☆</span>
+            <div class="lp-aud">
+                <div class="lp-aud__halo" style="background:rgba(255,118,117,0.15)"></div>
+                <div class="lp-aud__inner">
+                    <div class="lp-aud__portrait" data-portrait="user" data-audience="kid" data-gender="m" data-size="72"></div>
+                    <div class="lp-aud__heading"><span class="lp-aud__label">Ребёнок</span><span class="lp-aud__age">6-11</span></div>
+                    <div class="lp-aud__desc">Сказки, короткие слова. Клавочка хвалит и подсказывает.</div>
+                    <div class="lp-aud__chip">50 уроков</div>
                 </div>
-                <span class="rating-label">Оценка:</span>
-            </div>
-
-            <div class="stat-item">
-                <div class="stat-label">Время:</div>
-                <div class="stat-value" id="timeValue">00:00</div>
-                <div class="stat-best">лучшее: --:--</div>
-            </div>
-
-            <div class="stat-item">
-                <div class="stat-label">Скорость:</div>
-                <div class="stat-value" id="speedValue">0 <span class="unit">зн/мин</span></div>
-                <div class="stat-best">максимум: --</div>
-            </div>
-
-            <div class="stat-item">
-                <div class="stat-label">Ошибки:</div>
-                <div class="stat-value" id="errorsValue">0 <span class="unit">/ 0.0%</span></div>
-                <div class="stat-best">минимум: --</div>
             </div>
         </div>
+    </section>
+
+    <!-- ─── Section 03: How ────────────────────────────────────────── -->
+    <section id="how" class="lp-section">
+        <div style="margin-bottom:36px">
+            <div class="lp-section__num">03 · ПРОСТО</div>
+            <h2 class="lp-h2">Как начать</h2>
+        </div>
+        <div class="lp-grid-3">
+            <div class="lp-step">
+                <div class="lp-step__num">01</div>
+                <div class="lp-step__title">Регистрация</div>
+                <div class="lp-step__body">Email + пароль или соцсеть. Минимум полей — 30 секунд.</div>
+            </div>
+            <div class="lp-step">
+                <div class="lp-step__num">02</div>
+                <div class="lp-step__title">Онбординг</div>
+                <div class="lp-step__body">Имя, возраст, клавиатура — за пару кликов. Курс адаптируется автоматически.</div>
+            </div>
+            <div class="lp-step">
+                <div class="lp-step__num">03</div>
+                <div class="lp-step__title">Первый урок</div>
+                <div class="lp-step__body">Сразу за клавиатуру. Подсветка пальцев, метроном, мгновенная обратная связь.</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ─── Section 04: Pricing ────────────────────────────────────── -->
+    <section id="pricing" class="lp-section">
+        <div class="lp-section__hd--centered">
+            <div class="lp-section__num">04 · ЧЕСТНО</div>
+            <h2 class="lp-h2">Тарифы без подвохов</h2>
+            <p class="lp-section__sub">Отменить можно в любой момент. Без авто-продления без согласия.</p>
+        </div>
+        <div class="lp-grid-3">
+            <div class="lp-tier">
+                <div class="lp-tier__name">Старт</div>
+                <div class="lp-tier__price"><span class="lp-tier__price-num">0</span><span class="lp-tier__price-sub">навсегда</span></div>
+                <div class="lp-tier__divider"></div>
+                <ul class="lp-tier__features">
+                    <li><svg class="lp-tier__check" width="16" height="16" viewBox="0 0 14 14" fill="none"><path d="M3 7.5L6 10L11 4" stroke="#10b981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Базовые уроки 1-20</li>
+                    <li><svg class="lp-tier__check" width="16" height="16" viewBox="0 0 14 14" fill="none"><path d="M3 7.5L6 10L11 4" stroke="#10b981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Один тип клавиатуры</li>
+                    <li><svg class="lp-tier__check" width="16" height="16" viewBox="0 0 14 14" fill="none"><path d="M3 7.5L6 10L11 4" stroke="#10b981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>1 язык</li>
+                </ul>
+                <a href="onboarding.html" class="lp-tier__cta" style="display:block;text-align:center;text-decoration:none">Начать бесплатно</a>
+            </div>
+            <div class="lp-tier lp-tier--featured">
+                <div class="lp-tier__badge">ПОПУЛЯРНО</div>
+                <div class="lp-tier__name">Полный</div>
+                <div class="lp-tier__price"><span class="lp-tier__price-num">490</span><span class="lp-tier__price-sub">₽ / мес</span></div>
+                <div class="lp-tier__divider"></div>
+                <ul class="lp-tier__features">
+                    <li><svg class="lp-tier__check" width="16" height="16" viewBox="0 0 14 14" fill="none"><path d="M3 7.5L6 10L11 4" stroke="#22c55e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Все 99 уроков</li>
+                    <li><svg class="lp-tier__check" width="16" height="16" viewBox="0 0 14 14" fill="none"><path d="M3 7.5L6 10L11 4" stroke="#22c55e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Все 3 типа клавиатуры</li>
+                    <li><svg class="lp-tier__check" width="16" height="16" viewBox="0 0 14 14" fill="none"><path d="M3 7.5L6 10L11 4" stroke="#22c55e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Все языки и алфавиты</li>
+                    <li><svg class="lp-tier__check" width="16" height="16" viewBox="0 0 14 14" fill="none"><path d="M3 7.5L6 10L11 4" stroke="#22c55e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Тренажёр скорости</li>
+                    <li><svg class="lp-tier__check" width="16" height="16" viewBox="0 0 14 14" fill="none"><path d="M3 7.5L6 10L11 4" stroke="#22c55e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Сертификат</li>
+                </ul>
+                <a href="pricing.html" class="lp-tier__cta" style="display:block;text-align:center;text-decoration:none">Попробовать 7 дней</a>
+            </div>
+            <div class="lp-tier">
+                <div class="lp-tier__name">Семейный</div>
+                <div class="lp-tier__price"><span class="lp-tier__price-num">890</span><span class="lp-tier__price-sub">₽ / мес · до 5 чел.</span></div>
+                <div class="lp-tier__divider"></div>
+                <ul class="lp-tier__features">
+                    <li><svg class="lp-tier__check" width="16" height="16" viewBox="0 0 14 14" fill="none"><path d="M3 7.5L6 10L11 4" stroke="#10b981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Всё из Полного</li>
+                    <li><svg class="lp-tier__check" width="16" height="16" viewBox="0 0 14 14" fill="none"><path d="M3 7.5L6 10L11 4" stroke="#10b981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>До 5 профилей</li>
+                    <li><svg class="lp-tier__check" width="16" height="16" viewBox="0 0 14 14" fill="none"><path d="M3 7.5L6 10L11 4" stroke="#10b981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Подростковый и детский курсы</li>
+                    <li><svg class="lp-tier__check" width="16" height="16" viewBox="0 0 14 14" fill="none"><path d="M3 7.5L6 10L11 4" stroke="#10b981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Родительская статистика</li>
+                </ul>
+                <a href="pricing.html" class="lp-tier__cta" style="display:block;text-align:center;text-decoration:none">Подключить</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ─── Stats strip ───────────────────────────────────────────── -->
+    <div class="lp-stats-wrap">
+        <div class="lp-stats">
+            <div class="lp-stats__cell">
+                <div class="lp-stats__val">166K+</div>
+                <div class="lp-stats__label">УЧЕНИКОВ</div>
+            </div>
+            <div class="lp-stats__cell">
+                <div class="lp-stats__val">12K</div>
+                <div class="lp-stats__label">ЗАКОНЧИЛИ КУРС</div>
+            </div>
+            <div class="lp-stats__cell">
+                <div class="lp-stats__val">4.9 ★</div>
+                <div class="lp-stats__label">РЕЙТИНГ</div>
+            </div>
+            <div class="lp-stats__cell">
+                <div class="lp-stats__val">40ч</div>
+                <div class="lp-stats__label">ДО РЕЗУЛЬТАТА</div>
+            </div>
+        </div>
     </div>
 
-    <!-- Top function toolbar над клавиатурой -->
-    <div class="keyboard-toolbar" id="keyboardToolbar">
-        <!-- содержимое генерируется renderKeyboardToolbar() в keyboard.js -->
-    </div>
+    <!-- ─── Footer ─────────────────────────────────────────────────── -->
+    <footer class="lp-footer">
+        <div class="lp-footer__top">
+            <div>
+                <div style="display:flex;align-items:center;gap:10px;margin-bottom:14px">
+                    <span class="lp-logo__mark" style="width:28px;height:28px;font-size:12px">Ё</span>
+                    <span style="font-weight:800;font-size:14px">typing-trainer</span>
+                </div>
+                <p class="lp-footer__brand-text">Современный тренажёр слепой печати с поддержкой эргономических клавиатур и адаптацией под возраст.</p>
+            </div>
+            <div>
+                <div class="lp-footer__col-h">Продукт</div>
+                <ul class="lp-footer__col-list">
+                    <li><a href="#kb">Раскладки</a></li>
+                    <li><a href="#pricing">Тарифы</a></li>
+                    <li><a href="#how">Как работает</a></li>
+                </ul>
+            </div>
+            <div>
+                <div class="lp-footer__col-h">Компания</div>
+                <ul class="lp-footer__col-list">
+                    <li><a href="#">О нас</a></li>
+                    <li><a href="#">Блог</a></li>
+                    <li><a href="#">Контакты</a></li>
+                </ul>
+            </div>
+            <div>
+                <div class="lp-footer__col-h">Помощь</div>
+                <ul class="lp-footer__col-list">
+                    <li><a href="#">Поддержка</a></li>
+                    <li><a href="#">FAQ</a></li>
+                    <li><a href="#">Соглашение</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="lp-footer__bottom">
+            <span>© 2026 typing-trainer</span>
+            <div>
+                <a href="#">RU</a><a href="#">EN</a>
+            </div>
+        </div>
+    </footer>
 
-    <!-- Виртуальная клавиатура — рендерится из data-структур (keyboard-data.js) -->
-    <div class="keyboard-container">
-        <!-- содержимое генерируется renderClassicKeyboard() в keyboard.js -->
-    </div>
-
-    <!-- JavaScript модули -->
+    <!-- ─── JS ─────────────────────────────────────────────────────── -->
     <script src="config/settings.js"></script>
-    <script src="assets/js/utils.js"></script>
-    <script src="assets/js/stats.js"></script>
-    <script src="assets/js/audio.js"></script>
-    <script src="assets/js/keyboard-data.js"></script>
-    <script src="assets/js/keyboard.js"></script>
-    <script src="assets/js/toast-manager.js"></script>
-    <script src="assets/js/lesson-loader.js"></script>
-    <script src="assets/js/character-system.js"></script>
-    <!-- v2 SVG-фабрика портретов (требуется для нового онбординга) -->
     <script src="assets/js/portraits.js"></script>
-    <script src="assets/js/onboarding.js"></script>
-    <script src="assets/js/settings-panel.js"></script>
-    <script src="assets/js/certification.js"></script>
-    <script src="assets/js/main.js"></script>
+    <script>
+        // Read user profile from localStorage to switch anon ↔ auth
+        (function () {
+            const key = (window.Settings && window.Settings.get('storage.keys.userProfile', 'typing_trainer_user_profile'))
+                        || 'typing_trainer_user_profile';
+            let profile = null;
+            try {
+                const raw = localStorage.getItem(key);
+                if (raw) profile = JSON.parse(raw);
+            } catch (e) {}
+
+            // Populate audience portraits (always, regardless of auth)
+            if (window.portraits) {
+                document.querySelectorAll('[data-portrait="user"]').forEach(el => {
+                    const a = el.dataset.audience;
+                    const g = el.dataset.gender || 'm';
+                    const size = parseInt(el.dataset.size || '56', 10);
+                    el.innerHTML = window.portraits.user(a, g, size);
+                });
+            }
+
+            if (profile && profile.onboardingCompleted && profile.name) {
+                // Authorized state
+                document.getElementById('lpCtaAnon').hidden = true;
+                const authBlock = document.getElementById('lpCtaAuth');
+                authBlock.hidden = false;
+                document.getElementById('lpProfileName').textContent = profile.name;
+                document.getElementById('lpMenuName').textContent = profile.name;
+                document.getElementById('lpMenuSub').textContent = profile.audience === 'teen' ? 'Подростковый курс' :
+                                                                     profile.audience === 'kid'  ? 'Детский курс' :
+                                                                     'Основной курс';
+                // Avatar
+                if (window.portraits) {
+                    const gender = profile.gender || 'm';
+                    const audience = profile.audience || 'adult';
+                    document.getElementById('lpProfileAvatar').innerHTML = window.portraits.user(audience, gender, 32);
+                }
+                // Hero CTA → продолжить (авторизован → сразу в кабинет)
+                document.getElementById('lpHeroPrimaryLabel').textContent = 'Продолжить обучение';
+                document.getElementById('lpHeroPrimary').setAttribute('href', 'dashboard.html');
+                document.getElementById('lpHeroDemo').style.display = 'none';
+
+                // Profile dropdown toggle
+                const btn = document.getElementById('lpProfileBtn');
+                const menu = document.getElementById('lpProfileMenu');
+                btn.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    menu.classList.toggle('open');
+                });
+                document.addEventListener('click', (e) => {
+                    if (!menu.contains(e.target) && e.target !== btn) menu.classList.remove('open');
+                });
+
+                // Logout — clears profile and reloads to anon landing
+                document.getElementById('lpLogout').addEventListener('click', () => {
+                    if (!confirm('Выйти? Прогресс сохранится, но онбординг откроется заново.')) return;
+                    try { localStorage.removeItem(key); } catch (e) {}
+                    location.reload();
+                });
+            }
+
+            // "Посмотреть демо" — пока scroll к секции клавиатур
+            const demoBtn = document.getElementById('lpHeroDemo');
+            if (demoBtn) {
+                demoBtn.addEventListener('click', () => {
+                    document.getElementById('kb').scrollIntoView({ behavior: 'smooth' });
+                });
+            }
+        })();
+    </script>
 </body>
 </html>
