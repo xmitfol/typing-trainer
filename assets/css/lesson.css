@@ -12,6 +12,53 @@
 .lesson-page *, .lesson-page *::before, .lesson-page *::after { box-sizing: border-box; }
 .lesson-page a { color: inherit; text-decoration: none; }
 
+/* ─── Locked screen (рано открывать урок) ────────────────────────── */
+.lp-locked {
+    min-height: 100vh;
+    display: grid; place-items: center;
+    padding: 32px;
+}
+.lp-locked__card {
+    background: var(--surface);
+    border: 1px solid var(--divider);
+    border-radius: 20px;
+    box-shadow: 0 24px 60px rgba(0,0,0,0.08);
+    padding: 40px 36px;
+    max-width: 480px; text-align: center;
+}
+.lp-locked__icon {
+    font-size: 44px; line-height: 1;
+    margin-bottom: 16px;
+}
+.lp-locked__title {
+    margin: 0 0 12px;
+    font-family: var(--font-serif);
+    font-size: 28px; font-weight: 700;
+    letter-spacing: -0.02em; color: var(--ink);
+}
+.lp-locked__text {
+    margin: 0 0 26px;
+    font-size: 15px; line-height: 1.6; color: var(--sub);
+}
+.lp-locked__actions {
+    display: flex; flex-direction: column; gap: 10px;
+}
+.lp-locked__btn {
+    padding: 13px 22px; border-radius: 11px;
+    font-size: 14px; font-weight: 700;
+    font-family: var(--font-ui);
+    cursor: pointer; text-decoration: none;
+    display: inline-flex; align-items: center; justify-content: center;
+}
+.lp-locked__btn--primary {
+    background: var(--accent); color: #fff;
+    box-shadow: 0 6px 14px rgba(59,130,246,0.3);
+}
+.lp-locked__btn--secondary {
+    background: transparent; color: var(--ink);
+    border: 1.5px solid var(--divider);
+}
+
 /* ─── Top bar ─────────────────────────────────────────────────────── */
 .lp-topbar {
     position: sticky; top: 0; z-index: 10;

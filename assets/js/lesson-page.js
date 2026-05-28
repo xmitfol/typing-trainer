@@ -42,6 +42,43 @@ document.addEventListener('DOMContentLoaded', async function () {
     const counts = (window.Settings && window.Settings.get('lessons.tierLessonCount', {})) || {};
     const totalLessons = counts[tier] || 99;
 
+    // ─── Линейная прогрессия: блокируем прямой URL на заблокированный урок ───
+    // Доступен урок только если пройден ИЛИ это первый непройденный.
+    let firstUncompleted = totalLessons;
+    for (let n = 1; n <= totalLessons; n++) {
+        if (!(progress[String(n)] && progress[String(n)].stars > 0)) { firstUncompleted = n; break; }
+    }
+    const lessonDone = !!(progress[String(lessonNum)] && progress[String(lessonNum)].stars > 0);
+    if (!lessonDone && lessonNum !== firstUncompleted) {
+        showLockedScreen(tier, firstUncompleted);
+        return;
+    }
+
+    function showLockedScreen(tier, available) {
+        const nextHref = `lesson.html?tier=${encodeURIComponent(tier)}&lesson=${available}`;
+        document.body.innerHTML = `
+            <div class="lp-locked">
+                <div class="lp-locked__card">
+                    <div class="lp-locked__icon">🔒</div>
+                    <h1 class="lp-locked__title">Рановато для этого урока</h1>
+                    <p class="lp-locked__text">
+                        Уроки открываются по порядку — этот станет доступен, когда вы
+                        пройдёте предыдущие. Продолжите с последнего открытого упражнения
+                        или выберите урок из списка.
+                    </p>
+                    <div class="lp-locked__actions">
+                        <a class="lp-locked__btn lp-locked__btn--primary" href="${nextHref}">
+                            Продолжить · урок ${available} →
+                        </a>
+                        <a class="lp-locked__btn lp-locked__btn--secondary" href="course.html">
+                            Список уроков
+                        </a>
+                    </div>
+                </div>
+            </div>
+        `;
+    }
+
     // ─── Module structure (повтор из course.js — стабильнее иметь дубль здесь) ───
     const MODULES_BY_TIER = {
         tier1: [

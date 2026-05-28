@@ -45,6 +45,18 @@ document.addEventListener('DOMContentLoaded', async function () {
     const counts = (window.Settings && window.Settings.get('lessons.tierLessonCount', {})) || {};
     const totalLessons = counts[tier] || 99;
 
+    // ─── Линейная прогрессия: прямой URL на заблокированное упражнение → ───
+    // обратно к теории доступного урока (task достижим только из lesson.html).
+    let firstUncompleted = totalLessons;
+    for (let n = 1; n <= totalLessons; n++) {
+        if (!(progress[String(n)] && progress[String(n)].stars > 0)) { firstUncompleted = n; break; }
+    }
+    const taskLessonDone = !!(progress[String(lessonNum)] && progress[String(lessonNum)].stars > 0);
+    if (!taskLessonDone && lessonNum !== firstUncompleted) {
+        window.location.replace(`lesson.html?tier=${encodeURIComponent(tier)}&lesson=${lessonNum}`);
+        return;
+    }
+
     // ─── Mentor setup ────────────────────────────────────────────
     const mentorId = profile.character || (profile.audience === 'teen' ? 'knopych' : profile.audience === 'kid' ? 'klavochka' : 'anna');
     if (window.portraits && window.portraits.mentor) {
