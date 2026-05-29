@@ -230,6 +230,8 @@ document.addEventListener('DOMContentLoaded', async function () {
         else if (v === 'laptop') kb.setAttribute('unit', '44');
         else kb.setAttribute('unit', '40');
     });
+    const layoutSel = $('layout-select');
+    if (layoutSel) layoutSel.addEventListener('change', (e) => kb.setAttribute('layout', e.target.value));
 
     // ─── Focus ───────────────────────────────────────────────────
     capture.addEventListener('keydown', handleKey);

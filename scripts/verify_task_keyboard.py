@@ -165,8 +165,23 @@ def main():
         check('не подрезано справа', ergo['clippedRight'], False)
         page.screenshot(path=str(SHOTS / 'E_ergo.png'))
 
-        # F. URL-lock
-        print("\n=== F. task.html?lesson=6 при пустом прогрессе → редирект ===")
+        # F. Подсветка следующей клавиши + переключение раскладки
+        print("\n=== F. highlight следующей клавиши + смена раскладки ===")
+        seed(page)
+        page.goto(f"{BASE}/task.html?tier=tier1&lesson=1")
+        page.wait_for_selector('#target .word', timeout=8000)
+        page.wait_for_timeout(500)
+        check('подсвечена ровно одна следующая клавиша', page.evaluate('''document.getElementById('kb').shadowRoot.querySelectorAll('.key[data-state="highlight"]').length'''), 1)
+        labels_std = page.evaluate("Array.from(document.getElementById('kb').shadowRoot.querySelectorAll('.key')).map(k=>k.textContent.trim()).join('')")
+        page.select_option('#layout-select', 'phonetic')
+        page.wait_for_timeout(500)
+        labels_phon = page.evaluate("Array.from(document.getElementById('kb').shadowRoot.querySelectorAll('.key')).map(k=>k.textContent.trim()).join('')")
+        check('раскладка phonetic меняет метки клавиш', labels_phon != labels_std, True)
+        check('layout=phonetic выставлен', page.evaluate("document.getElementById('kb').getAttribute('layout')"), 'phonetic')
+        page.screenshot(path=str(SHOTS / 'F_layout.png'))
+
+        # G. URL-lock
+        print("\n=== G. task.html?lesson=6 при пустом прогрессе → редирект ===")
         seed(page)
         page.goto(f"{BASE}/task.html?tier=tier1&lesson=6")
         page.wait_for_timeout(900)
