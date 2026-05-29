@@ -199,7 +199,11 @@
     }
 
     .kb { display: flex; gap: 12px; justify-content: center; padding: 12px; perspective: 1200px; }
-    .kb--split { gap: var(--ergo-gap, 96px); align-items: flex-end; }
+    .kb--split { display: flex; gap: var(--ergo-gap, 96px); align-items: flex-end; }
+    .kb--split .half-left  { transform: rotate(calc(-1 * var(--angle, 14deg))); transform-origin: bottom right; }
+    .kb--split .half-right { transform: rotate(var(--angle, 14deg)); transform-origin: bottom left; }
+    .kb--ergo { display: flex; align-items: flex-start; justify-content: center; padding: calc(var(--unit, 56px) * 0.9) 0 calc(var(--unit, 56px) * 0.3); gap: calc(var(--unit, 56px) * 1.4); }
+    .ergo-clusters { display: flex; align-items: flex-start; }
 
     .row { display: flex; align-items: center; }
     .col { display: flex; flex-direction: column; align-items: flex-start; }
@@ -463,7 +467,7 @@
   function renderErgo(unit, angle, gap, thumb, opts) {
     const leftKeys = ROWS.map(r => r.left);
     const rightKeys = ROWS.map(r => r.right);
-    const thumbData = thumb === 'minimal' ? THUMB_MIN : THUMB_MIN; // minimal-only for now
+    const thumbData = THUMB_MIN;
     const renderRow = (cells, side) =>
       `<div class="half__row half__row--${side}" style="gap:${unit * 0.08}px">${cells.map(k => keyHtml(k, unit, opts)).join('')}</div>`;
     const leftHalf = `<div class="half-left"><div class="half">
@@ -474,7 +478,15 @@
       ${rightKeys.map(r => renderRow(r, 'right')).join('')}
       ${renderRow(thumbData.right, 'right')}
     </div></div>`;
-    return `<div class="kb kb--split" style="--angle:${angle}deg;--ergo-gap:${gap}px">${leftHalf}${rightHalf}</div>`;
+
+    // Upright nav + numpad clusters to the right (same as classic).
+    const nav = renderNav(unit, opts);
+    const numpad = renderNumpad(unit, opts);
+
+    return `<div class="kb kb--ergo">
+      <div class="kb--split" style="--angle:${angle}deg;--ergo-gap:${gap}px;margin-top:-30px">${leftHalf}${rightHalf}</div>
+      <div class="ergo-clusters" style="gap:${unit * 0.34}px">${nav}${numpad}</div>
+    </div>`;
   }
 
   // ─── Custom Element ──────────────────────────────────────────────────────
@@ -528,7 +540,7 @@
     _render() {
       const type = this.getAttribute('type') || 'classic';
       const unit = parseInt(this.getAttribute('unit') || '56', 10);
-      const angle = parseInt(this.getAttribute('angle') || '14', 10);
+      const angle = parseInt(this.getAttribute('angle') || '8', 10);
       const gap = parseInt(this.getAttribute('gap') || '96', 10);
       const thumb = this.getAttribute('thumb') || 'minimal';
 

@@ -226,7 +226,7 @@ document.addEventListener('DOMContentLoaded', async function () {
     $('type-select').addEventListener('change', (e) => {
         const v = e.target.value;
         kb.setAttribute('type', v);
-        if (v === 'ergonomic') { kb.setAttribute('unit', '48'); kb.setAttribute('gap', '72'); }
+        if (v === 'ergonomic') { kb.setAttribute('unit', '38'); kb.setAttribute('gap', '52'); kb.setAttribute('angle', '10'); }
         else if (v === 'laptop') kb.setAttribute('unit', '44');
         else kb.setAttribute('unit', '40');
     });

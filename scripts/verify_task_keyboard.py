@@ -143,8 +143,30 @@ def main():
         page2.screenshot(path=str(SHOTS / 'D_wrap.png'), full_page=True)
         ctx2.close()
 
-        # E. URL-lock
-        print("\n=== E. task.html?lesson=6 при пустом прогрессе → редирект ===")
+        # E. Эргономика: сплит + numpad + nav справа, без подреза
+        print("\n=== E. ergonomic: split + numpad/nav, без подреза ===")
+        page.select_option('#type-select', 'ergonomic')
+        page.wait_for_timeout(800)
+        ergo = page.evaluate("""() => {
+            const sr = document.getElementById('kb').shadowRoot, stage = document.getElementById('kb-stage');
+            const wrap = sr.querySelector('.kb--ergo'), clusters = sr.querySelector('.ergo-clusters');
+            const er = wrap.getBoundingClientRect(), st = stage.getBoundingClientRect();
+            return {
+                halves: sr.querySelectorAll('.half-left,.half-right').length,
+                clusterKeys: clusters ? clusters.querySelectorAll('.key').length : 0,
+                clippedBottom: er.bottom > st.bottom + 1,
+                clippedRight: er.right > st.right + 1
+            };
+        }""")
+        print(f"   ergo: {ergo}")
+        check('две половины (split)', ergo['halves'], 2)
+        check('numpad+nav кластеры присутствуют', ergo['clusterKeys'], lambda n: n > 15)
+        check('не подрезано снизу', ergo['clippedBottom'], False)
+        check('не подрезано справа', ergo['clippedRight'], False)
+        page.screenshot(path=str(SHOTS / 'E_ergo.png'))
+
+        # F. URL-lock
+        print("\n=== F. task.html?lesson=6 при пустом прогрессе → редирект ===")
         seed(page)
         page.goto(f"{BASE}/task.html?tier=tier1&lesson=6")
         page.wait_for_timeout(900)
