@@ -82,6 +82,10 @@ document.addEventListener('DOMContentLoaded', async function () {
 
     // ─── State ───────────────────────────────────────────────────
     let typed = 0, errors = 0, attempt = 1, startTime = null, timer = null, done = false;
+    // Настройки тулбара (из профиля; дефолты: подсветка вкл, звук/метроном выкл, зум 100)
+    let fingerHint = profile.fingerHint !== false;
+    let soundOn = profile.keySound === true;
+    let metroOn = profile.metronome === true;
 
     function escapeHtml(s) { return String(s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#039;' }[c])); }
 
@@ -105,6 +109,7 @@ document.addEventListener('DOMContentLoaded', async function () {
         fillEl.style.width = `${(typed / targetText.length) * 100}%`;
 
         const nextCh = targetText[typed];
+        if (!fingerHint) { kb.removeAttribute('highlight-char'); return; }
         if (nextCh === ' ') kb.setAttribute('highlight-char', ' ');
         else if (nextCh) kb.setAttribute('highlight-char', nextCh);
         else kb.removeAttribute('highlight-char');
@@ -216,8 +221,8 @@ document.addEventListener('DOMContentLoaded', async function () {
 
     $('task-close').href = `lesson.html?tier=${encodeURIComponent(tier)}&lesson=${lessonNum}`;
 
-    // ─── Настройки клавиатуры: запоминаем выбор пользователя ─────
-    // Храним в профиле (keyboardType уже приходит из онбординга).
+    // ─── Настройки тулбара: запоминаем выбор пользователя ────────
+    // Всё храним в профиле (keyboardType уже приходит из онбординга).
     function saveKbPref(patch) {
         Object.assign(profile, patch);
         writeJSON(profileKey, profile);
@@ -231,28 +236,76 @@ document.addEventListener('DOMContentLoaded', async function () {
 
     const typeSel = $('type-select');
     const layoutSel = $('layout-select');
-    const hideHintBtn = $('hide-hint-btn');
+    const fingerBtn = $('finger-hint-btn');
+    const soundBtn = $('sound-btn');
+    const metroBtn = $('metro-btn');
 
-    // Применяем сохранённые настройки на старте + синхронизируем контролы
+    // Применяем сохранённое на старте + синхронизируем контролы
     const savedType = profile.keyboardType || 'classic';
     const savedLayout = profile.keyboardLayout || 'standard';
-    const savedIntensity = profile.keyboardIntensity || 'full';
     applyType(savedType);
     kb.setAttribute('layout', savedLayout);
-    kb.setAttribute('intensity', savedIntensity);
     if (typeSel) typeSel.value = savedType;
     if (layoutSel) layoutSel.value = savedLayout;
-    if (hideHintBtn) hideHintBtn.dataset.active = (savedIntensity === 'highlight').toString();
+    if (fingerBtn) {
+        fingerBtn.dataset.off = (!fingerHint).toString();
+        fingerBtn.title = fingerHint ? 'Подсветка расстановки пальцев (вкл.)' : 'Подсветка расстановки пальцев (выкл.)';
+    }
+    if (soundBtn) { soundBtn.dataset.off = (!soundOn).toString(); }
+    if (metroBtn) { metroBtn.dataset.off = (!metroOn).toString(); metroBtn.dataset.active = metroOn.toString(); }
 
     // ─── Toolbar handlers (применяем + сохраняем) ───────────────
-    if (hideHintBtn) hideHintBtn.addEventListener('click', (e) => {
-        const btn = e.currentTarget;
-        const blind = btn.dataset.active !== 'true';   // станет ли «вслепую»
-        btn.dataset.active = blind.toString();
-        const intensity = blind ? 'highlight' : 'full';
-        kb.setAttribute('intensity', intensity);
-        saveKbPref({ keyboardIntensity: intensity });
+    // 1. Подсветка расстановки пальцев (highlight-char вкл/выкл)
+    if (fingerBtn) fingerBtn.addEventListener('click', (e) => {
+        fingerHint = !fingerHint;
+        e.currentTarget.dataset.off = (!fingerHint).toString();
+        e.currentTarget.title = fingerHint ? 'Подсветка расстановки пальцев (вкл.)' : 'Подсветка расстановки пальцев (выкл.)';
+        renderTarget();
+        saveKbPref({ fingerHint });
     });
+    // 2. Звук нажатия (заглушка SFX, состояние читается в handleKey)
+    if (soundBtn) soundBtn.addEventListener('click', (e) => {
+        soundOn = !soundOn;
+        e.currentTarget.dataset.off = (!soundOn).toString();
+        e.currentTarget.title = soundOn ? 'Звук нажатия (вкл.)' : 'Звук нажатия (выкл.)';
+        saveKbPref({ keySound: soundOn });
+    });
+    // 3. Метроном (заглушка)
+    if (metroBtn) metroBtn.addEventListener('click', (e) => {
+        metroOn = !metroOn;
+        e.currentTarget.dataset.off = (!metroOn).toString();
+        e.currentTarget.dataset.active = metroOn.toString();
+        e.currentTarget.title = metroOn ? 'Метроном (вкл.)' : 'Метроном (выкл.)';
+        saveKbPref({ metronome: metroOn });
+    });
+    // 4. Масштаб окна набора — зум всей карточки (для слабовидящих)
+    const zoomBtn = $('zoom-btn'), zoomPop = $('zoom-pop');
+    const zoomVal = $('zoom-val'), zoomMinus = $('zoom-minus'), zoomPlus = $('zoom-plus');
+    const ZOOM_MIN = 70, ZOOM_MAX = 150, ZOOM_STEP = 10;
+    let zoomLevel = Math.min(ZOOM_MAX, Math.max(ZOOM_MIN, parseInt(profile.taskZoom, 10) || 100));
+    function applyZoom(persist) {
+        zoomVal.textContent = zoomLevel + '%';
+        document.querySelector('.task-card').style.zoom = zoomLevel / 100;
+        zoomMinus.disabled = zoomLevel <= ZOOM_MIN;
+        zoomPlus.disabled = zoomLevel >= ZOOM_MAX;
+        if (persist) saveKbPref({ taskZoom: zoomLevel });
+    }
+    if (zoomBtn) {
+        zoomBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            zoomPop.hidden = !zoomPop.hidden;
+            zoomBtn.dataset.active = (!zoomPop.hidden).toString();
+        });
+        document.addEventListener('click', (e) => {
+            if (!zoomPop.hidden && !zoomPop.contains(e.target) && e.target !== zoomBtn) {
+                zoomPop.hidden = true; zoomBtn.dataset.active = 'false';
+            }
+        });
+        zoomMinus.addEventListener('click', () => { zoomLevel = Math.max(ZOOM_MIN, zoomLevel - ZOOM_STEP); applyZoom(true); });
+        zoomPlus.addEventListener('click', () => { zoomLevel = Math.min(ZOOM_MAX, zoomLevel + ZOOM_STEP); applyZoom(true); });
+        applyZoom(false);
+    }
+
     if (typeSel) typeSel.addEventListener('change', (e) => {
         applyType(e.target.value);
         saveKbPref({ keyboardType: e.target.value });

@@ -1,10 +1,11 @@
 """
-Персистентность настроек клавиатуры в task.html.
+Персистентность настроек тулбара task.html (новый дизайн).
 
-A. Меняем тип (Эргономическая), раскладку (Фонетическая), режим «вслепую» →
-   значения сохраняются в профиль (localStorage).
-B. После перезагрузки task.html настройки применены: <typing-keyboard> с теми
-   же type/layout/intensity, селекты и кнопка отражают сохранённое.
+A. Меняем: тип, раскладку, подсветку пальцев (выкл), звук (вкл), метроном (вкл),
+   зум (+20% → 120%) → всё сохраняется в профиль.
+B. Перезагрузка → всё применено: kb type/layout, finger-hint off (нет
+   highlight-char), кнопки звук/метроном в нужном состоянии, зум карточки 120%,
+   селекты отражают выбор.
 """
 import io, sys
 from pathlib import Path
@@ -37,29 +38,40 @@ def main():
         page.wait_for_selector('#target .word', timeout=8000)
         page.wait_for_timeout(500)
 
-        # A. Меняем настройки
-        print("\n=== A. меняем тип/раскладку/режим → сохраняется в профиль ===")
-        page.select_option('#type-select', 'ergonomic'); page.wait_for_timeout(300)
-        page.select_option('#layout-select', 'phonetic'); page.wait_for_timeout(300)
-        page.click('#hide-hint-btn'); page.wait_for_timeout(300)
+        # A. меняем всё
+        print("\n=== A. меняем настройки → сохраняются ===")
+        page.select_option('#type-select', 'laptop'); page.wait_for_timeout(200)
+        page.select_option('#layout-select', 'phonetic'); page.wait_for_timeout(200)
+        page.click('#finger-hint-btn'); page.wait_for_timeout(200)   # выкл подсветку
+        page.click('#sound-btn'); page.wait_for_timeout(150)          # вкл звук
+        page.click('#metro-btn'); page.wait_for_timeout(150)          # вкл метроном
+        page.click('#zoom-btn'); page.wait_for_timeout(150)
+        page.click('#zoom-plus'); page.click('#zoom-plus'); page.wait_for_timeout(200)  # 100→120
         prof = page.evaluate("JSON.parse(localStorage.getItem('typing_trainer_user_profile'))")
-        check('profile.keyboardType = ergonomic', prof.get('keyboardType'), 'ergonomic')
-        check('profile.keyboardLayout = phonetic', prof.get('keyboardLayout'), 'phonetic')
-        check('profile.keyboardIntensity = highlight', prof.get('keyboardIntensity'), 'highlight')
+        check('keyboardType=laptop', prof.get('keyboardType'), 'laptop')
+        check('keyboardLayout=phonetic', prof.get('keyboardLayout'), 'phonetic')
+        check('fingerHint=false', prof.get('fingerHint'), False)
+        check('keySound=true', prof.get('keySound'), True)
+        check('metronome=true', prof.get('metronome'), True)
+        check('taskZoom=120', prof.get('taskZoom'), 120)
+        # finger-hint выкл → нет подсвеченной клавиши
+        check('нет highlight (подсветка выкл)', page.evaluate('''document.getElementById('kb').shadowRoot.querySelectorAll('.key[data-state="highlight"]').length'''), 0)
 
-        # B. Перезагрузка → настройки применены
-        print("\n=== B. перезагрузка → применены ===")
+        # B. перезагрузка → применено
+        print("\n=== B. перезагрузка → применено ===")
         page.goto(f"{BASE}/task.html?tier=tier1&lesson=1")
         page.wait_for_selector('#target .word', timeout=8000)
         page.wait_for_timeout(600)
-        check('kb type = ergonomic', page.evaluate("document.getElementById('kb').getAttribute('type')"), 'ergonomic')
-        check('kb layout = phonetic', page.evaluate("document.getElementById('kb').getAttribute('layout')"), 'phonetic')
-        check('kb intensity = highlight', page.evaluate("document.getElementById('kb').getAttribute('intensity')"), 'highlight')
-        check('select типа = ergonomic', page.eval_on_selector('#type-select', 'el => el.value'), 'ergonomic')
-        check('select раскладки = phonetic', page.eval_on_selector('#layout-select', 'el => el.value'), 'phonetic')
-        check('кнопка «вслепую» активна', page.eval_on_selector('#hide-hint-btn', 'el => el.dataset.active'), 'true')
-        # эргономика реально отрисовалась (split-половины)
-        check('эргономика отрисована (split)', page.evaluate("document.getElementById('kb').shadowRoot.querySelectorAll('.half-left,.half-right').length"), 2)
+        check('kb type=laptop', page.evaluate("document.getElementById('kb').getAttribute('type')"), 'laptop')
+        check('kb layout=phonetic', page.evaluate("document.getElementById('kb').getAttribute('layout')"), 'phonetic')
+        check('select типа=laptop', page.eval_on_selector('#type-select', 'el=>el.value'), 'laptop')
+        check('select раскладки=phonetic', page.eval_on_selector('#layout-select', 'el=>el.value'), 'phonetic')
+        check('finger-hint кнопка off', page.eval_on_selector('#finger-hint-btn', 'el=>el.dataset.off'), 'true')
+        check('нет highlight после reload', page.evaluate('''document.getElementById('kb').shadowRoot.querySelectorAll('.key[data-state="highlight"]').length'''), 0)
+        check('звук кнопка вкл (off=false)', page.eval_on_selector('#sound-btn', 'el=>el.dataset.off'), 'false')
+        check('метроном кнопка вкл (off=false)', page.eval_on_selector('#metro-btn', 'el=>el.dataset.off'), 'false')
+        check('зум карточки = 1.2', page.eval_on_selector('.task-card', 'el=>el.style.zoom'), lambda s: s in ('1.2', '120%'))
+        check('зум-значение 120%', page.eval_on_selector('#zoom-val', 'el=>el.textContent'), '120%')
 
         ctx.close()
         browser.close()

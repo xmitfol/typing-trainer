@@ -104,12 +104,44 @@
             font-size: 13px; position: relative;
         }
         .tool-btn[data-active="true"] { background: var(--ink); color: #fff; border-color: var(--ink); }
-        .tool-sep { width: 1px; height: 24px; background: var(--divider); margin: 0 4px; }
-        .layout-select {
-            padding: 7px 12px; background: var(--bg-alt); border: 1px solid var(--divider);
-            border-radius: 8px; font-family: var(--font-mono); font-size: 11.5px;
-            font-weight: 600; color: var(--ink); cursor: pointer;
+        /* OFF-state badge: красная точка в углу (звук/метроном выкл по умолчанию) */
+        .tool-btn[data-off="true"]::after {
+            content: ''; position: absolute; top: -3px; right: -3px;
+            width: 12px; height: 12px; border-radius: 50%;
+            background: var(--error); border: 2px solid var(--surface);
         }
+        .tool-btn[data-off="true"] { opacity: 0.55; }
+        .tool-sep { width: 1px; height: 24px; background: var(--divider); margin: 0 4px; }
+        /* Zoom popover */
+        .tool-zoom {
+            display: flex; align-items: center; gap: 8px;
+            padding: 0 12px; height: 38px;
+            position: absolute; top: calc(100% + 6px); left: 0; z-index: 20;
+            background: var(--surface); box-shadow: var(--shadow-md);
+            border: 1px solid var(--divider); border-radius: 10px;
+            font-family: var(--font-mono); font-size: 11px; color: var(--sub);
+        }
+        .tool-zoom[hidden] { display: none; }
+        .tool-zoom__val { min-width: 44px; text-align: center; font-weight: 700; color: var(--ink); }
+        .zoom-step {
+            width: 26px; height: 26px; border-radius: 7px;
+            border: 1px solid var(--divider); background: var(--surface);
+            color: var(--ink); font-size: 16px; font-weight: 700; line-height: 1;
+            cursor: pointer; display: grid; place-items: center;
+        }
+        .zoom-step:hover { background: var(--bg-alt); }
+        .zoom-step:disabled { opacity: 0.35; cursor: default; }
+        /* Минималистичные селекты раскладки/типа */
+        .layout-select {
+            padding: 7px 26px 7px 12px; background: transparent; border: 1px solid transparent;
+            border-radius: 8px; font-family: var(--font-ui); font-size: 12.5px;
+            font-weight: 500; color: var(--sub); cursor: pointer;
+            transition: all .15s ease; appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='10' viewBox='0 0 12 12'%3E%3Cpath d='M3 4.5L6 7.5L9 4.5' stroke='%23999' stroke-width='1.3' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+            background-repeat: no-repeat; background-position: right 9px center;
+        }
+        .layout-select:hover { background-color: var(--bg-alt); color: var(--ink); }
+        .layout-select:focus { outline: none; border-color: var(--divider); color: var(--ink); }
 
         .kb-stage { display: flex; justify-content: center; overflow: hidden; }
 
@@ -203,13 +235,21 @@
 
             <!-- Toolbar -->
             <div class="toolbar" id="toolbar">
-                <button class="tool-btn" data-active="true" title="Палитра пальцев">
+                <button class="tool-btn" id="finger-hint-btn" title="Подсветка расстановки пальцев (вкл.)">
                     <svg width="14" height="14" viewBox="0 0 16 16"><rect x="2" y="2" width="5" height="5" rx="1" fill="#74b9ff"/><rect x="9" y="2" width="5" height="5" rx="1" fill="#fdcb6e"/><rect x="2" y="9" width="5" height="5" rx="1" fill="#00b894"/><rect x="9" y="9" width="5" height="5" rx="1" fill="#a29bfe"/></svg>
                 </button>
-                <button class="tool-btn" id="hide-hint-btn" title="Скрыть индикатор набора">
-                    <svg width="14" height="14" viewBox="0 0 16 16"><rect x="2" y="6" width="3" height="4" rx="0.5" fill="currentColor"/><rect x="6.5" y="6" width="3" height="4" rx="0.5" fill="currentColor" opacity="0.4"/><rect x="11" y="6" width="3" height="4" rx="0.5" fill="currentColor" opacity="0.15"/></svg>
-                </button>
-                <div class="tool-sep"></div>
+                <button class="tool-btn" id="sound-btn" data-off="true" title="Звук нажатия (выкл.)">🔊</button>
+                <button class="tool-btn" id="metro-btn" data-off="true" title="Метроном (выкл.)">⏱</button>
+                <div style="position:relative">
+                    <button class="tool-btn" id="zoom-btn" title="Масштаб окна набора">
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><text x="2" y="9" font-family="Manrope, sans-serif" font-size="7" font-weight="800" fill="currentColor">A</text><text x="8.5" y="13" font-family="Manrope, sans-serif" font-size="11" font-weight="800" fill="currentColor">A</text></svg>
+                    </button>
+                    <div class="tool-zoom" id="zoom-pop" hidden>
+                        <button class="zoom-step" id="zoom-minus" title="Меньше">−</button>
+                        <span class="tool-zoom__val" id="zoom-val">100%</span>
+                        <button class="zoom-step" id="zoom-plus" title="Больше">+</button>
+                    </div>
+                </div>
                 <span style="flex:1"></span>
                 <select class="layout-select" id="layout-select" title="Раскладка ввода">
                     <option value="standard">RU · Стандартная</option>
