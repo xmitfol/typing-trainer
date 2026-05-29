@@ -216,22 +216,51 @@ document.addEventListener('DOMContentLoaded', async function () {
 
     $('task-close').href = `lesson.html?tier=${encodeURIComponent(tier)}&lesson=${lessonNum}`;
 
-    // ─── Toolbar ─────────────────────────────────────────────────
-    $('hide-hint-btn').addEventListener('click', (e) => {
-        const btn = e.currentTarget;
-        const active = btn.dataset.active === 'true';
-        btn.dataset.active = (!active).toString();
-        kb.setAttribute('intensity', active ? 'full' : 'highlight');
-    });
-    $('type-select').addEventListener('change', (e) => {
-        const v = e.target.value;
+    // ─── Настройки клавиатуры: запоминаем выбор пользователя ─────
+    // Храним в профиле (keyboardType уже приходит из онбординга).
+    function saveKbPref(patch) {
+        Object.assign(profile, patch);
+        writeJSON(profileKey, profile);
+    }
+    function applyType(v) {
         kb.setAttribute('type', v);
         if (v === 'ergonomic') { kb.setAttribute('unit', '38'); kb.setAttribute('gap', '52'); kb.setAttribute('angle', '10'); }
         else if (v === 'laptop') kb.setAttribute('unit', '44');
         else kb.setAttribute('unit', '40');
-    });
+    }
+
+    const typeSel = $('type-select');
     const layoutSel = $('layout-select');
-    if (layoutSel) layoutSel.addEventListener('change', (e) => kb.setAttribute('layout', e.target.value));
+    const hideHintBtn = $('hide-hint-btn');
+
+    // Применяем сохранённые настройки на старте + синхронизируем контролы
+    const savedType = profile.keyboardType || 'classic';
+    const savedLayout = profile.keyboardLayout || 'standard';
+    const savedIntensity = profile.keyboardIntensity || 'full';
+    applyType(savedType);
+    kb.setAttribute('layout', savedLayout);
+    kb.setAttribute('intensity', savedIntensity);
+    if (typeSel) typeSel.value = savedType;
+    if (layoutSel) layoutSel.value = savedLayout;
+    if (hideHintBtn) hideHintBtn.dataset.active = (savedIntensity === 'highlight').toString();
+
+    // ─── Toolbar handlers (применяем + сохраняем) ───────────────
+    if (hideHintBtn) hideHintBtn.addEventListener('click', (e) => {
+        const btn = e.currentTarget;
+        const blind = btn.dataset.active !== 'true';   // станет ли «вслепую»
+        btn.dataset.active = blind.toString();
+        const intensity = blind ? 'highlight' : 'full';
+        kb.setAttribute('intensity', intensity);
+        saveKbPref({ keyboardIntensity: intensity });
+    });
+    if (typeSel) typeSel.addEventListener('change', (e) => {
+        applyType(e.target.value);
+        saveKbPref({ keyboardType: e.target.value });
+    });
+    if (layoutSel) layoutSel.addEventListener('change', (e) => {
+        kb.setAttribute('layout', e.target.value);
+        saveKbPref({ keyboardLayout: e.target.value });
+    });
 
     // ─── Focus ───────────────────────────────────────────────────
     capture.addEventListener('keydown', handleKey);
