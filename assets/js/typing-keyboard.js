@@ -431,17 +431,42 @@
   `;
 
   // ─── Render helpers ──────────────────────────────────────────────────────
+  // Производит e.key для click→keydown синтеза. Для алфавита/цифр/символов
+  // это сам символ; для пробела ' '; для модификаторов/спец — по коду.
+  function inferKey(data) {
+    const code = data.code || '';
+    if (code === 'Space') return ' ';
+    if (!data.mod && data.l) return String(data.l).toLowerCase();
+    // Модификаторы и спец-клавиши: derive from code
+    if (code.startsWith('Shift')) return 'Shift';
+    if (code.startsWith('Control')) return 'Control';
+    if (code.startsWith('Alt')) return 'Alt';
+    if (code.startsWith('Meta')) return 'Meta';
+    if (code === 'CapsLock') return 'CapsLock';
+    if (code === 'Tab') return 'Tab';
+    if (code === 'Enter') return 'Enter';
+    if (code === 'Backspace') return 'Backspace';
+    if (code === 'Escape') return 'Escape';
+    if (code.startsWith('Arrow')) return code;       // ArrowUp/Down/Left/Right
+    // Fallback по label для стрелок и пр.
+    const labelMap = { '↑': 'ArrowUp', '↓': 'ArrowDown', '←': 'ArrowLeft', '→': 'ArrowRight' };
+    if (labelMap[data.l]) return labelMap[data.l];
+    return data.l || '';
+  }
+
   function keyHtml(data, unit, opts) {
     const w = (data.w || 1) * unit;
     const h = unit * 0.92;
     const isMod = data.mod;
     const isLongMod = isMod && data.l.length > 2;
+    const dkey = inferKey(data);
+    const dkAttr = dkey ? `data-key="${dkey.replace(/"/g, '&quot;')}"` : '';
 
     // Special: Space highlights as a whole bar when it's the next key.
     if (data.code === 'Space') {
       const state = opts.stateOf(data);
       const dstate = state !== 'default' ? `data-state="${state}"` : '';
-      return `<div class="key key--space" data-finger="purple" data-code="Space" ${dstate}
+      return `<div class="key key--space" data-finger="purple" data-code="Space" data-key=" " ${dstate}
         style="width:${w}px;height:${h}px"></div>`;
     }
 
@@ -455,7 +480,7 @@
     const styleParts = [
       `width:${w}px`, `height:${h}px`,
     ];
-    return `<div class="${cls.join(' ')}" ${ds} ${dc} ${dstate} style="${styleParts.join(';')}">
+    return `<div class="${cls.join(' ')}" ${ds} ${dc} ${dkAttr} ${dstate} style="${styleParts.join(';')}">
       ${data.u && !isMod ? `<span class="key__upper">${data.u}</span>` : ''}
       <span>${data.l}</span>
       ${data.home ? `<span class="key__bump"></span>` : ''}
@@ -637,6 +662,19 @@
       super();
       this.attachShadow({ mode: 'open' });
       this._errorTimer = null;
+      // Click/touch на on-screen клавише → CustomEvent наружу с {key, code}.
+      // composed:true чтобы событие пересекло границу Shadow DOM.
+      this.shadowRoot.addEventListener('click', (e) => {
+        const k = e.target.closest('.key');
+        if (!k) return;
+        const key = k.getAttribute('data-key') || '';
+        const code = k.getAttribute('data-code') || '';
+        if (!key && !code) return;
+        this.dispatchEvent(new CustomEvent('kb-press', {
+          detail: { key, code, label: (k.textContent || '').trim() },
+          bubbles: true, composed: true
+        }));
+      });
     }
 
     connectedCallback() {

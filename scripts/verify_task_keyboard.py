@@ -203,6 +203,31 @@ def main():
         s = press_mod('а', 'KeyF', caps=False)
         check('CapsLock OFF → бейдж скрыт', s['capsOn'], False)
 
+        # G2. Click/touch по on-screen клавише → синтетический keydown на capture
+        print("\n=== G2. click мышью по виртуальной клавише ===")
+        seed(page)
+        page.goto(f"{BASE}/task.html?tier=tier1&lesson=1")
+        page.wait_for_selector('#target .word', timeout=8000)
+        page.wait_for_timeout(500)
+        def click_key(selector):
+            return page.evaluate("""(sel) => {
+                const k = document.getElementById('kb').shadowRoot.querySelector(sel);
+                if (!k) return null;
+                k.dispatchEvent(new MouseEvent('click', { bubbles: true, cancelable: true, composed: true }));
+                return { key: k.getAttribute('data-key'), code: k.getAttribute('data-code') };
+            }""", selector)
+        # клик «а» (правильный первый символ урока 1) → typed=1
+        r = click_key('.key[data-key="а"]'); page.wait_for_timeout(150)
+        check('click «а» → data-key/code заполнены', r is not None and r['key'] == 'а' and r['code'] == 'KeyF', True)
+        check('typed = 1 после click «а»', page.locator('#target .done').count(), 1)
+        # клик Shift → active-key=ShiftLeft, typed не меняется
+        click_key('.key[data-code="ShiftLeft"]'); page.wait_for_timeout(150)
+        check('click Shift → active-key=ShiftLeft', page.evaluate("document.getElementById('kb').getAttribute('active-key')"), 'ShiftLeft')
+        check('typed не изменился после Shift', page.locator('#target .done').count(), 1)
+        # клик Backspace → typed откатился
+        click_key('.key[data-code="Backspace"]'); page.wait_for_timeout(150)
+        check('typed = 0 после click Backspace', page.locator('#target .done').count(), 0)
+
         # H. URL-lock
         print("\n=== H. task.html?lesson=6 при пустом прогрессе → редирект ===")
         seed(page)

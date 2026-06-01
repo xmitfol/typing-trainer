@@ -335,6 +335,13 @@ document.addEventListener('DOMContentLoaded', async function () {
 
     // ─── Focus ───────────────────────────────────────────────────
     capture.addEventListener('keydown', handleKey);
+    // Клик/тап по on-screen клавише → synthetic keydown на capture (для desktop-клика и touch)
+    kb.addEventListener('kb-press', (e) => {
+        const { key, code } = e.detail || {};
+        if (!key) return;
+        capture.focus();
+        capture.dispatchEvent(new KeyboardEvent('keydown', { key, code: code || '', bubbles: true, cancelable: true }));
+    });
     document.querySelector('.task-card').addEventListener('click', (e) => {
         if (e.target.closest('a, button, select')) return;
         capture.focus();
