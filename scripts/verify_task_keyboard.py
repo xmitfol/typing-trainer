@@ -180,8 +180,31 @@ def main():
         check('layout=phonetic выставлен', page.evaluate("document.getElementById('kb').getAttribute('layout')"), 'phonetic')
         page.screenshot(path=str(SHOTS / 'F_layout.png'))
 
-        # G. URL-lock
-        print("\n=== G. task.html?lesson=6 при пустом прогрессе → редирект ===")
+        # G. flashActive на модификаторах/спец-клавишах + CapsLock-индикатор
+        print("\n=== G. flashActive на модификаторах + Caps Lock badge ===")
+        def press_mod(key, code, caps=False):
+            return page.evaluate("""(args) => {
+                const e = new KeyboardEvent('keydown', { key: args.key, code: args.code, bubbles: true, cancelable: true });
+                Object.defineProperty(e, 'getModifierState', { value: (m) => m === 'CapsLock' && args.caps });
+                document.getElementById('capture').dispatchEvent(e);
+                return {
+                    activeKey: document.getElementById('kb').getAttribute('active-key'),
+                    capsOn: document.getElementById('caps-badge').classList.contains('caps-badge--on')
+                };
+            }""", {'key': key, 'code': code, 'caps': caps})
+        s = press_mod('Shift', 'ShiftLeft')
+        check('Shift → active-key=ShiftLeft', s['activeKey'], 'ShiftLeft')
+        s = press_mod('Tab', 'Tab')
+        check('Tab → active-key=Tab', s['activeKey'], 'Tab')
+        s = press_mod('ArrowRight', 'ArrowRight')
+        check('Arrow → active-key=ArrowRight', s['activeKey'], 'ArrowRight')
+        s = press_mod('CapsLock', 'CapsLock', caps=True)
+        check('CapsLock ON → бейдж виден', s['capsOn'], True)
+        s = press_mod('а', 'KeyF', caps=False)
+        check('CapsLock OFF → бейдж скрыт', s['capsOn'], False)
+
+        # H. URL-lock
+        print("\n=== H. task.html?lesson=6 при пустом прогрессе → редирект ===")
         seed(page)
         page.goto(f"{BASE}/task.html?tier=tier1&lesson=6")
         page.wait_for_timeout(900)

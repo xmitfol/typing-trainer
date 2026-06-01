@@ -126,14 +126,32 @@ document.addEventListener('DOMContentLoaded', async function () {
         statAcc.innerHTML = `${calcAcc()}<span style="font-size:11px;color:var(--faint)">%</span>`;
     }
 
+    // ─── Caps Lock индикатор ─────────────────────────────────────
+    const capsBadge = $('caps-badge');
+    function syncCapsBadge(e) {
+        if (!capsBadge || !e.getModifierState) return;
+        capsBadge.classList.toggle('caps-badge--on', e.getModifierState('CapsLock'));
+    }
+
     // ─── Input ───────────────────────────────────────────────────
     function handleKey(e) {
-        if (done) return;
+        if (done) { syncCapsBadge(e); return; }
+        // Caps Lock state — обновляем на любом keydown
+        syncCapsBadge(e);
+
         if (e.key === 'Backspace') {
             if (typed > 0) { typed--; renderTarget(); updateStats(); }
+            if (e.code) kb.flashActive(e.code, 140);
             e.preventDefault(); return;
         }
-        if (e.key.length !== 1) return;
+        if (e.key.length !== 1) {
+            // Модификатор/спец-клавиша (Shift/Caps/Ctrl/Alt/Tab/Enter/стрелки/F-keys):
+            // только визуальный feedback — юзер видит работу пальца.
+            if (e.code) kb.flashActive(e.code, 200);
+            // не даём Tab сбросить фокус с capture
+            if (e.key === 'Tab') e.preventDefault();
+            return;
+        }
         e.preventDefault();
 
         if (!startTime) { startTime = Date.now(); timer = setInterval(updateStats, 500); }
