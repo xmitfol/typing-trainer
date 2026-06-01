@@ -99,3 +99,58 @@
 - **Handoff source:** `docs/design/update1/vanilla_handoff/`
 - **Дизайн-референс компонентов:** `docs/design/update1/vanilla_handoff/_design_reference/{landing,dashboard,course,lesson,task,pricing}/*.jsx` — НЕ запускать как React (пути сломаны), использовать только как visual reference, портировать в vanilla вручную.
 - **Финальный план:** `docs/design/full plan/` (untracked, локально).
+- **Апдейты клавиатуры:** `docs/design/tasks/vanilla_handoff/`, `docs/design/tasks/update/keyboard_handoff/`, `docs/design/tasks/update_keyboard/keyboard_handoff/`, `docs/design/tasks/update_keyboard1/keyboard_handoff/` — серия инкрементов компонента + task screen.
+
+---
+
+## 2026-05-27..06-02 — Phase 4-8 + сборка + клавиатура
+
+Фактически выполнено всё, что планировалось — плюс существенная сборка/полировка/интеграция клавиатуры.
+
+### Phase 4-8 (5 PR открыто, ждут мержа)
+
+- **PR #20 Phase 4 Dashboard** — личный кабинет (приветствие, карта курса, ближайшие уроки, QA, mentor, статистика, достижения)
+- **PR #21 Phase 5 Course Roadmap** — все уроки с roadmap-визуализацией модулей; модули как accordion'ы
+- **PR #22 Phase 6 Lesson Reading** — long-form страница теории с mentor-вставкой, narrative из tips и inline-exercise preview
+- **PR #23 Phase 7 Task Execution** — typing-модал с success-экраном
+- **PR #24 Phase 8 Pricing** — paywall + subscription + payment (DEMO)
+
+Каждая фаза — отдельная ветка от master, регрессионный Playwright-скрипт.
+
+### Шаг 1 — Сборка оболочки (ветка `integration/new-shell`)
+
+После 8 фаз — собрали в единый поток:
+- **`landing.html` → `index.html`** (точка входа), **`app.html`** — temporary fallback старого движка
+- **`onboarding.html`** — standalone-страница (overlay + редирект на dashboard по событию завершения)
+- **`assets/js/router-guard.js`** — единый guard (~30 строк): protected без профиля → index; onboarding с профилем → dashboard
+- Прошита навигация: dashboard «Продолжить» → lesson; course → lesson; lesson «Открыть тренажёр» → task; success → lesson?lesson=N+1
+
+### Фиксы навигации и прогрессии (по фидбэку PO)
+
+- `fix(nav)`: task.html НЕ точка входа — только из lesson.html
+- `feat(lesson)`: шорткат «Выполнить задание →» в топбаре; next-кнопка блокируется пока урок не пройден
+- `fix(course)`: номера упражнений всегда видны (статус — отдельный значок слева); линейная прогрессия = доступен только первый непройденный
+- `fix(progression)`: прямой URL на закрытый урок → экран-заглушка с кнопкой к доступному
+- `fix(task)`: word-wrap — слова не рвутся по буквам
+
+### Шаг 2 — Клавиатура дизайнера (серия handoff'ов)
+
+1. **Базовая интеграция** `<typing-keyboard>` Web Component из `docs/design/tasks/vanilla_handoff` + наши lesson-loader/router-guard/прогресс/word-wrap. После — `app.html` удалён (старый движок больше не нужен).
+2. **Эргономика с numpad/nav справа** (`update/keyboard_handoff`) — фидбэк PO: до этого ergo был alpha-only и подрезался
+3. **format ANSI/ISO + 4 RU-раскладки + новая модель подсветки** (`update_keyboard/keyboard_handoff`)
+4. **Новый тулбар + зум 70-150%** (`update_keyboard1/keyboard_handoff`) — подсветка пальцев / звук / метроном с дефолтами + масштаб «A→A» для слабовидящих
+5. **Персистентность всех настроек** в профиле (`keyboardType`, `keyboardLayout`, `fingerHint`, `keySound`, `metronome`, `taskZoom`) по запросу PO
+6. **flashActive на ЛЮБОЙ клавише** (модификаторы/Tab/Enter/стрелки) + **Caps Lock индикатор** над клавиатурой через `e.getModifierState`
+
+### Стратегия мержа
+
+1. PR #19-24 → master (конфликтов между ними нет)
+2. `integration/new-shell` ребейзится → отдельный PR (assembly + nav-fixes + клавиатура — 14 коммитов)
+
+### Открытые вопросы PO
+
+- **Цены**: pricing.js (490/890 + Family) vs MVP_PRD (299/399 без Family) — нужно решение
+- **Старые verify-скрипты** — обновить или удалить (ссылки на удалённый `#welcomeModal`)
+- **Click мышью** по виртуальной клавише — отложено (display-only)
+- **Дашборд QA-карточки** — `#` placeholder'ы
+- **WPM-критерий** success практически отключён для коротких уроков с низким target_wpm
