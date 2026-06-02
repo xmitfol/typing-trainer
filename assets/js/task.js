@@ -290,12 +290,26 @@ document.addEventListener('DOMContentLoaded', async function () {
         Object.assign(profile, patch);
         writeJSON(profileKey, profile);
     }
+    // Подбор unit под ширину экрана: на мобильных уменьшаем чтобы влезало без скролла.
+    // classic ~24×unit, laptop ~16×unit, ergonomic ~27×unit (см. README клавиатуры).
+    function pickUnit(type) {
+        const w = Math.max(320, document.documentElement.clientWidth - 60);
+        if (type === 'ergonomic') return Math.max(18, Math.min(38, Math.floor(w / 27)));
+        if (type === 'laptop')    return Math.max(20, Math.min(44, Math.floor(w / 16)));
+        return Math.max(14, Math.min(40, Math.floor(w / 24)));   // classic
+    }
     function applyType(v) {
         kb.setAttribute('type', v);
-        if (v === 'ergonomic') { kb.setAttribute('unit', '38'); kb.setAttribute('gap', '52'); kb.setAttribute('angle', '10'); }
-        else if (v === 'laptop') kb.setAttribute('unit', '44');
-        else kb.setAttribute('unit', '40');
+        const u = pickUnit(v);
+        kb.setAttribute('unit', String(u));
+        if (v === 'ergonomic') { kb.setAttribute('gap', '52'); kb.setAttribute('angle', '10'); }
     }
+    // Re-apply на resize/rotation — debounced
+    let resizeTimer = null;
+    window.addEventListener('resize', () => {
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(() => { applyType(kb.getAttribute('type') || 'classic'); }, 150);
+    });
 
     const typeSel = $('type-select');
     const layoutSel = $('layout-select');

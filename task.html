@@ -206,6 +206,18 @@
             .mentor { position: static; margin-bottom: 16px; }
             .mentor__bubble::after { display: none; }
         }
+        /* Touch / планшет — клавиатура масштабируется через transform для влезания */
+        @media (max-width: 760px) {
+            .task-wrap { padding: 60px 8px 24px; }
+            .task-card { padding: 20px 14px; }
+            .kb-stage { transform-origin: top center; overflow-x: auto; }
+        }
+        @media (max-width: 540px) {
+            .target { font-size: 18px; padding: 16px; }
+            .toolbar { padding: 4px 8px; gap: 2px; }
+            .layout-select { font-size: 11px; padding: 6px 22px 6px 10px; }
+            .stat { padding: 10px 12px; }
+        }
     </style>
 </head>
 <body>
@@ -239,7 +251,9 @@
                         <button class="tool-btn" id="restart-btn" title="Заново" style="width:30px;height:30px;border-radius:50%">↻</button>
                     </div>
                     <div class="target" id="target"></div>
-                    <input class="capture" id="capture" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false" />
+                    <!-- inputmode="none" → не вызывает системную клавиатуру на touch-устройствах,
+                         ввод идёт через физическую клавиатуру или клик/тап по on-screen клавише -->
+                    <input class="capture" id="capture" inputmode="none" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false" />
                 </div>
 
                 <div class="col" style="gap:18px">
