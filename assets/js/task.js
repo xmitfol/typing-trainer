@@ -89,6 +89,31 @@ document.addEventListener('DOMContentLoaded', async function () {
 
     function escapeHtml(s) { return String(s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#039;' }[c])); }
 
+    // Показать toast о разблокировке достижения. Контейнер создаётся ленивo.
+    function showUnlockToast(ach) {
+        let container = document.querySelector('.unlock-toasts');
+        if (!container) {
+            container = document.createElement('div');
+            container.className = 'unlock-toasts';
+            document.body.appendChild(container);
+        }
+        const t = document.createElement('div');
+        t.className = 'unlock-toast';
+        t.innerHTML = `
+            <div class="unlock-toast__icon">${ach.icon}</div>
+            <div class="unlock-toast__body">
+                <div class="unlock-toast__head">★ ДОСТИЖЕНИЕ</div>
+                <div class="unlock-toast__label">${escapeHtml(ach.label)}</div>
+                <div class="unlock-toast__desc">${escapeHtml(ach.desc)}</div>
+            </div>
+        `;
+        container.appendChild(t);
+        setTimeout(() => {
+            t.classList.add('unlock-toast--leaving');
+            setTimeout(() => t.remove(), 300);
+        }, 4500);
+    }
+
     // ─── Render target (слова — неразрывные, перенос целиком) ─────
     function renderTarget() {
         let html = '', openWord = false;
@@ -178,6 +203,15 @@ document.addEventListener('DOMContentLoaded', async function () {
         const acc = calcAcc();
         const stars = errors === 0 ? 5 : errors <= 2 ? 4 : errors <= 5 ? 3 : errors <= 10 ? 2 : 1;
 
+        // Детекция новых ачивок: snapshot earned-set ДО записи нового прогресса
+        const historyKey = (window.Settings && window.Settings.get('storage.keys.testHistory', 'typing_trainer_test_history')) || 'typing_trainer_test_history';
+        const historyArr = readJSON(historyKey) || [];
+        let earnedBefore = new Set();
+        if (window.achievements) {
+            const statsBefore = window.achievements.computeStats(progress, historyArr, totalLessons);
+            earnedBefore = window.achievements.earnedIds(window.achievements.getAchievements(statsBefore));
+        }
+
         // Сохранить прогресс (best) — открывает следующий урок
         const prev = progress[String(lessonNum)] || {};
         const newProg = {
@@ -190,6 +224,17 @@ document.addEventListener('DOMContentLoaded', async function () {
         progress[String(lessonNum)] = newProg;
         writeJSON(progressKey, progress);
         writeJSON(currentKey, { tier, lessonNumber: lessonNum, lastSaved: new Date().toISOString() });
+
+        // Дописать в history для streak/общего времени и сравнить achievements
+        historyArr.push({ lesson: lessonNum, completedAt: new Date().toISOString(), duration: elapsed, wpm, accuracy: acc });
+        writeJSON(historyKey, historyArr);
+        if (window.achievements) {
+            const statsAfter = window.achievements.computeStats(progress, historyArr, totalLessons);
+            const allAfter = window.achievements.getAchievements(statsAfter);
+            const earnedAfter = window.achievements.earnedIds(allAfter);
+            const newlyEarned = allAfter.filter(a => earnedAfter.has(a.id) && !earnedBefore.has(a.id));
+            newlyEarned.forEach((a, i) => setTimeout(() => showUnlockToast(a), i * 400));
+        }
 
         $('success-num').textContent = exId;
         $('success-avatar').innerHTML = window.portraits ? window.portraits.mentor(mentorId, 150) : '';

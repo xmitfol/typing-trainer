@@ -247,29 +247,34 @@ document.addEventListener('DOMContentLoaded', function () {
     $('#dhStatTime').textContent     = totalSec ? (totalSec / 3600).toFixed(1) : '—';
     $('#dhStatStreak').textContent   = streakDays || '—';
 
-    // ── Achievements (6 шт) ────────────────────────────────────────
-    const achievements = [
-        { id: 'first',   label: 'Первый урок',     icon: '🎯', earned: completedCount >= 1 },
-        { id: 'week',    label: '7 дней подряд',   icon: '📅', earned: streakDays >= 7,    prog: streakDays / 7 },
-        { id: '40wpm',   label: '40 зн/мин',       icon: '⚡', earned: bestWpm >= 40,      prog: bestWpm / 40 },
-        { id: '95',      label: '95% точность',    icon: '🎲', earned: bestAcc >= 95,      prog: bestAcc / 95 },
-        { id: 'half',    label: 'Половина курса',  icon: '🏔', earned: completedCount * 2 >= totalLessons, prog: (completedCount * 2) / totalLessons },
-        { id: 'finish',  label: 'Завершить курс',  icon: '🏆', earned: completedCount >= totalLessons,     prog: completedCount / totalLessons }
-    ];
+    // ── Achievements (топ-6) ────────────────────────────────────────
+    // Источник истины — assets/js/achievements.js (общий каталог + computation).
+    // На дашборде показываем 6: сначала недавние earned, затем ближайшие к
+    // unlock'у. Полный список → achievements.html.
+    let achievementsList = [];
+    if (window.achievements) {
+        const stats = window.achievements.computeStats(progress, history, totalLessons);
+        achievementsList = window.achievements.getAchievements(stats);
+    }
+    // Top-6: первые earned + остальные по убыванию progress
+    const earned = achievementsList.filter(a => a.earned);
+    const notEarned = achievementsList.filter(a => !a.earned).sort((a, b) => b.progress - a.progress);
+    const top6 = [...earned, ...notEarned].slice(0, 6);
+
     const achGrid = $('#dhAchGrid');
-    achievements.forEach(a => {
+    top6.forEach(a => {
         const item = document.createElement('div');
         item.className = 'dh-ach__item' + (a.earned ? ' dh-ach__item--earned' : '');
-        const showBar = !a.earned && Number.isFinite(a.prog);
+        const showBar = !a.earned && a.threshold > 1;
         item.innerHTML = `
             <div class="dh-ach__icon">${a.icon}</div>
-            <div class="dh-ach__label">${a.label}</div>
-            ${showBar ? `<div class="dh-ach__bar"><div class="dh-ach__bar-fill" style="width:${Math.min(100, Math.round(a.prog * 100))}%"></div></div>` : ''}
+            <div class="dh-ach__label">${escapeHtml(a.label)}</div>
+            ${showBar ? `<div class="dh-ach__bar"><div class="dh-ach__bar-fill" style="width:${Math.min(100, Math.round(a.progress * 100))}%"></div></div>` : ''}
         `;
         achGrid.appendChild(item);
     });
-    const earnedCount = achievements.filter(a => a.earned).length;
-    $('#dhAchCount').textContent = `${earnedCount}/${achievements.length} получено`;
+    const totalEarned = earned.length;
+    $('#dhAchCount').innerHTML = `<a href="achievements.html" style="color:inherit;text-decoration:none">${totalEarned}/${achievementsList.length} · все →</a>`;
 
     // ── Dropdown toggles ───────────────────────────────────────────
     const langBtn = $('#dhLangBtn');
