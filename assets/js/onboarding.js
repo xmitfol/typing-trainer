@@ -472,7 +472,8 @@ class OnboardingManager {
     getProfile() { return this.profile; }
 }
 
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', async () => {
+    if (window.i18n) { try { await window.i18n.init(); } catch (e) {} }
     window.onboardingManager = new OnboardingManager();
 });
 

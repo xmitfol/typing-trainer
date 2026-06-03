@@ -1,0 +1,291 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Урок · Практика — typing-trainer</title>
+  <link rel="stylesheet" href="assets/css/tokens.css" />
+  <link rel="stylesheet" href="assets/css/base.css" />
+  <style>
+    /* ── Task screen layout ──────────────────────────────────────────────── */
+    .task-wrap {
+      min-height: 100vh;
+      padding: 90px 24px 40px;
+      position: relative;
+    }
+    .task-card {
+      max-width: 1280px;
+      margin: 0 auto;
+      background: var(--surface);
+      border: 1px solid var(--divider);
+      border-radius: var(--r-2xl);
+      box-shadow: var(--shadow-lg);
+      padding: 36px 32px 28px;
+      position: relative;
+    }
+
+    /* Mentor bubble (overflows top of card) */
+    .mentor {
+      position: absolute; top: -78px; right: 24px;
+      display: flex; align-items: flex-end; gap: 14px; z-index: 5;
+    }
+    .mentor__bubble {
+      background: #fef9c3; border: 1px solid #fde68a;
+      border-radius: 14px; padding: 14px 18px; max-width: 520px;
+      position: relative; box-shadow: 0 10px 24px rgba(0,0,0,0.1);
+    }
+    .mentor__bubble::after {
+      content: ''; position: absolute; right: -8px; bottom: 18px;
+      width: 0; height: 0;
+      border-top: 8px solid transparent; border-bottom: 8px solid transparent;
+      border-left: 8px solid #fef9c3;
+    }
+    .mentor__tip-label {
+      font-size: 11px; color: #92400e; font-weight: 700;
+      letter-spacing: 0.06em; margin-bottom: 4px;
+    }
+    .mentor__tip { font-size: 14px; color: #451a03; line-height: 1.45; font-weight: 600; }
+    .mentor__hint { font-size: 11.5px; color: #92400e; margin-top: 6px; font-style: italic; }
+    .mentor__avatar {
+      width: 84px; height: 84px; border-radius: 50%;
+      background: #fff; border: 2px solid #fde68a;
+      display: grid; place-items: center; overflow: hidden;
+      box-shadow: 0 10px 24px rgba(0,0,0,0.12);
+      animation: bobble 2.4s ease-in-out infinite;
+    }
+    @keyframes bobble {
+      0%, 100% { transform: translateY(0) rotate(-2deg); }
+      50% { transform: translateY(-6px) rotate(2deg); }
+    }
+
+    .task-close {
+      position: absolute; top: 16px; right: 16px;
+      width: 36px; height: 36px; border-radius: 50%;
+      background: var(--surface); border: 1px solid var(--divider);
+      font-size: 16px; color: var(--ink); cursor: pointer;
+    }
+
+    /* 3-col body */
+    .task-body {
+      display: grid; grid-template-columns: 180px 1fr 150px;
+      gap: 24px; align-items: flex-start; margin-top: 14px;
+    }
+    .task-num { font-family: var(--font-mono); font-weight: 800; font-size: 52px; letter-spacing: -0.04em; line-height: 1; }
+    .task-num__sub { font-family: var(--font-mono); font-size: 11px; color: var(--faint); margin-top: 4px; }
+
+    /* Finger legend */
+    .legend { display: flex; flex-direction: column; gap: 12px; margin-top: 22px; }
+    .legend__item { display: flex; align-items: center; gap: 10px; font-size: 13.5px; }
+    .legend__chip { width: 18px; height: 18px; border-radius: 50%; box-shadow: 0 1px 2px rgba(0,0,0,0.1); }
+
+    /* Target text */
+    .target {
+      background: var(--surface); border: 1px solid var(--divider);
+      border-radius: var(--r-md); padding: 26px 26px;
+      font-family: var(--font-mono); font-size: 26px; line-height: 1.6;
+      letter-spacing: 0.06em; color: var(--faint);
+      height: 200px; overflow-y: auto;
+    }
+    .target .done { color: var(--ink); }
+    .target .err  { color: var(--error); text-decoration: underline; }
+    .target .cur  { color: #fff; background: var(--ink); padding: 1px 4px; border-radius: 4px; }
+
+    .progress-row { display: flex; align-items: center; gap: 10px; margin-bottom: 14px; }
+    .progress-track { flex: 1; height: 6px; background: var(--divider); border-radius: 999px; overflow: hidden; }
+    .progress-fill { height: 100%; width: 0%; background: linear-gradient(90deg, var(--f-blue), var(--f-purple)); border-radius: 999px; transition: width .15s ease; }
+
+    /* Hidden capture input — keeps focus, invisible */
+    .capture {
+      position: absolute; opacity: 0; pointer-events: none;
+      width: 1px; height: 1px;
+    }
+
+    /* Side stat cards */
+    .stat { background: var(--surface); border: 1px solid var(--divider); border-radius: var(--r-md); padding: 11px 13px; }
+    .stat__label { font-family: var(--font-mono); font-size: 9.5px; color: var(--faint); letter-spacing: 0.05em; margin-bottom: 3px; }
+    .stat__val { font-family: var(--font-mono); font-weight: 800; font-size: 19px; letter-spacing: -0.02em; }
+
+    /* Toolbar */
+    .toolbar {
+      display: flex; align-items: center; gap: 4px;
+      padding: 6px 12px; background: var(--surface);
+      border: 1px solid var(--divider); border-radius: var(--r-md);
+      margin: 22px 0 14px; flex-wrap: wrap;
+    }
+    .tool-btn {
+      width: 34px; height: 34px; border-radius: 8px;
+      background: transparent; border: 1px solid var(--divider);
+      color: var(--ink); cursor: pointer; display: grid; place-items: center;
+      font-size: 13px; position: relative;
+    }
+    .tool-btn[data-active="true"] { background: var(--ink); color: #fff; border-color: var(--ink); }
+    /* OFF-state badge: small red strike dot on the button corner */
+    .tool-btn[data-off="true"]::after {
+      content: ''; position: absolute; top: -3px; right: -3px;
+      width: 12px; height: 12px; border-radius: 50%;
+      background: var(--error); border: 2px solid var(--surface);
+    }
+    .tool-btn[data-off="true"] { opacity: 0.55; }
+    .tool-zoom {
+      display: flex; align-items: center; gap: 8px;
+      padding: 0 12px; height: 38px;
+      position: absolute; top: calc(100% + 6px); left: 0; z-index: 20;
+      background: var(--surface); box-shadow: var(--shadow-md);
+      border: 1px solid var(--divider); border-radius: 10px;
+      font-family: var(--font-mono); font-size: 11px; color: var(--sub);
+    }
+    .tool-zoom[hidden] { display: none; }
+    .tool-zoom input[type=range] { width: 84px; accent-color: var(--accent); cursor: pointer; }
+    .tool-zoom__val { min-width: 44px; text-align: center; font-weight: 700; color: var(--ink); }
+    .zoom-step {
+      width: 26px; height: 26px; border-radius: 7px;
+      border: 1px solid var(--divider); background: var(--surface);
+      color: var(--ink); font-size: 16px; font-weight: 700; line-height: 1;
+      cursor: pointer; display: grid; place-items: center;
+    }
+    .zoom-step:hover { background: var(--bg-alt); }
+    .zoom-step:disabled { opacity: 0.35; cursor: default; }
+    .tool-sep { width: 1px; height: 24px; background: var(--divider); margin: 0 4px; }
+    .layout-select {
+      padding: 7px 26px 7px 12px; background: transparent; border: 1px solid transparent;
+      border-radius: 8px; font-family: var(--font-ui); font-size: 12.5px;
+      font-weight: 500; color: var(--sub); cursor: pointer;
+      transition: all .15s ease; appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='10' viewBox='0 0 12 12'%3E%3Cpath d='M3 4.5L6 7.5L9 4.5' stroke='%23999' stroke-width='1.3' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+      background-repeat: no-repeat; background-position: right 9px center;
+    }
+    .layout-select:hover { background-color: var(--bg-alt); color: var(--ink); }
+    .layout-select:focus { outline: none; border-color: var(--divider); color: var(--ink); }
+
+    .kb-stage { display: flex; justify-content: center; overflow: hidden; }
+
+    /* Success overlay */
+    .success { display: none; }
+    .success.show { display: block; }
+    .task-body.hide { display: none; }
+    .toolbar.hide, .kb-stage.hide { display: none; }
+  </style>
+</head>
+<body>
+  <div class="task-wrap">
+    <div class="task-card">
+      <button class="task-close" onclick="history.back()">✕</button>
+
+      <!-- Mentor -->
+      <div class="mentor">
+        <div class="mentor__bubble">
+          <div class="mentor__tip-label">СОВЕТ НАСТАВНИКА</div>
+          <div class="mentor__tip" id="mentor-tip">Не торопись — печатай ровно. Скорость придёт сама.</div>
+          <div class="mentor__hint" id="mentor-hint">Указательные пальцы держи на «а» и «о» — это якоря.</div>
+        </div>
+        <div class="mentor__avatar" id="mentor-avatar"></div>
+      </div>
+
+      <!-- ACTIVE STATE -->
+      <div class="task-body" id="task-body">
+        <!-- Left -->
+        <div>
+          <div class="task-num" id="task-num">1.1</div>
+          <div class="task-num__sub">( попытка: <span id="attempt-n">1</span> )</div>
+          <div class="legend" id="legend"></div>
+        </div>
+
+        <!-- Center -->
+        <div>
+          <div class="progress-row">
+            <span class="mono" style="font-size:12px;color:var(--sub);font-weight:600">Прогресс</span>
+            <div class="progress-track"><div class="progress-fill" id="progress-fill"></div></div>
+            <span class="mono" style="font-size:12px;color:var(--sub)" id="progress-count">0/0</span>
+            <button class="tool-btn" id="restart-btn" title="Заново" style="width:30px;height:30px;border-radius:50%">↻</button>
+          </div>
+          <div class="target" id="target"></div>
+          <input class="capture" id="capture" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false" />
+        </div>
+
+        <!-- Right -->
+        <div class="col" style="gap:18px">
+          <div class="stat">
+            <div class="stat__label">ВРЕМЯ</div>
+            <div class="stat__val" id="stat-time">00:00</div>
+          </div>
+          <div class="stat">
+            <div class="stat__label">СКОРОСТЬ</div>
+            <div class="stat__val" id="stat-speed" style="color:var(--accent)">0 <span style="font-size:11px;color:var(--faint)">зн/мин</span></div>
+          </div>
+          <div class="stat">
+            <div class="stat__label">ТОЧНОСТЬ</div>
+            <div class="stat__val" id="stat-acc" style="color:var(--success)">100<span style="font-size:11px;color:var(--faint)">%</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- SUCCESS STATE -->
+      <div class="success" id="success">
+        <div class="task-body" style="align-items:center">
+          <div style="grid-column:1 / span 1; display:grid; place-items:center">
+            <div style="width:160px;height:160px;border-radius:50%;background:#dbeafe;border:3px solid #93c5fd;display:grid;place-items:center;overflow:hidden" id="success-avatar"></div>
+          </div>
+          <div style="grid-column:2 / span 1">
+            <div class="row" style="gap:12px;align-items:baseline">
+              <span class="mono" style="font-size:32px;font-weight:800;letter-spacing:-0.03em" id="success-num">1.1</span>
+              <span style="margin-left:auto;padding:4px 12px;background:var(--success);color:#fff;border-radius:999px;font-family:var(--font-mono);font-size:11px;font-weight:700;letter-spacing:0.06em">✓ ВЫПОЛНЕНО</span>
+            </div>
+            <h1 class="serif" style="margin:14px 0 14px;font-size:48px;font-weight:700;letter-spacing:-0.02em">Всё верно.</h1>
+            <p class="serif" style="margin:0 0 24px;font-size:16px;color:var(--sub);line-height:1.55;max-width:420px" id="success-msg">Упражнение пройдено. Идём дальше.</p>
+            <div class="row" style="gap:10px">
+              <button class="btn btn--secondary" id="retry-btn">↻ Повторить</button>
+              <button class="btn" id="next-btn">Продолжить →</button>
+            </div>
+          </div>
+          <div class="col" style="grid-column:3 / span 1; gap:14px">
+            <div class="stat"><div class="stat__label">ОЦЕНКА</div><div class="stat__val" id="final-grade">★★★½</div></div>
+            <div class="stat"><div class="stat__label">СКОРОСТЬ</div><div class="stat__val" id="final-speed">0</div></div>
+            <div class="stat"><div class="stat__label">ТОЧНОСТЬ</div><div class="stat__val" id="final-acc">100%</div></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Toolbar -->
+      <div class="toolbar" id="toolbar">
+        <button class="tool-btn" id="finger-hint-btn" title="Подсветка расстановки пальцев (вкл.)">
+          <svg width="14" height="14" viewBox="0 0 16 16"><rect x="2" y="2" width="5" height="5" rx="1" fill="#74b9ff"/><rect x="9" y="2" width="5" height="5" rx="1" fill="#fdcb6e"/><rect x="2" y="9" width="5" height="5" rx="1" fill="#00b894"/><rect x="9" y="9" width="5" height="5" rx="1" fill="#a29bfe"/></svg>
+        </button>
+        <button class="tool-btn" id="sound-btn" data-off="true" title="Звук нажатия (выкл.)">🔊</button>
+        <button class="tool-btn" id="metro-btn" data-off="true" title="Метроном (выкл.)">⏱</button>
+        <div style="position:relative">
+          <button class="tool-btn" id="zoom-btn" title="Масштаб окна набора">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><text x="2" y="9" font-family="Manrope, sans-serif" font-size="7" font-weight="800" fill="currentColor">A</text><text x="8.5" y="13" font-family="Manrope, sans-serif" font-size="11" font-weight="800" fill="currentColor">A</text></svg>
+          </button>
+          <div class="tool-zoom" id="zoom-pop" hidden>
+            <button class="zoom-step" id="zoom-minus" title="Меньше">−</button>
+            <span class="tool-zoom__val" id="zoom-val">100%</span>
+            <button class="zoom-step" id="zoom-plus" title="Больше">+</button>
+          </div>
+        </div>
+        <span style="flex:1"></span>
+        <select class="layout-select" id="layout-select" title="Раскладка ввода">
+          <option value="standard">RU · Стандартная</option>
+          <option value="phonetic">RU · Фонетическая</option>
+          <option value="typewriter">RU · Машинопись</option>
+          <option value="mac">RU · МАС</option>
+        </select>
+        <select class="layout-select" id="type-select" title="Тип клавиатуры">
+          <option value="classic">Полноразмерная</option>
+          <option value="laptop">Ноутбук</option>
+          <option value="ergonomic">Эргономическая</option>
+        </select>
+      </div>
+
+      <!-- Keyboard -->
+      <div class="kb-stage" id="kb-stage">
+        <typing-keyboard id="kb" type="classic" unit="40"></typing-keyboard>
+      </div>
+    </div>
+  </div>
+
+  <script src="assets/js/portraits.js"></script>
+  <script src="assets/js/typing-keyboard.js"></script>
+  <script src="assets/js/lesson-data.js"></script>
+  <script src="assets/js/task.js"></script>
+</body>
+</html>

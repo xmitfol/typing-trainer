@@ -22,16 +22,16 @@
             <span class="lp-logo__name">typing-trainer</span>
         </a>
         <nav class="lp-nav">
-            <a href="#how">Как это работает</a>
-            <a href="#kb">Клавиатуры</a>
-            <a href="#audience">Для кого</a>
-            <a href="#pricing">Тарифы</a>
+            <a href="#how" data-i18n="landing.navHow">Как это работает</a>
+            <a href="#kb" data-i18n="landing.navKb">Клавиатуры</a>
+            <a href="#audience" data-i18n="landing.navAudience">Для кого</a>
+            <a href="#pricing" data-i18n="landing.navPricing">Тарифы</a>
         </nav>
 
         <!-- Anonymous CTA (default) — JS toggles to profile pill if logged in -->
         <div class="lp-cta-row" id="lpCtaAnon">
-            <button type="button" class="lp-link-btn">Войти</button>
-            <a href="onboarding.html" class="lp-primary">Начать бесплатно</a>
+            <button type="button" class="lp-link-btn" data-i18n="landing.navLogin">Войти</button>
+            <a href="onboarding.html" class="lp-primary" data-i18n="landing.ctaStartFree">Начать бесплатно</a>
         </div>
 
         <!-- Authorized profile pill (hidden by default, JS shows if profile exists) -->
@@ -61,21 +61,21 @@
         <div>
             <div class="lp-badge">
                 <span class="lp-badge__dot"></span>
-                СЛЕПАЯ ПЕЧАТЬ · ЙЦУКЕН / QWERTY
+                <span data-i18n="landing.tagline">СЛЕПАЯ ПЕЧАТЬ · ЙЦУКЕН / QWERTY</span>
             </div>
-            <h1 class="lp-h1">Печатай <span class="lp-h1__grad">не глядя</span><br>на клавиатуру</h1>
-            <p class="lp-lead">6 цветов пальцев, 3 типа клавиатуры (включая эргономическую), наставник под возраст. От «двух пальцев» до 60+ знаков в минуту за 4 недели.</p>
+            <h1 class="lp-h1"><span data-i18n="landing.h1_l1">Печатай</span> <span class="lp-h1__grad" data-i18n="landing.h1_grad">не глядя</span><br><span data-i18n="landing.h1_l2">на клавиатуру</span></h1>
+            <p class="lp-lead" data-i18n="landing.lead">6 цветов пальцев, 3 типа клавиатуры (включая эргономическую), наставник под возраст. От «двух пальцев» до 60+ знаков в минуту за 4 недели.</p>
             <div class="lp-hero__ctas">
                 <a href="onboarding.html" class="lp-hero__primary" id="lpHeroPrimary">
-                    <span id="lpHeroPrimaryLabel">Начать бесплатно</span>
+                    <span id="lpHeroPrimaryLabel" data-i18n="landing.ctaStartFree">Начать бесплатно</span>
                     <span>→</span>
                 </a>
-                <button type="button" class="lp-hero__secondary" id="lpHeroDemo">Посмотреть демо</button>
+                <button type="button" class="lp-hero__secondary" id="lpHeroDemo" data-i18n="landing.ctaDemo">Посмотреть демо</button>
             </div>
             <div class="lp-hero__checks">
-                <span class="lp-hero__check"><svg width="12" height="12" viewBox="0 0 14 14" fill="none"><path d="M3 7.5L6 10L11 4" stroke="#10b981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Бесплатный старт</span>
-                <span class="lp-hero__check"><svg width="12" height="12" viewBox="0 0 14 14" fill="none"><path d="M3 7.5L6 10L11 4" stroke="#10b981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Без рекламы</span>
-                <span class="lp-hero__check"><svg width="12" height="12" viewBox="0 0 14 14" fill="none"><path d="M3 7.5L6 10L11 4" stroke="#10b981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Сертификат</span>
+                <span class="lp-hero__check"><svg width="12" height="12" viewBox="0 0 14 14" fill="none"><path d="M3 7.5L6 10L11 4" stroke="#10b981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-i18n="landing.checkFree">Бесплатный старт</span></span>
+                <span class="lp-hero__check"><svg width="12" height="12" viewBox="0 0 14 14" fill="none"><path d="M3 7.5L6 10L11 4" stroke="#10b981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-i18n="landing.checkNoAds">Без рекламы</span></span>
+                <span class="lp-hero__check"><svg width="12" height="12" viewBox="0 0 14 14" fill="none"><path d="M3 7.5L6 10L11 4" stroke="#10b981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-i18n="landing.checkCert">Сертификат</span></span>
             </div>
         </div>
 
@@ -415,9 +415,11 @@
     <!-- ─── JS ─────────────────────────────────────────────────────── -->
     <script src="config/settings.js"></script>
     <script src="assets/js/portraits.js"></script>
+    <script src="assets/js/i18n.js"></script>
     <script>
         // Read user profile from localStorage to switch anon ↔ auth
-        (function () {
+        (async function () {
+            if (window.i18n) { try { await window.i18n.init(); } catch (e) {} }
             const key = (window.Settings && window.Settings.get('storage.keys.userProfile', 'typing_trainer_user_profile'))
                         || 'typing_trainer_user_profile';
             let profile = null;
@@ -453,7 +455,7 @@
                     document.getElementById('lpProfileAvatar').innerHTML = window.portraits.user(audience, gender, 32);
                 }
                 // Hero CTA → продолжить (авторизован → сразу в кабинет)
-                document.getElementById('lpHeroPrimaryLabel').textContent = 'Продолжить обучение';
+                document.getElementById('lpHeroPrimaryLabel').textContent = (window.i18n ? window.i18n.t('landing.ctaContinue') : 'Продолжить обучение');
                 document.getElementById('lpHeroPrimary').setAttribute('href', 'dashboard.html');
                 document.getElementById('lpHeroDemo').style.display = 'none';
 

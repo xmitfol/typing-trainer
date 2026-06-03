@@ -8,11 +8,13 @@
  * Запуск тренировки → task.html?tier=user&lesson=<id>. task.js поддерживает
  * tier=user и грузит урок из localStorage напрямую.
  */
-(function () {
+(async function () {
     'use strict';
 
     const USER_LESSONS_KEY = 'typing_trainer_user_lessons';
     const $ = (id) => document.getElementById(id);
+    if (window.i18n) { try { await window.i18n.init(); } catch (e) {} }
+    const t = (k, v) => (window.i18n ? window.i18n.t(k, v) : k);
 
     const readJSON = (k) => { try { const r = localStorage.getItem(k); return r ? JSON.parse(r) : null; } catch (e) { return null; } };
     const writeJSON = (k, o) => { try { localStorage.setItem(k, JSON.stringify(o)); } catch (e) {} };
@@ -33,7 +35,7 @@
     }
 
     textEl.addEventListener('input', () => {
-        counterEl.textContent = `${textEl.value.length} символов`;
+        counterEl.textContent = t('builder.charCount', { n: textEl.value.length });
     });
 
     function resetForm() {
@@ -42,9 +44,9 @@
         textEl.value = '';
         wpmEl.value = 30;
         errEl.value = 2;
-        counterEl.textContent = '0 символов';
-        formTitle.textContent = 'Новый урок';
-        saveBtn.textContent = 'Сохранить урок';
+        counterEl.textContent = t('builder.charCount', { n: 0 });
+        formTitle.textContent = t('builder.newLesson');
+        saveBtn.textContent = t('builder.saveLesson');
         cancelBtn.hidden = true;
     }
 
@@ -54,9 +56,9 @@
         textEl.value = lesson.text || '';
         wpmEl.value = lesson.target_wpm || 30;
         errEl.value = Number.isFinite(lesson.error_limit) ? lesson.error_limit : 2;
-        counterEl.textContent = `${textEl.value.length} символов`;
-        formTitle.textContent = 'Редактирование урока';
-        saveBtn.textContent = 'Сохранить изменения';
+        counterEl.textContent = t('builder.charCount', { n: textEl.value.length });
+        formTitle.textContent = t('builder.editLesson');
+        saveBtn.textContent = t('builder.saveChanges');
         cancelBtn.hidden = false;
         window.scrollTo({ top: 0, behavior: 'smooth' });
     }
@@ -68,20 +70,24 @@
         const el = $('bp-list');
         $('bp-count').textContent = `(${list.length})`;
         if (!list.length) {
-            el.innerHTML = '<div class="bp-list-empty">Пока нет своих уроков.<br>Заполните форму выше и нажмите «Сохранить урок».</div>';
+            el.innerHTML = `<div class="bp-list-empty">${escapeHtml(t('builder.emptyList')).replace(/\n/g, '<br>')}</div>`;
             return;
         }
+        const labelTrain = t('builder.train');
+        const labelEdit = t('common.edit');
+        const labelDelete = t('common.delete');
+        const labelUntitled = t('builder.untitled');
         el.innerHTML = list.slice().reverse().map(l => `
             <div class="bp-item" data-id="${l.id}">
                 <div>
-                    <div class="bp-item__title">${escapeHtml(l.title || 'Без названия')}</div>
-                    <div class="bp-item__sub">${l.text.length} символов · ${l.target_wpm || '—'} WPM · ошибок ≤ ${Number.isFinite(l.error_limit) ? l.error_limit : '—'}</div>
+                    <div class="bp-item__title">${escapeHtml(l.title || labelUntitled)}</div>
+                    <div class="bp-item__sub">${t('builder.charCount', { n: l.text.length })} · ${l.target_wpm || '—'} WPM · ≤ ${Number.isFinite(l.error_limit) ? l.error_limit : '—'}</div>
                     <div class="bp-item__text">${escapeHtml(l.text.slice(0, 80))}${l.text.length > 80 ? '…' : ''}</div>
                 </div>
                 <div class="bp-item__actions">
-                    <a class="bp-icon-btn bp-icon-btn--play" href="task.html?tier=user&lesson=${l.id}" title="Тренировать">▶ Тренировать</a>
-                    <button type="button" class="bp-icon-btn" data-action="edit" title="Редактировать">✎</button>
-                    <button type="button" class="bp-icon-btn bp-icon-btn--danger" data-action="delete" title="Удалить">🗑</button>
+                    <a class="bp-icon-btn bp-icon-btn--play" href="task.html?tier=user&lesson=${l.id}" title="${escapeHtml(labelTrain)}">${escapeHtml(labelTrain)}</a>
+                    <button type="button" class="bp-icon-btn" data-action="edit" title="${escapeHtml(labelEdit)}">✎</button>
+                    <button type="button" class="bp-icon-btn bp-icon-btn--danger" data-action="delete" title="${escapeHtml(labelDelete)}">🗑</button>
                 </div>
             </div>
         `).join('');
@@ -96,14 +102,15 @@
         if (!text) { textEl.focus(); textEl.classList.add('bp-input--err'); return; }
 
         const list = getLessons();
+        const fallbackTitle = t('builder.untitled');
         if (editingId) {
             const idx = list.findIndex(l => l.id === editingId);
             if (idx >= 0) {
-                list[idx] = { ...list[idx], title: title || 'Без названия', text, target_wpm: wpm, error_limit: Number.isFinite(errors) ? errors : 2 };
+                list[idx] = { ...list[idx], title: title || fallbackTitle, text, target_wpm: wpm, error_limit: Number.isFinite(errors) ? errors : 2 };
             }
         } else {
             const id = Date.now();
-            list.push({ id, title: title || 'Без названия', text, target_wpm: wpm, error_limit: Number.isFinite(errors) ? errors : 2, createdAt: new Date().toISOString() });
+            list.push({ id, title: title || fallbackTitle, text, target_wpm: wpm, error_limit: Number.isFinite(errors) ? errors : 2, createdAt: new Date().toISOString() });
         }
         saveLessons(list);
         showSaved();
@@ -125,7 +132,7 @@
         if (btn.dataset.action === 'edit') {
             loadIntoForm(lesson);
         } else if (btn.dataset.action === 'delete') {
-            if (!confirm(`Удалить урок «${lesson.title}»?`)) return;
+            if (!confirm(t('builder.deleteConfirm', { title: lesson.title }))) return;
             saveLessons(list.filter(l => l.id !== id));
             showSaved();
             renderList();

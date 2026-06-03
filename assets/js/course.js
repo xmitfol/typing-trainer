@@ -3,7 +3,8 @@
  * Читает профиль, определяет активный tier, отображает модули как accordion
  * с реальными названиями уроков (через lesson-loader) и звёздами из lessonProgress.
  */
-document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener('DOMContentLoaded', async function () {
+    if (window.i18n) { try { await window.i18n.init(); } catch (e) {} }
     const $ = (sel) => document.querySelector(sel);
     const profileKey = (window.Settings && window.Settings.get('storage.keys.userProfile', 'typing_trainer_user_profile')) || 'typing_trainer_user_profile';
     const progressKey = (window.Settings && window.Settings.get('storage.keys.lessonProgress', 'typing_trainer_lesson_progress')) || 'typing_trainer_lesson_progress';

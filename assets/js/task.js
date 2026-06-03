@@ -11,6 +11,8 @@
  */
 document.addEventListener('DOMContentLoaded', async function () {
     const $ = (s) => document.getElementById(s);
+    if (window.i18n) { try { await window.i18n.init(); } catch (e) {} }
+    const t = (k, v) => (window.i18n ? window.i18n.t(k, v) : k);
     const profileKey = (window.Settings && window.Settings.get('storage.keys.userProfile', 'typing_trainer_user_profile')) || 'typing_trainer_user_profile';
     const progressKey = (window.Settings && window.Settings.get('storage.keys.lessonProgress', 'typing_trainer_lesson_progress')) || 'typing_trainer_lesson_progress';
     const currentKey = (window.Settings && window.Settings.get('storage.keys.currentLesson', 'typing_trainer_current_lesson')) || 'typing_trainer_current_lesson';
@@ -83,8 +85,12 @@ document.addEventListener('DOMContentLoaded', async function () {
     // ─── Finger legend ───────────────────────────────────────────
     const FCOLOR = { pink: '#ff7675', orange: '#fdcb6e', green: '#00b894', blue: '#74b9ff', indigo: '#0984e3', purple: '#a29bfe' };
     legendEl.innerHTML = [
-        ['pink', 'Мизинец'], ['orange', 'Безымянный'], ['green', 'Средний'],
-        ['blue', 'Указ. левый'], ['indigo', 'Указ. правый'], ['purple', 'Большой']
+        ['pink', t('task.fingerLegend.pinky')],
+        ['orange', t('task.fingerLegend.ring')],
+        ['green', t('task.fingerLegend.middle')],
+        ['blue', t('task.fingerLegend.indexL')],
+        ['indigo', t('task.fingerLegend.indexR')],
+        ['purple', t('task.fingerLegend.thumb')]
     ].map(([f, l]) => `<div class="legend__item"><span class="legend__chip" style="background:${FCOLOR[f]}"></span><span>${l}</span></div>`).join('');
 
     // ─── Load lesson ─────────────────────────────────────────────
@@ -95,7 +101,7 @@ document.addEventListener('DOMContentLoaded', async function () {
         const userList = readJSON('typing_trainer_user_lessons') || [];
         const userLesson = userList.find(l => l.id === lessonNum);
         if (!userLesson) {
-            targetEl.textContent = `Урок не найден — возможно, удалён.`;
+            targetEl.textContent = t('task.loadFail');
             return;
         }
         lesson = {
@@ -105,7 +111,7 @@ document.addEventListener('DOMContentLoaded', async function () {
             target_wpm: userLesson.target_wpm || 30,
             error_limit: Number.isFinite(userLesson.error_limit) ? userLesson.error_limit : 2,
             phase: 0,
-            finger_focus: 'Свой урок — пальцы на привычных позициях.',
+            finger_focus: t('builder.fingerFocus'),
         };
     } else {
         lesson = await window.lessonLoader.loadLesson(tier, lessonNum);
@@ -291,7 +297,7 @@ document.addEventListener('DOMContentLoaded', async function () {
             const prev = progress[String(lessonNum)] || {};
             const newProg = {
                 stars: Math.max(stars, prev.stars || 0),
-                bestWPM: Math.max(wpm, prev.bestWPM || 0),
+                bestWPM: Math.min(1500, Math.max(wpm, prev.bestWPM || 0)),  // cap при сохранении — sanity
                 bestAccuracy: Math.max(acc, prev.bestAccuracy || 0),
                 bestTime: prev.bestTime ? Math.min(elapsed, prev.bestTime) : elapsed,
                 completedAt: new Date().toISOString()
@@ -317,11 +323,10 @@ document.addEventListener('DOMContentLoaded', async function () {
         $('final-speed').innerHTML = `${wpm} <span style="font-size:11px;color:var(--faint)">зн/мин</span>`;
         $('final-acc').innerHTML = `${acc}<span style="font-size:11px;color:var(--faint)">%</span>`;
 
-        const titles = { 5: 'Идеально.', 4: 'Всё верно.', 3: 'Сойдёт.', 2: 'Можно лучше.', 1: 'Повторим?' };
-        $('success-title').textContent = titles[stars];
+        $('success-title').textContent = t(`task.titles.${stars}`);
         $('success-msg').textContent = acc === 100
-            ? 'Без единой ошибки. Отличный ритм — идём дальше.'
-            : `Точность ${acc}%. ${stars >= 4 ? 'Хорошо, можно дальше.' : 'Рекомендую повторить для закрепления.'}`;
+            ? t('task.msgPerfect')
+            : t(stars >= 4 ? 'task.msgGood' : 'task.msgRetry', { acc });
 
         // Наставник в bubble: успех (errors в пределах лимита) или превышение лимита.
         const vars = { name: profile.name || '', wpm, accuracy: acc, errors, limit: errorLimit, level: lesson.title || '' };
@@ -339,15 +344,15 @@ document.addEventListener('DOMContentLoaded', async function () {
         // Для tier=user следующего урока нет — возвращаемся в Конструктор.
         const nextBtn = $('next-btn');
         if (isUserLesson) {
-            nextBtn.textContent = '← К своим урокам';
+            nextBtn.textContent = t('task.backToBuilder');
             nextBtn.href = 'builder.html';
         } else {
             const nextN = lessonNum + 1;
             if (nextN <= totalLessons) {
-                nextBtn.textContent = `Продолжить · урок ${nextN} →`;
+                nextBtn.textContent = t('task.continueLesson', { n: nextN });
                 nextBtn.href = `lesson.html?tier=${encodeURIComponent(tier)}&lesson=${nextN}`;
             } else {
-                nextBtn.textContent = 'К списку уроков →';
+                nextBtn.textContent = t('task.continueList');
                 nextBtn.href = 'course.html';
             }
         }

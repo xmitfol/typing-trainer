@@ -1,0 +1,468 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>POC · Phase 0+1 · vanilla typing-trainer</title>
+  <link rel="stylesheet" href="assets/css/tokens.css" />
+  <link rel="stylesheet" href="assets/css/base.css" />
+  <style>
+    .page { max-width: 1240px; margin: 0 auto; padding: 28px; }
+    .section { margin-bottom: 40px; }
+    .section h2 {
+      margin: 0 0 16px; font-size: 22px; font-weight: 800; letter-spacing: -0.02em;
+    }
+    .section__sub { margin: 0 0 22px; color: var(--sub); font-size: 14px; max-width: 720px; line-height: 1.5; }
+    .demo-grid { display: grid; gap: 14px; }
+    .demo-grid--3 { grid-template-columns: repeat(3, 1fr); }
+    .demo-grid--2 { grid-template-columns: 1fr 1fr; }
+    .swatch {
+      display: flex; align-items: center; gap: 10px;
+      padding: 12px 14px;
+      background: var(--surface);
+      border: 1px solid var(--divider);
+      border-radius: var(--r-md);
+      font-size: 13px;
+    }
+    .swatch__chip { width: 24px; height: 24px; border-radius: 6px; flex-shrink: 0; box-shadow: 0 0 0 1px rgba(0,0,0,0.05); }
+    .portrait-grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 14px; }
+    .portrait-card {
+      background: var(--surface);
+      border: 1px solid var(--divider);
+      border-radius: var(--r-md);
+      padding: 14px;
+      text-align: center;
+    }
+    .portrait-card__label {
+      margin-top: 8px;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: var(--faint);
+      letter-spacing: 0.04em;
+    }
+    .kb-demo {
+      background: var(--surface);
+      border: 1px solid var(--divider);
+      border-radius: var(--r-xl);
+      padding: 24px;
+      box-shadow: var(--shadow-lg);
+    }
+    .kb-demo__title {
+      display: flex; align-items: center; justify-content: space-between;
+      margin-bottom: 18px;
+    }
+    .practice-input {
+      width: 100%;
+      padding: 22px 26px;
+      font-family: var(--font-mono);
+      font-size: 22px;
+      letter-spacing: 0.04em;
+      background: var(--surface);
+      border: 1px solid var(--divider);
+      border-radius: var(--r-md);
+      outline: none;
+      cursor: text;
+      color: var(--ink);
+      margin-bottom: 16px;
+    }
+    .practice-target {
+      font-family: var(--font-mono);
+      font-size: 22px;
+      letter-spacing: 0.04em;
+      padding: 14px 18px;
+      background: var(--bg-alt);
+      border-radius: var(--r-md);
+      margin-bottom: 14px;
+      line-height: 1.55;
+    }
+    .practice-target .done { color: var(--success); }
+    .practice-target .cur { color: #fff; background: var(--ink); padding: 1px 4px; border-radius: 4px; }
+    .practice-target .pending { color: var(--faint); }
+    .practice-stats {
+      display: flex; gap: 18px; margin-bottom: 16px;
+      font-family: var(--font-mono); font-size: 12px; color: var(--sub);
+    }
+    .practice-stats b { color: var(--ink); font-weight: 700; }
+    .controls { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 18px; }
+    .ctrl-btn {
+      padding: 8px 14px;
+      background: transparent;
+      border: 1px solid var(--divider);
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 12.5px;
+      font-weight: 600;
+      color: var(--ink);
+      font-family: var(--font-ui);
+    }
+    .ctrl-btn[data-active="true"] {
+      background: var(--ink);
+      color: #fff;
+      border-color: var(--ink);
+    }
+    .theme-toggle {
+      position: fixed; bottom: 20px; right: 20px;
+      padding: 10px 16px;
+      background: var(--ink);
+      color: var(--bg);
+      border: none;
+      border-radius: 999px;
+      font-size: 12.5px;
+      font-weight: 700;
+      cursor: pointer;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+      z-index: 50;
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+
+    <header style="margin-bottom: 36px">
+      <div style="display:flex;align-items:center;gap:12px;margin-bottom:10px">
+        <div class="brand-logo">Ё</div>
+        <div>
+          <div style="font-weight: 800; font-size: 18px">typing-trainer</div>
+          <div style="font-size: 12px; color: var(--faint)" class="mono">POC · Phase 0 + 1 · vanilla architecture validation</div>
+        </div>
+      </div>
+      <p style="margin: 16px 0 0; color: var(--sub); font-size: 14px; max-width: 720px; line-height: 1.55">
+        Доказательство: дизайн-система и core-компонент клавиатуры работают <b>без build-системы</b>.
+        Только CSS-переменные, vanilla JS, и один Web Component. Никакого React. Каждый блок ниже соответствует фазе из README.
+      </p>
+    </header>
+
+    <!-- ─── Phase 0: Tokens ────────────────────────────────────────────── -->
+    <section class="section">
+      <h2>Phase 0 · Tokens (палитра)</h2>
+      <p class="section__sub">CSS-переменные в <code class="mono">tokens.css</code>. Шесть цветов пальцев — фиксированы (user instruction). Surface/text/accent поддерживают тёмную тему.</p>
+
+      <div class="demo-grid demo-grid--3">
+        <div class="swatch"><div class="swatch__chip" style="background: var(--grad-pink)"></div><div><b>Мизинец</b><div class="mono" style="font-size:11px;color:var(--faint)">--f-pink · #ff7675</div></div></div>
+        <div class="swatch"><div class="swatch__chip" style="background: var(--grad-orange)"></div><div><b>Безымянный</b><div class="mono" style="font-size:11px;color:var(--faint)">--f-orange · #fdcb6e</div></div></div>
+        <div class="swatch"><div class="swatch__chip" style="background: var(--grad-green)"></div><div><b>Средний</b><div class="mono" style="font-size:11px;color:var(--faint)">--f-green · #00b894</div></div></div>
+        <div class="swatch"><div class="swatch__chip" style="background: var(--grad-blue)"></div><div><b>Указ. левый</b><div class="mono" style="font-size:11px;color:var(--faint)">--f-blue · #74b9ff</div></div></div>
+        <div class="swatch"><div class="swatch__chip" style="background: var(--grad-indigo)"></div><div><b>Указ. правый</b><div class="mono" style="font-size:11px;color:var(--faint)">--f-indigo · #0984e3</div></div></div>
+        <div class="swatch"><div class="swatch__chip" style="background: var(--grad-purple)"></div><div><b>Большой</b><div class="mono" style="font-size:11px;color:var(--faint)">--f-purple · #a29bfe</div></div></div>
+      </div>
+    </section>
+
+    <!-- ─── Phase 0: UI primitives ─────────────────────────────────────── -->
+    <section class="section">
+      <h2>Phase 0 · UI Primitives (vanilla template-функции)</h2>
+      <p class="section__sub">Buttons, Inputs, Tabs, Cards, Modals — функции в <code class="mono">ui-primitives.js</code>. Возвращают HTML-строки, биндятся событиями автоматически.</p>
+
+      <div class="demo-grid demo-grid--2">
+        <div id="primitives-buttons"></div>
+        <div id="primitives-form"></div>
+      </div>
+
+      <div style="margin-top: 18px">
+        <div id="primitives-tabs"></div>
+        <div id="primitives-tab-content" style="padding: 18px; color: var(--sub); font-size: 13.5px">Контент таба отображается здесь.</div>
+      </div>
+
+      <div style="margin-top: 18px">
+        <button class="btn btn--secondary btn--sm" onclick="ui.openModal('demo-modal')">Открыть модал</button>
+        <div id="demo-modal-mount"></div>
+      </div>
+    </section>
+
+    <!-- ─── Phase 0: Portraits ─────────────────────────────────────────── -->
+    <section class="section">
+      <h2>Phase 0 · Portraits (SVG-фабрика)</h2>
+      <p class="section__sub"><code class="mono">portraits.user(audience, gender, size)</code> и <code class="mono">portraits.mentor(id, size)</code> возвращают inline-SVG строки. Plus <code class="mono">detectGender(name)</code>.</p>
+
+      <div class="portrait-grid" id="portraits-grid"></div>
+
+      <div style="margin-top: 20px; padding: 16px; background: var(--surface); border: 1px solid var(--divider); border-radius: var(--r-md)">
+        <div class="label-cap" style="margin-bottom: 8px">ТЕСТ ДЕТЕКТА</div>
+        <input id="name-test" class="field__input" placeholder="Введи имя: Анна / Алексей / Илья / Любовь..." value="Анна" />
+        <div id="name-test-result" style="margin-top: 10px; font-size: 13.5px; color: var(--sub)"></div>
+      </div>
+    </section>
+
+    <!-- ─── Phase 1: Keyboard ──────────────────────────────────────────── -->
+    <section class="section">
+      <h2>Phase 1 · &lt;typing-keyboard&gt; Web Component</h2>
+      <p class="section__sub">Core-компонент. <b>Это и есть валидация архитектуры</b>: full layout, 3 типа раскладки, 5 состояний, реактивные атрибуты. Без React. Без build-step. Открой эту страницу через <code class="mono">file://</code> — будет работать.</p>
+
+      <div class="kb-demo">
+        <div class="kb-demo__title">
+          <div>
+            <div style="font-weight: 700; font-size: 15px">Живая практика</div>
+            <div style="font-size: 12.5px; color: var(--sub)">Кликни в поле ниже и печатай — клавиша подсветится active, текущая в тексте — highlight.</div>
+          </div>
+          <div class="practice-stats">
+            <span><span style="color:var(--faint)">WPM</span> <b id="stat-wpm">0</b></span>
+            <span><span style="color:var(--faint)">точн.</span> <b id="stat-acc">100</b>%</span>
+            <span><span style="color:var(--faint)">время</span> <b id="stat-time">0:00</b></span>
+          </div>
+        </div>
+
+        <div class="practice-target" id="practice-target"></div>
+
+        <input
+          id="practice-input"
+          class="practice-input"
+          type="text"
+          autocomplete="off"
+          autocapitalize="off"
+          autocorrect="off"
+          spellcheck="false"
+          placeholder="Кликни и печатай..."
+        />
+
+        <div class="controls">
+          <span style="font-family: var(--font-mono); font-size: 11px; color: var(--faint); align-self: center; margin-right: 8px">ТИП:</span>
+          <button class="ctrl-btn" data-active="true" data-control="type" data-value="classic">Classic</button>
+          <button class="ctrl-btn" data-control="type" data-value="laptop">Laptop</button>
+          <button class="ctrl-btn" data-control="type" data-value="ergonomic">Ergonomic</button>
+
+          <span style="font-family: var(--font-mono); font-size: 11px; color: var(--faint); align-self: center; margin: 0 8px 0 16px">ЦВЕТ:</span>
+          <button class="ctrl-btn" data-active="true" data-control="intensity" data-value="full">Полная</button>
+          <button class="ctrl-btn" data-control="intensity" data-value="strip">Полоска</button>
+          <button class="ctrl-btn" data-control="intensity" data-value="highlight">Только highlight</button>
+
+          <span style="font-family: var(--font-mono); font-size: 11px; color: var(--faint); align-self: center; margin: 0 8px 0 16px">МОДИФ.:</span>
+          <button class="ctrl-btn" data-active="true" data-control="modifier-style" data-value="solid">Solid</button>
+          <button class="ctrl-btn" data-control="modifier-style" data-value="hatched">Штрих.</button>
+        </div>
+
+        <div id="kb-fit" style="display: flex; justify-content: center; overflow: hidden">
+          <typing-keyboard id="kb" type="classic" unit="40"></typing-keyboard>
+        </div>
+      </div>
+    </section>
+
+    <footer style="padding: 32px 0; text-align: center; color: var(--faint); font-size: 12px" class="mono">
+      Phase 0 + 1 POC · vanilla architecture · если работает — катим оставшиеся 7 фаз на том же подходе
+    </footer>
+  </div>
+
+  <button class="theme-toggle" id="theme-toggle">Тёмная тема</button>
+
+  <!-- Scripts (all vanilla, no build) -->
+  <script src="assets/js/portraits.js"></script>
+  <script src="assets/js/ui-primitives.js"></script>
+  <script src="assets/js/typing-keyboard.js"></script>
+  <script>
+    // ────────────────────────────────────────────────────────────────────
+    // Phase 0 demos
+    // ────────────────────────────────────────────────────────────────────
+
+    // Buttons
+    document.getElementById('primitives-buttons').innerHTML = `
+      <div class="label-cap" style="margin-bottom: 10px">КНОПКИ</div>
+      <div style="display: flex; flex-direction: column; gap: 10px">
+        ${ui.button({ label: 'Primary' })}
+        ${ui.button({ label: 'Secondary', variant: 'secondary' })}
+        ${ui.button({ label: 'Ghost', variant: 'ghost' })}
+        <div style="display: flex; gap: 8px">
+          ${ui.button({ label: 'Small', size: 'sm' })}
+          ${ui.button({ label: 'Default' })}
+          ${ui.button({ label: 'Large', size: 'lg' })}
+        </div>
+      </div>
+    `;
+
+    // Form
+    document.getElementById('primitives-form').innerHTML = `
+      <div class="label-cap" style="margin-bottom: 10px">FORM</div>
+      ${ui.input({ label: 'Email', type: 'email', placeholder: 'you@example.com', hint: 'Куда отправить ссылку' })}
+      ${ui.input({ label: 'Пароль', type: 'password', placeholder: 'минимум 8 символов' })}
+    `;
+
+    // Tabs
+    document.getElementById('primitives-tabs').innerHTML = ui.tabs({
+      items: [
+        { id: 'login', label: 'Войти' },
+        { id: 'register', label: 'Регистрация' },
+        { id: 'forgot', label: 'Забыли пароль?' },
+      ],
+      active: 'login',
+    });
+    document.querySelector('.tabs').addEventListener('tabchange', (e) => {
+      const map = {
+        login: 'Активный таб: Войти. Здесь форма email + пароль + соц.',
+        register: 'Активный таб: Регистрация. Минимум полей — email + пароль ИЛИ соц.',
+        forgot: 'Активный таб: Забыли пароль. Magic link на email — без формы сброса с кодом.',
+      };
+      document.getElementById('primitives-tab-content').textContent = map[e.detail.active];
+    });
+
+    // Modal mount
+    document.getElementById('demo-modal-mount').innerHTML = ui.modal({
+      id: 'demo-modal', title: 'Это модал',
+      children: '<p style="margin: 0; font-size: 14px; color: var(--sub); line-height: 1.55">Открывается через <code class="mono">ui.openModal(id)</code>, закрывается крестиком или кликом по затемнённому фону. Никаких библиотек, чистый DOM.</p>',
+      footer: ui.button({ label: 'Понятно', onClick: 'closeDemoModal' }),
+    });
+    function closeDemoModal() { ui.closeModal('demo-modal'); }
+
+    ui.init(); // rebind anything new
+
+    // ────────────────────────────────────────────────────────────────────
+    // Portraits
+    // ────────────────────────────────────────────────────────────────────
+    const portraitData = [
+      { kind: 'user', a: 'adult', g: 'm', label: 'Взрослый М' },
+      { kind: 'user', a: 'adult', g: 'f', label: 'Взрослая Ж' },
+      { kind: 'user', a: 'teen',  g: 'm', label: 'Подросток М' },
+      { kind: 'user', a: 'teen',  g: 'f', label: 'Подросток Ж' },
+      { kind: 'user', a: 'kid',   g: 'm', label: 'Ребёнок М' },
+      { kind: 'user', a: 'kid',   g: 'f', label: 'Ребёнок Ж' },
+      { kind: 'mentor', id: 'anna',      label: 'Анна' },
+      { kind: 'mentor', id: 'maxim',     label: 'Максим' },
+      { kind: 'mentor', id: 'knopych',   label: 'Кнопыч' },
+      { kind: 'mentor', id: 'klavochka', label: 'Клавочка' },
+    ];
+    document.getElementById('portraits-grid').innerHTML = portraitData.map(p => `
+      <div class="portrait-card">
+        ${p.kind === 'user' ? portraits.user(p.a, p.g, 56) : portraits.mentor(p.id, 56)}
+        <div class="portrait-card__label">${p.label}</div>
+      </div>
+    `).join('');
+
+    // Gender detect demo
+    const nameTest = document.getElementById('name-test');
+    const nameResult = document.getElementById('name-test-result');
+    function updateNameTest() {
+      const name = nameTest.value;
+      const gender = portraits.detectGender(name);
+      if (!name.trim()) {
+        nameResult.textContent = '';
+        return;
+      }
+      nameResult.innerHTML = `
+        Определено: <b style="color: var(--ink)">${gender === 'f' ? 'женский ♀' : 'мужской ♂'}</b>
+        <span style="margin: 0 8px">·</span>
+        Аватар: ${portraits.user('adult', gender, 32)}
+      `;
+      nameResult.style.display = 'flex';
+      nameResult.style.alignItems = 'center';
+      nameResult.style.gap = '8px';
+    }
+    nameTest.addEventListener('input', updateNameTest);
+    updateNameTest();
+
+    // ────────────────────────────────────────────────────────────────────
+    // Phase 1 · Keyboard · live practice
+    // ────────────────────────────────────────────────────────────────────
+    const TARGET = 'съешь же ещё этих мягких французских булок, да выпей чаю';
+    const kb = document.getElementById('kb');
+    const input = document.getElementById('practice-input');
+    const targetEl = document.getElementById('practice-target');
+    const statWpm = document.getElementById('stat-wpm');
+    const statAcc = document.getElementById('stat-acc');
+    const statTime = document.getElementById('stat-time');
+
+    let typed = '';
+    let errors = 0;
+    let startTime = null;
+
+    function renderTarget() {
+      const pos = typed.length;
+      const html = TARGET.split('').map((ch, i) => {
+        if (i < pos) return `<span class="done">${ch === ' ' ? '&nbsp;' : ch}</span>`;
+        if (i === pos) return `<span class="cur">${ch === ' ' ? '&nbsp;' : ch}</span>`;
+        return `<span class="pending">${ch === ' ' ? '&nbsp;' : ch}</span>`;
+      }).join('');
+      targetEl.innerHTML = html;
+      // Update Web Component highlight char
+      const nextCh = TARGET[pos];
+      if (nextCh) {
+        kb.setAttribute('highlight-char', nextCh);
+      } else {
+        kb.removeAttribute('highlight-char');
+      }
+    }
+
+    function updateStats() {
+      const elapsed = startTime ? (Date.now() - startTime) / 1000 : 0;
+      const minutes = elapsed / 60;
+      const correctChars = typed.length - errors;
+      const wpm = minutes > 0 ? Math.round(correctChars / minutes) : 0;
+      const acc = typed.length > 0 ? Math.round((correctChars / typed.length) * 100) : 100;
+      statWpm.textContent = wpm;
+      statAcc.textContent = acc;
+      const m = Math.floor(elapsed / 60);
+      const s = Math.floor(elapsed % 60);
+      statTime.textContent = `${m}:${String(s).padStart(2, '0')}`;
+    }
+
+    input.addEventListener('keydown', (e) => {
+      if (e.key.length === 1) {
+        if (!startTime) startTime = Date.now();
+        const expected = TARGET[typed.length];
+        if (e.key === expected) {
+          typed += e.key;
+          kb.flashActive(e.code, 140);
+        } else {
+          errors++;
+          typed += e.key;
+          kb.flashError(e.code);
+        }
+        renderTarget();
+        updateStats();
+        e.preventDefault();
+      } else if (e.key === 'Backspace') {
+        if (typed.length > 0) {
+          typed = typed.slice(0, -1);
+          renderTarget();
+          updateStats();
+        }
+        e.preventDefault();
+      }
+    });
+
+    setInterval(() => { if (startTime) updateStats(); }, 500);
+
+    renderTarget();
+
+    // ────────────────────────────────────────────────────────────────────
+    // Controls
+    // ────────────────────────────────────────────────────────────────────
+    document.querySelectorAll('.ctrl-btn[data-control]').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const ctrl = btn.dataset.control;
+        const value = btn.dataset.value;
+        // Update active state in same group
+        document.querySelectorAll(`.ctrl-btn[data-control="${ctrl}"]`).forEach(b => {
+          b.dataset.active = (b === btn) ? 'true' : 'false';
+        });
+        // Apply to keyboard
+        if (ctrl === 'type') {
+          kb.setAttribute('type', value);
+          // adjust unit per type
+          if (value === 'ergonomic') {
+            kb.setAttribute('unit', '38');
+            kb.setAttribute('gap', '52');
+            kb.setAttribute('angle', '10');
+          } else if (value === 'laptop') {
+            kb.setAttribute('unit', '46');
+          } else {
+            kb.setAttribute('unit', '40');
+          }
+        } else {
+          kb.setAttribute(ctrl, value);
+        }
+      });
+    });
+
+    // ────────────────────────────────────────────────────────────────────
+    // Theme toggle
+    // ────────────────────────────────────────────────────────────────────
+    const themeBtn = document.getElementById('theme-toggle');
+    themeBtn.addEventListener('click', () => {
+      const current = document.documentElement.getAttribute('data-theme');
+      const next = current === 'dark' ? 'light' : 'dark';
+      document.documentElement.setAttribute('data-theme', next);
+      kb.setAttribute('theme', next);
+      themeBtn.textContent = next === 'dark' ? 'Светлая тема' : 'Тёмная тема';
+    });
+
+    // Focus practice input
+    input.focus();
+  </script>
+</body>
+</html>

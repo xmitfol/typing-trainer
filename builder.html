@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Конструктор уроков — typing-trainer</title>
+    <title data-i18n="builder.pageTitle">Конструктор уроков — typing-trainer</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -16,53 +16,53 @@
 <body class="builder-page">
 
     <header class="bp-header">
-        <a class="bp-back" href="dashboard.html">← Главная</a>
+        <a class="bp-back" href="dashboard.html" data-i18n="common.back">← Главная</a>
         <a class="bp-logo" href="dashboard.html">
-            <span class="bp-logo__mark">Ё</span>
-            <span class="bp-logo__name">typing-trainer</span>
+            <span class="bp-logo__mark" data-i18n="common.logoMark">Ё</span>
+            <span class="bp-logo__name" data-i18n="common.appName">typing-trainer</span>
         </a>
-        <span class="bp-crumb">/ КОНСТРУКТОР</span>
+        <span class="bp-crumb" data-i18n="builder.crumb">/ КОНСТРУКТОР</span>
     </header>
 
     <main class="bp-main">
         <div>
-            <h1 class="bp-h1">Свои уроки<span class="bp-saved" id="bp-saved">✓ СОХРАНЕНО</span></h1>
-            <p class="bp-lead">Создайте свой текст для тренировки — цитата, стих, фрагмент кода. Доступно сразу в тренажёре.</p>
+            <h1 class="bp-h1"><span data-i18n="builder.title">Свои уроки</span><span class="bp-saved" id="bp-saved" data-i18n="common.saved">✓ СОХРАНЕНО</span></h1>
+            <p class="bp-lead" data-i18n="builder.lead">Создайте свой текст для тренировки — цитата, стих, фрагмент кода. Доступно сразу в тренажёре.</p>
         </div>
 
         <section class="bp-card">
-            <h2 class="bp-card__title" id="bp-form-title">Новый урок</h2>
+            <h2 class="bp-card__title" id="bp-form-title" data-i18n="builder.newLesson">Новый урок</h2>
 
             <div class="bp-field">
-                <label class="bp-field__label" for="bp-title">Название</label>
-                <input id="bp-title" class="bp-input" placeholder="Например: «Моя любимая цитата»" maxlength="80">
+                <label class="bp-field__label" for="bp-title" data-i18n="builder.name">Название</label>
+                <input id="bp-title" class="bp-input" data-i18n-attr="placeholder:builder.namePlaceholder" placeholder="Например: «Моя любимая цитата»" maxlength="80">
             </div>
 
             <div class="bp-field">
-                <label class="bp-field__label" for="bp-text">Текст для набора</label>
-                <textarea id="bp-text" class="bp-textarea" placeholder="Напечатайте сюда текст, который хотите тренировать..."></textarea>
+                <label class="bp-field__label" for="bp-text" data-i18n="builder.text">Текст для набора</label>
+                <textarea id="bp-text" class="bp-textarea" data-i18n-attr="placeholder:builder.textPlaceholder" placeholder="Напечатайте сюда текст, который хотите тренировать..."></textarea>
                 <div class="bp-field__hint" id="bp-text-counter">0 символов</div>
             </div>
 
             <div class="bp-row">
                 <div class="bp-field">
-                    <label class="bp-field__label" for="bp-wpm">Цель WPM (зн/мин)</label>
+                    <label class="bp-field__label" for="bp-wpm" data-i18n="builder.wpm">Цель WPM (зн/мин)</label>
                     <input id="bp-wpm" type="number" class="bp-input" min="5" max="200" step="5" value="30">
                 </div>
                 <div class="bp-field">
-                    <label class="bp-field__label" for="bp-errors">Допустимо ошибок</label>
+                    <label class="bp-field__label" for="bp-errors" data-i18n="builder.errors">Допустимо ошибок</label>
                     <input id="bp-errors" type="number" class="bp-input" min="0" max="20" step="1" value="2">
                 </div>
             </div>
 
             <div class="bp-actions">
-                <button type="button" class="bp-btn bp-btn--primary" id="bp-save-btn">Сохранить урок</button>
-                <button type="button" class="bp-btn bp-btn--ghost" id="bp-cancel-btn" hidden>Отмена</button>
+                <button type="button" class="bp-btn bp-btn--primary" id="bp-save-btn" data-i18n="builder.saveLesson">Сохранить урок</button>
+                <button type="button" class="bp-btn bp-btn--ghost" id="bp-cancel-btn" hidden data-i18n="common.cancel">Отмена</button>
             </div>
         </section>
 
         <section class="bp-card">
-            <h2 class="bp-card__title">Мои уроки <span id="bp-count" style="color:var(--faint);font-weight:500;font-family:var(--font-mono);font-size:12px;margin-left:6px">(0)</span></h2>
+            <h2 class="bp-card__title"><span data-i18n="builder.list">Мои уроки</span> <span id="bp-count" style="color:var(--faint);font-weight:500;font-family:var(--font-mono);font-size:12px;margin-left:6px">(0)</span></h2>
             <div class="bp-list" id="bp-list">
                 <!-- заполняется JS -->
             </div>
@@ -71,6 +71,7 @@
 
     <script src="assets/js/router-guard.js"></script>
     <script src="config/settings.js"></script>
+    <script src="assets/js/i18n.js"></script>
     <script src="assets/js/builder.js"></script>
 </body>
 </html>

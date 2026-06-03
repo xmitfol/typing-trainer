@@ -21,9 +21,9 @@
             <span class="lp-logo__mark">Ё</span>
         </a>
         <div class="lp-crumbs">
-            <a href="dashboard.html">Главная</a>
+            <a href="dashboard.html" data-i18n="nav.home">Главная</a>
             <span class="lp-crumbs__sep">/</span>
-            <a href="course.html" id="lpCrumbCourse">Русский курс</a>
+            <a href="course.html" id="lpCrumbCourse" data-i18n="course.title">Русский курс</a>
             <span class="lp-crumbs__sep">/</span>
             <span class="lp-crumbs__current" id="lpCrumbLesson">Урок 1</span>
         </div>
@@ -38,8 +38,8 @@
             <span><span class="lp-topbar__metric-label">WPM</span><b class="lp-topbar__metric-val" id="lpMetricWpm">—</b></span>
             <span><span class="lp-topbar__metric-label">точность</span><b class="lp-topbar__metric-val lp-topbar__metric-val--success" id="lpMetricAcc">—</b></span>
         </div>
-        <a class="lp-topbar__nav" href="course.html">Список уроков</a>
-        <a class="lp-topbar__nav lp-topbar__nav--task" id="lpTopTask" href="task.html">Выполнить задание →</a>
+        <a class="lp-topbar__nav" href="course.html" data-i18n="nav.lessonList">Список уроков</a>
+        <a class="lp-topbar__nav lp-topbar__nav--task" id="lpTopTask" href="task.html" data-i18n="nav.doTask">Выполнить задание →</a>
     </header>
 
     <!-- ─── Article ────────────────────────────────────────────────── -->
@@ -47,7 +47,7 @@
         <!-- Title -->
         <div class="lp-title-block">
             <div class="lp-title-badge" id="lpBadge">МОДУЛЬ 1 · УРОК 1</div>
-            <h1 class="lp-title-h1" id="lpTitle">Загружаем урок…</h1>
+            <h1 class="lp-title-h1" id="lpTitle" data-i18n="lesson.title_placeholder">Загружаем урок…</h1>
             <p class="lp-title-sub" id="lpSubtitle"></p>
         </div>
 
@@ -57,7 +57,7 @@
             <div class="lp-mentor__body">
                 <div>
                     <span class="lp-mentor__name" id="lpMentorName">Анна</span>
-                    <span class="lp-mentor__role" id="lpMentorRole">· ВАШ НАСТАВНИК</span>
+                    <span class="lp-mentor__role" id="lpMentorRole" data-i18n="lesson.mentorRole">· ВАШ НАСТАВНИК</span>
                 </div>
                 <div class="lp-mentor__quote" id="lpMentorQuote">—</div>
             </div>
@@ -78,7 +78,7 @@
         <!-- Inline exercise preview -->
         <div class="lp-exercise" data-finger="blue" id="lpExercise">
             <div class="lp-exercise__hd">
-                <div class="lp-exercise__badge" id="lpExerciseBadge">УПРАЖНЕНИЕ</div>
+                <div class="lp-exercise__badge" id="lpExerciseBadge" data-i18n="lesson.exerciseBadge">УПРАЖНЕНИЕ</div>
                 <div class="lp-exercise__hint">
                     <span class="lp-exercise__hint-dot"></span>
                     <span id="lpExerciseHint">—</span>
@@ -88,12 +88,12 @@
             <div class="lp-exercise__meta">
                 <div class="lp-exercise__dots" id="lpExerciseDots"></div>
                 <div class="lp-exercise__count" id="lpExerciseCount">0/0</div>
-                <a class="lp-exercise__open" id="lpOpenTrainer" href="task.html">Открыть тренажёр →</a>
+                <a class="lp-exercise__open" id="lpOpenTrainer" href="task.html" data-i18n="lesson.openTrainer">Открыть тренажёр →</a>
             </div>
         </div>
 
         <!-- Outro paragraph (encouragement, before nav) -->
-        <p class="lp-p" id="lpOutro">
+        <p class="lp-p" id="lpOutro" data-i18n="lesson.outro">
             Когда упражнение запомнится мышцами — переходите к следующему уроку. Если пальцы устают — короткая пауза каждые 1–2 минуты помогает больше, чем долбёжка.
         </p>
 
@@ -116,6 +116,7 @@
     <script src="assets/js/portraits.js"></script>
     <script src="assets/js/lesson-loader.js"></script>
     <script src="assets/js/character-system.js"></script>
+    <script src="assets/js/i18n.js"></script>
     <script src="assets/js/lesson-page.js"></script>
 </body>
 </html>

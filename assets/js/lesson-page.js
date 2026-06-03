@@ -6,6 +6,7 @@
  * «Открыть тренажёр →» сохраняет {tier, lessonNumber} в currentLesson и ведёт на index.html.
  */
 document.addEventListener('DOMContentLoaded', async function () {
+    if (window.i18n) { try { await window.i18n.init(); } catch (e) {} }
     const $ = (sel) => document.querySelector(sel);
     const profileKey = (window.Settings && window.Settings.get('storage.keys.userProfile', 'typing_trainer_user_profile')) || 'typing_trainer_user_profile';
     const progressKey = (window.Settings && window.Settings.get('storage.keys.lessonProgress', 'typing_trainer_lesson_progress')) || 'typing_trainer_lesson_progress';
@@ -146,12 +147,13 @@ document.addEventListener('DOMContentLoaded', async function () {
 
     // ─── Mentor intro ────────────────────────────────────────────
     const mentorId = profile.character || (profile.audience === 'teen' ? 'knopych' : profile.audience === 'kid' ? 'klavochka' : 'anna');
+    const tRole = (window.i18n ? window.i18n.t('lesson.mentorRole') : '· ВАШ НАСТАВНИК');
     const mentorMeta = {
-        anna:      { name: 'Анна',      role: '· ВАША НАСТАВНИЦА' },
-        maxim:     { name: 'Максим',    role: '· ВАШ НАСТАВНИК' },
-        knopych:   { name: 'Кнопыч',    role: '· ВАШ НАСТАВНИК-РОБОТ' },
-        klavochka: { name: 'Клавочка',  role: '· ВАША НАСТАВНИЦА' }
-    }[mentorId] || { name: 'Наставник', role: '· ВАШ НАСТАВНИК' };
+        anna:      { name: 'Анна',      role: tRole },
+        maxim:     { name: 'Максим',    role: tRole },
+        knopych:   { name: 'Кнопыч',    role: tRole },
+        klavochka: { name: 'Клавочка',  role: tRole }
+    }[mentorId] || { name: 'Наставник', role: tRole };
 
     $('#lpMentor').dataset.mentor = mentorId;
     if (window.portraits && window.portraits.mentor) {
@@ -223,7 +225,8 @@ document.addEventListener('DOMContentLoaded', async function () {
     else if (lesson.phase >= 4) finger = 'purple';
 
     $('#lpExercise').dataset.finger = finger;
-    $('#lpExerciseBadge').textContent = `УПРАЖНЕНИЕ · ${(lesson.new_keys || []).join(' ')}`.trim();
+    const exBadge = window.i18n ? window.i18n.t('lesson.exerciseBadge') : 'УПРАЖНЕНИЕ';
+    $('#lpExerciseBadge').textContent = `${exBadge} · ${(lesson.new_keys || []).join(' ')}`.trim();
     $('#lpExerciseHint').textContent = lesson.finger_focus || `Цель: ${lesson.target_wpm || '—'} зн/мин, допустимо ошибок: ${lesson.error_limit || '—'}`;
     $('#lpExerciseTarget').textContent = lesson.text || '';
 

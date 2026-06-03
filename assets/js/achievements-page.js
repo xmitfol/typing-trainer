@@ -3,7 +3,8 @@
  * Группирует достижения из achievements.CATALOG по группам, показывает
  * earned (с акцентом) и locked (приглушённо) с прогресс-баром.
  */
-document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener('DOMContentLoaded', async function () {
+    if (window.i18n) { try { await window.i18n.init(); } catch (e) {} }
     const profileKey = (window.Settings && window.Settings.get('storage.keys.userProfile', 'typing_trainer_user_profile')) || 'typing_trainer_user_profile';
     const progressKey = (window.Settings && window.Settings.get('storage.keys.lessonProgress', 'typing_trainer_lesson_progress')) || 'typing_trainer_lesson_progress';
     const historyKey = (window.Settings && window.Settings.get('storage.keys.testHistory', 'typing_trainer_test_history')) || 'typing_trainer_test_history';

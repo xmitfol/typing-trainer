@@ -1,7 +1,7 @@
 """
 Phase 6 — Lesson reading page verification.
 
-A. Fresh user → redirect to index.html
+A. Fresh user → redirect to index.html (landing)
 B. Authorized user + URL ?tier=tier1&lesson=6 → читает урок 6, рендерит все секции:
    - top bar с crumbs + progress + metrics
    - title block с badge «МОДУЛЬ 1 · УРОК 6», h1 + subtitle
@@ -31,7 +31,7 @@ PROFILE = {
     'gender': 'm', 'audience': 'adult', 'character': 'anna', 'mentor': 'anna',
     'language': 'ru', 'keyboardType': 'classic', 'onboardingCompleted': True
 }
-PROGRESS = {'6': {'stars': 4, 'bestWPM': 28, 'bestAccuracy': 92}}
+PROGRESS = {str(n): {'stars': 4, 'bestWPM': 28 if n == 6 else 15, 'bestAccuracy': 92 if n == 6 else 80} for n in range(1, 100)}
 
 def shot(page, name, n):
     p = SCREENSHOT_DIR / f"{n:02d}_{name}.png"
@@ -120,7 +120,8 @@ def main():
         check('exercise target text non-empty', page.locator('#lpExerciseTarget').inner_text(), lambda s: len(s) > 3)
         check('exercise count "0/total"', page.locator('#lpExerciseCount').inner_text(), lambda s: s.startswith('0/') and int(s.split('/')[1]) > 0)
         check('exercise has dots', page.locator('.lp-exercise__dot').count(), lambda n: n > 0)
-        check('open trainer link → index.html', page.locator('#lpOpenTrainer').get_attribute('href'), 'index.html')
+        check('open trainer link → task.html', page.locator('#lpOpenTrainer').get_attribute('href'),
+              lambda s: s and s.startswith('task.html') and 'lesson=6' in s and 'tier=tier1' in s)
 
         # Nav
         check('prev nav → lesson 5 href', page.locator('#lpNavPrev').get_attribute('href'), lambda s: 'lesson=5' in s)
@@ -156,7 +157,7 @@ def main():
         ctx, page = setup_authorized_page(browser, '?tier=tier1&lesson=6')
         # Intercept navigation
         with page.expect_request_finished(lambda req: True, timeout=3000) if False else page.expect_event('load', timeout=3000):
-            # Use page.evaluate to click without navigating (click would navigate to index.html)
+            # Use page.evaluate to click without navigating (click would navigate to task.html)
             page.evaluate("""() => {
                 document.getElementById('lpOpenTrainer').click();
             }""")

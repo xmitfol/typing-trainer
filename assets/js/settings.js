@@ -3,8 +3,11 @@
  * Все изменения сохраняются автоматически (auto-save) и отражаются на дашборде/
  * в тренажёре при следующей загрузке.
  */
-document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener('DOMContentLoaded', async function () {
     const $ = (id) => document.getElementById(id);
+
+    // i18n: применяем словарь к DOM (data-i18n атрибутам) на старте
+    if (window.i18n) { try { await window.i18n.init(); } catch (e) {} }
     const profileKey = (window.Settings && window.Settings.get('storage.keys.userProfile', 'typing_trainer_user_profile')) || 'typing_trainer_user_profile';
     const progressKey = (window.Settings && window.Settings.get('storage.keys.lessonProgress', 'typing_trainer_lesson_progress')) || 'typing_trainer_lesson_progress';
     const currentKey = (window.Settings && window.Settings.get('storage.keys.currentLesson', 'typing_trainer_current_lesson')) || 'typing_trainer_current_lesson';
@@ -153,7 +156,7 @@ document.addEventListener('DOMContentLoaded', function () {
     // ─── Язык интерфейса ────────────────────────────────────────
     const langEl = $('sp-lang');
     syncSeg(langEl, 'lang', profile.language || 'ru');
-    langEl.addEventListener('click', (e) => {
+    langEl.addEventListener('click', async (e) => {
         const btn = e.target.closest('button[data-lang]');
         if (!btn) return;
         const v = btn.dataset.lang;
@@ -162,6 +165,8 @@ document.addEventListener('DOMContentLoaded', function () {
         // Смена языка → меняется ветка уроков (tier routing).
         // Сбросим currentLesson чтобы при следующем открытии task/lesson маршрутизация пересчиталась.
         try { localStorage.removeItem(currentKey); } catch (e) {}
+        // Применяем новый язык к текущей странице — без перезагрузки
+        if (window.i18n) { try { await window.i18n.setLanguage(v); } catch (e) {} }
     });
 
     // ─── Прогресс: reset ────────────────────────────────────────

@@ -6,7 +6,8 @@
  * currentLesson и характеру юзера.
  */
 // LessonLoader instantiates on DOMContentLoaded — ждём чтобы оно успело.
-document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener('DOMContentLoaded', async function () {
+    if (window.i18n) { try { await window.i18n.init(); } catch (e) {} }
     const $ = (sel) => document.querySelector(sel);
     const profileKey = (window.Settings && window.Settings.get('storage.keys.userProfile', 'typing_trainer_user_profile'))
         || 'typing_trainer_user_profile';
@@ -306,7 +307,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Logout
     $('#dhLogout').addEventListener('click', () => {
-        if (!confirm('Выйти? Прогресс сохранится, но онбординг откроется заново.')) return;
+        if (!confirm(window.i18n ? window.i18n.t('dashboard.logoutConfirm') : 'Выйти? Прогресс сохранится, но онбординг откроется заново.')) return;
         try { localStorage.removeItem(profileKey); } catch (e) {}
         window.location.href = 'index.html';
     });
