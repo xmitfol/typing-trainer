@@ -21,9 +21,30 @@
   "new_keys": [],
   "finger_focus": "Left number reaches",
   "tips": [
-    "Numbers row is FAR — biggest stretch on the keyboard",
-    "Same finger as the column letter (1=pinky, 2=ring, etc.)",
-    "Use Number Row, NOT numpad — numpad is a different skill"
+    {
+      "type": "lead",
+      "text": "Numbers row is FAR — biggest stretch on the keyboard"
+    },
+    {
+      "type": "drop",
+      "text": "Same finger as the column letter (1=pinky, 2=ring, etc.)"
+    },
+    {
+      "type": "exercise",
+      "target": "1 2 3 4 5 12 23 34",
+      "finger": "blue",
+      "hint": "Left number reaches"
+    },
+    {
+      "type": "p",
+      "text": "Use Number Row, NOT numpad — numpad is a different skill"
+    },
+    {
+      "type": "exercise",
+      "target": "45 11 22 33 44 55 1234 2345 12345",
+      "finger": "green",
+      "hint": "Left number reaches"
+    }
   ],
   "character_tips": {
     "anna": "Numbers stretch FAR up. Use the same finger as the column letter.",

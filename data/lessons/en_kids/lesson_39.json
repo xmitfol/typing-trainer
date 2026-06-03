@@ -20,9 +20,30 @@
   "new_keys": [],
   "finger_focus": "Pre-final story",
   "tips": [
-    "Full story arc",
-    "Multi-sentence flow at 40 WPM",
-    "Last warmup before block final"
+    {
+      "type": "lead",
+      "text": "Full story arc"
+    },
+    {
+      "type": "drop",
+      "text": "Multi-sentence flow at 40 WPM"
+    },
+    {
+      "type": "exercise",
+      "target": "Once upon a time in a small house there lived a brave little mouse. He",
+      "finger": "purple",
+      "hint": "Pre-final story"
+    },
+    {
+      "type": "p",
+      "text": "Last warmup before block final"
+    },
+    {
+      "type": "exercise",
+      "target": "helped his friends. He shared his food. He told funny stories. Everyone loved him. The end!",
+      "finger": "purple",
+      "hint": "Pre-final story"
+    }
   ],
   "character_tips": {
     "anna": "Full mini-story. Like the block final, but easier.",

@@ -16,13 +16,36 @@
     ".",
     ",",
     "?",
-    "!", "Shift"],
+    "!",
+    "Shift"
+  ],
   "new_keys": [],
   "finger_focus": "Period/comma/question/exclaim",
   "tips": [
-    "Period and comma are home-row pinky (right)",
-    "Question mark and exclaim need Shift",
-    "Sentence-end punctuation is in 90% of writing"
+    {
+      "type": "lead",
+      "text": "Period and comma are home-row pinky (right)"
+    },
+    {
+      "type": "drop",
+      "text": "Question mark and exclaim need Shift"
+    },
+    {
+      "type": "exercise",
+      "target": "Hi! How are you? I'm great. Look at this.",
+      "finger": "blue",
+      "hint": "Period/comma/question/exclaim"
+    },
+    {
+      "type": "p",
+      "text": "Sentence-end punctuation is in 90% of writing"
+    },
+    {
+      "type": "exercise",
+      "target": "Wow! That's cool. Really? Yes, really. Wait, what? No way!",
+      "finger": "green",
+      "hint": "Period/comma/question/exclaim"
+    }
   ],
   "character_tips": {
     "anna": "Four essential punctuation marks. Together they cover most writing.",

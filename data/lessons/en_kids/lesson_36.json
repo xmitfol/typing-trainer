@@ -21,9 +21,30 @@
   "new_keys": [],
   "finger_focus": "Daily life story",
   "tips": [
-    "Real-life story with time",
-    "Numbers in context (8 morning)",
-    "Daily routine writing"
+    {
+      "type": "lead",
+      "text": "Real-life story with time"
+    },
+    {
+      "type": "drop",
+      "text": "Numbers in context (8 morning)"
+    },
+    {
+      "type": "exercise",
+      "target": "I go to school at 8 in the morning. We read books. We sing songs. We play",
+      "finger": "purple",
+      "hint": "Daily life story"
+    },
+    {
+      "type": "p",
+      "text": "Daily routine writing"
+    },
+    {
+      "type": "exercise",
+      "target": "games at lunch time. After school I run home to mom and dad. I love school days!",
+      "finger": "purple",
+      "hint": "Daily life story"
+    }
   ],
   "character_tips": {
     "anna": "Daily life story. Numbers fit naturally with words.",

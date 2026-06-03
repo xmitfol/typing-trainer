@@ -22,9 +22,30 @@
   "new_keys": [],
   "finger_focus": "Number row left side",
   "tips": [
-    "Numbers are at the TOP of the keyboard",
-    "Use the same finger as the letter below",
-    "1 = left pinky, 2 = ring, etc."
+    {
+      "type": "lead",
+      "text": "Numbers are at the TOP of the keyboard"
+    },
+    {
+      "type": "drop",
+      "text": "Use the same finger as the letter below"
+    },
+    {
+      "type": "exercise",
+      "target": "1 2 3 4 5 one two three four five",
+      "finger": "blue",
+      "hint": "Number row left side"
+    },
+    {
+      "type": "p",
+      "text": "1 = left pinky, 2 = ring, etc."
+    },
+    {
+      "type": "exercise",
+      "target": "12345 one apple two cats three dogs four bees five stars",
+      "finger": "green",
+      "hint": "Number row left side"
+    }
   ],
   "character_tips": {
     "anna": "Numbers! Use the same finger as the letter below.",

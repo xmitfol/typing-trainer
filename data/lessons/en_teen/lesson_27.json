@@ -15,13 +15,36 @@
     "0-9",
     "Space",
     "/",
-    ".", "Shift"],
+    ".",
+    "Shift"
+  ],
   "new_keys": [],
   "finger_focus": "Numbers in real context",
   "tips": [
-    "Gaming stats = numbers + text mixed",
-    "Numbers should flow as fast as letters by now",
-    "Slash and decimal are fluid"
+    {
+      "type": "lead",
+      "text": "Gaming stats = numbers + text mixed"
+    },
+    {
+      "type": "drop",
+      "text": "Numbers should flow as fast as letters by now"
+    },
+    {
+      "type": "exercise",
+      "target": "Level 99 max HP 1500 EXP 24000 won 12 lost 3 streak",
+      "finger": "blue",
+      "hint": "Numbers in real context"
+    },
+    {
+      "type": "p",
+      "text": "Slash and decimal are fluid"
+    },
+    {
+      "type": "exercise",
+      "target": "7 rank 42 score 9876 kills 18 K/D 2.5 winrate 65 percent",
+      "finger": "green",
+      "hint": "Numbers in real context"
+    }
   ],
   "character_tips": {
     "anna": "Gaming stats are pure number+word mixing. Real teen vocab.",

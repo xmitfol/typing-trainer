@@ -22,9 +22,30 @@
   "new_keys": [],
   "finger_focus": "Capitals + punctuation in real lines",
   "tips": [
-    "Iconic movie quotes — already in your memory",
-    "Mix of statements, exclamations, questions",
-    "Shift timing matters — practice the entry"
+    {
+      "type": "lead",
+      "text": "Iconic movie quotes — already in your memory"
+    },
+    {
+      "type": "drop",
+      "text": "Mix of statements, exclamations, questions"
+    },
+    {
+      "type": "exercise",
+      "target": "May the Force be with you. I'll be back. To infinity",
+      "finger": "blue",
+      "hint": "Capitals + punctuation in real lines"
+    },
+    {
+      "type": "p",
+      "text": "Shift timing matters — practice the entry"
+    },
+    {
+      "type": "exercise",
+      "target": "and beyond! Why so serious? With great power comes great responsibility.",
+      "finger": "green",
+      "hint": "Capitals + punctuation in real lines"
+    }
   ],
   "character_tips": {
     "anna": "Movie lines you already know. Type by memory, not by sight.",

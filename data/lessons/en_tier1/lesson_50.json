@@ -10,13 +10,41 @@
   "error_limit": 13,
   "text": "Fifty lessons in. You started with home row and now you can write anything. Push your speed today. Read ahead, trust your hands, and stay smooth — accuracy stays at ninety-three percent.",
   "text_sequence": [],
-  "keys_trained": ["all letters", "Space", ".", ",", "—", "Shift"],
+  "keys_trained": [
+    "all letters",
+    "Space",
+    ".",
+    ",",
+    "—",
+    "Shift"
+  ],
   "new_keys": [],
   "finger_focus": "All — milestone speed gauge",
   "tips": [
-    "50 lessons = halfway home",
-    "If you pass 45 WPM here, you're on track for 80+ by Block 7",
-    "Set your peak today — you'll match it many times in Block 5"
+    {
+      "type": "lead",
+      "text": "50 lessons = halfway home"
+    },
+    {
+      "type": "drop",
+      "text": "If you pass 45 WPM here, you're on track for 80+ by Block 7"
+    },
+    {
+      "type": "exercise",
+      "target": "Fifty lessons in. You started with home row and now you can write anything. Push your",
+      "finger": "purple",
+      "hint": "All — milestone speed gauge"
+    },
+    {
+      "type": "p",
+      "text": "Set your peak today — you'll match it many times in Block 5"
+    },
+    {
+      "type": "exercise",
+      "target": "speed today. Read ahead, trust your hands, and stay smooth — accuracy stays at ninety-three percent.",
+      "finger": "purple",
+      "hint": "All — milestone speed gauge"
+    }
   ],
   "character_tips": {
     "anna": "🎯 50-lesson milestone! You're officially halfway. Look at the WPM number — that's earned.",

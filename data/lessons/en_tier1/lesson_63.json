@@ -10,13 +10,42 @@
   "error_limit": 14,
   "text": "She had been writing for almost an hour when the door opened. Her brother walked in with two cups of tea and a wide smile. \"How is the chapter coming along?\" he asked, sitting down beside her. \"Almost done,\" she said, and they both laughed.",
   "text_sequence": [],
-  "keys_trained": ["A-Z", "Space", ",", ".", "?", "\"", "Shift"],
+  "keys_trained": [
+    "A-Z",
+    "Space",
+    ",",
+    ".",
+    "?",
+    "\"",
+    "Shift"
+  ],
   "new_keys": [],
   "finger_focus": "Dialogue + narration flow",
   "tips": [
-    "Dialogue is great rhythm practice — short bursts with structure",
-    "Quotes break flow — practice their entry/exit smoothly",
-    "Enable metronome at 62 BPM — match your finger tempo"
+    {
+      "type": "lead",
+      "text": "Dialogue is great rhythm practice — short bursts with structure"
+    },
+    {
+      "type": "drop",
+      "text": "Quotes break flow — practice their entry/exit smoothly"
+    },
+    {
+      "type": "exercise",
+      "target": "She had been writing for almost an hour when the door opened. Her brother walked in with two cups of tea and",
+      "finger": "purple",
+      "hint": "Dialogue + narration flow"
+    },
+    {
+      "type": "p",
+      "text": "Enable metronome at 62 BPM — match your finger tempo"
+    },
+    {
+      "type": "exercise",
+      "target": "a wide smile. \"How is the chapter coming along?\" he asked, sitting down beside her. \"Almost done,\" she said, and they both laughed.",
+      "finger": "purple",
+      "hint": "Dialogue + narration flow"
+    }
   ],
   "character_tips": {
     "anna": "Dialogue + narration is real writing. Master both transitions.",

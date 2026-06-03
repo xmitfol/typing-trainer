@@ -10,15 +10,77 @@
   "error_limit": 5,
   "text": "quick brown fox jumps over a lazy dog please pass the box zero zip",
   "text_sequence": [],
-  "keys_trained": ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", "Space"],
-  "new_keys": ["P", "Q", "X", "Z"],
+  "keys_trained": [
+    "A",
+    "B",
+    "C",
+    "D",
+    "E",
+    "F",
+    "G",
+    "H",
+    "I",
+    "J",
+    "K",
+    "L",
+    "M",
+    "N",
+    "O",
+    "P",
+    "Q",
+    "R",
+    "S",
+    "T",
+    "U",
+    "V",
+    "W",
+    "X",
+    "Y",
+    "Z",
+    "Space"
+  ],
+  "new_keys": [
+    "P",
+    "Q",
+    "X",
+    "Z"
+  ],
   "finger_focus": "All remaining: P (right pinky up), Q (left pinky up), X (left ring bottom), Z (left pinky bottom)",
   "tips": [
-    "P — right pinky reach up",
-    "Q — left pinky reach up (rare!)",
-    "X — left ring drops",
-    "Z — left pinky drops (rare!)",
-    "Now you can type the famous: \"the quick brown fox jumps over a lazy dog\""
+    {
+      "type": "lead",
+      "text": "P — right pinky reach up"
+    },
+    {
+      "type": "drop",
+      "text": "Q — left pinky reach up (rare!)"
+    },
+    {
+      "type": "exercise",
+      "target": "quick brown fox jumps over a lazy",
+      "finger": "pink",
+      "hint": "Буквы: P Q X Z"
+    },
+    {
+      "type": "p",
+      "text": "X — left ring drops"
+    },
+    {
+      "type": "callout",
+      "icon": "💡",
+      "title": "Подсказка",
+      "text": "Z — left pinky drops (rare!)"
+    },
+    {
+      "type": "p",
+      "text": "Now you can type the famous: \"the quick brown fox jumps over a lazy dog\""
+    },
+    {
+      "type": "exercise",
+      "target": "dog please pass the box zero zip",
+      "finger": "orange",
+      "hint": "Буквы: P Q X Z"
+    }
   ],
   "character_tips": {
     "anna": "Finishing the alphabet! Q, X, Z — rare, but you need their positions.",

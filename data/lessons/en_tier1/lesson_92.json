@@ -10,13 +10,40 @@
   "error_limit": 13,
   "text": "It was a clear, cold afternoon in late October, the kind of day on which the trees seem to glow from inside. She walked along the river path, her hands tucked into her coat pockets, and listened to the leaves crunching softly under her boots. The world, for once, felt entirely her own.",
   "text_sequence": [],
-  "keys_trained": ["A-Z", "Space", ",", ".", "Shift"],
+  "keys_trained": [
+    "A-Z",
+    "Space",
+    ",",
+    ".",
+    "Shift"
+  ],
   "new_keys": [],
   "finger_focus": "Literary prose at speed",
   "tips": [
-    "Literary prose has a slower mental tempo but rewards fast fingers",
-    "Imagery and adjectives test sustained accuracy under speed",
-    "Read the sentence in your mind first — then let your fingers follow"
+    {
+      "type": "lead",
+      "text": "Literary prose has a slower mental tempo but rewards fast fingers"
+    },
+    {
+      "type": "drop",
+      "text": "Imagery and adjectives test sustained accuracy under speed"
+    },
+    {
+      "type": "exercise",
+      "target": "It was a clear, cold afternoon in late October, the kind of day on which the trees seem to glow from inside. She walked along the",
+      "finger": "purple",
+      "hint": "Literary prose at speed"
+    },
+    {
+      "type": "p",
+      "text": "Read the sentence in your mind first — then let your fingers follow"
+    },
+    {
+      "type": "exercise",
+      "target": "river path, her hands tucked into her coat pockets, and listened to the leaves crunching softly under her boots. The world, for once, felt entirely her own.",
+      "finger": "purple",
+      "hint": "Literary prose at speed"
+    }
   ],
   "character_tips": {
     "anna": "Literary prose at 94 WPM. Few professional writers type their own work this fast.",

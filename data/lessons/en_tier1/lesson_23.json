@@ -10,13 +10,71 @@
   "error_limit": 10,
   "text": "today, she said: \"i'll write a long-form article.\" he replied, \"that's brave!\" they laughed; the day went on; work was done.",
   "text_sequence": [],
-  "keys_trained": ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", ":", ";", ",", ".", "!", "?", "'", "\"", "-", "Space"],
+  "keys_trained": [
+    "A",
+    "B",
+    "C",
+    "D",
+    "E",
+    "F",
+    "G",
+    "H",
+    "I",
+    "J",
+    "K",
+    "L",
+    "M",
+    "N",
+    "O",
+    "P",
+    "Q",
+    "R",
+    "S",
+    "T",
+    "U",
+    "V",
+    "W",
+    "X",
+    "Y",
+    "Z",
+    ":",
+    ";",
+    ",",
+    ".",
+    "!",
+    "?",
+    "'",
+    "\"",
+    "-",
+    "Space"
+  ],
   "new_keys": [],
   "finger_focus": "All — punctuation in flow",
   "tips": [
-    "Mix of all punctuation you've learned",
-    "Quoted dialogue is great rhythm practice",
-    "Enable metronome — 27 BPM equivalent at 5 chars/word"
+    {
+      "type": "lead",
+      "text": "Mix of all punctuation you've learned"
+    },
+    {
+      "type": "drop",
+      "text": "Quoted dialogue is great rhythm practice"
+    },
+    {
+      "type": "exercise",
+      "target": "today, she said: \"i'll write a long-form article.\" he replied,",
+      "finger": "blue",
+      "hint": "All — punctuation in flow"
+    },
+    {
+      "type": "p",
+      "text": "Enable metronome — 27 BPM equivalent at 5 chars/word"
+    },
+    {
+      "type": "exercise",
+      "target": "\"that's brave!\" they laughed; the day went on; work was done.",
+      "finger": "green",
+      "hint": "All — punctuation in flow"
+    }
   ],
   "character_tips": {
     "anna": "All your punctuation — in one paragraph. Stay smooth.",

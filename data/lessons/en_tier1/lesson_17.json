@@ -10,13 +10,69 @@
   "error_limit": 5,
   "text": "really! is that true? yes! when did you know? right now! how amazing! are you sure?",
   "text_sequence": [],
-  "keys_trained": ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", ",", ".", "!", "?", "Space"],
-  "new_keys": ["!", "?"],
+  "keys_trained": [
+    "A",
+    "B",
+    "C",
+    "D",
+    "E",
+    "F",
+    "G",
+    "H",
+    "I",
+    "J",
+    "K",
+    "L",
+    "M",
+    "N",
+    "O",
+    "P",
+    "Q",
+    "R",
+    "S",
+    "T",
+    "U",
+    "V",
+    "W",
+    "X",
+    "Y",
+    "Z",
+    ",",
+    ".",
+    "!",
+    "?",
+    "Space"
+  ],
+  "new_keys": [
+    "!",
+    "?"
+  ],
   "finger_focus": "Shift + 1 = !, Shift + / = ?",
   "tips": [
-    "! is Shift + 1 — hold Shift with right pinky, hit 1 with left pinky",
-    "? is Shift + / — hold Shift with left pinky, hit / with right pinky",
-    "Practice: hold Shift smoothly, don't stab"
+    {
+      "type": "lead",
+      "text": "! is Shift + 1 — hold Shift with right pinky, hit 1 with left pinky"
+    },
+    {
+      "type": "drop",
+      "text": "? is Shift + / — hold Shift with left pinky, hit / with right pinky"
+    },
+    {
+      "type": "exercise",
+      "target": "really! is that true? yes! when did you",
+      "finger": "blue",
+      "hint": "Shift + 1 = !, Shift + / = ?"
+    },
+    {
+      "type": "p",
+      "text": "Practice: hold Shift smoothly, don't stab"
+    },
+    {
+      "type": "exercise",
+      "target": "know? right now! how amazing! are you sure?",
+      "finger": "green",
+      "hint": "Shift + 1 = !, Shift + / = ?"
+    }
   ],
   "character_tips": {
     "anna": "Shift takes practice — hold smoothly, then hit the second key.",

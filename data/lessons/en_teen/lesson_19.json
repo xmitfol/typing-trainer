@@ -22,9 +22,30 @@
   "new_keys": [],
   "finger_focus": "Left bottom precision",
   "tips": [
-    "DOWN from home — curl fingers under",
-    "Z and X are rare but still need speed",
-    "C and V appear in everyday words"
+    {
+      "type": "lead",
+      "text": "DOWN from home — curl fingers under"
+    },
+    {
+      "type": "drop",
+      "text": "Z and X are rare but still need speed"
+    },
+    {
+      "type": "exercise",
+      "target": "ax cab vex back zap five six box brave",
+      "finger": "blue",
+      "hint": "Left bottom precision"
+    },
+    {
+      "type": "p",
+      "text": "C and V appear in everyday words"
+    },
+    {
+      "type": "exercise",
+      "target": "cave maze brand cracks branch chance basic black break",
+      "finger": "green",
+      "hint": "Left bottom precision"
+    }
   ],
   "character_tips": {
     "anna": "Curl fingers UNDER your palm to reach down. Less awkward over time.",

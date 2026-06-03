@@ -24,9 +24,30 @@
   "new_keys": [],
   "finger_focus": "Foundation gate — everything from Block 1",
   "tips": [
-    "🎓 First milestone! 40 WPM = solid teen foundation",
-    "From here, Block 2 builds speed and adds more punctuation",
-    "If you missed by a few WPM, retry — accuracy first, speed second"
+    {
+      "type": "lead",
+      "text": "🎓 First milestone! 40 WPM = solid teen foundation"
+    },
+    {
+      "type": "drop",
+      "text": "From here, Block 2 builds speed and adds more punctuation"
+    },
+    {
+      "type": "exercise",
+      "target": "Hey Sam! Are you free at 3 today? We're meeting at the cafe near school",
+      "finger": "blue",
+      "hint": "Foundation gate — everything from Block 1"
+    },
+    {
+      "type": "p",
+      "text": "If you missed by a few WPM, retry — accuracy first, speed second"
+    },
+    {
+      "type": "exercise",
+      "target": "to plan the weekend trip. Bring snacks, your headphones, and 10 dollars. Don't be late!",
+      "finger": "green",
+      "hint": "Foundation gate — everything from Block 1"
+    }
   ],
   "character_tips": {
     "anna": "🎯 Teen Block 1 done! 40 WPM = strong start. Block 2 builds from here.",

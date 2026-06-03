@@ -20,9 +20,30 @@
   "new_keys": [],
   "finger_focus": "Animal vocabulary at speed",
   "tips": [
-    "Block 5 — mastery and final coming!",
-    "Lots of animal words in flow",
-    "Picture each animal as you type"
+    {
+      "type": "lead",
+      "text": "Block 5 — mastery and final coming!"
+    },
+    {
+      "type": "drop",
+      "text": "Lots of animal words in flow"
+    },
+    {
+      "type": "exercise",
+      "target": "Cats and dogs and birds and bees. Foxes, bears, and busy ants. Rabbits hop, and",
+      "finger": "purple",
+      "hint": "Animal vocabulary at speed"
+    },
+    {
+      "type": "p",
+      "text": "Picture each animal as you type"
+    },
+    {
+      "type": "exercise",
+      "target": "turtles crawl. Fish swim in the sea below. All the animals make the world fun!",
+      "finger": "purple",
+      "hint": "Animal vocabulary at speed"
+    }
   ],
   "character_tips": {
     "anna": "Block 5! All your animal friends together.",

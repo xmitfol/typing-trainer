@@ -21,9 +21,30 @@
   "new_keys": [],
   "finger_focus": "# and @ symbol drill",
   "tips": [
-    "# is Shift+3, @ is Shift+2",
-    "Both need RIGHT pinky Shift + LEFT hand reach",
-    "These two symbols = 90% of social media posts"
+    {
+      "type": "lead",
+      "text": "# is Shift+3, @ is Shift+2"
+    },
+    {
+      "type": "drop",
+      "text": "Both need RIGHT pinky Shift + LEFT hand reach"
+    },
+    {
+      "type": "exercise",
+      "target": "#fyp #foryou #vibes #2026 #goals @user @friend",
+      "finger": "blue",
+      "hint": "# and @ symbol drill"
+    },
+    {
+      "type": "p",
+      "text": "These two symbols = 90% of social media posts"
+    },
+    {
+      "type": "exercise",
+      "target": "@mod #throwback #monday #squad #life #love @official",
+      "finger": "green",
+      "hint": "# and @ symbol drill"
+    }
   ],
   "character_tips": {
     "anna": "# and @ are everywhere online. Master both = master social.",

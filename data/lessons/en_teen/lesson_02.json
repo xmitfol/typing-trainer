@@ -23,9 +23,30 @@
   "new_keys": [],
   "finger_focus": "Home row word formation",
   "tips": [
-    "Real words from just home row — you can already write!",
-    "Notice your fingers barely move",
-    "Spaces with thumb — keep it light"
+    {
+      "type": "lead",
+      "text": "Real words from just home row — you can already write!"
+    },
+    {
+      "type": "drop",
+      "text": "Notice your fingers barely move"
+    },
+    {
+      "type": "exercise",
+      "target": "ask sad lad fall sass lass dad",
+      "finger": "blue",
+      "hint": "Home row word formation"
+    },
+    {
+      "type": "p",
+      "text": "Spaces with thumb — keep it light"
+    },
+    {
+      "type": "exercise",
+      "target": "fad jak lad dad fall sass ask",
+      "finger": "green",
+      "hint": "Home row word formation"
+    }
   ],
   "character_tips": {
     "anna": "Real words already, just from home row. Your fingers know the pattern.",

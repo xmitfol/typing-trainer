@@ -16,13 +16,36 @@
     ",",
     ".",
     "-",
-    ";", "Shift"],
+    ";",
+    "Shift"
+  ],
   "new_keys": [],
   "finger_focus": "40-lesson speed gate",
   "tips": [
-    "40 lessons = halfway through teen course",
-    "Track your peak WPM here",
-    "Block 4 brings pure speed sprints next"
+    {
+      "type": "lead",
+      "text": "40 lessons = halfway through teen course"
+    },
+    {
+      "type": "drop",
+      "text": "Track your peak WPM here"
+    },
+    {
+      "type": "exercise",
+      "target": "Forty lessons in. Your speed is double what it was on day one — that's",
+      "finger": "blue",
+      "hint": "40-lesson speed gate"
+    },
+    {
+      "type": "p",
+      "text": "Block 4 brings pure speed sprints next"
+    },
+    {
+      "type": "exercise",
+      "target": "real progress. Keep showing up; the second half is where things really click into place.",
+      "finger": "green",
+      "hint": "40-lesson speed gate"
+    }
   ],
   "character_tips": {
     "anna": "🎯 40 lessons in. Track your number — Block 4 will push it higher.",

@@ -22,9 +22,30 @@
   "new_keys": [],
   "finger_focus": "Tournament prep",
   "tips": [
-    "Tournament rhythm at 94 WPM",
-    "Mental prep is half the win",
-    "Practice the headspace"
+    {
+      "type": "lead",
+      "text": "Tournament rhythm at 94 WPM"
+    },
+    {
+      "type": "drop",
+      "text": "Mental prep is half the win"
+    },
+    {
+      "type": "exercise",
+      "target": "Tournament prep: type without thinking, scan ahead by two words, breathe normally, and let your fingers do",
+      "finger": "purple",
+      "hint": "Tournament prep"
+    },
+    {
+      "type": "p",
+      "text": "Practice the headspace"
+    },
+    {
+      "type": "exercise",
+      "target": "what they've trained to do for 70 lessons. Numbers, names, punctuation — all in the same rhythm.",
+      "finger": "purple",
+      "hint": "Tournament prep"
+    }
   ],
   "character_tips": {
     "anna": "Tournament prep. Mental + physical rhythm.",

@@ -28,9 +28,30 @@
   "new_keys": [],
   "finger_focus": "Symbol + word mix",
   "tips": [
-    "ASCII emoji = colon + paren or related",
-    "Speed comes from chunking — :) = one motion",
-    "Reactions = high-frequency social vocab"
+    {
+      "type": "lead",
+      "text": "ASCII emoji = colon + paren or related"
+    },
+    {
+      "type": "drop",
+      "text": "Speed comes from chunking — :) = one motion"
+    },
+    {
+      "type": "exercise",
+      "target": ":) :D :( ;) <3 :P xD =) :') no way!!",
+      "finger": "blue",
+      "hint": "Symbol + word mix"
+    },
+    {
+      "type": "p",
+      "text": "Reactions = high-frequency social vocab"
+    },
+    {
+      "type": "exercise",
+      "target": "lol haha lmao bruh wait what omg fr cap nope yikes mood",
+      "finger": "green",
+      "hint": "Symbol + word mix"
+    }
   ],
   "character_tips": {
     "anna": "ASCII emoticons predate emoji. Still everywhere in chat.",

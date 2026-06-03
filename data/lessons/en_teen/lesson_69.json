@@ -25,9 +25,30 @@
   "new_keys": [],
   "finger_focus": "Research note rhythm",
   "tips": [
-    "Note format = source + fact + parens",
-    "High-density factual prose",
-    "Real research workflow"
+    {
+      "type": "lead",
+      "text": "Note format = source + fact + parens"
+    },
+    {
+      "type": "drop",
+      "text": "High-density factual prose"
+    },
+    {
+      "type": "exercise",
+      "target": "Source 1 (Nature, 2024): The fastest typing speed recorded is 216 WPM, set in 1946 on a manual",
+      "finger": "purple",
+      "hint": "Research note rhythm"
+    },
+    {
+      "type": "p",
+      "text": "Real research workflow"
+    },
+    {
+      "type": "exercise",
+      "target": "typewriter. Source 2 (Guinness): Modern computer-typing record is 248 WPM. Both rely on extensive muscle-memory training over years.",
+      "finger": "purple",
+      "hint": "Research note rhythm"
+    }
   ],
   "character_tips": {
     "anna": "Research notes. Highest-density factual format.",

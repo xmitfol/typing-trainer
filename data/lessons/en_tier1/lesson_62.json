@@ -10,13 +10,40 @@
   "error_limit": 13,
   "text": "On Tuesday morning, scientists at MIT announced a breakthrough in quantum computing that could reshape encryption standards. The research team, led by Dr. Anna Park, published their findings in Nature on May 18, 2026.",
   "text_sequence": [],
-  "keys_trained": ["A-Z", "0-9", ",", ".", "Shift"],
+  "keys_trained": [
+    "A-Z",
+    "0-9",
+    ",",
+    ".",
+    "Shift"
+  ],
   "new_keys": [],
   "finger_focus": "Names + dates + factual prose",
   "tips": [
-    "News writing = short clear sentences with names and dates",
-    "Practice capitalized words at speed — they're everywhere in news",
-    "Numbers (18, 2026) should flow at the same pace as text"
+    {
+      "type": "lead",
+      "text": "News writing = short clear sentences with names and dates"
+    },
+    {
+      "type": "drop",
+      "text": "Practice capitalized words at speed — they're everywhere in news"
+    },
+    {
+      "type": "exercise",
+      "target": "On Tuesday morning, scientists at MIT announced a breakthrough in quantum computing that could reshape encryption standards.",
+      "finger": "purple",
+      "hint": "Names + dates + factual prose"
+    },
+    {
+      "type": "p",
+      "text": "Numbers (18, 2026) should flow at the same pace as text"
+    },
+    {
+      "type": "exercise",
+      "target": "The research team, led by Dr. Anna Park, published their findings in Nature on May 18, 2026.",
+      "finger": "purple",
+      "hint": "Names + dates + factual prose"
+    }
   ],
   "character_tips": {
     "anna": "News writing is precise. Each fact has a place — type it accordingly.",

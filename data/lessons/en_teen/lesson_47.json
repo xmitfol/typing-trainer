@@ -17,9 +17,30 @@
   "new_keys": [],
   "finger_focus": "4-letter words rhythm",
   "tips": [
-    "4-letter words = bigger units, still snappy",
-    "Watch for 'th' bigrams — should be one motion",
-    "Type ahead — read 1-2 words past your cursor"
+    {
+      "type": "lead",
+      "text": "4-letter words = bigger units, still snappy"
+    },
+    {
+      "type": "drop",
+      "text": "Watch for 'th' bigrams — should be one motion"
+    },
+    {
+      "type": "exercise",
+      "target": "that with this have from they will know also like",
+      "finger": "purple",
+      "hint": "4-letter words rhythm"
+    },
+    {
+      "type": "p",
+      "text": "Type ahead — read 1-2 words past your cursor"
+    },
+    {
+      "type": "exercise",
+      "target": "into back over make most year well take time many",
+      "finger": "purple",
+      "hint": "4-letter words rhythm"
+    }
   ],
   "character_tips": {
     "anna": "4-letter words. Read ahead — your fingers know the next ones.",

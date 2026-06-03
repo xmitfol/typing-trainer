@@ -17,9 +17,30 @@
   "new_keys": [],
   "finger_focus": "Chat back-and-forth rhythm",
   "tips": [
-    "Real chat = short bursts, no punctuation",
-    "Multiple speakers in one line",
-    "Metronome at 70 BPM"
+    {
+      "type": "lead",
+      "text": "Real chat = short bursts, no punctuation"
+    },
+    {
+      "type": "drop",
+      "text": "Multiple speakers in one line"
+    },
+    {
+      "type": "exercise",
+      "target": "hey what time at 7 cool bring snacks ok which ones the",
+      "finger": "blue",
+      "hint": "Chat back-and-forth rhythm"
+    },
+    {
+      "type": "p",
+      "text": "Metronome at 70 BPM"
+    },
+    {
+      "type": "exercise",
+      "target": "spicy ones obvi sounds good see you then bye bye drive safe",
+      "finger": "green",
+      "hint": "Chat back-and-forth rhythm"
+    }
   ],
   "character_tips": {
     "anna": "Chat rhythm. Short bursts, no punctuation, full speed.",

@@ -22,9 +22,30 @@
   "new_keys": [],
   "finger_focus": "History writing rhythm",
   "tips": [
-    "History = dates + names + narrative",
-    "Long sentences with embedded facts",
-    "School-essay realism"
+    {
+      "type": "lead",
+      "text": "History = dates + names + narrative"
+    },
+    {
+      "type": "drop",
+      "text": "Long sentences with embedded facts"
+    },
+    {
+      "type": "exercise",
+      "target": "By 1969, the moon landing had captured the imagination of the entire world. Nearly 600 million people",
+      "finger": "purple",
+      "hint": "History writing rhythm"
+    },
+    {
+      "type": "p",
+      "text": "School-essay realism"
+    },
+    {
+      "type": "exercise",
+      "target": "watched live on television. The mission demonstrated what was possible when nations invested in long-term, ambitious goals.",
+      "finger": "purple",
+      "hint": "History writing rhythm"
+    }
   ],
   "character_tips": {
     "anna": "History essay format. Dates and narrative in flow.",

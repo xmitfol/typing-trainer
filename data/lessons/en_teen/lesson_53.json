@@ -21,9 +21,30 @@
   "new_keys": [],
   "finger_focus": "News paragraph at speed",
   "tips": [
-    "Multi-sentence news at 80 WPM",
-    "Metronome at 80 BPM — match it",
-    "Sustained journalism speed"
+    {
+      "type": "lead",
+      "text": "Multi-sentence news at 80 WPM"
+    },
+    {
+      "type": "drop",
+      "text": "Metronome at 80 BPM — match it"
+    },
+    {
+      "type": "exercise",
+      "target": "Markets opened higher on Friday after positive earnings reports from three major tech firms. Analysts pointed",
+      "finger": "purple",
+      "hint": "News paragraph at speed"
+    },
+    {
+      "type": "p",
+      "text": "Sustained journalism speed"
+    },
+    {
+      "type": "exercise",
+      "target": "to strong cloud growth and resilient consumer demand. The rally is expected to extend into next week.",
+      "finger": "purple",
+      "hint": "News paragraph at speed"
+    }
   ],
   "character_tips": {
     "anna": "News flow at 80 WPM. Newsroom speed.",

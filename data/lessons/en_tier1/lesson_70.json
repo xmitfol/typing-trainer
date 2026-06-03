@@ -10,13 +10,41 @@
   "error_limit": 13,
   "text": "Seventy lessons. Numbers do not lie — your fingers move faster than ever. The keyboard is now an extension of your thoughts, not an obstacle. Keep training; the last thirty lessons will turn this speed into automatic, lifelong muscle memory.",
   "text_sequence": [],
-  "keys_trained": ["A-Z", "Space", ",", ";", ".", "Shift"],
+  "keys_trained": [
+    "A-Z",
+    "Space",
+    ",",
+    ";",
+    ".",
+    "Shift"
+  ],
   "new_keys": [],
   "finger_focus": "Sustained 70 WPM gate",
   "tips": [
-    "70 WPM = top 15% of typists globally",
-    "If you pass this gate, you're objectively fast",
-    "Last 30 lessons take you to 95-100 WPM if you stay consistent"
+    {
+      "type": "lead",
+      "text": "70 WPM = top 15% of typists globally"
+    },
+    {
+      "type": "drop",
+      "text": "If you pass this gate, you're objectively fast"
+    },
+    {
+      "type": "exercise",
+      "target": "Seventy lessons. Numbers do not lie — your fingers move faster than ever. The keyboard is now an extension of",
+      "finger": "purple",
+      "hint": "Sustained 70 WPM gate"
+    },
+    {
+      "type": "p",
+      "text": "Last 30 lessons take you to 95-100 WPM if you stay consistent"
+    },
+    {
+      "type": "exercise",
+      "target": "your thoughts, not an obstacle. Keep training; the last thirty lessons will turn this speed into automatic, lifelong muscle memory.",
+      "finger": "purple",
+      "hint": "Sustained 70 WPM gate"
+    }
   ],
   "character_tips": {
     "anna": "🎯 70 WPM gate. If you pass here, you're officially fast. Top 15% of all typists.",

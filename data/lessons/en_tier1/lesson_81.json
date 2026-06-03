@@ -10,13 +10,49 @@
   "error_limit": 13,
   "text": "function getUserById(userId) { const user = await db.users.findOne({ id: userId }); if (!user) throw new NotFoundError('user'); return user.toJSON(); } export default getUserById; // also: validateInput, checkPermission, logAccess",
   "text_sequence": [],
-  "keys_trained": ["A-Z", "Space", "(", ")", "{", "}", ".", ",", ";", "'", "/", "!", ":", "Shift"],
+  "keys_trained": [
+    "A-Z",
+    "Space",
+    "(",
+    ")",
+    "{",
+    "}",
+    ".",
+    ",",
+    ";",
+    "'",
+    "/",
+    "!",
+    ":",
+    "Shift"
+  ],
   "new_keys": [],
   "finger_focus": "Code symbols at speed",
   "tips": [
-    "Real code = English words + symbols + brackets",
-    "Brackets/braces should flow as natural punctuation",
-    "Engineers type code 5+ hours daily — this is your gold mine"
+    {
+      "type": "lead",
+      "text": "Real code = English words + symbols + brackets"
+    },
+    {
+      "type": "drop",
+      "text": "Brackets/braces should flow as natural punctuation"
+    },
+    {
+      "type": "exercise",
+      "target": "function getUserById(userId) { const user = await db.users.findOne({ id: userId }); if (!user)",
+      "finger": "purple",
+      "hint": "Code symbols at speed"
+    },
+    {
+      "type": "p",
+      "text": "Engineers type code 5+ hours daily — this is your gold mine"
+    },
+    {
+      "type": "exercise",
+      "target": "throw new NotFoundError('user'); return user.toJSON(); } export default getUserById; // also: validateInput, checkPermission, logAccess",
+      "finger": "purple",
+      "hint": "Code symbols at speed"
+    }
   ],
   "character_tips": {
     "anna": "Code is just structured English. Train the symbols, the rest is words.",

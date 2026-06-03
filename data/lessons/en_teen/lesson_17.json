@@ -22,9 +22,30 @@
   "new_keys": [],
   "finger_focus": "Right top row precision",
   "tips": [
-    "P is right pinky — practice it specifically",
-    "Y is right index reach UP",
-    "Common letters here — drill at speed"
+    {
+      "type": "lead",
+      "text": "P is right pinky — practice it specifically"
+    },
+    {
+      "type": "drop",
+      "text": "Y is right index reach UP"
+    },
+    {
+      "type": "exercise",
+      "target": "you our up yo top join trip pop play",
+      "finger": "blue",
+      "hint": "Right top row precision"
+    },
+    {
+      "type": "p",
+      "text": "Common letters here — drill at speed"
+    },
+    {
+      "type": "exercise",
+      "target": "opera union youth point coupon junior trophy story open jury",
+      "finger": "green",
+      "hint": "Right top row precision"
+    }
   ],
   "character_tips": {
     "anna": "Right top row. Pinky P is the trickiest — give it extra attention.",

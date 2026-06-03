@@ -10,13 +10,46 @@
   "error_limit": 10,
   "text": "alex.smith@work.com https://example.com/page?id=42 user_name#1234 visit www.site.org and ftp://server",
   "text_sequence": [],
-  "keys_trained": ["A-Z", "0-9", "@", ".", "/", "_", ":", "#", "=", "?", "Space"],
+  "keys_trained": [
+    "A-Z",
+    "0-9",
+    "@",
+    ".",
+    "/",
+    "_",
+    ":",
+    "#",
+    "=",
+    "?",
+    "Space"
+  ],
   "new_keys": [],
   "finger_focus": "Real-world URL/email patterns",
   "tips": [
-    "Email: user@domain.com pattern",
-    "URL: https://site.com/path?param=value",
-    "Username with # tag: user#1234 (Discord-style)"
+    {
+      "type": "lead",
+      "text": "Email: user@domain.com pattern"
+    },
+    {
+      "type": "drop",
+      "text": "URL: https://site.com/path?param=value"
+    },
+    {
+      "type": "exercise",
+      "target": "alex.smith@work.com https://example.com/page?id=42 user_name#1234",
+      "finger": "blue",
+      "hint": "Real-world URL/email patterns"
+    },
+    {
+      "type": "p",
+      "text": "Username with # tag: user#1234 (Discord-style)"
+    },
+    {
+      "type": "exercise",
+      "target": "visit www.site.org and ftp://server",
+      "finger": "green",
+      "hint": "Real-world URL/email patterns"
+    }
   ],
   "character_tips": {
     "anna": "URLs and emails are the daily glue of modern writing.",

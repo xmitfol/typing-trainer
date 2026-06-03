@@ -10,13 +10,44 @@
   "error_limit": 14,
   "text": "To: All staff. From: Operations. Subject: New office hours. Effective June 1, the headquarters will open at 8:00 a.m. and close at 7:00 p.m., Monday through Friday. Remote work remains flexible. Please update your calendars accordingly. Questions? Reply to ops@company.com.",
   "text_sequence": [],
-  "keys_trained": ["A-Z", "0-9", "Space", ".", ",", ":", "?", "@", "Shift"],
+  "keys_trained": [
+    "A-Z",
+    "0-9",
+    "Space",
+    ".",
+    ",",
+    ":",
+    "?",
+    "@",
+    "Shift"
+  ],
   "new_keys": [],
   "finger_focus": "Business memo rhythm",
   "tips": [
-    "Block 6 = real-world application. Every lesson = work scenario.",
-    "Memo format has its own rhythm — headers, body, signoff",
-    "Email addresses should be one continuous motion by now"
+    {
+      "type": "lead",
+      "text": "Block 6 = real-world application. Every lesson = work scenario."
+    },
+    {
+      "type": "drop",
+      "text": "Memo format has its own rhythm — headers, body, signoff"
+    },
+    {
+      "type": "exercise",
+      "target": "To: All staff. From: Operations. Subject: New office hours. Effective June 1, the headquarters will open at 8:00 a.m. and",
+      "finger": "purple",
+      "hint": "Business memo rhythm"
+    },
+    {
+      "type": "p",
+      "text": "Email addresses should be one continuous motion by now"
+    },
+    {
+      "type": "exercise",
+      "target": "close at 7:00 p.m., Monday through Friday. Remote work remains flexible. Please update your calendars accordingly. Questions? Reply to ops@company.com.",
+      "finger": "purple",
+      "hint": "Business memo rhythm"
+    }
   ],
   "character_tips": {
     "anna": "Block 6! Every lesson here you'll use in your real career.",

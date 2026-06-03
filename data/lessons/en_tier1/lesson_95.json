@@ -10,13 +10,41 @@
   "error_limit": 13,
   "text": "Five lessons remain. You have already done the hard work. The fingers know the keys; the eyes read ahead; the mind no longer thinks in letters but in phrases and paragraphs. The remaining lessons exist not to add new skill, but to confirm what you have already built — and to give you a number to be proud of for the rest of your career.",
   "text_sequence": [],
-  "keys_trained": ["A-Z", "Space", ",", ".", ";", "Shift"],
+  "keys_trained": [
+    "A-Z",
+    "Space",
+    ",",
+    ".",
+    ";",
+    "Shift"
+  ],
   "new_keys": [],
   "finger_focus": "97 WPM sustained",
   "tips": [
-    "5 lessons left = victory lap",
-    "97 WPM is faster than the world's average human speaks",
-    "Final test is L99 — comprehensive at 105 WPM"
+    {
+      "type": "lead",
+      "text": "5 lessons left = victory lap"
+    },
+    {
+      "type": "drop",
+      "text": "97 WPM is faster than the world's average human speaks"
+    },
+    {
+      "type": "exercise",
+      "target": "Five lessons remain. You have already done the hard work. The fingers know the keys; the eyes read ahead; the mind no longer thinks in letters but in phrases and paragraphs. The",
+      "finger": "purple",
+      "hint": "97 WPM sustained"
+    },
+    {
+      "type": "p",
+      "text": "Final test is L99 — comprehensive at 105 WPM"
+    },
+    {
+      "type": "exercise",
+      "target": "remaining lessons exist not to add new skill, but to confirm what you have already built — and to give you a number to be proud of for the rest of your career.",
+      "finger": "purple",
+      "hint": "97 WPM sustained"
+    }
   ],
   "character_tips": {
     "anna": "🎯 5 lessons left. The remaining work is celebration, not effort.",

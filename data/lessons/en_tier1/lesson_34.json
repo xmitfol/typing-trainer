@@ -10,13 +10,54 @@
   "error_limit": 9,
   "text": "list[0] = 'first'. data[1] = 'next'. obj = {key: 1, val: 2}. set = {1, 2, 3}.",
   "text_sequence": [],
-  "keys_trained": ["A-Z", "0-9", "[", "]", "{", "}", "(", ")", ":", ",", ".", "'", "=", "Space"],
-  "new_keys": ["[", "]", "{", "}"],
+  "keys_trained": [
+    "A-Z",
+    "0-9",
+    "[",
+    "]",
+    "{",
+    "}",
+    "(",
+    ")",
+    ":",
+    ",",
+    ".",
+    "'",
+    "=",
+    "Space"
+  ],
+  "new_keys": [
+    "[",
+    "]",
+    "{",
+    "}"
+  ],
   "finger_focus": "Right pinky reaches up to [ ] (above ; ') and { } (Shift + [ ])",
   "tips": [
-    "[ and ] — right pinky, top row, no Shift",
-    "{ = Shift + [, } = Shift + ]",
-    "Used in code: arrays list[i], objects {key: value}"
+    {
+      "type": "lead",
+      "text": "[ and ] — right pinky, top row, no Shift"
+    },
+    {
+      "type": "drop",
+      "text": "{ = Shift + [, } = Shift + ]"
+    },
+    {
+      "type": "exercise",
+      "target": "list[0] = 'first'. data[1] = 'next'. obj =",
+      "finger": "pink",
+      "hint": "Буквы: [ ] { }"
+    },
+    {
+      "type": "p",
+      "text": "Used in code: arrays list[i], objects {key: value}"
+    },
+    {
+      "type": "exercise",
+      "target": "{key: 1, val: 2}. set = {1, 2, 3}.",
+      "finger": "orange",
+      "hint": "Буквы: [ ] { }"
+    }
   ],
   "character_tips": {
     "anna": "Square brackets for lists, curly for objects. Right pinky for both.",

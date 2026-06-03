@@ -18,9 +18,30 @@
   "new_keys": [],
   "finger_focus": "Left middle finger finds D",
   "tips": [
-    "D is left middle finger",
-    "Now you can make \"sad\", \"dad\", \"add\"",
-    "Look at that — real words!"
+    {
+      "type": "lead",
+      "text": "D is left middle finger"
+    },
+    {
+      "type": "drop",
+      "text": "Now you can make \"sad\", \"dad\", \"add\""
+    },
+    {
+      "type": "exercise",
+      "target": "d d d d ad ad ad da da",
+      "finger": "green",
+      "hint": "Left middle finger finds D"
+    },
+    {
+      "type": "p",
+      "text": "Look at that — real words!"
+    },
+    {
+      "type": "exercise",
+      "target": "da sad sad sad dad dad dad add add add",
+      "finger": "blue",
+      "hint": "Left middle finger finds D"
+    }
   ],
   "character_tips": {
     "anna": "Three letters! \"Sad\", \"dad\" — real words ✨",

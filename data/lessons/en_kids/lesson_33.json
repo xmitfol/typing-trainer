@@ -17,9 +17,30 @@
   "new_keys": [],
   "finger_focus": "Song-like rhythm",
   "tips": [
-    "A song you can clap along to",
-    "Repeating phrases = rhythm",
-    "Steady beat as you type"
+    {
+      "type": "lead",
+      "text": "A song you can clap along to"
+    },
+    {
+      "type": "drop",
+      "text": "Repeating phrases = rhythm"
+    },
+    {
+      "type": "exercise",
+      "target": "the little fox the little fox jumps and runs jumps and runs",
+      "finger": "purple",
+      "hint": "Song-like rhythm"
+    },
+    {
+      "type": "p",
+      "text": "Steady beat as you type"
+    },
+    {
+      "type": "exercise",
+      "target": "the happy bear the happy bear sings a song sings a song",
+      "finger": "purple",
+      "hint": "Song-like rhythm"
+    }
   ],
   "character_tips": {
     "anna": "Animal song. Tap a rhythm with your fingers.",

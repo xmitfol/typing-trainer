@@ -22,9 +22,30 @@
   "new_keys": [],
   "finger_focus": "Literary analysis rhythm",
   "tips": [
-    "Quotes inside analysis = high-density format",
-    "Mid-sentence quoted phrases",
-    "Real literature class writing"
+    {
+      "type": "lead",
+      "text": "Quotes inside analysis = high-density format"
+    },
+    {
+      "type": "drop",
+      "text": "Mid-sentence quoted phrases"
+    },
+    {
+      "type": "exercise",
+      "target": "The author uses repetition as a powerful tool. Phrases like \"the wind kept blowing\"",
+      "finger": "purple",
+      "hint": "Literary analysis rhythm"
+    },
+    {
+      "type": "p",
+      "text": "Real literature class writing"
+    },
+    {
+      "type": "exercise",
+      "target": "appear in three separate chapters, suggesting that nature itself becomes a character in the novel.",
+      "finger": "purple",
+      "hint": "Literary analysis rhythm"
+    }
   ],
   "character_tips": {
     "anna": "Literary analysis. Quotes inside argument = pro-level English.",

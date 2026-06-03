@@ -10,14 +10,50 @@
   "error_limit": 12,
   "text": "London, Paris, New York, Tokyo. The CEO of TechCorp said: \"AI will change SaaS, IoT, and ML.\" Alice Brown won the Nobel Prize.",
   "text_sequence": [],
-  "keys_trained": ["A-Z (lower)", "A-Z (upper)", "0-9", ".", ",", ":", "\"", "Space", "Shift"],
+  "keys_trained": [
+    "A-Z (lower)",
+    "A-Z (upper)",
+    "0-9",
+    ".",
+    ",",
+    ":",
+    "\"",
+    "Space",
+    "Shift"
+  ],
   "new_keys": [],
   "finger_focus": "Shift + letter for capitals — opposite-hand Shift rule",
   "tips": [
-    "Capital letter: opposite-hand Shift",
-    "For A (left pinky): use right Shift",
-    "For L (right ring): use left Shift",
-    "Acronyms (CEO, AI, SaaS): hold Shift for entire word"
+    {
+      "type": "lead",
+      "text": "Capital letter: opposite-hand Shift"
+    },
+    {
+      "type": "drop",
+      "text": "For A (left pinky): use right Shift"
+    },
+    {
+      "type": "exercise",
+      "target": "London, Paris, New York, Tokyo. The CEO of TechCorp said: \"AI",
+      "finger": "blue",
+      "hint": "Shift + letter for capitals — opposite-hand Shift rule"
+    },
+    {
+      "type": "p",
+      "text": "For L (right ring): use left Shift"
+    },
+    {
+      "type": "callout",
+      "icon": "💡",
+      "title": "Подсказка",
+      "text": "Acronyms (CEO, AI, SaaS): hold Shift for entire word"
+    },
+    {
+      "type": "exercise",
+      "target": "will change SaaS, IoT, and ML.\" Alice Brown won the Nobel Prize.",
+      "finger": "green",
+      "hint": "Shift + letter for capitals — opposite-hand Shift rule"
+    }
   ],
   "character_tips": {
     "anna": "Capital letters demand smooth Shift use. Opposite hand rule.",

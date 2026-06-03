@@ -10,67 +10,388 @@
   "error_limit": 3,
   "text": "ty yt try yet they said try a hat at the day or year",
   "text_sequence": [
-    {"char": "t", "hand": "left", "finger": "index", "key": "T"},
-    {"char": "y", "hand": "right", "finger": "index", "key": "Y"},
-    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
-    {"char": "y", "hand": "right", "finger": "index", "key": "Y"},
-    {"char": "t", "hand": "left", "finger": "index", "key": "T"},
-    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
-    {"char": "t", "hand": "left", "finger": "index", "key": "T"},
-    {"char": "r", "hand": "left", "finger": "index", "key": "R"},
-    {"char": "y", "hand": "right", "finger": "index", "key": "Y"},
-    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
-    {"char": "y", "hand": "right", "finger": "index", "key": "Y"},
-    {"char": "e", "hand": "left", "finger": "middle", "key": "E"},
-    {"char": "t", "hand": "left", "finger": "index", "key": "T"},
-    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
-    {"char": "t", "hand": "left", "finger": "index", "key": "T"},
-    {"char": "h", "hand": "right", "finger": "index", "key": "H"},
-    {"char": "e", "hand": "left", "finger": "middle", "key": "E"},
-    {"char": "y", "hand": "right", "finger": "index", "key": "Y"},
-    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
-    {"char": "s", "hand": "left", "finger": "ring", "key": "S"},
-    {"char": "a", "hand": "left", "finger": "pinky", "key": "A"},
-    {"char": "i", "hand": "right", "finger": "middle", "key": "I"},
-    {"char": "d", "hand": "left", "finger": "middle", "key": "D"},
-    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
-    {"char": "t", "hand": "left", "finger": "index", "key": "T"},
-    {"char": "r", "hand": "left", "finger": "index", "key": "R"},
-    {"char": "y", "hand": "right", "finger": "index", "key": "Y"},
-    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
-    {"char": "a", "hand": "left", "finger": "pinky", "key": "A"},
-    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
-    {"char": "h", "hand": "right", "finger": "index", "key": "H"},
-    {"char": "a", "hand": "left", "finger": "pinky", "key": "A"},
-    {"char": "t", "hand": "left", "finger": "index", "key": "T"},
-    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
-    {"char": "a", "hand": "left", "finger": "pinky", "key": "A"},
-    {"char": "t", "hand": "left", "finger": "index", "key": "T"},
-    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
-    {"char": "t", "hand": "left", "finger": "index", "key": "T"},
-    {"char": "h", "hand": "right", "finger": "index", "key": "H"},
-    {"char": "e", "hand": "left", "finger": "middle", "key": "E"},
-    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
-    {"char": "d", "hand": "left", "finger": "middle", "key": "D"},
-    {"char": "a", "hand": "left", "finger": "pinky", "key": "A"},
-    {"char": "y", "hand": "right", "finger": "index", "key": "Y"},
-    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
-    {"char": "o", "hand": "right", "finger": "ring", "key": "O"},
-    {"char": "r", "hand": "left", "finger": "index", "key": "R"},
-    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
-    {"char": "y", "hand": "right", "finger": "index", "key": "Y"},
-    {"char": "e", "hand": "left", "finger": "middle", "key": "E"},
-    {"char": "a", "hand": "left", "finger": "pinky", "key": "A"},
-    {"char": "r", "hand": "left", "finger": "index", "key": "R"}
+    {
+      "char": "t",
+      "hand": "left",
+      "finger": "index",
+      "key": "T"
+    },
+    {
+      "char": "y",
+      "hand": "right",
+      "finger": "index",
+      "key": "Y"
+    },
+    {
+      "char": " ",
+      "hand": "right",
+      "finger": "thumb",
+      "key": "Space",
+      "space_side": "right"
+    },
+    {
+      "char": "y",
+      "hand": "right",
+      "finger": "index",
+      "key": "Y"
+    },
+    {
+      "char": "t",
+      "hand": "left",
+      "finger": "index",
+      "key": "T"
+    },
+    {
+      "char": " ",
+      "hand": "right",
+      "finger": "thumb",
+      "key": "Space",
+      "space_side": "right"
+    },
+    {
+      "char": "t",
+      "hand": "left",
+      "finger": "index",
+      "key": "T"
+    },
+    {
+      "char": "r",
+      "hand": "left",
+      "finger": "index",
+      "key": "R"
+    },
+    {
+      "char": "y",
+      "hand": "right",
+      "finger": "index",
+      "key": "Y"
+    },
+    {
+      "char": " ",
+      "hand": "right",
+      "finger": "thumb",
+      "key": "Space",
+      "space_side": "right"
+    },
+    {
+      "char": "y",
+      "hand": "right",
+      "finger": "index",
+      "key": "Y"
+    },
+    {
+      "char": "e",
+      "hand": "left",
+      "finger": "middle",
+      "key": "E"
+    },
+    {
+      "char": "t",
+      "hand": "left",
+      "finger": "index",
+      "key": "T"
+    },
+    {
+      "char": " ",
+      "hand": "right",
+      "finger": "thumb",
+      "key": "Space",
+      "space_side": "right"
+    },
+    {
+      "char": "t",
+      "hand": "left",
+      "finger": "index",
+      "key": "T"
+    },
+    {
+      "char": "h",
+      "hand": "right",
+      "finger": "index",
+      "key": "H"
+    },
+    {
+      "char": "e",
+      "hand": "left",
+      "finger": "middle",
+      "key": "E"
+    },
+    {
+      "char": "y",
+      "hand": "right",
+      "finger": "index",
+      "key": "Y"
+    },
+    {
+      "char": " ",
+      "hand": "right",
+      "finger": "thumb",
+      "key": "Space",
+      "space_side": "right"
+    },
+    {
+      "char": "s",
+      "hand": "left",
+      "finger": "ring",
+      "key": "S"
+    },
+    {
+      "char": "a",
+      "hand": "left",
+      "finger": "pinky",
+      "key": "A"
+    },
+    {
+      "char": "i",
+      "hand": "right",
+      "finger": "middle",
+      "key": "I"
+    },
+    {
+      "char": "d",
+      "hand": "left",
+      "finger": "middle",
+      "key": "D"
+    },
+    {
+      "char": " ",
+      "hand": "right",
+      "finger": "thumb",
+      "key": "Space",
+      "space_side": "right"
+    },
+    {
+      "char": "t",
+      "hand": "left",
+      "finger": "index",
+      "key": "T"
+    },
+    {
+      "char": "r",
+      "hand": "left",
+      "finger": "index",
+      "key": "R"
+    },
+    {
+      "char": "y",
+      "hand": "right",
+      "finger": "index",
+      "key": "Y"
+    },
+    {
+      "char": " ",
+      "hand": "right",
+      "finger": "thumb",
+      "key": "Space",
+      "space_side": "right"
+    },
+    {
+      "char": "a",
+      "hand": "left",
+      "finger": "pinky",
+      "key": "A"
+    },
+    {
+      "char": " ",
+      "hand": "right",
+      "finger": "thumb",
+      "key": "Space",
+      "space_side": "right"
+    },
+    {
+      "char": "h",
+      "hand": "right",
+      "finger": "index",
+      "key": "H"
+    },
+    {
+      "char": "a",
+      "hand": "left",
+      "finger": "pinky",
+      "key": "A"
+    },
+    {
+      "char": "t",
+      "hand": "left",
+      "finger": "index",
+      "key": "T"
+    },
+    {
+      "char": " ",
+      "hand": "right",
+      "finger": "thumb",
+      "key": "Space",
+      "space_side": "right"
+    },
+    {
+      "char": "a",
+      "hand": "left",
+      "finger": "pinky",
+      "key": "A"
+    },
+    {
+      "char": "t",
+      "hand": "left",
+      "finger": "index",
+      "key": "T"
+    },
+    {
+      "char": " ",
+      "hand": "right",
+      "finger": "thumb",
+      "key": "Space",
+      "space_side": "right"
+    },
+    {
+      "char": "t",
+      "hand": "left",
+      "finger": "index",
+      "key": "T"
+    },
+    {
+      "char": "h",
+      "hand": "right",
+      "finger": "index",
+      "key": "H"
+    },
+    {
+      "char": "e",
+      "hand": "left",
+      "finger": "middle",
+      "key": "E"
+    },
+    {
+      "char": " ",
+      "hand": "right",
+      "finger": "thumb",
+      "key": "Space",
+      "space_side": "right"
+    },
+    {
+      "char": "d",
+      "hand": "left",
+      "finger": "middle",
+      "key": "D"
+    },
+    {
+      "char": "a",
+      "hand": "left",
+      "finger": "pinky",
+      "key": "A"
+    },
+    {
+      "char": "y",
+      "hand": "right",
+      "finger": "index",
+      "key": "Y"
+    },
+    {
+      "char": " ",
+      "hand": "right",
+      "finger": "thumb",
+      "key": "Space",
+      "space_side": "right"
+    },
+    {
+      "char": "o",
+      "hand": "right",
+      "finger": "ring",
+      "key": "O"
+    },
+    {
+      "char": "r",
+      "hand": "left",
+      "finger": "index",
+      "key": "R"
+    },
+    {
+      "char": " ",
+      "hand": "right",
+      "finger": "thumb",
+      "key": "Space",
+      "space_side": "right"
+    },
+    {
+      "char": "y",
+      "hand": "right",
+      "finger": "index",
+      "key": "Y"
+    },
+    {
+      "char": "e",
+      "hand": "left",
+      "finger": "middle",
+      "key": "E"
+    },
+    {
+      "char": "a",
+      "hand": "left",
+      "finger": "pinky",
+      "key": "A"
+    },
+    {
+      "char": "r",
+      "hand": "left",
+      "finger": "index",
+      "key": "R"
+    }
   ],
-  "keys_trained": ["A", "S", "D", "E", "F", "G", "H", "I", "J", "K", "L", "O", "R", "T", "U", "Y", "Space"],
-  "new_keys": ["T", "Y", "O"],
+  "keys_trained": [
+    "A",
+    "S",
+    "D",
+    "E",
+    "F",
+    "G",
+    "H",
+    "I",
+    "J",
+    "K",
+    "L",
+    "O",
+    "R",
+    "T",
+    "U",
+    "Y",
+    "Space"
+  ],
+  "new_keys": [
+    "T",
+    "Y",
+    "O"
+  ],
   "finger_focus": "Top row: T (left index up-right) and Y (right index up-left), O (right ring up)",
   "tips": [
-    "T is between R and Y on top row — left index reaches up-right",
-    "Y is right of T — right index reaches up-left",
-    "O sits above L — right ring reaches up",
-    "Now you can type \"the\", \"they\", \"day\", \"year\""
+    {
+      "type": "lead",
+      "text": "T is between R and Y on top row — left index reaches up-right"
+    },
+    {
+      "type": "drop",
+      "text": "Y is right of T — right index reaches up-left"
+    },
+    {
+      "type": "exercise",
+      "target": "ty yt try yet they said try",
+      "finger": "orange",
+      "hint": "Буквы: T Y O"
+    },
+    {
+      "type": "p",
+      "text": "O sits above L — right ring reaches up"
+    },
+    {
+      "type": "callout",
+      "icon": "💡",
+      "title": "Подсказка",
+      "text": "Now you can type \"the\", \"they\", \"day\", \"year\""
+    },
+    {
+      "type": "exercise",
+      "target": "a hat at the day or year",
+      "finger": "pink",
+      "hint": "Буквы: T Y O"
+    }
   ],
   "character_tips": {
     "anna": "T and Y are among the most common English letters. The, they, year, day — all rely on them.",

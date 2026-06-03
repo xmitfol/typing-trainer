@@ -10,13 +10,42 @@
   "error_limit": 15,
   "text": "Hi Sarah, thank you for the update on the Q3 roadmap. I reviewed the projections and they look solid. One question: can we shift the marketing launch to mid-August? That would give the engineering team an extra week. Looking forward to your reply. Best, Alex.",
   "text_sequence": [],
-  "keys_trained": ["A-Z", "Space", ",", ".", ":", "?", "Shift"],
+  "keys_trained": [
+    "A-Z",
+    "Space",
+    ",",
+    ".",
+    ":",
+    "?",
+    "Shift"
+  ],
   "new_keys": [],
   "finger_focus": "Email rhythm + tone",
   "tips": [
-    "Average professional writes 30+ emails a day",
-    "Email rhythm = quick greeting + body + signoff — practice all three",
-    "Commas in greetings/signoffs are habits — train muscle memory"
+    {
+      "type": "lead",
+      "text": "Average professional writes 30+ emails a day"
+    },
+    {
+      "type": "drop",
+      "text": "Email rhythm = quick greeting + body + signoff — practice all three"
+    },
+    {
+      "type": "exercise",
+      "target": "Hi Sarah, thank you for the update on the Q3 roadmap. I reviewed the projections and they look solid. One question: can",
+      "finger": "purple",
+      "hint": "Email rhythm + tone"
+    },
+    {
+      "type": "p",
+      "text": "Commas in greetings/signoffs are habits — train muscle memory"
+    },
+    {
+      "type": "exercise",
+      "target": "we shift the marketing launch to mid-August? That would give the engineering team an extra week. Looking forward to your reply. Best, Alex.",
+      "finger": "purple",
+      "hint": "Email rhythm + tone"
+    }
   ],
   "character_tips": {
     "anna": "Emails are the heartbeat of work. Train them = win every workday.",

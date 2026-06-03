@@ -10,45 +10,281 @@
   "error_limit": 8,
   "text": "Цена 678 рублей. Скидка 90%. Адрес: ул. Мира, дом 6-8, кв. 79. Время: 18:00. Дата: 25.06.2024.",
   "text_sequence": [
-    {"char": "Ц", "hand": "left", "finger": "ring", "key": "Ц"},
-    {"char": "е", "hand": "left", "finger": "index", "key": "Е"},
-    {"char": "н", "hand": "left", "finger": "index", "key": "Н"},
-    {"char": "а", "hand": "left", "finger": "index", "key": "А"},
-    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
-    {"char": "6", "hand": "right", "finger": "index", "key": "6"},
-    {"char": "7", "hand": "right", "finger": "index", "key": "7"},
-    {"char": "8", "hand": "right", "finger": "middle", "key": "8"},
-    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
-    {"char": "р", "hand": "left", "finger": "index", "key": "Р"},
-    {"char": "у", "hand": "left", "finger": "index", "key": "У"},
-    {"char": "б", "hand": "left", "finger": "index", "key": "Б"},
-    {"char": "л", "hand": "left", "finger": "middle", "key": "Л"},
-    {"char": "е", "hand": "left", "finger": "index", "key": "Е"},
-    {"char": "й", "hand": "left", "finger": "index", "key": "Й"},
-    {"char": ".", "hand": "left", "finger": "ring", "key": "."},
-    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
-    {"char": "С", "hand": "right", "finger": "middle", "key": "С"},
-    {"char": "к", "hand": "right", "finger": "middle", "key": "К"},
-    {"char": "и", "hand": "right", "finger": "index", "key": "И"},
-    {"char": "д", "hand": "right", "finger": "ring", "key": "Д"},
-    {"char": "к", "hand": "right", "finger": "middle", "key": "К"},
-    {"char": "а", "hand": "right", "finger": "index", "key": "А"},
-    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
-    {"char": "9", "hand": "left", "finger": "middle", "key": "9"},
-    {"char": "0", "hand": "left", "finger": "pinky", "key": "0"},
-    {"char": "%", "hand": "left", "finger": "index", "key": "%"},
-    {"char": ".", "hand": "left", "finger": "ring", "key": "."}
+    {
+      "char": "Ц",
+      "hand": "left",
+      "finger": "ring",
+      "key": "Ц"
+    },
+    {
+      "char": "е",
+      "hand": "left",
+      "finger": "index",
+      "key": "Е"
+    },
+    {
+      "char": "н",
+      "hand": "left",
+      "finger": "index",
+      "key": "Н"
+    },
+    {
+      "char": "а",
+      "hand": "left",
+      "finger": "index",
+      "key": "А"
+    },
+    {
+      "char": " ",
+      "hand": "right",
+      "finger": "thumb",
+      "key": "Space",
+      "space_side": "right"
+    },
+    {
+      "char": "6",
+      "hand": "right",
+      "finger": "index",
+      "key": "6"
+    },
+    {
+      "char": "7",
+      "hand": "right",
+      "finger": "index",
+      "key": "7"
+    },
+    {
+      "char": "8",
+      "hand": "right",
+      "finger": "middle",
+      "key": "8"
+    },
+    {
+      "char": " ",
+      "hand": "left",
+      "finger": "thumb",
+      "key": "Space",
+      "space_side": "left"
+    },
+    {
+      "char": "р",
+      "hand": "left",
+      "finger": "index",
+      "key": "Р"
+    },
+    {
+      "char": "у",
+      "hand": "left",
+      "finger": "index",
+      "key": "У"
+    },
+    {
+      "char": "б",
+      "hand": "left",
+      "finger": "index",
+      "key": "Б"
+    },
+    {
+      "char": "л",
+      "hand": "left",
+      "finger": "middle",
+      "key": "Л"
+    },
+    {
+      "char": "е",
+      "hand": "left",
+      "finger": "index",
+      "key": "Е"
+    },
+    {
+      "char": "й",
+      "hand": "left",
+      "finger": "index",
+      "key": "Й"
+    },
+    {
+      "char": ".",
+      "hand": "left",
+      "finger": "ring",
+      "key": "."
+    },
+    {
+      "char": " ",
+      "hand": "right",
+      "finger": "thumb",
+      "key": "Space",
+      "space_side": "right"
+    },
+    {
+      "char": "С",
+      "hand": "right",
+      "finger": "middle",
+      "key": "С"
+    },
+    {
+      "char": "к",
+      "hand": "right",
+      "finger": "middle",
+      "key": "К"
+    },
+    {
+      "char": "и",
+      "hand": "right",
+      "finger": "index",
+      "key": "И"
+    },
+    {
+      "char": "д",
+      "hand": "right",
+      "finger": "ring",
+      "key": "Д"
+    },
+    {
+      "char": "к",
+      "hand": "right",
+      "finger": "middle",
+      "key": "К"
+    },
+    {
+      "char": "а",
+      "hand": "right",
+      "finger": "index",
+      "key": "А"
+    },
+    {
+      "char": " ",
+      "hand": "left",
+      "finger": "thumb",
+      "key": "Space",
+      "space_side": "left"
+    },
+    {
+      "char": "9",
+      "hand": "left",
+      "finger": "middle",
+      "key": "9"
+    },
+    {
+      "char": "0",
+      "hand": "left",
+      "finger": "pinky",
+      "key": "0"
+    },
+    {
+      "char": "%",
+      "hand": "left",
+      "finger": "index",
+      "key": "%"
+    },
+    {
+      "char": ".",
+      "hand": "left",
+      "finger": "ring",
+      "key": "."
+    }
   ],
-  "keys_trained": ["А", "Б", "В", "Г", "Д", "Е", "Ё", "Ж", "З", "И", "Й", "К", "Л", "М", "Н", "О", "П", "Р", "С", "Т", "У", "Ф", "Х", "Ц", "Ч", "Ш", "Щ", "Ъ", "Ы", "Ь", "Э", "Ю", "Я", "Space", ".", ",", ":", "-", "1", "2", "3", "4", "5", "6", "7", "8", "9", "0", "%", "Shift"],
-  "new_keys": ["6", "7", "8", "9", "%", ":", ","],
+  "keys_trained": [
+    "А",
+    "Б",
+    "В",
+    "Г",
+    "Д",
+    "Е",
+    "Ё",
+    "Ж",
+    "З",
+    "И",
+    "Й",
+    "К",
+    "Л",
+    "М",
+    "Н",
+    "О",
+    "П",
+    "Р",
+    "С",
+    "Т",
+    "У",
+    "Ф",
+    "Х",
+    "Ц",
+    "Ч",
+    "Ш",
+    "Щ",
+    "Ъ",
+    "Ы",
+    "Ь",
+    "Э",
+    "Ю",
+    "Я",
+    "Space",
+    ".",
+    ",",
+    ":",
+    "-",
+    "1",
+    "2",
+    "3",
+    "4",
+    "5",
+    "6",
+    "7",
+    "8",
+    "9",
+    "0",
+    "%",
+    "Shift"
+  ],
+  "new_keys": [
+    "6",
+    "7",
+    "8",
+    "9",
+    "%",
+    ":",
+    ","
+  ],
   "finger_focus": "Полный цифровой ряд и символы",
   "tips": [
-    "ВСЕ ЦИФРЫ 0-9 ОСВОЕНЫ!",
-    "6, 7 - правый указательный",
-    "8 - правый средний",
-    "9 - левый средний",
-    "Символы: % (процент), : (двоеточие), , (запятая)",
-    "Практика: цены, даты, время, адреса"
+    {
+      "type": "lead",
+      "text": "ВСЕ ЦИФРЫ 0-9 ОСВОЕНЫ!"
+    },
+    {
+      "type": "drop",
+      "text": "6, 7 - правый указательный"
+    },
+    {
+      "type": "exercise",
+      "target": "Цена 678 рублей. Скидка 90%. Адрес: ул. Мира,",
+      "finger": "blue",
+      "hint": "Полный цифровой ряд и символы"
+    },
+    {
+      "type": "p",
+      "text": "8 - правый средний"
+    },
+    {
+      "type": "callout",
+      "icon": "💡",
+      "title": "Подсказка",
+      "text": "9 - левый средний"
+    },
+    {
+      "type": "p",
+      "text": "Символы: % (процент), : (двоеточие), , (запятая)"
+    },
+    {
+      "type": "pullquote",
+      "text": "Практика: цены, даты, время, адреса",
+      "by": "методика курса"
+    },
+    {
+      "type": "exercise",
+      "target": "дом 6-8, кв. 79. Время: 18:00. Дата: 25.06.2024.",
+      "finger": "green",
+      "hint": "Полный цифровой ряд и символы"
+    }
   ],
   "character_tips": {
     "anna": "Отлично! Весь цифровой ряд! ЦЕНА-678, СКИДКА-90%, ВРЕМЯ-18:00 - полезная практика!",

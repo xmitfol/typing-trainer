@@ -20,9 +20,30 @@
   "new_keys": [],
   "finger_focus": "Long story",
   "tips": [
-    "Longer story = sustained focus",
-    "Multiple plot beats",
-    "Practice for the finale"
+    {
+      "type": "lead",
+      "text": "Longer story = sustained focus"
+    },
+    {
+      "type": "drop",
+      "text": "Multiple plot beats"
+    },
+    {
+      "type": "exercise",
+      "target": "Once there was a girl named Maya who loved to read. Every night she read a book under the covers with a tiny flashlight. One",
+      "finger": "purple",
+      "hint": "Long story"
+    },
+    {
+      "type": "p",
+      "text": "Practice for the finale"
+    },
+    {
+      "type": "exercise",
+      "target": "night the book started to glow! Inside was a tiny world with tiny people. Maya was their hero from then on. She visited every night.",
+      "finger": "purple",
+      "hint": "Long story"
+    }
   ],
   "character_tips": {
     "anna": "Long story practice. Focus across multiple sentences.",

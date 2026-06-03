@@ -21,9 +21,30 @@
   "new_keys": [],
   "finger_focus": "Final warmup",
   "tips": [
-    "Calming meta-prose",
-    "One lesson to the certificate",
-    "Confidence + readiness"
+    {
+      "type": "lead",
+      "text": "Calming meta-prose"
+    },
+    {
+      "type": "drop",
+      "text": "One lesson to the certificate"
+    },
+    {
+      "type": "exercise",
+      "target": "One lesson left, my little hero. Take a breath. Sit up tall. Place your fingers on home",
+      "finger": "purple",
+      "hint": "Final warmup"
+    },
+    {
+      "type": "p",
+      "text": "Confidence + readiness"
+    },
+    {
+      "type": "exercise",
+      "target": "row. Find F and J by feel. The next lesson is your certificate exam. You can do it!",
+      "finger": "purple",
+      "hint": "Final warmup"
+    }
   ],
   "character_tips": {
     "anna": "Last warmup. Breathe. You've trained for this.",

@@ -20,9 +20,30 @@
   "new_keys": [],
   "finger_focus": "Forum reply rhythm",
   "tips": [
-    "Forum prose = lowercase, conversational, long-ish",
-    "Multiple commas in flow — match the tempo",
-    "Reddit/HN style realism"
+    {
+      "type": "lead",
+      "text": "Forum prose = lowercase, conversational, long-ish"
+    },
+    {
+      "type": "drop",
+      "text": "Multiple commas in flow — match the tempo"
+    },
+    {
+      "type": "exercise",
+      "target": "honestly i had the same problem last year. what worked for me was just stepping back, focusing on one thing",
+      "finger": "purple",
+      "hint": "Forum reply rhythm"
+    },
+    {
+      "type": "p",
+      "text": "Reddit/HN style realism"
+    },
+    {
+      "type": "exercise",
+      "target": "at a time, and not trying to fix everything in a week. small wins add up faster than you think.",
+      "finger": "purple",
+      "hint": "Forum reply rhythm"
+    }
   ],
   "character_tips": {
     "anna": "Forum-thread style. Real online conversation rhythm.",

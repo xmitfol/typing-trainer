@@ -20,9 +20,30 @@
   "new_keys": [],
   "finger_focus": "Block 4 mastery gate",
   "tips": [
-    "🎉 Full fairy tale!",
-    "All capital uses included",
-    "Block 5 brings the certificate exam!"
+    {
+      "type": "lead",
+      "text": "🎉 Full fairy tale!"
+    },
+    {
+      "type": "drop",
+      "text": "All capital uses included"
+    },
+    {
+      "type": "exercise",
+      "target": "There once was a tiny dragon named Pip. Pip was small but had a HUGE heart. He helped lost kittens find their",
+      "finger": "purple",
+      "hint": "Block 4 mastery gate"
+    },
+    {
+      "type": "p",
+      "text": "Block 5 brings the certificate exam!"
+    },
+    {
+      "type": "exercise",
+      "target": "homes. He gave hugs to sad bunnies. He sang songs at night. Every animal in the forest loved Pip very much. The end!",
+      "finger": "purple",
+      "hint": "Block 4 mastery gate"
+    }
   ],
   "character_tips": {
     "anna": "🎯 Block 4 done! Real fairy tale written!",

@@ -17,9 +17,30 @@
   "new_keys": [],
   "finger_focus": "Song-chorus repetition rhythm",
   "tips": [
-    "Choruses repeat for a reason — train muscle memory",
-    "Type along to a beat in your head",
-    "Speed comes from rhythm, not effort"
+    {
+      "type": "lead",
+      "text": "Choruses repeat for a reason — train muscle memory"
+    },
+    {
+      "type": "drop",
+      "text": "Type along to a beat in your head"
+    },
+    {
+      "type": "exercise",
+      "target": "shine shine shine on shine shine shine on we are young",
+      "finger": "blue",
+      "hint": "Song-chorus repetition rhythm"
+    },
+    {
+      "type": "p",
+      "text": "Speed comes from rhythm, not effort"
+    },
+    {
+      "type": "exercise",
+      "target": "we are gold we will never grow old shine shine shine on",
+      "finger": "green",
+      "hint": "Song-chorus repetition rhythm"
+    }
   ],
   "character_tips": {
     "anna": "Song lyrics are repetition by design — perfect for typing speed.",

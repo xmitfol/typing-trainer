@@ -21,9 +21,30 @@
   "new_keys": [],
   "finger_focus": "Essay intro rhythm",
   "tips": [
-    "Block 5 = practical school work",
-    "Essay opening = thesis + scope",
-    "Hold 86 WPM through long sentences"
+    {
+      "type": "lead",
+      "text": "Block 5 = practical school work"
+    },
+    {
+      "type": "drop",
+      "text": "Essay opening = thesis + scope"
+    },
+    {
+      "type": "exercise",
+      "target": "In this essay, I will examine the role of social media in shaping how teenagers communicate, learn, and",
+      "finger": "purple",
+      "hint": "Essay intro rhythm"
+    },
+    {
+      "type": "p",
+      "text": "Hold 86 WPM through long sentences"
+    },
+    {
+      "type": "exercise",
+      "target": "form their identity, with a focus on both the positive and negative impacts seen over the past five years.",
+      "finger": "purple",
+      "hint": "Essay intro rhythm"
+    }
   ],
   "character_tips": {
     "anna": "Block 5 — real school writing. This is what you'll type for years.",

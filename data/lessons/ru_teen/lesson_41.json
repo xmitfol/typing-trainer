@@ -24,9 +24,30 @@
   "new_keys": [],
   "finger_focus": "Структура URL на скорости",
   "tips": [
-    "URL = точка + слэш + смесь символов",
-    "= и ? появляются в query-параметрах",
-    "Современная жизнь = URL-ы"
+    {
+      "type": "lead",
+      "text": "URL = точка + слэш + смесь символов"
+    },
+    {
+      "type": "drop",
+      "text": "= и ? появляются в query-параметрах"
+    },
+    {
+      "type": "exercise",
+      "target": "tiktok.com/@user youtube.com/watch?v=abc123 spotify.com/playlist",
+      "finger": "blue",
+      "hint": "Структура URL на скорости"
+    },
+    {
+      "type": "p",
+      "text": "Современная жизнь = URL-ы"
+    },
+    {
+      "type": "exercise",
+      "target": "insta.com/p/post123 twitch.tv/user discord.gg/server",
+      "finger": "green",
+      "hint": "Структура URL на скорости"
+    }
   ],
   "character_tips": {
     "anna": "URL повсюду. Освой ритм слэш + точка.",

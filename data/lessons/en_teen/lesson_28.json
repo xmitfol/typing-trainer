@@ -17,9 +17,30 @@
   "new_keys": [],
   "finger_focus": "Sustained song-lyric rhythm",
   "tips": [
-    "Multi-line lyric verse — find the song-like rhythm",
-    "Metronome at 53 BPM",
-    "Speed comes from feel, not effort"
+    {
+      "type": "lead",
+      "text": "Multi-line lyric verse — find the song-like rhythm"
+    },
+    {
+      "type": "drop",
+      "text": "Metronome at 53 BPM"
+    },
+    {
+      "type": "exercise",
+      "target": "tonight we own the city lights tonight we make the",
+      "finger": "blue",
+      "hint": "Sustained song-lyric rhythm"
+    },
+    {
+      "type": "p",
+      "text": "Speed comes from feel, not effort"
+    },
+    {
+      "type": "exercise",
+      "target": "rules tonight we never close our eyes tonight we never lose",
+      "finger": "green",
+      "hint": "Sustained song-lyric rhythm"
+    }
   ],
   "character_tips": {
     "anna": "Lyric verse at full speed. Sing along in your head.",

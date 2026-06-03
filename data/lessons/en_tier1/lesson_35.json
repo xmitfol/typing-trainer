@@ -10,14 +10,53 @@
   "error_limit": 9,
   "text": "src/main.js path: /home/user/docs my_file.txt _temp_ /usr/local 4/2 = 2 escape: \\n \\t \\\\ ok",
   "text_sequence": [],
-  "keys_trained": ["A-Z", "0-9", "/", "\\", "_", ":", ".", "=", "Space"],
-  "new_keys": ["\\", "_"],
+  "keys_trained": [
+    "A-Z",
+    "0-9",
+    "/",
+    "\\",
+    "_",
+    ":",
+    ".",
+    "=",
+    "Space"
+  ],
+  "new_keys": [
+    "\\",
+    "_"
+  ],
   "finger_focus": "Right pinky / and \\, Shift+minus for _",
   "tips": [
-    "/ is right pinky bottom row (no Shift)",
-    "\\ is right pinky top-right (between ] and Enter, no Shift)",
-    "_ = Shift + - (right pinky)",
-    "Common in file paths, code, technical writing"
+    {
+      "type": "lead",
+      "text": "/ is right pinky bottom row (no Shift)"
+    },
+    {
+      "type": "drop",
+      "text": "\\ is right pinky top-right (between ] and Enter, no Shift)"
+    },
+    {
+      "type": "exercise",
+      "target": "src/main.js path: /home/user/docs my_file.txt _temp_ /usr/local 4/2",
+      "finger": "pink",
+      "hint": "Right pinky / and \\, Shift+minus for _"
+    },
+    {
+      "type": "p",
+      "text": "_ = Shift + - (right pinky)"
+    },
+    {
+      "type": "callout",
+      "icon": "💡",
+      "title": "Подсказка",
+      "text": "Common in file paths, code, technical writing"
+    },
+    {
+      "type": "exercise",
+      "target": "= 2 escape: \\n \\t \\\\ ok",
+      "finger": "orange",
+      "hint": "Right pinky / and \\, Shift+minus for _"
+    }
   ],
   "character_tips": {
     "anna": "Slashes for paths and division. Underscore for variable names.",

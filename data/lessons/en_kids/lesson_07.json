@@ -24,9 +24,30 @@
   "new_keys": [],
   "finger_focus": "Right pinky + semicolons + spaces",
   "tips": [
-    "Semicolon (;) is your right pinky's home",
-    "Space bar with your thumb",
-    "First sentence: \"a sad lad\""
+    {
+      "type": "lead",
+      "text": "Semicolon (;) is your right pinky's home"
+    },
+    {
+      "type": "drop",
+      "text": "Space bar with your thumb"
+    },
+    {
+      "type": "exercise",
+      "target": "; ; ; a sad lad;",
+      "finger": "pink",
+      "hint": "Right pinky + semicolons + spaces"
+    },
+    {
+      "type": "p",
+      "text": "First sentence: \"a sad lad\""
+    },
+    {
+      "type": "exercise",
+      "target": "a fall; jak falls; dad asks;",
+      "finger": "orange",
+      "hint": "Right pinky + semicolons + spaces"
+    }
   ],
   "character_tips": {
     "anna": "First sentence ever! \"A sad lad\". You're writing 🌸",

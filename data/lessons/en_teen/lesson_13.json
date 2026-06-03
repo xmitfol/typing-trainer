@@ -17,9 +17,30 @@
   "new_keys": [],
   "finger_focus": "Gaming vocabulary",
   "tips": [
-    "Gaming words = short, frequent, punchy",
-    "If you game, these are muscle memory targets",
-    "If you don't game, the rhythm still trains you"
+    {
+      "type": "lead",
+      "text": "Gaming words = short, frequent, punchy"
+    },
+    {
+      "type": "drop",
+      "text": "If you game, these are muscle memory targets"
+    },
+    {
+      "type": "exercise",
+      "target": "gg win play game level boss loot raid clan crew",
+      "finger": "blue",
+      "hint": "Gaming vocabulary"
+    },
+    {
+      "type": "p",
+      "text": "If you don't game, the rhythm still trains you"
+    },
+    {
+      "type": "exercise",
+      "target": "rank score chat ping lag pro mvp epic op meta",
+      "finger": "green",
+      "hint": "Gaming vocabulary"
+    }
   ],
   "character_tips": {
     "anna": "Common gaming words. Short, punchy — perfect speed practice.",

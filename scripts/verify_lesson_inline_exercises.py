@@ -134,7 +134,10 @@ def main():
 
         shot(page, '02_first_exercise_done')
 
-        # ─── Backward compat: lesson_02 (старая структура — tips[] strings) ──
+        # ─── Backward compat: lesson-page.js всё ещё поддерживает старые
+        # string-tips (после миграции 458 уроков таких в репо нет, но code
+        # должен корректно работать если кто-то загрузит legacy lesson.json).
+        # Проверяем через подмену lessonLoader.loadLesson.
         page2 = ctx.new_page()
         page2.goto(f'{BASE}/index.html')
         page2.evaluate("""
@@ -143,10 +146,35 @@ def main():
                 language:'ru', onboardingCompleted:true,
                 keyboardType:'classic', keyboardLayout:'standard'
             }));
-            // фейково проходим урок 1 чтобы открыть 2
             localStorage.setItem('typing_trainer_lesson_progress', JSON.stringify({
                 '1': {stars:4, bestWPM:30, bestAccuracy:95}
             }));
+        """)
+        # Подменяем lessonLoader ДО навигации — page.add_init_script инжектится
+        # перед каждым DOMContentLoaded. Lesson получается с pure-string tips.
+        page2.add_init_script("""
+            window.addEventListener('DOMContentLoaded', () => {
+                if (!window.lessonLoader) return;
+                const orig = window.lessonLoader.loadLesson.bind(window.lessonLoader);
+                window.lessonLoader.loadLesson = async (tier, n) => {
+                    if (n === 2) return {
+                        id: 'mock', tier: 1, lesson_number: 2,
+                        title: 'Legacy Mock Lesson',
+                        description: 'String-tips fixture',
+                        text: 'ааа ооо', target_wpm: 10, error_limit: 2,
+                        phase: 1, new_keys: ['А', 'О'],
+                        finger_focus: 'Указательные пальцы',
+                        tips: [
+                            'Это первый старо-строковый tip',
+                            'Это второй tip — должен стать drop-cap',
+                            'Это третий tip — должен стать callout',
+                            'Это четвёртый tip'
+                        ],
+                        character_tips: { anna: 'Анна говорит привет' }
+                    };
+                    return orig(tier, n);
+                };
+            });
         """)
         page2.goto(f'{BASE}/lesson.html?tier=tier1&lesson=2')
         page2.wait_for_selector('#lpTitle', timeout=8000)
@@ -154,10 +182,11 @@ def main():
         legacy_inline = page2.locator('.lp-exercise--inline').count()
         legacy_tips_p = page2.locator('#lpTips .lp-p').count()
         legacy_callout = page2.locator('#lpTips .lp-callout').count()
-        legacy_errors = page2.evaluate("[...document.querySelectorAll('script')].length, document.body.innerText.length > 100")
-        print(f'7) lesson_02 (legacy string tips): inline={legacy_inline}, p={legacy_tips_p}, callout={legacy_callout}')
-        if legacy_inline == 0 and legacy_tips_p >= 2:
-            print('   ✅ backward-compat: легаси-урок рендерится без inline-exercise')
+        legacy_title = page2.locator('#lpTitle').inner_text()
+        print(f'7) Legacy mock string-tips: title="{legacy_title}", inline={legacy_inline}, p={legacy_tips_p}, callout={legacy_callout}')
+        # При string tips: 0 inline-exercise, ≥2 параграфа, ≥1 callout (3-й tip)
+        if legacy_inline == 0 and legacy_tips_p >= 2 and legacy_callout >= 1:
+            print('   ✅ backward-compat code path всё ещё работает')
         else:
             failed += 1; print('   ❌ backward-compat сломан')
 

@@ -21,10 +21,36 @@
   "new_keys": [],
   "finger_focus": "Kids course comprehensive exam",
   "tips": [
-    "🎓 KIDS COURSE FINAL!",
-    "Pass at 25+ WPM = Bronze, 40+ = Silver",
-    "After this you are CERTIFIED!",
-    "Type slowly if you must — accuracy first"
+    {
+      "type": "lead",
+      "text": "🎓 KIDS COURSE FINAL!"
+    },
+    {
+      "type": "drop",
+      "text": "Pass at 25+ WPM = Bronze, 40+ = Silver"
+    },
+    {
+      "type": "exercise",
+      "target": "Once there was a brave little kid who wanted to learn to type. They started with just one letter. Then two. Then ten. Then they",
+      "finger": "purple",
+      "hint": "Kids course comprehensive exam"
+    },
+    {
+      "type": "p",
+      "text": "After this you are CERTIFIED!"
+    },
+    {
+      "type": "callout",
+      "icon": "💡",
+      "title": "Подсказка",
+      "text": "Type slowly if you must — accuracy first"
+    },
+    {
+      "type": "exercise",
+      "target": "could write stories, ask questions, and count to a hundred! After 50 lessons, they earned the title of Real Typist. That brave kid is YOU. Yay!",
+      "finger": "purple",
+      "hint": "Kids course comprehensive exam"
+    }
   ],
   "character_tips": {
     "anna": "🎓🏆 KIDS FINAL! 50 lessons led here. Type with care!",

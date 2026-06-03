@@ -21,9 +21,30 @@
   "new_keys": [],
   "finger_focus": "70-lesson speed test",
   "tips": [
-    "93 WPM on school content = elite teen",
-    "5 lessons to final tournament exam",
-    "L75 is the certificate exam"
+    {
+      "type": "lead",
+      "text": "93 WPM on school content = elite teen"
+    },
+    {
+      "type": "drop",
+      "text": "5 lessons to final tournament exam"
+    },
+    {
+      "type": "exercise",
+      "target": "Five lessons remain. You can type 93 words per minute on dense school content — most adults",
+      "finger": "purple",
+      "hint": "70-lesson speed test"
+    },
+    {
+      "type": "p",
+      "text": "L75 is the certificate exam"
+    },
+    {
+      "type": "exercise",
+      "target": "can't. The final, at lesson 75, is a tournament-style mixed-content paragraph. Stay sharp, stay accurate, finish strong.",
+      "finger": "purple",
+      "hint": "70-lesson speed test"
+    }
   ],
   "character_tips": {
     "anna": "🎯 93 WPM. Five lessons left. Don't peak early — hold steady.",

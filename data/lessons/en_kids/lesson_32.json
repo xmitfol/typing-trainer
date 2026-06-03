@@ -20,9 +20,30 @@
   "new_keys": [],
   "finger_focus": "Story chapter 2",
   "tips": [
-    "Story has problem + solution",
-    "Multi-sentence emotional flow",
-    "Picture the fox finding home"
+    {
+      "type": "lead",
+      "text": "Story has problem + solution"
+    },
+    {
+      "type": "drop",
+      "text": "Multi-sentence emotional flow"
+    },
+    {
+      "type": "exercise",
+      "target": "One day the little fox got lost. He was scared. He looked for his friends. He",
+      "finger": "purple",
+      "hint": "Story chapter 2"
+    },
+    {
+      "type": "p",
+      "text": "Picture the fox finding home"
+    },
+    {
+      "type": "exercise",
+      "target": "called and called. Then he saw a tree he knew. He ran home and found his family!",
+      "finger": "purple",
+      "hint": "Story chapter 2"
+    }
   ],
   "character_tips": {
     "anna": "Stories have problems and solutions. Picture each part.",

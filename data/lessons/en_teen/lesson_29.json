@@ -24,9 +24,30 @@
   "new_keys": [],
   "finger_focus": "Mixed content pre-final",
   "tips": [
-    "All character classes — letters, digit, punctuation",
-    "Realistic team message style",
-    "Last warmup before BLOCK 2 FINAL"
+    {
+      "type": "lead",
+      "text": "All character classes — letters, digit, punctuation"
+    },
+    {
+      "type": "drop",
+      "text": "Realistic team message style"
+    },
+    {
+      "type": "exercise",
+      "target": "Hey team, the tournament starts at 7 sharp. Bring your A-game, your",
+      "finger": "blue",
+      "hint": "Mixed content pre-final"
+    },
+    {
+      "type": "p",
+      "text": "Last warmup before BLOCK 2 FINAL"
+    },
+    {
+      "type": "exercise",
+      "target": "headphones, and stay focused. We've trained for this — let's win it together!",
+      "finger": "green",
+      "hint": "Mixed content pre-final"
+    }
   ],
   "character_tips": {
     "anna": "Real teen team-message style. One step before the final.",

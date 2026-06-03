@@ -26,9 +26,30 @@
   "new_keys": [],
   "finger_focus": "Both hands top row",
   "tips": [
-    "Hand alternation = speed booster",
-    "Most English uses TY-RE-WE-OP patterns",
-    "Notice your hands trading off"
+    {
+      "type": "lead",
+      "text": "Hand alternation = speed booster"
+    },
+    {
+      "type": "drop",
+      "text": "Most English uses TY-RE-WE-OP patterns"
+    },
+    {
+      "type": "exercise",
+      "target": "type writer poetry quiet quote weather report quarter",
+      "finger": "blue",
+      "hint": "Both hands top row"
+    },
+    {
+      "type": "p",
+      "text": "Notice your hands trading off"
+    },
+    {
+      "type": "exercise",
+      "target": "try water power try writer poet point quote",
+      "finger": "green",
+      "hint": "Both hands top row"
+    }
   ],
   "character_tips": {
     "anna": "Hand alternation = natural speed. Feel both hands trading off.",

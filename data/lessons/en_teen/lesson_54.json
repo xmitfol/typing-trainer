@@ -22,9 +22,30 @@
   "new_keys": [],
   "finger_focus": "Commentary writing rhythm",
   "tips": [
-    "Punchy opinion writing format",
-    "Numbers + punctuation + capitals mixed",
-    "Quick observational prose"
+    {
+      "type": "lead",
+      "text": "Punchy opinion writing format"
+    },
+    {
+      "type": "drop",
+      "text": "Numbers + punctuation + capitals mixed"
+    },
+    {
+      "type": "exercise",
+      "target": "Hot take: streaming services are stagnating, AI music is everywhere now, and the best content lives on",
+      "finger": "purple",
+      "hint": "Commentary writing rhythm"
+    },
+    {
+      "type": "p",
+      "text": "Quick observational prose"
+    },
+    {
+      "type": "exercise",
+      "target": "small creators with under 50K followers. The big platforms know it. Question is what they'll do about it.",
+      "finger": "purple",
+      "hint": "Commentary writing rhythm"
+    }
   ],
   "character_tips": {
     "anna": "Hot-take commentary. Modern opinion writing format.",

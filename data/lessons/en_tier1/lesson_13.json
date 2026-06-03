@@ -10,13 +10,62 @@
   "error_limit": 5,
   "text": "i see the sun rise over the hills as morning starts a new day for us to share",
   "text_sequence": [],
-  "keys_trained": ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", "Space"],
+  "keys_trained": [
+    "A",
+    "B",
+    "C",
+    "D",
+    "E",
+    "F",
+    "G",
+    "H",
+    "I",
+    "J",
+    "K",
+    "L",
+    "M",
+    "N",
+    "O",
+    "P",
+    "Q",
+    "R",
+    "S",
+    "T",
+    "U",
+    "V",
+    "W",
+    "X",
+    "Y",
+    "Z",
+    "Space"
+  ],
   "new_keys": [],
   "finger_focus": "All — pure rhythm",
   "tips": [
-    "Set a tempo in your head — like music",
-    "If you slow down, that's fine — accuracy first",
-    "Try the metronome toggle in the toolbar for help"
+    {
+      "type": "lead",
+      "text": "Set a tempo in your head — like music"
+    },
+    {
+      "type": "drop",
+      "text": "If you slow down, that's fine — accuracy first"
+    },
+    {
+      "type": "exercise",
+      "target": "i see the sun rise over the hills as",
+      "finger": "blue",
+      "hint": "All — pure rhythm"
+    },
+    {
+      "type": "p",
+      "text": "Try the metronome toggle in the toolbar for help"
+    },
+    {
+      "type": "exercise",
+      "target": "morning starts a new day for us to share",
+      "finger": "green",
+      "hint": "All — pure rhythm"
+    }
   ],
   "character_tips": {
     "anna": "Rhythm lesson — turn on the metronome and follow the beat.",

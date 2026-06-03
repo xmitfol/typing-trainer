@@ -17,9 +17,30 @@
   "new_keys": [],
   "finger_focus": "Food vocabulary",
   "tips": [
-    "Tasty words!",
-    "Foods are friendly to picture",
-    "Type each one twice in your mind"
+    {
+      "type": "lead",
+      "text": "Tasty words!"
+    },
+    {
+      "type": "drop",
+      "text": "Foods are friendly to picture"
+    },
+    {
+      "type": "exercise",
+      "target": "apple milk cake bread egg honey juice",
+      "finger": "blue",
+      "hint": "Food vocabulary"
+    },
+    {
+      "type": "p",
+      "text": "Type each one twice in your mind"
+    },
+    {
+      "type": "exercise",
+      "target": "rice cheese banana pizza soup carrot lemon plum",
+      "finger": "green",
+      "hint": "Food vocabulary"
+    }
   ],
   "character_tips": {
     "anna": "Foods! Imagine them as you type each word.",

@@ -10,13 +10,39 @@
   "error_limit": 15,
   "text": "Breaking: SpaceX Launches Starship at 12:30 PM. Markets React: Apple Up 3%, Tesla Down 2%. Meanwhile, Scientists Discover New Planet — \"Truly Remarkable!\"",
   "text_sequence": [],
-  "keys_trained": ["A-Z", "0-9", "all punctuation", "Shift"],
+  "keys_trained": [
+    "A-Z",
+    "0-9",
+    "all punctuation",
+    "Shift"
+  ],
   "new_keys": [],
   "finger_focus": "News-style rhythm",
   "tips": [
-    "Title Case: First Letter Of Each Word Capitalized",
-    "Real news patterns — % symbols, times, em dashes",
-    "Steady tempo for long mixed text"
+    {
+      "type": "lead",
+      "text": "Title Case: First Letter Of Each Word Capitalized"
+    },
+    {
+      "type": "drop",
+      "text": "Real news patterns — % symbols, times, em dashes"
+    },
+    {
+      "type": "exercise",
+      "target": "Breaking: SpaceX Launches Starship at 12:30 PM. Markets React: Apple Up",
+      "finger": "blue",
+      "hint": "News-style rhythm"
+    },
+    {
+      "type": "p",
+      "text": "Steady tempo for long mixed text"
+    },
+    {
+      "type": "exercise",
+      "target": "3%, Tesla Down 2%. Meanwhile, Scientists Discover New Planet — \"Truly Remarkable!\"",
+      "finger": "green",
+      "hint": "News-style rhythm"
+    }
   ],
   "character_tips": {
     "anna": "News headline style — practice for content writers and journalists.",

@@ -28,9 +28,30 @@
   "new_keys": [],
   "finger_focus": "Block 3 mastery gate at 70 WPM",
   "tips": [
-    "🎓 Teen Block 3 done! 70 WPM on social content = elite teen typing",
-    "Block 4 next: pure speed sprints",
-    "Last finale: L75 at 90 WPM on real-world prose"
+    {
+      "type": "lead",
+      "text": "🎓 Teen Block 3 done! 70 WPM on social content = elite teen typing"
+    },
+    {
+      "type": "drop",
+      "text": "Block 4 next: pure speed sprints"
+    },
+    {
+      "type": "exercise",
+      "target": "Tournament day! 🏆 We're live at 6 PM on twitch.tv/squad-2026 with the full lineup: @ace, @nova, @blaze. Drop a",
+      "finger": "blue",
+      "hint": "Block 3 mastery gate at 70 WPM"
+    },
+    {
+      "type": "p",
+      "text": "Last finale: L75 at 90 WPM on real-world prose"
+    },
+    {
+      "type": "exercise",
+      "target": "follow if you want to play with us next week — we're recruiting one more spot. Catch you all live!",
+      "finger": "green",
+      "hint": "Block 3 mastery gate at 70 WPM"
+    }
   ],
   "character_tips": {
     "anna": "🎯 Teen Block 3 done! 70 WPM on social. Block 4 = pure speed.",

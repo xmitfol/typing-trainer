@@ -10,13 +10,46 @@
   "error_limit": 15,
   "text": "Order #4521 ships Monday for $129.50. Customer ID 7821 (priority) needs follow-up by 14:30 today. Team meeting at 9 a.m. Slack channel: #ops-2026. Backup: 100% verified. Time saved: 45 min.",
   "text_sequence": [],
-  "keys_trained": ["A-Z", "0-9", ":", ".", ",", "$", "#", "(", ")", "%", "Shift"],
+  "keys_trained": [
+    "A-Z",
+    "0-9",
+    ":",
+    ".",
+    ",",
+    "$",
+    "#",
+    "(",
+    ")",
+    "%",
+    "Shift"
+  ],
   "new_keys": [],
   "finger_focus": "Speed across alphanumeric + symbols",
   "tips": [
-    "Real ops/business text mixes everything — train mixed content",
-    "Don't slow for digits — they should be as fast as letters by now",
-    "Symbols ($, #, %) flow into the same rhythm as text"
+    {
+      "type": "lead",
+      "text": "Real ops/business text mixes everything — train mixed content"
+    },
+    {
+      "type": "drop",
+      "text": "Don't slow for digits — they should be as fast as letters by now"
+    },
+    {
+      "type": "exercise",
+      "target": "Order #4521 ships Monday for $129.50. Customer ID 7821 (priority) needs follow-up by 14:30 today.",
+      "finger": "purple",
+      "hint": "Speed across alphanumeric + symbols"
+    },
+    {
+      "type": "p",
+      "text": "Symbols ($, #, %) flow into the same rhythm as text"
+    },
+    {
+      "type": "exercise",
+      "target": "Team meeting at 9 a.m. Slack channel: #ops-2026. Backup: 100% verified. Time saved: 45 min.",
+      "finger": "purple",
+      "hint": "Speed across alphanumeric + symbols"
+    }
   ],
   "character_tips": {
     "anna": "Mixed content is where most pros plateau. Push through it here.",

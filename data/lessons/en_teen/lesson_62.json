@@ -21,9 +21,30 @@
   "new_keys": [],
   "finger_focus": "Body paragraph rhythm",
   "tips": [
-    "Argument structure: claim + example + impact",
-    "Long flowing sentences",
-    "Real essay tempo"
+    {
+      "type": "lead",
+      "text": "Argument structure: claim + example + impact"
+    },
+    {
+      "type": "drop",
+      "text": "Long flowing sentences"
+    },
+    {
+      "type": "exercise",
+      "target": "One clear example of this trend is the rise of short-form video platforms, which have transformed not",
+      "finger": "purple",
+      "hint": "Body paragraph rhythm"
+    },
+    {
+      "type": "p",
+      "text": "Real essay tempo"
+    },
+    {
+      "type": "exercise",
+      "target": "only entertainment but also how students study, share information, and even apply for jobs in the modern workplace.",
+      "finger": "purple",
+      "hint": "Body paragraph rhythm"
+    }
   ],
   "character_tips": {
     "anna": "Body paragraph structure. Real essay format at speed.",

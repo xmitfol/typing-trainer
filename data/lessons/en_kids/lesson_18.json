@@ -17,9 +17,30 @@
   "new_keys": [],
   "finger_focus": "Family vocabulary",
   "tips": [
-    "Family is the best!",
-    "Each word is someone you love",
-    "Picture their face as you type"
+    {
+      "type": "lead",
+      "text": "Family is the best!"
+    },
+    {
+      "type": "drop",
+      "text": "Each word is someone you love"
+    },
+    {
+      "type": "exercise",
+      "target": "mom dad sister brother grandma grandpa aunt",
+      "finger": "blue",
+      "hint": "Family vocabulary"
+    },
+    {
+      "type": "p",
+      "text": "Picture their face as you type"
+    },
+    {
+      "type": "exercise",
+      "target": "uncle baby cousin friend pet love family home",
+      "finger": "green",
+      "hint": "Family vocabulary"
+    }
   ],
   "character_tips": {
     "anna": "Family words. Each one is special.",

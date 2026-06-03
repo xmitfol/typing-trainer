@@ -22,9 +22,30 @@
   "new_keys": [],
   "finger_focus": "Number row right side",
   "tips": [
-    "6 = right index, 0 = right pinky",
-    "Same fingers as YUIOP",
-    "Numbers + words mix"
+    {
+      "type": "lead",
+      "text": "6 = right index, 0 = right pinky"
+    },
+    {
+      "type": "drop",
+      "text": "Same fingers as YUIOP"
+    },
+    {
+      "type": "exercise",
+      "target": "6 7 8 9 10 six seven eight nine ten",
+      "finger": "blue",
+      "hint": "Number row right side"
+    },
+    {
+      "type": "p",
+      "text": "Numbers + words mix"
+    },
+    {
+      "type": "exercise",
+      "target": "678910 six bees seven cats eight dogs nine fish ten kids",
+      "finger": "green",
+      "hint": "Number row right side"
+    }
   ],
   "character_tips": {
     "anna": "Right side numbers. Mirror of left side.",

@@ -22,9 +22,30 @@
   "new_keys": [],
   "finger_focus": "45-lesson speed test",
   "tips": [
-    "🎉 Five lessons left!",
-    "Real typing skill achieved",
-    "Finale at L50 — the certificate!"
+    {
+      "type": "lead",
+      "text": "🎉 Five lessons left!"
+    },
+    {
+      "type": "drop",
+      "text": "Real typing skill achieved"
+    },
+    {
+      "type": "exercise",
+      "target": "45 lessons! You can write real stories, ask questions, count numbers, and share your feelings.",
+      "finger": "purple",
+      "hint": "45-lesson speed test"
+    },
+    {
+      "type": "p",
+      "text": "Finale at L50 — the certificate!"
+    },
+    {
+      "type": "exercise",
+      "target": "Five lessons left until you become a certified little typist. Stay calm, type with care!",
+      "finger": "purple",
+      "hint": "45-lesson speed test"
+    }
   ],
   "character_tips": {
     "anna": "🎯 45 in! Five to the certificate. Stay calm.",

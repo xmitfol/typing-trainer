@@ -17,9 +17,30 @@
   "new_keys": [],
   "finger_focus": "Word formation",
   "tips": [
-    "Real little sentences!",
-    "Each tiny word is just 2-3 letters",
-    "Spaces with your thumb"
+    {
+      "type": "lead",
+      "text": "Real little sentences!"
+    },
+    {
+      "type": "drop",
+      "text": "Each tiny word is just 2-3 letters"
+    },
+    {
+      "type": "exercise",
+      "target": "the cat sat on a mat the dog ran fast the sun",
+      "finger": "blue",
+      "hint": "Word formation"
+    },
+    {
+      "type": "p",
+      "text": "Spaces with your thumb"
+    },
+    {
+      "type": "exercise",
+      "target": "was hot a fish in the sea a bee on a tree",
+      "finger": "green",
+      "hint": "Word formation"
+    }
   ],
   "character_tips": {
     "anna": "Look — real sentences! Tiny words, big meaning.",

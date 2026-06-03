@@ -10,13 +10,37 @@
   "error_limit": 11,
   "text": "run jump write read type code learn teach build make plan ship test fix find search send share open close start stop help play work move keep show",
   "text_sequence": [],
-  "keys_trained": ["all letters", "Space"],
+  "keys_trained": [
+    "all letters",
+    "Space"
+  ],
   "new_keys": [],
   "finger_focus": "Mixed verb endings",
   "tips": [
-    "Action verbs appear in 30% of all writing",
-    "Note: -ck, -mp, -nd endings — train these clusters",
-    "Each verb should feel like a beat — boom, boom, boom"
+    {
+      "type": "lead",
+      "text": "Action verbs appear in 30% of all writing"
+    },
+    {
+      "type": "drop",
+      "text": "Note: -ck, -mp, -nd endings — train these clusters"
+    },
+    {
+      "type": "exercise",
+      "target": "run jump write read type code learn teach build make plan ship test fix",
+      "finger": "purple",
+      "hint": "Mixed verb endings"
+    },
+    {
+      "type": "p",
+      "text": "Each verb should feel like a beat — boom, boom, boom"
+    },
+    {
+      "type": "exercise",
+      "target": "find search send share open close start stop help play work move keep show",
+      "finger": "purple",
+      "hint": "Mixed verb endings"
+    }
   ],
   "character_tips": {
     "anna": "Verbs drive sentences. Drilling them = drilling 30% of all your writing.",

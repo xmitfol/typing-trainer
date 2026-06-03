@@ -17,9 +17,30 @@
   "new_keys": [],
   "finger_focus": "Rhythm with words",
   "tips": [
-    "Same word three times = practice",
-    "Like a song, my dear",
-    "Steady beat with your fingers"
+    {
+      "type": "lead",
+      "text": "Same word three times = practice"
+    },
+    {
+      "type": "drop",
+      "text": "Like a song, my dear"
+    },
+    {
+      "type": "exercise",
+      "target": "cat cat cat dog dog dog see see see run run run",
+      "finger": "blue",
+      "hint": "Rhythm with words"
+    },
+    {
+      "type": "p",
+      "text": "Steady beat with your fingers"
+    },
+    {
+      "type": "exercise",
+      "target": "fun fun fun the the the and and and yes yes yes",
+      "finger": "green",
+      "hint": "Rhythm with words"
+    }
   ],
   "character_tips": {
     "anna": "Words like song verses — three times each.",

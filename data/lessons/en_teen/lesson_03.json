@@ -24,9 +24,30 @@
   "new_keys": [],
   "finger_focus": "Home row + punctuation intro",
   "tips": [
-    "Sentences with only home-row letters",
-    "Semicolons live on home row too — pinky right",
-    "Don't break flow at the spaces"
+    {
+      "type": "lead",
+      "text": "Sentences with only home-row letters"
+    },
+    {
+      "type": "drop",
+      "text": "Semicolons live on home row too — pinky right"
+    },
+    {
+      "type": "exercise",
+      "target": "a sad lad asks dad;",
+      "finger": "blue",
+      "hint": "Home row + punctuation intro"
+    },
+    {
+      "type": "p",
+      "text": "Don't break flow at the spaces"
+    },
+    {
+      "type": "exercise",
+      "target": "a lass falls; dads ask lads;",
+      "finger": "green",
+      "hint": "Home row + punctuation intro"
+    }
   ],
   "character_tips": {
     "anna": "Sentences without leaving home row. Notice how little your hands move?",

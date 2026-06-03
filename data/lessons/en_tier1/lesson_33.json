@@ -10,13 +10,58 @@
   "error_limit": 10,
   "text": "alex@work.com sent: \"see #task42 — it's $500 work; 80% done!\" reply: \"got it, 4 of 5 tasks (4/5).\"",
   "text_sequence": [],
-  "keys_trained": ["A-Z", "0-9", "!", "@", "#", "$", "%", "^", "&", "*", "(", ")", ":", ";", ",", ".", "?", "\"", "/", "-", "Space"],
-  "new_keys": ["/"],
+  "keys_trained": [
+    "A-Z",
+    "0-9",
+    "!",
+    "@",
+    "#",
+    "$",
+    "%",
+    "^",
+    "&",
+    "*",
+    "(",
+    ")",
+    ":",
+    ";",
+    ",",
+    ".",
+    "?",
+    "\"",
+    "/",
+    "-",
+    "Space"
+  ],
+  "new_keys": [
+    "/"
+  ],
   "finger_focus": "All symbols rhythm",
   "tips": [
-    "Mix of email, hashtag, price, percentage, parens",
-    "Slash (/) — right pinky bottom row",
-    "Real-world text: \"4/5 tasks\" style is common"
+    {
+      "type": "lead",
+      "text": "Mix of email, hashtag, price, percentage, parens"
+    },
+    {
+      "type": "drop",
+      "text": "Slash (/) — right pinky bottom row"
+    },
+    {
+      "type": "exercise",
+      "target": "alex@work.com sent: \"see #task42 — it's $500 work; 80%",
+      "finger": "blue",
+      "hint": "All symbols rhythm"
+    },
+    {
+      "type": "p",
+      "text": "Real-world text: \"4/5 tasks\" style is common"
+    },
+    {
+      "type": "exercise",
+      "target": "done!\" reply: \"got it, 4 of 5 tasks (4/5).\"",
+      "finger": "green",
+      "hint": "All symbols rhythm"
+    }
   ],
   "character_tips": {
     "anna": "All symbols in real context — email, prices, code snippets.",

@@ -10,14 +10,58 @@
   "error_limit": 9,
   "text": "x = 1 + 2 - 3. y < 10. z > 0. a == b. c != d. e <= f. g >= h. true | false. ~null. x += 1.",
   "text_sequence": [],
-  "keys_trained": ["A-Z", "0-9", "=", "+", "-", "<", ">", "|", "~", "!", "Space"],
-  "new_keys": ["<", ">", "|", "~", "+"],
+  "keys_trained": [
+    "A-Z",
+    "0-9",
+    "=",
+    "+",
+    "-",
+    "<",
+    ">",
+    "|",
+    "~",
+    "!",
+    "Space"
+  ],
+  "new_keys": [
+    "<",
+    ">",
+    "|",
+    "~",
+    "+"
+  ],
   "finger_focus": "Mostly right pinky, some Shift combos",
   "tips": [
-    "= is right pinky top, + = Shift+=",
-    "< = Shift+, (right middle), > = Shift+. (right ring)",
-    "| = Shift+\\, ~ = Shift+`",
-    "Comparison: <, >, <=, >=, ==, !="
+    {
+      "type": "lead",
+      "text": "= is right pinky top, + = Shift+="
+    },
+    {
+      "type": "drop",
+      "text": "< = Shift+, (right middle), > = Shift+. (right ring)"
+    },
+    {
+      "type": "exercise",
+      "target": "x = 1 + 2 - 3. y < 10. z > 0. a == b.",
+      "finger": "pink",
+      "hint": "Mostly right pinky, some Shift combos"
+    },
+    {
+      "type": "p",
+      "text": "| = Shift+\\, ~ = Shift+`"
+    },
+    {
+      "type": "callout",
+      "icon": "💡",
+      "title": "Подсказка",
+      "text": "Comparison: <, >, <=, >=, ==, !="
+    },
+    {
+      "type": "exercise",
+      "target": "c != d. e <= f. g >= h. true | false. ~null. x += 1.",
+      "finger": "orange",
+      "hint": "Mostly right pinky, some Shift combos"
+    }
   ],
   "character_tips": {
     "anna": "Math and comparison operators. Used in code daily.",

@@ -29,9 +29,30 @@
   "new_keys": [],
   "finger_focus": "Maximum density",
   "tips": [
-    "Highest-density mixed content",
-    "Numbers, symbols, percentages, URL",
-    "Last warmup before tournament final"
+    {
+      "type": "lead",
+      "text": "Highest-density mixed content"
+    },
+    {
+      "type": "drop",
+      "text": "Numbers, symbols, percentages, URL"
+    },
+    {
+      "type": "exercise",
+      "target": "Q2 2026 stats are in: 12.4M new users (+47% YoY), 89% activation rate, ARR at $215M, NPS of 72.",
+      "finger": "purple",
+      "hint": "Maximum density"
+    },
+    {
+      "type": "p",
+      "text": "Last warmup before tournament final"
+    },
+    {
+      "type": "exercise",
+      "target": "Top markets: US (38%), EU (29%), APAC (24%). Next milestone: Series D by Q4. Read the full report at company.com/q2-2026.",
+      "finger": "purple",
+      "hint": "Maximum density"
+    }
   ],
   "character_tips": {
     "anna": "Maximum density. Pre-final exam intensity.",

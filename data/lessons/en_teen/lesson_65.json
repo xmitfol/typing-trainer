@@ -21,9 +21,30 @@
   "new_keys": [],
   "finger_focus": "65-lesson speed test",
   "tips": [
-    "90 WPM = top 5% globally for any age",
-    "Ten lessons to teen course final",
-    "L75 is the tournament exam"
+    {
+      "type": "lead",
+      "text": "90 WPM = top 5% globally for any age"
+    },
+    {
+      "type": "drop",
+      "text": "Ten lessons to teen course final"
+    },
+    {
+      "type": "exercise",
+      "target": "65 lessons. You can write a school essay faster than you can think it. That's a real skill.",
+      "finger": "purple",
+      "hint": "65-lesson speed test"
+    },
+    {
+      "type": "p",
+      "text": "L75 is the tournament exam"
+    },
+    {
+      "type": "exercise",
+      "target": "The remaining 10 lessons polish what you have, and then you'll face the final tournament-style exam at lesson 75.",
+      "finger": "purple",
+      "hint": "65-lesson speed test"
+    }
   ],
   "character_tips": {
     "anna": "🎯 90 WPM. Top 5% in the world. Ten lessons to the final tournament.",

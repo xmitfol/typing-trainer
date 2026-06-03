@@ -10,13 +10,41 @@
   "error_limit": 15,
   "text": "Three-quarters of the way through, you have built something rare: the ability to type at the speed of thought. Most people peak at 40 WPM and stay there for life. You are past 75. The remaining blocks will take you over 90 — well into the top 5% of typists in the world.",
   "text_sequence": [],
-  "keys_trained": ["A-Z", "Space", ",", ".", ":", "Shift"],
+  "keys_trained": [
+    "A-Z",
+    "Space",
+    ",",
+    ".",
+    ":",
+    "Shift"
+  ],
   "new_keys": [],
   "finger_focus": "Sustained 75 WPM gate",
   "tips": [
-    "75 WPM is faster than most people will ever type",
-    "Pass this gate = officially in the top 10% globally",
-    "Block 6 is real-world practice. Block 7 is mastery. You're earning both."
+    {
+      "type": "lead",
+      "text": "75 WPM is faster than most people will ever type"
+    },
+    {
+      "type": "drop",
+      "text": "Pass this gate = officially in the top 10% globally"
+    },
+    {
+      "type": "exercise",
+      "target": "Three-quarters of the way through, you have built something rare: the ability to type at the speed of thought. Most people peak at 40 WPM and",
+      "finger": "purple",
+      "hint": "Sustained 75 WPM gate"
+    },
+    {
+      "type": "p",
+      "text": "Block 6 is real-world practice. Block 7 is mastery. You're earning both."
+    },
+    {
+      "type": "exercise",
+      "target": "stay there for life. You are past 75. The remaining blocks will take you over 90 — well into the top 5% of typists in the world.",
+      "finger": "purple",
+      "hint": "Sustained 75 WPM gate"
+    }
   ],
   "character_tips": {
     "anna": "🎓 BLOCK 5 FINAL! 75 WPM = top 10%. Block 6 takes you to top 5%.",

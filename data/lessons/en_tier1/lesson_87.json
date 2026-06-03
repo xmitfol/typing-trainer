@@ -10,13 +10,43 @@
   "error_limit": 14,
   "text": "Imagine doing more in less time. Imagine writing emails twice as fast, finishing reports before lunch, and never letting the keyboard slow your thinking. That is what real typing fluency feels like — quiet, confident, automatic. Start your trial today; the first thirty days are on us.",
   "text_sequence": [],
-  "keys_trained": ["A-Z", "Space", ",", ".", "—", "—", ";", "Shift"],
+  "keys_trained": [
+    "A-Z",
+    "Space",
+    ",",
+    ".",
+    "—",
+    "—",
+    ";",
+    "Shift"
+  ],
   "new_keys": [],
   "finger_focus": "Marketing rhythm + emphasis",
   "tips": [
-    "Marketing copy has a quick, punchy beat — match it with your fingers",
-    "Short emphatic sentences sit between long ones — feel the contrast",
-    "Imagine + dash + benefit = classic marketing rhythm pattern"
+    {
+      "type": "lead",
+      "text": "Marketing copy has a quick, punchy beat — match it with your fingers"
+    },
+    {
+      "type": "drop",
+      "text": "Short emphatic sentences sit between long ones — feel the contrast"
+    },
+    {
+      "type": "exercise",
+      "target": "Imagine doing more in less time. Imagine writing emails twice as fast, finishing reports before lunch, and never letting the keyboard slow your",
+      "finger": "purple",
+      "hint": "Marketing rhythm + emphasis"
+    },
+    {
+      "type": "p",
+      "text": "Imagine + dash + benefit = classic marketing rhythm pattern"
+    },
+    {
+      "type": "exercise",
+      "target": "thinking. That is what real typing fluency feels like — quiet, confident, automatic. Start your trial today; the first thirty days are on us.",
+      "finger": "purple",
+      "hint": "Marketing rhythm + emphasis"
+    }
   ],
   "character_tips": {
     "anna": "Marketing copy is short, rhythmic, persuasive. Type it like a pitch.",

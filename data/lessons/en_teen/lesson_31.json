@@ -21,9 +21,30 @@
   "new_keys": [],
   "finger_focus": "Left number row",
   "tips": [
-    "Numbers row is the FAR stretch — same finger as column letter",
-    "1=pinky, 2=ring, 3=middle, 4=index, 5=index reach",
-    "Don't look at the number row"
+    {
+      "type": "lead",
+      "text": "Numbers row is the FAR stretch — same finger as column letter"
+    },
+    {
+      "type": "drop",
+      "text": "1=pinky, 2=ring, 3=middle, 4=index, 5=index reach"
+    },
+    {
+      "type": "exercise",
+      "target": "1 2 3 4 5 12 23 34 45 15 25",
+      "finger": "blue",
+      "hint": "Left number row"
+    },
+    {
+      "type": "p",
+      "text": "Don't look at the number row"
+    },
+    {
+      "type": "exercise",
+      "target": "35 45 11 22 33 44 55 12345 54321 11223 33445 12121",
+      "finger": "green",
+      "hint": "Left number row"
+    }
   ],
   "character_tips": {
     "anna": "Numbers row is far. Same finger as the column letter — that's the rule.",

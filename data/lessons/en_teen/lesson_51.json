@@ -22,9 +22,30 @@
   "new_keys": [],
   "finger_focus": "Blog prose rhythm",
   "tips": [
-    "Blog style = conversational, mid-length sentences",
-    "Em-dashes and apostrophes are common",
-    "Real personal-writing rhythm"
+    {
+      "type": "lead",
+      "text": "Blog style = conversational, mid-length sentences"
+    },
+    {
+      "type": "drop",
+      "text": "Em-dashes and apostrophes are common"
+    },
+    {
+      "type": "exercise",
+      "target": "I've been thinking a lot about productivity lately. Not the kind that involves five apps",
+      "finger": "purple",
+      "hint": "Blog prose rhythm"
+    },
+    {
+      "type": "p",
+      "text": "Real personal-writing rhythm"
+    },
+    {
+      "type": "exercise",
+      "target": "and color-coded calendars — just the simple kind: do the thing, then do the next thing.",
+      "finger": "purple",
+      "hint": "Blog prose rhythm"
+    }
   ],
   "character_tips": {
     "anna": "Blog prose. Conversational, real-world, mid-density.",

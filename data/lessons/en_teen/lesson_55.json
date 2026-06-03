@@ -23,9 +23,30 @@
   "new_keys": [],
   "finger_focus": "Draft message at speed",
   "tips": [
-    "Real team-message style at 83 WPM",
-    "Numbers + punctuation + flow",
-    "Practice writing what you would actually send"
+    {
+      "type": "lead",
+      "text": "Real team-message style at 83 WPM"
+    },
+    {
+      "type": "drop",
+      "text": "Numbers + punctuation + flow"
+    },
+    {
+      "type": "exercise",
+      "target": "Hey team, just got off the call with the client. They want to push launch by two weeks and",
+      "finger": "purple",
+      "hint": "Draft message at speed"
+    },
+    {
+      "type": "p",
+      "text": "Practice writing what you would actually send"
+    },
+    {
+      "type": "exercise",
+      "target": "add the new feature we discussed. Can we sync at 4 today to plan? Quick chat — 15 minutes max.",
+      "finger": "purple",
+      "hint": "Draft message at speed"
+    }
   ],
   "character_tips": {
     "anna": "Quick team message. Real work pace.",

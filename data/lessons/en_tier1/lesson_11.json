@@ -10,13 +10,62 @@
   "error_limit": 4,
   "text": "the and had has did dad sad fed jak fee see fad lad add age sit ten ape rat",
   "text_sequence": [],
-  "keys_trained": ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", "Space"],
+  "keys_trained": [
+    "A",
+    "B",
+    "C",
+    "D",
+    "E",
+    "F",
+    "G",
+    "H",
+    "I",
+    "J",
+    "K",
+    "L",
+    "M",
+    "N",
+    "O",
+    "P",
+    "Q",
+    "R",
+    "S",
+    "T",
+    "U",
+    "V",
+    "W",
+    "X",
+    "Y",
+    "Z",
+    "Space"
+  ],
   "new_keys": [],
   "finger_focus": "All learned letters — focus on speed",
   "tips": [
-    "Short words become muscle memory — type without thinking",
-    "Don't pause between letters of the same word",
-    "Eyes off keyboard — trust your fingers"
+    {
+      "type": "lead",
+      "text": "Short words become muscle memory — type without thinking"
+    },
+    {
+      "type": "drop",
+      "text": "Don't pause between letters of the same word"
+    },
+    {
+      "type": "exercise",
+      "target": "the and had has did dad sad fed jak",
+      "finger": "blue",
+      "hint": "All learned letters — focus on speed"
+    },
+    {
+      "type": "p",
+      "text": "Eyes off keyboard — trust your fingers"
+    },
+    {
+      "type": "exercise",
+      "target": "fee see fad lad add age sit ten ape rat",
+      "finger": "green",
+      "hint": "All learned letters — focus on speed"
+    }
   ],
   "character_tips": {
     "anna": "Common short words are the building blocks. Practice them until they flow.",

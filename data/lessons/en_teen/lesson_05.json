@@ -25,9 +25,30 @@
   "new_keys": [],
   "finger_focus": "Left top row + home row mix",
   "tips": [
-    "Q-W-E-R-T are stretches UP from home row",
-    "Reach with the SAME finger that owns each column",
-    "Return to home row after each top-row keystroke"
+    {
+      "type": "lead",
+      "text": "Q-W-E-R-T are stretches UP from home row"
+    },
+    {
+      "type": "drop",
+      "text": "Reach with the SAME finger that owns each column"
+    },
+    {
+      "type": "exercise",
+      "target": "we we we re re re ter ter ter wet wet",
+      "finger": "blue",
+      "hint": "Left top row + home row mix"
+    },
+    {
+      "type": "p",
+      "text": "Return to home row after each top-row keystroke"
+    },
+    {
+      "type": "exercise",
+      "target": "wet sew sew sew red red red were were tree tree",
+      "finger": "green",
+      "hint": "Left top row + home row mix"
+    }
   ],
   "character_tips": {
     "anna": "Stretch UP to top row, then immediately return to home row.",

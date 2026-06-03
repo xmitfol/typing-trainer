@@ -25,9 +25,30 @@
   "new_keys": [],
   "finger_focus": "Left bottom + home row",
   "tips": [
-    "Bottom row = DOWN from home — most awkward stretch",
-    "Curl fingers under to reach",
-    "Z and X are rare — but you still need them"
+    {
+      "type": "lead",
+      "text": "Bottom row = DOWN from home — most awkward stretch"
+    },
+    {
+      "type": "drop",
+      "text": "Curl fingers under to reach"
+    },
+    {
+      "type": "exercise",
+      "target": "ax ax ax cab cab cab vex vex vex back",
+      "finger": "blue",
+      "hint": "Left bottom + home row"
+    },
+    {
+      "type": "p",
+      "text": "Z and X are rare — but you still need them"
+    },
+    {
+      "type": "exercise",
+      "target": "back back zap zap zap five five five bake bake bake",
+      "finger": "green",
+      "hint": "Left bottom + home row"
+    }
   ],
   "character_tips": {
     "anna": "Bottom row is hardest. Curl your fingers UNDER your palms to reach.",

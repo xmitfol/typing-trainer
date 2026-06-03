@@ -10,13 +10,68 @@
   "error_limit": 7,
   "text": "well, today is great! she said, \"i think so too.\" then we laughed, walked home, and slept well.",
   "text_sequence": [],
-  "keys_trained": ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", ",", ".", "!", "?", "'", "\"", "Space"],
+  "keys_trained": [
+    "A",
+    "B",
+    "C",
+    "D",
+    "E",
+    "F",
+    "G",
+    "H",
+    "I",
+    "J",
+    "K",
+    "L",
+    "M",
+    "N",
+    "O",
+    "P",
+    "Q",
+    "R",
+    "S",
+    "T",
+    "U",
+    "V",
+    "W",
+    "X",
+    "Y",
+    "Z",
+    ",",
+    ".",
+    "!",
+    "?",
+    "'",
+    "\"",
+    "Space"
+  ],
   "new_keys": [],
   "finger_focus": "All learned chars — punctuation in flow",
   "tips": [
-    "Now everything you learned dances together",
-    "Don't stop at punctuation — it's part of the rhythm",
-    "Tip: enable metronome toggle for steady pace"
+    {
+      "type": "lead",
+      "text": "Now everything you learned dances together"
+    },
+    {
+      "type": "drop",
+      "text": "Don't stop at punctuation — it's part of the rhythm"
+    },
+    {
+      "type": "exercise",
+      "target": "well, today is great! she said, \"i think so",
+      "finger": "blue",
+      "hint": "All learned chars — punctuation in flow"
+    },
+    {
+      "type": "p",
+      "text": "Tip: enable metronome toggle for steady pace"
+    },
+    {
+      "type": "exercise",
+      "target": "too.\" then we laughed, walked home, and slept well.",
+      "finger": "green",
+      "hint": "All learned chars — punctuation in flow"
+    }
   ],
   "character_tips": {
     "anna": "Punctuation in flow — practice until commas don't break your rhythm.",

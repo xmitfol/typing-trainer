@@ -10,13 +10,40 @@
   "error_limit": 14,
   "text": "Although the meeting was scheduled for ten in the morning, several team members, including the director and the project lead, did not arrive until almost half past, which delayed the agenda by nearly forty-five minutes.",
   "text_sequence": [],
-  "keys_trained": ["A-Z", "Space", ",", ".", "Shift"],
+  "keys_trained": [
+    "A-Z",
+    "Space",
+    ",",
+    ".",
+    "Shift"
+  ],
   "new_keys": [],
   "finger_focus": "Complex sentence flow",
   "tips": [
-    "Long sentences = real legal/academic/business writing",
-    "Subclauses (', which ...') need extra rhythm awareness",
-    "Don't rush the comma — but don't pause either"
+    {
+      "type": "lead",
+      "text": "Long sentences = real legal/academic/business writing"
+    },
+    {
+      "type": "drop",
+      "text": "Subclauses (', which ...') need extra rhythm awareness"
+    },
+    {
+      "type": "exercise",
+      "target": "Although the meeting was scheduled for ten in the morning, several team members, including the director and",
+      "finger": "purple",
+      "hint": "Complex sentence flow"
+    },
+    {
+      "type": "p",
+      "text": "Don't rush the comma — but don't pause either"
+    },
+    {
+      "type": "exercise",
+      "target": "the project lead, did not arrive until almost half past, which delayed the agenda by nearly forty-five minutes.",
+      "finger": "purple",
+      "hint": "Complex sentence flow"
+    }
   ],
   "character_tips": {
     "anna": "Long sentences test sustained focus. Don't lose steam halfway through.",

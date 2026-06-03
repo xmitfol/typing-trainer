@@ -10,13 +10,73 @@
   "error_limit": 7,
   "text": "well-known truth: write well-formed sentences. fast-paced work needs hand-eye care. so-so days happen.",
   "text_sequence": [],
-  "keys_trained": ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", ":", ";", ",", ".", "!", "?", "'", "\"", "-", "Space"],
-  "new_keys": ["-"],
+  "keys_trained": [
+    "A",
+    "B",
+    "C",
+    "D",
+    "E",
+    "F",
+    "G",
+    "H",
+    "I",
+    "J",
+    "K",
+    "L",
+    "M",
+    "N",
+    "O",
+    "P",
+    "Q",
+    "R",
+    "S",
+    "T",
+    "U",
+    "V",
+    "W",
+    "X",
+    "Y",
+    "Z",
+    ":",
+    ";",
+    ",",
+    ".",
+    "!",
+    "?",
+    "'",
+    "\"",
+    "-",
+    "Space"
+  ],
+  "new_keys": [
+    "-"
+  ],
   "finger_focus": "Right pinky reaches up to minus / hyphen (no Shift)",
   "tips": [
-    "Hyphen (-) is right pinky, top row, just left of equals",
-    "Used for compound adjectives: well-known, fast-paced",
-    "No spaces around hyphens in compounds: well-known, NOT well - known"
+    {
+      "type": "lead",
+      "text": "Hyphen (-) is right pinky, top row, just left of equals"
+    },
+    {
+      "type": "drop",
+      "text": "Used for compound adjectives: well-known, fast-paced"
+    },
+    {
+      "type": "exercise",
+      "target": "well-known truth: write well-formed sentences. fast-paced",
+      "finger": "pink",
+      "hint": "Right pinky reaches up to minus / hyphen (no Shift)"
+    },
+    {
+      "type": "p",
+      "text": "No spaces around hyphens in compounds: well-known, NOT well - known"
+    },
+    {
+      "type": "exercise",
+      "target": "work needs hand-eye care. so-so days happen.",
+      "finger": "orange",
+      "hint": "Right pinky reaches up to minus / hyphen (no Shift)"
+    }
   ],
   "character_tips": {
     "anna": "Hyphens glue words. No spaces around them in compounds.",

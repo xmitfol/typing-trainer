@@ -10,13 +10,41 @@
   "error_limit": 16,
   "text": "Built for speed. Designed for focus. Trusted by thousands of teams in over forty countries. Whether you are writing your first email or your hundredth report of the week, the right typing rhythm makes the difference between exhausted and energized. Try it free for two weeks. Cancel anytime; no card needed.",
   "text_sequence": [],
-  "keys_trained": ["A-Z", "Space", ",", ".", ";", "Shift"],
+  "keys_trained": [
+    "A-Z",
+    "Space",
+    ",",
+    ".",
+    ";",
+    "Shift"
+  ],
   "new_keys": [],
   "finger_focus": "Marketing prose at 87 WPM",
   "tips": [
-    "Multiple punchy sentences in a row — keep tempo high",
-    "Short fragments are part of the rhythm — don't pause longer than commas",
-    "Metronome at 87 BPM — sustain through every sentence type"
+    {
+      "type": "lead",
+      "text": "Multiple punchy sentences in a row — keep tempo high"
+    },
+    {
+      "type": "drop",
+      "text": "Short fragments are part of the rhythm — don't pause longer than commas"
+    },
+    {
+      "type": "exercise",
+      "target": "Built for speed. Designed for focus. Trusted by thousands of teams in over forty countries. Whether you are writing your first email or your hundredth",
+      "finger": "purple",
+      "hint": "Marketing prose at 87 WPM"
+    },
+    {
+      "type": "p",
+      "text": "Metronome at 87 BPM — sustain through every sentence type"
+    },
+    {
+      "type": "exercise",
+      "target": "report of the week, the right typing rhythm makes the difference between exhausted and energized. Try it free for two weeks. Cancel anytime; no card needed.",
+      "finger": "purple",
+      "hint": "Marketing prose at 87 WPM"
+    }
   ],
   "character_tips": {
     "anna": "Marketing rhythm at 87 WPM. Punchy + sustained = pro copywriting speed.",

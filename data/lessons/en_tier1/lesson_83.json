@@ -10,13 +10,40 @@
   "error_limit": 16,
   "text": "When the cache miss rate exceeded fifteen percent, latency on the read path climbed sharply. The team investigated the root cause and found that recent deploys had reduced the cache TTL from one hour to ten minutes. After restoring the original value and adding a warm-up step on startup, P95 latency dropped back to its baseline of forty milliseconds.",
   "text_sequence": [],
-  "keys_trained": ["A-Z", "Space", ",", ".", "Shift"],
+  "keys_trained": [
+    "A-Z",
+    "Space",
+    ",",
+    ".",
+    "Shift"
+  ],
   "new_keys": [],
   "finger_focus": "Engineering prose tempo",
   "tips": [
-    "Real engineering post-mortems read like this — train it as a daily skill",
-    "Long technical sentences need sustained rhythm — no slowdown at terms",
-    "Metronome at 83 BPM — match it through the whole passage"
+    {
+      "type": "lead",
+      "text": "Real engineering post-mortems read like this — train it as a daily skill"
+    },
+    {
+      "type": "drop",
+      "text": "Long technical sentences need sustained rhythm — no slowdown at terms"
+    },
+    {
+      "type": "exercise",
+      "target": "When the cache miss rate exceeded fifteen percent, latency on the read path climbed sharply. The team investigated the root cause and found that recent deploys had reduced the",
+      "finger": "orange",
+      "hint": "Engineering prose tempo"
+    },
+    {
+      "type": "p",
+      "text": "Metronome at 83 BPM — match it through the whole passage"
+    },
+    {
+      "type": "exercise",
+      "target": "cache TTL from one hour to ten minutes. After restoring the original value and adding a warm-up step on startup, P95 latency dropped back to its baseline of forty milliseconds.",
+      "finger": "pink",
+      "hint": "Engineering prose tempo"
+    }
   ],
   "character_tips": {
     "anna": "Engineering writing at 83 WPM — most senior engineers can't hit this.",

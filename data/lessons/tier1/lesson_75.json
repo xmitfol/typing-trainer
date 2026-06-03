@@ -30,9 +30,30 @@
   "new_keys": [],
   "finger_focus": "Кодовые символы на скорости",
   "tips": [
-    "Реальный код = английские слова + символы + скобки",
-    "Скобки/фигурные должны течь как естественная пунктуация",
-    "Инженеры печатают код 5+ часов в день"
+    {
+      "type": "lead",
+      "text": "Реальный код = английские слова + символы + скобки"
+    },
+    {
+      "type": "drop",
+      "text": "Скобки/фигурные должны течь как естественная пунктуация"
+    },
+    {
+      "type": "exercise",
+      "target": "function getUserById(userId) { const user = await db.users.findOne({ id: userId }); if (!user)",
+      "finger": "purple",
+      "hint": "Кодовые символы на скорости"
+    },
+    {
+      "type": "p",
+      "text": "Инженеры печатают код 5+ часов в день"
+    },
+    {
+      "type": "exercise",
+      "target": "throw new NotFoundError('user'); return user.toJSON(); } export default getUserById; // также: validateInput, checkPermission, logAccess",
+      "finger": "purple",
+      "hint": "Кодовые символы на скорости"
+    }
   ],
   "character_tips": {
     "anna": "Код — это структурированный английский. Тренируй символы, остальное — слова.",

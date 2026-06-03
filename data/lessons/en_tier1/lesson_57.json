@@ -10,13 +10,43 @@
   "error_limit": 14,
   "text": "The quick brown fox jumps over the lazy dog, while a wizard's job is to vex chumps quickly in fog. How vexingly quick daft zebras jump! Bright vixens jump; dozy fowl quack at the keyboard.",
   "text_sequence": [],
-  "keys_trained": ["A-Z full", "Space", ".", ",", ";", "'", "!", "Shift"],
+  "keys_trained": [
+    "A-Z full",
+    "Space",
+    ".",
+    ",",
+    ";",
+    "'",
+    "!",
+    "Shift"
+  ],
   "new_keys": [],
   "finger_focus": "Full alphabet in flow",
   "tips": [
-    "Three different pangrams back-to-back",
-    "Don't slow down on rare letters (z, q, x) — keep the tempo",
-    "If your peak hits 55 WPM here, you're ready for Block 5"
+    {
+      "type": "lead",
+      "text": "Three different pangrams back-to-back"
+    },
+    {
+      "type": "drop",
+      "text": "Don't slow down on rare letters (z, q, x) — keep the tempo"
+    },
+    {
+      "type": "exercise",
+      "target": "The quick brown fox jumps over the lazy dog, while a wizard's job is to vex chumps",
+      "finger": "purple",
+      "hint": "Full alphabet in flow"
+    },
+    {
+      "type": "p",
+      "text": "If your peak hits 55 WPM here, you're ready for Block 5"
+    },
+    {
+      "type": "exercise",
+      "target": "quickly in fog. How vexingly quick daft zebras jump! Bright vixens jump; dozy fowl quack at the keyboard.",
+      "finger": "purple",
+      "hint": "Full alphabet in flow"
+    }
   ],
   "character_tips": {
     "anna": "Three pangrams in a row tests every letter under pressure. Stay smooth.",

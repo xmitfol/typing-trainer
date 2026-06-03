@@ -22,9 +22,30 @@
   "new_keys": [],
   "finger_focus": "# и @ — спринт",
   "tips": [
-    "# — Shift+3, @ — Shift+2",
-    "Оба требуют правый мизинец Shift + левая рука",
-    "Эти два символа = 90% соц-сетей"
+    {
+      "type": "lead",
+      "text": "# — Shift+3, @ — Shift+2"
+    },
+    {
+      "type": "drop",
+      "text": "Оба требуют правый мизинец Shift + левая рука"
+    },
+    {
+      "type": "exercise",
+      "target": "#fyp #foryou #вайбы #2026 #цели @user @friend",
+      "finger": "blue",
+      "hint": "# и @ — спринт"
+    },
+    {
+      "type": "p",
+      "text": "Эти два символа = 90% соц-сетей"
+    },
+    {
+      "type": "exercise",
+      "target": "@mod #throwback #пнд #squad #life #love @official",
+      "finger": "green",
+      "hint": "# и @ — спринт"
+    }
   ],
   "character_tips": {
     "anna": "# и @ повсюду онлайн. Освой оба = освой соц-сети.",

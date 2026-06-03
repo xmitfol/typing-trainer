@@ -20,9 +20,30 @@
   "new_keys": [],
   "finger_focus": "Personal narrative",
   "tips": [
-    "Personal story with names",
-    "Names with capitals (Lily, Sam)",
-    "Personal narrative tone"
+    {
+      "type": "lead",
+      "text": "Personal story with names"
+    },
+    {
+      "type": "drop",
+      "text": "Names with capitals (Lily, Sam)"
+    },
+    {
+      "type": "exercise",
+      "target": "My best friend is named Lily. She has a tiny puppy named Sam. We play in",
+      "finger": "purple",
+      "hint": "Personal narrative"
+    },
+    {
+      "type": "p",
+      "text": "Personal narrative tone"
+    },
+    {
+      "type": "exercise",
+      "target": "the park every Sunday. We share snacks. We laugh a lot. She makes every day fun!",
+      "finger": "purple",
+      "hint": "Personal narrative"
+    }
   ],
   "character_tips": {
     "anna": "Best friend story. Names need capital letters.",

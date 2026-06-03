@@ -21,9 +21,30 @@
   "new_keys": [],
   "finger_focus": "All three sentence endings",
   "tips": [
-    "Statements end with .",
-    "Questions end with ?",
-    "Excitement ends with !"
+    {
+      "type": "lead",
+      "text": "Statements end with ."
+    },
+    {
+      "type": "drop",
+      "text": "Questions end with ?"
+    },
+    {
+      "type": "exercise",
+      "target": "I see a cat. Is it black? Yes! Look at it",
+      "finger": "blue",
+      "hint": "All three sentence endings"
+    },
+    {
+      "type": "p",
+      "text": "Excitement ends with !"
+    },
+    {
+      "type": "exercise",
+      "target": "run. Wow! Where does it go? It goes home. The end!",
+      "finger": "green",
+      "hint": "All three sentence endings"
+    }
   ],
   "character_tips": {
     "anna": "Three sentence kinds. Each has its own ending.",

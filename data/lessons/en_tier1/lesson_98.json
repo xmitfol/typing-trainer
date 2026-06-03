@@ -10,13 +10,46 @@
   "error_limit": 15,
   "text": "One lesson to go. You will face a comprehensive final — long, dense, mixed-content prose covering everything you have learned. This lesson is the warmup: a stress test at 102 WPM with names, numbers, punctuation, and quoted dialogue. \"Are you ready?\" the trainer asked. \"More than ready,\" you said, hands resting calmly on the home row. \"Let's finish this.\"",
   "text_sequence": [],
-  "keys_trained": ["A-Z", "0-9", "Space", ",", ".", ":", "?", "!", "\"", "'", "Shift"],
+  "keys_trained": [
+    "A-Z",
+    "0-9",
+    "Space",
+    ",",
+    ".",
+    ":",
+    "?",
+    "!",
+    "\"",
+    "'",
+    "Shift"
+  ],
   "new_keys": [],
   "finger_focus": "102 WPM stress",
   "tips": [
-    "Last lesson before the comprehensive final",
-    "Pass at 102 WPM = ready for L99 (105 WPM, 400+ chars)",
-    "Hands on home row, breathe, press play"
+    {
+      "type": "lead",
+      "text": "Last lesson before the comprehensive final"
+    },
+    {
+      "type": "drop",
+      "text": "Pass at 102 WPM = ready for L99 (105 WPM, 400+ chars)"
+    },
+    {
+      "type": "exercise",
+      "target": "One lesson to go. You will face a comprehensive final — long, dense, mixed-content prose covering everything you have learned. This lesson is the warmup: a stress test at",
+      "finger": "purple",
+      "hint": "102 WPM stress"
+    },
+    {
+      "type": "p",
+      "text": "Hands on home row, breathe, press play"
+    },
+    {
+      "type": "exercise",
+      "target": "102 WPM with names, numbers, punctuation, and quoted dialogue. \"Are you ready?\" the trainer asked. \"More than ready,\" you said, hands resting calmly on the home row. \"Let's finish this.\"",
+      "finger": "purple",
+      "hint": "102 WPM stress"
+    }
   ],
   "character_tips": {
     "anna": "One lesson to go. This is the warmup — make sure your hands are calm.",

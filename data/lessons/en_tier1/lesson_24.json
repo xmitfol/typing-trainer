@@ -10,13 +10,71 @@
   "error_limit": 12,
   "text": "when she wrote the report, he watched closely; she paused, smiled, and said: \"this is the moment we waited for; let's celebrate it well.\" they did, with joy.",
   "text_sequence": [],
-  "keys_trained": ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", ":", ";", ",", ".", "!", "?", "'", "\"", "-", "Space"],
+  "keys_trained": [
+    "A",
+    "B",
+    "C",
+    "D",
+    "E",
+    "F",
+    "G",
+    "H",
+    "I",
+    "J",
+    "K",
+    "L",
+    "M",
+    "N",
+    "O",
+    "P",
+    "Q",
+    "R",
+    "S",
+    "T",
+    "U",
+    "V",
+    "W",
+    "X",
+    "Y",
+    "Z",
+    ":",
+    ";",
+    ",",
+    ".",
+    "!",
+    "?",
+    "'",
+    "\"",
+    "-",
+    "Space"
+  ],
   "new_keys": [],
   "finger_focus": "All — endurance + complex punctuation",
   "tips": [
-    "160 chars — longest text so far",
-    "Long sentences need steady pace, not bursts",
-    "Take a breath at semicolons — let your brain catch up"
+    {
+      "type": "lead",
+      "text": "160 chars — longest text so far"
+    },
+    {
+      "type": "drop",
+      "text": "Long sentences need steady pace, not bursts"
+    },
+    {
+      "type": "exercise",
+      "target": "when she wrote the report, he watched closely; she paused, smiled, and said: \"this",
+      "finger": "blue",
+      "hint": "All — endurance + complex punctuation"
+    },
+    {
+      "type": "p",
+      "text": "Take a breath at semicolons — let your brain catch up"
+    },
+    {
+      "type": "exercise",
+      "target": "is the moment we waited for; let's celebrate it well.\" they did, with joy.",
+      "finger": "green",
+      "hint": "All — endurance + complex punctuation"
+    }
   ],
   "character_tips": {
     "anna": "Long sentences build endurance. Steady tempo wins.",

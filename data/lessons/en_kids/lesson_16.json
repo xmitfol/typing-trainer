@@ -17,9 +17,30 @@
   "new_keys": [],
   "finger_focus": "Color vocabulary",
   "tips": [
-    "Six colors!",
-    "Picture each color while you type",
-    "Memory loves pictures"
+    {
+      "type": "lead",
+      "text": "Six colors!"
+    },
+    {
+      "type": "drop",
+      "text": "Picture each color while you type"
+    },
+    {
+      "type": "exercise",
+      "target": "red red red blue blue blue green green",
+      "finger": "blue",
+      "hint": "Color vocabulary"
+    },
+    {
+      "type": "p",
+      "text": "Memory loves pictures"
+    },
+    {
+      "type": "exercise",
+      "target": "green yellow yellow pink pink black black white white",
+      "finger": "green",
+      "hint": "Color vocabulary"
+    }
   ],
   "character_tips": {
     "anna": "Colors! Picture them as you type.",

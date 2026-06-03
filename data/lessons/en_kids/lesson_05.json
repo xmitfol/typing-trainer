@@ -20,9 +20,30 @@
   "new_keys": [],
   "finger_focus": "Right index finger finds J",
   "tips": [
-    "J is your RIGHT anchor — another bump!",
-    "J and F are your two homes",
-    "Right hand wakes up now"
+    {
+      "type": "lead",
+      "text": "J is your RIGHT anchor — another bump!"
+    },
+    {
+      "type": "drop",
+      "text": "J and F are your two homes"
+    },
+    {
+      "type": "exercise",
+      "target": "j j j j j ja ja ja",
+      "finger": "blue",
+      "hint": "Right index finger finds J"
+    },
+    {
+      "type": "p",
+      "text": "Right hand wakes up now"
+    },
+    {
+      "type": "exercise",
+      "target": "aj aj aj jaja jaja jaja sad sad fad",
+      "finger": "green",
+      "hint": "Right index finger finds J"
+    }
   ],
   "character_tips": {
     "anna": "J is your right anchor — bump on the other side! Two homes now 🌸",

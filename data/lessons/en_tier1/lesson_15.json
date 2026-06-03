@@ -10,13 +10,62 @@
   "error_limit": 7,
   "text": "the quick brown fox jumps over the lazy dog and watches the river flow under a wide blue sky",
   "text_sequence": [],
-  "keys_trained": ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", "Space"],
+  "keys_trained": [
+    "A",
+    "B",
+    "C",
+    "D",
+    "E",
+    "F",
+    "G",
+    "H",
+    "I",
+    "J",
+    "K",
+    "L",
+    "M",
+    "N",
+    "O",
+    "P",
+    "Q",
+    "R",
+    "S",
+    "T",
+    "U",
+    "V",
+    "W",
+    "X",
+    "Y",
+    "Z",
+    "Space"
+  ],
   "new_keys": [],
   "finger_focus": "Whole alphabet — speed + accuracy gate",
   "tips": [
-    "Pangram + extension: covers all 26 letters",
-    "Pass this and Block 1 is closed — you can type any English text",
-    "Target: 25 WPM with under 7 errors"
+    {
+      "type": "lead",
+      "text": "Pangram + extension: covers all 26 letters"
+    },
+    {
+      "type": "drop",
+      "text": "Pass this and Block 1 is closed — you can type any English text"
+    },
+    {
+      "type": "exercise",
+      "target": "the quick brown fox jumps over the lazy dog",
+      "finger": "blue",
+      "hint": "Whole alphabet — speed + accuracy gate"
+    },
+    {
+      "type": "p",
+      "text": "Target: 25 WPM with under 7 errors"
+    },
+    {
+      "type": "exercise",
+      "target": "and watches the river flow under a wide blue sky",
+      "finger": "green",
+      "hint": "Whole alphabet — speed + accuracy gate"
+    }
   ],
   "character_tips": {
     "anna": "🎓 BLOCK 1 FINAL! Pass this and you've mastered the alphabet. Next: punctuation.",

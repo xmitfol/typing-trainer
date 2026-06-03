@@ -24,9 +24,30 @@
   "new_keys": [],
   "finger_focus": "Home row — left and right hands",
   "tips": [
-    "These 8 keys are home base — return here after every keystroke",
-    "Feel the bumps on F and J — those are your anchors",
-    "Don't look at the keyboard. Trust your hands."
+    {
+      "type": "lead",
+      "text": "These 8 keys are home base — return here after every keystroke"
+    },
+    {
+      "type": "drop",
+      "text": "Feel the bumps on F and J — those are your anchors"
+    },
+    {
+      "type": "exercise",
+      "target": "asdf jkl; asdf jkl; asdf",
+      "finger": "blue",
+      "hint": "Home row — left and right hands"
+    },
+    {
+      "type": "p",
+      "text": "Don't look at the keyboard. Trust your hands."
+    },
+    {
+      "type": "exercise",
+      "target": "jkl; asdf jkl; asdf jkl;",
+      "finger": "green",
+      "hint": "Home row — left and right hands"
+    }
   ],
   "character_tips": {
     "anna": "Home row first. Find F and J by feel — those bumps are your anchors.",

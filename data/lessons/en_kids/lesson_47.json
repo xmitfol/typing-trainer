@@ -17,9 +17,30 @@
   "new_keys": [],
   "finger_focus": "Alphabet song rhythm",
   "tips": [
-    "The ABC song!",
-    "Every letter in song form",
-    "Sing along in your head"
+    {
+      "type": "lead",
+      "text": "The ABC song!"
+    },
+    {
+      "type": "drop",
+      "text": "Every letter in song form"
+    },
+    {
+      "type": "exercise",
+      "target": "a b c d e f g h i j k l m n o p q r s t",
+      "finger": "purple",
+      "hint": "Alphabet song rhythm"
+    },
+    {
+      "type": "p",
+      "text": "Sing along in your head"
+    },
+    {
+      "type": "exercise",
+      "target": "u v w x y z next time won't you sing with me a b c d e f g",
+      "finger": "purple",
+      "hint": "Alphabet song rhythm"
+    }
   ],
   "character_tips": {
     "anna": "ABC song! Sing in your head, type with your fingers.",

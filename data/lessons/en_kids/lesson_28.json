@@ -18,9 +18,30 @@
   "new_keys": [],
   "finger_focus": "Number + word rhythm",
   "tips": [
-    "Number song!",
-    "Like a counting rhyme",
-    "Steady beat with your fingers"
+    {
+      "type": "lead",
+      "text": "Number song!"
+    },
+    {
+      "type": "drop",
+      "text": "Like a counting rhyme"
+    },
+    {
+      "type": "exercise",
+      "target": "1 little 2 little 3 little stars 4 little 5 little 6 little",
+      "finger": "blue",
+      "hint": "Number + word rhythm"
+    },
+    {
+      "type": "p",
+      "text": "Steady beat with your fingers"
+    },
+    {
+      "type": "exercise",
+      "target": "stars 7 little 8 little 9 little stars 10 stars in the sky",
+      "finger": "green",
+      "hint": "Number + word rhythm"
+    }
   ],
   "character_tips": {
     "anna": "Number song! Steady beat as you count.",

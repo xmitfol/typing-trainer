@@ -19,9 +19,30 @@
   "new_keys": [],
   "finger_focus": "Questions with ?",
   "tips": [
-    "Questions end with ?",
-    "? is Shift + / on the right side",
-    "Always start with capital"
+    {
+      "type": "lead",
+      "text": "Questions end with ?"
+    },
+    {
+      "type": "drop",
+      "text": "? is Shift + / on the right side"
+    },
+    {
+      "type": "exercise",
+      "target": "Is it red? Do you see? Where is mom? What is",
+      "finger": "blue",
+      "hint": "Questions with ?"
+    },
+    {
+      "type": "p",
+      "text": "Always start with capital"
+    },
+    {
+      "type": "exercise",
+      "target": "that? Why is it hot? How are you? Who is here?",
+      "finger": "green",
+      "hint": "Questions with ?"
+    }
   ],
   "character_tips": {
     "anna": "Questions end with ?. Type Shift + / to get it!",

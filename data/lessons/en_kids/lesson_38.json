@@ -21,9 +21,30 @@
   "new_keys": [],
   "finger_focus": "Celebration story",
   "tips": [
-    "Age numbers mixed with words",
-    "Excited tone (lots of !)",
-    "Personal happy story"
+    {
+      "type": "lead",
+      "text": "Age numbers mixed with words"
+    },
+    {
+      "type": "drop",
+      "text": "Excited tone (lots of !)"
+    },
+    {
+      "type": "exercise",
+      "target": "Today is my birthday! I am 8 years old. Mom made a big cake with 8",
+      "finger": "purple",
+      "hint": "Celebration story"
+    },
+    {
+      "type": "p",
+      "text": "Personal happy story"
+    },
+    {
+      "type": "exercise",
+      "target": "candles. My friends came over. We played games. I got a new bike. Best day ever!",
+      "finger": "purple",
+      "hint": "Celebration story"
+    }
   ],
   "character_tips": {
     "anna": "Birthday story! Excitement with lots of !",

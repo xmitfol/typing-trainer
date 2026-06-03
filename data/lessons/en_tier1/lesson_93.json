@@ -10,13 +10,40 @@
   "error_limit": 14,
   "text": "In every life, there comes a quiet moment when an old skill becomes a friend. You stop noticing it. It simply moves with you, as breath does, or as the swing of an arm while walking. The keyboard is like that now. You no longer think about which finger goes where, or how fast you are going. You just write, and the words appear.",
   "text_sequence": [],
-  "keys_trained": ["A-Z", "Space", ",", ".", "Shift"],
+  "keys_trained": [
+    "A-Z",
+    "Space",
+    ",",
+    ".",
+    "Shift"
+  ],
   "new_keys": [],
   "finger_focus": "95 WPM literary mastery",
   "tips": [
-    "Multi-sentence rhythm at 95 WPM = world-class fluency",
-    "This is the speed of thinking — not slower, not faster",
-    "Metronome at 95 BPM — hold the tempo across every sentence"
+    {
+      "type": "lead",
+      "text": "Multi-sentence rhythm at 95 WPM = world-class fluency"
+    },
+    {
+      "type": "drop",
+      "text": "This is the speed of thinking — not slower, not faster"
+    },
+    {
+      "type": "exercise",
+      "target": "In every life, there comes a quiet moment when an old skill becomes a friend. You stop noticing it. It simply moves with you, as breath does, or as the swing of",
+      "finger": "purple",
+      "hint": "95 WPM literary mastery"
+    },
+    {
+      "type": "p",
+      "text": "Metronome at 95 BPM — hold the tempo across every sentence"
+    },
+    {
+      "type": "exercise",
+      "target": "an arm while walking. The keyboard is like that now. You no longer think about which finger goes where, or how fast you are going. You just write, and the words appear.",
+      "finger": "purple",
+      "hint": "95 WPM literary mastery"
+    }
   ],
   "character_tips": {
     "anna": "95 WPM in flow. You are at the upper edge of what humans can sustain.",

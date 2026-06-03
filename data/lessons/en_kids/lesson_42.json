@@ -20,9 +20,30 @@
   "new_keys": [],
   "finger_focus": "Color vocabulary at speed",
   "tips": [
-    "All colors in real sentences",
-    "Picture each color + object",
-    "Beautiful word painting"
+    {
+      "type": "lead",
+      "text": "All colors in real sentences"
+    },
+    {
+      "type": "drop",
+      "text": "Picture each color + object"
+    },
+    {
+      "type": "exercise",
+      "target": "Red apples and blue skies. Green grass and yellow sun. Purple flowers",
+      "finger": "purple",
+      "hint": "Color vocabulary at speed"
+    },
+    {
+      "type": "p",
+      "text": "Beautiful word painting"
+    },
+    {
+      "type": "exercise",
+      "target": "and pink hearts. Black night and white snow. Colors make the world beautiful!",
+      "finger": "purple",
+      "hint": "Color vocabulary at speed"
+    }
   ],
   "character_tips": {
     "anna": "Colors in real sentences. Word painting!",

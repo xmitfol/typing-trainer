@@ -26,9 +26,30 @@
   "new_keys": [],
   "finger_focus": "Pre-final mix",
   "tips": [
-    "All character classes at 85 WPM",
-    "Real work-message density",
-    "Last warmup before BLOCK 4 FINAL"
+    {
+      "type": "lead",
+      "text": "All character classes at 85 WPM"
+    },
+    {
+      "type": "drop",
+      "text": "Real work-message density"
+    },
+    {
+      "type": "exercise",
+      "target": "Q3 numbers just dropped — revenue +28%, users +14%, retention at 91%. Team meeting at 3",
+      "finger": "purple",
+      "hint": "Pre-final mix"
+    },
+    {
+      "type": "p",
+      "text": "Last warmup before BLOCK 4 FINAL"
+    },
+    {
+      "type": "exercise",
+      "target": "PM in conference room B. Bring your laptops, your questions, and your best ideas for Q4.",
+      "finger": "purple",
+      "hint": "Pre-final mix"
+    }
   ],
   "character_tips": {
     "anna": "Pre-final mix. Pass = ready for L60 boss.",

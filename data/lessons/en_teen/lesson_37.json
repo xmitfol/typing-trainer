@@ -20,9 +20,30 @@
   "new_keys": [],
   "finger_focus": "Caption rhythm + hashtags",
   "tips": [
-    "Captions = short sentences + hashtag cluster",
-    "Period or no period — both common",
-    "Hashtag cluster at end is the standard format"
+    {
+      "type": "lead",
+      "text": "Captions = short sentences + hashtag cluster"
+    },
+    {
+      "type": "drop",
+      "text": "Period or no period — both common"
+    },
+    {
+      "type": "exercise",
+      "target": "sunset vibes never get old. can't wait for summer.",
+      "finger": "blue",
+      "hint": "Caption rhythm + hashtags"
+    },
+    {
+      "type": "p",
+      "text": "Hashtag cluster at end is the standard format"
+    },
+    {
+      "type": "exercise",
+      "target": "blessed and grateful. coffee first, talk later. #goals #mood #weekend",
+      "finger": "green",
+      "hint": "Caption rhythm + hashtags"
+    }
   ],
   "character_tips": {
     "anna": "Instagram captions follow a rhythm: thought + thought + hashtags.",

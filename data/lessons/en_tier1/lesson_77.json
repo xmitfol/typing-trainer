@@ -10,13 +10,42 @@
   "error_limit": 14,
   "text": "Global markets opened higher on Wednesday after central banks signaled a softer approach to interest rates. Tech stocks led the rally, with major indexes climbing more than 1.5% by midday. Analysts noted that volatility could return if inflation data surprises on Friday.",
   "text_sequence": [],
-  "keys_trained": ["A-Z", "0-9", "Space", ",", ".", "%", "Shift"],
+  "keys_trained": [
+    "A-Z",
+    "0-9",
+    "Space",
+    ",",
+    ".",
+    "%",
+    "Shift"
+  ],
   "new_keys": [],
   "finger_focus": "Journalistic prose at speed",
   "tips": [
-    "News-style prose = clear, dense, fact-rich",
-    "Numbers and percentages mid-sentence are common — flow through them",
-    "Hold 78 WPM through the whole paragraph"
+    {
+      "type": "lead",
+      "text": "News-style prose = clear, dense, fact-rich"
+    },
+    {
+      "type": "drop",
+      "text": "Numbers and percentages mid-sentence are common — flow through them"
+    },
+    {
+      "type": "exercise",
+      "target": "Global markets opened higher on Wednesday after central banks signaled a softer approach to interest rates. Tech stocks led the rally,",
+      "finger": "purple",
+      "hint": "Journalistic prose at speed"
+    },
+    {
+      "type": "p",
+      "text": "Hold 78 WPM through the whole paragraph"
+    },
+    {
+      "type": "exercise",
+      "target": "with major indexes climbing more than 1.5% by midday. Analysts noted that volatility could return if inflation data surprises on Friday.",
+      "finger": "purple",
+      "hint": "Journalistic prose at speed"
+    }
   ],
   "character_tips": {
     "anna": "Real journalism is fast, dense, and precise. Train for it.",

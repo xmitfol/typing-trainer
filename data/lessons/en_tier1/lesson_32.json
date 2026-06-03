@@ -10,13 +10,56 @@
   "error_limit": 7,
   "text": "2^3 = 8. a&b = and. 3*5 = 15. f(x) = y. (this) & (that) — both work great!",
   "text_sequence": [],
-  "keys_trained": ["A-Z", "0-9", "!", "@", "#", "$", "%", "^", "&", "*", "(", ")", ".", "=", "Space"],
-  "new_keys": ["^", "&", "*", "(", ")"],
+  "keys_trained": [
+    "A-Z",
+    "0-9",
+    "!",
+    "@",
+    "#",
+    "$",
+    "%",
+    "^",
+    "&",
+    "*",
+    "(",
+    ")",
+    ".",
+    "=",
+    "Space"
+  ],
+  "new_keys": [
+    "^",
+    "&",
+    "*",
+    "(",
+    ")"
+  ],
   "finger_focus": "Left Shift held by pinky; right hand types 6-0 with own fingers",
   "tips": [
-    "^ = Shift+6, & = Shift+7, * = Shift+8, ( = Shift+9, ) = Shift+0",
-    "Hold left Shift with left pinky, then type with right hand",
-    "Used in code: 2^3 (power), f(x) (function), if A&&B"
+    {
+      "type": "lead",
+      "text": "^ = Shift+6, & = Shift+7, * = Shift+8, ( = Shift+9, ) = Shift+0"
+    },
+    {
+      "type": "drop",
+      "text": "Hold left Shift with left pinky, then type with right hand"
+    },
+    {
+      "type": "exercise",
+      "target": "2^3 = 8. a&b = and. 3*5 = 15.",
+      "finger": "pink",
+      "hint": "Буквы: ^ & * ( )"
+    },
+    {
+      "type": "p",
+      "text": "Used in code: 2^3 (power), f(x) (function), if A&&B"
+    },
+    {
+      "type": "exercise",
+      "target": "f(x) = y. (this) & (that) — both work great!",
+      "finger": "orange",
+      "hint": "Буквы: ^ & * ( )"
+    }
   ],
   "character_tips": {
     "anna": "Right-side Shift symbols — use LEFT Shift, right-hand digits.",
