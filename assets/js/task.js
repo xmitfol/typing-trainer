@@ -204,7 +204,8 @@ document.addEventListener('DOMContentLoaded', async function () {
         fillEl.style.width = `${(typed / targetText.length) * 100}%`;
 
         const nextCh = targetText[typed];
-        if (!fingerHint) { kb.removeAttribute('highlight-char'); return; }
+        // hideIndicator (toolbar) глушит подсветку клавиш + текущего символа.
+        if (!fingerHint || hideIndicator) { kb.removeAttribute('highlight-char'); return; }
         if (nextCh === ' ') kb.setAttribute('highlight-char', ' ');
         else if (nextCh) kb.setAttribute('highlight-char', nextCh);
         else kb.removeAttribute('highlight-char');
@@ -494,6 +495,11 @@ document.addEventListener('DOMContentLoaded', async function () {
     const fingerBtn = $('finger-hint-btn');
     const soundBtn = $('sound-btn');
     const metroBtn = $('metro-btn');
+    const hideIndicatorBtn = $('hide-indicator-btn');
+    const previewOffBtn = $('preview-off-btn');
+    const taskCardEl = document.querySelector('.task-card');
+    let hideIndicator = profile.hideIndicator === true;
+    let previewOff = profile.previewOff === true;
 
     // Применяем сохранённое на старте + синхронизируем контролы
     const savedType = profile.keyboardType || 'classic';
@@ -508,6 +514,26 @@ document.addEventListener('DOMContentLoaded', async function () {
     }
     if (soundBtn) { soundBtn.dataset.off = (!soundOn).toString(); }
     if (metroBtn) { metroBtn.dataset.off = (!metroOn).toString(); metroBtn.dataset.active = metroOn.toString(); }
+
+    // Hide-indicator + preview-off: применяем сохранённое и синхронизируем
+    function applyHideIndicator() {
+        taskCardEl.classList.toggle('hide-indicator', hideIndicator);
+        if (hideIndicatorBtn) {
+            hideIndicatorBtn.dataset.off = (!hideIndicator).toString();
+            hideIndicatorBtn.dataset.active = hideIndicator.toString();
+            hideIndicatorBtn.title = hideIndicator ? 'Индикатор скрыт' : 'Скрыть индикатор набора (выкл.)';
+        }
+    }
+    function applyPreviewOff() {
+        taskCardEl.classList.toggle('preview-off', previewOff);
+        if (previewOffBtn) {
+            previewOffBtn.dataset.off = (!previewOff).toString();
+            previewOffBtn.dataset.active = previewOff.toString();
+            previewOffBtn.title = previewOff ? 'Текст скрыт — слепой режим' : 'Скрыть текст урока (выкл.)';
+        }
+    }
+    applyHideIndicator();
+    applyPreviewOff();
 
     // ─── Toolbar handlers (применяем + сохраняем) ───────────────
     // 1. Подсветка расстановки пальцев (highlight-char вкл/выкл)
@@ -532,6 +558,20 @@ document.addEventListener('DOMContentLoaded', async function () {
         e.currentTarget.dataset.active = metroOn.toString();
         e.currentTarget.title = metroOn ? 'Метроном (вкл.)' : 'Метроном (выкл.)';
         saveKbPref({ metronome: metroOn });
+    });
+    // 3a. Hide-indicator — выключить cur-highlight + highlight-char у клавиатуры
+    if (hideIndicatorBtn) hideIndicatorBtn.addEventListener('click', () => {
+        hideIndicator = !hideIndicator;
+        applyHideIndicator();
+        if (hideIndicator) kb.removeAttribute('highlight-char');
+        else renderTarget();  // вернёт highlight-char в setAttribute
+        saveKbPref({ hideIndicator });
+    });
+    // 3b. Preview-off — спрятать весь текст урока (▪▪▪▪▪)
+    if (previewOffBtn) previewOffBtn.addEventListener('click', () => {
+        previewOff = !previewOff;
+        applyPreviewOff();
+        saveKbPref({ previewOff });
     });
     // 4. Масштаб окна набора — зум всей карточки (для слабовидящих)
     const zoomBtn = $('zoom-btn'), zoomPop = $('zoom-pop');

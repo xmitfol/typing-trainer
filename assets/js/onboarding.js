@@ -102,8 +102,8 @@ class OnboardingManager {
 
     render() {
         const { name, gender, audience, mentor, language, keyboardType } = this.profile;
-        const langLabel = language === 'ru' ? 'RU' : 'EN';
-        const keyboardLabel = ({ classic: 'Полноразмерная', laptop: 'Ноутбук', ergonomic: 'Эргономическая' })[keyboardType] || keyboardType;
+        // language + keyboardType всё ещё детектятся (см. detectLang/detectKeyboard
+        // выше по коду) и сохраняются в profile при submit — просто не отображаются.
 
         this.overlay.innerHTML = `
             <div class="onboarding-v2__inner">
@@ -155,14 +155,8 @@ class OnboardingManager {
                     ${this.renderMentorSection(audience, mentor)}
                 </div>
 
-                <!-- Detected tech params -->
-                <div class="onboarding-v2__section">
-                    <div class="onboarding-v2__detected">
-                        Определили автоматически: <b>${langLabel}</b> · <b>${keyboardLabel}</b>
-                        <span style="margin: 0 4px">·</span>
-                        изменить можно в настройках после старта
-                    </div>
-                </div>
+                <!-- Tech-params (language + keyboard) определяются автоматически — без видимой плашки.
+                     По design VARIANT C это «тихая» детекция. Изменить можно потом в settings. -->
 
                 <button type="button" id="submitOnboarding" class="onboarding-v2__submit" disabled>
                     <span id="submitLabel">Введи имя, чтобы продолжить</span>

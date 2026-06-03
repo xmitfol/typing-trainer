@@ -138,6 +138,22 @@
             font-size: 13px; position: relative;
         }
         .tool-btn[data-active="true"] { background: var(--ink); color: #fff; border-color: var(--ink); }
+        /* Soon-stub: всегда блёклые, не реагируют на клик визуально */
+        .tool-btn--soon { opacity: 0.4; cursor: not-allowed; }
+        .tool-btn--soon:hover { opacity: 0.55; }
+        /* Hide-indicator: убираем current-char highlight */
+        .task-card.hide-indicator .target .cur { background: transparent; color: var(--faint); padding: 0; }
+        /* Preview-off: «слепой режим» — нечитаные символы скрыты (заменены ▪).
+           Done остаются видимыми чтобы юзер видел свой прогресс, cur — подсвечен. */
+        .task-card.preview-off .target .word > span:not(.done):not(.cur) {
+            color: var(--divider); position: relative;
+        }
+        .task-card.preview-off .target .word > span:not(.done):not(.cur) {
+            font-size: 0;
+        }
+        .task-card.preview-off .target .word > span:not(.done):not(.cur)::after {
+            content: '▪'; font-size: 26px; color: var(--divider);
+        }
         /* OFF-state badge: красная точка в углу (звук/метроном выкл по умолчанию) */
         .tool-btn[data-off="true"]::after {
             content: ''; position: absolute; top: -3px; right: -3px;
@@ -355,8 +371,16 @@
                 <button class="tool-btn" id="finger-hint-btn" title="Подсветка расстановки пальцев (вкл.)">
                     <svg width="14" height="14" viewBox="0 0 16 16"><rect x="2" y="2" width="5" height="5" rx="1" fill="#74b9ff"/><rect x="9" y="2" width="5" height="5" rx="1" fill="#fdcb6e"/><rect x="2" y="9" width="5" height="5" rx="1" fill="#00b894"/><rect x="9" y="9" width="5" height="5" rx="1" fill="#a29bfe"/></svg>
                 </button>
+                <!-- 👁 hide-indicator — скрыть current-char highlight (blind-mode lite) -->
+                <button class="tool-btn" id="hide-indicator-btn" data-off="true" title="Скрыть индикатор набора (выкл.)">👁</button>
+                <!-- 🙈 preview-off — скрыть target text целиком (blind-mode strict) -->
+                <button class="tool-btn" id="preview-off-btn" data-off="true" title="Скрыть текст урока (выкл.)">🙈</button>
                 <button class="tool-btn" id="sound-btn" data-off="true" title="Звук нажатия (выкл.)">🔊</button>
                 <button class="tool-btn" id="metro-btn" data-off="true" title="Метроном (выкл.)">⏱</button>
+                <!-- 🎤 voice — озвучка нажатий (stub до бекенда/TTS) -->
+                <button class="tool-btn tool-btn--soon" id="voice-btn" data-off="true" title="Озвучка нажатий — скоро">🎤</button>
+                <!-- A case-toggle — режим CAPS-индикатора (stub) -->
+                <button class="tool-btn tool-btn--soon" id="case-btn" data-off="true" title="Режим регистра — скоро">A</button>
                 <div style="position:relative">
                     <button class="tool-btn" id="zoom-btn" title="Масштаб окна набора">
                         <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><text x="2" y="9" font-family="Manrope, sans-serif" font-size="7" font-weight="800" fill="currentColor">A</text><text x="8.5" y="13" font-family="Manrope, sans-serif" font-size="11" font-weight="800" fill="currentColor">A</text></svg>
