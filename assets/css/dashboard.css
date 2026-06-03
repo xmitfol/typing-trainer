@@ -450,6 +450,7 @@
     font-size: 10.5px; font-weight: 700;
     color: var(--success); font-family: var(--font-mono);
 }
+.dh-stat__trend[data-dir="down"] { color: var(--error); }
 
 /* ─── Achievements ───────────────────────────────────────────────────────── */
 .dh-ach__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }

@@ -250,6 +250,35 @@ document.addEventListener('DOMContentLoaded', async function () {
         body.dataset.rendered = '1';
         body.innerHTML = '';
 
+        // Intro special-rows (как в design course.jsx) — История курса + Интерактивная справка (NEW)
+        // + разделитель + label «ВСТУПЛЕНИЕ» перед списком уроков. Только для модуля 1.
+        if (m.n === 1) {
+            const intro = document.createElement('div');
+            intro.className = 'cp-module__intro';
+            intro.innerHTML = `
+                <button type="button" class="cp-special" data-special="history" title="Скоро">
+                    <span class="cp-special__icon">📖</span>
+                    <span class="cp-special__body">
+                        <span class="cp-special__label">История курса</span>
+                        <span class="cp-special__sub">История создания тренажёра</span>
+                    </span>
+                </button>
+                <button type="button" class="cp-special" data-special="help" title="Скоро">
+                    <span class="cp-special__icon">🆕</span>
+                    <span class="cp-special__body">
+                        <span class="cp-special__label">
+                            Интерактивная справка
+                            <span class="cp-special__badge">NEW</span>
+                        </span>
+                        <span class="cp-special__sub">Что такое слепая печать</span>
+                    </span>
+                </button>
+                <div class="cp-module__intro-sep"></div>
+                <div class="cp-module__intro-label">ВСТУПЛЕНИЕ</div>
+            `;
+            body.appendChild(intro);
+        }
+
         const fetchTasks = [];
         for (let n = m.from; n <= m.to; n++) {
             fetchTasks.push(window.lessonLoader.loadLesson(tier, n).catch(() => null).then(l => ({ n, lesson: l })));

@@ -248,6 +248,33 @@ document.addEventListener('DOMContentLoaded', async function () {
     $('#dhStatTime').textContent     = totalSec ? (totalSec / 3600).toFixed(1) : '—';
     $('#dhStatStreak').textContent   = streakDays || '—';
 
+    // Trend pills (+N) — сравниваем среднее по последним 5 попыткам со средним
+    // по предыдущим 5. Если данных <10 — pill скрыт. Из design dashboard.jsx StatBox.
+    function setTrend(elId, recent, older, suffix) {
+        const el = document.getElementById(elId);
+        if (!el) return;
+        if (!Number.isFinite(recent) || !Number.isFinite(older) || older === 0) {
+            el.hidden = true; return;
+        }
+        const delta = Math.round(recent - older);
+        if (delta === 0) { el.hidden = true; return; }
+        el.hidden = false;
+        el.dataset.dir = delta > 0 ? 'up' : 'down';
+        el.textContent = (delta > 0 ? '+' : '') + delta + (suffix || '');
+    }
+    const recentHistory = (history || []).slice(-10);
+    if (recentHistory.length >= 4) {
+        const half = Math.floor(recentHistory.length / 2);
+        const recent5 = recentHistory.slice(-half);
+        const prev5 = recentHistory.slice(0, recentHistory.length - half);
+        const avg = (arr, field) => {
+            const valid = arr.filter(h => Number.isFinite(h[field]));
+            return valid.length ? valid.reduce((a, h) => a + h[field], 0) / valid.length : NaN;
+        };
+        setTrend('dhStatSpeedTrend', avg(recent5, 'wpm'), avg(prev5, 'wpm'));
+        setTrend('dhStatAccuracyTrend', avg(recent5, 'accuracy'), avg(prev5, 'accuracy'));
+    }
+
     // ── Achievements (топ-6) ────────────────────────────────────────
     // Источник истины — assets/js/achievements.js (общий каталог + computation).
     // На дашборде показываем 6: сначала недавние earned, затем ближайшие к

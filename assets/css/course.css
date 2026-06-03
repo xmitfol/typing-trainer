@@ -232,6 +232,38 @@
 }
 .cp-module--open .cp-module__body { display: block; }
 
+/* Intro special-rows (только в 1-м модуле): История курса + Интерактивная справка */
+.cp-module__intro { padding-bottom: 4px; }
+.cp-special {
+    width: 100%; display: flex; align-items: center; gap: 14px;
+    padding: 11px 18px; background: transparent; border: none; cursor: pointer;
+    text-align: left; font-family: var(--font-ui);
+    transition: background 0.12s ease;
+}
+.cp-special:hover { background: var(--bg-alt); }
+.cp-special__icon {
+    width: 30px; height: 30px; border-radius: 8px;
+    background: var(--bg); display: grid; place-items: center;
+    font-size: 14px; flex-shrink: 0;
+}
+.cp-special__body { flex: 1; }
+.cp-special__label {
+    font-size: 13.5px; font-weight: 600; color: var(--success);
+    display: flex; align-items: center; gap: 8px;
+}
+.cp-special__badge {
+    padding: 1px 7px; border-radius: 4px;
+    background: #f97316; color: #fff;
+    font-size: 9.5px; font-family: var(--font-mono); font-weight: 700; letter-spacing: 0.04em;
+}
+.cp-special__sub { display: block; font-size: 11.5px; color: var(--faint); margin-top: 2px; }
+.cp-module__intro-sep { height: 1px; background: var(--divider); margin: 6px 18px; }
+.cp-module__intro-label {
+    padding: 12px 18px 8px;
+    font-size: 12px; font-weight: 700; color: var(--success);
+    font-family: var(--font-mono); letter-spacing: 0.06em;
+}
+
 .cp-lesson {
     display: flex; align-items: center; gap: 14px;
     padding: 10px 18px;

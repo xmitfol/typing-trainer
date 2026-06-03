@@ -88,6 +88,40 @@
 
         .capture { position: absolute; opacity: 0; pointer-events: none; width: 1px; height: 1px; }
 
+        /* Speed graph (live WPM samples) — из design task.jsx SpeedGraph */
+        .speed-graph {
+            height: 92px; margin-top: 14px;
+            background: #fff; border: 1px solid var(--divider);
+            border-radius: 8px; padding: 10px 14px;
+            position: relative;
+        }
+        .speed-graph__yaxis {
+            position: absolute; left: 6px; top: 8px; bottom: 8px;
+            display: flex; flex-direction: column; justify-content: space-between;
+            font-family: var(--font-mono); font-size: 8.5px; color: var(--faint);
+        }
+        .speed-graph__grid {
+            margin-left: 26px; height: 100%;
+            background: repeating-linear-gradient(0deg, transparent 0, transparent 17px, rgba(0,0,0,0.04) 17px, rgba(0,0,0,0.04) 18px);
+            position: relative;
+        }
+        .speed-graph__grid svg { position: absolute; inset: 0; }
+
+        /* Confetti celebrate animation на success-экране при errors ≤ limit */
+        .confetti {
+            position: absolute; inset: 0; pointer-events: none;
+            overflow: hidden; z-index: 1;
+        }
+        .confetti__p {
+            position: absolute; top: -20px;
+            width: 8px; height: 12px; border-radius: 2px;
+            opacity: 0; animation: confetti-fall 2.5s ease-in forwards;
+        }
+        @keyframes confetti-fall {
+            0%   { transform: translateY(0) rotate(0); opacity: 1; }
+            100% { transform: translateY(420px) rotate(720deg); opacity: 0; }
+        }
+
         .stat { background: var(--surface); border: 1px solid var(--divider); border-radius: var(--r-md); padding: 14px 16px; }
         .stat__label { font-family: var(--font-mono); font-size: 10px; color: var(--faint); letter-spacing: 0.06em; margin-bottom: 4px; }
         .stat__val { font-family: var(--font-mono); font-weight: 800; font-size: 22px; letter-spacing: -0.02em; }
@@ -254,6 +288,18 @@
                     <!-- inputmode="none" → не вызывает системную клавиатуру на touch-устройствах,
                          ввод идёт через физическую клавиатуру или клик/тап по on-screen клавише -->
                     <input class="capture" id="capture" inputmode="none" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false" />
+
+                    <!-- Mini speed graph (live WPM samples, from design task.jsx SpeedGraph) -->
+                    <div class="speed-graph" id="speed-graph" aria-hidden="true">
+                        <div class="speed-graph__yaxis">
+                            <span>600</span><span>300</span><span>100</span>
+                        </div>
+                        <div class="speed-graph__grid">
+                            <svg id="speed-graph-svg" width="100%" height="100%" viewBox="0 0 300 100" preserveAspectRatio="none">
+                                <polyline id="speed-graph-line" fill="none" stroke="var(--accent)" stroke-width="1.5" stroke-linejoin="round" points=""></polyline>
+                            </svg>
+                        </div>
+                    </div>
                 </div>
 
                 <div class="col" style="gap:18px">
@@ -294,7 +340,13 @@
                         <div class="stat"><div class="stat__label" data-i18n="task.successFinalGrade">ОЦЕНКА</div><div class="stat__val" id="final-grade">★★★</div></div>
                         <div class="stat"><div class="stat__label" data-i18n="task.speed">СКОРОСТЬ</div><div class="stat__val" id="final-speed">0</div></div>
                         <div class="stat"><div class="stat__label" data-i18n="task.accuracy">ТОЧНОСТЬ</div><div class="stat__val" id="final-acc">100%</div></div>
+                        <!-- РИТМИЧНОСТЬ — coefficient of variation между нажатиями. Чем ровнее
+                             темп, тем выше %. Из design task.jsx SideStats. -->
+                        <div class="stat"><div class="stat__label" data-i18n="task.rhythm">РИТМИЧНОСТЬ</div><div class="stat__val" id="final-rhythm">—</div></div>
                     </div>
+                </div>
+                <!-- Confetti container — заполняется в task.js finishExercise при successful pass -->
+                <div class="confetti" id="confetti" aria-hidden="true"></div>
                 </div>
             </div>
 

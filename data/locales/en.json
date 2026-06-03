@@ -127,6 +127,7 @@
     "speed": "SPEED",
     "accuracy": "ACCURACY",
     "speedUnit": "cpm",
+    "rhythm": "RHYTHM",
     "progress": "Progress",
     "restart": "Restart",
     "capsLock": "🔒 CAPS LOCK",
@@ -220,6 +221,18 @@
     "navAudience": "For whom",
     "navPricing": "Pricing",
     "navLogin": "Log in",
-    "ctaContinue": "Continue training"
+    "ctaContinue": "Continue training",
+    "navFAQ": "FAQ",
+    "faqTitle": "Frequently asked questions",
+    "faqQ1": "How long does it take to learn touch typing?",
+    "faqA1": "On average 4–6 weeks of regular 20–30 minute sessions a day. First results show up by day 7–10.",
+    "faqQ2": "What keyboard works best for practice?",
+    "faqA2": "Any physical keyboard with QWERTY or ЙЦУКЕН layout. In the trainer you can pick the type (full size, laptop, ergonomic).",
+    "faqQ3": "Do I need an internet connection?",
+    "faqA3": "Only for the first page load. Progress is saved locally in the browser and works offline.",
+    "faqQ4": "Can children use it?",
+    "faqA4": "Yes — there's a separate course for kids 6–11 with the playful mentor Klavochka, and one for teens 12–17 with Knopych.",
+    "faqQ5": "What's included in the paid subscription?",
+    "faqA5": "All 99 course lessons, advanced stats, custom-text builder, completion certificate, and priority support."
   }
 }

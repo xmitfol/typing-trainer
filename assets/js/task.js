@@ -139,6 +139,19 @@ document.addEventListener('DOMContentLoaded', async function () {
     let tooManyShown = false;  // one-shot per attempt — наставник предупреждает один раз
     const errorLimit = Number.isFinite(lesson.error_limit) ? lesson.error_limit : 2;
     const halfErrorLimit = Math.max(1, Math.ceil(errorLimit / 2));
+
+    // Ритмичность: храним интервалы между нажатиями (мс), на финише считаем CV (std/mean).
+    // rhythm% = max(0, 100 - cv*100). Меньше 0 → 0, выше 100 не может выйти.
+    let lastKeyTime = 0;
+    const keyIntervals = [];
+    function calcRhythm() {
+        if (keyIntervals.length < 2) return null;
+        const mean = keyIntervals.reduce((a, b) => a + b, 0) / keyIntervals.length;
+        if (mean <= 0) return null;
+        const variance = keyIntervals.reduce((a, b) => a + (b - mean) ** 2, 0) / keyIntervals.length;
+        const cv = Math.sqrt(variance) / mean;  // coefficient of variation
+        return Math.max(0, Math.min(100, Math.round((1 - cv) * 100)));
+    }
     // Настройки тулбара (из профиля; дефолты: подсветка вкл, звук/метроном выкл, зум 100)
     let fingerHint = profile.fingerHint !== false;
     let soundOn = profile.keySound === true;
@@ -214,12 +227,37 @@ document.addEventListener('DOMContentLoaded', async function () {
         return eff > 0 ? Math.round(correct / (eff / 60)) : 0;
     }
     function calcAcc() { return typed > 0 ? Math.max(0, Math.round(((typed - errors) / typed) * 100)) : 100; }
+
+    // SpeedGraph: храним до SPEED_GRAPH_MAX_POINTS последних замеров WPM, рисуем polyline.
+    // viewBox = «0 0 (N*10) 100», max шкалы = 600 зн/мин (как в design SpeedGraph).
+    const SPEED_GRAPH_MAX_POINTS = 30;
+    const SPEED_GRAPH_MAX = 600;
+    const speedSamples = [];
+    const speedLineEl = $('speed-graph-line');
+    function renderSpeedGraph() {
+        if (!speedLineEl) return;
+        if (speedSamples.length === 0) { speedLineEl.setAttribute('points', ''); return; }
+        const pts = speedSamples.map((v, i) => {
+            const x = i * 10;
+            const y = Math.max(0, 100 - Math.min(v, SPEED_GRAPH_MAX) / SPEED_GRAPH_MAX * 100);
+            return `${x},${y.toFixed(1)}`;
+        }).join(' ');
+        speedLineEl.setAttribute('points', pts);
+    }
+
     function updateStats() {
         const elapsed = startTime ? (Date.now() - startTime) / 1000 : 0;
         const m = Math.floor(elapsed / 60), s = Math.floor(elapsed % 60);
         statTime.textContent = `${String(m).padStart(2, '0')}:${String(s).padStart(2, '0')}`;
-        statSpeed.innerHTML = `${calcWpm(elapsed)} <span style="font-size:11px;color:var(--faint)">зн/мин</span>`;
+        const wpmNow = calcWpm(elapsed);
+        statSpeed.innerHTML = `${wpmNow} <span style="font-size:11px;color:var(--faint)">зн/мин</span>`;
         statAcc.innerHTML = `${calcAcc()}<span style="font-size:11px;color:var(--faint)">%</span>`;
+        // Sample WPM, скользящее окно
+        if (startTime && !done) {
+            speedSamples.push(wpmNow);
+            if (speedSamples.length > SPEED_GRAPH_MAX_POINTS) speedSamples.shift();
+            renderSpeedGraph();
+        }
     }
 
     // ─── Caps Lock индикатор ─────────────────────────────────────
@@ -251,6 +289,15 @@ document.addEventListener('DOMContentLoaded', async function () {
         e.preventDefault();
 
         if (!startTime) { startTime = Date.now(); timer = setInterval(updateStats, 500); }
+
+        // Ритмичность: интервал с предыдущего нажатия. Игнорируем outliers >2000ms
+        // (пауза/мысль) — они портят CV без отражения реального ритма.
+        const now = Date.now();
+        if (lastKeyTime > 0) {
+            const dt = now - lastKeyTime;
+            if (dt > 20 && dt < 2000) keyIntervals.push(dt);
+        }
+        lastKeyTime = now;
 
         const expected = targetText[typed];
         if (e.key === expected) {
@@ -322,6 +369,10 @@ document.addEventListener('DOMContentLoaded', async function () {
         $('final-grade').textContent = '★'.repeat(stars) + '☆'.repeat(5 - stars);
         $('final-speed').innerHTML = `${wpm} <span style="font-size:11px;color:var(--faint)">зн/мин</span>`;
         $('final-acc').innerHTML = `${acc}<span style="font-size:11px;color:var(--faint)">%</span>`;
+        const rhythm = calcRhythm();
+        $('final-rhythm').innerHTML = rhythm == null
+            ? '—'
+            : `${rhythm}<span style="font-size:11px;color:var(--faint)">%</span>`;
 
         $('success-title').textContent = t(`task.titles.${stars}`);
         $('success-msg').textContent = acc === 100
@@ -362,6 +413,28 @@ document.addEventListener('DOMContentLoaded', async function () {
         toolbar.classList.add('hide');
         kbStage.classList.add('hide');
         successEl.classList.add('show');
+
+        // Confetti — только при successful pass (errors в пределах лимита)
+        if (passed) spawnConfetti();
+    }
+
+    function spawnConfetti() {
+        const cont = $('confetti');
+        if (!cont) return;
+        cont.innerHTML = '';
+        const COLORS = ['#fbbf24', '#34d399', '#60a5fa', '#f472b6', '#a78bfa', '#fb923c'];
+        const N = 36;
+        for (let i = 0; i < N; i++) {
+            const p = document.createElement('span');
+            p.className = 'confetti__p';
+            p.style.left = `${Math.random() * 100}%`;
+            p.style.background = COLORS[i % COLORS.length];
+            p.style.animationDelay = `${Math.random() * 0.3}s`;
+            p.style.animationDuration = `${1.8 + Math.random() * 1.2}s`;
+            cont.appendChild(p);
+        }
+        // Cleanup через 4s (после самого долгого fall)
+        setTimeout(() => { if (cont) cont.innerHTML = ''; }, 4000);
     }
 
     // ─── Buttons ─────────────────────────────────────────────────
@@ -370,6 +443,9 @@ document.addEventListener('DOMContentLoaded', async function () {
         attempt++; attemptEl.textContent = attempt;
         statTime.textContent = '00:00';
         tooManyShown = false;
+        speedSamples.length = 0; renderSpeedGraph();
+        keyIntervals.length = 0; lastKeyTime = 0;
+        const cf = $('confetti'); if (cf) cf.innerHTML = '';
         // Вернуть стартовую реплику наставника
         tipEl.textContent = initTip;
         hintEl.textContent = lesson.finger_focus || 'Указательные пальцы — твои якоря на буквах А и О.';
