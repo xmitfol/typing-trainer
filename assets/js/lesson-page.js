@@ -189,30 +189,191 @@ document.addEventListener('DOMContentLoaded', async function () {
     const tipsContainer = $('#lpTips');
     tipsContainer.innerHTML = '';
     const tips = lesson.tips || [];
+    // Counter для inline-упражнений (нумерация УПРАЖНЕНИЕ 1/2/3)
+    let inlineExIdx = 0;
     tips.forEach((tip, idx) => {
-        // Каждый 3-й tip — callout, остальное — параграфы
-        if (idx > 0 && idx % 3 === 0) {
-            const callout = document.createElement('div');
-            callout.className = 'lp-callout';
-            callout.innerHTML = `
-                <div class="lp-callout__icon">💡</div>
-                <div>
-                    <div class="lp-callout__title">Подсказка</div>
-                    <div class="lp-callout__text">${escapeHtml(tip)}</div>
-                </div>
-            `;
-            tipsContainer.appendChild(callout);
-        } else {
-            const p = document.createElement('p');
-            p.className = 'lp-p' + (idx === 1 ? ' lp-p--drop' : '');
-            p.textContent = tip;
-            tipsContainer.appendChild(p);
+        // Backward compat: строка → параграф (1-й как drop-cap, каждый 3-й как callout).
+        // Объект {type, ...} → специальный рендер: callout / pullquote / exercise / figure.
+        if (typeof tip === 'string') {
+            if (idx > 0 && idx % 3 === 0) {
+                tipsContainer.appendChild(makeCallout('💡', 'Подсказка', tip));
+            } else {
+                const p = document.createElement('p');
+                p.className = 'lp-p' + (idx === 1 ? ' lp-p--drop' : '');
+                p.textContent = tip;
+                tipsContainer.appendChild(p);
+            }
+            return;
+        }
+        if (!tip || typeof tip !== 'object') return;
+        switch (tip.type) {
+            case 'p':
+            case 'drop':
+            case 'lead': {
+                const p = document.createElement('p');
+                p.className = 'lp-p' + (tip.type !== 'p' ? ` lp-p--${tip.type}` : '');
+                p.textContent = tip.text || '';
+                tipsContainer.appendChild(p);
+                break;
+            }
+            case 'callout':
+                tipsContainer.appendChild(makeCallout(tip.icon || '💡', tip.title || 'Подсказка', tip.text || ''));
+                break;
+            case 'pullquote': {
+                const q = document.createElement('blockquote');
+                q.className = 'lp-quote';
+                q.innerHTML = `<span>${escapeHtml(tip.text || '')}</span>${tip.by ? `<span class="lp-quote__by">— ${escapeHtml(tip.by)}</span>` : ''}`;
+                tipsContainer.appendChild(q);
+                break;
+            }
+            case 'figure': {
+                const f = document.createElement('div');
+                f.className = 'lp-figure';
+                if (tip.tone) f.dataset.tone = tip.tone;
+                if (tip.aspect) f.style.aspectRatio = tip.aspect;
+                f.innerHTML = `<div class="lp-figure__label">${escapeHtml(tip.label || 'Иллюстрация')}</div>`;
+                tipsContainer.appendChild(f);
+                break;
+            }
+            case 'exercise':
+                tipsContainer.appendChild(makeInlineExercise(++inlineExIdx, tip));
+                break;
         }
     });
 
-    // Pull quote только когда есть >=4 tips (иначе перегружено)
-    if (tips.length >= 4) {
+    // Pull quote только когда есть >=4 строковых tips (legacy для старых уроков).
+    if (tips.filter(t => typeof t === 'string').length >= 4) {
         $('#lpPullQuote').hidden = false;
+    }
+
+    function makeCallout(icon, title, text) {
+        const c = document.createElement('div');
+        c.className = 'lp-callout';
+        c.innerHTML = `
+            <div class="lp-callout__icon">${escapeHtml(icon)}</div>
+            <div>
+                <div class="lp-callout__title">${escapeHtml(title)}</div>
+                <div class="lp-callout__text">${escapeHtml(text)}</div>
+            </div>
+        `;
+        return c;
+    }
+
+    // ExerciseInsert (по design lesson.jsx) — самостоятельная мини-typing задача
+    // прямо в теле теории. Каждый instance имеет свой capture input.
+    function makeInlineExercise(num, tip) {
+        const targetText = String(tip.target || '');
+        const fingerColor = tip.finger || 'blue';
+        const fingerHint = tip.hint || '';
+        const total = targetText.length;
+
+        const box = document.createElement('div');
+        box.className = 'lp-exercise lp-exercise--inline';
+        box.dataset.finger = fingerColor;
+        const badgeRu = window.i18n ? window.i18n.t('lesson.exerciseBadge') : 'УПРАЖНЕНИЕ';
+        box.innerHTML = `
+            <div class="lp-exercise__hd">
+                <div class="lp-exercise__badge"><span class="lp-exercise__badge-text">${escapeHtml(badgeRu)} ${num}</span></div>
+                ${fingerHint ? `<div class="lp-exercise__hint">
+                    <span class="lp-exercise__hint-dot"></span>
+                    <span>${escapeHtml(fingerHint)}</span>
+                </div>` : ''}
+            </div>
+            <div class="lp-exercise__target" tabindex="0"></div>
+            <input class="lp-exercise__capture" type="text" inputmode="none" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false" />
+            <div class="lp-exercise__meta">
+                <div class="lp-exercise__dots"></div>
+                <div class="lp-exercise__count">0/${total}</div>
+                <button type="button" class="lp-exercise__reset">↻ Заново</button>
+            </div>
+        `;
+
+        const targetEl = box.querySelector('.lp-exercise__target');
+        const captureEl = box.querySelector('.lp-exercise__capture');
+        const dotsEl = box.querySelector('.lp-exercise__dots');
+        const countEl = box.querySelector('.lp-exercise__count');
+        const badgeText = box.querySelector('.lp-exercise__badge-text');
+        const badgeDoneText = '✓ ' + (window.i18n ? window.i18n.t('task.completed').replace('✓ ', '') : 'ВЫПОЛНЕНО');
+
+        let typed = 0, errors = 0, done = false;
+
+        // Прогресс-точки
+        dotsEl.innerHTML = '';
+        for (let i = 0; i < total; i++) {
+            const d = document.createElement('div');
+            d.className = 'lp-exercise__dot';
+            dotsEl.appendChild(d);
+        }
+        const dotEls = Array.from(dotsEl.children);
+
+        function render() {
+            let html = '', openWord = false;
+            for (let i = 0; i < total; i++) {
+                const ch = targetText[i];
+                let cls = 'ch';
+                if (i < typed) cls += ' done';
+                else if (i === typed && !done) cls += ' cur';
+                if (ch === ' ') {
+                    if (openWord) { html += '</span>'; openWord = false; }
+                    html += `<span class="${cls}"> </span>`;
+                } else {
+                    if (!openWord) { html += '<span class="word">'; openWord = true; }
+                    html += `<span class="${cls}">${escapeHtml(ch)}</span>`;
+                }
+            }
+            if (openWord) html += '</span>';
+            targetEl.innerHTML = html;
+            countEl.textContent = `${typed}/${total}`;
+            dotEls.forEach((d, i) => d.classList.toggle('on', i < typed));
+            box.classList.toggle('lp-exercise--done', done);
+            badgeText.textContent = done ? badgeDoneText : `${badgeRu} ${num}`;
+        }
+
+        function reset() {
+            typed = 0; errors = 0; done = false;
+            render();
+        }
+
+        function focus() {
+            captureEl.focus({ preventScroll: true });
+            box.classList.add('lp-exercise--focus');
+        }
+        function blur() { box.classList.remove('lp-exercise--focus'); }
+
+        captureEl.addEventListener('blur', blur);
+        targetEl.addEventListener('click', focus);
+        box.addEventListener('click', (e) => {
+            if (e.target.closest('.lp-exercise__reset')) return;
+            focus();
+        });
+        box.querySelector('.lp-exercise__reset').addEventListener('click', (e) => {
+            e.stopPropagation();
+            reset();
+        });
+
+        captureEl.addEventListener('keydown', (e) => {
+            if (done) return;
+            if (e.key === 'Backspace') {
+                if (typed > 0) typed--;
+                render();
+                e.preventDefault();
+                return;
+            }
+            if (e.key === 'Tab') return;  // даём табу уйти на следующий элемент
+            if (e.key.length !== 1) return;
+            e.preventDefault();
+            const expected = targetText[typed];
+            if (e.key !== expected) errors++;
+            typed++;
+            if (typed >= total) {
+                done = true;
+                if (errors === 0) box.classList.add('lp-exercise--done');
+            }
+            render();
+        });
+
+        render();
+        return box;
     }
 
     // ─── Inline exercise preview ─────────────────────────────────

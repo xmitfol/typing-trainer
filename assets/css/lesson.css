@@ -345,6 +345,71 @@
     box-shadow: 0 6px 14px rgba(59,130,246,0.25);
 }
 
+/* ─── Inline ExerciseInsert (по design lesson.jsx) ───────────────── */
+.lp-exercise--inline { cursor: text; }
+.lp-exercise--inline.lp-exercise--focus { box-shadow: 0 8px 24px rgba(116,185,255,0.28); }
+.lp-exercise--inline.lp-exercise--done {
+    border-color: var(--success);
+    box-shadow: none;
+}
+.lp-exercise--inline.lp-exercise--done .lp-exercise__badge { background: var(--success); }
+.lp-exercise--inline .lp-exercise__target {
+    cursor: text;
+    white-space: normal; word-break: normal; overflow-wrap: normal;
+}
+.lp-exercise__target .word { white-space: nowrap; }
+.lp-exercise__target .ch {
+    color: var(--faint); padding: 1px 1px;
+    border-bottom: 2px solid transparent;
+    transition: color 0.1s ease;
+}
+.lp-exercise__target .ch.done { color: var(--success); }
+.lp-exercise__target .ch.err  { color: #fff; background: var(--error); border-radius: 3px; }
+.lp-exercise__target .ch.cur  { color: var(--ink); background: rgba(116,185,255,0.22); border-bottom-color: var(--f-blue); }
+.lp-exercise[data-finger="pink"]   .ch.cur { background: rgba(255,118,117,0.22);  border-bottom-color: var(--f-pink); }
+.lp-exercise[data-finger="orange"] .ch.cur { background: rgba(253,203,110,0.22);  border-bottom-color: var(--f-orange); }
+.lp-exercise[data-finger="green"]  .ch.cur { background: rgba(0,184,148,0.22);    border-bottom-color: var(--f-green); }
+.lp-exercise[data-finger="indigo"] .ch.cur { background: rgba(74,144,226,0.22);   border-bottom-color: var(--f-indigo); }
+.lp-exercise[data-finger="purple"] .ch.cur { background: rgba(162,155,254,0.22);  border-bottom-color: var(--f-purple); }
+.lp-exercise__capture {
+    position: absolute; opacity: 0;
+    pointer-events: none; width: 1px; height: 1px;
+}
+.lp-exercise__dot.on { background: var(--f-blue); }
+.lp-exercise[data-finger="pink"]   .lp-exercise__dot.on { background: var(--f-pink); }
+.lp-exercise[data-finger="orange"] .lp-exercise__dot.on { background: var(--f-orange); }
+.lp-exercise[data-finger="green"]  .lp-exercise__dot.on { background: var(--f-green); }
+.lp-exercise[data-finger="indigo"] .lp-exercise__dot.on { background: var(--f-indigo); }
+.lp-exercise[data-finger="purple"] .lp-exercise__dot.on { background: var(--f-purple); }
+.lp-exercise--done .lp-exercise__dot.on { background: var(--success); }
+.lp-exercise__reset {
+    margin-left: 12px; padding: 6px 12px;
+    background: transparent; border: 1px solid var(--divider);
+    border-radius: 7px;
+    font-size: 11px; color: var(--sub);
+    font-family: var(--font-ui); font-weight: 600;
+    cursor: pointer;
+}
+.lp-exercise__reset:hover { background: var(--bg-alt); }
+
+/* ─── Figure placeholder ────────────────────────────────────────── */
+.lp-figure {
+    background: linear-gradient(135deg, rgba(116,185,255,0.10), rgba(116,185,255,0.04));
+    border: 1px dashed var(--divider);
+    border-radius: 12px;
+    aspect-ratio: 16 / 9;
+    margin: 8px 0 32px;
+    display: grid; place-items: center;
+    color: var(--faint);
+    font-size: 13px; font-family: var(--font-mono);
+}
+.lp-figure[data-tone="pink"]   { background: linear-gradient(135deg, rgba(255,118,117,0.10), rgba(255,118,117,0.04)); }
+.lp-figure[data-tone="orange"] { background: linear-gradient(135deg, rgba(253,203,110,0.10), rgba(253,203,110,0.04)); }
+.lp-figure[data-tone="green"]  { background: linear-gradient(135deg, rgba(0,184,148,0.10), rgba(0,184,148,0.04)); }
+.lp-figure[data-tone="indigo"] { background: linear-gradient(135deg, rgba(74,144,226,0.10), rgba(74,144,226,0.04)); }
+.lp-figure[data-tone="purple"] { background: linear-gradient(135deg, rgba(162,155,254,0.10), rgba(162,155,254,0.04)); }
+.lp-figure__label { padding: 0 24px; text-align: center; }
+
 /* ─── Bottom nav (prev/next) ─────────────────────────────────────── */
 .lp-nav {
     display: flex; justify-content: space-between; gap: 14px;
