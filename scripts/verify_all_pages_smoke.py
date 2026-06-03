@@ -32,6 +32,10 @@ PAGES = [
     ('lesson.html?tier=tier1&lesson=6', '#lpTitle'),
     ('task.html?tier=tier1&lesson=1',   '#target .word'),
     ('pricing.html',          '#ppPaywallTitle'),
+    ('profile.html',          '#ppName'),
+    ('builder.html',          '#bp-text'),
+    ('settings.html',         '#sp-name-input'),
+    ('achievements.html',     '#ach-groups'),
 ]
 
 def main():

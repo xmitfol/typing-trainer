@@ -1,0 +1,282 @@
+/* profile.css — Phase 6 Profile Page. Scoped под .profile-page. Tokens.css. */
+
+.profile-page {
+    font-family: var(--font-ui);
+    background: var(--bg);
+    color: var(--ink);
+    min-height: 100vh;
+    -webkit-font-smoothing: antialiased;
+}
+.profile-page *, .profile-page *::before, .profile-page *::after { box-sizing: border-box; }
+.profile-page a { color: inherit; text-decoration: none; }
+
+/* ─── Header ─────────────────────────────────────────────────────── */
+.pp-header {
+    position: sticky; top: 0; z-index: 10;
+    background: rgba(245, 244, 240, 0.92);
+    backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--divider);
+    padding: 12px 32px; display: flex; align-items: center; gap: 18px;
+}
+.pp-back {
+    display: inline-flex; align-items: center; gap: 6px;
+    padding: 6px 12px; border-radius: 8px;
+    background: transparent; border: 1.5px solid var(--divider);
+    color: var(--ink); font-size: 13px; font-weight: 600;
+}
+.pp-back:hover { background: var(--surface); }
+.pp-logo { display: flex; align-items: center; gap: 8px; margin-left: 4px; }
+.pp-logo__mark {
+    width: 28px; height: 28px; border-radius: 7px;
+    background: var(--brand-grad);
+    display: grid; place-items: center;
+    color: #fff; font-family: var(--font-mono); font-weight: 700; font-size: 12px;
+}
+.pp-logo__name { font-weight: 800; font-size: 14px; }
+.pp-crumb { font-size: 14px; color: var(--sub); font-family: var(--font-mono); letter-spacing: 0.06em; }
+
+/* ─── Today + paywall banner ─────────────────────────────────────── */
+.pp-today {
+    max-width: 1180px; margin: 0 auto;
+    padding: 32px 24px 0;
+    display: flex; flex-direction: column; gap: 14px;
+}
+.pp-today__hd { display: flex; align-items: baseline; gap: 16px; flex-wrap: wrap; }
+.pp-today__h1 { margin: 0; font-size: 32px; font-weight: 800; letter-spacing: -0.02em; }
+.pp-today__date { font-family: var(--font-mono); font-size: 12px; color: var(--faint); letter-spacing: 0.04em; }
+
+.pp-paywall {
+    display: flex; align-items: center; gap: 14px;
+    padding: 14px 18px; border-radius: 12px;
+    background: #fef9c3; border: 1px solid #fde68a;
+}
+.pp-paywall__dot {
+    width: 8px; height: 8px; border-radius: 50%;
+    background: #f97316; flex-shrink: 0;
+    box-shadow: 0 0 0 3px rgba(249,115,22,0.15);
+}
+.pp-paywall__text { flex: 1; display: flex; flex-direction: column; gap: 2px; font-size: 13.5px; color: #451a03; }
+.pp-paywall__sub { font-size: 11.5px; color: #92400e; font-family: var(--font-mono); }
+.pp-paywall__cta {
+    padding: 8px 16px; border-radius: 8px;
+    background: var(--ink); color: #fff;
+    font-size: 13px; font-weight: 700;
+}
+.pp-paywall__cta:hover { opacity: 0.9; }
+
+/* ─── Metrics strip ──────────────────────────────────────────────── */
+.pp-metrics {
+    max-width: 1180px; margin: 16px auto 0;
+    padding: 0 24px;
+    display: grid; grid-template-columns: repeat(6, 1fr); gap: 14px;
+}
+.pp-metric {
+    background: var(--surface); border: 1px solid var(--divider);
+    border-radius: 12px; padding: 14px 16px;
+}
+.pp-metric__label {
+    font-family: var(--font-mono); font-size: 10px; color: var(--faint);
+    letter-spacing: 0.06em; margin-bottom: 6px;
+}
+.pp-metric__val {
+    font-family: var(--font-mono); font-weight: 800; font-size: 22px;
+    letter-spacing: -0.02em;
+}
+
+/* ─── Main grid ──────────────────────────────────────────────────── */
+.pp-main {
+    max-width: 1180px; margin: 0 auto;
+    padding: 24px 24px 80px;
+    display: grid; grid-template-columns: 320px 1fr; gap: 24px;
+    align-items: start;
+}
+
+.pp-card {
+    background: var(--surface); border: 1px solid var(--divider);
+    border-radius: 16px;
+}
+.pp-card--profile { padding: 28px 24px; text-align: center; }
+.pp-card--tabs { padding: 24px; }
+
+/* ─── Profile card (left) ────────────────────────────────────────── */
+.pp-pcard__portrait {
+    width: 120px; height: 120px; border-radius: 50%;
+    margin: 0 auto 14px;
+    background: #fff; border: 3px solid var(--divider);
+    overflow: hidden; display: grid; place-items: center;
+}
+.pp-pcard__portrait svg { width: 100%; height: 100%; }
+.pp-pcard__name {
+    font-size: 22px; font-weight: 800; letter-spacing: -0.02em;
+    margin-bottom: 4px;
+}
+.pp-pcard__role {
+    font-size: 12px; color: var(--sub);
+    font-family: var(--font-mono); letter-spacing: 0.04em;
+    margin-bottom: 20px;
+}
+.pp-pcard__list {
+    margin: 0; padding: 0;
+    border-top: 1px solid var(--divider);
+}
+.pp-pcard__list > div {
+    display: flex; justify-content: space-between; gap: 12px;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--divider);
+    font-size: 13px; text-align: left;
+}
+.pp-pcard__list dt { color: var(--sub); margin: 0; font-weight: 500; }
+.pp-pcard__list dd { color: var(--ink); margin: 0; font-weight: 600; text-align: right; font-family: var(--font-mono); font-size: 12px; }
+.pp-pcard__edit {
+    display: inline-block; margin-top: 18px;
+    padding: 10px 22px; border-radius: 10px;
+    background: var(--ink); color: #fff;
+    font-size: 13px; font-weight: 700;
+}
+.pp-pcard__edit:hover { opacity: 0.9; }
+
+/* ─── Tabs (right card) ──────────────────────────────────────────── */
+.pp-tabs {
+    display: flex; gap: 6px; flex-wrap: wrap;
+    padding-bottom: 14px;
+    border-bottom: 1.5px solid var(--divider);
+    margin-bottom: 22px;
+}
+.pp-tab {
+    background: transparent; border: none; cursor: pointer;
+    padding: 8px 14px; border-radius: 8px;
+    font-size: 13.5px; font-weight: 600; color: var(--sub);
+    font-family: var(--font-ui);
+    transition: all 0.12s ease;
+    position: relative;
+    display: inline-flex; align-items: center; gap: 6px;
+}
+.pp-tab:hover { background: var(--bg-alt); color: var(--ink); }
+.pp-tab--active {
+    color: var(--ink);
+    background: var(--bg-alt);
+}
+.pp-tab--active::after {
+    content: ''; position: absolute;
+    left: 14px; right: 14px; bottom: -16px;
+    height: 2px; background: var(--accent); border-radius: 2px;
+}
+.pp-tab--soon { opacity: 0.6; }
+.pp-tab--soon:hover { opacity: 0.85; }
+.pp-tab__badge {
+    padding: 1px 6px; border-radius: 4px;
+    background: #f97316; color: #fff;
+    font-size: 9.5px; font-family: var(--font-mono); font-weight: 700;
+    letter-spacing: 0.04em;
+}
+
+.pp-tabpanel { display: none; }
+.pp-tabpanel--active { display: block; }
+
+.pp-lead { margin: 0 0 18px; font-size: 14px; color: var(--sub); line-height: 1.6; }
+.pp-h3 { margin: 0 0 14px; font-size: 15px; font-weight: 700; letter-spacing: -0.01em; }
+.pp-h3--spaced { margin-top: 32px; }
+
+/* ─── Info grid (Profile tab) ────────────────────────────────────── */
+.pp-grid-2 {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 14px;
+}
+.pp-info {
+    padding: 14px 16px; background: var(--bg-alt);
+    border-radius: 10px;
+}
+.pp-info__label {
+    font-family: var(--font-mono); font-size: 10.5px; color: var(--faint);
+    letter-spacing: 0.04em; margin-bottom: 6px;
+}
+.pp-info__val { font-size: 16px; font-weight: 700; }
+
+/* ─── Activity bar chart ─────────────────────────────────────────── */
+.pp-chart {
+    display: grid;
+    grid-template-columns: repeat(14, 1fr); gap: 6px;
+    align-items: end;
+    height: 140px;
+    padding: 14px 12px 30px;
+    background: var(--bg-alt); border-radius: 10px;
+    position: relative;
+}
+.pp-chart__bar {
+    background: var(--accent); border-radius: 4px 4px 0 0;
+    min-height: 4px;
+    position: relative;
+    transition: opacity 0.15s ease;
+    cursor: default;
+}
+.pp-chart__bar--empty { background: #d1d5db; opacity: 0.6; }
+.pp-chart__bar:hover { opacity: 0.85; }
+.pp-chart__bar::after {
+    content: attr(data-day);
+    position: absolute; bottom: -20px; left: 0; right: 0;
+    text-align: center;
+    font-family: var(--font-mono); font-size: 9px; color: var(--faint);
+}
+
+/* ─── Courses list (Stats tab) ───────────────────────────────────── */
+.pp-courses { display: flex; flex-direction: column; gap: 10px; }
+.pp-course {
+    padding: 14px 16px;
+    background: var(--bg-alt); border-radius: 10px;
+    display: grid; grid-template-columns: 1fr auto; gap: 14px;
+    align-items: center;
+}
+.pp-course__title { font-size: 14px; font-weight: 700; margin-bottom: 4px; }
+.pp-course__bar {
+    height: 6px; background: var(--divider); border-radius: 999px;
+    overflow: hidden; margin-top: 8px;
+}
+.pp-course__fill {
+    height: 100%; background: linear-gradient(90deg, var(--f-blue), var(--f-purple));
+    border-radius: 999px;
+}
+.pp-course__pct {
+    font-family: var(--font-mono); font-weight: 800; font-size: 16px;
+    min-width: 56px; text-align: right;
+}
+
+/* ─── Empty / stub tabs ──────────────────────────────────────────── */
+.pp-empty {
+    text-align: center; padding: 36px 20px;
+}
+.pp-empty__icon { font-size: 56px; line-height: 1; margin-bottom: 16px; }
+.pp-empty__title { font-size: 17px; font-weight: 700; margin: 0 0 10px; }
+.pp-empty__text {
+    font-size: 13.5px; color: var(--sub); line-height: 1.55;
+    max-width: 440px; margin: 0 auto 20px;
+}
+.pp-empty__cta {
+    display: inline-block; padding: 10px 20px; border-radius: 10px;
+    background: var(--accent); color: #fff;
+    font-size: 13px; font-weight: 700;
+}
+.pp-empty__cta:hover { opacity: 0.9; }
+.pp-empty__progress {
+    max-width: 320px; margin: 0 auto;
+    display: flex; flex-direction: column; gap: 6px;
+}
+.pp-empty__progress-bar {
+    height: 8px; background: var(--divider); border-radius: 999px; overflow: hidden;
+}
+.pp-empty__progress-fill {
+    height: 100%; background: var(--accent); border-radius: 999px;
+    transition: width 0.3s ease;
+}
+.pp-empty__progress-label { font-family: var(--font-mono); font-size: 11px; color: var(--faint); }
+
+/* ─── Responsive ─────────────────────────────────────────────────── */
+@media (max-width: 940px) {
+    .pp-main { grid-template-columns: 1fr; }
+    .pp-metrics { grid-template-columns: repeat(3, 1fr); }
+}
+@media (max-width: 540px) {
+    .pp-header { padding: 10px 16px; }
+    .pp-today, .pp-metrics, .pp-main { padding-left: 16px; padding-right: 16px; }
+    .pp-metrics { grid-template-columns: repeat(2, 1fr); }
+    .pp-tabs { gap: 2px; }
+    .pp-tab { padding: 6px 10px; font-size: 12.5px; }
+}
