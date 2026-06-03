@@ -21,6 +21,14 @@
 - ✅ **Phase 7 — Task Execution** ([PR #23](https://github.com/xmitfol/typing-trainer/pull/23) open) — typing-модал + success
 - ✅ **Phase 8 — Pricing** ([PR #24](https://github.com/xmitfol/typing-trainer/pull/24) open) — paywall + подписка + оплата (DEMO)
 
+### Added (Unreleased)
+- ✨ **MentorBubble интегрирован в task.html/lesson.html** (2026-06-03) — character-system.js подключён к обеим страницам, реплики наставника появляются в bubble по дизайну (`design_handoff_full/reference/task/task.jsx` → `MentorBubble`):
+  - `lessonStart` — на старте упражнения (приоритет: `lesson.character_tips[mentorId]` → `getMessage('lessonStart')` → generic)
+  - `tooManyErrors` — one-shot, когда `errors > ⌈error_limit/2⌉`
+  - `lessonCompleteSuccess` / `errorLimitExceeded` — на финише, по `errors vs error_limit`
+  - Сброс one-shot на `reset()` (повтор упражнения)
+  - Документация: [docs/ux/Character_System.md](docs/ux/Character_System.md) v1.1 — inline-bubble паттерн, toast deprecated для mentor-реплик
+
 ### Fixed (Unreleased)
 - 🐛 **Boundary-конфликт тостов** ([PR #19](https://github.com/xmitfol/typing-trainer/pull/19) open) — `errorLimitExceeded` срабатывал при `errors >= limit`, а success — при `errors <= limit`. Юзер видел «попробуй ещё раз» + «молодец» на одном исходе. Ужесточил условие во время typing до `errors > limit`. `scripts/verify_e2e_lesson1.py` гейтит.
 

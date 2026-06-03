@@ -35,16 +35,20 @@ document.addEventListener('DOMContentLoaded', async function () {
     const lessonNum = parseInt(params.get('lesson'), 10) || currentLesson.lessonNumber || 1;
     const counts = (window.Settings && window.Settings.get('lessons.tierLessonCount', {})) || {};
     const totalLessons = counts[tier] || 99;
+    const isUserLesson = tier === 'user';   // пользовательский урок из Lesson Builder
 
     // ─── Линейная прогрессия: прямой URL на закрытое упражнение → теория доступного ───
-    let firstUncompleted = totalLessons;
-    for (let n = 1; n <= totalLessons; n++) {
-        if (!(progress[String(n)] && progress[String(n)].stars > 0)) { firstUncompleted = n; break; }
-    }
-    const lessonDone = !!(progress[String(lessonNum)] && progress[String(lessonNum)].stars > 0);
-    if (!lessonDone && lessonNum !== firstUncompleted) {
-        window.location.replace(`lesson.html?tier=${encodeURIComponent(tier)}&lesson=${lessonNum}`);
-        return;
+    // Для tier=user (свои уроки) — обход прогрессии: линейности здесь нет, любой урок открыт.
+    if (!isUserLesson) {
+        let firstUncompleted = totalLessons;
+        for (let n = 1; n <= totalLessons; n++) {
+            if (!(progress[String(n)] && progress[String(n)].stars > 0)) { firstUncompleted = n; break; }
+        }
+        const lessonDone = !!(progress[String(lessonNum)] && progress[String(lessonNum)].stars > 0);
+        if (!lessonDone && lessonNum !== firstUncompleted) {
+            window.location.replace(`lesson.html?tier=${encodeURIComponent(tier)}&lesson=${lessonNum}`);
+            return;
+        }
     }
 
     // ─── DOM refs ────────────────────────────────────────────────
@@ -59,6 +63,23 @@ document.addEventListener('DOMContentLoaded', async function () {
     const mentorId = profile.character || (profile.audience === 'teen' ? 'knopych' : profile.audience === 'kid' ? 'klavochka' : 'anna');
     if (window.portraits && window.portraits.mentor) avatarEl.innerHTML = window.portraits.mentor(mentorId, 80);
 
+    // CharacterSystem — динамические реплики в bubble на ключевых состояниях
+    // (lessonStart / tooManyErrors / lessonCompleteSuccess / errorLimitExceeded).
+    // Дизайн: bubble один, текст меняется по событиям (см. design_handoff_full/reference/task/task.jsx).
+    let mentorChar = window.characterSystem || null;
+    if (!mentorChar && window.CharacterSystem) {
+        mentorChar = new window.CharacterSystem();
+        window.characterSystem = mentorChar;
+    }
+    if (mentorChar && (!mentorChar.character || mentorChar.character.id !== mentorId)) {
+        try { await mentorChar.loadCharacter(mentorId); } catch (e) { /* fallback default */ }
+    }
+    function setBubble(situation, vars, fallback) {
+        const msg = (mentorChar && mentorChar.getMessage) ? mentorChar.getMessage(situation, vars) : '';
+        tipEl.textContent = msg || fallback || '';
+        hintEl.textContent = '';
+    }
+
     // ─── Finger legend ───────────────────────────────────────────
     const FCOLOR = { pink: '#ff7675', orange: '#fdcb6e', green: '#00b894', blue: '#74b9ff', indigo: '#0984e3', purple: '#a29bfe' };
     legendEl.innerHTML = [
@@ -67,7 +88,28 @@ document.addEventListener('DOMContentLoaded', async function () {
     ].map(([f, l]) => `<div class="legend__item"><span class="legend__chip" style="background:${FCOLOR[f]}"></span><span>${l}</span></div>`).join('');
 
     // ─── Load lesson ─────────────────────────────────────────────
-    const lesson = await window.lessonLoader.loadLesson(tier, lessonNum);
+    // tier=user — урок хранится в localStorage['typing_trainer_user_lessons'] (Lesson Builder).
+    // Иначе — стандартный curriculum через lesson-loader (data/lessons/{tier}/lesson_NN.json).
+    let lesson;
+    if (isUserLesson) {
+        const userList = readJSON('typing_trainer_user_lessons') || [];
+        const userLesson = userList.find(l => l.id === lessonNum);
+        if (!userLesson) {
+            targetEl.textContent = `Урок не найден — возможно, удалён.`;
+            return;
+        }
+        lesson = {
+            id: userLesson.id,
+            title: userLesson.title || 'Без названия',
+            text: userLesson.text,
+            target_wpm: userLesson.target_wpm || 30,
+            error_limit: Number.isFinite(userLesson.error_limit) ? userLesson.error_limit : 2,
+            phase: 0,
+            finger_focus: 'Свой урок — пальцы на привычных позициях.',
+        };
+    } else {
+        lesson = await window.lessonLoader.loadLesson(tier, lessonNum);
+    }
     if (!lesson || !lesson.text) { targetEl.textContent = `Урок ${lessonNum} не загружен`; return; }
 
     const targetText = lesson.text;
@@ -75,13 +117,22 @@ document.addEventListener('DOMContentLoaded', async function () {
     const exId = `${moduleN}.${lessonNum}`;
     numEl.textContent = exId;
 
-    const initTip = (lesson.character_tips && lesson.character_tips[mentorId])
+    // lessonStart: куратор урока (character_tips[mentorId]) → fallback character-system → generic
+    const curatedTip = (lesson.character_tips && lesson.character_tips[mentorId]) || null;
+    const csLessonStart = mentorChar && mentorChar.getMessage
+        ? mentorChar.getMessage('lessonStart', { name: profile.name || '', level: lesson.title || '' })
+        : '';
+    const initTip = curatedTip
+        || csLessonStart
         || `Печатай ровно. Цель: ${lesson.target_wpm || '—'} зн/мин, допустимо ошибок: ${Number.isFinite(lesson.error_limit) ? lesson.error_limit : '—'}.`;
     tipEl.textContent = initTip;
     hintEl.textContent = lesson.finger_focus || 'Указательные пальцы — твои якоря на буквах А и О.';
 
     // ─── State ───────────────────────────────────────────────────
     let typed = 0, errors = 0, attempt = 1, startTime = null, timer = null, done = false;
+    let tooManyShown = false;  // one-shot per attempt — наставник предупреждает один раз
+    const errorLimit = Number.isFinite(lesson.error_limit) ? lesson.error_limit : 2;
+    const halfErrorLimit = Math.max(1, Math.ceil(errorLimit / 2));
     // Настройки тулбара (из профиля; дефолты: подсветка вкл, звук/метроном выкл, зум 100)
     let fingerHint = profile.fingerHint !== false;
     let soundOn = profile.keySound === true;
@@ -141,7 +192,21 @@ document.addEventListener('DOMContentLoaded', async function () {
     }
 
     // ─── Metrics ─────────────────────────────────────────────────
-    function calcWpm(elapsed) { return elapsed > 0 ? Math.round((typed) / (elapsed / 60)) : 0; }
+    // NET WPM: считаем только верные символы (typed-errors), не gross. Иначе
+    // массовый набор неверных клавиш «накручивает» зн/мин и срабатывают ачивки.
+    // Effective time floor: для урока на N символов минимум max(2s, N*0.1s) —
+    // отсекает синтетический/автоматизированный ввод, у людей на символ уходит
+    // ≥ ~100ms (top профи ~600 зн/мин). Floor не влияет на реальное чтение
+    // секундомера (он показывает elapsed как есть).
+    function effElapsed(elapsed) {
+        const minByLen = (targetText && targetText.length) ? targetText.length * 0.1 : 0;
+        return Math.max(elapsed, 2.0, minByLen);
+    }
+    function calcWpm(elapsed) {
+        const correct = Math.max(0, typed - errors);
+        const eff = effElapsed(elapsed);
+        return eff > 0 ? Math.round(correct / (eff / 60)) : 0;
+    }
     function calcAcc() { return typed > 0 ? Math.max(0, Math.round(((typed - errors) / typed) * 100)) : 100; }
     function updateStats() {
         const elapsed = startTime ? (Date.now() - startTime) / 1000 : 0;
@@ -187,6 +252,13 @@ document.addEventListener('DOMContentLoaded', async function () {
         } else {
             kb.flashError(e.code);
             errors++;
+            // Наставник реагирует один раз, когда ошибок становится больше половины лимита
+            if (!tooManyShown && errors > halfErrorLimit) {
+                tooManyShown = true;
+                setBubble('tooManyErrors',
+                    { name: profile.name || '', errors, limit: errorLimit },
+                    'Не спеши — лучше медленно, но точно.');
+            }
         }
         typed++;
         renderTarget();
@@ -212,28 +284,31 @@ document.addEventListener('DOMContentLoaded', async function () {
             earnedBefore = window.achievements.earnedIds(window.achievements.getAchievements(statsBefore));
         }
 
-        // Сохранить прогресс (best) — открывает следующий урок
-        const prev = progress[String(lessonNum)] || {};
-        const newProg = {
-            stars: Math.max(stars, prev.stars || 0),
-            bestWPM: Math.max(wpm, prev.bestWPM || 0),
-            bestAccuracy: Math.max(acc, prev.bestAccuracy || 0),
-            bestTime: prev.bestTime ? Math.min(elapsed, prev.bestTime) : elapsed,
-            completedAt: new Date().toISOString()
-        };
-        progress[String(lessonNum)] = newProg;
-        writeJSON(progressKey, progress);
-        writeJSON(currentKey, { tier, lessonNumber: lessonNum, lastSaved: new Date().toISOString() });
+        // Сохранить прогресс (best) — открывает следующий урок.
+        // Свои уроки (tier=user) НЕ влияют на курс: не пишем в lessonProgress / currentLesson
+        // и не пушим в test_history (иначе streak/общее время накручиваются на тренировках).
+        if (!isUserLesson) {
+            const prev = progress[String(lessonNum)] || {};
+            const newProg = {
+                stars: Math.max(stars, prev.stars || 0),
+                bestWPM: Math.max(wpm, prev.bestWPM || 0),
+                bestAccuracy: Math.max(acc, prev.bestAccuracy || 0),
+                bestTime: prev.bestTime ? Math.min(elapsed, prev.bestTime) : elapsed,
+                completedAt: new Date().toISOString()
+            };
+            progress[String(lessonNum)] = newProg;
+            writeJSON(progressKey, progress);
+            writeJSON(currentKey, { tier, lessonNumber: lessonNum, lastSaved: new Date().toISOString() });
 
-        // Дописать в history для streak/общего времени и сравнить achievements
-        historyArr.push({ lesson: lessonNum, completedAt: new Date().toISOString(), duration: elapsed, wpm, accuracy: acc });
-        writeJSON(historyKey, historyArr);
-        if (window.achievements) {
-            const statsAfter = window.achievements.computeStats(progress, historyArr, totalLessons);
-            const allAfter = window.achievements.getAchievements(statsAfter);
-            const earnedAfter = window.achievements.earnedIds(allAfter);
-            const newlyEarned = allAfter.filter(a => earnedAfter.has(a.id) && !earnedBefore.has(a.id));
-            newlyEarned.forEach((a, i) => setTimeout(() => showUnlockToast(a), i * 400));
+            historyArr.push({ lesson: lessonNum, completedAt: new Date().toISOString(), duration: elapsed, wpm, accuracy: acc });
+            writeJSON(historyKey, historyArr);
+            if (window.achievements) {
+                const statsAfter = window.achievements.computeStats(progress, historyArr, totalLessons);
+                const allAfter = window.achievements.getAchievements(statsAfter);
+                const earnedAfter = window.achievements.earnedIds(allAfter);
+                const newlyEarned = allAfter.filter(a => earnedAfter.has(a.id) && !earnedBefore.has(a.id));
+                newlyEarned.forEach((a, i) => setTimeout(() => showUnlockToast(a), i * 400));
+            }
         }
 
         $('success-num').textContent = exId;
@@ -247,18 +322,34 @@ document.addEventListener('DOMContentLoaded', async function () {
         $('success-msg').textContent = acc === 100
             ? 'Без единой ошибки. Отличный ритм — идём дальше.'
             : `Точность ${acc}%. ${stars >= 4 ? 'Хорошо, можно дальше.' : 'Рекомендую повторить для закрепления.'}`;
-        tipEl.textContent = stars >= 4 ? 'Отлично! Ритм уверенный, можно чуть ускориться.' : 'Неплохо. На следующей попытке целься в 95%+.';
-        hintEl.textContent = '';
 
-        // «Продолжить» → теория следующего урока (или к списку, если последний)
-        const nextN = lessonNum + 1;
+        // Наставник в bubble: успех (errors в пределах лимита) или превышение лимита.
+        const vars = { name: profile.name || '', wpm, accuracy: acc, errors, limit: errorLimit, level: lesson.title || '' };
+        const passed = errors <= errorLimit;
+        setBubble(
+            passed ? 'lessonCompleteSuccess' : 'errorLimitExceeded',
+            vars,
+            passed
+                ? (stars >= 4 ? 'Отлично! Ритм уверенный, можно чуть ускориться.'
+                              : 'Неплохо. На следующей попытке целься в 95%+.')
+                : 'Ошибок многовато — попробуем ещё раз?'
+        );
+
+        // «Продолжить» → теория следующего урока (или к списку, если последний).
+        // Для tier=user следующего урока нет — возвращаемся в Конструктор.
         const nextBtn = $('next-btn');
-        if (nextN <= totalLessons) {
-            nextBtn.textContent = `Продолжить · урок ${nextN} →`;
-            nextBtn.href = `lesson.html?tier=${encodeURIComponent(tier)}&lesson=${nextN}`;
+        if (isUserLesson) {
+            nextBtn.textContent = '← К своим урокам';
+            nextBtn.href = 'builder.html';
         } else {
-            nextBtn.textContent = 'К списку уроков →';
-            nextBtn.href = 'course.html';
+            const nextN = lessonNum + 1;
+            if (nextN <= totalLessons) {
+                nextBtn.textContent = `Продолжить · урок ${nextN} →`;
+                nextBtn.href = `lesson.html?tier=${encodeURIComponent(tier)}&lesson=${nextN}`;
+            } else {
+                nextBtn.textContent = 'К списку уроков →';
+                nextBtn.href = 'course.html';
+            }
         }
 
         kb.removeAttribute('highlight-char');
@@ -273,6 +364,10 @@ document.addEventListener('DOMContentLoaded', async function () {
         typed = 0; errors = 0; startTime = null; done = false; clearInterval(timer);
         attempt++; attemptEl.textContent = attempt;
         statTime.textContent = '00:00';
+        tooManyShown = false;
+        // Вернуть стартовую реплику наставника
+        tipEl.textContent = initTip;
+        hintEl.textContent = lesson.finger_focus || 'Указательные пальцы — твои якоря на буквах А и О.';
         renderTarget(); updateStats(); capture.focus();
     }
     $('restart-btn').addEventListener('click', reset);
@@ -282,7 +377,9 @@ document.addEventListener('DOMContentLoaded', async function () {
         reset();
     });
 
-    $('task-close').href = `lesson.html?tier=${encodeURIComponent(tier)}&lesson=${lessonNum}`;
+    $('task-close').href = isUserLesson
+        ? 'builder.html'
+        : `lesson.html?tier=${encodeURIComponent(tier)}&lesson=${lessonNum}`;
 
     // ─── Настройки тулбара: запоминаем выбор пользователя ────────
     // Всё храним в профиле (keyboardType уже приходит из онбординга).

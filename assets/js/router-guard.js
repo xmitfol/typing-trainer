@@ -21,7 +21,7 @@
 
     var hasProfile = !!(profile && profile.onboardingCompleted && profile.name);
     var page = (location.pathname.split('/').pop() || 'index.html').toLowerCase();
-    var PROTECTED = ['dashboard.html', 'course.html', 'lesson.html', 'task.html', 'settings.html', 'achievements.html'];
+    var PROTECTED = ['dashboard.html', 'course.html', 'lesson.html', 'task.html', 'settings.html', 'achievements.html', 'builder.html'];
 
     if (PROTECTED.indexOf(page) !== -1 && !hasProfile) {
         location.replace('index.html');

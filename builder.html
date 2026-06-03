@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Конструктор уроков — typing-trainer</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="assets/css/tokens.css">
+    <link rel="stylesheet" href="assets/css/builder.css">
+    <link rel="icon" type="image/x-icon" href="assets/images/favicon.ico">
+</head>
+<body class="builder-page">
+
+    <header class="bp-header">
+        <a class="bp-back" href="dashboard.html">← Главная</a>
+        <a class="bp-logo" href="dashboard.html">
+            <span class="bp-logo__mark">Ё</span>
+            <span class="bp-logo__name">typing-trainer</span>
+        </a>
+        <span class="bp-crumb">/ КОНСТРУКТОР</span>
+    </header>
+
+    <main class="bp-main">
+        <div>
+            <h1 class="bp-h1">Свои уроки<span class="bp-saved" id="bp-saved">✓ СОХРАНЕНО</span></h1>
+            <p class="bp-lead">Создайте свой текст для тренировки — цитата, стих, фрагмент кода. Доступно сразу в тренажёре.</p>
+        </div>
+
+        <section class="bp-card">
+            <h2 class="bp-card__title" id="bp-form-title">Новый урок</h2>
+
+            <div class="bp-field">
+                <label class="bp-field__label" for="bp-title">Название</label>
+                <input id="bp-title" class="bp-input" placeholder="Например: «Моя любимая цитата»" maxlength="80">
+            </div>
+
+            <div class="bp-field">
+                <label class="bp-field__label" for="bp-text">Текст для набора</label>
+                <textarea id="bp-text" class="bp-textarea" placeholder="Напечатайте сюда текст, который хотите тренировать..."></textarea>
+                <div class="bp-field__hint" id="bp-text-counter">0 символов</div>
+            </div>
+
+            <div class="bp-row">
+                <div class="bp-field">
+                    <label class="bp-field__label" for="bp-wpm">Цель WPM (зн/мин)</label>
+                    <input id="bp-wpm" type="number" class="bp-input" min="5" max="200" step="5" value="30">
+                </div>
+                <div class="bp-field">
+                    <label class="bp-field__label" for="bp-errors">Допустимо ошибок</label>
+                    <input id="bp-errors" type="number" class="bp-input" min="0" max="20" step="1" value="2">
+                </div>
+            </div>
+
+            <div class="bp-actions">
+                <button type="button" class="bp-btn bp-btn--primary" id="bp-save-btn">Сохранить урок</button>
+                <button type="button" class="bp-btn bp-btn--ghost" id="bp-cancel-btn" hidden>Отмена</button>
+            </div>
+        </section>
+
+        <section class="bp-card">
+            <h2 class="bp-card__title">Мои уроки <span id="bp-count" style="color:var(--faint);font-weight:500;font-family:var(--font-mono);font-size:12px;margin-left:6px">(0)</span></h2>
+            <div class="bp-list" id="bp-list">
+                <!-- заполняется JS -->
+            </div>
+        </section>
+    </main>
+
+    <script src="assets/js/router-guard.js"></script>
+    <script src="config/settings.js"></script>
+    <script src="assets/js/builder.js"></script>
+</body>
+</html>

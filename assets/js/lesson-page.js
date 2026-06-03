@@ -160,10 +160,24 @@ document.addEventListener('DOMContentLoaded', async function () {
     $('#lpMentorName').textContent = mentorMeta.name;
     $('#lpMentorRole').textContent = mentorMeta.role;
 
-    // Quote from lesson.character_tips[mentor] or fallback
+    // Quote from lesson.character_tips[mentor] → character-system lessonStart → generic fallback.
+    // CharacterSystem подгружается асинхронно; если character_tips есть — используем его сразу,
+    // иначе ждём загрузки и заполняем lessonStart с {name}/{level}.
     const mentorTip = lesson.character_tips && lesson.character_tips[mentorId];
     const fallbackQuote = `${profile.name}, начинаем! ${lesson.title}. ${lesson.description || ''}`;
     $('#lpMentorQuote').textContent = mentorTip || fallbackQuote;
+    if (!mentorTip && window.CharacterSystem) {
+        const cs = window.characterSystem || (window.characterSystem = new window.CharacterSystem());
+        const apply = () => {
+            const msg = cs.getMessage && cs.getMessage('lessonStart', { name: profile.name || '', level: lesson.title || '' });
+            if (msg) $('#lpMentorQuote').textContent = msg;
+        };
+        if (cs.character && cs.character.id === mentorId) {
+            apply();
+        } else {
+            cs.loadCharacter(mentorId).then(apply).catch(() => {});
+        }
+    }
 
     // ─── Lead + tips as narrative ────────────────────────────────
     $('#lpLead').textContent = lesson.description
