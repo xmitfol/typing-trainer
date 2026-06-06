@@ -1,6 +1,6 @@
 # ADR-005 (DRAFT) · YooKassa recurring fallback strategy
 
-- **Status**: 📝 DRAFT (prep by Ника / PM) — финализирует Клод (Architect)
+- **Status**: ⛔ Superseded by [ADR-005](ADR-005.md) (2026-06-07)
 - **Date**: 2026-06-07
 - **Owner**: TBD — Клод после финализации
 - **Related**: [risks.md R-002](../risks.md), [03_IMPL_PLAN.md §8-9 Sprint 6-7](../03_IMPL_PLAN.md), [01_PRD.md §6.3 Pricing](../01_PRD.md), [02_TSD.md §4 Payments](../02_TSD.md)

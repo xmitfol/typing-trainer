@@ -12,10 +12,13 @@
 | [002](ADR-002.md) | Profile mutation policy (Q5 closure) | ✅ Accepted | 2026-06-06 |
 | [003](ADR-003.md) | Family plan — read-only parental visibility | ✅ Accepted | 2026-06-06 |
 | [004](ADR-004.md) | Single-vendor infra: YC as code+build+host (GitHub mirror) | ✅ Accepted | 2026-06-06 |
+| [005](ADR-005.md) | YooKassa recurring fallback strategy (Hybrid) | ✅ Accepted | 2026-06-07 |
 
 ## Заброшенные / Superseded
 
-— нет
+| # | Title | Superseded by | Date |
+|---|---|---|---|
+| [005-DRAFT](ADR-005-DRAFT.md) | YooKassa recurring fallback strategy (draft Ники) | [ADR-005](ADR-005.md) | 2026-06-07 |
 
 ## Шаблон
 
