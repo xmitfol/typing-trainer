@@ -1,0 +1,58 @@
+# Local dev — postgres + redis + adminer.
+# Использование: `make docker-up` (или `docker compose up -d`).
+# Backend сам запускается через `make dev` локально (не в compose),
+# чтобы был hot-reload на изменения кода.
+
+services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: tt_postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: typing_trainer
+      POSTGRES_USER: tt_user
+      POSTGRES_PASSWORD: changeme_local_only
+      PGDATA: /var/lib/postgresql/data/pgdata
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U tt_user -d typing_trainer"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+
+  redis:
+    image: redis:7-alpine
+    container_name: tt_redis
+    restart: unless-stopped
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    command: ["redis-server", "--appendonly", "yes", "--save", "60", "1"]
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+
+  adminer:
+    image: adminer:latest
+    container_name: tt_adminer
+    restart: unless-stopped
+    ports:
+      - "8080:8080"
+    depends_on:
+      postgres:
+        condition: service_healthy
+    environment:
+      ADMINER_DEFAULT_SERVER: postgres
+      ADMINER_DESIGN: pepa-linha-dark
+
+volumes:
+  postgres_data:
+  redis_data:
+
+# Network — default `bridge`, дополнительно не нужен.

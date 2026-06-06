@@ -5,6 +5,38 @@
 
 ---
 
+## 2026-06-07 — Ника координационная работа (Клод scaffold'ит локально)
+
+### Ника
+- **Yesterday**: PO timeline консультация, ADR-004 recommendation, migration_runbook
+- **Today** (параллельно с локальным scaffold'ом Клода):
+  - Sprint 1 board pre-fill (10 задач S1.1-S1.10 с owner/estimate/verify/deps) + пустые standup/blockers — [`sprint-1/board.md`](../sprint-1/board.md)
+  - Cross-team dependency map для Sprint 0-3 (33 dep-записей, 5 critical-path, 4 рекомендации) — [`dependency_map.md`](../dependency_map.md)
+  - ADR-005 DRAFT (YooKassa recurring fallback): 3 опции, рекомендация Hybrid, 10 open questions для Клода — [`ADR-005-DRAFT.md`](../../../spec/backend/decisions/ADR-005-DRAFT.md)
+- **Blockers**: всё ещё жду PO action S0.0a/b для разблокировки миграции (но не критично пока Клод scaffold'ит локально)
+
+### Клод (Architect)
+- **Yesterday**: ADR-004 + risks update
+- **Today**: scaffold backend/ локально (Variant 1 из 5-вариантного analysis) — pyproject, app/, models, basic security, OpenAPI skeleton с /health. Push отложен до S0.1 миграции.
+- **Next**: ответ на 10 open questions в ADR-005-DRAFT когда дойдёт очередь
+
+### PO (Иван)
+- **Today**: «PO actions YC org / GH email / IAM сделаю позже». Подтвердил «продолжай» для Клода scaffold
+- **Pending**: S0.0a/b к завтра-послезавтра желательно
+
+### Дима (DevOps)
+- ожидание PO action для миграции
+- может начать `docker-compose.yml` черновик локально (S0.3) если синхронизируется с Клодом по scaffold
+
+### Борис (Backend)
+- idle, может ознакомиться со scaffold'ом Клода когда тот закоммитит локально
+- pre-read TSD §3 (auth endpoints) перед Sprint 1
+
+### Алекс, Катя, остальные
+- idle
+
+---
+
 ## 2026-06-06 PM — Sprint 0 АКТИВИРОВАН (ADR-004 accepted)
 
 ### Ника

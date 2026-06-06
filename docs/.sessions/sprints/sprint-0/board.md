@@ -47,3 +47,9 @@
 Sprint **активный**. Critical path: S0.0 (PO) → S0.1 (Дима migration) → S0.2-S0.6 (parallel).
 Decision ADR-004 принят: YC Code Repo primary + GH mirror.
 Runbook готов: [migration_runbook.md](migration_runbook.md).
+
+**2026-06-07 update**: PO отложил S0.0a/b. Клод параллельно scaffold'ит backend/ локально (без push) — Variant 1. Ника параллельно координационную работу:
+- [Sprint 1 board pre-fill](../sprint-1/board.md) — S1.1-S1.10 готовы к активации
+- [Cross-team dependency map Sprint 0-3](../dependency_map.md) — 33 контракта между ролями
+- [ADR-005-DRAFT YooKassa fallback](../../../spec/backend/decisions/ADR-005-DRAFT.md) — prep для Клода
+- [standup.md](standup.md) — daily лог обновлён
