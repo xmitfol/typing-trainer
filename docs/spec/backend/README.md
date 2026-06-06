@@ -13,13 +13,31 @@
 | [01_PRD.md](01_PRD.md) | **WHAT** — продуктовые требования: цели, ЦА, фичи, use cases, метрики успеха | Перед стартом любой бекенд-работы |
 | [02_TSD.md](02_TSD.md) | **HOW** — архитектура, ER-схема, REST API, auth-flow, deploy | Когда есть PRD-согласие |
 | [03_IMPL_PLAN.md](03_IMPL_PLAN.md) | **WHEN** — пофазный план, deliverables, гейты приёмки | Чтобы вести разработку |
+| [decisions/](decisions/) | **WHY** — Architecture Decision Records | При спорах о решениях |
 
 ## Зафиксированные решения
+
+### Архитектурные (от PO)
 
 1. **Scope MVP** — Auth + Sync + Payments + Lessons API + Analytics (полный)
 2. **Стек** — Python 3.12 + FastAPI + PostgreSQL 16 (+ Redis для кеша/очередей)
 3. **Auth** — email/password + Yandex OAuth + VK OAuth (без Google в v1.0)
 4. **Платежи** — YooKassa (только RU-рынок в v1.0)
+
+### Продуктовые (от PO, 2026-06-06)
+
+5. **Бесплатных уроков** — 5 (paywall на 6-м, `FREE_LESSON_LIMIT=5`)
+6. **Family** — родитель видит read-only прогресс детей (см. [ADR-003](decisions/ADR-003.md))
+7. **Гость без логина** — данные хранятся 3 дня, потом cleanup (см. [ADR-001](decisions/ADR-001.md))
+8. **Profile mutation** — все поля редактируемы кроме `audience: adult→kid` (см. [ADR-002](decisions/ADR-002.md))
+
+### Технические (от Клода-архитектора)
+
+9. **Email** — Yandex 360 SMTP relay
+10. **Secrets** — env vars в v1.0, Yandex Lockbox в v1.1
+11. **Logs** — Yandex Cloud Logging
+12. **Files** — Yandex Object Storage (S3-совместимое)
+13. **Cron** — APScheduler in-process для лёгких задач, ARQ worker для тяжёлых
 
 ## Что НЕ входит в v1.0 (отложено в backlog)
 

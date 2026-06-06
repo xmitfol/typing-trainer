@@ -72,7 +72,7 @@
 | S2.2 | `app/core/oauth.py` — generic OAuth helper + Yandex strategy | 1d | unit test mock provider |
 | S2.3 | `GET /auth/oauth/yandex/start` + `/callback` | 1d | integration test mock'нутый Yandex |
 | S2.4 | VK OAuth — повторяем pattern для Yandex | 0.5d | integration test |
-| S2.5 | `POST /auth/migrate-guest` — приём localStorage → INSERT progress/attempts | 1d | unit + E2E test |
+| S2.5 | `POST /auth/migrate-guest` — приём localStorage → INSERT progress/attempts + APScheduler cron `cleanup_anonymous_sessions` (TTL 3д, см. [ADR-001](decisions/ADR-001.md)) | 1d | unit + E2E test + cron unit-test |
 | S2.6 | Frontend: модал «Зарегистрируйся, чтобы не потерять прогресс» | 0.5d | UX-проход |
 | S2.7 | localStorage-to-API adapter с graceful fallback (offline) | 1.5d | verify_offline_mode.py |
 
@@ -94,7 +94,7 @@
 | ID | Task | Estimate | Verify |
 |---|---|---|---|
 | S3.1 | Alembic: `progress`, `attempts` таблицы | 0.5d | `\d+ progress` корректен |
-| S3.2 | `GET /me`, `PATCH /me`, `DELETE /me` (soft delete) | 1d | integration tests |
+| S3.2 | `GET /me`, `PATCH /me` (с tier-shift logic + AGE_DOWNGRADE check из [ADR-002](decisions/ADR-002.md)), `DELETE /me` (soft delete) | 1.5d | integration tests + AGE_DOWNGRADE reject test |
 | S3.3 | `GET /me/settings`, `PATCH /me/settings` | 0.5d | integration tests |
 | S3.4 | `POST /me/progress` — atomic save (progress + attempt + achievements) | 1.5d | integration test concurrency |
 | S3.5 | `GET /me/progress` — все уроки текущего tier'а | 0.5d | integration test |
@@ -146,7 +146,7 @@
 | S5.1 | Сервис LessonRepository — читает [data/lessons/](../../../data/lessons/) с диска, кеширует в Redis | 1d | unit test |
 | S5.2 | `GET /lessons/{tier}/{n}` + i18n через Accept-Language | 1d | integration tests RU + EN |
 | S5.3 | `GET /lessons/{tier}` — список с метаданными | 0.5d | integration test |
-| S5.4 | `GET /lessons/{tier}/{n}/access` — paywall + linear progression check | 1d | integration test «6-й урок без подписки → 403» |
+| S5.4 | `GET /lessons/{tier}/{n}/access` — paywall (`FREE_LESSON_LIMIT=5`) + linear progression check | 1d | integration test «6-й урок без подписки → 403» |
 | S5.5 | Frontend: lesson-loader.js использует API endpoint | 1d | verify_lesson_loader_api.py |
 | S5.6 | Cache invalidation: при изменении файла lesson_NN.json — TTL 5 мин или manual flush | 0.5d | manual test |
 
@@ -241,13 +241,14 @@
 
 | ID | Task | Estimate | Verify |
 |---|---|---|---|
-| S9.1 | `parent_user_id` колонка + RBAC проверки | 1d | unit test access |
-| S9.2 | `GET /me/family`, `POST /me/family/add` — создание sub-account | 1d | integration tests |
-| S9.3 | Frontend: Profile tab «Семья» (sub-accounts list) | 1d | verify_family_flow.py |
-| S9.4 | `GET /me/export` — ZIP с JSON всех данных | 1d | integration test |
-| S9.5 | `DELETE /me` — soft delete + email confirm + grace period | 1d | integration test |
-| S9.6 | Hard-delete cron — через 30 дней grace | 0.5d | unit test |
-| S9.7 | IP hashing в events (SHA256) | 0.5d | unit test |
+| S9.1 | `parent_user_id` колонка + RBAC проверки (parent видит read-only по [ADR-003](decisions/ADR-003.md)) | 1d | unit test access + read-only enforcement |
+| S9.2 | `GET /me/family`, `POST /me/family/add`, `GET /me/family/{id}/progress|history|achievements` | 1.5d | integration tests |
+| S9.3 | `time_limit_minutes_per_day` parent control + 429 при превышении | 0.5d | integration test |
+| S9.4 | Frontend: Profile tab «Семья» + read-only sub-account view + плашка ребёнку «За тобой следит [parent]» | 1d | verify_family_flow.py |
+| S9.5 | `GET /me/export` — ZIP с JSON всех данных | 1d | integration test |
+| S9.6 | `DELETE /me` — soft delete + email confirm + grace period | 1d | integration test |
+| S9.7 | Hard-delete cron — через 30 дней grace | 0.5d | unit test |
+| S9.8 | IP hashing в events (SHA256) | 0.5d | unit test |
 
 ### Deliverable
 - `verify_family_flow.py`
@@ -358,3 +359,4 @@
 |---|---|---|---|
 | 2025-11-14 | 0.1 | Полина | Initial high-level Phase 2 plan (PHASE_2_BACKLOG.md) |
 | 2026-06-06 | 1.0 | Клод + PO | Полная переработка под TSD v1.0; 11 sprint'ов с verify-gates |
+| 2026-06-06 | 1.1 | Клод + PO | Конкретизированы значения (5 уроков paywall, 3д TTL гостя), Sprint 9 расширен под Family read-only по [ADR-003](decisions/ADR-003.md); добавлены ссылки на ADR-001/002/003 |

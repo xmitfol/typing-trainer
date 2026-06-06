@@ -501,6 +501,126 @@ Provider-specific client_id/secret в `.env`.
 
 ---
 
+## 4a. Profile Mutation Policy (закрытие Q5 из PRD)
+
+Ссылка: [ADR-002 Profile mutation policy](decisions/ADR-002.md).
+
+### 4a.1. Что меняется через `PATCH /me`
+
+```json
+PATCH /api/v1/me
+{
+  "name": "Иван Петров",          // 1-80 chars
+  "gender": "m",                    // 'm'|'f'|null
+  "character": "maxim",             // 'anna'|'maxim'|'knopych'|'klavochka'
+  "audience": "adult",              // 'adult'|'teen'|'kid' с ограничениями ниже
+  "language": "en"                  // 'ru'|'en'
+}
+```
+
+### 4a.2. Tier shift при смене character/audience/language
+
+Tier — производный от `language + character` (зеркало фронт-логики `pickTier(profile)`):
+
+```python
+def pick_tier(profile) -> str:
+    lang = profile.language
+    ch = profile.character
+    if lang == 'en':
+        return 'en_teen'  if ch == 'knopych'    else \
+               'en_kids' if ch == 'klavochka'  else 'en_tier1'
+    return 'ru_teen'  if ch == 'knopych'    else \
+           'ru_kids' if ch == 'klavochka'  else 'tier1'
+```
+
+При мутации профиля backend пересчитывает tier. **Прогресс per-tier не теряется** — в `progress` строки keyed by `(user_id, tier, lesson_num)`. При возврате к старому tier'у юзер видит свои звёзды.
+
+### 4a.3. Ограничения мутаций (audit/security)
+
+| Сценарий | Поведение |
+|---|---|
+| `adult → kid` | **Запрещено** (нельзя «омолодить» аккаунт). 422 + `code: AGE_DOWNGRADE_FORBIDDEN` |
+| `kid → teen → adult` | **Разрешено**, но требует подтверждения через `verify=true` query (UI шлёт после confirm-modal) |
+| Sub-account `audience` | Меняет только parent + только если у parent активная family-подписка |
+| `email` | Endpoint `POST /me/email-change` — двух-шаг: запрос → email старому → подтверждение → email новому |
+| `password` | Endpoint `POST /me/password-change` — требует `current_password` + `new_password` |
+| `language` | Меняется свободно. Re-fetch lessons в новом языке. UI делает full re-render с новой локалью. |
+
+### 4a.4. Возврат `PATCH /me`
+
+```json
+HTTP/1.1 200 OK
+{
+  "user": { ...обновлённые поля... },
+  "tier_changed": true,
+  "old_tier": "tier1",
+  "new_tier": "ru_teen",
+  "old_progress_preserved": true   // строки в progress по old_tier сохранены
+}
+```
+
+Фронт по `tier_changed=true` делает re-fetch `/me/progress` для нового tier и обновляет dashboard.
+
+---
+
+## 4b. Family Plan (закрытие Q2 из PRD)
+
+### 4b.1. Модель данных
+
+`parent_user_id` (nullable) в таблице `users`. Если `parent_user_id IS NOT NULL` — это sub-account. Sub-account-юзер логинится своим email/password (или через provisioned-token). Родитель управляет составом sub-account'ов через `/me/family/*` endpoints.
+
+### 4b.2. Подписка покрывает всю семью
+
+Поле `subscriptions.plan` принимает значение `family_*`. Backend в проверках доступа:
+
+```python
+def has_active_subscription(user) -> bool:
+    # Cвоя подписка
+    if user.has_own_active_subscription():
+        return True
+    # Покрытие через parent's family-подписку
+    if user.parent_user_id:
+        parent = get_user(user.parent_user_id)
+        return parent.has_active_family_subscription()
+    return False
+```
+
+Family-подписка покрывает до 4 sub-account'ов (включая родителя — итого 4 человека). Превышение лимита → `409 FAMILY_LIMIT_REACHED` при `POST /me/family/add`.
+
+### 4b.3. Видимость прогресса детей родителю
+
+Родитель имеет **read-only доступ** к:
+- `GET /me/family/{child_id}/progress`
+- `GET /me/family/{child_id}/history?cursor=&limit=`
+- `GET /me/family/{child_id}/achievements`
+- `GET /me/family/{child_id}/stats` — агрегированные за неделю/месяц
+
+Родитель **не может** менять профиль ребёнка (`PATCH /me/family/{child_id}`) кроме `audience` (когда ребёнок взрослеет) и `parent-controlled settings` (`time_limit_minutes_per_day`).
+
+Ребёнок видит в своём dashboard плашку «За тобой следит [родитель]» — прозрачность согласно COPPA-like best practices.
+
+### 4b.4. Создание sub-account'а
+
+```http
+POST /api/v1/me/family/add
+{
+  "name": "Маша",
+  "audience": "kid",
+  "character": "klavochka",
+  "language": "ru",
+  "email": "masha@family.com"          # optional — если есть, sub-account может логиниться сам
+}
+```
+
+- Если `email` указан — sub-account создаётся с `is_anonymous=false`, отсылается setup-email с приглашением задать пароль
+- Если `email` нет — sub-account `is_anonymous=true`, родитель управляет полностью; ребёнок логинится через parent-provisioned magic link
+
+### 4b.5. Удаление / открепление sub-account'а
+
+`DELETE /me/family/{child_id}` — soft delete. Прогресс ребёнка экспортируется в email родителя (ZIP), затем 30-дневный grace period, далее hard delete.
+
+---
+
 ## 5. Payments / YooKassa
 
 ### 5.1. Поток оплаты
@@ -677,15 +797,15 @@ CMD ["gunicorn", "app.main:app", "-w", "4", "-k", "uvicorn.workers.UvicornWorker
 
 ---
 
-## 10. Открытые технические решения
+## 10. Закрытые технические решения (2026-06-06)
 
-| # | Вопрос | Кандидаты | Решение к |
+| # | Вопрос | Решение | Обоснование |
 |---|---|---|---|
-| T1 | Email-провайдер | Yandex 360 / Mailgun / SendGrid | Sprint 2 |
-| T2 | Хранилище секретов | env / Vault / Yandex Lockbox | Pre-prod |
-| T3 | Logs aggregation | self-hosted Loki / Yandex Cloud Logging | Sprint 5 |
-| T4 | Где хранить sketches/uploads | Yandex S3 / Cloudflare R2 | Sprint 3 |
-| T5 | Cron-планировщик | APScheduler / cronjob в k8s / Yandex Cloud Functions | Sprint 4 |
+| T1 | Email-провайдер | **Yandex 360 SMTP** | PO выбрал. RU-юрисдикция, входит в подписку Я360, не требует отдельной оплаты |
+| T2 | Хранилище секретов | **env vars в v1.0** (`.env` через Docker secrets), **Yandex Lockbox в v1.1** | env проще на старте; Lockbox при росте команды |
+| T3 | Logs aggregation | **Yandex Cloud Logging (managed)** | Тариф «Pay-as-you-go» от 0₽, retention 30 дней входит, есть structured logs + поиск |
+| T4 | Файлы (сертификаты, экспорты GDPR, аватары) | **Yandex Object Storage (S3-совместимое)** | Та же экосистема, шифрование «из коробки», RU-юрисдикция |
+| T5 | Cron-планировщик | **APScheduler in-process** для лёгких задач (cleanup анонимов, email-reminders) + **отдельный ARQ worker** для тяжёлых (recurring payments, exports) | Не вводим k8s в v1.0. ARQ уже выбран для очередей |
 
 ---
 
@@ -695,3 +815,4 @@ CMD ["gunicorn", "app.main:app", "-w", "4", "-k", "uvicorn.workers.UvicornWorker
 |---|---|---|---|
 | 2025-11-16 | 0.1 | Борис | Initial Backend_Architecture.md |
 | 2026-06-06 | 1.0 | Клод + PO | Полная переработка под актуальные frontend-структуры и SDD методологию |
+| 2026-06-06 | 1.1 | Клод + PO | Закрыты T1-T5 + добавлены §4a (Profile Mutation Policy), §4b (Family Plan) с RBAC и read-only прогрессом детей; ссылки на ADR-001/002/003 |

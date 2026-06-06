@@ -225,15 +225,49 @@ Login → dashboard → "Продолжить курс" → lesson.html → task
 
 ---
 
-## 8. Открытые вопросы (для будущих апдейтов PRD)
+## 8. Закрытые решения (PO ответил 2026-06-06)
 
-| # | Вопрос | Кто решает | Дедлайн |
+| # | Вопрос | Решение | Влияние на TSD |
 |---|---|---|---|
-| Q1 | Сколько уроков юзер проходит бесплатно (5 или 10)? | PO | до старта v1.0 |
-| Q2 | Family — родитель видит прогресс детей? | PO | до старта payments |
-| Q3 | Email-провайдер для transactional (Mailgun / SendGrid / Yandex 360)? | Backend lead | до старта auth |
-| Q4 | Анонимный гость — сколько часов/дней данные хранятся до удаления? | PO | до auth-релиза |
-| Q5 | Можно ли сменить character/audience после регистрации? | PO + Design | до v1.0 |
+| Q1 | Сколько уроков бесплатно? | **5** | `FREE_LESSON_LIMIT = 5`, paywall на 6-м |
+| Q2 | Family — родитель видит прогресс детей? | **Да** | RBAC: parent видит progress/history sub-account'ов read-only |
+| Q3 | Email-провайдер | **Yandex 360 SMTP** | T1 закрыт |
+| Q4 | Гость-анонимный — TTL данных без логина | **3 дня** | Daily cron удаляет неавторизованные сессии старше 72ч |
+| Q5 | Можно ли менять character/audience/language после регистрации? | **Да, см. ADR-002** | См. ниже + Settings page wire |
+
+### Q5 — детали Profile Mutation Policy (ADR-002)
+
+**Что можно менять и как:**
+
+| Поле | Где меняется | Эффект на tier | Эффект на прогресс |
+|---|---|---|---|
+| `name` | Settings → Профиль | — | Нет |
+| `gender` | Settings → Профиль | — | Аватар обновляется |
+| `character` | Settings → Профиль | Может смениться tier (если новый character — другая age group) | Прогресс **сохраняется per-tier**: вернувшись к старому, юзер видит свои звёзды |
+| `audience` | Settings → Профиль (для adult: радио М/Ж; для teen/kid — заблокировано до апрува родителя) | Меняется tier | Прогресс per-tier сохраняется |
+| `language` | Settings → Интерфейс | Меняется tier (ru→en вариант) | Прогресс per-tier сохраняется |
+| `keyboardType`/`keyboardLayout` | Settings → Клавиатура | — | Нет |
+| `email` | Settings → Безопасность | — | Требует подтверждения нового email |
+| `password` | Settings → Безопасность | — | Требует old password |
+
+**Ключевая идея**: `progress` keyed by `(user_id, tier, lesson_num)` — переключение tier'а не теряет историю. Юзер видит на Profile/Statistics все свои прогрессы по всем tier'ам, в которых что-то делал.
+
+**Ограничения для безопасности**:
+- Смена `audience` с `adult` → `kid` блокируется (нельзя «омолодить» аккаунт)
+- Смена `audience` для sub-account'а ребёнка возможна только родителю
+- Смена email требует подтверждения через старый email (предотвращение account takeover)
+
+См. [ADR-002 Profile mutation policy](decisions/ADR-002.md) для деталей реализации.
+
+---
+
+## 8a. Полностью открытые вопросы (для v1.1+)
+
+Этих в v1.0 не решаем:
+- Smoking gun feature для retention (продумаем после первых 100 paid)
+- Реферральная программа (выручка от друзей)
+- Стрики дней — как считать паузы / отпуск
+- Сертификат — только PDF или ещё verifiable URL
 
 ---
 
@@ -267,4 +301,5 @@ Login → dashboard → "Продолжить курс" → lesson.html → task
 |---|---|---|---|
 | 2025-11-14 | 0.1 | Полина | Initial draft (MVP_PRD.md) |
 | 2026-06-06 | 1.0 | Клод + PO | Полная переработка под пост-frontend-redesign состояние, добавлен payments+Lessons API scope |
+| 2026-06-06 | 1.1 | Клод + PO | Закрыты Q1-Q5: 5 уроков бесплатно, Family с read-only прогрессом детей, Yandex 360, 3д TTL гостя, profile mutation policy через ADR-002 |
 
