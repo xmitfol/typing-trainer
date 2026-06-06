@@ -14,7 +14,7 @@
 
 | # | Risk | Sev | Prob | Status | Owner | Mitigation | Trigger to re-eval |
 |---|---|---|---|---|---|---|---|
-| R-001 | GitHub аккаунт Ивана заблокирован — нельзя пушить и делать PR | HIGH | 🔴 | 🛠️ mitigating | Иван (поддержка GH) | (a) ждём ответ GitHub; (b) запасной remote (Bitbucket/GitLab) если затянется > 7 дней | Ответ от GH support получен / прошло > 7 дней |
+| R-001 | GitHub аккаунт Ивана заблокирован — нельзя пушить и делать PR | HIGH | 🟢 | 🛠️ mitigating | Дима (DevOps) | **Решение принято 2026-06-06**: миграция на YC Code Repo + GH mirror (ADR-004). Runbook: `sprint-0/migration_runbook.md`. После завершения миграции → закрыть. | После выполнения runbook |
 | R-002 | YooKassa может отклонить recurring-схему в РФ | HIGH | 🟡 | 🔍 open | Борис + PO | Fallback: single payment + email-reminder перед expiry | Sprint 6 — реальный тест в YK sandbox |
 | R-003 | Backend разработчик заболеет на 1+ неделю | MED | 🟡 | ⏸️ accepted | Ника | Документация каждого sprint'а в `docs/.sessions/sprints/sprint-N/` | Реальная болезнь / отпуск |
 | R-004 | 152-ФЗ — хостинг должен быть в РФ | HIGH | 🟢 | 🛠️ mitigating | Сергей | Yandex Cloud / Selectel выбраны — обе RU. IP не plain в логах. | Compliance review перед Sprint 10 |
@@ -24,12 +24,12 @@
 | R-008 | Backend p95 latency не укладывается в 200ms | MED | 🟡 | 🔍 open | Борис + Дима | k6 load test в Sprint 10. Если не укладываемся — кеш Redis на hot paths | Sprint 10 load testing |
 | R-009 | GDPR-проверки от EU юзеров до compliance ready | LOW | 🟢 | ⏸️ accepted | Сергей | В v1.0 не открываем регистрацию для не-RU IP — GeoIP block на Nginx | Если решим запускать EU маркетинг |
 | R-010 | Конкурент (Соло) запускает SaaS быстрее | LOW | 🟡 | ⏸️ accepted | Марина | Мы быстрее (план 11-12 недель), UX лучше | Marketing-research еженедельно |
-| R-011 | Yandex Cloud API breaking change | LOW | 🟢 | ⏸️ accepted | Дима | Multi-cloud разворачиваемость через Terraform | Annual review |
+| R-011 | Yandex Cloud API breaking change | LOW | 🟢 | 🛠️ mitigating | Дима | Multi-cloud через Terraform + **GH mirror как escape hatch** (ADR-004) — полная git-история всегда доступна на стороне | Annual review |
 | R-012 | Email-провайдер (Я360) лимиты при росте трафика | MED | 🟡 | 🔍 open | Дима | Monitor отправки, при >2000/day переход на Mailgun/SendGrid | Sprint 8 — analytics покажет рост |
 
 ## Closed (last 30 days)
 
-— нет (register создан 2026-06-06)
+— нет (register создан 2026-06-06; R-001 в процессе закрытия через миграцию ADR-004)
 
 ## Accepted (живём с этим)
 
@@ -65,3 +65,4 @@
 | Дата | Что | Кто |
 |---|---|---|
 | 2026-06-06 | Initial register с 12 рисками | Ника + Клод (handoff) |
+| 2026-06-06 | R-001 переведён в active mitigation (ADR-004 migration), R-011 mitigation усилен через GH mirror | Клод |

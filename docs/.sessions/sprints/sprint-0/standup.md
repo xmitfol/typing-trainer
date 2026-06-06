@@ -5,7 +5,31 @@
 
 ---
 
-## 2026-06-06 (Ника прибыла, sprint не стартовал)
+## 2026-06-06 PM — Sprint 0 АКТИВИРОВАН (ADR-004 accepted)
+
+### Ника
+- **Yesterday**: nothing
+- **Today**: проконсультировала PO по timeline (PERT P80 = 17 окт), по альтернативам GH; PO принял миграцию на YC Code Repo; обновила board, blockers, risks; runbook для Димы готов
+- **Blockers**: жду PO action S0.0a/b (YC org + GH email)
+
+### Клод (Architect)
+- **Today**: написал ADR-004 (single-vendor YC), обновил risks.md (R-001 → mitigation, R-011 strengthened), board.md, blockers.md
+- **Next**: ждать завершения миграции для дальнейших ADR (R-002 YooKassa fallback strategy в очереди)
+
+### PO (Иван)
+- **Today**: принял решения по timeline + миграции
+- **Action items до конца дня**: создать YC organization + новый GH email + IAM-role Диме
+
+### Дима (DevOps)
+- **Today**: ожидание PO action для старта миграции (по runbook)
+- **Estimate**: 3-4 часа на саму миграцию, +1 день на CI pipeline
+
+### Борис, Алекс, остальные
+- idle до завершения миграции, могут продолжать локально
+
+---
+
+## 2026-06-06 (Ника прибыла, sprint не стартовал) — earlier
 
 ### Ника
 - **Yesterday**: nothing (это мой первый день)
