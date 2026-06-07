@@ -144,7 +144,7 @@
 
 ## Что НЕ покрыто этим документом
 
-- **Sprint 6-7** (payments — YooKassa + Hybrid renewal) — preview добавится перед Sprint 5 closing. Самая сложная связка (ADR-005 + 6 ARQ задач), нужен отдельный sub-документ
+- **Sprint 6-7** (payments — YooKassa + Hybrid renewal) — вынесено в отдельный sub-документ [dependency_map_sprint_6_7.md](dependency_map_sprint_6_7.md) (30 deps + T-trigger map + 5 рекомендаций специфично для payments)
 - **Sprint 8** (analytics) — добавится после Sprint 6 kickoff
 - **Sprint 9-10** (family / GDPR / production) — добавится по мере приближения
 
@@ -201,3 +201,4 @@
 |---|---|---|
 | 2026-06-07 | Ника | Initial cross-team dependency map для Sprint 0-3 (33 записи) |
 | 2026-06-07 | Ника | Sprint 4-5 расширение: +11 deps Sprint 4 (achievements engine) +12 deps Sprint 5 (Lessons API + paywall); 3 новые рекомендации; D3-7 помечен как закрытый (legacy/localStorage_schema.md) |
+| 2026-06-07 | Ника | Sprint 6-7 вынесены в отдельный sub-документ [dependency_map_sprint_6_7.md](dependency_map_sprint_6_7.md). Также pre-fill Sprint 3 board в [sprint-3/](sprint-3/). |

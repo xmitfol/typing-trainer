@@ -1,11 +1,24 @@
 """SQLAlchemy 2.0 declarative models.
 
-TODO Sprint 1: User, UserSettings, OAuthAccount
-TODO Sprint 3: Progress, Attempt
-TODO Sprint 4: Achievement (если решим хранить unlock-events в БД)
-TODO Sprint 6: Subscription
-TODO Sprint 8: Event (партицирование по месяцам)
+Все модели импортируются здесь чтобы alembic autogenerate видел их
+через `Base.metadata`. Порядок импорта не важен — relationships
+резолвятся лениво.
 """
 
-# Когда модели появятся, импортируй их здесь чтобы alembic autodetect видел.
-# from app.models.user import User  # noqa: F401
+from app.models.base import Base
+from app.models.event import Event
+from app.models.progress import Attempt, Progress
+from app.models.subscription import Subscription, SubscriptionCharge
+from app.models.user import OAuthAccount, User, UserSettings
+
+__all__ = [
+    "Base",
+    "Event",
+    "OAuthAccount",
+    "Progress",
+    "Attempt",
+    "Subscription",
+    "SubscriptionCharge",
+    "User",
+    "UserSettings",
+]

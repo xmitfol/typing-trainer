@@ -113,6 +113,11 @@ class Settings(BaseSettings):
     yookassa_webhook_secret: str = ""
     yookassa_test_mode: bool = True
 
+    # ─── Yandex SmartCaptcha (Sprint 1, R-007 mitigation) ──────────
+    yandex_captcha_site_key: str = ""        # frontend, public
+    yandex_captcha_server_key: str = ""      # backend, secret
+    yandex_captcha_fallback_mode: str = "fail-closed"  # 'fail-closed' | 'fail-open'
+
     # ─── Business rules (фиксированные ADR/PRD) ────────────────────
     free_lesson_limit: int = 5            # PRD Q1
     anonymous_ttl_days: int = 3           # ADR-001

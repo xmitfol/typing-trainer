@@ -13,9 +13,8 @@ from sqlalchemy import engine_from_config, pool
 from app.config import get_settings
 from app.models.base import Base
 
-# Загружаем все модели, чтобы они зарегистрировались в Base.metadata
-# Когда модели появятся в Sprint 1+, добавляй сюда:
-# from app.models import user, progress, subscription  # noqa: F401
+# Загружаем все модели — реальный import регистрирует их в Base.metadata.
+import app.models  # noqa: F401
 
 config = context.config
 
