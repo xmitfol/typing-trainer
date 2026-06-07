@@ -167,13 +167,15 @@
 
 | ID | Task | Estimate | Verify |
 |---|---|---|---|
-| S6.1 | Регистрация YooKassa shop (test mode + prod) | 0.5d (PO) | dashboard YK доступен |
-| S6.2 | Alembic: `subscriptions` таблица | 0.5d | migration зелёная |
+| **S6.0** ⭐ | **PO регистрирует YK shop (test mode + prod) + Борис сразу подаёт заявку на recurring** (T-001 из [ADR-005](decisions/ADR-005.md)) | 0.5d (PO) + 0.5d (Борис) | YK shop активен; recurring application submitted; **ждём ответ YK 1-3 дня в day 2-5** |
+| S6.1 | (бывшая «регистрация YK shop» — теперь часть S6.0) | — | — |
+| S6.2 | Alembic: `subscriptions` таблица **со схемой из ADR-005** (`is_auto_renew`, `payment_method_id`, `last_charge_attempt_at`, `last_charge_error`, `last_reminder_sent_at`, `grace_until`) + новая таблица `subscription_charges` (audit log) | 1d ⬆ | migration зелёная, обе таблицы видны через `\d+` |
 | S6.3 | `GET /pricing/plans` — отдаёт каталог из [pricing.js](../../../assets/js/pricing.js) | 0.5d | integration test |
-| S6.4 | `POST /pricing/checkout` — создание YK платежа + сохранение в БД | 1.5d | integration test + manual в test mode |
-| S6.5 | `POST /webhooks/yookassa` — signature validation + status update | 1.5d | unit test webhook + integration |
+| S6.4 | `POST /pricing/checkout` — создание YK платежа с `save_payment_method=true` + INSERT в `subscriptions` (`is_auto_renew=true`) | 1.5d | integration test + manual в test mode |
+| S6.5 | `POST /webhooks/yookassa` — signature validation + status update + UPDATE `payment_method_id` если saved | 1.5d | unit test webhook + integration |
 | S6.6 | Email уведомление о платеже (welcome to paid + receipt PDF) | 1d | реальный email |
 | S6.7 | Frontend: `pricing.html` wire к `/pricing/checkout` + redirect на YK | 0.5d | verify_payment_e2e.py зелёный |
+| **S6.8** ⭐ | **T-003 gate (day 5 of sprint)**: проверка ответа YK на recurring application. Если REJECTED → switch на Variant Б (single payment + email reminder), убрать `save_payment_method=true` из S6.4, упростить S7.1. | 0.5d (Ника + Клод decision) | Goes/No-Goes для recurring зафиксирован в weekly digest |
 
 ### Deliverable
 - `verify_payment_e2e.py` — test card → webhook → subscription active → урок 6+ открыт
@@ -184,27 +186,28 @@
 
 ---
 
-## 9. Sprint 7: Payments edge cases + recurring (week 7)
+## 9. Sprint 7: Payments edge cases + Hybrid renewal flow (week 7)
 
-**Цель**: продление работает, отказы корректно обрабатываются.
+**Цель**: Hybrid flow из [ADR-005](decisions/ADR-005.md) — recurring с auto-fallback на email-reminder. Отказы корректно обрабатываются.
 
 ### Tasks
 
 | ID | Task | Estimate | Verify |
 |---|---|---|---|
-| S7.1 | Recurring: сохранение payment_method, cron'ер на продление | 1.5d | manual test в YK sandbox |
-| S7.2 | Failure paths: declined card / expired / 3DS fail | 1d | integration tests |
-| S7.3 | `POST /me/subscriptions/{id}/cancel` — отмена auto-renewal | 0.5d | integration test |
-| S7.4 | Email reminders: 3 дня до окончания, день окончания | 1d | E2E manual |
-| S7.5 | Idempotency проверка под нагрузкой (concurrent requests) | 0.5d | k6 stress test |
-| S7.6 | Audit log таблица + service для всех payment-events | 1d | integration test |
-| S7.7 | Frontend: статус подписки на dashboard + в profile | 0.5d | verify_subscription_ui.py |
+| S7.1 ⭐ | **Hybrid renewal cron (ARQ worker, queue=`renewals`)**: read `subscriptions` due → попытка YK charge → at fail (3 retries exp backoff: 5s/25s/125s) auto-flip `is_auto_renew=false` + trigger email-reminder. Idempotency key `recurring-{sub_id}-{period_iso}`. (Расширено vs предыдущей версии — теперь обе ветки в одной задаче.) | **2.5d** ⬆ | manual test YK sandbox + integration test обоих ветвей (success / fail→fallback) |
+| S7.2 | Failure paths: declined card / expired / 3DS `requires_action` → `auto_renew=false` + email на manual checkout | 1d | integration tests |
+| S7.3 | `POST /me/subscriptions/{id}/cancel` — cancel at end of period (не immediate, см. ADR-005 Q6) | 0.5d | integration test |
+| **S7.4** ⭐ | **Email reminders (ОБЯЗАТЕЛЬНО, не optional)**: daily cron в 09:00 MSK → 7 дней до expiry, 1 день до expiry, day-of-fail (после неудачного recurring). Шаблоны RU+EN из ADR-005 Q8. | **1.5d** ⬆ | E2E manual: триггернуть expiry на test user, проверить 3 email'а |
+| S7.5 | Idempotency проверка под нагрузкой (concurrent recurring + manual click) | 0.5d | k6 stress test |
+| S7.6 | `subscription_charges` audit log service (привязан к S6.2 schema) — Service + API endpoint для admin debug | 0.5d ⬇ | integration test (логи всех charge'ей) |
+| S7.7 | Frontend: статус подписки на dashboard + в profile (`auto_renew on/off` toggle) | 0.5d | verify_subscription_ui.py |
+| **S7.8** ⭐ | **Grace period mode (3 дня)**: если recurring fail → `status='grace'`, `grace_until=now()+3d`, content доступен. После grace → `status='expired'`, content lock. | 0.5d | integration test grace transition |
 
 ### Deliverable
-- `verify_payment_lifecycle.py` — buy → activate → renew → cancel → expire
+- `verify_payment_lifecycle.py` — buy → activate → renew_auto / renew_manual / grace → cancel → expire (5 веток)
 
 ### Gate
-✅ Recurring продление работает в test mode. Все failure scenarios отображаются юзеру с понятными сообщениями.
+✅ Hybrid renewal: recurring работает в test mode; auto-fallback на email при YK fail тестируется; grace period 3 дня; cancel at end of period. Все failure scenarios отображаются юзеру с понятными сообщениями.
 
 ---
 
@@ -221,6 +224,7 @@
 | S8.3 | Frontend: SDK для отправки событий (debounced, retry) | 1d | unit + integration test |
 | S8.4 | События со фронта: signup, login, lesson_started, lesson_completed, lesson_failed, paywall_shown, subscribed | 0.5d | manual проверка в БД |
 | S8.5 | Server-side события: payment_success, payment_failed, achievement_unlocked, churn | 0.5d | unit tests |
+| **S8.4b** ⭐ | **Renewal-specific события из [ADR-005](decisions/ADR-005.md) Q10**: `payment_method_saved`, `payment_method_save_failed`, `subscription_renewed_auto`, `subscription_renewed_manual`, `subscription_renewal_failed`, `subscription_renewal_recovered`. Нужны для PO funnel queries (auto vs manual conversion). | 0.5d | unit + integration test |
 | S8.6 | Базовые funnel-queries в `docs/spec/backend/analytics-queries.sql` | 0.5d | manually run queries |
 | S8.7 | Metabase / Redash setup для PO | 0.5d (DevOps) | PO видит D7 retention |
 
@@ -360,3 +364,4 @@
 | 2025-11-14 | 0.1 | Полина | Initial high-level Phase 2 plan (PHASE_2_BACKLOG.md) |
 | 2026-06-06 | 1.0 | Клод + PO | Полная переработка под TSD v1.0; 11 sprint'ов с verify-gates |
 | 2026-06-06 | 1.1 | Клод + PO | Конкретизированы значения (5 уроков paywall, 3д TTL гостя), Sprint 9 расширен под Family read-only по [ADR-003](decisions/ADR-003.md); добавлены ссылки на ADR-001/002/003 |
+| 2026-06-07 | 1.2 | Клод (по ADR-005) | Sprint 6: добавлен **S6.0** (ранняя YK заявка, T-001) и **S6.8** (T-003 gate day 5); S6.2 расширен schema (`subscriptions` + `subscription_charges`); S6.4 — `save_payment_method=true`. Sprint 7: **S7.1 → 2.5d** (Hybrid flow), **S7.4 → обязательное 1.5d** (email reminders RU+EN), добавлен **S7.8** (Grace period 3д). Sprint 8: добавлен **S8.4b** (renewal-specific события для PO funnel). |

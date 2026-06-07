@@ -169,6 +169,8 @@ backend/
         └─────────────────┘
 ```
 
+> **Note 2026-06-07 (под [ADR-005](decisions/ADR-005.md))**: схема `subscriptions` расширена полями `is_auto_renew`, `payment_method_id`, `grace_until`, `last_charge_*`. Добавлена новая таблица `subscription_charges` (audit log всех попыток recurring/manual charge'ей). См. §2.2 ниже + §5 Payments + §5.5 FSM.
+
 ### 2.2. Основные таблицы
 
 #### `users`
@@ -259,20 +261,60 @@ CREATE INDEX idx_attempts_user_tier ON attempts(user_id, tier, lesson_num);
 ```
 
 #### `subscriptions`
+
+Обновлено под [ADR-005 Hybrid renewal](decisions/ADR-005.md). FSM status расширен с 5 до 6 состояний (добавлен `grace`). Recurring-поля: `is_auto_renew`, `payment_method_id`, charge attempts tracking.
+
 ```sql
 CREATE TABLE subscriptions (
-    id                   UUID PRIMARY KEY DEFAULT gen_random_uuid(),
-    user_id              UUID NOT NULL REFERENCES users(id) ON DELETE CASCADE,
-    plan                 VARCHAR(20) NOT NULL,    -- 'monthly_full'|'family_quarterly'|...
-    status               VARCHAR(20) NOT NULL,    -- 'pending'|'active'|'expired'|'cancelled'|'failed'
-    started_at           TIMESTAMPTZ,
-    expires_at           TIMESTAMPTZ,
-    yookassa_payment_id  VARCHAR(64) UNIQUE,
-    amount_kopecks       INTEGER NOT NULL,
-    currency             CHAR(3) NOT NULL DEFAULT 'RUB',
-    created_at           TIMESTAMPTZ NOT NULL DEFAULT now()
+    id                     UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+    user_id                UUID NOT NULL REFERENCES users(id) ON DELETE CASCADE,
+    plan                   VARCHAR(20) NOT NULL,    -- 'monthly_full'|'family_quarterly'|...
+    status                 VARCHAR(20) NOT NULL,    -- FSM, см. §5.5 ниже
+    started_at             TIMESTAMPTZ,
+    expires_at             TIMESTAMPTZ,
+    yookassa_payment_id    VARCHAR(64) UNIQUE,       -- initial checkout payment
+    amount_kopecks         INTEGER NOT NULL,
+    currency               CHAR(3) NOT NULL DEFAULT 'RUB',
+    -- Hybrid renewal fields (ADR-005)
+    is_auto_renew          BOOLEAN NOT NULL DEFAULT TRUE,
+    payment_method_id      VARCHAR(64),              -- YK saved payment method, null если save failed
+    last_charge_attempt_at TIMESTAMPTZ,              -- последняя попытка recurring charge
+    last_charge_error      VARCHAR(255),             -- error code от YK, null если success
+    last_reminder_sent_at  TIMESTAMPTZ,              -- идемпотентность email-cron'а
+    grace_until            TIMESTAMPTZ,              -- 3 дня после первого fail recurring
+    cancelled_at           TIMESTAMPTZ,              -- при user-initiated cancel
+    created_at             TIMESTAMPTZ NOT NULL DEFAULT now()
 );
-CREATE INDEX idx_subs_user_active ON subscriptions(user_id, status) WHERE status = 'active';
+CREATE INDEX idx_subs_user_active   ON subscriptions(user_id, status) WHERE status = 'active';
+CREATE INDEX idx_subs_due_renewal   ON subscriptions(expires_at, status) WHERE status IN ('active', 'grace') AND is_auto_renew = TRUE;
+CREATE INDEX idx_subs_due_reminder  ON subscriptions(expires_at, status) WHERE status IN ('active') AND last_reminder_sent_at IS NULL OR last_reminder_sent_at < expires_at - interval '8 days';
+```
+
+#### `subscription_charges` (audit log, ADR-005)
+
+Per-attempt log всех попыток charge'а (recurring и manual). Нужен для:
+- Audit'а (compliance + debug)
+- PO analytics (decline rate, manual recovery rate)
+- Идемпотентность retry'ев
+
+```sql
+CREATE TABLE subscription_charges (
+    id                  BIGSERIAL PRIMARY KEY,
+    subscription_id     UUID NOT NULL REFERENCES subscriptions(id) ON DELETE CASCADE,
+    yookassa_payment_id VARCHAR(64) UNIQUE,        -- null до получения YK ответа
+    idempotency_key     VARCHAR(128) NOT NULL,     -- 'recurring-{sub_id}-{period_iso}' или 'manual-{sub_id}-{period_iso}'
+    attempted_at        TIMESTAMPTZ NOT NULL DEFAULT now(),
+    status              VARCHAR(20) NOT NULL,      -- 'success'|'failed'|'pending_3ds'|'pending_yk'
+    amount_kopecks      INTEGER NOT NULL,
+    error_code          VARCHAR(64),               -- YK error code если failed
+    error_message       VARCHAR(512),              -- человекочитаемая ошибка
+    is_recurring        BOOLEAN NOT NULL DEFAULT FALSE,  -- TRUE для cron-инициированных, FALSE для manual click
+    retry_number        SMALLINT NOT NULL DEFAULT 0,    -- 0..3 (3 retry'а max по ADR-005 Q2)
+    metadata            JSONB NOT NULL DEFAULT '{}'::jsonb
+);
+CREATE INDEX idx_sub_charges_sub_time ON subscription_charges(subscription_id, attempted_at DESC);
+CREATE INDEX idx_sub_charges_idempotency ON subscription_charges(idempotency_key);
+CREATE INDEX idx_sub_charges_status ON subscription_charges(status, attempted_at DESC) WHERE status IN ('failed', 'pending_3ds');
 ```
 
 #### `events` (аналитика)
@@ -652,9 +694,95 @@ YooKassa → redirect юзера на /pricing?status=success
 - Webhook не пришёл — cron каждые 5 мин проверяет `subscriptions` в `pending` статусе и тянет YooKassa API
 - Платёж отклонён — email-уведомление + статус `failed`, юзер видит на /me/subscriptions
 
-### 5.4. Recurring (auto-renewal)
+### 5.4. Hybrid renewal flow (ADR-005)
 
-YooKassa в РФ требует **«сохранённый платёжный метод»** — при первом платеже добавляем `save_payment_method: true` → получаем `payment_method_id`. На expiry+24h cron создаёт новый платёж по сохранённой карте.
+См. [ADR-005](decisions/ADR-005.md) для полного обоснования.
+
+При первом платеже добавляем `save_payment_method=true` → получаем `payment_method_id`, сохраняем в `subscriptions.payment_method_id`.
+
+**Daily ARQ worker** (`queue=renewals`, не APScheduler — ADR-005 Q1):
+```
+SELECT id FROM subscriptions
+WHERE expires_at <= now()
+  AND status IN ('active', 'grace')
+  AND is_auto_renew = TRUE
+  AND payment_method_id IS NOT NULL;
+```
+
+Для каждой подписки:
+1. **Try charge** через YK API с `idempotency_key='recurring-{sub_id}-{billing_period_iso}'`
+2. **On success** → INSERT subscription_charges(status=success), UPDATE subscriptions(status=active, expires_at += period, last_charge_error=null)
+3. **On 5xx/timeout** → retry с exp backoff (5s/25s/125s, max 3, см. ADR-005 Q2)
+4. **On 4xx или 3-х fail'ах** → INSERT subscription_charges(status=failed), `is_auto_renew=false`, `status='grace'`, `grace_until=now()+3d`, trigger email-reminder
+5. **On `requires_action` (3DS)** → `is_auto_renew=false`, email юзеру «требуется подтверждение карты» (ADR-005 Q9)
+
+**Email-reminder cron** (daily 09:00 MSK, ADR-005 Q3):
+- `expires_at <= now() + 7d` AND `last_reminder_sent_at IS NULL` → шлём «7 дней до expiry»
+- `expires_at <= now() + 1d` AND `last_reminder_sent_at < now() - 6d` → шлём «последний день»
+- `status='grace'` AND `last_reminder_sent_at < now() - 1d` → шлём «не получилось списать, обнови карту»
+- Шаблоны RU+EN (`app/core/emails/templates/<event>/{ru,en}.jinja2`)
+
+### 5.5. Subscription FSM
+
+```
+              ┌────────┐
+   checkout   │pending │ (initial state, ждём webhook)
+   ──────────>│        │
+              └───┬────┘
+                  │ webhook: payment.succeeded
+                  ▼
+              ┌────────┐
+              │ active │ ◄──────────────┐
+              └───┬────┘                │
+                  │ next_billing_date   │ renewal success
+                  ▼                     │
+              ┌────────────┐  recurring │
+              │ (recurring │ success ────┘
+              │  attempt)  │
+              └─┬─────┬────┘
+       fail x3 │     │ requires_action (3DS)
+                ▼     ▼
+              ┌────────┐                ┌──────────┐
+              │ grace  │ ◄───────────── │auto_renew│
+              │ (3 дня)│                │ → false  │
+              └───┬────┘                └──────────┘
+   manual click │ │ grace_until достигнут
+   (через email)│ ▼
+       ┌────────┴─┐    ┌─────────┐
+       │ success  │    │ expired │ (content lock)
+       │ → active │    │         │
+       └──────────┘    └─────────┘
+
+   В любой момент юзер может cancel → cancelled_at, expires_at остаётся
+   → expired в end-of-period
+```
+
+**Status values**: `pending` | `active` | `grace` | `expired` | `cancelled` | `failed`.
+
+### 5.6. ARQ queue config
+
+```python
+# app/tasks/queues.py
+from arq.connections import RedisSettings
+
+class RenewalsWorkerSettings:
+    redis_settings = RedisSettings.from_dsn(settings.redis_url)
+    queue_name = "renewals"
+    functions = [
+        attempt_recurring_charge,
+        send_renewal_reminder,
+        handle_grace_expiry,
+    ]
+    cron_jobs = [
+        cron(attempt_due_renewals,   hour={3}, minute={0}),  # 03:00 MSK
+        cron(send_due_reminders,     hour={9}, minute={0}),  # 09:00 MSK
+        cron(expire_grace_subs,      hour={6}, minute={0}),  # 06:00 MSK
+    ]
+    max_jobs = 8
+    job_timeout = 60  # secs
+```
+
+Отделено от других ARQ workers (`emails`, `exports`) — не блокирует email-flow если YK медленный.
 
 ---
 
@@ -816,3 +944,4 @@ CMD ["gunicorn", "app.main:app", "-w", "4", "-k", "uvicorn.workers.UvicornWorker
 | 2025-11-16 | 0.1 | Борис | Initial Backend_Architecture.md |
 | 2026-06-06 | 1.0 | Клод + PO | Полная переработка под актуальные frontend-структуры и SDD методологию |
 | 2026-06-06 | 1.1 | Клод + PO | Закрыты T1-T5 + добавлены §4a (Profile Mutation Policy), §4b (Family Plan) с RBAC и read-only прогрессом детей; ссылки на ADR-001/002/003 |
+| 2026-06-07 | 1.2 | Клод (под ADR-005) | Расширен §5 Payments: §5.4 Hybrid renewal flow с ARQ worker + retry policy, §5.5 Subscription FSM (6 состояний), §5.6 ARQ queue config (3 cron jobs). DDL: `subscriptions` + новые поля is_auto_renew/payment_method_id/grace_until/last_charge_*, новая таблица `subscription_charges` (audit log) с idempotency. |
