@@ -1,8 +1,8 @@
 # Sprint 0 · Board
 
-> **Status**: 🟢 **Active** — стартует с миграции GitHub → YC Code Repo (см. [ADR-004](../../../spec/backend/decisions/ADR-004.md) + [migration_runbook.md](migration_runbook.md))
+> **Status**: ✅ **CLOSED 2026-06-11** — GitHub разблокирован, PR #25 создан, scaffold pushed
 > **Цель**: pre-sprint инфраструктура (см. [03_IMPL_PLAN.md §2](../../../spec/backend/03_IMPL_PLAN.md))
-> **Estimate duration**: week 0 (5 days)
+> **Actual duration**: week 0 (5 дней, ускорено по сравнению с estimate)
 > **Owner**: Ника (PM) + Борис (Backend) + Дима (DevOps)
 
 ## Gate
@@ -10,21 +10,19 @@
 
 ## Tasks
 
-### TODO (not started)
-- ⬜ **S0.0a** · **PO action**: создать YC organization + billing + новый GH email · @PO · today
-- ⬜ **S0.0b** · **PO action**: дать Диме IAM-role на YC organization · @PO · today
-- ⬜ **S0.1** · Миграция GitHub → YC Code Repo + GH mirror (по [migration_runbook.md](migration_runbook.md)) · @Дима · 3-4ч после S0.0
-- ⬜ S0.2 · Зарегистрировать домен `typing-trainer.ru` · @PO · day 2
-- ⬜ S0.3 · Docker Compose для local dev (postgres + redis + adminer) · @Борис · day 3
-- ⬜ S0.4 · Scaffold backend/ репо (pyproject, ruff, mypy, pytest) · @Борис · day 4
-- ⬜ S0.5 · ~~Git workflow~~ → **YC Cloud Build pipeline** (`.cloudbuild/lint-and-test.yaml`) + branch protection · @Дима · day 5 (часть в S0.1)
-- ⬜ S0.6 · OpenAPI skeleton с `/health` endpoint · @Борис · day 5
+### DONE ✅
+- ✅ **S0.0** · PO actions (DEPRECATED — GitHub разблокирован, миграция не нужна)
+- ✅ **S0.1** · Push 43 коммитов на origin/integration/new-shell + PR #25 · @PO + @Клод · 2026-06-11
+- ⬜ S0.2 · Зарегистрировать домен `typing-trainer.ru` · @PO · отложено
+- ✅ S0.3 · Docker Compose для local dev (postgres + redis + adminer) · @Клод (за Бориса) · 2026-06-07
+- ✅ S0.4 · Scaffold backend/ репо (pyproject, ruff, mypy, pytest, app/, models, security, alembic) · @Клод (за Бориса) · 2026-06-07
+- ⬜ S0.5 · CI pipeline — GitHub Actions (вместо YC Cloud Build, т.к. ADR-004 deferred) · @Дима · Sprint 1 setup
+- ✅ S0.6 · OpenAPI skeleton с `/health` endpoint · @Клод (за Бориса) · 2026-06-07
 
-### IN PROGRESS
-- 🔄 S0.0a/b — ожидание PO action для разблокировки migration
+### Sprint 0 status: 6/7 closed (S0.2 домен — отдельный поток PO)
 
 ### BLOCKED
-— нет (R-001 переведён в active mitigation через ADR-004)
+— нет
 
 ### DONE
 — нет

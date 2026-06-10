@@ -4,30 +4,27 @@
 
 ---
 
-## ✅ B-001 · GitHub аккаунт `xmitfol` suspended → RESOLVED via ADR-004
+## ✅ B-001 · GitHub аккаунт `xmitfol` suspended → FULLY RESOLVED
 
 - **Type**: external (GitHub support)
-- **Severity**: HIGH → переведён в active mitigation
+- **Severity**: HIGH
 - **Opened**: ~2026-06-03
-- **Closed**: 2026-06-06 (decision-level; technical migration в процессе)
-- **Resolution**: миграция на Yandex Cloud Code Repository + push-mirror на новый GitHub аккаунт. Decision: [ADR-004](../../../spec/backend/decisions/ADR-004.md). Runbook: [migration_runbook.md](migration_runbook.md).
-- **Executor**: Дима (DevOps)
-- **PO action required**: см. S0.0a/b на board
+- **Closed**: 2026-06-11
+- **Resolution**: GitHub support разблокировал аккаунт. PO прошёл 2FA. Git Credential Manager закэшировал credentials. Push 43 коммитов выполнен → [PR #25](https://github.com/xmitfol/typing-trainer/pull/25).
+- **Impact на ADR-004**: миграция на YC стала optional. Решение PO: оставляем GitHub primary, YC рассматриваем opt-in для prod-pipeline позже.
 
 ---
 
-## 🔄 B-002 · YC organization + новый GH email — pending PO
+## ✅ B-002 · YC organization + новый GH email → CANCELLED
 
-- **Type**: internal (PO action required)
-- **Severity**: MED (блокирует Дима для S0.1)
-- **Opened**: 2026-06-06
-- **Owner**: PO (Иван)
-- **Waiting on**:
-  - YC organization создана с billing
-  - Дима получает IAM-role
-  - Новый GH email готов (отдельный от заблокированного)
-- **ETA**: today (после прочтения этого update)
-- **Workaround**: нет, это критический путь к unblock'у Sprint 0
+- **Status**: больше не нужно (cancelled by superseding event)
+- **Reason**: GitHub разблокирован 2026-06-11, миграция на YC отложена. Если в будущем решим вернуться к YC primary — re-open этот блокер.
+
+---
+
+## Active blockers
+
+— нет. Все блокеры Sprint 0 закрыты.
 
 ---
 

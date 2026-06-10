@@ -14,7 +14,7 @@
 
 | # | Risk | Sev | Prob | Status | Owner | Mitigation | Trigger to re-eval |
 |---|---|---|---|---|---|---|---|
-| R-001 | GitHub аккаунт Ивана заблокирован — нельзя пушить и делать PR | HIGH | 🟢 | 🛠️ mitigating | Дима (DevOps) | **Решение принято 2026-06-06**: миграция на YC Code Repo + GH mirror (ADR-004). Runbook: `sprint-0/migration_runbook.md`. После завершения миграции → закрыть. | После выполнения runbook |
+| R-001 | ~~GitHub аккаунт Ивана заблокирован~~ | HIGH | — | ✅ closed | PO | **РАЗБЛОКИРОВАН 2026-06-11** через GitHub support + 2FA. ADR-004 миграция стала optional. Push 43 коммитов на `origin/integration/new-shell` выполнен, PR #25 создан. | — |
 | R-002 | YooKassa может отклонить recurring-схему в РФ | HIGH | 🟡 | 🛠️ mitigating | Борис + PO | **Hybrid из [ADR-005](decisions/ADR-005.md)**: code умеет оба flow (recurring + email-reminder). S6.0 — ранняя YK заявка в Sprint 6 day 1. T-003 — если не одобрят к day 5 → switch на manual+email для MVP. | T-003 (Sprint 6 day 5) или T-004 (после beta) |
 | R-003 | Backend разработчик заболеет на 1+ неделю | MED | 🟡 | ⏸️ accepted | Ника | Документация каждого sprint'а в `docs/.sessions/sprints/sprint-N/` | Реальная болезнь / отпуск |
 | R-004 | 152-ФЗ — хостинг должен быть в РФ | HIGH | 🟢 | 🛠️ mitigating | Сергей | Yandex Cloud / Selectel выбраны — обе RU. IP не plain в логах. | Compliance review перед Sprint 10 |
@@ -29,7 +29,9 @@
 
 ## Closed (last 30 days)
 
-— нет (register создан 2026-06-06; R-001 в процессе закрытия через миграцию ADR-004)
+| # | Risk | Date closed | How |
+|---|---|---|---|
+| R-001 | GitHub аккаунт `xmitfol` заблокирован | 2026-06-11 | GitHub support разблокировал + PO прошёл 2FA. Push 43 коммитов + PR #25 успешно. |
 
 ## Accepted (живём с этим)
 
@@ -67,3 +69,4 @@
 | 2026-06-06 | Initial register с 12 рисками | Ника + Клод (handoff) |
 | 2026-06-06 | R-001 переведён в active mitigation (ADR-004 migration), R-011 mitigation усилен через GH mirror | Клод |
 | 2026-06-07 | R-002 переведён в active mitigation через ADR-005 (Hybrid + ранняя YK заявка S6.0) | Клод |
+| 2026-06-11 | R-001 закрыт — GitHub разблокирован, push 43 коммитов + PR #25 успешно | PO + Клод |
