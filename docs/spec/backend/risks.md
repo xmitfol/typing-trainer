@@ -20,7 +20,7 @@
 | R-004 | 152-ФЗ — хостинг должен быть в РФ | HIGH | 🟢 | 🛠️ mitigating | Сергей | Yandex Cloud / Selectel выбраны — обе RU. IP не plain в логах. | Compliance review перед Sprint 10 |
 | R-005 | Пользователи теряют localStorage до миграции на сервер | HIGH | 🟡 | 🔍 open | Алекс | Phase 2.1 — обязательный prompt «зарегистрируйся» в первые 5 минут с явным CTA | Sprint 2 — guest→account migration |
 | R-006 | Backend крашится во время оплаты | CRITICAL | 🟢 | 🛠️ mitigating | Борис | Idempotency keys, webhook retries, eventual consistency через ARQ | Sprint 7 — payment lifecycle test |
-| R-007 | Атаки на signup (бот-регистрация) | MED | 🔴 | 🔍 open | Сергей | Yandex SmartCaptcha с самого старта (Sprint 1) | Sprint 1 implementation |
+| R-007 | Атаки на signup (бот-регистрация) | MED | 🔴 | 🛠️ mitigating | Сергей | **Self-hosted anti-bot из [ADR-006](decisions/ADR-006.md)** (решение PO): honeypot + proof-of-work + IP rate-limit. Без внешнего провайдера. Рычаг под атаку — `CAPTCHA_POW_DIFFICULTY`. | Если bot-rate >5%/день при difficulty=22 → возврат внешнего провайдера (новый ADR) |
 | R-008 | Backend p95 latency не укладывается в 200ms | MED | 🟡 | 🔍 open | Борис + Дима | k6 load test в Sprint 10. Если не укладываемся — кеш Redis на hot paths | Sprint 10 load testing |
 | R-009 | GDPR-проверки от EU юзеров до compliance ready | LOW | 🟢 | ⏸️ accepted | Сергей | В v1.0 не открываем регистрацию для не-RU IP — GeoIP block на Nginx | Если решим запускать EU маркетинг |
 | R-010 | Конкурент (Соло) запускает SaaS быстрее | LOW | 🟡 | ⏸️ accepted | Марина | Мы быстрее (план 11-12 недель), UX лучше | Marketing-research еженедельно |
@@ -70,3 +70,4 @@
 | 2026-06-06 | R-001 переведён в active mitigation (ADR-004 migration), R-011 mitigation усилен через GH mirror | Клод |
 | 2026-06-07 | R-002 переведён в active mitigation через ADR-005 (Hybrid + ранняя YK заявка S6.0) | Клод |
 | 2026-06-11 | R-001 закрыт — GitHub разблокирован, push 43 коммитов + PR #25 успешно | PO + Клод |
+| 2026-06-11 | R-007 → 🛠️ mitigating через ADR-006 (self-hosted anti-bot вместо SmartCaptcha, решение PO). Email-интеграция (Я360) отложена PO: на dev — mailhog, реальные SMTP-креды deferred; R-012 без изменений (касается prod-масштаба). | PO + Клод |

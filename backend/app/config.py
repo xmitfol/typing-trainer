@@ -93,12 +93,15 @@ class Settings(BaseSettings):
     cookie_domain: str = "localhost"
     cookie_secure: bool = False
 
-    # ─── Email (Yandex 360 SMTP) ───────────────────────────────────
-    smtp_host: str = "smtp.yandex.ru"
-    smtp_port: int = 465
+    # ─── Email ─────────────────────────────────────────────────────
+    # PO-решение 2026-06-11: реальная Y360-интеграция отложена. На dev —
+    # mailhog (SMTP localhost:1025, web UI :8025, без TLS/creds). Prod-креды
+    # Y360 (noreply@typing-trainer.ru) подставляются позже (Sprint 1 day 4+).
+    smtp_host: str = "localhost"   # dev: mailhog | prod: smtp.yandex.ru
+    smtp_port: int = 1025          # dev: mailhog | prod: 465
     smtp_username: str = ""
     smtp_password: str = ""
-    smtp_use_tls: bool = True
+    smtp_use_tls: bool = False     # dev: mailhog (no TLS) | prod: True
     smtp_from: str = "typing-trainer <noreply@typing-trainer.ru>"
 
     # ─── OAuth (Sprint 2) ──────────────────────────────────────────
@@ -113,10 +116,11 @@ class Settings(BaseSettings):
     yookassa_webhook_secret: str = ""
     yookassa_test_mode: bool = True
 
-    # ─── Yandex SmartCaptcha (Sprint 1, R-007 mitigation) ──────────
-    yandex_captcha_site_key: str = ""        # frontend, public
-    yandex_captcha_server_key: str = ""      # backend, secret
-    yandex_captcha_fallback_mode: str = "fail-closed"  # 'fail-closed' | 'fail-open'
+    # ─── Self-hosted anti-bot (Sprint 1, R-007 mitigation, ADR-006) ─
+    captcha_pow_difficulty: int = 18           # ведущих нулевых бит; 18≈0.1-0.5s в браузере
+    captcha_challenge_ttl_seconds: int = 600   # время жизни PoW-challenge
+    captcha_honeypot_field: str = "nickname2"  # имя скрытого поля формы
+    # HMAC-подпись challenge переиспользует jwt_secret_key (отдельный секрет не вводим)
 
     # ─── Business rules (фиксированные ADR/PRD) ────────────────────
     free_lesson_limit: int = 5            # PRD Q1

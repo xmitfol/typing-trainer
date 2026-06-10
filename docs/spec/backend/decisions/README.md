@@ -13,6 +13,7 @@
 | [003](ADR-003.md) | Family plan — read-only parental visibility | ✅ Accepted | 2026-06-06 |
 | [004](ADR-004.md) | Single-vendor infra: YC as code+build+host (GitHub mirror) | ✅ Accepted | 2026-06-06 |
 | [005](ADR-005.md) | YooKassa recurring fallback strategy (Hybrid) | ✅ Accepted | 2026-06-07 |
+| [006](ADR-006.md) | Self-hosted anti-bot вместо Yandex SmartCaptcha | ✅ Accepted | 2026-06-11 |
 
 ## Заброшенные / Superseded
 

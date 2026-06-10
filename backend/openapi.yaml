@@ -1,0 +1,431 @@
+openapi: 3.1.0
+info:
+  title: typing-trainer Auth API
+  version: "0.1.0"
+  description: |
+    Контракт auth-foundation (Sprint 1, задача S1.10). Зафиксирован Клодом
+    до implementation S1.4-S1.8 для предотвращения rework и разблокировки
+    Алекса (frontend) к day 3.
+
+    Связанные решения:
+      - Anti-bot: self-hosted honeypot + proof-of-work (ADR-006), без внешнего провайдера.
+      - Password hashing: Argon2id (security/argon2_and_captcha.md §1).
+      - Токены: JWT в httpOnly cookies (access 15 мин, refresh 30 дней).
+        Расходится с TSD §395 (там access/refresh в теле) — намеренное решение S1.10:
+        httpOnly+SameSite снижает XSS-кражу токенов; тело отдаёт только user.
+
+    Перечисления (из 02_TSD.md §4a / моделей):
+      - audience: adult | teen | kid
+      - character: anna | maxim | knopych | klavochka
+      - language: ru | en
+      - gender (optional): m | f
+servers:
+  - url: /api/v1
+    description: API v1
+
+tags:
+  - name: auth
+    description: Регистрация, вход, сессии, восстановление пароля
+
+paths:
+  /auth/challenge:
+    get:
+      tags: [auth]
+      summary: Выдать proof-of-work challenge (ADR-006)
+      description: |
+        Stateless PoW-challenge для защиты signup/forgot от ботов. Клиент
+        находит nonce с ≥`difficulty` ведущими нулевыми битами
+        `sha256(salt + ":" + nonce)` и отправляет результат в captcha-поля
+        соответствующего запроса. TTL challenge — 10 минут, повторное
+        использование salt запрещено (replay-guard).
+      operationId: getCaptchaChallenge
+      responses:
+        "200":
+          description: Новый challenge
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/CaptchaChallenge"
+
+  /auth/signup:
+    post:
+      tags: [auth]
+      summary: Регистрация email/password
+      description: |
+        Создаёт пользователя + авто-создаёт `user_settings` (defaults).
+        Требует пройденной капчи (ADR-006): honeypot пустой + валидное PoW.
+        При успехе — устанавливает httpOnly cookies (access+refresh) и
+        отправляет welcome/verification email (на dev — mailhog).
+      operationId: signup
+      parameters:
+        - $ref: "#/components/parameters/Idempotency"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/SignupRequest"
+      responses:
+        "201":
+          description: Пользователь создан. Cookies access_token/refresh_token установлены.
+          headers:
+            Set-Cookie:
+              $ref: "#/components/headers/AuthCookies"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/UserResponse"
+        "403":
+          description: Капча не пройдена (honeypot непустой / PoW не решён / replay).
+          content:
+            application/json:
+              schema: { $ref: "#/components/schemas/Error" }
+              examples:
+                captcha:
+                  value: { error: { code: CAPTCHA_FAILED, message: "Проверка не пройдена" } }
+        "409":
+          description: Email уже занят.
+          content:
+            application/json:
+              schema: { $ref: "#/components/schemas/Error" }
+              examples:
+                taken:
+                  value: { error: { code: EMAIL_TAKEN, message: "Email уже зарегистрирован" } }
+        "422":
+          $ref: "#/components/responses/ValidationError"
+        "429":
+          $ref: "#/components/responses/RateLimited"
+
+  /auth/signin:
+    post:
+      tags: [auth]
+      summary: Вход по email/password
+      description: |
+        При успехе — httpOnly cookies (access+refresh). Ошибка авторизации
+        возвращает один и тот же 401 INVALID_CREDENTIALS независимо от того,
+        существует email или нет (anti-timing, security spec §1).
+        Капча conditional: требуется после 3 failed/IP/час (поля captcha опциональны).
+      operationId: signin
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/SigninRequest"
+      responses:
+        "200":
+          description: Вход выполнен. Cookies установлены.
+          headers:
+            Set-Cookie:
+              $ref: "#/components/headers/AuthCookies"
+          content:
+            application/json:
+              schema: { $ref: "#/components/schemas/UserResponse" }
+        "401":
+          description: Неверные учётные данные (email или пароль).
+          content:
+            application/json:
+              schema: { $ref: "#/components/schemas/Error" }
+              examples:
+                bad:
+                  value: { error: { code: INVALID_CREDENTIALS, message: "Неверный email или пароль" } }
+        "403":
+          description: Требуется капча (после серии неудачных попыток).
+          content:
+            application/json:
+              schema: { $ref: "#/components/schemas/Error" }
+              examples:
+                need:
+                  value: { error: { code: CAPTCHA_REQUIRED, message: "Пройдите проверку" } }
+        "422":
+          $ref: "#/components/responses/ValidationError"
+        "429":
+          $ref: "#/components/responses/RateLimited"
+
+  /auth/refresh:
+    post:
+      tags: [auth]
+      summary: Обновить access-токен по refresh-cookie
+      description: Читает refresh_token cookie, ротирует пару токенов (rotation).
+      operationId: refresh
+      security:
+        - refreshCookie: []
+      responses:
+        "200":
+          description: Токены обновлены (новые cookies).
+          headers:
+            Set-Cookie:
+              $ref: "#/components/headers/AuthCookies"
+          content:
+            application/json:
+              schema: { $ref: "#/components/schemas/UserResponse" }
+        "401":
+          description: Refresh-токен отсутствует / истёк / отозван.
+          content:
+            application/json:
+              schema: { $ref: "#/components/schemas/Error" }
+
+  /auth/signout:
+    post:
+      tags: [auth]
+      summary: Выход
+      description: Чистит cookies + инвалидирует refresh-токен на сервере.
+      operationId: signout
+      security:
+        - accessCookie: []
+      responses:
+        "204":
+          description: Выход выполнен. Cookies очищены.
+          headers:
+            Set-Cookie:
+              description: access_token и refresh_token очищены (Max-Age=0).
+              schema: { type: string }
+
+  /auth/verify-email:
+    post:
+      tags: [auth]
+      summary: Подтвердить email по токену из письма
+      operationId: verifyEmail
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [token]
+              properties:
+                token: { type: string, description: Одноразовый токен из письма }
+      responses:
+        "204": { description: Email подтверждён (email_verified=true). }
+        "400":
+          description: Токен невалиден / истёк.
+          content:
+            application/json:
+              schema: { $ref: "#/components/schemas/Error" }
+
+  /auth/forgot:
+    post:
+      tags: [auth]
+      summary: Запрос на сброс пароля
+      description: |
+        Всегда отвечает 202 (не раскрываем существование email). Если email
+        известен — шлём письмо со ссылкой сброса. Требует капчу (ADR-006).
+      operationId: forgotPassword
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              allOf:
+                - type: object
+                  required: [email]
+                  properties:
+                    email: { type: string, format: email }
+                - $ref: "#/components/schemas/CaptchaFields"
+      responses:
+        "202": { description: Если email существует — письмо отправлено. }
+        "403":
+          description: Капча не пройдена.
+          content:
+            application/json:
+              schema: { $ref: "#/components/schemas/Error" }
+        "429":
+          $ref: "#/components/responses/RateLimited"
+
+  /auth/reset:
+    post:
+      tags: [auth]
+      summary: Установить новый пароль по токену сброса
+      operationId: resetPassword
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [token, password]
+              properties:
+                token: { type: string }
+                password: { $ref: "#/components/schemas/Password" }
+      responses:
+        "204": { description: Пароль изменён. Активные сессии инвалидированы. }
+        "400":
+          description: Токен невалиден / истёк.
+          content:
+            application/json:
+              schema: { $ref: "#/components/schemas/Error" }
+
+components:
+  securitySchemes:
+    accessCookie:
+      type: apiKey
+      in: cookie
+      name: access_token
+    refreshCookie:
+      type: apiKey
+      in: cookie
+      name: refresh_token
+
+  parameters:
+    Idempotency:
+      name: Idempotency-Key
+      in: header
+      required: false
+      schema: { type: string }
+      description: Опциональный ключ идемпотентности для безопасного повтора signup.
+
+  headers:
+    AuthCookies:
+      description: |
+        Устанавливает httpOnly+Secure+SameSite=Lax cookies:
+        access_token (TTL 15 мин) и refresh_token (TTL 30 дней).
+      schema: { type: string }
+
+  responses:
+    ValidationError:
+      description: Ошибка валидации входных данных.
+      content:
+        application/json:
+          schema: { $ref: "#/components/schemas/Error" }
+          examples:
+            invalid:
+              value: { error: { code: VALIDATION_ERROR, message: "Проверьте поля", fields: { email: "невалидный email" } } }
+    RateLimited:
+      description: Превышен лимит запросов (signup 3/IP/час, signin 5/IP/мин).
+      headers:
+        Retry-After:
+          schema: { type: integer }
+          description: Секунд до следующей попытки.
+      content:
+        application/json:
+          schema: { $ref: "#/components/schemas/Error" }
+
+  schemas:
+    Password:
+      type: string
+      format: password
+      minLength: 8
+      maxLength: 128
+      description: Минимум 8 символов (TSD §8 OWASP).
+
+    CaptchaChallenge:
+      type: object
+      required: [challenge, signature, difficulty, algorithm]
+      properties:
+        challenge:
+          type: string
+          description: base64url payload (salt, iat, exp, difficulty).
+        signature:
+          type: string
+          description: HMAC-SHA256 подпись challenge.
+        difficulty:
+          type: integer
+          example: 18
+          description: Требуемое число ведущих нулевых бит.
+        algorithm:
+          type: string
+          example: sha256-leading-zero-bits
+
+    CaptchaFields:
+      type: object
+      description: Поля решённой капчи (ADR-006). Прикладываются к защищённым запросам.
+      required: [captcha_challenge, captcha_signature, captcha_nonce]
+      properties:
+        captcha_challenge:
+          type: string
+          description: Значение challenge из GET /auth/challenge.
+        captcha_signature:
+          type: string
+          description: Значение signature из GET /auth/challenge.
+        captcha_nonce:
+          type: string
+          description: Найденное клиентом решение PoW.
+        nickname2:
+          type: string
+          description: |
+            Honeypot. Скрытое поле — реальный клиент оставляет пустым.
+            Любое непустое значение → 403. Имя поля конфигурируемо
+            (CAPTCHA_HONEYPOT_FIELD), здесь приведено значение по умолчанию.
+          default: ""
+
+    SignupRequest:
+      type: object
+      required: [email, password, name, audience, character]
+      properties:
+        email: { type: string, format: email, maxLength: 254 }
+        password: { $ref: "#/components/schemas/Password" }
+        name: { type: string, minLength: 1, maxLength: 80 }
+        audience:
+          type: string
+          enum: [adult, teen, kid]
+        character:
+          type: string
+          enum: [anna, maxim, knopych, klavochka]
+        gender:
+          type: string
+          enum: [m, f]
+          nullable: true
+        language:
+          type: string
+          enum: [ru, en]
+          default: ru
+        captcha_challenge: { type: string }
+        captcha_signature: { type: string }
+        captcha_nonce: { type: string }
+        nickname2: { type: string, default: "" }
+      description: |
+        Поля captcha_* + nickname2 обязательны фактически (ADR-006), но
+        вынесены плоско для удобства frontend-формы. См. CaptchaFields.
+
+    SigninRequest:
+      type: object
+      required: [email, password]
+      properties:
+        email: { type: string, format: email }
+        password: { type: string, format: password }
+        captcha_challenge: { type: string, description: Только если 403 CAPTCHA_REQUIRED }
+        captcha_signature: { type: string }
+        captcha_nonce: { type: string }
+
+    UserResponse:
+      type: object
+      required: [id, email, email_verified, name, audience, character, language, is_anonymous]
+      properties:
+        id: { type: string, format: uuid }
+        email: { type: string, format: email }
+        email_verified: { type: boolean }
+        name: { type: string }
+        audience: { type: string, enum: [adult, teen, kid] }
+        character: { type: string, enum: [anna, maxim, knopych, klavochka] }
+        gender: { type: string, enum: [m, f], nullable: true }
+        language: { type: string, enum: [ru, en] }
+        is_anonymous: { type: boolean }
+        created_at: { type: string, format: date-time }
+      description: Публичная проекция User. Без password_hash и служебных полей.
+
+    Error:
+      type: object
+      required: [error]
+      properties:
+        error:
+          type: object
+          required: [code, message]
+          properties:
+            code:
+              type: string
+              description: Машиночитаемый код.
+              enum:
+                - VALIDATION_ERROR
+                - EMAIL_TAKEN
+                - INVALID_CREDENTIALS
+                - CAPTCHA_FAILED
+                - CAPTCHA_REQUIRED
+                - TOKEN_INVALID
+                - RATE_LIMITED
+            message:
+              type: string
+              description: Человекочитаемое сообщение (i18n по Accept-Language).
+            fields:
+              type: object
+              additionalProperties: { type: string }
+              description: Пер-полевые ошибки для VALIDATION_ERROR.

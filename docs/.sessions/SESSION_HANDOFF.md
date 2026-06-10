@@ -70,9 +70,9 @@
 
 | # | Что | Срок | Где сделать | Зачем |
 |---|---|---|---|---|
-| 1 | **Merge PR #25** | сегодня-завтра | https://github.com/xmitfol/typing-trainer/pull/25 | Разблокировать master, начать Sprint 1 |
-| 2 | **Регистрация Yandex SmartCaptcha shop** | до Sprint 1 day 1 | https://cloud.yandex.ru/services/smartcaptcha | R-007 защита от бот-регистраций |
-| 3 | **Y360 SMTP credentials** | к Sprint 1 day 4 | Yandex 360 → создать `noreply@typing-trainer.ru` | Welcome email + verification |
+| 1 | ~~**Merge PR #25**~~ | ✅ **СДЕЛАНО 2026-06-11** | — | Смержен (merge-commit 60677e0), master синхронизирован, Sprint 1 разблокирован |
+| ~~2~~ | ~~Регистрация Yandex SmartCaptcha shop~~ | ❌ **ОТМЕНЕНО** | — | PO выбрал self-hosted капчу ([ADR-006](../spec/backend/decisions/ADR-006.md)) — внешней регистрации не нужно |
+| 3 | **Y360 SMTP credentials** | ⏸️ **DEFERRED** (PO решил отложить) | Yandex 360 → `noreply@typing-trainer.ru` | Welcome email + verification. На dev используем **mailhog**; реальные креды нужны перед prod email-flow (не блокирует Sprint 1 код) |
 | 4 | **Yandex OAuth app** | до Sprint 2 day 1 | https://oauth.yandex.ru | Sign in через Яндекс |
 | 5 | **VK OAuth app** | до Sprint 2 day 1 | https://dev.vk.com | Sign in через VK |
 | 6 | **YooKassa shop + recurring application** | **Sprint 6 day 1 (T-001)** | YK портал | Sprint 6-7 payments. Заявка занимает 1-3 дня — подавать заранее |
@@ -117,6 +117,7 @@ ADR-005 PO ещё не подтвердил (рекомендую прочита
 | [ADR-003](../spec/backend/decisions/ADR-003.md) | Family read-only parental visibility | Sprint 9 |
 | [ADR-004](../spec/backend/decisions/ADR-004.md) | Single-vendor YC — **OPTIONAL** теперь (GH unblocked) | deferred |
 | [ADR-005](../spec/backend/decisions/ADR-005.md) | YooKassa Hybrid recurring + email fallback | Sprint 6-7 |
+| [ADR-006](../spec/backend/decisions/ADR-006.md) | Self-hosted anti-bot (honeypot+PoW) вместо SmartCaptcha | Sprint 1 (S1.4) |
 
 ---
 
