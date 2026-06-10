@@ -8,6 +8,7 @@ nul
 # Test output (E2E screenshots)
 verify-screenshots/
 verify-screenshots-local/
+scripts/screenshots/
 
 # Local-only artifacts
 # - error/ contains bug-report screenshots collected locally
@@ -32,3 +33,7 @@ build/
 # (.doc файл «Соло на пишущей машинке 1992» — 12MB, исходник из docs/book/)
 docs/book/*.doc
 docs/book/*.docx
+
+# Дизайн-handoff содержит дублирующие .zip-архивы — нам нужны только
+# распакованные jsx-референсы из них.
+docs/design/**/*.zip

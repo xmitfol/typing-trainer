@@ -24,9 +24,30 @@
   "new_keys": [],
   "finger_focus": "Tech blog rhythm",
   "tips": [
-    "Tech terms + opinion + multiple punctuation",
-    "Conversational technical writing",
-    "Real engineering blog pattern"
+    {
+      "type": "lead",
+      "text": "Tech terms + opinion + multiple punctuation"
+    },
+    {
+      "type": "drop",
+      "text": "Conversational technical writing"
+    },
+    {
+      "type": "exercise",
+      "target": "We migrated from Postgres to a custom solution last quarter. The trade-offs surprised us. Queries are 3x faster, but",
+      "finger": "purple",
+      "hint": "Tech blog rhythm"
+    },
+    {
+      "type": "p",
+      "text": "Real engineering blog pattern"
+    },
+    {
+      "type": "exercise",
+      "target": "ops overhead grew. Looking back, would I do it again? Honestly, yes — but with way more upfront planning.",
+      "finger": "purple",
+      "hint": "Tech blog rhythm"
+    }
   ],
   "character_tips": {
     "anna": "Tech blog style. Engineers write more than they code.",

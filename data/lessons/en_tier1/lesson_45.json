@@ -10,14 +10,46 @@
   "error_limit": 20,
   "text": "On 25 May 2026, Sam Smith (sam@team.co) closed Deal #142 worth $12,500 (+15% from Q1). \"Outstanding!\" said the CEO. Next target: 200% growth by Dec 2026. Email: ceo@company.com #milestone",
   "text_sequence": [],
-  "keys_trained": ["A-Z full", "0-9", "all punctuation", "all symbols", "Shift"],
+  "keys_trained": [
+    "A-Z full",
+    "0-9",
+    "all punctuation",
+    "all symbols",
+    "Shift"
+  ],
   "new_keys": [],
   "finger_focus": "Full keyboard mastery gate",
   "tips": [
-    "220 chars — biggest text yet",
-    "Real business writing style",
-    "Pass at 35 WPM = Block 3 complete = you can type any modern text",
-    "Block 4 unlocks: pure speed building"
+    {
+      "type": "lead",
+      "text": "220 chars — biggest text yet"
+    },
+    {
+      "type": "drop",
+      "text": "Real business writing style"
+    },
+    {
+      "type": "exercise",
+      "target": "On 25 May 2026, Sam Smith (sam@team.co) closed Deal #142 worth $12,500 (+15% from",
+      "finger": "blue",
+      "hint": "Full keyboard mastery gate"
+    },
+    {
+      "type": "p",
+      "text": "Pass at 35 WPM = Block 3 complete = you can type any modern text"
+    },
+    {
+      "type": "callout",
+      "icon": "💡",
+      "title": "Подсказка",
+      "text": "Block 4 unlocks: pure speed building"
+    },
+    {
+      "type": "exercise",
+      "target": "Q1). \"Outstanding!\" said the CEO. Next target: 200% growth by Dec 2026. Email: ceo@company.com #milestone",
+      "finger": "green",
+      "hint": "Full keyboard mastery gate"
+    }
   ],
   "character_tips": {
     "anna": "🎓 BLOCK 3 FINAL! You can type ANY content now. Next blocks build pure speed.",

@@ -10,13 +10,62 @@
   "error_limit": 4,
   "text": "the dog and the cat had a sad day they tried hard to win at last and were happy",
   "text_sequence": [],
-  "keys_trained": ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", "Space"],
+  "keys_trained": [
+    "A",
+    "B",
+    "C",
+    "D",
+    "E",
+    "F",
+    "G",
+    "H",
+    "I",
+    "J",
+    "K",
+    "L",
+    "M",
+    "N",
+    "O",
+    "P",
+    "Q",
+    "R",
+    "S",
+    "T",
+    "U",
+    "V",
+    "W",
+    "X",
+    "Y",
+    "Z",
+    "Space"
+  ],
   "new_keys": [],
   "finger_focus": "All alphabet — sentence rhythm",
   "tips": [
-    "Read the sentence first, then type — better than reading character by character",
-    "Spaces are part of rhythm — don't pause before them",
-    "Aim for steady pace, not bursts"
+    {
+      "type": "lead",
+      "text": "Read the sentence first, then type — better than reading character by character"
+    },
+    {
+      "type": "drop",
+      "text": "Spaces are part of rhythm — don't pause before them"
+    },
+    {
+      "type": "exercise",
+      "target": "the dog and the cat had a sad day",
+      "finger": "blue",
+      "hint": "All alphabet — sentence rhythm"
+    },
+    {
+      "type": "p",
+      "text": "Aim for steady pace, not bursts"
+    },
+    {
+      "type": "exercise",
+      "target": "they tried hard to win at last and were happy",
+      "finger": "green",
+      "hint": "All alphabet — sentence rhythm"
+    }
   ],
   "character_tips": {
     "anna": "Now you're typing real sentences. Notice how rhythm carries you through.",

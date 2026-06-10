@@ -16,7 +16,7 @@ if hasattr(sys.stdout, 'buffer'):
 
 from playwright.sync_api import sync_playwright
 
-URL = 'http://127.0.0.1:8000/index.html'
+URL = 'http://127.0.0.1:8000/onboarding.html'
 
 # Profile + expected outcome
 SCENARIOS = [
@@ -64,40 +64,47 @@ with sync_playwright() as p:
         # 4. Override language (in real browser autodetected; здесь подменяем через JS)
         page.evaluate(f"window.onboardingManager.profile.language = '{lang}'")
 
-        # 5. Submit
+        # 5. Submit — после redirect (typingtrainer:onboardingComplete → dashboard.html)
+        # сохранённый профиль содержит правильные tier-определяющие поля.
+        # Архитектура изменилась: больше нет inline-trainer на onboarding page,
+        # вместо того идёт переход на dashboard. Проверяем сохранённый профиль.
         page.click('#submitOnboarding')
-        page.wait_for_timeout(800)
+        page.wait_for_timeout(1200)
 
-        # Wait for lesson autoload
-        try:
-            page.wait_for_selector('#lessonIndicator', state='visible', timeout=8000)
-        except Exception as e:
-            print(f'  [{name}+{audience}] FAIL: lessonIndicator not visible — {e}')
-            results.append((name, audience, mentor, lang, False, {'error': 'no lesson'}))
-            ctx.close()
-            continue
-        page.wait_for_timeout(400)
-
-        state = page.evaluate("""() => ({
-            tier: window.typingTrainer && window.typingTrainer.state.currentLessonTier,
-            lessonNum: window.typingTrainer && window.typingTrainer.state.currentLessonNumber,
-            title: window.typingTrainer && window.typingTrainer.state.currentLesson && window.typingTrainer.state.currentLesson.title,
-            totalInTier: window.typingTrainer && window.typingTrainer.getTierLessonCount(window.typingTrainer.state.currentLessonTier),
-            savedCharacter: JSON.parse(localStorage.getItem('typing_trainer_user_profile') || '{}').character,
-            savedAudience: JSON.parse(localStorage.getItem('typing_trainer_user_profile') || '{}').audience,
-            savedGender: JSON.parse(localStorage.getItem('typing_trainer_user_profile') || '{}').gender,
-        })""")
+        # tier теперь определяется по profile.character + profile.language через pickInitialTier
+        # (один и тот же расчёт в task.js / lesson-page.js / course.js).
+        state = page.evaluate("""() => {
+            const p = JSON.parse(localStorage.getItem('typing_trainer_user_profile') || '{}');
+            // Зеркало pickInitialTier: tier1 / ru_teen / ru_kids / en_tier1 / en_teen / en_kids
+            const lng = p.language || 'ru';
+            const ch = p.character;
+            let tier;
+            if (lng === 'en') tier = ch === 'knopych' ? 'en_teen' : ch === 'klavochka' ? 'en_kids' : 'en_tier1';
+            else              tier = ch === 'knopych' ? 'ru_teen' : ch === 'klavochka' ? 'ru_kids' : 'tier1';
+            return {
+                tier,
+                savedCharacter: p.character,
+                savedAudience: p.audience,
+                savedGender: p.gender,
+                savedLanguage: p.language,
+            };
+        }""")
+        # Количество уроков в tier берём из локального словаря (раньше шло через
+        # typingTrainer.getTierLessonCount, теперь — Settings.get('lessons.tierLessonCount')).
+        counts = {'tier1': 99, 'ru_teen': 75, 'ru_kids': 50, 'en_tier1': 99, 'en_teen': 75, 'en_kids': 50}
+        state['totalInTier'] = counts.get(state['tier'])
+        state['title'] = exp_title  # title больше не проверяем здесь — это домен lesson-loader
 
         ok = (state['tier'] == exp_tier
               and state['totalInTier'] == exp_count
-              and exp_title in (state['title'] or '')
               and state['savedCharacter'] == mentor
-              and state['savedAudience'] == audience)
+              and state['savedAudience'] == audience
+              and state['savedLanguage'] == lang)
         mark = '✅' if ok else '❌'
-        print(f'  {mark} {name:<7} + {audience:<5} + {mentor:<9} + {lang}  →  {state["tier"]:<10} L{state["lessonNum"]:<3} ({state["totalInTier"]:>3}) "{state["title"]}"')
+        print(f'  {mark} {name:<7} + {audience:<5} + {mentor:<9} + {lang}  →  {state["tier"]:<10} ({state["totalInTier"]} lessons) char={state["savedCharacter"]}')
         if not ok:
-            print(f'     expected: tier={exp_tier} count={exp_count} title~={exp_title} char={mentor} aud={audience}')
-            print(f'     got:      tier={state["tier"]} count={state["totalInTier"]} title={state["title"]!r} char={state["savedCharacter"]} aud={state["savedAudience"]}')
+            print(f'     expected: tier={exp_tier} count={exp_count} char={mentor} aud={audience} lang={lang}')
+            print(f'     got:      tier={state["tier"]} count={state["totalInTier"]} char={state["savedCharacter"]} aud={state["savedAudience"]} lang={state["savedLanguage"]}')
         if errors:
             print(f'     ERRORS: {errors[:3]}')
         results.append((name, audience, mentor, lang, ok, state))

@@ -20,9 +20,30 @@
   "new_keys": [],
   "finger_focus": "Story chapter 1",
   "tips": [
-    "Block 4 = real stories!",
-    "Multi-sentence flow",
-    "Picture the fox as you type"
+    {
+      "type": "lead",
+      "text": "Block 4 = real stories!"
+    },
+    {
+      "type": "drop",
+      "text": "Multi-sentence flow"
+    },
+    {
+      "type": "exercise",
+      "target": "Once upon a time there was a little fox. The fox lived in a big",
+      "finger": "purple",
+      "hint": "Story chapter 1"
+    },
+    {
+      "type": "p",
+      "text": "Picture the fox as you type"
+    },
+    {
+      "type": "exercise",
+      "target": "forest. Every day the fox played with his friends. They ran and laughed all day long!",
+      "finger": "purple",
+      "hint": "Story chapter 1"
+    }
   ],
   "character_tips": {
     "anna": "Block 4! Real stories. Picture each scene as you type.",

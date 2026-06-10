@@ -22,9 +22,30 @@
   "new_keys": [],
   "finger_focus": "Scientific writing rhythm",
   "tips": [
-    "Science writing = facts + numbers + precision",
-    "Decimals, units, terminology",
-    "Highest-density real school content"
+    {
+      "type": "lead",
+      "text": "Science writing = facts + numbers + precision"
+    },
+    {
+      "type": "drop",
+      "text": "Decimals, units, terminology"
+    },
+    {
+      "type": "exercise",
+      "target": "The experiment was conducted at 25 degrees Celsius using a 100 ml sample. After 30 minutes, the reaction",
+      "finger": "purple",
+      "hint": "Scientific writing rhythm"
+    },
+    {
+      "type": "p",
+      "text": "Highest-density real school content"
+    },
+    {
+      "type": "exercise",
+      "target": "reached equilibrium with a pH of 7.4. Three trials confirmed the result, with a standard deviation of 0.08.",
+      "finger": "purple",
+      "hint": "Scientific writing rhythm"
+    }
   ],
   "character_tips": {
     "anna": "Science writing. Highest-density school content.",

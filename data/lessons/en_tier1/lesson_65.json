@@ -10,13 +10,43 @@
   "error_limit": 14,
   "text": "\"What time is the meeting?\" Sarah asked. \"At three,\" David replied, \"in the main conference room.\" She nodded. \"Should I bring the report?\" \"Yes,\" he said, \"and the projections too. They'll want to see both.\"",
   "text_sequence": [],
-  "keys_trained": ["A-Z", "Space", ",", ".", "?", "\"", "'", "Shift"],
+  "keys_trained": [
+    "A-Z",
+    "Space",
+    ",",
+    ".",
+    "?",
+    "\"",
+    "'",
+    "Shift"
+  ],
   "new_keys": [],
   "finger_focus": "Quotes + dialogue rhythm",
   "tips": [
-    "Quotes appear in 80% of fiction and chat-style writing",
-    "Type the closing quote without thinking — muscle memory",
-    "Dialogue tags (\"he said\", \"she asked\") should flow without pause"
+    {
+      "type": "lead",
+      "text": "Quotes appear in 80% of fiction and chat-style writing"
+    },
+    {
+      "type": "drop",
+      "text": "Type the closing quote without thinking — muscle memory"
+    },
+    {
+      "type": "exercise",
+      "target": "\"What time is the meeting?\" Sarah asked. \"At three,\" David replied, \"in the main conference room.\" She",
+      "finger": "purple",
+      "hint": "Quotes + dialogue rhythm"
+    },
+    {
+      "type": "p",
+      "text": "Dialogue tags (\"he said\", \"she asked\") should flow without pause"
+    },
+    {
+      "type": "exercise",
+      "target": "nodded. \"Should I bring the report?\" \"Yes,\" he said, \"and the projections too. They'll want to see both.\"",
+      "finger": "purple",
+      "hint": "Quotes + dialogue rhythm"
+    }
   ],
   "character_tips": {
     "anna": "Dialogue is the hardest punctuation pattern. Master it = master writing.",

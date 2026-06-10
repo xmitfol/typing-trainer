@@ -19,9 +19,30 @@
   "new_keys": [],
   "finger_focus": "Sentences with capitals",
   "tips": [
-    "Big letter starts a sentence",
-    "Period ends a sentence",
-    "Shift + letter = big letter"
+    {
+      "type": "lead",
+      "text": "Big letter starts a sentence"
+    },
+    {
+      "type": "drop",
+      "text": "Period ends a sentence"
+    },
+    {
+      "type": "exercise",
+      "target": "I see a cat. The dog runs. Mom is here. Dad",
+      "finger": "blue",
+      "hint": "Sentences with capitals"
+    },
+    {
+      "type": "p",
+      "text": "Shift + letter = big letter"
+    },
+    {
+      "type": "exercise",
+      "target": "is too. We are home. It is fun. The sun is hot.",
+      "finger": "green",
+      "hint": "Sentences with capitals"
+    }
   ],
   "character_tips": {
     "anna": "Capital letters at sentence starts. Period at the end.",

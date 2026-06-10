@@ -20,9 +20,30 @@
   "new_keys": [],
   "finger_focus": "50-lesson speed test",
   "tips": [
-    "50 = two-thirds of teen course",
-    "Track your peak — should be 70+ by now",
-    "Final block (B5) takes you to 90+"
+    {
+      "type": "lead",
+      "text": "50 = two-thirds of teen course"
+    },
+    {
+      "type": "drop",
+      "text": "Track your peak — should be 70+ by now"
+    },
+    {
+      "type": "exercise",
+      "target": "fifty lessons done and your fingers are flying. the next 25 lessons turn this speed",
+      "finger": "purple",
+      "hint": "50-lesson speed test"
+    },
+    {
+      "type": "p",
+      "text": "Final block (B5) takes you to 90+"
+    },
+    {
+      "type": "exercise",
+      "target": "into sustainable habit. dont stop now — momentum is everything in this part of the journey.",
+      "finger": "purple",
+      "hint": "50-lesson speed test"
+    }
   ],
   "character_tips": {
     "anna": "🎯 50 lessons in! Two-thirds done. Final stretch coming.",

@@ -10,13 +10,50 @@
   "error_limit": 14,
   "text": "Release v3.2.1 ships at 14:00 UTC on 2026-06-30, addressing 47 issues (+820 / -340 lines). Coverage: 92%. Performance gain: ~18% on P95 latency. Contributors: Anna, David, Lisa, Mark. CI status: GREEN ✓. Tag pushed to https://github.com/example/repo. Next milestone: v4.0 scheduled for Q4 2026.",
   "text_sequence": [],
-  "keys_trained": ["A-Z", "0-9", "Space", "(", ")", "/", ".", ",", ":", ";", "+", "-", "%", "~", "Shift"],
+  "keys_trained": [
+    "A-Z",
+    "0-9",
+    "Space",
+    "(",
+    ")",
+    "/",
+    ".",
+    ",",
+    ":",
+    ";",
+    "+",
+    "-",
+    "%",
+    "~",
+    "Shift"
+  ],
   "new_keys": [],
   "finger_focus": "Full keyboard at 98 WPM",
   "tips": [
-    "Every key, every category, all at 98 WPM",
-    "If you can pass this, L99 final is within reach",
-    "Real ops / dev / data work lives in this density"
+    {
+      "type": "lead",
+      "text": "Every key, every category, all at 98 WPM"
+    },
+    {
+      "type": "drop",
+      "text": "If you can pass this, L99 final is within reach"
+    },
+    {
+      "type": "exercise",
+      "target": "Release v3.2.1 ships at 14:00 UTC on 2026-06-30, addressing 47 issues (+820 / -340 lines). Coverage: 92%. Performance gain: ~18% on",
+      "finger": "purple",
+      "hint": "Full keyboard at 98 WPM"
+    },
+    {
+      "type": "p",
+      "text": "Real ops / dev / data work lives in this density"
+    },
+    {
+      "type": "exercise",
+      "target": "P95 latency. Contributors: Anna, David, Lisa, Mark. CI status: GREEN ✓. Tag pushed to https://github.com/example/repo. Next milestone: v4.0 scheduled for Q4 2026.",
+      "finger": "purple",
+      "hint": "Full keyboard at 98 WPM"
+    }
   ],
   "character_tips": {
     "anna": "Highest content density. Every character type at full pro speed.",

@@ -10,74 +10,422 @@
   "error_limit": 3,
   "text": "ты ты они тина тон воды вина выть лить тень вены идти нить",
   "text_sequence": [
-    {"char": "т", "hand": "left", "finger": "index", "key": "Т"},
-    {"char": "ы", "hand": "left", "finger": "ring", "key": "Ы"},
-    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
-    {"char": "т", "hand": "right", "finger": "index", "key": "Т"},
-    {"char": "ы", "hand": "right", "finger": "ring", "key": "Ы"},
-    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
-    {"char": "о", "hand": "left", "finger": "index", "key": "О"},
-    {"char": "н", "hand": "left", "finger": "index", "key": "Н"},
-    {"char": "и", "hand": "left", "finger": "index", "key": "И"},
-    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
-    {"char": "т", "hand": "right", "finger": "index", "key": "Т"},
-    {"char": "и", "hand": "right", "finger": "index", "key": "И"},
-    {"char": "н", "hand": "right", "finger": "index", "key": "Н"},
-    {"char": "а", "hand": "right", "finger": "index", "key": "А"},
-    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
-    {"char": "т", "hand": "left", "finger": "index", "key": "Т"},
-    {"char": "о", "hand": "left", "finger": "index", "key": "О"},
-    {"char": "н", "hand": "left", "finger": "index", "key": "Н"},
-    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
-    {"char": "в", "hand": "right", "finger": "middle", "key": "В"},
-    {"char": "о", "hand": "right", "finger": "index", "key": "О"},
-    {"char": "д", "hand": "right", "finger": "ring", "key": "Д"},
-    {"char": "ы", "hand": "right", "finger": "ring", "key": "Ы"},
-    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
-    {"char": "в", "hand": "left", "finger": "middle", "key": "В"},
-    {"char": "и", "hand": "left", "finger": "index", "key": "И"},
-    {"char": "н", "hand": "left", "finger": "index", "key": "Н"},
-    {"char": "а", "hand": "left", "finger": "index", "key": "А"},
-    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
-    {"char": "в", "hand": "right", "finger": "middle", "key": "В"},
-    {"char": "ы", "hand": "right", "finger": "ring", "key": "Ы"},
-    {"char": "т", "hand": "right", "finger": "index", "key": "Т"},
-    {"char": "ь", "hand": "right", "finger": "middle", "key": "Ь"},
-    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
-    {"char": "л", "hand": "left", "finger": "middle", "key": "Л"},
-    {"char": "и", "hand": "left", "finger": "index", "key": "И"},
-    {"char": "т", "hand": "left", "finger": "index", "key": "Т"},
-    {"char": "ь", "hand": "left", "finger": "middle", "key": "Ь"},
-    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
-    {"char": "т", "hand": "right", "finger": "index", "key": "Т"},
-    {"char": "е", "hand": "right", "finger": "index", "key": "Е"},
-    {"char": "н", "hand": "right", "finger": "index", "key": "Н"},
-    {"char": "ь", "hand": "right", "finger": "middle", "key": "Ь"},
-    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
-    {"char": "в", "hand": "left", "finger": "middle", "key": "В"},
-    {"char": "е", "hand": "left", "finger": "index", "key": "Е"},
-    {"char": "н", "hand": "left", "finger": "index", "key": "Н"},
-    {"char": "ы", "hand": "left", "finger": "ring", "key": "Ы"},
-    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
-    {"char": "и", "hand": "right", "finger": "index", "key": "И"},
-    {"char": "д", "hand": "right", "finger": "ring", "key": "Д"},
-    {"char": "т", "hand": "right", "finger": "index", "key": "Т"},
-    {"char": "и", "hand": "right", "finger": "index", "key": "И"},
-    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
-    {"char": "н", "hand": "left", "finger": "index", "key": "Н"},
-    {"char": "и", "hand": "left", "finger": "index", "key": "И"},
-    {"char": "т", "hand": "left", "finger": "index", "key": "Т"},
-    {"char": "ь", "hand": "left", "finger": "middle", "key": "Ь"}
+    {
+      "char": "т",
+      "hand": "left",
+      "finger": "index",
+      "key": "Т"
+    },
+    {
+      "char": "ы",
+      "hand": "left",
+      "finger": "ring",
+      "key": "Ы"
+    },
+    {
+      "char": " ",
+      "hand": "right",
+      "finger": "thumb",
+      "key": "Space",
+      "space_side": "right"
+    },
+    {
+      "char": "т",
+      "hand": "right",
+      "finger": "index",
+      "key": "Т"
+    },
+    {
+      "char": "ы",
+      "hand": "right",
+      "finger": "ring",
+      "key": "Ы"
+    },
+    {
+      "char": " ",
+      "hand": "left",
+      "finger": "thumb",
+      "key": "Space",
+      "space_side": "left"
+    },
+    {
+      "char": "о",
+      "hand": "left",
+      "finger": "index",
+      "key": "О"
+    },
+    {
+      "char": "н",
+      "hand": "left",
+      "finger": "index",
+      "key": "Н"
+    },
+    {
+      "char": "и",
+      "hand": "left",
+      "finger": "index",
+      "key": "И"
+    },
+    {
+      "char": " ",
+      "hand": "right",
+      "finger": "thumb",
+      "key": "Space",
+      "space_side": "right"
+    },
+    {
+      "char": "т",
+      "hand": "right",
+      "finger": "index",
+      "key": "Т"
+    },
+    {
+      "char": "и",
+      "hand": "right",
+      "finger": "index",
+      "key": "И"
+    },
+    {
+      "char": "н",
+      "hand": "right",
+      "finger": "index",
+      "key": "Н"
+    },
+    {
+      "char": "а",
+      "hand": "right",
+      "finger": "index",
+      "key": "А"
+    },
+    {
+      "char": " ",
+      "hand": "left",
+      "finger": "thumb",
+      "key": "Space",
+      "space_side": "left"
+    },
+    {
+      "char": "т",
+      "hand": "left",
+      "finger": "index",
+      "key": "Т"
+    },
+    {
+      "char": "о",
+      "hand": "left",
+      "finger": "index",
+      "key": "О"
+    },
+    {
+      "char": "н",
+      "hand": "left",
+      "finger": "index",
+      "key": "Н"
+    },
+    {
+      "char": " ",
+      "hand": "right",
+      "finger": "thumb",
+      "key": "Space",
+      "space_side": "right"
+    },
+    {
+      "char": "в",
+      "hand": "right",
+      "finger": "middle",
+      "key": "В"
+    },
+    {
+      "char": "о",
+      "hand": "right",
+      "finger": "index",
+      "key": "О"
+    },
+    {
+      "char": "д",
+      "hand": "right",
+      "finger": "ring",
+      "key": "Д"
+    },
+    {
+      "char": "ы",
+      "hand": "right",
+      "finger": "ring",
+      "key": "Ы"
+    },
+    {
+      "char": " ",
+      "hand": "left",
+      "finger": "thumb",
+      "key": "Space",
+      "space_side": "left"
+    },
+    {
+      "char": "в",
+      "hand": "left",
+      "finger": "middle",
+      "key": "В"
+    },
+    {
+      "char": "и",
+      "hand": "left",
+      "finger": "index",
+      "key": "И"
+    },
+    {
+      "char": "н",
+      "hand": "left",
+      "finger": "index",
+      "key": "Н"
+    },
+    {
+      "char": "а",
+      "hand": "left",
+      "finger": "index",
+      "key": "А"
+    },
+    {
+      "char": " ",
+      "hand": "right",
+      "finger": "thumb",
+      "key": "Space",
+      "space_side": "right"
+    },
+    {
+      "char": "в",
+      "hand": "right",
+      "finger": "middle",
+      "key": "В"
+    },
+    {
+      "char": "ы",
+      "hand": "right",
+      "finger": "ring",
+      "key": "Ы"
+    },
+    {
+      "char": "т",
+      "hand": "right",
+      "finger": "index",
+      "key": "Т"
+    },
+    {
+      "char": "ь",
+      "hand": "right",
+      "finger": "middle",
+      "key": "Ь"
+    },
+    {
+      "char": " ",
+      "hand": "left",
+      "finger": "thumb",
+      "key": "Space",
+      "space_side": "left"
+    },
+    {
+      "char": "л",
+      "hand": "left",
+      "finger": "middle",
+      "key": "Л"
+    },
+    {
+      "char": "и",
+      "hand": "left",
+      "finger": "index",
+      "key": "И"
+    },
+    {
+      "char": "т",
+      "hand": "left",
+      "finger": "index",
+      "key": "Т"
+    },
+    {
+      "char": "ь",
+      "hand": "left",
+      "finger": "middle",
+      "key": "Ь"
+    },
+    {
+      "char": " ",
+      "hand": "right",
+      "finger": "thumb",
+      "key": "Space",
+      "space_side": "right"
+    },
+    {
+      "char": "т",
+      "hand": "right",
+      "finger": "index",
+      "key": "Т"
+    },
+    {
+      "char": "е",
+      "hand": "right",
+      "finger": "index",
+      "key": "Е"
+    },
+    {
+      "char": "н",
+      "hand": "right",
+      "finger": "index",
+      "key": "Н"
+    },
+    {
+      "char": "ь",
+      "hand": "right",
+      "finger": "middle",
+      "key": "Ь"
+    },
+    {
+      "char": " ",
+      "hand": "left",
+      "finger": "thumb",
+      "key": "Space",
+      "space_side": "left"
+    },
+    {
+      "char": "в",
+      "hand": "left",
+      "finger": "middle",
+      "key": "В"
+    },
+    {
+      "char": "е",
+      "hand": "left",
+      "finger": "index",
+      "key": "Е"
+    },
+    {
+      "char": "н",
+      "hand": "left",
+      "finger": "index",
+      "key": "Н"
+    },
+    {
+      "char": "ы",
+      "hand": "left",
+      "finger": "ring",
+      "key": "Ы"
+    },
+    {
+      "char": " ",
+      "hand": "right",
+      "finger": "thumb",
+      "key": "Space",
+      "space_side": "right"
+    },
+    {
+      "char": "и",
+      "hand": "right",
+      "finger": "index",
+      "key": "И"
+    },
+    {
+      "char": "д",
+      "hand": "right",
+      "finger": "ring",
+      "key": "Д"
+    },
+    {
+      "char": "т",
+      "hand": "right",
+      "finger": "index",
+      "key": "Т"
+    },
+    {
+      "char": "и",
+      "hand": "right",
+      "finger": "index",
+      "key": "И"
+    },
+    {
+      "char": " ",
+      "hand": "left",
+      "finger": "thumb",
+      "key": "Space",
+      "space_side": "left"
+    },
+    {
+      "char": "н",
+      "hand": "left",
+      "finger": "index",
+      "key": "Н"
+    },
+    {
+      "char": "и",
+      "hand": "left",
+      "finger": "index",
+      "key": "И"
+    },
+    {
+      "char": "т",
+      "hand": "left",
+      "finger": "index",
+      "key": "Т"
+    },
+    {
+      "char": "ь",
+      "hand": "left",
+      "finger": "middle",
+      "key": "Ь"
+    }
   ],
-  "keys_trained": ["А", "О", "В", "Н", "Л", "Д", "Е", "И", "Т", "Ы", "Ь", "Space"],
-  "new_keys": ["Т", "Ы", "Ь"],
+  "keys_trained": [
+    "А",
+    "О",
+    "В",
+    "Н",
+    "Л",
+    "Д",
+    "Е",
+    "И",
+    "Т",
+    "Ы",
+    "Ь",
+    "Space"
+  ],
+  "new_keys": [
+    "Т",
+    "Ы",
+    "Ь"
+  ],
   "finger_focus": "Левый указательный (Т вверх) и левый безымянный (Ы)",
   "tips": [
-    "Т - левый указательный, тянется вверх от А",
-    "Ы - левый безымянный, основной ряд",
-    "Ь - правый средний, основной ряд (бонус!)",
-    "ТЫ, ОНИ, ВОДЫ - местоимения и существительные",
-    "Безымянный палец слабее - тренируй Ы медленно"
+    {
+      "type": "lead",
+      "text": "Т - левый указательный, тянется вверх от А"
+    },
+    {
+      "type": "drop",
+      "text": "Ы - левый безымянный, основной ряд"
+    },
+    {
+      "type": "exercise",
+      "target": "ты ты они тина тон воды",
+      "finger": "orange",
+      "hint": "Левый указательный (Т вверх) и левый безымянный (Ы)"
+    },
+    {
+      "type": "p",
+      "text": "Ь - правый средний, основной ряд (бонус!)"
+    },
+    {
+      "type": "callout",
+      "icon": "💡",
+      "title": "Подсказка",
+      "text": "ТЫ, ОНИ, ВОДЫ - местоимения и существительные"
+    },
+    {
+      "type": "p",
+      "text": "Безымянный палец слабее - тренируй Ы медленно"
+    },
+    {
+      "type": "exercise",
+      "target": "вина выть лить тень вены идти нить",
+      "finger": "pink",
+      "hint": "Левый указательный (Т вверх) и левый безымянный (Ы)"
+    }
   ],
   "character_tips": {
     "anna": "Отлично! Т расширяет возможности указательного, а Ы тренирует слабый безымянный. ТЫ-ОНИ-ВОДЫ!",

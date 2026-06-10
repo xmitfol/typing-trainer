@@ -10,13 +10,37 @@
   "error_limit": 13,
   "text": "about after again being below could every first found great might never other place right small sound still their there these thing think three those today under water world write",
   "text_sequence": [],
-  "keys_trained": ["all letters", "Space"],
+  "keys_trained": [
+    "all letters",
+    "Space"
+  ],
   "new_keys": [],
   "finger_focus": "Full alphabet — hand alternation",
   "tips": [
-    "5-letter words force more hand alternation — good for speed",
-    "Don't peek at the keyboard, even on tricky words",
-    "Consistency matters more than peaks — smooth wins"
+    {
+      "type": "lead",
+      "text": "5-letter words force more hand alternation — good for speed"
+    },
+    {
+      "type": "drop",
+      "text": "Don't peek at the keyboard, even on tricky words"
+    },
+    {
+      "type": "exercise",
+      "target": "about after again being below could every first found great might never other place right",
+      "finger": "purple",
+      "hint": "Full alphabet — hand alternation"
+    },
+    {
+      "type": "p",
+      "text": "Consistency matters more than peaks — smooth wins"
+    },
+    {
+      "type": "exercise",
+      "target": "small sound still their there these thing think three those today under water world write",
+      "finger": "purple",
+      "hint": "Full alphabet — hand alternation"
+    }
   ],
   "character_tips": {
     "anna": "Hand alternation is your best speed booster. Feel both hands working in sync.",

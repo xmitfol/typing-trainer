@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-i18n="settings.title">Настройки — typing-trainer</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="assets/css/tokens.css">
+    <link rel="stylesheet" href="assets/css/settings.css">
+    <link rel="icon" type="image/x-icon" href="assets/images/favicon.ico">
+</head>
+<body class="settings-page">
+
+    <!-- ─── Header ────────────────────────────────────────────────── -->
+    <header class="sp-header">
+        <a class="sp-back" href="dashboard.html" data-i18n="common.back">← Главная</a>
+        <a class="sp-logo" href="dashboard.html">
+            <span class="sp-logo__mark" data-i18n="common.logoMark">Ё</span>
+            <span class="sp-logo__name" data-i18n="common.appName">typing-trainer</span>
+        </a>
+        <span class="sp-title" data-i18n="settings.crumb">/ НАСТРОЙКИ</span>
+        <span class="sp-spacer"></span>
+        <span class="sp-profile">
+            <span id="sp-avatar"></span>
+            <span id="sp-name">—</span>
+        </span>
+    </header>
+
+    <!-- ─── Body ──────────────────────────────────────────────────── -->
+    <main class="sp-main">
+        <div>
+            <h1 class="sp-h1"><span data-i18n="settings.title">Настройки</span><span class="sp-saved" id="sp-saved" data-i18n="common.saved">✓ СОХРАНЕНО</span></h1>
+        </div>
+
+        <!-- Профиль -->
+        <section class="sp-card">
+            <h2 class="sp-card__title" data-i18n="settings.profile">Профиль</h2>
+            <p class="sp-card__desc">Эти данные подбирают наставника и сложность уроков.</p>
+
+            <div class="sp-row">
+                <label class="sp-row__label" for="sp-name-input" data-i18n="settings.name">Имя</label>
+                <input type="text" id="sp-name-input" class="sp-input" placeholder="Как тебя зовут?">
+            </div>
+
+            <div class="sp-row">
+                <span class="sp-row__label" data-i18n="settings.gender">Пол</span>
+                <div class="sp-seg" id="sp-gender" role="radiogroup" aria-label="Пол">
+                    <button type="button" class="sp-seg__btn" data-gender="m" data-i18n="settings.gender_m">Мужской</button>
+                    <button type="button" class="sp-seg__btn" data-gender="f" data-i18n="settings.gender_f">Женский</button>
+                </div>
+            </div>
+
+            <div class="sp-row">
+                <span class="sp-row__label" data-i18n="settings.audience">Возраст / курс</span>
+                <div class="sp-options" id="sp-audience" role="radiogroup">
+                    <button type="button" class="sp-option" data-audience="adult"><span data-i18n="settings.audience_adult">Взрослый</span><div class="sp-option__sub" data-i18n="settings.audience_adult_age">18+</div></button>
+                    <button type="button" class="sp-option" data-audience="teen"><span data-i18n="settings.audience_teen">Подросток</span><div class="sp-option__sub" data-i18n="settings.audience_teen_age">12-17</div></button>
+                    <button type="button" class="sp-option" data-audience="kid"><span data-i18n="settings.audience_kid">Ребёнок</span><div class="sp-option__sub" data-i18n="settings.audience_kid_age">6-11</div></button>
+                </div>
+            </div>
+
+            <div class="sp-row" id="sp-mentor-row">
+                <span class="sp-row__label" data-i18n="settings.mentor">Наставник</span>
+                <div class="sp-options" id="sp-mentor" role="radiogroup">
+                    <!-- заполняется JS: для adult — Анна/Максим; teen — Кнопыч; kid — Клавочка -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Клавиатура -->
+        <section class="sp-card">
+            <h2 class="sp-card__title" data-i18n="settings.keyboard">Клавиатура</h2>
+            <p class="sp-card__desc">Дефолты для тренажёра — то же можно менять и из toolbar во время урока.</p>
+
+            <div class="sp-row">
+                <label class="sp-row__label" for="sp-kb-type" data-i18n="settings.kbType">Тип</label>
+                <select id="sp-kb-type" class="sp-select">
+                    <option value="classic" data-i18n="settings.kbType_classic">Полноразмерная</option>
+                    <option value="laptop" data-i18n="settings.kbType_laptop">Ноутбук</option>
+                    <option value="ergonomic" data-i18n="settings.kbType_ergonomic">Эргономическая</option>
+                </select>
+            </div>
+
+            <div class="sp-row">
+                <label class="sp-row__label" for="sp-kb-layout" data-i18n="settings.kbLayout">Раскладка ввода</label>
+                <select id="sp-kb-layout" class="sp-select">
+                    <option value="standard" data-i18n="settings.kbLayout_standard">Стандартная (ЙЦУКЕН)</option>
+                    <option value="phonetic" data-i18n="settings.kbLayout_phonetic">Фонетическая (ЯВЕРТЫ)</option>
+                    <option value="typewriter" data-i18n="settings.kbLayout_typewriter">Машинопись</option>
+                    <option value="mac" data-i18n="settings.kbLayout_mac">МАС</option>
+                </select>
+            </div>
+
+            <div class="sp-row">
+                <label class="sp-row__label" for="sp-kb-finger" data-i18n="settings.fingerHint">Подсветка следующей клавиши</label>
+                <input type="checkbox" id="sp-kb-finger" class="sp-toggle">
+            </div>
+
+            <div class="sp-row">
+                <label class="sp-row__label" for="sp-kb-sound" data-i18n="settings.keySound">Звук нажатия</label>
+                <input type="checkbox" id="sp-kb-sound" class="sp-toggle">
+            </div>
+
+            <div class="sp-row">
+                <label class="sp-row__label" for="sp-kb-metro" data-i18n="settings.metronome">Метроном</label>
+                <input type="checkbox" id="sp-kb-metro" class="sp-toggle">
+            </div>
+
+            <div class="sp-row">
+                <span class="sp-row__label" data-i18n="settings.zoom">Масштаб окна набора</span>
+                <div class="sp-zoom">
+                    <button type="button" class="sp-zoom__btn" id="sp-zoom-minus" title="Меньше">−</button>
+                    <span class="sp-zoom__val" id="sp-zoom-val">100%</span>
+                    <button type="button" class="sp-zoom__btn" id="sp-zoom-plus" title="Больше">+</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Интерфейс -->
+        <section class="sp-card">
+            <h2 class="sp-card__title" data-i18n="settings.ui">Интерфейс</h2>
+            <p class="sp-card__desc">Язык приложения. Также влияет на ветку уроков (RU/EN).</p>
+            <div class="sp-row">
+                <span class="sp-row__label" data-i18n="settings.uiLanguage">Язык</span>
+                <div class="sp-seg" id="sp-lang" role="radiogroup">
+                    <button type="button" class="sp-seg__btn" data-lang="ru">🇷🇺 <span data-i18n="settings.uiLang_ru">Русский</span></button>
+                    <button type="button" class="sp-seg__btn" data-lang="en">🇬🇧 <span data-i18n="settings.uiLang_en">English</span></button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Прогресс -->
+        <section class="sp-card">
+            <h2 class="sp-card__title" data-i18n="settings.progress">Прогресс</h2>
+            <p class="sp-card__desc">Можно сбросить все звёзды, лучшие WPM и историю. Профиль и подписка остаются.</p>
+            <button type="button" class="sp-danger" id="sp-reset-btn" data-i18n="settings.resetProgress">Сбросить весь прогресс</button>
+        </section>
+    </main>
+
+    <!-- ─── Confirm modal ─────────────────────────────────────────── -->
+    <div class="sp-modal" id="sp-modal">
+        <div class="sp-modal__card">
+            <h3 class="sp-modal__title" data-i18n="settings.resetConfirm">Точно сбросить прогресс?</h3>
+            <p class="sp-modal__text" data-i18n="settings.resetWarn">
+                Удалятся: звёзды, лучшие результаты, история уроков, текущая позиция в курсе.
+                Профиль (имя, наставник, настройки) останется. Это действие нельзя отменить.
+            </p>
+            <div class="sp-modal__actions">
+                <button type="button" class="sp-modal__btn" id="sp-modal-cancel" data-i18n="common.cancel">Отмена</button>
+                <button type="button" class="sp-modal__btn sp-modal__btn--danger" id="sp-modal-confirm" data-i18n="common.yes_reset">Да, сбросить</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ─── JS ────────────────────────────────────────────────────── -->
+    <script src="assets/js/router-guard.js"></script>
+    <script src="config/settings.js"></script>
+    <script src="assets/js/portraits.js"></script>
+    <script src="assets/js/i18n.js"></script>
+    <script src="assets/js/settings.js"></script>
+</body>
+</html>

@@ -25,9 +25,30 @@
   "new_keys": [],
   "finger_focus": "Block 2 mastery gate at 55 WPM",
   "tips": [
-    "🎓 Teen Block 2 done! 55 WPM = mid-course teen pro speed",
-    "From here, Block 3 brings numbers + symbols + emoji-style writing",
-    "If you missed by a few WPM, retry — accuracy first, speed second"
+    {
+      "type": "lead",
+      "text": "🎓 Teen Block 2 done! 55 WPM = mid-course teen pro speed"
+    },
+    {
+      "type": "drop",
+      "text": "From here, Block 3 brings numbers + symbols + emoji-style writing"
+    },
+    {
+      "type": "exercise",
+      "target": "Last night's stream hit 50K viewers — biggest yet! Big thanks to the squad, the mods, and everyone who",
+      "finger": "blue",
+      "hint": "Block 2 mastery gate at 55 WPM"
+    },
+    {
+      "type": "p",
+      "text": "If you missed by a few WPM, retry — accuracy first, speed second"
+    },
+    {
+      "type": "exercise",
+      "target": "showed up. Next session: Saturday at 8 PM. Drop a follow if you're new, and let's keep this energy going!",
+      "finger": "green",
+      "hint": "Block 2 mastery gate at 55 WPM"
+    }
   ],
   "character_tips": {
     "anna": "🎯 Teen Block 2 done! 55 WPM = top-of-class. Block 3 next.",

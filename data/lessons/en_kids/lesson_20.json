@@ -19,9 +19,30 @@
   "new_keys": [],
   "finger_focus": "Block 2 mastery gate",
   "tips": [
-    "🎉 First real story!",
-    "Period at the end of each sentence",
-    "You're a real little writer now!"
+    {
+      "type": "lead",
+      "text": "🎉 First real story!"
+    },
+    {
+      "type": "drop",
+      "text": "Period at the end of each sentence"
+    },
+    {
+      "type": "exercise",
+      "target": "a cat sat on the mat. the dog came in. the cat ran fast.",
+      "finger": "blue",
+      "hint": "Block 2 mastery gate"
+    },
+    {
+      "type": "p",
+      "text": "You're a real little writer now!"
+    },
+    {
+      "type": "exercise",
+      "target": "the dog ran too. they played in the yard. mom called them home. the end.",
+      "finger": "green",
+      "hint": "Block 2 mastery gate"
+    }
   ],
   "character_tips": {
     "anna": "🎯 First story! 25 WPM = great young typist.",

@@ -10,13 +10,49 @@
   "error_limit": 5,
   "text": "she said he is here she likes red dresses had a fair ride",
   "text_sequence": [],
-  "keys_trained": ["A", "S", "D", "E", "F", "G", "H", "I", "J", "K", "L", "R", "U", "Space"],
+  "keys_trained": [
+    "A",
+    "S",
+    "D",
+    "E",
+    "F",
+    "G",
+    "H",
+    "I",
+    "J",
+    "K",
+    "L",
+    "R",
+    "U",
+    "Space"
+  ],
   "new_keys": [],
   "finger_focus": "All keys learned — focus on rhythm",
   "tips": [
-    "Don't stop between words — keep a steady pace",
-    "If you slow down, that's fine — accuracy first",
-    "Real sentence! She said he is here she likes red dresses had a fair ride"
+    {
+      "type": "lead",
+      "text": "Don't stop between words — keep a steady pace"
+    },
+    {
+      "type": "drop",
+      "text": "If you slow down, that's fine — accuracy first"
+    },
+    {
+      "type": "exercise",
+      "target": "she said he is here she",
+      "finger": "blue",
+      "hint": "All keys learned — focus on rhythm"
+    },
+    {
+      "type": "p",
+      "text": "Real sentence! She said he is here she likes red dresses had a fair ride"
+    },
+    {
+      "type": "exercise",
+      "target": "likes red dresses had a fair ride",
+      "finger": "green",
+      "hint": "All keys learned — focus on rhythm"
+    }
   ],
   "character_tips": {
     "anna": "Rhythm lesson! Don't chase speed — find a smooth rhythm. Type musically.",

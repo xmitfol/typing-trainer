@@ -21,9 +21,30 @@
   "new_keys": [],
   "finger_focus": "Numbers + times + AM/PM",
   "tips": [
-    "Real chat format: \"3 today\" or \"8 PM tomorrow\"",
-    "Colon for time format",
-    "Numbers should flow as fast as letters by now"
+    {
+      "type": "lead",
+      "text": "Real chat format: \"3 today\" or \"8 PM tomorrow\""
+    },
+    {
+      "type": "drop",
+      "text": "Colon for time format"
+    },
+    {
+      "type": "exercise",
+      "target": "See you at 3 today. Meet at 4:30. The show starts at 8",
+      "finger": "blue",
+      "hint": "Numbers + times + AM/PM"
+    },
+    {
+      "type": "p",
+      "text": "Numbers should flow as fast as letters by now"
+    },
+    {
+      "type": "exercise",
+      "target": "PM on June 15. My flight at 9:45 AM tomorrow at noon sharp.",
+      "finger": "green",
+      "hint": "Numbers + times + AM/PM"
+    }
   ],
   "character_tips": {
     "anna": "Real chat format. Dates + times = daily life.",

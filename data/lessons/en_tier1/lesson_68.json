@@ -10,13 +10,41 @@
   "error_limit": 15,
   "text": "The team worked late into the evening. Every screen glowed, every keyboard clicked. By eight o'clock, the bug was fixed, the tests were passing, and the new feature was ready to ship. Someone ordered pizza. The week was finally over.",
   "text_sequence": [],
-  "keys_trained": ["A-Z", "Space", ",", ".", "'", "Shift"],
+  "keys_trained": [
+    "A-Z",
+    "Space",
+    ",",
+    ".",
+    "'",
+    "Shift"
+  ],
   "new_keys": [],
   "finger_focus": "Multi-sentence flow",
   "tips": [
-    "Real prose has multiple sentences in flow",
-    "Periods are tempo breaks, not full stops — barely a pause",
-    "Enable metronome at 67 BPM — hold the tempo across all sentences"
+    {
+      "type": "lead",
+      "text": "Real prose has multiple sentences in flow"
+    },
+    {
+      "type": "drop",
+      "text": "Periods are tempo breaks, not full stops — barely a pause"
+    },
+    {
+      "type": "exercise",
+      "target": "The team worked late into the evening. Every screen glowed, every keyboard clicked. By eight o'clock, the bug was fixed,",
+      "finger": "purple",
+      "hint": "Multi-sentence flow"
+    },
+    {
+      "type": "p",
+      "text": "Enable metronome at 67 BPM — hold the tempo across all sentences"
+    },
+    {
+      "type": "exercise",
+      "target": "the tests were passing, and the new feature was ready to ship. Someone ordered pizza. The week was finally over.",
+      "finger": "purple",
+      "hint": "Multi-sentence flow"
+    }
   ],
   "character_tips": {
     "anna": "Multi-sentence rhythm is real-world writing speed. Hold the tempo.",

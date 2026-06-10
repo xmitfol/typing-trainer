@@ -10,13 +10,40 @@
   "error_limit": 13,
   "text": "Mastery is quiet. The typist at ninety-two words per minute does not look fast. The hands barely move. The keyboard makes a steady, even sound. What you are seeing is the absence of effort — years of practice compressed into a few quick, certain gestures. That is what you have built over the past ninety lessons.",
   "text_sequence": [],
-  "keys_trained": ["A-Z", "Space", ",", ".", "Shift"],
+  "keys_trained": [
+    "A-Z",
+    "Space",
+    ",",
+    ".",
+    "Shift"
+  ],
   "new_keys": [],
   "finger_focus": "Effortless 92 WPM",
   "tips": [
-    "Block 7 = the final polish on a year-shaped skill",
-    "92 WPM should feel calm by now, not strained",
-    "If you have to fight for speed here, drop accuracy and try again"
+    {
+      "type": "lead",
+      "text": "Block 7 = the final polish on a year-shaped skill"
+    },
+    {
+      "type": "drop",
+      "text": "92 WPM should feel calm by now, not strained"
+    },
+    {
+      "type": "exercise",
+      "target": "Mastery is quiet. The typist at ninety-two words per minute does not look fast. The hands barely move. The keyboard makes a steady, even sound. What you are",
+      "finger": "purple",
+      "hint": "Effortless 92 WPM"
+    },
+    {
+      "type": "p",
+      "text": "If you have to fight for speed here, drop accuracy and try again"
+    },
+    {
+      "type": "exercise",
+      "target": "seeing is the absence of effort — years of practice compressed into a few quick, certain gestures. That is what you have built over the past ninety lessons.",
+      "finger": "purple",
+      "hint": "Effortless 92 WPM"
+    }
   ],
   "character_tips": {
     "anna": "Block 7! Mastery isn't effort — it's the absence of effort.",

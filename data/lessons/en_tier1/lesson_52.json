@@ -10,13 +10,37 @@
   "error_limit": 13,
   "text": "the the the ing ing ing and and and ion ion ion the king is running the action and the meeting and the morning and the singing and the action",
   "text_sequence": [],
-  "keys_trained": ["all letters", "Space"],
+  "keys_trained": [
+    "all letters",
+    "Space"
+  ],
   "new_keys": [],
   "finger_focus": "Trigram clusters",
   "tips": [
-    "'the', 'ing', 'and', 'ion' = top 4 trigrams by frequency",
-    "These should feel like single chord-like motions",
-    "Speed test: type 'ing' 10 times — should take ~1.5 seconds"
+    {
+      "type": "lead",
+      "text": "'the', 'ing', 'and', 'ion' = top 4 trigrams by frequency"
+    },
+    {
+      "type": "drop",
+      "text": "These should feel like single chord-like motions"
+    },
+    {
+      "type": "exercise",
+      "target": "the the the ing ing ing and and and ion ion ion the king is",
+      "finger": "purple",
+      "hint": "Trigram clusters"
+    },
+    {
+      "type": "p",
+      "text": "Speed test: type 'ing' 10 times — should take ~1.5 seconds"
+    },
+    {
+      "type": "exercise",
+      "target": "running the action and the meeting and the morning and the singing and the action",
+      "finger": "purple",
+      "hint": "Trigram clusters"
+    }
   ],
   "character_tips": {
     "anna": "Three-letter chunks are the next level. Burn them in until they're effortless.",

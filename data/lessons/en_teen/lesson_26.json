@@ -18,9 +18,30 @@
   "new_keys": [],
   "finger_focus": "Capital letters + brand names",
   "tips": [
-    "Pop culture brands — capitals everywhere",
-    "Shift timing must be smooth",
-    "Brand names = real-world capital practice"
+    {
+      "type": "lead",
+      "text": "Pop culture brands — capitals everywhere"
+    },
+    {
+      "type": "drop",
+      "text": "Shift timing must be smooth"
+    },
+    {
+      "type": "exercise",
+      "target": "Marvel DC Pixar Disney Netflix Spotify TikTok YouTube",
+      "finger": "blue",
+      "hint": "Capital letters + brand names"
+    },
+    {
+      "type": "p",
+      "text": "Brand names = real-world capital practice"
+    },
+    {
+      "type": "exercise",
+      "target": "Instagram Nintendo PlayStation Xbox Tesla SpaceX Apple Google",
+      "finger": "green",
+      "hint": "Capital letters + brand names"
+    }
   ],
   "character_tips": {
     "anna": "Brand names test your Shift timing under real-world content.",

@@ -23,9 +23,30 @@
   "new_keys": [],
   "finger_focus": "Home row rhythm",
   "tips": [
-    "Same word three times = rhythm practice",
-    "Like clapping along to a song",
-    "Don't speed up — just stay steady"
+    {
+      "type": "lead",
+      "text": "Same word three times = rhythm practice"
+    },
+    {
+      "type": "drop",
+      "text": "Like clapping along to a song"
+    },
+    {
+      "type": "exercise",
+      "target": "ask ask ask sad sad sad lad lad lad jak",
+      "finger": "blue",
+      "hint": "Home row rhythm"
+    },
+    {
+      "type": "p",
+      "text": "Don't speed up — just stay steady"
+    },
+    {
+      "type": "exercise",
+      "target": "jak jak fall fall fall ask sad lad jak fall",
+      "finger": "green",
+      "hint": "Home row rhythm"
+    }
   ],
   "character_tips": {
     "anna": "Rhythm like a song — clap-clap-clap, type-type-type 🌷",

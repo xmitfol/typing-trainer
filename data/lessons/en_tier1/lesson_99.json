@@ -10,14 +10,46 @@
   "error_limit": 17,
   "text": "Ninety-nine lessons ago, you sat down at a keyboard for the first time as a student. Today, you sit down as something else entirely: a typist. Your fingers know the keyboard the way a pianist knows a piano. Your eyes scan ahead by entire phrases. Your hands no longer translate thought into text — they have become a continuation of your thinking. Take a moment. This is the last exercise. Type smoothly, breathe steadily, and finish the way you started: with care.",
   "text_sequence": [],
-  "keys_trained": ["A-Z full", "0-9", "Shift", "all punctuation", "all symbols"],
+  "keys_trained": [
+    "A-Z full",
+    "0-9",
+    "Shift",
+    "all punctuation",
+    "all symbols"
+  ],
   "new_keys": [],
   "finger_focus": "Comprehensive mastery exam — every skill",
   "tips": [
-    "🎓 The final lesson. 420 characters of real prose at 105 WPM.",
-    "Pass at 80+ WPM = Platinum certificate. 60+ = Gold. 40+ = Silver. 25+ = Bronze.",
-    "After this, you are certified. The course is complete.",
-    "Type slowly if you must — accuracy gates the certificate level."
+    {
+      "type": "lead",
+      "text": "🎓 The final lesson. 420 characters of real prose at 105 WPM."
+    },
+    {
+      "type": "drop",
+      "text": "Pass at 80+ WPM = Platinum certificate. 60+ = Gold. 40+ = Silver. 25+ = Bronze."
+    },
+    {
+      "type": "exercise",
+      "target": "Ninety-nine lessons ago, you sat down at a keyboard for the first time as a student. Today, you sit down as something else entirely: a typist. Your fingers know the keyboard the way a pianist knows a piano. Your eyes scan",
+      "finger": "purple",
+      "hint": "Comprehensive mastery exam — every skill"
+    },
+    {
+      "type": "p",
+      "text": "After this, you are certified. The course is complete."
+    },
+    {
+      "type": "callout",
+      "icon": "💡",
+      "title": "Подсказка",
+      "text": "Type slowly if you must — accuracy gates the certificate level."
+    },
+    {
+      "type": "exercise",
+      "target": "ahead by entire phrases. Your hands no longer translate thought into text — they have become a continuation of your thinking. Take a moment. This is the last exercise. Type smoothly, breathe steadily, and finish the way you started: with care.",
+      "finger": "purple",
+      "hint": "Comprehensive mastery exam — every skill"
+    }
   ],
   "character_tips": {
     "anna": "🎓🏆 THE FINAL. 99 lessons led to this. Type with care — your certificate is one paragraph away.",

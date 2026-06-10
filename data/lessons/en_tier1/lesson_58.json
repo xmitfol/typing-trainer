@@ -10,13 +10,40 @@
   "error_limit": 13,
   "text": "Sarah and David met James at the New York office. Lisa from Boston joined later. They discussed Q3 plans, the European launch, and the partnership with Tokyo. Maria took notes. Friday wrap-up.",
   "text_sequence": [],
-  "keys_trained": ["A-Z full", "Shift", "Space", ",", "."],
+  "keys_trained": [
+    "A-Z full",
+    "Shift",
+    "Space",
+    ",",
+    "."
+  ],
   "new_keys": [],
   "finger_focus": "Shift + letter under speed",
   "tips": [
-    "Shift before letter, not after — practice the timing",
-    "Names and Q-numbers are everywhere in business writing",
-    "If Shift breaks your rhythm, drill capitals 5 times in a row"
+    {
+      "type": "lead",
+      "text": "Shift before letter, not after — practice the timing"
+    },
+    {
+      "type": "drop",
+      "text": "Names and Q-numbers are everywhere in business writing"
+    },
+    {
+      "type": "exercise",
+      "target": "Sarah and David met James at the New York office. Lisa from Boston joined later. They",
+      "finger": "purple",
+      "hint": "Shift + letter under speed"
+    },
+    {
+      "type": "p",
+      "text": "If Shift breaks your rhythm, drill capitals 5 times in a row"
+    },
+    {
+      "type": "exercise",
+      "target": "discussed Q3 plans, the European launch, and the partnership with Tokyo. Maria took notes. Friday wrap-up.",
+      "finger": "purple",
+      "hint": "Shift + letter under speed"
+    }
   ],
   "character_tips": {
     "anna": "Shift timing is what separates 40 WPM from 60 WPM. Smooth shift = smooth speed.",

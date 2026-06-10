@@ -10,13 +10,73 @@
   "error_limit": 8,
   "text": "0123456789 9876543210 1357924680 1248163264 phone: 12345 67890 zip: 90210 year: 2025",
   "text_sequence": [],
-  "keys_trained": ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", ":", "Space"],
+  "keys_trained": [
+    "A",
+    "B",
+    "C",
+    "D",
+    "E",
+    "F",
+    "G",
+    "H",
+    "I",
+    "J",
+    "K",
+    "L",
+    "M",
+    "N",
+    "O",
+    "P",
+    "Q",
+    "R",
+    "S",
+    "T",
+    "U",
+    "V",
+    "W",
+    "X",
+    "Y",
+    "Z",
+    "0",
+    "1",
+    "2",
+    "3",
+    "4",
+    "5",
+    "6",
+    "7",
+    "8",
+    "9",
+    ":",
+    "Space"
+  ],
   "new_keys": [],
   "finger_focus": "All digits — rhythm and accuracy",
   "tips": [
-    "Sequence drills (0-9, 9-0) build muscle memory",
-    "Phone-style numbers (12345 67890) common in real typing",
-    "Don't look at the keyboard — feel the position"
+    {
+      "type": "lead",
+      "text": "Sequence drills (0-9, 9-0) build muscle memory"
+    },
+    {
+      "type": "drop",
+      "text": "Phone-style numbers (12345 67890) common in real typing"
+    },
+    {
+      "type": "exercise",
+      "target": "0123456789 9876543210 1357924680 1248163264 phone:",
+      "finger": "blue",
+      "hint": "All digits — rhythm and accuracy"
+    },
+    {
+      "type": "p",
+      "text": "Don't look at the keyboard — feel the position"
+    },
+    {
+      "type": "exercise",
+      "target": "12345 67890 zip: 90210 year: 2025",
+      "finger": "green",
+      "hint": "All digits — rhythm and accuracy"
+    }
   ],
   "character_tips": {
     "anna": "Number rhythm — type sequences without thinking.",

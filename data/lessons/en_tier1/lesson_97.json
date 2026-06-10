@@ -10,13 +10,42 @@
   "error_limit": 14,
   "text": "Two lessons from the finish, you are sitting at exactly one hundred words per minute — the number that separates fast typists from elite ones. To put that in perspective: most professional writers cap at sixty; senior journalists reach eighty on a good day; only stenographers and the world's fastest typists routinely cross a hundred. You are now among them. Hold this tempo through the final lesson.",
   "text_sequence": [],
-  "keys_trained": ["A-Z", "Space", ",", ".", ";", "—", "Shift"],
+  "keys_trained": [
+    "A-Z",
+    "Space",
+    ",",
+    ".",
+    ";",
+    "—",
+    "Shift"
+  ],
   "new_keys": [],
   "finger_focus": "100 WPM sustained",
   "tips": [
-    "100 WPM = top 1% of typists in the world",
-    "Two lessons left. Hold the rhythm.",
-    "If 100 WPM here feels easy, you're ready for the final test"
+    {
+      "type": "lead",
+      "text": "100 WPM = top 1% of typists in the world"
+    },
+    {
+      "type": "drop",
+      "text": "Two lessons left. Hold the rhythm."
+    },
+    {
+      "type": "exercise",
+      "target": "Two lessons from the finish, you are sitting at exactly one hundred words per minute — the number that separates fast typists from elite ones. To put that in perspective: most professional writers",
+      "finger": "purple",
+      "hint": "100 WPM sustained"
+    },
+    {
+      "type": "p",
+      "text": "If 100 WPM here feels easy, you're ready for the final test"
+    },
+    {
+      "type": "exercise",
+      "target": "cap at sixty; senior journalists reach eighty on a good day; only stenographers and the world's fastest typists routinely cross a hundred. You are now among them. Hold this tempo through the final lesson.",
+      "finger": "purple",
+      "hint": "100 WPM sustained"
+    }
   ],
   "character_tips": {
     "anna": "🎯 100 WPM! Top 1% of all typists. The world barely contains people who can do this.",

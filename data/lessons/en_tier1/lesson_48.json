@@ -10,13 +10,37 @@
   "error_limit": 12,
   "text": "that with this have from they been more them what some when than time only know also will many like into back over make most well take year",
   "text_sequence": [],
-  "keys_trained": ["all letters", "Space"],
+  "keys_trained": [
+    "all letters",
+    "Space"
+  ],
   "new_keys": [],
   "finger_focus": "Full alphabet — bigger word units",
   "tips": [
-    "4-letter words appear in every English sentence",
-    "Watch for 'th' bigrams — they should be one motion",
-    "Type ahead — read 1-2 words past your cursor"
+    {
+      "type": "lead",
+      "text": "4-letter words appear in every English sentence"
+    },
+    {
+      "type": "drop",
+      "text": "Watch for 'th' bigrams — they should be one motion"
+    },
+    {
+      "type": "exercise",
+      "target": "that with this have from they been more them what some when than time",
+      "finger": "purple",
+      "hint": "Full alphabet — bigger word units"
+    },
+    {
+      "type": "p",
+      "text": "Type ahead — read 1-2 words past your cursor"
+    },
+    {
+      "type": "exercise",
+      "target": "only know also will many like into back over make most well take year",
+      "finger": "purple",
+      "hint": "Full alphabet — bigger word units"
+    }
   ],
   "character_tips": {
     "anna": "Reading ahead is the secret of fast typists. Train your eyes to scan forward.",

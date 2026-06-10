@@ -17,9 +17,30 @@
   "new_keys": [],
   "finger_focus": "Short common words at speed",
   "tips": [
-    "No punctuation = pure rhythm",
-    "All home/top row friendly words",
-    "Push past 50 WPM here"
+    {
+      "type": "lead",
+      "text": "No punctuation = pure rhythm"
+    },
+    {
+      "type": "drop",
+      "text": "All home/top row friendly words"
+    },
+    {
+      "type": "exercise",
+      "target": "we are the best and we know it now is the time",
+      "finger": "blue",
+      "hint": "Short common words at speed"
+    },
+    {
+      "type": "p",
+      "text": "Push past 50 WPM here"
+    },
+    {
+      "type": "exercise",
+      "target": "to shine and show the world we can do this together as one",
+      "finger": "green",
+      "hint": "Short common words at speed"
+    }
   ],
   "character_tips": {
     "anna": "Pure speed test. No tricks — just words at top tempo.",

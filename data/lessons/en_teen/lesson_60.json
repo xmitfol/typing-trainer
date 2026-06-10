@@ -24,9 +24,30 @@
   "new_keys": [],
   "finger_focus": "Block 4 final gate at 85 WPM",
   "tips": [
-    "🎓 Teen Block 4 done! 85 WPM on real news/blog",
-    "From here, Block 5 = practical school + final exam",
-    "L75 is the course final at 95 WPM"
+    {
+      "type": "lead",
+      "text": "🎓 Teen Block 4 done! 85 WPM on real news/blog"
+    },
+    {
+      "type": "drop",
+      "text": "From here, Block 5 = practical school + final exam"
+    },
+    {
+      "type": "exercise",
+      "target": "After eighteen months of beta testing, the platform officially launched on Monday with over 200,000 sign-ups in the first 24 hours. Early reviews from creators",
+      "finger": "purple",
+      "hint": "Block 4 final gate at 85 WPM"
+    },
+    {
+      "type": "p",
+      "text": "L75 is the course final at 95 WPM"
+    },
+    {
+      "type": "exercise",
+      "target": "have been overwhelmingly positive: \"This finally feels like a tool built by people who actually use it,\" wrote one popular reviewer. Investors are watching closely.",
+      "finger": "purple",
+      "hint": "Block 4 final gate at 85 WPM"
+    }
   ],
   "character_tips": {
     "anna": "🎯 Teen Block 4 done! 85 WPM. Final block coming.",

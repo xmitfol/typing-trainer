@@ -21,9 +21,30 @@
   "new_keys": [],
   "finger_focus": "Right bottom + home row",
   "tips": [
-    "N and M are right index/middle finger reaches DOWN",
-    "Common letters — N and M appear in 90% of sentences",
-    "After this lesson, you know all 26 letters"
+    {
+      "type": "lead",
+      "text": "N and M are right index/middle finger reaches DOWN"
+    },
+    {
+      "type": "drop",
+      "text": "Common letters — N and M appear in 90% of sentences"
+    },
+    {
+      "type": "exercise",
+      "target": "man man man and and and now now now men",
+      "finger": "blue",
+      "hint": "Right bottom + home row"
+    },
+    {
+      "type": "p",
+      "text": "After this lesson, you know all 26 letters"
+    },
+    {
+      "type": "exercise",
+      "target": "men men come come come name name name money money money",
+      "finger": "green",
+      "hint": "Right bottom + home row"
+    }
   ],
   "character_tips": {
     "anna": "N and M complete your alphabet. From here, you can type anything.",

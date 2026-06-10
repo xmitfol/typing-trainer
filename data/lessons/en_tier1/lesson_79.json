@@ -10,13 +10,41 @@
   "error_limit": 14,
   "text": "The authentication module uses a stateless JWT design. Each request must include a valid Bearer token in the Authorization header. Tokens expire after fifteen minutes; clients should call the refresh endpoint before that window closes. All errors return a structured JSON object with status, code, and message fields.",
   "text_sequence": [],
-  "keys_trained": ["A-Z", "Space", ",", ".", ";", "Shift"],
+  "keys_trained": [
+    "A-Z",
+    "Space",
+    ",",
+    ".",
+    ";",
+    "Shift"
+  ],
   "new_keys": [],
   "finger_focus": "Tech doc rhythm at speed",
   "tips": [
-    "API/engineering docs are everywhere in modern work",
-    "Technical terms (JWT, JSON, Bearer) — type as words, not letters",
-    "Tech writing has rhythm too — find it"
+    {
+      "type": "lead",
+      "text": "API/engineering docs are everywhere in modern work"
+    },
+    {
+      "type": "drop",
+      "text": "Technical terms (JWT, JSON, Bearer) — type as words, not letters"
+    },
+    {
+      "type": "exercise",
+      "target": "The authentication module uses a stateless JWT design. Each request must include a valid Bearer token in the Authorization header. Tokens expire after fifteen",
+      "finger": "purple",
+      "hint": "Tech doc rhythm at speed"
+    },
+    {
+      "type": "p",
+      "text": "Tech writing has rhythm too — find it"
+    },
+    {
+      "type": "exercise",
+      "target": "minutes; clients should call the refresh endpoint before that window closes. All errors return a structured JSON object with status, code, and message fields.",
+      "finger": "purple",
+      "hint": "Tech doc rhythm at speed"
+    }
   ],
   "character_tips": {
     "anna": "Engineering documentation at speed. A career skill across all of tech.",

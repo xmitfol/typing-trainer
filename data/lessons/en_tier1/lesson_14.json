@@ -10,13 +10,62 @@
   "error_limit": 5,
   "text": "before today we shared every story under the wide blue sky and watched the river flow",
   "text_sequence": [],
-  "keys_trained": ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", "Space"],
+  "keys_trained": [
+    "A",
+    "B",
+    "C",
+    "D",
+    "E",
+    "F",
+    "G",
+    "H",
+    "I",
+    "J",
+    "K",
+    "L",
+    "M",
+    "N",
+    "O",
+    "P",
+    "Q",
+    "R",
+    "S",
+    "T",
+    "U",
+    "V",
+    "W",
+    "X",
+    "Y",
+    "Z",
+    "Space"
+  ],
   "new_keys": [],
   "finger_focus": "All alphabet — longer word endurance",
   "tips": [
-    "Five-letter words start to feel natural at this WPM",
-    "Don't fear long words — break them mentally into syllables",
-    "Keep wrists straight, not bent"
+    {
+      "type": "lead",
+      "text": "Five-letter words start to feel natural at this WPM"
+    },
+    {
+      "type": "drop",
+      "text": "Don't fear long words — break them mentally into syllables"
+    },
+    {
+      "type": "exercise",
+      "target": "before today we shared every story under the",
+      "finger": "blue",
+      "hint": "All alphabet — longer word endurance"
+    },
+    {
+      "type": "p",
+      "text": "Keep wrists straight, not bent"
+    },
+    {
+      "type": "exercise",
+      "target": "wide blue sky and watched the river flow",
+      "finger": "green",
+      "hint": "All alphabet — longer word endurance"
+    }
   ],
   "character_tips": {
     "anna": "Long words are just sequences of short patterns. Trust your fingers.",

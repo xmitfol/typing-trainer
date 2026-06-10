@@ -10,13 +10,39 @@
   "error_limit": 14,
   "text": "the way we work today is different from the way we worked ten years ago, and the way we will work next year is also going to change with the times.",
   "text_sequence": [],
-  "keys_trained": ["all letters", "Space", ",", "."],
+  "keys_trained": [
+    "all letters",
+    "Space",
+    ",",
+    "."
+  ],
   "new_keys": [],
   "finger_focus": "Flow — natural prose tempo",
   "tips": [
-    "Read the sentence first, then type it as one continuous flow",
-    "Enable metronome at 45 BPM — match your rhythm to it",
-    "Don't pause at commas — they're rhythm beats, not stops"
+    {
+      "type": "lead",
+      "text": "Read the sentence first, then type it as one continuous flow"
+    },
+    {
+      "type": "drop",
+      "text": "Enable metronome at 45 BPM — match your rhythm to it"
+    },
+    {
+      "type": "exercise",
+      "target": "the way we work today is different from the way we worked ten years ago,",
+      "finger": "purple",
+      "hint": "Flow — natural prose tempo"
+    },
+    {
+      "type": "p",
+      "text": "Don't pause at commas — they're rhythm beats, not stops"
+    },
+    {
+      "type": "exercise",
+      "target": "and the way we will work next year is also going to change with the times.",
+      "finger": "purple",
+      "hint": "Flow — natural prose tempo"
+    }
   ],
   "character_tips": {
     "anna": "Real writing flows. Match the tempo of speech, not single keystrokes.",

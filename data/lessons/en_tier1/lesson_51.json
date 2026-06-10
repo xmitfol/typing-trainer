@@ -10,13 +10,37 @@
   "error_limit": 12,
   "text": "th th th in in in er er er an an an re re re the then this that with which when where there their other under under after father mother",
   "text_sequence": [],
-  "keys_trained": ["all letters", "Space"],
+  "keys_trained": [
+    "all letters",
+    "Space"
+  ],
   "new_keys": [],
   "finger_focus": "Bigram fluidity",
   "tips": [
-    "'th', 'in', 'er', 'an', 're' = ~20% of all bigrams in English",
-    "Type each pair as ONE motion, not two separate keys",
-    "If your fingers fight a bigram, isolate and drill it 10 times"
+    {
+      "type": "lead",
+      "text": "'th', 'in', 'er', 'an', 're' = ~20% of all bigrams in English"
+    },
+    {
+      "type": "drop",
+      "text": "Type each pair as ONE motion, not two separate keys"
+    },
+    {
+      "type": "exercise",
+      "target": "th th th in in in er er er an an an re re re",
+      "finger": "purple",
+      "hint": "Bigram fluidity"
+    },
+    {
+      "type": "p",
+      "text": "If your fingers fight a bigram, isolate and drill it 10 times"
+    },
+    {
+      "type": "exercise",
+      "target": "the then this that with which when where there their other under under after father mother",
+      "finger": "purple",
+      "hint": "Bigram fluidity"
+    }
   ],
   "character_tips": {
     "anna": "Bigrams are the building blocks of speed. Make each pair feel like one keystroke.",

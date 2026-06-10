@@ -25,9 +25,30 @@
   "new_keys": [],
   "finger_focus": "Right top row + home row mix",
   "tips": [
-    "YUIOP completes the top row",
-    "Right pinky reaches for P — careful, it's a stretch",
-    "Use the same finger that owns each column"
+    {
+      "type": "lead",
+      "text": "YUIOP completes the top row"
+    },
+    {
+      "type": "drop",
+      "text": "Right pinky reaches for P — careful, it's a stretch"
+    },
+    {
+      "type": "exercise",
+      "target": "you you you our our our up up up pop pop",
+      "finger": "blue",
+      "hint": "Right top row + home row mix"
+    },
+    {
+      "type": "p",
+      "text": "Use the same finger that owns each column"
+    },
+    {
+      "type": "exercise",
+      "target": "pop joy joy joy try try try poi poi poi pour pour",
+      "finger": "green",
+      "hint": "Right top row + home row mix"
+    }
   ],
   "character_tips": {
     "anna": "Right hand top row. P is the pinky stretch — practice it.",

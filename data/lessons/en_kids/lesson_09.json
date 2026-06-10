@@ -17,9 +17,30 @@
   "new_keys": [],
   "finger_focus": "Animal-themed words",
   "tips": [
-    "Animals are easy to picture — fun while you practice",
-    "Each word repeated — keep the rhythm",
-    "Reach to new letters carefully"
+    {
+      "type": "lead",
+      "text": "Animals are easy to picture — fun while you practice"
+    },
+    {
+      "type": "drop",
+      "text": "Each word repeated — keep the rhythm"
+    },
+    {
+      "type": "exercise",
+      "target": "cat cat cat dog dog dog fish fish fish",
+      "finger": "blue",
+      "hint": "Animal-themed words"
+    },
+    {
+      "type": "p",
+      "text": "Reach to new letters carefully"
+    },
+    {
+      "type": "exercise",
+      "target": "bee bee bee ant ant ant cow cow cow",
+      "finger": "green",
+      "hint": "Animal-themed words"
+    }
   ],
   "character_tips": {
     "anna": "Animals! Cat, dog, fish — picture them while you type 🌸",

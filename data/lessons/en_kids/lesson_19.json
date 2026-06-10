@@ -17,9 +17,30 @@
   "new_keys": [],
   "finger_focus": "Pre-milestone sentences",
   "tips": [
-    "Tiny sentences in flow",
-    "Speed test before block end",
-    "No capitals or punctuation yet — just words"
+    {
+      "type": "lead",
+      "text": "Tiny sentences in flow"
+    },
+    {
+      "type": "drop",
+      "text": "Speed test before block end"
+    },
+    {
+      "type": "exercise",
+      "target": "i see a cat the dog runs fast my mom is",
+      "finger": "blue",
+      "hint": "Pre-milestone sentences"
+    },
+    {
+      "type": "p",
+      "text": "No capitals or punctuation yet — just words"
+    },
+    {
+      "type": "exercise",
+      "target": "kind the sun is hot we eat cake i love you",
+      "finger": "green",
+      "hint": "Pre-milestone sentences"
+    }
   ],
   "character_tips": {
     "anna": "Little sentences! Almost a story.",

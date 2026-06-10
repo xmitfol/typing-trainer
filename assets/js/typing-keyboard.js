@@ -110,25 +110,70 @@
 
   const CLASSIC_BOTTOM = [
     { l: 'Ctrl', f: 'pink', mod: true, w: 1.5, code: 'ControlLeft' },
-    { l: 'Win',  f: 'pink', mod: true, w: 1.25, code: 'MetaLeft' },
+    { l: '',  f: 'pink', mod: true, w: 1.25, code: 'MetaLeft' },
     { l: 'Alt',  f: 'pink', mod: true, w: 1.25, code: 'AltLeft' },
     { l: 'Space', f: 'purple', w: 6.5, code: 'Space' },
     { l: 'Alt',  f: 'pink', mod: true, w: 1.25, code: 'AltRight' },
-    { l: 'Fn',   f: 'pink', mod: true, w: 1.25 },
+    { l: '',   f: 'pink', mod: true, w: 1.25 },
     { l: 'Ctrl', f: 'pink', mod: true, w: 1.5, code: 'ControlRight' },
   ];
+
+  // ─── Layout variants (label overrides by physical key code) ──────────────
+  // Standard = base ROWS. Others override labels; finger colors stay by position.
+  const LAYOUTS = {
+    phonetic: {
+      Backquote:{l:'Ю'}, Equal:{l:'Ч'},
+      KeyQ:{l:'Я'},KeyW:{l:'В'},KeyE:{l:'Е'},KeyR:{l:'Р'},KeyT:{l:'Т'},
+      KeyY:{l:'Ы'},KeyU:{l:'У'},KeyI:{l:'И'},KeyO:{l:'О'},KeyP:{l:'П'},
+      BracketLeft:{l:'Ш'},BracketRight:{l:'Щ'},Backslash:{l:'Э'},
+      KeyA:{l:'А'},KeyS:{l:'С'},KeyD:{l:'Д'},KeyF:{l:'Ф'},KeyG:{l:'Г'},
+      KeyH:{l:'Х'},KeyJ:{l:'Й'},KeyK:{l:'К'},KeyL:{l:'Л'},Semicolon:{l:';'},Quote:{l:"'"},
+      KeyZ:{l:'З'},KeyX:{l:'Ь'},KeyC:{l:'Ц'},KeyV:{l:'Ж'},KeyB:{l:'Б'},
+      KeyN:{l:'Н'},KeyM:{l:'М'},Comma:{l:','},Period:{l:'.'},Slash:{l:'/'},
+    },
+    typewriter: {
+      // Same ЙЦУКЕН letters; punctuation number row; Ё bottom-right
+      Backquote:{l:'|'},Digit1:{l:'№'},Digit2:{l:'-'},Digit3:{l:'"'},Digit4:{l:':'},
+      Digit5:{l:','},Digit6:{l:'.'},Digit7:{l:'_'},Digit8:{l:'?'},Digit9:{l:'%'},
+      Digit0:{l:'!'},Minus:{l:';'},Equal:{l:':'},
+      Slash:{l:'Ё'},
+    },
+    mac: {
+      // Standard ЙЦУКЕН; Ё added on row1 end; backtick ">"
+      Backquote:{l:'>',u:'<'},Slash:{l:'/'},
+    },
+  };
+
+  // Apply a layout's overrides onto a fresh copy of ROWS + bottom.
+  function applyLayout(layout) {
+    const ov = LAYOUTS[layout];
+    const clone = (k) => ({ ...k });
+    const rows = ROWS.map(r => ({ left: r.left.map(clone), right: r.right.map(clone) }));
+    if (ov) {
+      rows.forEach(r => [r.left, r.right].forEach(side => side.forEach(k => {
+        if (k.code && ov[k.code]) Object.assign(k, ov[k.code]);
+      })));
+      // Mac: append Ё after Ъ on row1 right
+      if (layout === 'mac') {
+        rows[1].right.push({ l: 'Ё', f: 'pink', code: 'IntlYen' });
+      }
+    }
+    return rows;
+  }
+
+  let activeRows = ROWS;
 
   const THUMB_MIN = {
     left:  [
       { l: 'Ctrl', f: 'pink', w: 1.25, mod: true, code: 'ControlLeft' },
-      { l: 'Win',  f: 'pink', w: 1, mod: true, code: 'MetaLeft' },
+      { l: '',  f: 'pink', w: 1, mod: true, code: 'MetaLeft' },
       { l: 'Alt',  f: 'pink', w: 1, mod: true, code: 'AltLeft' },
       { l: 'Space', f: 'purple', w: 3, code: 'Space' },
     ],
     right: [
       { l: 'Space', f: 'purple', w: 3, code: 'Space' },
       { l: 'Alt',  f: 'pink', w: 1, mod: true, code: 'AltRight' },
-      { l: 'Fn',   f: 'pink', w: 1, mod: true },
+      { l: '',   f: 'pink', w: 1, mod: true },
       { l: 'Ctrl', f: 'pink', w: 1.25, mod: true, code: 'ControlRight' },
     ],
   };
@@ -199,7 +244,11 @@
     }
 
     .kb { display: flex; gap: 12px; justify-content: center; padding: 12px; perspective: 1200px; }
-    .kb--split { gap: var(--ergo-gap, 96px); align-items: flex-end; }
+    .kb--split { display: flex; gap: var(--ergo-gap, 96px); align-items: flex-end; }
+    .kb--split .half-left  { transform: rotate(calc(-1 * var(--angle, 14deg))); transform-origin: bottom right; }
+    .kb--split .half-right { transform: rotate(var(--angle, 14deg)); transform-origin: bottom left; }
+    .kb--ergo { display: flex; align-items: flex-start; justify-content: center; padding: calc(var(--unit, 56px) * 0.9) 0 calc(var(--unit, 56px) * 0.3); gap: calc(var(--unit, 56px) * 1.4); }
+    .ergo-clusters { display: flex; align-items: flex-start; }
 
     .row { display: flex; align-items: center; }
     .col { display: flex; flex-direction: column; align-items: flex-start; }
@@ -245,13 +294,13 @@
       background: repeating-linear-gradient(135deg, #f1efe8 0 6px, #e3e0d5 6px 9px);
     }
 
-    /* Finger colors — full intensity (default) */
-    .key[data-finger="pink"]   { background: linear-gradient(180deg, var(--kb-pink) 0%, #e84393 100%); color: #fff; border-color: rgba(0,0,0,0.06); }
-    .key[data-finger="orange"] { background: linear-gradient(180deg, var(--kb-orange) 0%, #f39c12 100%); color: #fff; border-color: rgba(0,0,0,0.06); }
-    .key[data-finger="green"]  { background: linear-gradient(180deg, var(--kb-green) 0%, #00a085 100%); color: #fff; border-color: rgba(0,0,0,0.06); }
-    .key[data-finger="blue"]   { background: linear-gradient(180deg, var(--kb-blue) 0%, #0984e3 100%); color: #fff; border-color: rgba(0,0,0,0.06); }
-    .key[data-finger="indigo"] { background: linear-gradient(180deg, #4a90e2 0%, #2d3436 100%); color: #fff; border-color: rgba(0,0,0,0.06); }
-    .key[data-finger="purple"] { background: linear-gradient(180deg, var(--kb-purple) 0%, #6c5ce7 100%); color: #fff; border-color: rgba(0,0,0,0.06); }
+    /* Finger colors — PALE base (default). Dark text. Next-key highlight stands out. */
+    .key[data-finger="pink"]   { background: #ffd9dd; color: #7d2840; border-color: rgba(0,0,0,0.05); }
+    .key[data-finger="orange"] { background: #ffe9c2; color: #8a5a17; border-color: rgba(0,0,0,0.05); }
+    .key[data-finger="green"]  { background: #c2ebda; color: #1c6b53; border-color: rgba(0,0,0,0.05); }
+    .key[data-finger="blue"]   { background: #d3e8ff; color: #1f5d96; border-color: rgba(0,0,0,0.05); }
+    .key[data-finger="indigo"] { background: #c2d8f7; color: #244a78; border-color: rgba(0,0,0,0.05); }
+    .key[data-finger="purple"] { background: #e0dcfe; color: #4a3f8f; border-color: rgba(0,0,0,0.05); }
 
     /* Intensity: strip — neutral background, color accent strip on top */
     :host([intensity="strip"]) .key[data-finger]:not(.key--mod) {
@@ -294,17 +343,34 @@
     .key[data-state="active"][data-finger="indigo"] { box-shadow: 0 0 0 2px var(--kb-indigo), 0 0 0 6px rgba(9,132,227,0.2), 0 4px 12px rgba(9,132,227,0.4); }
     .key[data-state="active"][data-finger="purple"] { box-shadow: 0 0 0 2px var(--kb-purple), 0 0 0 6px rgba(162,155,254,0.2), 0 4px 12px rgba(162,155,254,0.4); }
 
-    .key[data-state="highlight"][data-finger="pink"]   { box-shadow: 0 0 0 2px var(--kb-pink), 0 0 18px rgba(255,118,117,0.4); animation: pulse 1.4s ease-in-out infinite; }
-    .key[data-state="highlight"][data-finger="orange"] { box-shadow: 0 0 0 2px var(--kb-orange), 0 0 18px rgba(253,203,110,0.4); animation: pulse 1.4s ease-in-out infinite; }
-    .key[data-state="highlight"][data-finger="green"]  { box-shadow: 0 0 0 2px var(--kb-green), 0 0 18px rgba(0,184,148,0.4); animation: pulse 1.4s ease-in-out infinite; }
-    .key[data-state="highlight"][data-finger="blue"]   { box-shadow: 0 0 0 2px var(--kb-blue), 0 0 18px rgba(116,185,255,0.4); animation: pulse 1.4s ease-in-out infinite; }
-    .key[data-state="highlight"][data-finger="indigo"] { box-shadow: 0 0 0 2px var(--kb-indigo), 0 0 18px rgba(9,132,227,0.4); animation: pulse 1.4s ease-in-out infinite; }
-    .key[data-state="highlight"][data-finger="purple"] { box-shadow: 0 0 0 2px var(--kb-purple), 0 0 18px rgba(162,155,254,0.4); animation: pulse 1.4s ease-in-out infinite; }
-
-    /* In highlight mode, target key shows finger color when highlighted */
-    :host([intensity="highlight"]) .key[data-state="highlight"][data-finger]:not(.key--mod) {
-      background-color: rgba(0,0,0,0.04);
+    /* Next-key HIGHLIGHT — bright fill + diagonal hatching + dark outline */
+    .key[data-state="highlight"] {
+      color: #fff !important;
+      animation: pulse 1.4s ease-in-out infinite;
+      z-index: 2;
     }
+    .key[data-state="highlight"][data-finger="pink"]   { background: repeating-linear-gradient(45deg, #ff7675 0 7px, #f25a6f 7px 12px); box-shadow: 0 0 0 2.5px #d63031, 0 4px 14px rgba(214,48,49,0.5); }
+    .key[data-state="highlight"][data-finger="orange"] { background: repeating-linear-gradient(45deg, #fdcb6e 0 7px, #f0a93c 7px 12px); color: #5a3a08 !important; box-shadow: 0 0 0 2.5px #e08e0b, 0 4px 14px rgba(224,142,11,0.5); }
+    .key[data-state="highlight"][data-finger="green"]  { background: repeating-linear-gradient(45deg, #00b894 0 7px, #00a07f 7px 12px); box-shadow: 0 0 0 2.5px #009e7a, 0 4px 14px rgba(0,158,122,0.5); }
+    .key[data-state="highlight"][data-finger="blue"]   { background: repeating-linear-gradient(45deg, #74b9ff 0 7px, #4a9eee 7px 12px); box-shadow: 0 0 0 2.5px #2d7fd6, 0 4px 14px rgba(45,127,214,0.5); }
+    .key[data-state="highlight"][data-finger="indigo"] { background: repeating-linear-gradient(45deg, #4a90e2 0 7px, #2f6fc0 7px 12px); box-shadow: 0 0 0 2.5px #1e3a8a, 0 4px 14px rgba(30,58,138,0.5); }
+    .key[data-state="highlight"][data-finger="purple"] { background: repeating-linear-gradient(45deg, #a29bfe 0 7px, #847cf0 7px 12px); box-shadow: 0 0 0 2.5px #6c5ce7, 0 4px 14px rgba(108,92,231,0.5); }
+
+    /* Split-space — single bar, highlights whole when it's the next key */
+    .key--space {
+      background: #e0dcfe;
+      border-color: rgba(0,0,0,0.05);
+      padding: 0;
+      overflow: hidden;
+    }
+    .key--space[data-state="highlight"] {
+      background: repeating-linear-gradient(45deg, #a29bfe 0 7px, #847cf0 7px 12px);
+      box-shadow: 0 0 0 2.5px #6c5ce7, 0 4px 14px rgba(108,92,231,0.5);
+      animation: pulse 1.4s ease-in-out infinite;
+    }
+
+    /* ISO tall Enter */
+    .iso-enter { z-index: 2; position: absolute; }
 
     .key[data-state="error"] {
       background: #ef4444 !important;
@@ -365,11 +431,45 @@
   `;
 
   // ─── Render helpers ──────────────────────────────────────────────────────
+  // Производит e.key для click→keydown синтеза. Для алфавита/цифр/символов
+  // это сам символ; для пробела ' '; для модификаторов/спец — по коду.
+  function inferKey(data) {
+    const code = data.code || '';
+    if (code === 'Space') return ' ';
+    if (!data.mod && data.l) return String(data.l).toLowerCase();
+    // Модификаторы и спец-клавиши: derive from code
+    if (code.startsWith('Shift')) return 'Shift';
+    if (code.startsWith('Control')) return 'Control';
+    if (code.startsWith('Alt')) return 'Alt';
+    if (code.startsWith('Meta')) return 'Meta';
+    if (code === 'CapsLock') return 'CapsLock';
+    if (code === 'Tab') return 'Tab';
+    if (code === 'Enter') return 'Enter';
+    if (code === 'Backspace') return 'Backspace';
+    if (code === 'Escape') return 'Escape';
+    if (code.startsWith('Arrow')) return code;       // ArrowUp/Down/Left/Right
+    // Fallback по label для стрелок и пр.
+    const labelMap = { '↑': 'ArrowUp', '↓': 'ArrowDown', '←': 'ArrowLeft', '→': 'ArrowRight' };
+    if (labelMap[data.l]) return labelMap[data.l];
+    return data.l || '';
+  }
+
   function keyHtml(data, unit, opts) {
     const w = (data.w || 1) * unit;
     const h = unit * 0.92;
     const isMod = data.mod;
     const isLongMod = isMod && data.l.length > 2;
+    const dkey = inferKey(data);
+    const dkAttr = dkey ? `data-key="${dkey.replace(/"/g, '&quot;')}"` : '';
+
+    // Special: Space highlights as a whole bar when it's the next key.
+    if (data.code === 'Space') {
+      const state = opts.stateOf(data);
+      const dstate = state !== 'default' ? `data-state="${state}"` : '';
+      return `<div class="key key--space" data-finger="purple" data-code="Space" data-key=" " ${dstate}
+        style="width:${w}px;height:${h}px"></div>`;
+    }
+
     const cls = ['key'];
     if (isMod) cls.push(isLongMod ? 'key--mod' : 'key--mod key--mod-short');
     else cls.push('key--alpha');
@@ -380,16 +480,76 @@
     const styleParts = [
       `width:${w}px`, `height:${h}px`,
     ];
-    return `<div class="${cls.join(' ')}" ${ds} ${dc} ${dstate} style="${styleParts.join(';')}">
+    return `<div class="${cls.join(' ')}" ${ds} ${dc} ${dkAttr} ${dstate} style="${styleParts.join(';')}">
       ${data.u && !isMod ? `<span class="key__upper">${data.u}</span>` : ''}
       <span>${data.l}</span>
       ${data.home ? `<span class="key__bump"></span>` : ''}
     </div>`;
   }
 
-  function renderClassic(unit, opts) {
+  // Build the alpha block. format: 'ansi' (wide Enter on row2, \ on row1) |
+  // 'iso' (tall L-Enter spanning rows 1-2, \ moves to row2).
+  function renderAlpha(unit, opts, format) {
     const rowH = unit * 0.92;
-    const { padded, padBot } = padRows(ROWS.map(r => [...r.left, ...r.right]), CLASSIC_BOTTOM);
+    const gap = unit * 0.08;
+    const merged = activeRows.map(r => [...r.left, ...r.right]);
+
+    if (format !== 'iso') {
+      // ANSI — current behaviour
+      const { padded, padBot } = padRows(merged, CLASSIC_BOTTOM);
+      const rows = padded.map(row =>
+        `<div class="row" style="gap:${gap}px;height:${rowH}px">${row.map(k => keyHtml(k, unit, opts)).join('')}</div>`
+      ).join('');
+      const bottom = `<div class="row" style="gap:${gap}px;height:${rowH}px">${padBot.map(k => keyHtml(k, unit, opts)).join('')}</div>`;
+      return `<div class="col" style="gap:${gap}px">${rows}${bottom}</div>`;
+    }
+
+    // ISO — tall L-shaped Enter spanning rows 1-2 (absolute, right-aligned)
+    const row1Letters = merged[1].filter(k => k.code !== 'Backslash'); // Tab + 12 letters
+    const row2Letters = merged[2].filter(k => k.l !== 'Enter');        // Caps + 11 letters
+    // Align right edge: row0/row3/bottom = 15u. Letter rows end at 13.5u; enter fills 13.5→15u.
+    // Standard padding for the rows that are NOT restructured (numbers, Shift, bottom).
+    const { padded, padBot } = padRows(merged, CLASSIC_BOTTOM);
+    const pRow0 = padded[0];
+    const pRow3 = padded[3];
+    const renderRow = (row) => row.map(k => keyHtml(k, unit, opts)).join('');
+    // L-shaped Enter: wide top (1.5u), narrow bottom (1.25u), notch bottom-left.
+    const enterTopW = unit * 1.5;
+    const enterBotW = unit * 1.25;
+    const enterH = rowH * 2 + gap;
+    // clip-path: notch cut from bottom-left. cutX = how far the narrow part is inset from left.
+    const cutXpct = ((enterTopW - enterBotW) / enterTopW * 100).toFixed(2);
+    const midYpct = (rowH / enterH * 100).toFixed(2);
+    const clip = `polygon(0 0, 100% 0, 100% 100%, ${cutXpct}% 100%, ${cutXpct}% ${midYpct}%, 0 ${midYpct}%)`;
+    // Backslash sits on row2 just left of the narrow Enter bottom. Width tuned so right edges align.
+    const backslash = keyHtml({ l: '\\', f: 'pink', mod: true, w: 1, code: 'Backslash' }, unit, opts);
+
+    const midW = (15 * unit + 14 * gap - 3).toFixed(1);
+    return `<div class="col" style="gap:${gap}px">
+      <div class="row" style="gap:${gap}px;height:${rowH}px">${renderRow(pRow0)}</div>
+      <div class="iso-mid" style="position:relative;display:flex;flex-direction:column;gap:${gap}px;width:${midW}px">
+        <div class="row" style="gap:${gap}px;height:${rowH}px">${renderRow(row1Letters)}</div>
+        <div class="row" style="gap:${gap}px;height:${rowH}px">${renderRow(row2Letters)}${backslash}</div>
+        <div class="key key--mod iso-enter" data-code="Enter"
+          style="position:absolute;right:0;top:0;width:${enterTopW}px;height:${enterH}px;clip-path:${clip};-webkit-clip-path:${clip}">
+          <span style="position:absolute;right:${unit*0.22}px;bottom:${rowH*0.5}px">⏎</span>
+        </div>
+      </div>
+      <div class="row" style="gap:${gap}px;height:${rowH}px">${renderRow(pRow3)}</div>
+      <div class="row" style="gap:${gap}px;height:${rowH}px">${padBot.map(k => keyHtml(k, unit, opts)).join('')}</div>
+    </div>`;
+  }
+
+  function renderClassic(unit, opts, format) {
+    const alpha = renderAlpha(unit, opts, format);
+    const nav = renderNav(unit, opts);
+    const numpad = renderNumpad(unit, opts);
+    return `<div class="kb" style="gap:${unit * 0.34}px;align-items:flex-start">${alpha}${nav}${numpad}</div>`;
+  }
+
+  function renderClassicOLD(unit, opts) {
+    const rowH = unit * 0.92;
+    const { padded, padBot } = padRows(activeRows.map(r => [...r.left, ...r.right]), CLASSIC_BOTTOM);
     const alphaRows = padded.map(row =>
       `<div class="row" style="gap:${unit * 0.08}px;height:${rowH}px">${row.map(k => keyHtml(k, unit, opts)).join('')}</div>`
     ).join('');
@@ -399,46 +559,45 @@
     const nav = renderNav(unit, opts);
     const numpad = renderNumpad(unit, opts);
 
-    return `<div class="kb" style="gap:${unit * 0.55}px;align-items:flex-start">${alpha}${nav}${numpad}</div>`;
+    return `<div class="kb" style="gap:${unit * 0.34}px;align-items:flex-start">${alpha}${nav}${numpad}</div>`;
   }
 
-  function renderLaptop(unit, opts) {
+  function renderLaptop(unit, opts, format) {
+    const alpha = renderAlpha(unit, opts, format);
+    return `<div class="kb" style="gap:${unit * 0.4}px;align-items:flex-end">${alpha}</div>`;
+  }
+
+  function renderLaptopOLD(unit, opts) {
     const rowH = unit * 0.92;
-    const { padded, padBot } = padRows(ROWS.map(r => [...r.left, ...r.right]), CLASSIC_BOTTOM);
+    const { padded, padBot } = padRows(activeRows.map(r => [...r.left, ...r.right]), CLASSIC_BOTTOM);
     const alphaRows = padded.map(row =>
       `<div class="row" style="gap:${unit * 0.08}px;height:${rowH}px">${row.map(k => keyHtml(k, unit, opts)).join('')}</div>`
     ).join('');
     const bottomRow = `<div class="row" style="gap:${unit * 0.08}px;height:${rowH}px">${padBot.map(k => keyHtml(k, unit, opts)).join('')}</div>`;
     const alpha = `<div class="col" style="gap:${unit * 0.08}px">${alphaRows}${bottomRow}</div>`;
-    // Small arrows in bottom-right
-    const arrows = `
-      <div style="display:grid;grid-template-columns:repeat(3, ${unit * 0.85}px);grid-template-rows:${unit * 0.46}px ${unit * 0.46}px;gap:${unit * 0.08}px;align-self:flex-end">
-        <div style="grid-column:2;grid-row:1">${keyHtml({ l: '↑', mod: true }, unit * 0.85, opts)}</div>
-        <div style="grid-column:1;grid-row:2">${keyHtml({ l: '←', mod: true }, unit * 0.85, opts)}</div>
-        <div style="grid-column:2;grid-row:2">${keyHtml({ l: '↓', mod: true }, unit * 0.85, opts)}</div>
-        <div style="grid-column:3;grid-row:2">${keyHtml({ l: '→', mod: true }, unit * 0.85, opts)}</div>
-      </div>
-    `;
-    return `<div class="kb" style="gap:${unit * 0.4}px;align-items:flex-end">${alpha}${arrows}</div>`;
+    // Laptop: no nav/arrows cluster — not relevant for the trainer.
+    return `<div class="kb" style="gap:${unit * 0.4}px;align-items:flex-end">${alpha}</div>`;
   }
 
   function renderNav(unit, opts) {
     const rowH = unit * 0.92;
-    const blank = `<div style="height:${rowH}px"></div>`;
+    const gap = unit * 0.08;
     const navKey = (l) => keyHtml({ l, mod: true }, unit, opts);
-    const navRow = (cells) => `<div class="row" style="gap:${unit * 0.08}px">${cells.map(c => navKey(c.l)).join('')}</div>`;
-    const arrows = `
-      <div class="col" style="gap:${unit * 0.08}px;align-items:center">
-        <div class="row" style="gap:${unit * 0.08}px"><div style="width:${unit}px"></div>${navKey('↑')}<div style="width:${unit}px"></div></div>
-        <div class="row" style="gap:${unit * 0.08}px">${navKey('←')}${navKey('↓')}${navKey('→')}</div>
-      </div>
-    `;
-    return `<div class="col" style="gap:${unit * 0.08}px">
-      ${blank}
-      ${navRow(NAV_TOP[0])}
-      ${navRow(NAV_TOP[1])}
-      ${blank}
-      ${arrows}
+    // A row slot with explicit height = rowH so it aligns 1:1 with the alpha block rows.
+    const slot = (inner = '') =>
+      `<div class="row" style="gap:${gap}px;height:${rowH}px;justify-content:center">${inner}</div>`;
+    // 5 slots, matching the 5 alpha rows exactly:
+    //   row0 (numbers): Ins Home PgUp
+    //   row1 (Tab):     Del End PgDn
+    //   row2 (Caps):    empty
+    //   row3 (Shift):   ↑ centered
+    //   row4 (Ctrl):    ← ↓ →
+    return `<div class="col" style="gap:${gap}px">
+      ${slot(NAV_TOP[0].map(c => navKey(c.l)).join(''))}
+      ${slot(NAV_TOP[1].map(c => navKey(c.l)).join(''))}
+      ${slot('')}
+      ${slot(`<div style="width:${unit}px"></div>${navKey('↑')}<div style="width:${unit}px"></div>`)}
+      ${slot(`${navKey('←')}${navKey('↓')}${navKey('→')}`)}
     </div>`;
   }
 
@@ -467,9 +626,9 @@
   }
 
   function renderErgo(unit, angle, gap, thumb, opts) {
-    const leftKeys = ROWS.map(r => r.left);
-    const rightKeys = ROWS.map(r => r.right);
-    const thumbData = thumb === 'minimal' ? THUMB_MIN : THUMB_MIN; // minimal-only for now
+    const leftKeys = activeRows.map(r => r.left);
+    const rightKeys = activeRows.map(r => r.right);
+    const thumbData = THUMB_MIN;
     const renderRow = (cells, side) =>
       `<div class="half__row half__row--${side}" style="gap:${unit * 0.08}px">${cells.map(k => keyHtml(k, unit, opts)).join('')}</div>`;
     const leftHalf = `<div class="half-left"><div class="half">
@@ -480,21 +639,42 @@
       ${rightKeys.map(r => renderRow(r, 'right')).join('')}
       ${renderRow(thumbData.right, 'right')}
     </div></div>`;
-    return `<div class="kb kb--split" style="--angle:${angle}deg;--ergo-gap:${gap}px">${leftHalf}${rightHalf}</div>`;
+
+    // Upright nav + numpad clusters to the right (same as classic).
+    const nav = renderNav(unit, opts);
+    const numpad = renderNumpad(unit, opts);
+
+    return `<div class="kb kb--ergo">
+      <div class="kb--split" style="--angle:${angle}deg;--ergo-gap:${gap}px;margin-top:-30px">${leftHalf}${rightHalf}</div>
+      <div class="ergo-clusters" style="gap:${unit * 0.34}px">${nav}${numpad}</div>
+    </div>`;
   }
 
   // ─── Custom Element ──────────────────────────────────────────────────────
   class TypingKeyboard extends HTMLElement {
     static get observedAttributes() {
-      return ['type', 'layout', 'intensity', 'modifier-style', 'theme',
+      return ['type', 'layout', 'format', 'intensity', 'modifier-style', 'theme',
               'unit', 'angle', 'gap', 'thumb',
-              'active-key', 'highlight-char', 'error-key'];
+              'active-key', 'highlight-char', 'error-key', 'space-half'];
     }
 
     constructor() {
       super();
       this.attachShadow({ mode: 'open' });
       this._errorTimer = null;
+      // Click/touch на on-screen клавише → CustomEvent наружу с {key, code}.
+      // composed:true чтобы событие пересекло границу Shadow DOM.
+      this.shadowRoot.addEventListener('click', (e) => {
+        const k = e.target.closest('.key');
+        if (!k) return;
+        const key = k.getAttribute('data-key') || '';
+        const code = k.getAttribute('data-code') || '';
+        if (!key && !code) return;
+        this.dispatchEvent(new CustomEvent('kb-press', {
+          detail: { key, code, label: (k.textContent || '').trim() },
+          bubbles: true, composed: true
+        }));
+      });
     }
 
     connectedCallback() {
@@ -524,29 +704,35 @@
       const label = (data.l || '').toLowerCase();
       const errorKey = this.getAttribute('error-key');
       const activeKey = this.getAttribute('active-key');
-      const highlightChar = (this.getAttribute('highlight-char') || '').toLowerCase();
+      const rawHighlight = this.getAttribute('highlight-char') || '';
+      const highlightChar = rawHighlight.toLowerCase();
       if (errorKey && code === errorKey) return 'error';
       if (activeKey && code === activeKey) return 'active';
-      if (highlightChar && label === highlightChar) return 'highlight';
+      // Space matches by character (its label is "Space", not " ")
+      if (code === 'Space' && rawHighlight === ' ') return 'highlight';
+      if (highlightChar && code !== 'Space' && label === highlightChar) return 'highlight';
       return 'default';
     }
 
     _render() {
       const type = this.getAttribute('type') || 'classic';
+      const layout = this.getAttribute('layout') || 'standard';
+      const format = this.getAttribute('format') || 'ansi';
+      activeRows = applyLayout(layout);
       const unit = parseInt(this.getAttribute('unit') || '56', 10);
-      const angle = parseInt(this.getAttribute('angle') || '14', 10);
+      const angle = parseInt(this.getAttribute('angle') || '8', 10);
       const gap = parseInt(this.getAttribute('gap') || '96', 10);
       const thumb = this.getAttribute('thumb') || 'minimal';
 
-      const opts = { stateOf: this._stateOf.bind(this) };
+      const opts = { stateOf: this._stateOf.bind(this), spaceHalf: () => this.getAttribute('space-half') };
 
       let body;
       if (type === 'ergonomic') {
         body = renderErgo(unit, angle, gap, thumb, opts);
       } else if (type === 'laptop') {
-        body = renderLaptop(unit, opts);
+        body = renderLaptop(unit, opts, format);
       } else {
-        body = renderClassic(unit, opts);
+        body = renderClassic(unit, opts, format);
       }
 
       this.shadowRoot.innerHTML = `<style>${css}</style>

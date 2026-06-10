@@ -10,13 +10,43 @@
   "error_limit": 12,
   "text": "The quiet zoologist quizzed the puzzled journalist about the strange behaviors of the jaguar, the zebra, and the quail. \"Excellent question,\" she said, jotting notes with a quick zigzag of her pen. Mexico, Quebec, Zambia — exotic places, exotic letters, all flowing now from your fingertips.",
   "text_sequence": [],
-  "keys_trained": ["A-Z", "Space", ",", ".", "?", "\"", "—", "Shift"],
+  "keys_trained": [
+    "A-Z",
+    "Space",
+    ",",
+    ".",
+    "?",
+    "\"",
+    "—",
+    "Shift"
+  ],
   "new_keys": [],
   "finger_focus": "Rare letters at speed",
   "tips": [
-    "z, q, x, j are the slowest letters for most typists",
-    "This text has 4-5x more rare letters than average",
-    "Pass at 96 WPM = your rare letters are as fast as common ones"
+    {
+      "type": "lead",
+      "text": "z, q, x, j are the slowest letters for most typists"
+    },
+    {
+      "type": "drop",
+      "text": "This text has 4-5x more rare letters than average"
+    },
+    {
+      "type": "exercise",
+      "target": "The quiet zoologist quizzed the puzzled journalist about the strange behaviors of the jaguar, the zebra, and the quail. \"Excellent question,\" she said,",
+      "finger": "purple",
+      "hint": "Rare letters at speed"
+    },
+    {
+      "type": "p",
+      "text": "Pass at 96 WPM = your rare letters are as fast as common ones"
+    },
+    {
+      "type": "exercise",
+      "target": "jotting notes with a quick zigzag of her pen. Mexico, Quebec, Zambia — exotic places, exotic letters, all flowing now from your fingertips.",
+      "finger": "purple",
+      "hint": "Rare letters at speed"
+    }
   ],
   "character_tips": {
     "anna": "Rare letters are the bottleneck for most fast typists. Pass this = uniform speed.",

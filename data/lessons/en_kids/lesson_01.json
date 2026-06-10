@@ -16,9 +16,24 @@
   "new_keys": [],
   "finger_focus": "Left pinky finds A",
   "tips": [
-    "Just one letter — letter A",
-    "Use your LEFT little finger (pinky)",
-    "Press gently, like a key on a piano"
+    {
+      "type": "lead",
+      "text": "Just one letter — letter A"
+    },
+    {
+      "type": "drop",
+      "text": "Use your LEFT little finger (pinky)"
+    },
+    {
+      "type": "exercise",
+      "target": "a a a a a a a a a a",
+      "finger": "pink",
+      "hint": "Left pinky finds A"
+    },
+    {
+      "type": "p",
+      "text": "Press gently, like a key on a piano"
+    }
   ],
   "character_tips": {
     "anna": "Hello, little friend! Press A with your left pinky 🌸",

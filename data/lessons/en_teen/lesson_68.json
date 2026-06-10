@@ -22,9 +22,30 @@
   "new_keys": [],
   "finger_focus": "Review rhythm + opinion",
   "tips": [
-    "Book review = analysis + opinion blend",
-    "Em-dashes for emphasis mid-sentence",
-    "Real Goodreads/blog format"
+    {
+      "type": "lead",
+      "text": "Book review = analysis + opinion blend"
+    },
+    {
+      "type": "drop",
+      "text": "Em-dashes for emphasis mid-sentence"
+    },
+    {
+      "type": "exercise",
+      "target": "What makes this novel special isn't the plot — it's the way the author trusts her readers to fill",
+      "finger": "purple",
+      "hint": "Review rhythm + opinion"
+    },
+    {
+      "type": "p",
+      "text": "Real Goodreads/blog format"
+    },
+    {
+      "type": "exercise",
+      "target": "in the spaces between the lines. Some chapters end on questions, not answers. That choice alone is worth the read.",
+      "finger": "purple",
+      "hint": "Review rhythm + opinion"
+    }
   ],
   "character_tips": {
     "anna": "Book review style. Real online writing format.",

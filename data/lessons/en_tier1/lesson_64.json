@@ -10,13 +10,42 @@
   "error_limit": 13,
   "text": "The API returns a JSON response with three fields: status, data, and error. If status equals \"ok\", the data field contains the requested resource. Otherwise, error provides a human-readable message and an error code.",
   "text_sequence": [],
-  "keys_trained": ["A-Z", "Space", ",", ".", ":", "\"", "Shift"],
+  "keys_trained": [
+    "A-Z",
+    "Space",
+    ",",
+    ".",
+    ":",
+    "\"",
+    "Shift"
+  ],
   "new_keys": [],
   "finger_focus": "Technical terms + structure",
   "tips": [
-    "Technical writing has consistent terminology — same words repeat",
-    "Colons signal structure: ok with them and you're a tech writer",
-    "Code-ish terms (API, JSON) should flow as words, not letter-by-letter"
+    {
+      "type": "lead",
+      "text": "Technical writing has consistent terminology — same words repeat"
+    },
+    {
+      "type": "drop",
+      "text": "Colons signal structure: ok with them and you're a tech writer"
+    },
+    {
+      "type": "exercise",
+      "target": "The API returns a JSON response with three fields: status, data, and error. If status equals \"ok\",",
+      "finger": "purple",
+      "hint": "Technical terms + structure"
+    },
+    {
+      "type": "p",
+      "text": "Code-ish terms (API, JSON) should flow as words, not letter-by-letter"
+    },
+    {
+      "type": "exercise",
+      "target": "the data field contains the requested resource. Otherwise, error provides a human-readable message and an error code.",
+      "finger": "purple",
+      "hint": "Technical terms + structure"
+    }
   ],
   "character_tips": {
     "anna": "Technical docs are everywhere in modern work. Master the rhythm.",

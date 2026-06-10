@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Достижения — typing-trainer</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="assets/css/tokens.css">
+    <link rel="stylesheet" href="assets/css/achievements.css">
+    <link rel="icon" type="image/x-icon" href="assets/images/favicon.ico">
+</head>
+<body class="ach-page">
+
+    <header class="ach-header">
+        <a class="ach-back" href="dashboard.html" data-i18n="common.back">← Главная</a>
+        <a class="ach-logo" href="dashboard.html">
+            <span class="ach-logo__mark" data-i18n="common.logoMark">Ё</span>
+            <span class="ach-logo__name" data-i18n="common.appName">typing-trainer</span>
+        </a>
+        <span class="ach-crumb" data-i18n="achievements.crumb">/ ДОСТИЖЕНИЯ</span>
+    </header>
+
+    <main class="ach-main">
+        <div class="ach-title-row">
+            <h1 class="ach-h1" data-i18n="achievements.title">Достижения</h1>
+            <span class="ach-count" id="ach-count">0/0</span>
+        </div>
+        <div id="ach-groups"></div>
+    </main>
+
+    <script src="assets/js/router-guard.js"></script>
+    <script src="config/settings.js"></script>
+    <script src="assets/js/achievements.js"></script>
+    <script src="assets/js/i18n.js"></script>
+    <script src="assets/js/achievements-page.js"></script>
+</body>
+</html>

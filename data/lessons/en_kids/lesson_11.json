@@ -18,9 +18,30 @@
   "new_keys": [],
   "finger_focus": "Top row letters E and I",
   "tips": [
-    "E is left middle finger reaching UP",
-    "I is right middle finger reaching UP",
-    "Try \"see\" — a fun new word!"
+    {
+      "type": "lead",
+      "text": "E is left middle finger reaching UP"
+    },
+    {
+      "type": "drop",
+      "text": "I is right middle finger reaching UP"
+    },
+    {
+      "type": "exercise",
+      "target": "e e e i i i see see see is",
+      "finger": "blue",
+      "hint": "Top row letters E and I"
+    },
+    {
+      "type": "p",
+      "text": "Try \"see\" — a fun new word!"
+    },
+    {
+      "type": "exercise",
+      "target": "is is if if if eel eel ice ice tie tie",
+      "finger": "green",
+      "hint": "Top row letters E and I"
+    }
   ],
   "character_tips": {
     "anna": "Two new letters: E and I. New words like \"see\"!",

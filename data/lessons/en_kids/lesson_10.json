@@ -17,9 +17,30 @@
   "new_keys": [],
   "finger_focus": "Home row + first sight words",
   "tips": [
-    "🎓 First Kids milestone!",
-    "18 WPM is great for a beginner",
-    "Block 2 brings more letters and more fun words"
+    {
+      "type": "lead",
+      "text": "🎓 First Kids milestone!"
+    },
+    {
+      "type": "drop",
+      "text": "18 WPM is great for a beginner"
+    },
+    {
+      "type": "exercise",
+      "target": "cat dog fish bee ant cow",
+      "finger": "blue",
+      "hint": "Home row + first sight words"
+    },
+    {
+      "type": "p",
+      "text": "Block 2 brings more letters and more fun words"
+    },
+    {
+      "type": "exercise",
+      "target": "ask sad lad fall add jak dad",
+      "finger": "green",
+      "hint": "Home row + first sight words"
+    }
   ],
   "character_tips": {
     "anna": "🎯 First milestone, little friend! You did it! 🌸",

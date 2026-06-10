@@ -10,13 +10,37 @@
   "error_limit": 10,
   "text": "the and you are for not but his she him her our you they the and you are for not but his she him her our you they the and you",
   "text_sequence": [],
-  "keys_trained": ["all letters", "Space"],
+  "keys_trained": [
+    "all letters",
+    "Space"
+  ],
   "new_keys": [],
   "finger_focus": "Full alphabet — speed over thought",
   "tips": [
-    "These 10 words make up ~25% of all English text",
-    "Don't think — let muscle memory drive",
-    "If you slow to look at keys, restart the lesson"
+    {
+      "type": "lead",
+      "text": "These 10 words make up ~25% of all English text"
+    },
+    {
+      "type": "drop",
+      "text": "Don't think — let muscle memory drive"
+    },
+    {
+      "type": "exercise",
+      "target": "the and you are for not but his she him her our you they the",
+      "finger": "purple",
+      "hint": "Full alphabet — speed over thought"
+    },
+    {
+      "type": "p",
+      "text": "If you slow to look at keys, restart the lesson"
+    },
+    {
+      "type": "exercise",
+      "target": "and you are for not but his she him her our you they the and you",
+      "finger": "purple",
+      "hint": "Full alphabet — speed over thought"
+    }
   ],
   "character_tips": {
     "anna": "Welcome to Block 4! Speed is muscle memory + confidence. Both grow here.",

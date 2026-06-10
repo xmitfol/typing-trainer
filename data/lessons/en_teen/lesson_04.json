@@ -23,9 +23,30 @@
   "new_keys": [],
   "finger_focus": "Home row rhythm",
   "tips": [
-    "Each word repeated — focus on rhythm, not novelty",
-    "Enable metronome at 24 BPM — match your finger tempo",
-    "Don't speed up — find a steady beat"
+    {
+      "type": "lead",
+      "text": "Each word repeated — focus on rhythm, not novelty"
+    },
+    {
+      "type": "drop",
+      "text": "Enable metronome at 24 BPM — match your finger tempo"
+    },
+    {
+      "type": "exercise",
+      "target": "ask ask ask sad sad sad lad lad lad jak",
+      "finger": "blue",
+      "hint": "Home row rhythm"
+    },
+    {
+      "type": "p",
+      "text": "Don't speed up — find a steady beat"
+    },
+    {
+      "type": "exercise",
+      "target": "jak jak dad dad dad fall fall fall lass lass lass",
+      "finger": "green",
+      "hint": "Home row rhythm"
+    }
   ],
   "character_tips": {
     "anna": "Repetition builds rhythm. The same word four times = muscle memory.",

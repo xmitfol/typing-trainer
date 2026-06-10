@@ -21,9 +21,30 @@
   "new_keys": [],
   "finger_focus": "Personal preferences at speed",
   "tips": [
-    "Personal love list",
-    "Multiple sentence types",
-    "Real personal writing"
+    {
+      "type": "lead",
+      "text": "Personal love list"
+    },
+    {
+      "type": "drop",
+      "text": "Multiple sentence types"
+    },
+    {
+      "type": "exercise",
+      "target": "I love sunny days. I love my family. I love books and music. I love cookies",
+      "finger": "purple",
+      "hint": "Personal preferences at speed"
+    },
+    {
+      "type": "p",
+      "text": "Real personal writing"
+    },
+    {
+      "type": "exercise",
+      "target": "and ice cream. I love playing outside. I love sleeping in too! What do you love?",
+      "finger": "purple",
+      "hint": "Personal preferences at speed"
+    }
   ],
   "character_tips": {
     "anna": "Favorites list! What do YOU love?",

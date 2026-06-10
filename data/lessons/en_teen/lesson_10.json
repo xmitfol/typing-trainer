@@ -18,9 +18,30 @@
   "new_keys": [],
   "finger_focus": "Shift + letter timing",
   "tips": [
-    "Press Shift BEFORE the letter — not after",
-    "Use the Shift on the OPPOSITE side of your letter",
-    "Names are everywhere — train them at speed"
+    {
+      "type": "lead",
+      "text": "Press Shift BEFORE the letter — not after"
+    },
+    {
+      "type": "drop",
+      "text": "Use the Shift on the OPPOSITE side of your letter"
+    },
+    {
+      "type": "exercise",
+      "target": "Sam Alex Maya Jake Lisa Anna Carlos Priya",
+      "finger": "blue",
+      "hint": "Shift + letter timing"
+    },
+    {
+      "type": "p",
+      "text": "Names are everywhere — train them at speed"
+    },
+    {
+      "type": "exercise",
+      "target": "Diego Mei Olivia Marco Yuki Rosa David Hannah",
+      "finger": "green",
+      "hint": "Shift + letter timing"
+    }
   ],
   "character_tips": {
     "anna": "Shift before letter — opposite hand. That's the pro pattern.",

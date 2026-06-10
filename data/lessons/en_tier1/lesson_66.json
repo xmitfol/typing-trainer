@@ -10,13 +10,40 @@
   "error_limit": 14,
   "text": "Two-thirds through the course now. Your fingers know the keyboard better than you think. Trust them. Read ahead by a word or two, breathe steadily, and let the text flow from your hands without thinking about which finger goes where.",
   "text_sequence": [],
-  "keys_trained": ["A-Z", "Space", ",", ".", "Shift"],
+  "keys_trained": [
+    "A-Z",
+    "Space",
+    ",",
+    ".",
+    "Shift"
+  ],
   "new_keys": [],
   "finger_focus": "Sustained 65 WPM — no slowdown",
   "tips": [
-    "65 lessons = two-thirds done",
-    "Track your peak WPM — is it climbing? You're on the right curve",
-    "If you stall here, drop accuracy to 90% and push speed up"
+    {
+      "type": "lead",
+      "text": "65 lessons = two-thirds done"
+    },
+    {
+      "type": "drop",
+      "text": "Track your peak WPM — is it climbing? You're on the right curve"
+    },
+    {
+      "type": "exercise",
+      "target": "Two-thirds through the course now. Your fingers know the keyboard better than you think. Trust them. Read ahead by a",
+      "finger": "purple",
+      "hint": "Sustained 65 WPM — no slowdown"
+    },
+    {
+      "type": "p",
+      "text": "If you stall here, drop accuracy to 90% and push speed up"
+    },
+    {
+      "type": "exercise",
+      "target": "word or two, breathe steadily, and let the text flow from your hands without thinking about which finger goes where.",
+      "finger": "purple",
+      "hint": "Sustained 65 WPM — no slowdown"
+    }
   ],
   "character_tips": {
     "anna": "Two-thirds checkpoint. Your fingers know more than your conscious mind.",

@@ -20,9 +20,30 @@
   "new_keys": [],
   "finger_focus": "Article rhythm",
   "tips": [
-    "Real journalism: facts + names + dates + flow",
-    "Hold 83 WPM across all sentences",
-    "Article rhythm = newsroom standard"
+    {
+      "type": "lead",
+      "text": "Real journalism: facts + names + dates + flow"
+    },
+    {
+      "type": "drop",
+      "text": "Hold 83 WPM across all sentences"
+    },
+    {
+      "type": "exercise",
+      "target": "Scientists in Vienna announced on Monday a major breakthrough in quantum sensor technology. The discovery, detailed in",
+      "finger": "purple",
+      "hint": "Article rhythm"
+    },
+    {
+      "type": "p",
+      "text": "Article rhythm = newsroom standard"
+    },
+    {
+      "type": "exercise",
+      "target": "Nature, could reshape medical imaging within the decade. Industry partners are already lining up to license the work.",
+      "finger": "purple",
+      "hint": "Article rhythm"
+    }
   ],
   "character_tips": {
     "anna": "Real journalism. Sustained 83 WPM across full article.",

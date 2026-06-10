@@ -10,13 +10,41 @@
   "error_limit": 15,
   "text": "Eighty lessons. You are no longer typing — you are translating thought directly into text. Most people will never feel this. From here, every lesson refines what you already have: sustained accuracy at speed, calm hands, and total trust in muscle memory. The last twenty lessons are pure polish.",
   "text_sequence": [],
-  "keys_trained": ["A-Z", "Space", ",", ".", ":", "Shift"],
+  "keys_trained": [
+    "A-Z",
+    "Space",
+    ",",
+    ".",
+    ":",
+    "Shift"
+  ],
   "new_keys": [],
   "finger_focus": "Sustained 80 WPM gate",
   "tips": [
-    "80 WPM = top 5% of typists in the world",
-    "Pass this gate = you can outpace most people's spoken words",
-    "Last 20 lessons polish you to 95+ WPM"
+    {
+      "type": "lead",
+      "text": "80 WPM = top 5% of typists in the world"
+    },
+    {
+      "type": "drop",
+      "text": "Pass this gate = you can outpace most people's spoken words"
+    },
+    {
+      "type": "exercise",
+      "target": "Eighty lessons. You are no longer typing — you are translating thought directly into text. Most people will never feel this. From here, every",
+      "finger": "purple",
+      "hint": "Sustained 80 WPM gate"
+    },
+    {
+      "type": "p",
+      "text": "Last 20 lessons polish you to 95+ WPM"
+    },
+    {
+      "type": "exercise",
+      "target": "lesson refines what you already have: sustained accuracy at speed, calm hands, and total trust in muscle memory. The last twenty lessons are pure polish.",
+      "finger": "purple",
+      "hint": "Sustained 80 WPM gate"
+    }
   ],
   "character_tips": {
     "anna": "🎯 80 WPM gate. Top 5% globally. The world's average is 40 WPM — you're double.",

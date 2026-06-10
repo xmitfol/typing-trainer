@@ -22,9 +22,30 @@
   "new_keys": [],
   "finger_focus": "Block 3 mastery gate",
   "tips": [
-    "🎉 Real story with all three sentence kinds!",
-    "Numbers too!",
-    "32 WPM = great young typist"
+    {
+      "type": "lead",
+      "text": "🎉 Real story with all three sentence kinds!"
+    },
+    {
+      "type": "drop",
+      "text": "Numbers too!"
+    },
+    {
+      "type": "exercise",
+      "target": "I have 2 cats. They love to play! Where do they go all day? They climb",
+      "finger": "blue",
+      "hint": "Block 3 mastery gate"
+    },
+    {
+      "type": "p",
+      "text": "32 WPM = great young typist"
+    },
+    {
+      "type": "exercise",
+      "target": "trees. They chase bees. They sleep in the sun. I love my 2 cats so much!",
+      "finger": "green",
+      "hint": "Block 3 mastery gate"
+    }
   ],
   "character_tips": {
     "anna": "🎯 Block 3 done! Real story with all sentence types!",

@@ -208,19 +208,6 @@
     color: var(--sub, rgba(26,26,23,0.6));
 }
 
-/* Detected line (tech params) */
-.onboarding-v2__detected {
-    margin-top: 6px;
-    font-family: var(--font-mono, "JetBrains Mono", monospace);
-    font-size: 11px;
-    color: var(--faint, rgba(26,26,23,0.4));
-    display: flex;
-    gap: 6px;
-    flex-wrap: wrap;
-    align-items: center;
-}
-.onboarding-v2__detected b { color: var(--sub, rgba(26,26,23,0.6)); font-weight: 600; }
-
 /* Submit */
 .onboarding-v2__submit {
     margin-top: 28px;

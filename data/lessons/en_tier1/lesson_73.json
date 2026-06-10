@@ -10,13 +10,41 @@
   "error_limit": 16,
   "text": "The quarter exceeded all our internal targets. Revenue grew, churn dropped, and the team shipped twelve major features. Looking ahead, we have three priorities: expand into Europe, hire senior engineers, and double our content output. The next ninety days will define the year.",
   "text_sequence": [],
-  "keys_trained": ["A-Z", "Space", ",", ".", ":", "Shift"],
+  "keys_trained": [
+    "A-Z",
+    "Space",
+    ",",
+    ".",
+    ":",
+    "Shift"
+  ],
   "new_keys": [],
   "finger_focus": "Business prose tempo",
   "tips": [
-    "This is what executives write daily — train it as a career skill",
-    "Three-part lists (\"X, Y, and Z\") have a built-in rhythm",
-    "Metronome at 72 BPM — match it through all sentences"
+    {
+      "type": "lead",
+      "text": "This is what executives write daily — train it as a career skill"
+    },
+    {
+      "type": "drop",
+      "text": "Three-part lists (\"X, Y, and Z\") have a built-in rhythm"
+    },
+    {
+      "type": "exercise",
+      "target": "The quarter exceeded all our internal targets. Revenue grew, churn dropped, and the team shipped twelve major features. Looking ahead, we",
+      "finger": "purple",
+      "hint": "Business prose tempo"
+    },
+    {
+      "type": "p",
+      "text": "Metronome at 72 BPM — match it through all sentences"
+    },
+    {
+      "type": "exercise",
+      "target": "have three priorities: expand into Europe, hire senior engineers, and double our content output. The next ninety days will define the year.",
+      "finger": "purple",
+      "hint": "Business prose tempo"
+    }
   ],
   "character_tips": {
     "anna": "Executive-level prose at 72 WPM. This is real professional output.",

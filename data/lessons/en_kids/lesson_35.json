@@ -21,9 +21,30 @@
   "new_keys": [],
   "finger_focus": "35-lesson speed test",
   "tips": [
-    "🎉 You're a real writer now!",
-    "15 lessons to the certificate",
-    "Block 5 will have a big finale"
+    {
+      "type": "lead",
+      "text": "🎉 You're a real writer now!"
+    },
+    {
+      "type": "drop",
+      "text": "15 lessons to the certificate"
+    },
+    {
+      "type": "exercise",
+      "target": "35 lessons! You read and write stories now. You ask questions. You count to",
+      "finger": "purple",
+      "hint": "35-lesson speed test"
+    },
+    {
+      "type": "p",
+      "text": "Block 5 will have a big finale"
+    },
+    {
+      "type": "exercise",
+      "target": "ten. You are a real writer! Only 15 lessons left to your big certificate!",
+      "finger": "purple",
+      "hint": "35-lesson speed test"
+    }
   ],
   "character_tips": {
     "anna": "🎯 35 lessons! Real writer status. 15 to the finale!",

@@ -19,9 +19,30 @@
   "new_keys": [],
   "finger_focus": "Excited sentences with !",
   "tips": [
-    "! is Shift + 1 — top row left!",
-    "Used for excitement",
-    "Always capital at start"
+    {
+      "type": "lead",
+      "text": "! is Shift + 1 — top row left!"
+    },
+    {
+      "type": "drop",
+      "text": "Used for excitement"
+    },
+    {
+      "type": "exercise",
+      "target": "Wow! That is fun! Look at me! I did it!",
+      "finger": "blue",
+      "hint": "Excited sentences with !"
+    },
+    {
+      "type": "p",
+      "text": "Always capital at start"
+    },
+    {
+      "type": "exercise",
+      "target": "Yay! I love it! That is so cool! Great job!",
+      "finger": "green",
+      "hint": "Excited sentences with !"
+    }
   ],
   "character_tips": {
     "anna": "Excitement! Use ! when you're happy or surprised!",

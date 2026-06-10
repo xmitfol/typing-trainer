@@ -10,13 +10,40 @@
   "error_limit": 15,
   "text": "Eighty-five lessons. Fifteen to the finish. Your speed has nearly doubled since lesson one, and your accuracy is steady where it counts. The final stretch is not about adding new skills — it is about hardening what you have so that high speed feels effortless, even on a Monday morning after a long weekend.",
   "text_sequence": [],
-  "keys_trained": ["A-Z", "Space", ",", ".", "Shift"],
+  "keys_trained": [
+    "A-Z",
+    "Space",
+    ",",
+    ".",
+    "Shift"
+  ],
   "new_keys": [],
   "finger_focus": "Sustained 85 WPM",
   "tips": [
-    "15 lessons left = final stretch",
-    "85 WPM = professional writer / programmer speed",
-    "The remaining lessons make this speed AUTOMATIC, not effortful"
+    {
+      "type": "lead",
+      "text": "15 lessons left = final stretch"
+    },
+    {
+      "type": "drop",
+      "text": "85 WPM = professional writer / programmer speed"
+    },
+    {
+      "type": "exercise",
+      "target": "Eighty-five lessons. Fifteen to the finish. Your speed has nearly doubled since lesson one, and your accuracy is steady where it counts. The final stretch is not",
+      "finger": "purple",
+      "hint": "Sustained 85 WPM"
+    },
+    {
+      "type": "p",
+      "text": "The remaining lessons make this speed AUTOMATIC, not effortful"
+    },
+    {
+      "type": "exercise",
+      "target": "about adding new skills — it is about hardening what you have so that high speed feels effortless, even on a Monday morning after a long weekend.",
+      "finger": "purple",
+      "hint": "Sustained 85 WPM"
+    }
   ],
   "character_tips": {
     "anna": "🎯 85 WPM. Fifteen to go. The work now is to make this speed feel effortless.",

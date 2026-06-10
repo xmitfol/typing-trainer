@@ -10,13 +10,40 @@
   "error_limit": 15,
   "text": "Reports from Tokyo on Thursday confirmed the launch of a new high-speed rail line connecting three major cities. The project, which took six years and cost over forty billion yen, is expected to cut commute times by nearly half. Officials say the route will carry up to ninety thousand passengers daily.",
   "text_sequence": [],
-  "keys_trained": ["A-Z", "Space", ",", ".", "Shift"],
+  "keys_trained": [
+    "A-Z",
+    "Space",
+    ",",
+    ".",
+    "Shift"
+  ],
   "new_keys": [],
   "finger_focus": "Sustained 80 WPM journalism",
   "tips": [
-    "Long news paragraph at 80 WPM = real newsroom speed",
-    "Names and places break flow — practice their entry rhythm",
-    "Metronome at 80 BPM — sustain it across all sentences"
+    {
+      "type": "lead",
+      "text": "Long news paragraph at 80 WPM = real newsroom speed"
+    },
+    {
+      "type": "drop",
+      "text": "Names and places break flow — practice their entry rhythm"
+    },
+    {
+      "type": "exercise",
+      "target": "Reports from Tokyo on Thursday confirmed the launch of a new high-speed rail line connecting three major cities. The project, which took six years and",
+      "finger": "purple",
+      "hint": "Sustained 80 WPM journalism"
+    },
+    {
+      "type": "p",
+      "text": "Metronome at 80 BPM — sustain it across all sentences"
+    },
+    {
+      "type": "exercise",
+      "target": "cost over forty billion yen, is expected to cut commute times by nearly half. Officials say the route will carry up to ninety thousand passengers daily.",
+      "finger": "purple",
+      "hint": "Sustained 80 WPM journalism"
+    }
   ],
   "character_tips": {
     "anna": "Newsroom speed at 80 WPM. This is where journalists live.",

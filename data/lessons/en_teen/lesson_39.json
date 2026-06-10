@@ -22,9 +22,30 @@
   "new_keys": [],
   "finger_focus": "Comment-style prose",
   "tips": [
-    "Forum comments are mid-length, conversational",
-    "Quotes inside prose appear often",
-    "Apostrophes (i've, don't) are constant"
+    {
+      "type": "lead",
+      "text": "Forum comments are mid-length, conversational"
+    },
+    {
+      "type": "drop",
+      "text": "Quotes inside prose appear often"
+    },
+    {
+      "type": "exercise",
+      "target": "honestly this is the best take i've seen all week. \"facts only\"",
+      "finger": "blue",
+      "hint": "Comment-style prose"
+    },
+    {
+      "type": "p",
+      "text": "Apostrophes (i've, don't) are constant"
+    },
+    {
+      "type": "exercise",
+      "target": "hits different. anyone else feel like 2026 is moving way too fast?",
+      "finger": "green",
+      "hint": "Comment-style prose"
+    }
   ],
   "character_tips": {
     "anna": "Reddit-style is conversational with quotes. Train both.",

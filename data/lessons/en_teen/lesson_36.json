@@ -17,9 +17,30 @@
   "new_keys": [],
   "finger_focus": "Social feed rhythm",
   "tips": [
-    "Multiple meme phrases back to back",
-    "Find the social-media-scroll rhythm",
-    "Metronome at 65 BPM — match it"
+    {
+      "type": "lead",
+      "text": "Multiple meme phrases back to back"
+    },
+    {
+      "type": "drop",
+      "text": "Find the social-media-scroll rhythm"
+    },
+    {
+      "type": "exercise",
+      "target": "live laugh log on. grind never stop. monday energy hits",
+      "finger": "blue",
+      "hint": "Social feed rhythm"
+    },
+    {
+      "type": "p",
+      "text": "Metronome at 65 BPM — match it"
+    },
+    {
+      "type": "exercise",
+      "target": "different fr. no thoughts head empty. good vibes only. literally me.",
+      "finger": "green",
+      "hint": "Social feed rhythm"
+    }
   ],
   "character_tips": {
     "anna": "Social feed style at 65 WPM. Pure modern rhythm.",

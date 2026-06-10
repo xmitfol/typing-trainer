@@ -18,9 +18,30 @@
   "new_keys": [],
   "finger_focus": "Full alphabet rhythm",
   "tips": [
-    "Two pangrams back to back — every letter at least once",
-    "Metronome at 46 BPM — match it",
-    "Don't slow at rare letters — keep the tempo"
+    {
+      "type": "lead",
+      "text": "Two pangrams back to back — every letter at least once"
+    },
+    {
+      "type": "drop",
+      "text": "Metronome at 46 BPM — match it"
+    },
+    {
+      "type": "exercise",
+      "target": "the quick brown fox jumps over the lazy dog while",
+      "finger": "blue",
+      "hint": "Full alphabet rhythm"
+    },
+    {
+      "type": "p",
+      "text": "Don't slow at rare letters — keep the tempo"
+    },
+    {
+      "type": "exercise",
+      "target": "five wizards jinx my big quartz vow today and tomorrow",
+      "finger": "green",
+      "hint": "Full alphabet rhythm"
+    }
   ],
   "character_tips": {
     "anna": "Every letter in flow. Find the rhythm and don't drop it.",

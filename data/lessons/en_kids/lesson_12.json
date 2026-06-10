@@ -18,9 +18,30 @@
   "new_keys": [],
   "finger_focus": "Top row O and U",
   "tips": [
-    "O is right ring finger UP",
-    "U is right index UP",
-    "Now you can write \"you\" and \"sun\"!"
+    {
+      "type": "lead",
+      "text": "O is right ring finger UP"
+    },
+    {
+      "type": "drop",
+      "text": "U is right index UP"
+    },
+    {
+      "type": "exercise",
+      "target": "o o o u u u up up up out",
+      "finger": "blue",
+      "hint": "Top row O and U"
+    },
+    {
+      "type": "p",
+      "text": "Now you can write \"you\" and \"sun\"!"
+    },
+    {
+      "type": "exercise",
+      "target": "out out you you you sun sun fun fun cup cup",
+      "finger": "green",
+      "hint": "Top row O and U"
+    }
   ],
   "character_tips": {
     "anna": "O and U. Now you can write \"you\" — say hello to someone!",

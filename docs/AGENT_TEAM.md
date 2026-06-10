@@ -1,8 +1,12 @@
 # AI Agent Team Structure - Typing Trainer SaaS
 
 > **Purpose:** Specialized AI agents for different aspects of the project
-> **Version:** 1.0
-> **Last Updated:** November 13, 2025
+> **Version:** 1.1
+> **Last Updated:** 2026-06-06 (added Project Manager role)
+>
+> ⚠️ **Note:** Документ частично устарел. Список ниже актуален, но
+> описания Phase'ов (особенно «Frontend → React» в Phase 2) — legacy.
+> Полная переработка передана Тимофею в backlog.
 
 ## 🎯 Team Overview
 
@@ -32,6 +36,28 @@ Based on the project's 4-phase architecture (MVP → Backend → Expansion → S
 ---
 
 ## 👥 Agent Roles
+
+### 📋 Полный roster (актуальный, 2026-06-06)
+
+| # | Роль | Имя | Domain | Профиль |
+|---|---|---|---|---|
+| 1 | Architect | **Клод** | Системные решения, ADR | (этот документ) |
+| 2 | **Project Manager** | **Ника** ⭐ NEW | Sprints, blockers, status | [project-manager-agent.md](../.claude/agents/project-manager-agent.md) |
+| 3 | Product Manager | Полина | PRD, roadmap | [product-manager-agent.md](../.claude/agents/product-manager-agent.md) |
+| 4 | Frontend | Алекс | Vanilla JS, UI | [frontend-agent.md](../.claude/agents/frontend-agent.md) |
+| 5 | Backend | Борис | FastAPI, PostgreSQL | [backend-agent.md](../.claude/agents/backend-agent.md) |
+| 6 | AI/ML | Ася | Weak keys, рекомендации | [ai-ml-agent.md](../.claude/agents/ai-ml-agent.md) |
+| 7 | Content | Катя | Уроки, методология | [content-agent.md](../.claude/agents/content-agent.md) |
+| 8 | Marketing | Марина | Positioning | [marketing-agent.md](../.claude/agents/marketing-agent.md) |
+| 9 | UX Research | Юля | Tests, инсайты | [ux-research-agent.md](../.claude/agents/ux-research-agent.md) |
+| 10 | QA | Квинн | Verify-suite | [qa-agent.md](../.claude/agents/qa-agent.md) |
+| 11 | DevOps | Дима | CI/CD, deploy | [devops-agent.md](../.claude/agents/devops-agent.md) |
+| 12 | Security | Сергей | Compliance, аудит | [security-agent.md](../.claude/agents/security-agent.md) |
+| 13 | Tech Writer | Тимофей | Документация | [technical-writer-agent.md](../.claude/agents/technical-writer-agent.md) |
+
+И живой человек: **Иван** — Product Owner.
+
+---
 
 ### 🏗️ 1. Architect Agent (You/Lead Claude)
 

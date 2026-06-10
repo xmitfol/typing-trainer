@@ -21,9 +21,30 @@
   "new_keys": [],
   "finger_focus": "Mixed capital emphasis + commentary",
   "tips": [
-    "ALL CAPS for emphasis (THAT) — Shift+letter+letter",
-    "POV format is teen-native",
-    "Capital snippets in lowercase prose"
+    {
+      "type": "lead",
+      "text": "ALL CAPS for emphasis (THAT) — Shift+letter+letter"
+    },
+    {
+      "type": "drop",
+      "text": "POV format is teen-native"
+    },
+    {
+      "type": "exercise",
+      "target": "Bro the way she just stared into the camera. THAT was the look. POV:",
+      "finger": "blue",
+      "hint": "Mixed capital emphasis + commentary"
+    },
+    {
+      "type": "p",
+      "text": "Capital snippets in lowercase prose"
+    },
+    {
+      "type": "exercise",
+      "target": "you finally figured it out. Wait until the end. No because actually that hit.",
+      "finger": "green",
+      "hint": "Mixed capital emphasis + commentary"
+    }
   ],
   "character_tips": {
     "anna": "Modern teen prose mixes caps for emphasis. Capture both rhythms.",

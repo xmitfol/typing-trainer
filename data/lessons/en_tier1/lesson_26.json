@@ -10,14 +10,80 @@
   "error_limit": 6,
   "text": "12 34 5 12345 11 22 33 44 55 a1 s2 d3 f4 g5 take 1 add 2 see 3 try 4 win 5",
   "text_sequence": [],
-  "keys_trained": ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", "0", "1", "2", "3", "4", "5", "Space"],
-  "new_keys": ["1", "2", "3", "4", "5"],
+  "keys_trained": [
+    "A",
+    "B",
+    "C",
+    "D",
+    "E",
+    "F",
+    "G",
+    "H",
+    "I",
+    "J",
+    "K",
+    "L",
+    "M",
+    "N",
+    "O",
+    "P",
+    "Q",
+    "R",
+    "S",
+    "T",
+    "U",
+    "V",
+    "W",
+    "X",
+    "Y",
+    "Z",
+    "0",
+    "1",
+    "2",
+    "3",
+    "4",
+    "5",
+    "Space"
+  ],
+  "new_keys": [
+    "1",
+    "2",
+    "3",
+    "4",
+    "5"
+  ],
   "finger_focus": "Left hand reaches up: 1 (pinky), 2 (ring), 3 (middle), 4-5 (index)",
   "tips": [
-    "1 is left pinky reach up — above Q",
-    "2 ring, 3 middle, 4 and 5 both index (4 stretches up-right)",
-    "Return to home row after each number",
-    "Numbers are a stretch — don't lose home position"
+    {
+      "type": "lead",
+      "text": "1 is left pinky reach up — above Q"
+    },
+    {
+      "type": "drop",
+      "text": "2 ring, 3 middle, 4 and 5 both index (4 stretches up-right)"
+    },
+    {
+      "type": "exercise",
+      "target": "12 34 5 12345 11 22 33 44 55 a1 s2 d3",
+      "finger": "pink",
+      "hint": "Буквы: 1 2 3 4 5"
+    },
+    {
+      "type": "p",
+      "text": "Return to home row after each number"
+    },
+    {
+      "type": "callout",
+      "icon": "💡",
+      "title": "Подсказка",
+      "text": "Numbers are a stretch — don't lose home position"
+    },
+    {
+      "type": "exercise",
+      "target": "f4 g5 take 1 add 2 see 3 try 4 win 5",
+      "finger": "orange",
+      "hint": "Буквы: 1 2 3 4 5"
+    }
   ],
   "character_tips": {
     "anna": "Numbers stretch your fingers up two rows. Return to home immediately.",

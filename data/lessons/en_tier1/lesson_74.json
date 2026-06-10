@@ -10,13 +10,48 @@
   "error_limit": 16,
   "text": "On 2026-05-15, the team closed 47 issues, opened 12 new ones, and merged 23 pull requests (totaling +4,820 / -2,100 lines). Average review time: 3.5 hours. Test coverage rose to 87%. Tag v2.4.0 shipped at 17:42 UTC. Next milestone: v2.5 by 2026-06-30.",
   "text_sequence": [],
-  "keys_trained": ["A-Z", "0-9", "Space", ".", ",", ":", "/", "-", "+", "(", ")", "%", "Shift"],
+  "keys_trained": [
+    "A-Z",
+    "0-9",
+    "Space",
+    ".",
+    ",",
+    ":",
+    "/",
+    "-",
+    "+",
+    "(",
+    ")",
+    "%",
+    "Shift"
+  ],
   "new_keys": [],
   "finger_focus": "Maximum content density",
   "tips": [
-    "Engineers and analysts type this kind of text all day",
-    "Numbers/dates should flow at the same speed as words by now",
-    "If 74 WPM here is hard, drop to 65 and rebuild rhythm"
+    {
+      "type": "lead",
+      "text": "Engineers and analysts type this kind of text all day"
+    },
+    {
+      "type": "drop",
+      "text": "Numbers/dates should flow at the same speed as words by now"
+    },
+    {
+      "type": "exercise",
+      "target": "On 2026-05-15, the team closed 47 issues, opened 12 new ones, and merged 23 pull requests (totaling +4,820 / -2,100 lines).",
+      "finger": "purple",
+      "hint": "Maximum content density"
+    },
+    {
+      "type": "p",
+      "text": "If 74 WPM here is hard, drop to 65 and rebuild rhythm"
+    },
+    {
+      "type": "exercise",
+      "target": "Average review time: 3.5 hours. Test coverage rose to 87%. Tag v2.4.0 shipped at 17:42 UTC. Next milestone: v2.5 by 2026-06-30.",
+      "finger": "purple",
+      "hint": "Maximum content density"
+    }
   ],
   "character_tips": {
     "anna": "Dense data text is real engineering speed. Words and digits = same rhythm.",

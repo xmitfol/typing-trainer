@@ -10,13 +10,37 @@
   "error_limit": 12,
   "text": "of the in the to the for the on the at the with the from the by the as the and the but the so the if the when the where the after the before the about the",
   "text_sequence": [],
-  "keys_trained": ["all letters", "Space"],
+  "keys_trained": [
+    "all letters",
+    "Space"
+  ],
   "new_keys": [],
   "finger_focus": "Phrase-level chunks",
   "tips": [
-    "'of the', 'in the', 'to the' = ~10% of all 2-word phrases",
-    "Type the whole phrase without pausing between words",
-    "If you can do 'the' in under 0.3s, you're at pro level"
+    {
+      "type": "lead",
+      "text": "'of the', 'in the', 'to the' = ~10% of all 2-word phrases"
+    },
+    {
+      "type": "drop",
+      "text": "Type the whole phrase without pausing between words"
+    },
+    {
+      "type": "exercise",
+      "target": "of the in the to the for the on the at the with the from the by the as",
+      "finger": "purple",
+      "hint": "Phrase-level chunks"
+    },
+    {
+      "type": "p",
+      "text": "If you can do 'the' in under 0.3s, you're at pro level"
+    },
+    {
+      "type": "exercise",
+      "target": "the and the but the so the if the when the where the after the before the about the",
+      "finger": "purple",
+      "hint": "Phrase-level chunks"
+    }
   ],
   "character_tips": {
     "anna": "Phrase-level chunking is where 60+ WPM lives. Words become groups.",

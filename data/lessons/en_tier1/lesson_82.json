@@ -10,13 +10,43 @@
   "error_limit": 15,
   "text": "Hi Mark, thank you for reaching out, and I'm sorry to hear about the trouble with order #8432. I've checked the shipment, and it appears the parcel was delayed at the regional hub. A replacement is now on its way and should arrive by Friday. Please let me know if there's anything else I can help with. Best regards, Lisa.",
   "text_sequence": [],
-  "keys_trained": ["A-Z", "0-9", "Space", ",", ".", "'", "#", "Shift"],
+  "keys_trained": [
+    "A-Z",
+    "0-9",
+    "Space",
+    ",",
+    ".",
+    "'",
+    "#",
+    "Shift"
+  ],
   "new_keys": [],
   "finger_focus": "Empathetic email at speed",
   "tips": [
-    "Customer support typists handle 50-100 tickets a day",
-    "Empathetic tone + speed = service career gold",
-    "The phrase \"thank you for reaching out\" should be muscle memory"
+    {
+      "type": "lead",
+      "text": "Customer support typists handle 50-100 tickets a day"
+    },
+    {
+      "type": "drop",
+      "text": "Empathetic tone + speed = service career gold"
+    },
+    {
+      "type": "exercise",
+      "target": "Hi Mark, thank you for reaching out, and I'm sorry to hear about the trouble with order #8432. I've checked the shipment, and it appears the parcel was delayed at",
+      "finger": "purple",
+      "hint": "Empathetic email at speed"
+    },
+    {
+      "type": "p",
+      "text": "The phrase \"thank you for reaching out\" should be muscle memory"
+    },
+    {
+      "type": "exercise",
+      "target": "the regional hub. A replacement is now on its way and should arrive by Friday. Please let me know if there's anything else I can help with. Best regards, Lisa.",
+      "finger": "purple",
+      "hint": "Empathetic email at speed"
+    }
   ],
   "character_tips": {
     "anna": "Customer service is real-world high-volume typing. Master this rhythm.",

@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-i18n="dashboard.myCourse">Личный кабинет — typing-trainer</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="assets/css/tokens.css">
+    <link rel="stylesheet" href="assets/css/dashboard.css">
+    <link rel="icon" type="image/x-icon" href="assets/images/favicon.ico">
+</head>
+<body class="dashboard-page">
+
+    <!-- ─── Header ─────────────────────────────────────────────────── -->
+    <header class="dh-header">
+        <a href="index.html" class="dh-logo">
+            <span class="dh-logo__mark">Ё</span>
+            <span class="dh-logo__name">typing-trainer</span>
+        </a>
+
+        <nav class="dh-nav">
+            <a class="dh-nav__item dh-nav__item--active" href="#" data-i18n="nav.home">Главная</a>
+            <a class="dh-nav__item" href="course.html" data-i18n="dashboard.lessons">Уроки</a>
+            <a class="dh-nav__item dh-soon" href="#" data-i18n="nav.speedTest">Тренажёр скорости</a>
+            <a class="dh-nav__item dh-soon" href="#" data-i18n="nav.games">Игры</a>
+            <a class="dh-nav__item dh-soon" href="#" data-i18n="dashboard.stats">Статистика</a>
+        </nav>
+
+        <div class="dh-spacer"></div>
+
+        <!-- Language switcher -->
+        <div class="dh-lang-wrap">
+            <button type="button" class="dh-lang-btn" id="dhLangBtn" data-lang="ru" aria-haspopup="true" aria-expanded="false">
+                <span class="dh-lang-btn__flag" id="dhLangBtnCode">RU</span>
+                <span class="dh-lang-btn__layout" id="dhLangBtnLayout">ЙЦУКЕН</span>
+                <svg width="11" height="11" viewBox="0 0 12 12"><path d="M3 4.5L6 7.5L9 4.5" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round"/></svg>
+            </button>
+            <div class="dh-lang-menu" id="dhLangMenu" role="menu">
+                <div class="dh-lang-menu__head">КУРС ОБУЧЕНИЯ</div>
+                <!-- Заполняется JS из tierLessonCount + lessonProgress -->
+            </div>
+        </div>
+
+        <!-- Profile pill -->
+        <div class="dh-profile-wrap">
+            <button type="button" class="dh-profile-btn" id="dhProfileBtn" aria-haspopup="true" aria-expanded="false">
+                <span id="dhProfileAvatar"></span>
+                <span class="dh-profile-btn__name" id="dhProfileName">—</span>
+                <svg width="11" height="11" viewBox="0 0 12 12"><path d="M3 4.5L6 7.5L9 4.5" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round"/></svg>
+            </button>
+            <div class="dh-profile-menu" id="dhProfileMenu" role="menu">
+                <div class="dh-profile-menu__head">
+                    <div class="dh-profile-menu__name" id="dhProfileMenuName">—</div>
+                    <div class="dh-profile-menu__sub" id="dhProfileMenuSub">—</div>
+                </div>
+                <a class="dh-profile-menu__item" href="profile.html"><span class="dh-profile-menu__icon">◐</span><span style="flex:1" data-i18n="dashboard.myProfile">Мой профиль</span></a>
+                <a class="dh-profile-menu__item" href="achievements.html"><span class="dh-profile-menu__icon">🏆</span><span style="flex:1" data-i18n="dashboard.achievements">Достижения</span></a>
+                <a class="dh-profile-menu__item" href="settings.html"><span class="dh-profile-menu__icon">⚙</span><span style="flex:1" data-i18n="dashboard.settings">Настройки</span></a>
+                <button class="dh-profile-menu__item dh-soon"><span class="dh-profile-menu__icon">?</span><span style="flex:1" data-i18n="dashboard.help">Помощь</span></button>
+                <div class="dh-lang-menu__divider"></div>
+                <button class="dh-profile-menu__item" id="dhLogout" style="color:#ef4444"><span class="dh-profile-menu__icon">↩</span><span style="flex:1" data-i18n="dashboard.logout">Выйти</span></button>
+            </div>
+        </div>
+    </header>
+
+    <!-- ─── Welcome strip ──────────────────────────────────────────── -->
+    <div class="dh-welcome">
+        <div class="dh-welcome__inner">
+            <div>
+                <div class="dh-welcome__date" id="dhDate">—</div>
+                <h1 class="dh-welcome__h1">С возвращением, <span class="dh-welcome__name" id="dhWelcomeName">—</span>!</h1>
+            </div>
+            <div class="dh-streak" id="dhStreak" hidden>🔥 Серия <span id="dhStreakDays">0</span> дней</div>
+        </div>
+    </div>
+
+    <!-- ─── Main grid ──────────────────────────────────────────────── -->
+    <main class="dh-main">
+        <!-- Left column -->
+        <div class="dh-col">
+
+            <!-- Course card -->
+            <section class="dh-course">
+                <div class="dh-course__swatch"></div>
+                <div class="dh-course__inner">
+                    <div class="dh-course__hd">
+                        <div>
+                            <div class="dh-course__label">ТЕКУЩИЙ КУРС</div>
+                            <div class="dh-course__title-row">
+                                <h2 id="dhCourseTitle">Русский курс</h2>
+                                <span class="dh-course__lang-chip" id="dhCourseLayout">ЙЦУКЕН</span>
+                            </div>
+                            <div class="dh-course__sub" id="dhCourseSub">Десятипальцевый метод набора · 99 уроков</div>
+                        </div>
+                        <div>
+                            <div class="dh-course__pct" id="dhCoursePct">0%</div>
+                            <div class="dh-course__pct-sub" id="dhCoursePctSub">0/99 уроков</div>
+                        </div>
+                    </div>
+                    <div class="dh-course__bar"><div class="dh-course__bar-fill" id="dhCourseBarFill" style="width:0%"></div></div>
+                    <div class="dh-course__next">
+                        <div class="dh-course__next-num" id="dhNextNum">1</div>
+                        <div class="dh-course__next-info">
+                            <div class="dh-course__next-label">СЛЕДУЮЩИЙ УРОК</div>
+                            <div class="dh-course__next-title" id="dhNextTitle">Первые буквы</div>
+                            <div class="dh-course__next-meta" id="dhNextMeta">~ 5 минут · начальный уровень</div>
+                        </div>
+                        <a class="dh-course__continue" href="lesson.html" id="dhContinue">Продолжить →</a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Lesson list -->
+            <section class="dh-card">
+                <div class="dh-card__hd">
+                    <h3>Ближайшие уроки</h3>
+                    <a class="dh-card__link" href="course.html" id="dhAllLessons">Все 99 →</a>
+                </div>
+                <div class="dh-lessons" id="dhLessons">
+                    <!-- Заполняется JS -->
+                </div>
+            </section>
+
+            <!-- Quick actions -->
+            <div class="dh-qa">
+                <a class="dh-qa__card" href="builder.html">
+                    <span class="dh-qa__icon dh-qa__icon--orange">✎</span>
+                    <div>
+                        <div class="dh-qa__label" data-i18n="nav.myLessons">Свои уроки</div>
+                        <div class="dh-qa__sub" data-i18n="nav.myLessons_sub">конструктор: создай свой текст</div>
+                    </div>
+                </a>
+                <a class="dh-qa__card dh-soon" href="#">
+                    <span class="dh-qa__icon dh-qa__icon--green">🎮</span>
+                    <div>
+                        <div class="dh-qa__label" data-i18n="nav.games">Игры</div>
+                        <div class="dh-qa__sub" data-i18n="nav.games_sub">9 мини-игр на раскладку</div>
+                    </div>
+                </a>
+                <a class="dh-qa__card dh-soon" href="#">
+                    <span class="dh-qa__icon dh-qa__icon--blue">⏱</span>
+                    <div>
+                        <div class="dh-qa__label" data-i18n="nav.speedTest">Тест скорости</div>
+                        <div class="dh-qa__sub" data-i18n="nav.speedTest_sub">проверь себя за 1 минуту</div>
+                    </div>
+                </a>
+                <a class="dh-qa__card dh-soon" href="#">
+                    <span class="dh-qa__icon dh-qa__icon--purple">🏅</span>
+                    <div>
+                        <div class="dh-qa__label" data-i18n="nav.certificate">Сертификат</div>
+                        <div class="dh-qa__sub" data-i18n="nav.certificate_sub">после прохождения курса</div>
+                    </div>
+                </a>
+            </div>
+        </div>
+
+        <!-- Right column -->
+        <div class="dh-col">
+
+            <!-- Mentor card -->
+            <section class="dh-mentor">
+                <div class="dh-mentor__portrait" id="dhMentorPortrait"></div>
+                <div style="flex:1">
+                    <div class="dh-mentor__role" id="dhMentorRole">НАСТАВНИК</div>
+                    <div class="dh-mentor__text" id="dhMentorText">«Готов к новому уроку?»</div>
+                </div>
+            </section>
+
+            <!-- Stats card -->
+            <section class="dh-card">
+                <div class="dh-card__hd">
+                    <h3 data-i18n="dashboard.stats">Статистика</h3>
+                    <a class="dh-card__link dh-soon" href="#" data-i18n="dashboard.more">Подробнее →</a>
+                </div>
+                <div class="dh-stats">
+                    <div class="dh-stat">
+                        <div class="dh-stat__label">СКОРОСТЬ</div>
+                        <div class="dh-stat__row">
+                            <span class="dh-stat__val" id="dhStatSpeed">0</span>
+                            <span class="dh-stat__unit">зн/мин</span>
+                            <span class="dh-stat__trend" id="dhStatSpeedTrend" hidden></span>
+                        </div>
+                    </div>
+                    <div class="dh-stat">
+                        <div class="dh-stat__label">ТОЧНОСТЬ</div>
+                        <div class="dh-stat__row">
+                            <span class="dh-stat__val" id="dhStatAccuracy">0</span>
+                            <span class="dh-stat__unit">%</span>
+                            <span class="dh-stat__trend" id="dhStatAccuracyTrend" hidden></span>
+                        </div>
+                    </div>
+                    <div class="dh-stat">
+                        <div class="dh-stat__label">ВРЕМЯ</div>
+                        <div class="dh-stat__row">
+                            <span class="dh-stat__val" id="dhStatTime">0</span>
+                            <span class="dh-stat__unit">часов</span>
+                        </div>
+                    </div>
+                    <div class="dh-stat">
+                        <div class="dh-stat__label">СЕРИЯ</div>
+                        <div class="dh-stat__row">
+                            <span class="dh-stat__val" id="dhStatStreak">0</span>
+                            <span class="dh-stat__unit">дней</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Achievements -->
+            <section class="dh-card">
+                <div class="dh-card__hd">
+                    <h3>Достижения</h3>
+                    <div class="dh-card__link" id="dhAchCount" style="color:var(--faint)">0/6 получено</div>
+                </div>
+                <div class="dh-ach__grid" id="dhAchGrid">
+                    <!-- Заполняется JS -->
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- ─── JS ─────────────────────────────────────────────────────── -->
+    <script src="assets/js/router-guard.js"></script>
+    <script src="config/settings.js"></script>
+    <script src="assets/js/portraits.js"></script>
+    <script src="assets/js/lesson-loader.js"></script>
+    <script src="assets/js/achievements.js"></script>
+    <script src="assets/js/i18n.js"></script>
+    <script src="assets/js/dashboard.js"></script>
+</body>
+</html>

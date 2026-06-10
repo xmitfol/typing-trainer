@@ -17,9 +17,30 @@
   "new_keys": [],
   "finger_focus": "Left ring finger finds S",
   "tips": [
-    "S is right next to A",
-    "Use your left ring finger",
-    "Try \"as\" and \"sa\" — your first tiny word!"
+    {
+      "type": "lead",
+      "text": "S is right next to A"
+    },
+    {
+      "type": "drop",
+      "text": "Use your left ring finger"
+    },
+    {
+      "type": "exercise",
+      "target": "s s s s s as",
+      "finger": "orange",
+      "hint": "Left ring finger finds S"
+    },
+    {
+      "type": "p",
+      "text": "Try \"as\" and \"sa\" — your first tiny word!"
+    },
+    {
+      "type": "exercise",
+      "target": "as as sa sa sa ass",
+      "finger": "pink",
+      "hint": "Left ring finger finds S"
+    }
   ],
   "character_tips": {
     "anna": "S is next to A. Try \"as\" — your first word! 🌸",

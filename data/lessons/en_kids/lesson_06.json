@@ -22,9 +22,30 @@
   "new_keys": [],
   "finger_focus": "Right middle + ring finger",
   "tips": [
-    "K and L next to J",
-    "Right middle finger = K, right ring = L",
-    "More tiny words possible"
+    {
+      "type": "lead",
+      "text": "K and L next to J"
+    },
+    {
+      "type": "drop",
+      "text": "Right middle finger = K, right ring = L"
+    },
+    {
+      "type": "exercise",
+      "target": "k k k l l l ka ka ka la",
+      "finger": "orange",
+      "hint": "Right middle + ring finger"
+    },
+    {
+      "type": "p",
+      "text": "More tiny words possible"
+    },
+    {
+      "type": "exercise",
+      "target": "la la kal kal kal jak jak jak fall fall fall",
+      "finger": "pink",
+      "hint": "Right middle + ring finger"
+    }
   ],
   "character_tips": {
     "anna": "K and L. Two more friends. \"Fall\" is your new word 🌷",

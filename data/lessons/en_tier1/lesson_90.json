@@ -10,13 +10,41 @@
   "error_limit": 17,
   "text": "After eighteen months of careful planning and four straight quarters of double-digit growth, the leadership team announced a new chapter for the company: a global expansion into seven new markets, a fresh product line aimed at enterprise customers, and a strategic partnership with one of the largest technology vendors in the world.",
   "text_sequence": [],
-  "keys_trained": ["A-Z", "Space", ",", ".", ":", "Shift"],
+  "keys_trained": [
+    "A-Z",
+    "Space",
+    ",",
+    ".",
+    ":",
+    "Shift"
+  ],
   "new_keys": [],
   "finger_focus": "Sustained 90 WPM real-world prose",
   "tips": [
-    "Block 6 closes with 90 WPM on real business prose",
-    "Pass = officially top 3% of typists globally",
-    "Final block (91-99) refines this to 100+ WPM mastery"
+    {
+      "type": "lead",
+      "text": "Block 6 closes with 90 WPM on real business prose"
+    },
+    {
+      "type": "drop",
+      "text": "Pass = officially top 3% of typists globally"
+    },
+    {
+      "type": "exercise",
+      "target": "After eighteen months of careful planning and four straight quarters of double-digit growth, the leadership team announced a new chapter for the company: a global expansion",
+      "finger": "purple",
+      "hint": "Sustained 90 WPM real-world prose"
+    },
+    {
+      "type": "p",
+      "text": "Final block (91-99) refines this to 100+ WPM mastery"
+    },
+    {
+      "type": "exercise",
+      "target": "into seven new markets, a fresh product line aimed at enterprise customers, and a strategic partnership with one of the largest technology vendors in the world.",
+      "finger": "purple",
+      "hint": "Sustained 90 WPM real-world prose"
+    }
   ],
   "character_tips": {
     "anna": "🎓 BLOCK 6 FINAL! 90 WPM = elite professional. Top 3% in the world.",

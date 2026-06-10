@@ -24,9 +24,30 @@
   "new_keys": [],
   "finger_focus": "URL structure at speed",
   "tips": [
-    "URLs = dot + slash + symbol mix",
-    "= and ? appear in query strings",
-    "Practice this — modern life IS URLs"
+    {
+      "type": "lead",
+      "text": "URLs = dot + slash + symbol mix"
+    },
+    {
+      "type": "drop",
+      "text": "= and ? appear in query strings"
+    },
+    {
+      "type": "exercise",
+      "target": "tiktok.com/@user youtube.com/watch?v=abc123 spotify.com/playlist",
+      "finger": "blue",
+      "hint": "URL structure at speed"
+    },
+    {
+      "type": "p",
+      "text": "Practice this — modern life IS URLs"
+    },
+    {
+      "type": "exercise",
+      "target": "insta.com/p/post123 twitch.tv/user discord.gg/server",
+      "finger": "green",
+      "hint": "URL structure at speed"
+    }
   ],
   "character_tips": {
     "anna": "URLs are everywhere. Master the slash + dot rhythm.",

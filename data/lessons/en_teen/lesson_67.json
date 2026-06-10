@@ -22,9 +22,30 @@
   "new_keys": [],
   "finger_focus": "Essay flow at 91 WPM",
   "tips": [
-    "Sustained essay tempo with em-dashes",
-    "Three sentences in one rhythm",
-    "Metronome at 91 BPM"
+    {
+      "type": "lead",
+      "text": "Sustained essay tempo with em-dashes"
+    },
+    {
+      "type": "drop",
+      "text": "Three sentences in one rhythm"
+    },
+    {
+      "type": "exercise",
+      "target": "The question, then, is not whether change will come — it always does — but how we respond to it. Adapting",
+      "finger": "purple",
+      "hint": "Essay flow at 91 WPM"
+    },
+    {
+      "type": "p",
+      "text": "Metronome at 91 BPM"
+    },
+    {
+      "type": "exercise",
+      "target": "requires courage. Adapting well requires both courage and curiosity. Together, these two qualities define every generation that has ever shaped the future.",
+      "finger": "purple",
+      "hint": "Essay flow at 91 WPM"
+    }
   ],
   "character_tips": {
     "anna": "Essay flow at 91 WPM. Real academic speed.",

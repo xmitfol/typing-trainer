@@ -10,13 +10,41 @@
   "error_limit": 15,
   "text": "Subject to the terms and conditions set forth in this Agreement, the Provider hereby grants to the Customer a non-exclusive, non-transferable, revocable license to access and use the Service solely for internal business purposes, during the term of this Agreement and in accordance with the documentation provided.",
   "text_sequence": [],
-  "keys_trained": ["A-Z", "Space", ",", ".", "-", "Shift"],
+  "keys_trained": [
+    "A-Z",
+    "Space",
+    ",",
+    ".",
+    "-",
+    "Shift"
+  ],
   "new_keys": [],
   "finger_focus": "Formal long-form prose",
   "tips": [
-    "Legal/contract prose has its own rhythm — extra-long sentences",
-    "Words like \"hereinafter\" become single units — don't slow down",
-    "Lawyers, paralegals, and contracts teams type this all day"
+    {
+      "type": "lead",
+      "text": "Legal/contract prose has its own rhythm — extra-long sentences"
+    },
+    {
+      "type": "drop",
+      "text": "Words like \"hereinafter\" become single units — don't slow down"
+    },
+    {
+      "type": "exercise",
+      "target": "Subject to the terms and conditions set forth in this Agreement, the Provider hereby grants to the Customer a non-exclusive, non-transferable, revocable license",
+      "finger": "purple",
+      "hint": "Formal long-form prose"
+    },
+    {
+      "type": "p",
+      "text": "Lawyers, paralegals, and contracts teams type this all day"
+    },
+    {
+      "type": "exercise",
+      "target": "to access and use the Service solely for internal business purposes, during the term of this Agreement and in accordance with the documentation provided.",
+      "finger": "purple",
+      "hint": "Formal long-form prose"
+    }
   ],
   "character_tips": {
     "anna": "Legal English is formal but rhythmic. Most legal writers cap at 60 WPM.",

@@ -10,13 +10,44 @@
   "error_limit": 14,
   "text": "Q3 Objective: scale the platform to one million daily active users. Key results: 1) reduce signup friction to under sixty seconds; 2) ship onboarding v2 by August; 3) reach 70% activation among new accounts. Owner: Product. Status: on track. Risks: hiring delays, third-party API limits.",
   "text_sequence": [],
-  "keys_trained": ["A-Z", "0-9", "Space", ",", ".", ";", ":", "%", "Shift"],
+  "keys_trained": [
+    "A-Z",
+    "0-9",
+    "Space",
+    ",",
+    ".",
+    ";",
+    ":",
+    "%",
+    "Shift"
+  ],
   "new_keys": [],
   "finger_focus": "Structured planning prose",
   "tips": [
-    "OKR/KPI writing is the language of modern management",
-    "Numbered lists with colons have a steady rhythm — drill it",
-    "Train this and you'll write any project plan faster than peers"
+    {
+      "type": "lead",
+      "text": "OKR/KPI writing is the language of modern management"
+    },
+    {
+      "type": "drop",
+      "text": "Numbered lists with colons have a steady rhythm — drill it"
+    },
+    {
+      "type": "exercise",
+      "target": "Q3 Objective: scale the platform to one million daily active users. Key results: 1) reduce signup friction to under sixty seconds; 2)",
+      "finger": "purple",
+      "hint": "Structured planning prose"
+    },
+    {
+      "type": "p",
+      "text": "Train this and you'll write any project plan faster than peers"
+    },
+    {
+      "type": "exercise",
+      "target": "ship onboarding v2 by August; 3) reach 70% activation among new accounts. Owner: Product. Status: on track. Risks: hiring delays, third-party API limits.",
+      "finger": "purple",
+      "hint": "Structured planning prose"
+    }
   ],
   "character_tips": {
     "anna": "Goal-setting at 84 WPM. This is the language of leadership.",

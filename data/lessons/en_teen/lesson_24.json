@@ -23,9 +23,30 @@
   "new_keys": [],
   "finger_focus": "Dialogue rhythm + multiple punctuation",
   "tips": [
-    "TV banter is short, snappy, real",
-    "Multiple speakers = quick punctuation shifts",
-    "Practice the comma+space+capital pattern"
+    {
+      "type": "lead",
+      "text": "TV banter is short, snappy, real"
+    },
+    {
+      "type": "drop",
+      "text": "Multiple speakers = quick punctuation shifts"
+    },
+    {
+      "type": "exercise",
+      "target": "Hey, did you see that? No way! That was epic. Wait,",
+      "finger": "blue",
+      "hint": "Dialogue rhythm + multiple punctuation"
+    },
+    {
+      "type": "p",
+      "text": "Practice the comma+space+capital pattern"
+    },
+    {
+      "type": "exercise",
+      "target": "what's happening now? Just watch. Trust me on this one, okay?",
+      "finger": "green",
+      "hint": "Dialogue rhythm + multiple punctuation"
+    }
   ],
   "character_tips": {
     "anna": "Real-world dialogue. Short, punctuated, fast.",

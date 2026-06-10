@@ -10,13 +10,45 @@
   "error_limit": 16,
   "text": "Hi Alex, I hope you're well. Can we meet at 2:30 PM tomorrow? I'd like to discuss the Q3 plan. Best regards, Sam Smith sam@team.co",
   "text_sequence": [],
-  "keys_trained": ["A-Z", "0-9", ":", ".", ",", "?", "'", "@", "Space", "Shift"],
+  "keys_trained": [
+    "A-Z",
+    "0-9",
+    ":",
+    ".",
+    ",",
+    "?",
+    "'",
+    "@",
+    "Space",
+    "Shift"
+  ],
   "new_keys": [],
   "finger_focus": "Email format",
   "tips": [
-    "Capital letters at sentence start (Shift + letter)",
-    "Standard email structure: greeting, body, sign-off, name, contact",
-    "180 chars — typical short professional email"
+    {
+      "type": "lead",
+      "text": "Capital letters at sentence start (Shift + letter)"
+    },
+    {
+      "type": "drop",
+      "text": "Standard email structure: greeting, body, sign-off, name, contact"
+    },
+    {
+      "type": "exercise",
+      "target": "Hi Alex, I hope you're well. Can we meet at 2:30 PM",
+      "finger": "blue",
+      "hint": "Email format"
+    },
+    {
+      "type": "p",
+      "text": "180 chars — typical short professional email"
+    },
+    {
+      "type": "exercise",
+      "target": "tomorrow? I'd like to discuss the Q3 plan. Best regards, Sam Smith sam@team.co",
+      "finger": "green",
+      "hint": "Email format"
+    }
   ],
   "character_tips": {
     "anna": "Email is everyday writing — practice this and your work emails fly.",

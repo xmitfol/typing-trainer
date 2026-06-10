@@ -10,13 +10,81 @@
   "error_limit": 16,
   "text": "today, 25 may 2026, marks 30 lessons completed. you've learned 26 letters, 10 digits, and 9 punctuation marks; that's the foundation. next: symbols, speed, and real-world practice. you've earned it!",
   "text_sequence": [],
-  "keys_trained": ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", ":", ";", ",", ".", "!", "?", "'", "\"", "-", "Space"],
+  "keys_trained": [
+    "A",
+    "B",
+    "C",
+    "D",
+    "E",
+    "F",
+    "G",
+    "H",
+    "I",
+    "J",
+    "K",
+    "L",
+    "M",
+    "N",
+    "O",
+    "P",
+    "Q",
+    "R",
+    "S",
+    "T",
+    "U",
+    "V",
+    "W",
+    "X",
+    "Y",
+    "Z",
+    "0",
+    "1",
+    "2",
+    "3",
+    "4",
+    "5",
+    "6",
+    "7",
+    "8",
+    "9",
+    ":",
+    ";",
+    ",",
+    ".",
+    "!",
+    "?",
+    "'",
+    "\"",
+    "-",
+    "Space"
+  ],
   "new_keys": [],
   "finger_focus": "Everything learned so far — 200-char milestone",
   "tips": [
-    "30 lessons done! 200-char milestone text",
-    "Every letter, digit, and punctuation mark you've trained",
-    "Pass at 30 WPM and you're ready for Block 3 (symbols and speed)"
+    {
+      "type": "lead",
+      "text": "30 lessons done! 200-char milestone text"
+    },
+    {
+      "type": "drop",
+      "text": "Every letter, digit, and punctuation mark you've trained"
+    },
+    {
+      "type": "exercise",
+      "target": "today, 25 may 2026, marks 30 lessons completed. you've learned 26 letters, 10 digits, and",
+      "finger": "blue",
+      "hint": "Everything learned so far — 200-char milestone"
+    },
+    {
+      "type": "p",
+      "text": "Pass at 30 WPM and you're ready for Block 3 (symbols and speed)"
+    },
+    {
+      "type": "exercise",
+      "target": "9 punctuation marks; that's the foundation. next: symbols, speed, and real-world practice. you've earned it!",
+      "finger": "green",
+      "hint": "Everything learned so far — 200-char milestone"
+    }
   ],
   "character_tips": {
     "anna": "🏆 30 lessons! You're 30% through the course. Real fluency is forming.",

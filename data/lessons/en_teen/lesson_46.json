@@ -17,9 +17,30 @@
   "new_keys": [],
   "finger_focus": "3-letter words rhythm",
   "tips": [
-    "Block 4 opens with pure speed",
-    "3-letter words = single hand-shift units",
-    "No thinking — pure muscle memory"
+    {
+      "type": "lead",
+      "text": "Block 4 opens with pure speed"
+    },
+    {
+      "type": "drop",
+      "text": "3-letter words = single hand-shift units"
+    },
+    {
+      "type": "exercise",
+      "target": "the and you for not but get had has him her our out",
+      "finger": "purple",
+      "hint": "3-letter words rhythm"
+    },
+    {
+      "type": "p",
+      "text": "No thinking — pure muscle memory"
+    },
+    {
+      "type": "exercise",
+      "target": "one new now nor say see she sit way who why yes off",
+      "finger": "purple",
+      "hint": "3-letter words rhythm"
+    }
   ],
   "character_tips": {
     "anna": "Block 4! Speed first. 3-letter words = the rhythm engine.",

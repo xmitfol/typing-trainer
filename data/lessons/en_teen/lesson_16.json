@@ -22,9 +22,30 @@
   "new_keys": [],
   "finger_focus": "Left top row precision",
   "tips": [
-    "Same finger as A-S-D-F column but UP",
-    "Q is left pinky — uncommon but still needs speed",
-    "Return to home row between bursts"
+    {
+      "type": "lead",
+      "text": "Same finger as A-S-D-F column but UP"
+    },
+    {
+      "type": "drop",
+      "text": "Q is left pinky — uncommon but still needs speed"
+    },
+    {
+      "type": "exercise",
+      "target": "we wet were quit quiet rate water write quote",
+      "finger": "blue",
+      "hint": "Left top row precision"
+    },
+    {
+      "type": "p",
+      "text": "Return to home row between bursts"
+    },
+    {
+      "type": "exercise",
+      "target": "query trade weather quest quartz tweet rest start great",
+      "finger": "green",
+      "hint": "Left top row precision"
+    }
   ],
   "character_tips": {
     "anna": "Top row left. Stretch up, then HOME. Repeat.",

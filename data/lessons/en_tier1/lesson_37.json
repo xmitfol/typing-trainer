@@ -10,13 +10,55 @@
   "error_limit": 13,
   "text": "if (x > 0 && y < 10) { return x + y; } else { return 0; } let n = data[i].value; for (i=0; i<n; i++) {}",
   "text_sequence": [],
-  "keys_trained": ["A-Z", "0-9", "(", ")", "[", "]", "{", "}", "=", "+", "-", "<", ">", "&", "|", ";", ":", ".", ",", "Space"],
+  "keys_trained": [
+    "A-Z",
+    "0-9",
+    "(",
+    ")",
+    "[",
+    "]",
+    "{",
+    "}",
+    "=",
+    "+",
+    "-",
+    "<",
+    ">",
+    "&",
+    "|",
+    ";",
+    ":",
+    ".",
+    ",",
+    "Space"
+  ],
   "new_keys": [],
   "finger_focus": "All code symbols in flow",
   "tips": [
-    "Real JavaScript syntax",
-    "Spaces around operators: x > 0, not x>0",
-    "Brackets, braces, parens all in one paragraph"
+    {
+      "type": "lead",
+      "text": "Real JavaScript syntax"
+    },
+    {
+      "type": "drop",
+      "text": "Spaces around operators: x > 0, not x>0"
+    },
+    {
+      "type": "exercise",
+      "target": "if (x > 0 && y < 10) { return x + y; }",
+      "finger": "blue",
+      "hint": "All code symbols in flow"
+    },
+    {
+      "type": "p",
+      "text": "Brackets, braces, parens all in one paragraph"
+    },
+    {
+      "type": "exercise",
+      "target": "else { return 0; } let n = data[i].value; for (i=0; i<n; i++) {}",
+      "finger": "green",
+      "hint": "All code symbols in flow"
+    }
   ],
   "character_tips": {
     "anna": "Real code rhythm — you can type a function now.",

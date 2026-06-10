@@ -20,9 +20,30 @@
   "new_keys": [],
   "finger_focus": "Forum thread rhythm",
   "tips": [
-    "Multiple voices in flow — chat-like",
-    "Lowercase intentional, apostrophes everywhere",
-    "Metronome at 85 BPM"
+    {
+      "type": "lead",
+      "text": "Multiple voices in flow — chat-like"
+    },
+    {
+      "type": "drop",
+      "text": "Lowercase intentional, apostrophes everywhere"
+    },
+    {
+      "type": "exercise",
+      "target": "good point but i'd argue the opposite. agree to disagree but here's why i think differently.",
+      "finger": "purple",
+      "hint": "Forum thread rhythm"
+    },
+    {
+      "type": "p",
+      "text": "Metronome at 85 BPM"
+    },
+    {
+      "type": "exercise",
+      "target": "interesting take though never thought of it that way. fair enough lets just move on then.",
+      "finger": "purple",
+      "hint": "Forum thread rhythm"
+    }
   ],
   "character_tips": {
     "anna": "Forum thread rhythm. Multiple voices, one tempo.",

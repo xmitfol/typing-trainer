@@ -22,9 +22,30 @@
   "new_keys": [],
   "finger_focus": "Final warmup",
   "tips": [
-    "Encouraging meta-prose at 95 WPM",
-    "Smooth steady rhythm",
-    "Confidence before the boss"
+    {
+      "type": "lead",
+      "text": "Encouraging meta-prose at 95 WPM"
+    },
+    {
+      "type": "drop",
+      "text": "Smooth steady rhythm"
+    },
+    {
+      "type": "exercise",
+      "target": "One lesson to go. You've come a long way: from finding F and J by feel, to writing essays faster than most",
+      "finger": "purple",
+      "hint": "Final warmup"
+    },
+    {
+      "type": "p",
+      "text": "Confidence before the boss"
+    },
+    {
+      "type": "exercise",
+      "target": "adults can think them. Take a breath. The next lesson is a comprehensive exam — pass it for the Teen Mastery certificate.",
+      "finger": "purple",
+      "hint": "Final warmup"
+    }
   ],
   "character_tips": {
     "anna": "One lesson left. Breathe. You've trained for this.",

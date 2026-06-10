@@ -10,13 +10,37 @@
   "error_limit": 11,
   "text": "all any but can did far for get had has her him his how its let lot may new now nor not now one our out put say see she sit ten the too try use was way who why yes",
   "text_sequence": [],
-  "keys_trained": ["all letters", "Space"],
+  "keys_trained": [
+    "all letters",
+    "Space"
+  ],
   "new_keys": [],
   "finger_focus": "Full alphabet — short bursts",
   "tips": [
-    "3-letter words = one hand-shift unit",
-    "Don't slow down between words — flow",
-    "Spaces are part of the rhythm, not a pause"
+    {
+      "type": "lead",
+      "text": "3-letter words = one hand-shift unit"
+    },
+    {
+      "type": "drop",
+      "text": "Don't slow down between words — flow"
+    },
+    {
+      "type": "exercise",
+      "target": "all any but can did far for get had has her him his how its let lot may new now",
+      "finger": "purple",
+      "hint": "Full alphabet — short bursts"
+    },
+    {
+      "type": "p",
+      "text": "Spaces are part of the rhythm, not a pause"
+    },
+    {
+      "type": "exercise",
+      "target": "nor not now one our out put say see she sit ten the too try use was way who why yes",
+      "finger": "purple",
+      "hint": "Full alphabet — short bursts"
+    }
   ],
   "character_tips": {
     "anna": "Three-letter words are pure rhythm. Find a beat and stay on it.",

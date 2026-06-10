@@ -10,13 +10,48 @@
   "error_limit": 14,
   "text": "The proposal had three goals: reduce costs (by 15%), improve reliability — measured by uptime — and grow the user base; together, these would set the company up for a strong second half. The plan was bold but realistic.",
   "text_sequence": [],
-  "keys_trained": ["A-Z", "0-9", "Space", ",", ".", ";", ":", "—", "-", "(", ")", "%", "Shift"],
+  "keys_trained": [
+    "A-Z",
+    "0-9",
+    "Space",
+    ",",
+    ".",
+    ";",
+    ":",
+    "—",
+    "-",
+    "(",
+    ")",
+    "%",
+    "Shift"
+  ],
   "new_keys": [],
   "finger_focus": "All punctuation in real prose",
   "tips": [
-    "Semicolons + em-dashes + parens = pro writing toolkit",
-    "Each mark has its rhythm — semis are sharper, dashes wider",
-    "Don't over-think — type, then read for sense"
+    {
+      "type": "lead",
+      "text": "Semicolons + em-dashes + parens = pro writing toolkit"
+    },
+    {
+      "type": "drop",
+      "text": "Each mark has its rhythm — semis are sharper, dashes wider"
+    },
+    {
+      "type": "exercise",
+      "target": "The proposal had three goals: reduce costs (by 15%), improve reliability — measured by uptime — and grow the",
+      "finger": "purple",
+      "hint": "All punctuation in real prose"
+    },
+    {
+      "type": "p",
+      "text": "Don't over-think — type, then read for sense"
+    },
+    {
+      "type": "exercise",
+      "target": "user base; together, these would set the company up for a strong second half. The plan was bold but realistic.",
+      "finger": "purple",
+      "hint": "All punctuation in real prose"
+    }
   ],
   "character_tips": {
     "anna": "Complex punctuation separates beginner from pro. Drill until automatic.",

@@ -20,9 +20,30 @@
   "new_keys": [],
   "finger_focus": "Halfway milestone",
   "tips": [
-    "🎉 Halfway done!",
-    "You are a real little writer",
-    "25 more lessons to your certificate"
+    {
+      "type": "lead",
+      "text": "🎉 Halfway done!"
+    },
+    {
+      "type": "drop",
+      "text": "You are a real little writer"
+    },
+    {
+      "type": "exercise",
+      "target": "I can type. I can read what I type. I write sentences. I",
+      "finger": "blue",
+      "hint": "Halfway milestone"
+    },
+    {
+      "type": "p",
+      "text": "25 more lessons to your certificate"
+    },
+    {
+      "type": "exercise",
+      "target": "ask questions. I share happy news. I am a little writer now! Yay!",
+      "finger": "green",
+      "hint": "Halfway milestone"
+    }
   ],
   "character_tips": {
     "anna": "🎯 Halfway, little friend! You're doing AMAZING.",

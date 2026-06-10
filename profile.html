@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-i18n="profile.pageTitle">Профиль — typing-trainer</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="assets/css/tokens.css">
+    <link rel="stylesheet" href="assets/css/profile.css">
+    <link rel="icon" type="image/x-icon" href="assets/images/favicon.ico">
+</head>
+<body class="profile-page">
+
+    <!-- ─── Header (как dashboard) ────────────────────────────────── -->
+    <header class="pp-header">
+        <a class="pp-back" href="dashboard.html" data-i18n="common.back">← Главная</a>
+        <a class="pp-logo" href="dashboard.html">
+            <span class="pp-logo__mark" data-i18n="common.logoMark">Ё</span>
+            <span class="pp-logo__name" data-i18n="common.appName">typing-trainer</span>
+        </a>
+        <span class="pp-crumb" data-i18n="profile.crumb">/ ПРОФИЛЬ</span>
+    </header>
+
+    <!-- ─── Today header + paywall banner ─────────────────────────── -->
+    <section class="pp-today">
+        <div class="pp-today__hd">
+            <h1 class="pp-today__h1" data-i18n="profile.today">Сегодня</h1>
+            <span class="pp-today__date" id="ppDate">—</span>
+        </div>
+        <div class="pp-paywall" id="ppPaywall" hidden>
+            <span class="pp-paywall__dot"></span>
+            <div class="pp-paywall__text">
+                <b data-i18n="profile.paywallTitle">Платный режим не оформлен</b>
+                <span class="pp-paywall__sub"><span id="ppPaywallUsed">0</span>/<span id="ppPaywallLimit">5</span> <span data-i18n="profile.paywallSub">уроков использовано</span></span>
+            </div>
+            <a class="pp-paywall__cta" href="pricing.html" data-i18n="profile.paywallCta">Купить</a>
+        </div>
+    </section>
+
+    <!-- ─── 6 metrics strip ───────────────────────────────────────── -->
+    <section class="pp-metrics">
+        <div class="pp-metric"><div class="pp-metric__label" data-i18n="profile.metric_minSpeed">МИН WPM</div><div class="pp-metric__val" id="ppMinSpeed">—</div></div>
+        <div class="pp-metric"><div class="pp-metric__label" data-i18n="profile.metric_avgSpeed">СРЕДН WPM</div><div class="pp-metric__val" id="ppAvgSpeed">—</div></div>
+        <div class="pp-metric"><div class="pp-metric__label" data-i18n="profile.metric_maxSpeed">МАКС WPM</div><div class="pp-metric__val" id="ppMaxSpeed">—</div></div>
+        <div class="pp-metric"><div class="pp-metric__label" data-i18n="profile.metric_attempts">ПОПЫТКИ</div><div class="pp-metric__val" id="ppAttempts">0</div></div>
+        <div class="pp-metric"><div class="pp-metric__label" data-i18n="profile.metric_errors">ОШИБКИ</div><div class="pp-metric__val" id="ppErrors">0</div></div>
+        <div class="pp-metric"><div class="pp-metric__label" data-i18n="profile.metric_time">ВРЕМЯ</div><div class="pp-metric__val" id="ppTime">0м</div></div>
+    </section>
+
+    <!-- ─── Main 2-column grid ────────────────────────────────────── -->
+    <main class="pp-main">
+        <!-- Left: profile card -->
+        <aside class="pp-card pp-card--profile">
+            <div class="pp-pcard__portrait" id="ppPortrait"></div>
+            <div class="pp-pcard__name" id="ppName">—</div>
+            <div class="pp-pcard__role" id="ppRole">—</div>
+            <dl class="pp-pcard__list">
+                <div><dt data-i18n="profile.field_id">ID</dt><dd id="ppFieldId">—</dd></div>
+                <div><dt data-i18n="profile.field_gender">Пол</dt><dd id="ppFieldGender">—</dd></div>
+                <div><dt data-i18n="profile.field_age">Возрастная группа</dt><dd id="ppFieldAge">—</dd></div>
+                <div><dt data-i18n="profile.field_lang">Язык курса</dt><dd id="ppFieldLang">—</dd></div>
+                <div><dt data-i18n="profile.field_mentor">Наставник</dt><dd id="ppFieldMentor">—</dd></div>
+                <div><dt data-i18n="profile.field_registered">Дата регистрации</dt><dd id="ppFieldRegistered">—</dd></div>
+            </dl>
+            <a class="pp-pcard__edit" href="settings.html" data-i18n="profile.editBtn">✎ Редактировать</a>
+        </aside>
+
+        <!-- Right: tabs + content -->
+        <section class="pp-card pp-card--tabs">
+            <div class="pp-tabs" role="tablist">
+                <button type="button" class="pp-tab pp-tab--active" data-tab="profile" data-i18n="profile.tab_profile">Профиль</button>
+                <button type="button" class="pp-tab" data-tab="stats" data-i18n="profile.tab_stats">Статистика</button>
+                <button type="button" class="pp-tab" data-tab="certs" data-i18n="profile.tab_certs">Сертификаты</button>
+                <button type="button" class="pp-tab pp-tab--soon" data-tab="payments" data-i18n="profile.tab_payments">Оплаты</button>
+                <button type="button" class="pp-tab pp-tab--soon" data-tab="bonuses" data-i18n="profile.tab_bonuses">Бонусы<span class="pp-tab__badge">NEW</span></button>
+                <button type="button" class="pp-tab pp-tab--soon" data-tab="reviews" data-i18n="profile.tab_reviews">Отзывы</button>
+            </div>
+
+            <!-- Tab: Профиль (default active, inline-summary + ссылка на settings для правки) -->
+            <div class="pp-tabpanel pp-tabpanel--active" data-panel="profile">
+                <p class="pp-lead" data-i18n="profile.profileLead">Здесь — краткая сводка. Чтобы изменить имя, наставника, язык или тип клавиатуры — открой «Настройки».</p>
+                <div class="pp-grid-2">
+                    <div class="pp-info">
+                        <div class="pp-info__label" data-i18n="profile.info_keyboard">Клавиатура</div>
+                        <div class="pp-info__val" id="ppInfoKeyboard">—</div>
+                    </div>
+                    <div class="pp-info">
+                        <div class="pp-info__label" data-i18n="profile.info_layout">Раскладка</div>
+                        <div class="pp-info__val" id="ppInfoLayout">—</div>
+                    </div>
+                    <div class="pp-info">
+                        <div class="pp-info__label" data-i18n="profile.info_lessonsDone">Уроков пройдено</div>
+                        <div class="pp-info__val" id="ppInfoLessonsDone">0</div>
+                    </div>
+                    <div class="pp-info">
+                        <div class="pp-info__label" data-i18n="profile.info_streak">Серия дней</div>
+                        <div class="pp-info__val" id="ppInfoStreak">0</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tab: Статистика — bar-chart активности по дням + список курсов -->
+            <div class="pp-tabpanel" data-panel="stats" hidden>
+                <h3 class="pp-h3" data-i18n="profile.activity">Активность · последние 14 дней</h3>
+                <div class="pp-chart" id="ppChart"></div>
+                <h3 class="pp-h3 pp-h3--spaced" data-i18n="profile.courses">Курсы</h3>
+                <div class="pp-courses" id="ppCourses"></div>
+            </div>
+
+            <!-- Tab: Сертификаты — stub до окончания курса -->
+            <div class="pp-tabpanel" data-panel="certs" hidden>
+                <div class="pp-empty">
+                    <div class="pp-empty__icon">🏅</div>
+                    <h3 class="pp-empty__title" data-i18n="profile.certsTitle">Сертификат — после завершения курса</h3>
+                    <p class="pp-empty__text" data-i18n="profile.certsText">Когда вы пройдёте все 99 уроков с точностью ≥ 92% — здесь появится сертификат с QR-кодом и возможностью скачать PDF.</p>
+                    <div class="pp-empty__progress">
+                        <div class="pp-empty__progress-bar"><div class="pp-empty__progress-fill" id="ppCertProgress" style="width:0%"></div></div>
+                        <div class="pp-empty__progress-label" id="ppCertLabel">0 / 99</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tab: Оплаты — stub -->
+            <div class="pp-tabpanel" data-panel="payments" hidden>
+                <div class="pp-empty">
+                    <div class="pp-empty__icon">💳</div>
+                    <h3 class="pp-empty__title" data-i18n="profile.paymentsTitle">История платежей пока пуста</h3>
+                    <p class="pp-empty__text" data-i18n="profile.paymentsText">Здесь будут отображаться все ваши платежи и подписки. Сейчас вы используете бесплатный режим — оформите подписку, чтобы получить полный доступ.</p>
+                    <a class="pp-empty__cta" href="pricing.html" data-i18n="profile.paymentsCta">Посмотреть тарифы →</a>
+                </div>
+            </div>
+
+            <!-- Tab: Бонусы — stub -->
+            <div class="pp-tabpanel" data-panel="bonuses" hidden>
+                <div class="pp-empty">
+                    <div class="pp-empty__icon">🎁</div>
+                    <h3 class="pp-empty__title" data-i18n="profile.bonusesTitle">Бонусная программа — в разработке</h3>
+                    <p class="pp-empty__text" data-i18n="profile.bonusesText">Пригласи друга — получи месяц подписки бесплатно. Программа лояльности готовится к запуску.</p>
+                </div>
+            </div>
+
+            <!-- Tab: Отзывы — stub -->
+            <div class="pp-tabpanel" data-panel="reviews" hidden>
+                <div class="pp-empty">
+                    <div class="pp-empty__icon">💬</div>
+                    <h3 class="pp-empty__title" data-i18n="profile.reviewsTitle">Поделись опытом</h3>
+                    <p class="pp-empty__text" data-i18n="profile.reviewsText">Когда вы пройдёте 30+ уроков — мы попросим вас оставить отзыв и идеи для развития тренажёра.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- ─── JS ────────────────────────────────────────────────────── -->
+    <script src="assets/js/router-guard.js"></script>
+    <script src="config/settings.js"></script>
+    <script src="assets/js/portraits.js"></script>
+    <script src="assets/js/lesson-loader.js"></script>
+    <script src="assets/js/i18n.js"></script>
+    <script src="assets/js/profile.js"></script>
+</body>
+</html>

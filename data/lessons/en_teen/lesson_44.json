@@ -28,9 +28,30 @@
   "new_keys": [],
   "finger_focus": "All content classes mixed",
   "tips": [
-    "Letters + numbers + URLs + hashtags + mentions",
-    "Real teen social post density",
-    "Last warmup before final"
+    {
+      "type": "lead",
+      "text": "Letters + numbers + URLs + hashtags + mentions"
+    },
+    {
+      "type": "drop",
+      "text": "Real teen social post density"
+    },
+    {
+      "type": "exercise",
+      "target": "OMG the new album just dropped 🎵 #blessed — link in bio:",
+      "finger": "blue",
+      "hint": "All content classes mixed"
+    },
+    {
+      "type": "p",
+      "text": "Last warmup before final"
+    },
+    {
+      "type": "exercise",
+      "target": "spotify.com/album/2026. Tag @bestie if you're crying too 😭. Drop your fav track below!",
+      "finger": "green",
+      "hint": "All content classes mixed"
+    }
   ],
   "character_tips": {
     "anna": "Real teen social post. All character classes mixed.",

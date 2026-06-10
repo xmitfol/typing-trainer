@@ -20,9 +20,30 @@
   "new_keys": [],
   "finger_focus": "Headline rhythm",
   "tips": [
-    "Headlines = short, punchy, fact-rich",
-    "Capitals at sentence start — Shift practice",
-    "Each headline ends with period — clean break"
+    {
+      "type": "lead",
+      "text": "Headlines = short, punchy, fact-rich"
+    },
+    {
+      "type": "drop",
+      "text": "Capitals at sentence start — Shift practice"
+    },
+    {
+      "type": "exercise",
+      "target": "Tech giant announces layoffs. Stocks slip on weak data. New",
+      "finger": "purple",
+      "hint": "Headline rhythm"
+    },
+    {
+      "type": "p",
+      "text": "Each headline ends with period — clean break"
+    },
+    {
+      "type": "exercise",
+      "target": "album breaks streaming record. Climate deal signed in Geneva today.",
+      "finger": "purple",
+      "hint": "Headline rhythm"
+    }
   ],
   "character_tips": {
     "anna": "Headline style. Short, punchy, capitals + facts.",

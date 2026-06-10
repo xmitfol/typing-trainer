@@ -10,14 +10,68 @@
   "error_limit": 7,
   "text": "the quick brown fox jumps over the lazy dog and watches the sun rise above the city as morning begins",
   "text_sequence": [],
-  "keys_trained": ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", "Space"],
+  "keys_trained": [
+    "A",
+    "B",
+    "C",
+    "D",
+    "E",
+    "F",
+    "G",
+    "H",
+    "I",
+    "J",
+    "K",
+    "L",
+    "M",
+    "N",
+    "O",
+    "P",
+    "Q",
+    "R",
+    "S",
+    "T",
+    "U",
+    "V",
+    "W",
+    "X",
+    "Y",
+    "Z",
+    "Space"
+  ],
   "new_keys": [],
   "finger_focus": "Full alphabet — pure speed and accuracy",
   "tips": [
-    "Two classic pangrams + scene description",
-    "Keep wrists straight, fingers curved",
-    "Breathe — don't tense up at long words",
-    "Target 25 WPM with under 7 errors — graduation!"
+    {
+      "type": "lead",
+      "text": "Two classic pangrams + scene description"
+    },
+    {
+      "type": "drop",
+      "text": "Keep wrists straight, fingers curved"
+    },
+    {
+      "type": "exercise",
+      "target": "the quick brown fox jumps over the lazy dog and",
+      "finger": "blue",
+      "hint": "Full alphabet — pure speed and accuracy"
+    },
+    {
+      "type": "p",
+      "text": "Breathe — don't tense up at long words"
+    },
+    {
+      "type": "callout",
+      "icon": "💡",
+      "title": "Подсказка",
+      "text": "Target 25 WPM with under 7 errors — graduation!"
+    },
+    {
+      "type": "exercise",
+      "target": "watches the sun rise above the city as morning begins",
+      "finger": "green",
+      "hint": "Full alphabet — pure speed and accuracy"
+    }
   ],
   "character_tips": {
     "anna": "🎓 FINAL! You've completed the basic English alphabet course. Move on — learn punctuation and numbers!",

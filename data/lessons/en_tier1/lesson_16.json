@@ -10,14 +10,73 @@
   "error_limit": 5,
   "text": "yes, it works. she said, this is fine. then, we go. ready, set, type, and breathe.",
   "text_sequence": [],
-  "keys_trained": ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", ",", ".", "Space"],
-  "new_keys": [".", ","],
+  "keys_trained": [
+    "A",
+    "B",
+    "C",
+    "D",
+    "E",
+    "F",
+    "G",
+    "H",
+    "I",
+    "J",
+    "K",
+    "L",
+    "M",
+    "N",
+    "O",
+    "P",
+    "Q",
+    "R",
+    "S",
+    "T",
+    "U",
+    "V",
+    "W",
+    "X",
+    "Y",
+    "Z",
+    ",",
+    ".",
+    "Space"
+  ],
+  "new_keys": [
+    ".",
+    ","
+  ],
   "finger_focus": "Right ring (period .), right middle (comma ,)",
   "tips": [
-    "Period (.) — right ring finger, no shift needed",
-    "Comma (,) — right middle finger, bottom row",
-    "Always space AFTER punctuation, not before",
-    "Don't add extra spaces"
+    {
+      "type": "lead",
+      "text": "Period (.) — right ring finger, no shift needed"
+    },
+    {
+      "type": "drop",
+      "text": "Comma (,) — right middle finger, bottom row"
+    },
+    {
+      "type": "exercise",
+      "target": "yes, it works. she said, this is fine.",
+      "finger": "orange",
+      "hint": "Right ring (period .), right middle (comma ,)"
+    },
+    {
+      "type": "p",
+      "text": "Always space AFTER punctuation, not before"
+    },
+    {
+      "type": "callout",
+      "icon": "💡",
+      "title": "Подсказка",
+      "text": "Don't add extra spaces"
+    },
+    {
+      "type": "exercise",
+      "target": "then, we go. ready, set, type, and breathe.",
+      "finger": "pink",
+      "hint": "Right ring (period .), right middle (comma ,)"
+    }
   ],
   "character_tips": {
     "anna": "Punctuation lives on the bottom row. Period — ring finger, comma — middle.",

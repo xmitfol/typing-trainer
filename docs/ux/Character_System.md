@@ -564,22 +564,57 @@ const message = character.getMessage('lessonComplete', {
    }
    ```
 
-3. **Использование:**
+3. **Использование (актуальная интеграция):**
    ```javascript
-   const user = getUserProfile(); // {name: "Саша", character: "anna"}
-   const character = new CharacterSystem(user.character);
+   // task.js / lesson-page.js — character-system.js подключён <script>'ом
+   const mentorChar = window.characterSystem || new window.CharacterSystem();
+   await mentorChar.loadCharacter(profile.character);
 
-   // При начале урока
-   const message = character.getMessage('lessonStart', {name: user.name});
-   showTooltip(message); // "Привет, Саша! Готов к новому уроку? 💪"
+   // Старт упражнения → реплика в bubble
+   tipEl.textContent = mentorChar.getMessage('lessonStart', {
+       name: profile.name, level: lesson.title
+   });
+
+   // Превышен ½ лимита ошибок (one-shot per attempt)
+   if (!tooManyShown && errors > halfErrorLimit) {
+       tooManyShown = true;
+       tipEl.textContent = mentorChar.getMessage('tooManyErrors',
+           { name: profile.name, errors, limit: errorLimit });
+   }
+
+   // Завершение упражнения
+   tipEl.textContent = mentorChar.getMessage(
+       errors <= errorLimit ? 'lessonCompleteSuccess' : 'errorLimitExceeded',
+       { name, wpm, accuracy, errors, limit: errorLimit });
    ```
 
-### Где показывать фразы:
+### Где показываются фразы (актуальная реализация):
 
-1. **Toast notifications** — правый верхний угол, 3-5 сек
-2. **Status bar** — под текстовым редактором
-3. **Modal при завершении урока** — центр экрана
-4. **Приветствие при старте** — после онбординга
+Дизайн (`docs/design/full plan/design_handoff_full/reference/task/task.jsx` → `MentorBubble`)
+определяет наставника как **постоянный inline-компонент**, не как всплывающий toast.
+
+| Страница | Компонент | Что показывается | Когда обновляется |
+|----------|-----------|-------------------|-------------------|
+| `task.html` | `.mentor` bubble + portrait (top:-78, right:24, абсолютное позиционирование над `.task-card`) | `lessonStart` → `tooManyErrors` (one-shot) → `lessonCompleteSuccess` / `errorLimitExceeded` | На старте, при errors>½limit, при завершении |
+| `lesson.html` | `.lp-mentor` blockquote с портретом и quote | `lesson.character_tips[mentorId]` → `getMessage('lessonStart')` → generic fallback | На загрузке урока |
+| `dashboard.html`, `course.html` | — | Реплики наставника не показываются (по дизайну) | — |
+
+> **Изменение vs предыдущей версии:** ранее предполагался паттерн toast-в-углу
+> (`showToast`/`ToastManager`). Дизайн-handoff (`task.jsx` MentorBubble) задаёт inline-bubble
+> с речевым «хвостиком» к портрету. Реализация переведена на этот паттерн.
+> `ToastManager` остаётся для других уведомлений (achievement unlocks).
+
+### Приоритет источников реплики
+
+При наличии нескольких источников для одного слота:
+
+1. **`lesson.character_tips[mentorId]`** (если урок curated) — высший приоритет, voice-specific
+2. **`characterSystem.getMessage('lessonStart', {name, level})`** — динамическая, персонализирована
+3. **Generic fallback** в коде — последний рубеж
+
+Это правило применяется только к стартовой реплике. Реакции на состояние
+(`tooManyErrors` / `lessonCompleteSuccess` / `errorLimitExceeded`) всегда идут
+из `characterSystem.getMessage` — куратор урока их не определяет.
 
 ---
 
@@ -588,6 +623,7 @@ const message = character.getMessage('lessonComplete', {
 | Дата | Версия | Изменения | Автор |
 |------|--------|-----------|-------|
 | 2025-11-16 | 1.0 | Initial creation — 4 персонажа, библиотека фраз | Тимофей |
+| 2026-06-03 | 1.1 | Inline-bubble интегрирована в task.html/lesson.html; обновлены примеры использования; toast-паттерн помечен как deprecated для mentor-реплик | Клод |
 
 ---
 

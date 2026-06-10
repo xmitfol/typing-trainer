@@ -22,9 +22,30 @@
   "new_keys": [],
   "finger_focus": "Pre-final density",
   "tips": [
-    "All content classes",
-    "Real conversational writing",
-    "Last drill before the certificate"
+    {
+      "type": "lead",
+      "text": "All content classes"
+    },
+    {
+      "type": "drop",
+      "text": "Real conversational writing"
+    },
+    {
+      "type": "exercise",
+      "target": "I write stories, I count to 10, I love my family, and I have 3 pets named",
+      "finger": "purple",
+      "hint": "Pre-final density"
+    },
+    {
+      "type": "p",
+      "text": "Last drill before the certificate"
+    },
+    {
+      "type": "exercise",
+      "target": "Max, Coco, and Bear. My favorite color is red. My favorite food is pizza. What is yours?",
+      "finger": "purple",
+      "hint": "Pre-final density"
+    }
   ],
   "character_tips": {
     "anna": "Pre-final drill. Two lessons to certificate!",

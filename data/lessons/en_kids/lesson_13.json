@@ -18,9 +18,30 @@
   "new_keys": [],
   "finger_focus": "T and N",
   "tips": [
-    "T is left index UP",
-    "N is right index DOWN",
-    "\"the\" is the most common word in English"
+    {
+      "type": "lead",
+      "text": "T is left index UP"
+    },
+    {
+      "type": "drop",
+      "text": "N is right index DOWN"
+    },
+    {
+      "type": "exercise",
+      "target": "t t t n n n the the the an an",
+      "finger": "blue",
+      "hint": "T and N"
+    },
+    {
+      "type": "p",
+      "text": "\"the\" is the most common word in English"
+    },
+    {
+      "type": "exercise",
+      "target": "an in in in on on on not not not tan tan",
+      "finger": "green",
+      "hint": "T and N"
+    }
   ],
   "character_tips": {
     "anna": "T and N. \"The\" is used EVERYWHERE — type it lots!",

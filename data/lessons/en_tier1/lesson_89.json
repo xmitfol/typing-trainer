@@ -10,13 +10,44 @@
   "error_limit": 16,
   "text": "Q2 revenue reached 14.7 million dollars, a 22% increase over Q1 and a 38% jump year-over-year. North America led with 8.2 million; Europe contributed 4.5 million; APAC delivered the rest. Conversion rose to 4.1%, up from 3.6% last quarter. The trend supports our plan to expand the European sales team.",
   "text_sequence": [],
-  "keys_trained": ["A-Z", "0-9", "Space", ",", ".", ";", "-", "%", "Shift"],
+  "keys_trained": [
+    "A-Z",
+    "0-9",
+    "Space",
+    ",",
+    ".",
+    ";",
+    "-",
+    "%",
+    "Shift"
+  ],
   "new_keys": [],
   "finger_focus": "Analytical density + speed",
   "tips": [
-    "Analytical writing = dense facts + clear conclusions",
-    "Numbers and percentages mid-sentence test mixed-content speed",
-    "If 88 WPM is hard, drop to 80 and add accuracy"
+    {
+      "type": "lead",
+      "text": "Analytical writing = dense facts + clear conclusions"
+    },
+    {
+      "type": "drop",
+      "text": "Numbers and percentages mid-sentence test mixed-content speed"
+    },
+    {
+      "type": "exercise",
+      "target": "Q2 revenue reached 14.7 million dollars, a 22% increase over Q1 and a 38% jump year-over-year. North America led with 8.2 million; Europe contributed 4.5",
+      "finger": "purple",
+      "hint": "Analytical density + speed"
+    },
+    {
+      "type": "p",
+      "text": "If 88 WPM is hard, drop to 80 and add accuracy"
+    },
+    {
+      "type": "exercise",
+      "target": "million; APAC delivered the rest. Conversion rose to 4.1%, up from 3.6% last quarter. The trend supports our plan to expand the European sales team.",
+      "finger": "purple",
+      "hint": "Analytical density + speed"
+    }
   ],
   "character_tips": {
     "anna": "Analytical writing at 88 WPM. Finance and consulting live here.",

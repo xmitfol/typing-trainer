@@ -17,9 +17,30 @@
   "new_keys": [],
   "finger_focus": "Short post rhythm",
   "tips": [
-    "Twitter/X posts are short and punchy",
-    "No punctuation = pure word rhythm",
-    "Lowercase intentional — modern teen style"
+    {
+      "type": "lead",
+      "text": "Twitter/X posts are short and punchy"
+    },
+    {
+      "type": "drop",
+      "text": "No punctuation = pure word rhythm"
+    },
+    {
+      "type": "exercise",
+      "target": "ok but why is everyone sleeping on this. anyway just dropped my",
+      "finger": "blue",
+      "hint": "Short post rhythm"
+    },
+    {
+      "type": "p",
+      "text": "Lowercase intentional — modern teen style"
+    },
+    {
+      "type": "exercise",
+      "target": "new playlist — link in bio. fr fr go check it out.",
+      "finger": "green",
+      "hint": "Short post rhythm"
+    }
   ],
   "character_tips": {
     "anna": "Twitter rhythm. Short, punchy, lowercase intentional.",

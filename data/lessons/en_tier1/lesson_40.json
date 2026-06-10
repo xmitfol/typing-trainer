@@ -10,13 +10,50 @@
   "error_limit": 14,
   "text": "<h1>Welcome!</h1> <p>The site is <strong>open</strong> at https://my.app/start. Type {user: \"name\"} into the box. Press Enter.</p>",
   "text_sequence": [],
-  "keys_trained": ["A-Z", "0-9", "<", ">", "/", "=", "\"", "{", "}", ":", "!", ".", ",", "Space", "Shift"],
+  "keys_trained": [
+    "A-Z",
+    "0-9",
+    "<",
+    ">",
+    "/",
+    "=",
+    "\"",
+    "{",
+    "}",
+    ":",
+    "!",
+    ".",
+    ",",
+    "Space",
+    "Shift"
+  ],
   "new_keys": [],
   "finger_focus": "Markup + prose mix",
   "tips": [
-    "Real web content: tags + sentences",
-    "JSON-like data: {key: \"value\"}",
-    "URL inline with prose"
+    {
+      "type": "lead",
+      "text": "Real web content: tags + sentences"
+    },
+    {
+      "type": "drop",
+      "text": "JSON-like data: {key: \"value\"}"
+    },
+    {
+      "type": "exercise",
+      "target": "<h1>Welcome!</h1> <p>The site is <strong>open</strong> at https://my.app/start.",
+      "finger": "blue",
+      "hint": "Markup + prose mix"
+    },
+    {
+      "type": "p",
+      "text": "URL inline with prose"
+    },
+    {
+      "type": "exercise",
+      "target": "Type {user: \"name\"} into the box. Press Enter.</p>",
+      "finger": "green",
+      "hint": "Markup + prose mix"
+    }
   ],
   "character_tips": {
     "anna": "Web copy + tags + JSON — a typical webpage source.",

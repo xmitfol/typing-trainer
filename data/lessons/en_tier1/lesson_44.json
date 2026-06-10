@@ -10,13 +10,39 @@
   "error_limit": 18,
   "text": "Email: alex@work.com\nCode: if (x > 0) return x*2;\nNote: 80% of users (240/300) loved the update! \"Amazing,\" said Sam. Visit https://app.io for details.",
   "text_sequence": [],
-  "keys_trained": ["A-Z", "0-9", "all symbols", "Shift"],
+  "keys_trained": [
+    "A-Z",
+    "0-9",
+    "all symbols",
+    "Shift"
+  ],
   "new_keys": [],
   "finger_focus": "Everything trained so far",
   "tips": [
-    "200 chars across email/code/prose/URL — full Block 3 review",
-    "If you can type this at 32 WPM, you're ready for Block 4",
-    "Newlines (\\n) — press Enter when you see them"
+    {
+      "type": "lead",
+      "text": "200 chars across email/code/prose/URL — full Block 3 review"
+    },
+    {
+      "type": "drop",
+      "text": "If you can type this at 32 WPM, you're ready for Block 4"
+    },
+    {
+      "type": "exercise",
+      "target": "Email: alex@work.com\nCode: if (x > 0) return x*2;\nNote: 80% of users",
+      "finger": "blue",
+      "hint": "Everything trained so far"
+    },
+    {
+      "type": "p",
+      "text": "Newlines (\\n) — press Enter when you see them"
+    },
+    {
+      "type": "exercise",
+      "target": "(240/300) loved the update! \"Amazing,\" said Sam. Visit https://app.io for details.",
+      "finger": "green",
+      "hint": "Everything trained so far"
+    }
   ],
   "character_tips": {
     "anna": "Block 3 review — every keyboard skill in one paragraph.",

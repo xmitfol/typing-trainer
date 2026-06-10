@@ -19,9 +19,30 @@
   "new_keys": [],
   "finger_focus": "Left index finger finds F — anchor!",
   "tips": [
-    "F is your LEFT anchor — feel the bump under your finger",
-    "Always come back to F",
-    "Left hand is complete!"
+    {
+      "type": "lead",
+      "text": "F is your LEFT anchor — feel the bump under your finger"
+    },
+    {
+      "type": "drop",
+      "text": "Always come back to F"
+    },
+    {
+      "type": "exercise",
+      "target": "f f f f fa fa fa af af",
+      "finger": "blue",
+      "hint": "Left index finger finds F — anchor!"
+    },
+    {
+      "type": "p",
+      "text": "Left hand is complete!"
+    },
+    {
+      "type": "exercise",
+      "target": "af fad fad fad ass ass ass sad sad sad",
+      "finger": "green",
+      "hint": "Left index finger finds F — anchor!"
+    }
   ],
   "character_tips": {
     "anna": "F has a little bump. That's your anchor — always find it by feel 🌷",

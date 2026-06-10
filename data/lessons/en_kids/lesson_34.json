@@ -20,9 +20,30 @@
   "new_keys": [],
   "finger_focus": "Fairy tale rhythm",
   "tips": [
-    "Princess + dragon = classic fairy tale",
-    "Reversal: dragon scared of mice (funny!)",
-    "Picture the princess and her dragon"
+    {
+      "type": "lead",
+      "text": "Princess + dragon = classic fairy tale"
+    },
+    {
+      "type": "drop",
+      "text": "Reversal: dragon scared of mice (funny!)"
+    },
+    {
+      "type": "exercise",
+      "target": "Once there was a kind princess. She had a tiny pet dragon. The dragon",
+      "finger": "purple",
+      "hint": "Fairy tale rhythm"
+    },
+    {
+      "type": "p",
+      "text": "Picture the princess and her dragon"
+    },
+    {
+      "type": "exercise",
+      "target": "was scared of mice! The princess gave him hugs. The dragon felt brave again.",
+      "finger": "purple",
+      "hint": "Fairy tale rhythm"
+    }
   ],
   "character_tips": {
     "anna": "Fairy tale! Princess saves the dragon — fun reversal.",

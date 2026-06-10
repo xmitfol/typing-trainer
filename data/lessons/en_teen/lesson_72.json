@@ -20,9 +20,30 @@
   "new_keys": [],
   "finger_focus": "Literary rhythm at 94 WPM",
   "tips": [
-    "Long literary sentence at 94 WPM",
-    "Imagery + flow without breaks",
-    "Metronome at 94 BPM"
+    {
+      "type": "lead",
+      "text": "Long literary sentence at 94 WPM"
+    },
+    {
+      "type": "drop",
+      "text": "Imagery + flow without breaks"
+    },
+    {
+      "type": "exercise",
+      "target": "She walked down the long hallway in silence, past the closed doors and the photographs of people she had never",
+      "finger": "purple",
+      "hint": "Literary rhythm at 94 WPM"
+    },
+    {
+      "type": "p",
+      "text": "Metronome at 94 BPM"
+    },
+    {
+      "type": "exercise",
+      "target": "met. At the end of the corridor, the door to the garden stood slightly open, letting in the soft afternoon light.",
+      "finger": "purple",
+      "hint": "Literary rhythm at 94 WPM"
+    }
   ],
   "character_tips": {
     "anna": "Literary prose at 94 WPM. Beautiful and fast.",

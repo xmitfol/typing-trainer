@@ -10,13 +10,40 @@
   "error_limit": 12,
   "text": "The morning light slipped through the curtains and fell on the wooden desk. She poured herself a coffee, opened the laptop, and started writing the report that was due by noon. Outside, the city woke up.",
   "text_sequence": [],
-  "keys_trained": ["A-Z", "Space", ",", ".", "Shift"],
+  "keys_trained": [
+    "A-Z",
+    "Space",
+    ",",
+    ".",
+    "Shift"
+  ],
   "new_keys": [],
   "finger_focus": "Sustained natural prose",
   "tips": [
-    "Block 5 starts here — speed AND accuracy together",
-    "Real narrative prose has natural rhythm — find it",
-    "Don't slow down at commas — they're tempo, not stops"
+    {
+      "type": "lead",
+      "text": "Block 5 starts here — speed AND accuracy together"
+    },
+    {
+      "type": "drop",
+      "text": "Real narrative prose has natural rhythm — find it"
+    },
+    {
+      "type": "exercise",
+      "target": "The morning light slipped through the curtains and fell on the wooden desk. She poured herself a coffee,",
+      "finger": "purple",
+      "hint": "Sustained natural prose"
+    },
+    {
+      "type": "p",
+      "text": "Don't slow down at commas — they're tempo, not stops"
+    },
+    {
+      "type": "exercise",
+      "target": "opened the laptop, and started writing the report that was due by noon. Outside, the city woke up.",
+      "finger": "purple",
+      "hint": "Sustained natural prose"
+    }
   ],
   "character_tips": {
     "anna": "Block 5! From here we balance speed AND accuracy. Both must climb together.",

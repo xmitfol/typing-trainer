@@ -10,13 +10,40 @@
   "error_limit": 12,
   "text": "The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog. Pack my box with five dozen liquor jugs. Sphinx of black quartz, judge my vow.",
   "text_sequence": [],
-  "keys_trained": ["A-Z full", "Space", ".", ",", "Shift"],
+  "keys_trained": [
+    "A-Z full",
+    "Space",
+    ".",
+    ",",
+    "Shift"
+  ],
   "new_keys": [],
   "finger_focus": "Every letter at least once",
   "tips": [
-    "Pangrams use every letter — perfect speed measurement",
-    "The 'brown fox' pangram is the typing classic for a reason",
-    "If you can do this at 50+ WPM, you can type anything"
+    {
+      "type": "lead",
+      "text": "Pangrams use every letter — perfect speed measurement"
+    },
+    {
+      "type": "drop",
+      "text": "The 'brown fox' pangram is the typing classic for a reason"
+    },
+    {
+      "type": "exercise",
+      "target": "The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the",
+      "finger": "purple",
+      "hint": "Every letter at least once"
+    },
+    {
+      "type": "p",
+      "text": "If you can do this at 50+ WPM, you can type anything"
+    },
+    {
+      "type": "exercise",
+      "target": "lazy dog. Pack my box with five dozen liquor jugs. Sphinx of black quartz, judge my vow.",
+      "finger": "purple",
+      "hint": "Every letter at least once"
+    }
   ],
   "character_tips": {
     "anna": "Every letter, no exceptions. This is the universal speed benchmark.",

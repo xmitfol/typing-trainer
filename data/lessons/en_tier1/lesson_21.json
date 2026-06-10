@@ -10,14 +10,79 @@
   "error_limit": 6,
   "text": "note: this works; that does not. listen: be careful; the path is steep; we are close.",
   "text_sequence": [],
-  "keys_trained": ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", ":", ";", ",", ".", "!", "?", "'", "\"", "Space"],
-  "new_keys": [":", ";"],
+  "keys_trained": [
+    "A",
+    "B",
+    "C",
+    "D",
+    "E",
+    "F",
+    "G",
+    "H",
+    "I",
+    "J",
+    "K",
+    "L",
+    "M",
+    "N",
+    "O",
+    "P",
+    "Q",
+    "R",
+    "S",
+    "T",
+    "U",
+    "V",
+    "W",
+    "X",
+    "Y",
+    "Z",
+    ":",
+    ";",
+    ",",
+    ".",
+    "!",
+    "?",
+    "'",
+    "\"",
+    "Space"
+  ],
+  "new_keys": [
+    ":",
+    ";"
+  ],
   "finger_focus": "Right pinky to semicolon (; — home position) and colon (: Shift+;)",
   "tips": [
-    "Semicolon (;) is right on home row — right pinky, no Shift needed",
-    "Colon (:) is Shift + ; — right pinky for both",
-    "Use semicolon to link related thoughts: this; not that",
-    "Colon introduces lists or quotes: note: ..."
+    {
+      "type": "lead",
+      "text": "Semicolon (;) is right on home row — right pinky, no Shift needed"
+    },
+    {
+      "type": "drop",
+      "text": "Colon (:) is Shift + ; — right pinky for both"
+    },
+    {
+      "type": "exercise",
+      "target": "note: this works; that does not. listen: be",
+      "finger": "pink",
+      "hint": "Буквы: : ;"
+    },
+    {
+      "type": "p",
+      "text": "Use semicolon to link related thoughts: this; not that"
+    },
+    {
+      "type": "callout",
+      "icon": "💡",
+      "title": "Подсказка",
+      "text": "Colon introduces lists or quotes: note: ..."
+    },
+    {
+      "type": "exercise",
+      "target": "careful; the path is steep; we are close.",
+      "finger": "orange",
+      "hint": "Буквы: : ;"
+    }
   ],
   "character_tips": {
     "anna": "Semicolon links thoughts. Colon introduces. Both belong to the right pinky.",

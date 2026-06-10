@@ -10,13 +10,57 @@
   "error_limit": 4,
   "text": "we now then when know own one win two news any easy why see",
   "text_sequence": [],
-  "keys_trained": ["A", "D", "E", "F", "G", "H", "I", "J", "K", "L", "N", "O", "R", "S", "T", "U", "W", "Y", "Space"],
-  "new_keys": ["W", "N"],
+  "keys_trained": [
+    "A",
+    "D",
+    "E",
+    "F",
+    "G",
+    "H",
+    "I",
+    "J",
+    "K",
+    "L",
+    "N",
+    "O",
+    "R",
+    "S",
+    "T",
+    "U",
+    "W",
+    "Y",
+    "Space"
+  ],
+  "new_keys": [
+    "W",
+    "N"
+  ],
   "finger_focus": "W (top, left ring), N (home-bottom, right index)",
   "tips": [
-    "W sits above S — left ring reaches up",
-    "N sits below J — right index drops down-left",
-    "Words become real: we, when, now, one, two"
+    {
+      "type": "lead",
+      "text": "W sits above S — left ring reaches up"
+    },
+    {
+      "type": "drop",
+      "text": "N sits below J — right index drops down-left"
+    },
+    {
+      "type": "exercise",
+      "target": "we now then when know own one",
+      "finger": "orange",
+      "hint": "W (top, left ring), N (home-bottom, right index)"
+    },
+    {
+      "type": "p",
+      "text": "Words become real: we, when, now, one, two"
+    },
+    {
+      "type": "exercise",
+      "target": "win two news any easy why see",
+      "finger": "pink",
+      "hint": "W (top, left ring), N (home-bottom, right index)"
+    }
   ],
   "character_tips": {
     "anna": "W and N are mega-frequent. Words \"we\", \"when\", \"now\" — almost a conversation already.",

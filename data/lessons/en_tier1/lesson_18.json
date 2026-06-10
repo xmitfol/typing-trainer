@@ -10,13 +10,71 @@
   "error_limit": 6,
   "text": "it's a fact. don't worry. she said \"hello\" and smiled. that's the way it's done.",
   "text_sequence": [],
-  "keys_trained": ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", ",", ".", "!", "?", "'", "\"", "Space"],
-  "new_keys": ["'", "\""],
+  "keys_trained": [
+    "A",
+    "B",
+    "C",
+    "D",
+    "E",
+    "F",
+    "G",
+    "H",
+    "I",
+    "J",
+    "K",
+    "L",
+    "M",
+    "N",
+    "O",
+    "P",
+    "Q",
+    "R",
+    "S",
+    "T",
+    "U",
+    "V",
+    "W",
+    "X",
+    "Y",
+    "Z",
+    ",",
+    ".",
+    "!",
+    "?",
+    "'",
+    "\"",
+    "Space"
+  ],
+  "new_keys": [
+    "'",
+    "\""
+  ],
   "finger_focus": "Right pinky reaches to ' (next to ;), double quote = Shift + '",
   "tips": [
-    "Apostrophe (') is next to ; — right pinky",
-    "Double quote (\") = Shift + ' — pinky for both",
-    "Contractions don't have spaces: it's, don't, that's"
+    {
+      "type": "lead",
+      "text": "Apostrophe (') is next to ; — right pinky"
+    },
+    {
+      "type": "drop",
+      "text": "Double quote (\") = Shift + ' — pinky for both"
+    },
+    {
+      "type": "exercise",
+      "target": "it's a fact. don't worry. she said",
+      "finger": "pink",
+      "hint": "Буквы: ' \""
+    },
+    {
+      "type": "p",
+      "text": "Contractions don't have spaces: it's, don't, that's"
+    },
+    {
+      "type": "exercise",
+      "target": "\"hello\" and smiled. that's the way it's done.",
+      "finger": "orange",
+      "hint": "Буквы: ' \""
+    }
   ],
   "character_tips": {
     "anna": "Apostrophe makes contractions. Don't pause inside them — it's one fluid press.",

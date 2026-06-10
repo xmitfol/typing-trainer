@@ -10,13 +10,48 @@
   "error_limit": 7,
   "text": "wow! email@site.com #hashtag $100 dollars 50% off ! @ # $ % done !$@%# done",
   "text_sequence": [],
-  "keys_trained": ["A-Z", "0-9", "!", "@", "#", "$", "%", "Space"],
-  "new_keys": ["@", "#", "$", "%"],
+  "keys_trained": [
+    "A-Z",
+    "0-9",
+    "!",
+    "@",
+    "#",
+    "$",
+    "%",
+    "Space"
+  ],
+  "new_keys": [
+    "@",
+    "#",
+    "$",
+    "%"
+  ],
   "finger_focus": "Right Shift held by pinky; left hand types 1-5 with own pinky/ring/middle/index",
   "tips": [
-    "! = Shift+1, @ = Shift+2, # = Shift+3, $ = Shift+4, % = Shift+5",
-    "Hold right Shift with right pinky, then type with left hand",
-    "@ is for emails, # for hashtags/comments, $ for prices, % for percentages"
+    {
+      "type": "lead",
+      "text": "! = Shift+1, @ = Shift+2, # = Shift+3, $ = Shift+4, % = Shift+5"
+    },
+    {
+      "type": "drop",
+      "text": "Hold right Shift with right pinky, then type with left hand"
+    },
+    {
+      "type": "exercise",
+      "target": "wow! email@site.com #hashtag $100 dollars 50% off",
+      "finger": "pink",
+      "hint": "Буквы: @ # $ %"
+    },
+    {
+      "type": "p",
+      "text": "@ is for emails, # for hashtags/comments, $ for prices, % for percentages"
+    },
+    {
+      "type": "exercise",
+      "target": "! @ # $ % done !$@%# done",
+      "finger": "orange",
+      "hint": "Буквы: @ # $ %"
+    }
   ],
   "character_tips": {
     "anna": "Shift symbols on the left side use the right pinky for Shift. Opposite hand rule.",

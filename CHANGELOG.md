@@ -9,9 +9,70 @@
 
 ## [Unreleased]
 
-Следующая фаза работы — Phase 2 фичи из [docs/planning/PHASE_2_BACKLOG.md](docs/planning/PHASE_2_BACKLOG.md). Каждая — отдельный квартал работы.
+Параллельно с Phase 2 (бекенд) идёт **дизайн-апдейт** — 8-фазный handoff от дизайнера (`docs/design/update1/vanilla_handoff/`). Архитектура: vanilla JS + Web Components, без React/build-step.
 
-### Planned
+### Прогресс дизайн-апдейта (8 фаз — все открыты как PR)
+- ✅ **Phase 0+1 — Foundation + Keyboard Web Component** ([PR #15](https://github.com/xmitfol/typing-trainer/pull/15) merged) — `tokens.css`, `base.css`, `ui-primitives.js`, `portraits.js`, `<typing-keyboard>` с Shadow DOM
+- ✅ **Phase 2 — Onboarding redesign** ([PR #16](https://github.com/xmitfol/typing-trainer/pull/16), [#17](https://github.com/xmitfol/typing-trainer/pull/17) merged) — минимальный 3-секционный флоу, фикс focus-race
+- ✅ **Phase 3 — Landing page** ([PR #18](https://github.com/xmitfol/typing-trainer/pull/18) merged) — публичная маркетинг-страница
+- ✅ **Phase 4 — Dashboard** ([PR #20](https://github.com/xmitfol/typing-trainer/pull/20) open) — личный кабинет
+- ✅ **Phase 5 — Course Roadmap** ([PR #21](https://github.com/xmitfol/typing-trainer/pull/21) open) — список уроков с модулями
+- ✅ **Phase 6 — Lesson Reading** ([PR #22](https://github.com/xmitfol/typing-trainer/pull/22) open) — long-form чтение урока
+- ✅ **Phase 7 — Task Execution** ([PR #23](https://github.com/xmitfol/typing-trainer/pull/23) open) — typing-модал + success
+- ✅ **Phase 8 — Pricing** ([PR #24](https://github.com/xmitfol/typing-trainer/pull/24) open) — paywall + подписка + оплата (DEMO)
+
+### Added (Unreleased)
+- ✨ **MentorBubble интегрирован в task.html/lesson.html** (2026-06-03) — character-system.js подключён к обеим страницам, реплики наставника появляются в bubble по дизайну (`design_handoff_full/reference/task/task.jsx` → `MentorBubble`):
+  - `lessonStart` — на старте упражнения (приоритет: `lesson.character_tips[mentorId]` → `getMessage('lessonStart')` → generic)
+  - `tooManyErrors` — one-shot, когда `errors > ⌈error_limit/2⌉`
+  - `lessonCompleteSuccess` / `errorLimitExceeded` — на финише, по `errors vs error_limit`
+  - Сброс one-shot на `reset()` (повтор упражнения)
+  - Документация: [docs/ux/Character_System.md](docs/ux/Character_System.md) v1.1 — inline-bubble паттерн, toast deprecated для mentor-реплик
+
+### Fixed (Unreleased)
+- 🐛 **Boundary-конфликт тостов** ([PR #19](https://github.com/xmitfol/typing-trainer/pull/19) open) — `errorLimitExceeded` срабатывал при `errors >= limit`, а success — при `errors <= limit`. Юзер видел «попробуй ещё раз» + «молодец» на одном исходе. Ужесточил условие во время typing до `errors > limit`. `scripts/verify_e2e_lesson1.py` гейтит.
+
+### Shell assembly + полировка + клавиатура дизайнера (локальная ветка `integration/new-shell`, НЕ запушена)
+
+Поверх 8 фаз — единый поток приложения, навигация-фиксы, интеграция клавиатуры дизайнера. 14 коммитов:
+
+#### Сборка оболочки
+- `landing.html` → `index.html` (точка входа), `app.html` (старый движок) → удалён после интеграции клавиатуры
+- `onboarding.html` — отдельная standalone-страница (онбординг-overlay + редирект на dashboard по событию)
+- `assets/js/router-guard.js` — единый guard (~30 строк): protected без профиля → index; onboarding с профилем → dashboard
+- Прошивка навигации между всеми новыми страницами
+
+#### Навигация и линейная прогрессия
+- 🐛 `fix(nav)`: `task.html` — НЕ точка входа в урок; и dashboard, и course ведут на `lesson.html` (теория), оттуда «Открыть тренажёр» → `task.html`. Success-«Продолжить» → `lesson.html?lesson=N+1` (снова с теории)
+- ✨ Шорткат «Выполнить задание →» в топбаре lesson.html (быстрый повтор без прокрутки)
+- 🔒 Блокировка кнопки следующего урока на lesson.html пока текущий не пройден
+- 🐛 `fix(course)`: номера упражнений видны всегда (статус done/locked — отдельным значком слева, не подменяет номер); линейная прогрессия = доступен только первый непройденный
+- 🔒 Прямой URL на закрытый урок → экран-заглушка «Рановато для этого урока» с кнопками «Продолжить · урок N» и «Список уроков»
+
+#### Тренажёр / клавиатура дизайнера
+- ⌨️ Интеграция `<typing-keyboard>` Web Component из `docs/design/tasks/vanilla_handoff` — полная виртуальная ЙЦУКЕН с цветами пальцев, home-bump на А/О, split-Space на эргономике, классы layout/format
+- 🐛 `fix(task)`: word-wrap target — слова не рвутся по буквам (была «лит|ь»); `<span class="word">` nowrap + breakable spaces
+- ⌨️ Обновления клавиатуры от дизайнера:
+  - эргономика теперь полная (numpad+nav вертикально справа, не подрезается)
+  - `format="ansi|iso"` (L-образный Enter), `layout` 4 RU-раскладки (standard/phonetic/typewriter/mac)
+  - новая модель подсветки: блёклая база + яркая следующая со штриховкой
+- 💾 Персистентность настроек тулбара — в профиле сохраняются `keyboardType`, `keyboardLayout`, `fingerHint`, `keySound`, `metronome`, `taskZoom` (по запросу PO «запоминать»)
+- 🔧 Новый тулбар: подсветка пальцев (ВКЛ), звук/метроном (ВЫКЛ, красные точки), масштаб «A→A» с поповером ± шаг 10%, 70-150% — зум всей `.task-card` для слабовидящих
+- 👆 flashActive на ЛЮБОЙ клавише (Shift/Ctrl/Alt/Tab/Enter/Backspace/стрелки/F-keys) — палец виден; **Caps Lock индикатор** 🔒 над клавиатурой через `e.getModifierState`
+
+#### Регрессионные тесты
+- `verify_navigation_flow.py` 18/18 — landing → onboarding → dashboard → course → lesson → task → success
+- `verify_task_keyboard.py` 25/25 — клавиатура, эргономика, модификаторы, Caps badge, layout, URL-lock
+- `verify_kb_prefs.py` 17/17 — персистентность всех настроек тулбара
+- `verify_course_gating.py` 11/11, `verify_lesson_gating.py` 10/10, `verify_lesson_url_lock.py` 12/12
+- `verify_all_pages_smoke.py` — smoke по всем страницам
+
+### Открытые вопросы PO
+- ⚠️ **Цены**: `pricing.js` использует 490/890₽ + «Семейный», а `docs/planning/MVP_PRD.md` — 299/399₽ без Family. Нужно решение какие канонические.
+- **Старые verify-скрипты** (`verify_v02_smoke.py`, `verify_age_routing.py`, `verify_user_flow_local.py`) ссылаются на удалённый `#welcomeModal` и старый поток — нужно обновить или удалить.
+- **Click мышью по виртуальной клавиатуре** — отложено (display-only сейчас); полезно для touch-устройств.
+
+### Planned (Phase 2 backend, отдельный поток)
 - **P0:** Backend + accounts + multi-device sync (~6-8 недель)
 - **P0:** Analytics / telemetry (~3-4 недели)
 - **P1:** Tournament / multiplayer mode (~8-10 недель)

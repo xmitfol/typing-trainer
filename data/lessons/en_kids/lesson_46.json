@@ -21,9 +21,30 @@
   "new_keys": [],
   "finger_focus": "All content classes mixed",
   "tips": [
-    "Numbers + words flowing",
-    "Multiple sentence types",
-    "All you've learned, all at once"
+    {
+      "type": "lead",
+      "text": "Numbers + words flowing"
+    },
+    {
+      "type": "drop",
+      "text": "Multiple sentence types"
+    },
+    {
+      "type": "exercise",
+      "target": "I have 4 pets, 12 books, and 8 best friends. My grandma is 65. She makes",
+      "finger": "purple",
+      "hint": "All content classes mixed"
+    },
+    {
+      "type": "p",
+      "text": "All you've learned, all at once"
+    },
+    {
+      "type": "exercise",
+      "target": "24 cookies every Sunday at 3 in the afternoon. Life is full of numbers and good things!",
+      "finger": "purple",
+      "hint": "All content classes mixed"
+    }
   ],
   "character_tips": {
     "anna": "Numbers and words flowing together. Real life!",

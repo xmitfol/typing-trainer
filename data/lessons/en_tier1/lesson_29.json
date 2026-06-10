@@ -10,13 +10,74 @@
   "error_limit": 9,
   "text": "on 25 may 2026, we spent 150 dollars on 3 books and 7 pens. order 42 takes 5 days. the year is 2026.",
   "text_sequence": [],
-  "keys_trained": ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", ".", ",", "Space"],
+  "keys_trained": [
+    "A",
+    "B",
+    "C",
+    "D",
+    "E",
+    "F",
+    "G",
+    "H",
+    "I",
+    "J",
+    "K",
+    "L",
+    "M",
+    "N",
+    "O",
+    "P",
+    "Q",
+    "R",
+    "S",
+    "T",
+    "U",
+    "V",
+    "W",
+    "X",
+    "Y",
+    "Z",
+    "0",
+    "1",
+    "2",
+    "3",
+    "4",
+    "5",
+    "6",
+    "7",
+    "8",
+    "9",
+    ".",
+    ",",
+    "Space"
+  ],
   "new_keys": [],
   "finger_focus": "Numbers + letters mixed — real-world context",
   "tips": [
-    "Numbers in sentences require switching between digit row and letters",
-    "Dates and prices are common typing scenarios",
-    "Spaces between number and unit: 25 may, 150 dollars"
+    {
+      "type": "lead",
+      "text": "Numbers in sentences require switching between digit row and letters"
+    },
+    {
+      "type": "drop",
+      "text": "Dates and prices are common typing scenarios"
+    },
+    {
+      "type": "exercise",
+      "target": "on 25 may 2026, we spent 150 dollars on 3 books",
+      "finger": "blue",
+      "hint": "Numbers + letters mixed — real-world context"
+    },
+    {
+      "type": "p",
+      "text": "Spaces between number and unit: 25 may, 150 dollars"
+    },
+    {
+      "type": "exercise",
+      "target": "and 7 pens. order 42 takes 5 days. the year is 2026.",
+      "finger": "green",
+      "hint": "Numbers + letters mixed — real-world context"
+    }
   ],
   "character_tips": {
     "anna": "Numbers in context — this is real life typing. Reports, invoices, dates.",

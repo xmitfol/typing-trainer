@@ -10,13 +10,68 @@
   "error_limit": 9,
   "text": "we work hard, study every day, and never give up. \"do we?\" she asked. \"yes!\" they said. it's a good life, and we share it with friends.",
   "text_sequence": [],
-  "keys_trained": ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", ",", ".", "!", "?", "'", "\"", "Space"],
+  "keys_trained": [
+    "A",
+    "B",
+    "C",
+    "D",
+    "E",
+    "F",
+    "G",
+    "H",
+    "I",
+    "J",
+    "K",
+    "L",
+    "M",
+    "N",
+    "O",
+    "P",
+    "Q",
+    "R",
+    "S",
+    "T",
+    "U",
+    "V",
+    "W",
+    "X",
+    "Y",
+    "Z",
+    ",",
+    ".",
+    "!",
+    "?",
+    "'",
+    "\"",
+    "Space"
+  ],
   "new_keys": [],
   "finger_focus": "Everything — full paragraph endurance",
   "tips": [
-    "Longest text so far — 130 chars with 7+ punctuation marks",
-    "If you slow down on punctuation, that's normal. Speed comes with practice",
-    "20% of Block 2 done — numbers and symbols come next"
+    {
+      "type": "lead",
+      "text": "Longest text so far — 130 chars with 7+ punctuation marks"
+    },
+    {
+      "type": "drop",
+      "text": "If you slow down on punctuation, that's normal. Speed comes with practice"
+    },
+    {
+      "type": "exercise",
+      "target": "we work hard, study every day, and never give up. \"do we?\" she",
+      "finger": "blue",
+      "hint": "Everything — full paragraph endurance"
+    },
+    {
+      "type": "p",
+      "text": "20% of Block 2 done — numbers and symbols come next"
+    },
+    {
+      "type": "exercise",
+      "target": "asked. \"yes!\" they said. it's a good life, and we share it with friends.",
+      "finger": "green",
+      "hint": "Everything — full paragraph endurance"
+    }
   ],
   "character_tips": {
     "anna": "Block 2 mid-point! You can already write real paragraphs. Numbers and symbols are next.",

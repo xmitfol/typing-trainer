@@ -19,9 +19,30 @@
   "new_keys": [],
   "finger_focus": "Full alphabet rhythm",
   "tips": [
-    "All 26 letters in natural sentences",
-    "Pangram + extra prose = full keyboard test",
-    "Metronome at 33 BPM — hold steady"
+    {
+      "type": "lead",
+      "text": "All 26 letters in natural sentences"
+    },
+    {
+      "type": "drop",
+      "text": "Pangram + extra prose = full keyboard test"
+    },
+    {
+      "type": "exercise",
+      "target": "the quick fox jumps over a lazy dog; my brave aunt",
+      "finger": "blue",
+      "hint": "Full alphabet rhythm"
+    },
+    {
+      "type": "p",
+      "text": "Metronome at 33 BPM — hold steady"
+    },
+    {
+      "type": "exercise",
+      "target": "and gentle uncle keep happy plants in the warm kitchen window today",
+      "finger": "green",
+      "hint": "Full alphabet rhythm"
+    }
   ],
   "character_tips": {
     "anna": "Every letter in flow. Find a rhythm and don't break it.",

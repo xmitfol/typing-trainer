@@ -3,23 +3,37 @@
 **Статус:** документация (не план реализации). Каждый пункт — отдельный квартал работы.
 
 **Created:** 2026-05-26 (после v0.1-mvp)
+**Updated:** 2026-06-02 — после дизайн-апдейта (8 фаз) + сборки оболочки + клавиатуры дизайнера
 **Owner:** Иван (PO), Claude-архитектор + AI-команда агентов
+
+---
+
+## Что изменилось за месяц (контекст для backlog)
+
+После v0.1-mvp + v0.2-parity появилось много frontend-работы:
+- **Phase 0-3 уже в master:** дизайн-система, `<typing-keyboard>` Web Component, новый онбординг, лендинг
+- **Phase 4-8 как PR #20-24** (открыты, ждут мержа): dashboard, course, lesson (теория), task (тренажёр на новой клавиатуре), pricing
+- **Локальная `integration/new-shell`** (16 коммитов поверх): сшита навигация landing→onboarding→dashboard→course→lesson→task, router-guard, линейная прогрессия с locked-screen, persist всех настроек тулбара, Caps Lock индикатор и flashActive на модификаторах
+- **Старый движок** (`app.html` + main.js/keyboard.js) удалён — заменён task.html + Web Component
+- **Pricing UI** полностью построен в `pricing.html` (DEMO без бекенда)
+
+Из-за этого приоритеты Phase 2 переосмыслены — см. отметки ⚠️/✅ в каждом пункте.
 
 ---
 
 ## Контекст
 
-После v0.1-mvp ([PR #1](https://github.com/xmitfol/typing-trainer/pull/1)) у нас стабильная клиентская SaaS на 274 уроках в 5 курсах с локальным прогрессом. Все мелкие фиксы и polish-задачи закрыты (PR #2-#7).
+После v0.1-mvp + v0.2-parity у нас стабильная клиентская SaaS на 459 уроках в 7 курсах (RU+EN, adult+teen+kids) с локальным прогрессом и полностью спроектированным UI (8 фаз дизайн-апдейта). Все мелкие фиксы и polish-задачи закрыты.
 
 Phase 2 — это качественный скачок: переход от standalone-приложения к SaaS-платформе с пользовательскими аккаунтами, telemetry, и multiplayer. Каждый пункт ниже самостоятелен и может быть начат независимо, но между ними есть зависимости (например, **Tournament требует Backend**).
 
 ---
 
-## P0 — Backend + accounts + multi-device sync
+## P0 — Backend + accounts + multi-device sync ⚠️ ВСЁ ЕЩЁ БЛОКЕР
 
 **Размер:** ~6-8 недель (или 1 квартал с командой 2-3 разработчика)
 
-**Почему важно:** localStorage-only model = пользователь теряет прогресс при смене устройства/браузера. Это блокер для серьёзного SaaS.
+**Почему важно:** localStorage-only model = пользователь теряет прогресс при смене устройства/браузера. Это блокер для серьёзного SaaS. **Дополнительно:** в новом потоке (`onboarding.html` отдельная страница, `router-guard.js` использует localStorage профиля как proxy для «пользователь авторизован»). Когда появится реальный auth — `getUser()` в router-guard меняется на серверную проверку, остальное не трогается.
 
 **Что нужно:**
 - API backend (Node.js/Ruby/Go — выбрать) с endpoints: auth, users, lesson-progress, certifications, profile
@@ -108,22 +122,27 @@ Phase 2 — это качественный скачок: переход от st
 
 ---
 
-## P1 — Mobile touch-keyboard layout
+## P1 — Mobile touch-keyboard layout 🟢 МОЖНО ДЕЛАТЬ ЛОКАЛЬНО (frontend-only)
 
-**Размер:** ~4-5 недель
+**Размер:** ~4-5 недель (сократилось — уже есть `<typing-keyboard>` Web Component, нужно только touch-режим и адаптив)
 
 **Почему важно:** ~50% web-traffic — mobile. Сейчас сайт работает на mobile, но без virtual keyboard на экране — юзер использует системную touch-keyboard, что не соответствует training-сценарию.
 
+**Текущее состояние:**
+- `<typing-keyboard>` уже есть в 3 типах (classic/laptop/ergonomic), Shadow DOM, реактивные атрибуты
+- Виртуальная клавиатура **display-only** — клик/тап мышью/пальцем не подключен (отмечено в верификации)
+- task.js использует скрытый `#capture <input>` для перехвата физических keydown — на мобильных это вызывает системную клавиатуру (нежелательно для тренажёра)
+
 **Что нужно:**
-- Дизайн: touch-friendly keyboard layout (key size > 40x40px на mobile)
-- Адаптивный layout: split keyboard для tablets (landscape), single для phones (portrait)
-- Native input handling: touch events vs keyboard events
-- New `keyboardType: 'mobile'` в onboarding (опционально — авто-detect через mediaquery)
-- Lesson UI: показ виртуальной клавы поверх native keyboard (или замена native через `inputmode="none"`)
-- Тестирование на iOS Safari, Android Chrome (минимум)
+- Подключить click/touchstart на `.key` внутри `<typing-keyboard>` Shadow DOM → диспатчить synthetic KeyboardEvent на `#capture`
+- `inputmode="none"` на `#capture` чтобы не вылазила системная клавиатура на touch-устройствах
+- Респонсив-юниты: `unit` адаптивно, либо `transform: scale()` обёртки под ширину
+- Опционально: новый `keyboardType: 'mobile'` (упрощённый компактный layout)
+- Тестирование на iOS Safari, Android Chrome
 
 **Зависимости:**
 - Нет блокеров; работает с current frontend stack
+- Самый «созревший» из Phase 2 — много уже сделано
 
 **Стейкхолдеры:**
 - Юля (Frontend) — implementation
@@ -138,11 +157,11 @@ Phase 2 — это качественный скачок: переход от st
 
 ---
 
-## P2 — Full UI localization (i18n)
+## P2 — Full UI localization (i18n) 🟢 МОЖНО ДЕЛАТЬ ЛОКАЛЬНО — ОБЪЁМ ВЫРОС
 
-**Размер:** ~3-4 недели
+**Размер:** ~4-5 недель (вырос — все новые страницы Phase 4-8 + сборка добавили строк; теперь ~300-400 строк к локализации)
 
-**Почему важно:** PR #7 локализовал только tier-labels. Остальной UI (заголовки, кнопки, welcome-сообщения, character-tips) Russian-only. Если хотим английских юзеров — нужна полная локализация.
+**Почему важно:** PR #7 локализовал только tier-labels. Остальной UI (новые dashboard/course/lesson/task/pricing) — Russian-only. profile.language = ru/en уже сохраняется, но не используется для UI text. Если хотим английских юзеров — нужна полная локализация.
 
 **Что нужно:**
 - i18n framework: i18next, FormatJS, или custom (для project size — custom OK)
@@ -168,25 +187,42 @@ Phase 2 — это качественный скачок: переход от st
 
 ---
 
-## P3 — Дополнительные mvp+1 идеи (low priority, не критично для phase 2)
+## P3 — Дополнительные mvp+1 идеи
 
-### Lesson Builder UI
+### Lesson Builder UI  🟢 frontend-only
 **Размер:** ~2 недели
-Позволить юзерам/teachers создавать собственные кастомные уроки. Использует existing JSON schema.
+Позволить юзерам/teachers создавать собственные кастомные уроки. Использует existing JSON schema. Сохранять в localStorage (или Backend если есть).
 
-### AI typing tutor (LLM integration)
+### AI typing tutor (LLM integration)  🔴 нужен Backend + LLM API
 **Размер:** ~4 недели
 Анализ паттернов ошибок юзера через LLM → персонализированные drill-recommendations.
 Зависит от Backend (нужен event history). Ася (AI/ML) — design.
 
-### Premium tier / monetization
-**Размер:** ~3-4 недели (после Backend)
-Stripe integration, premium content (advanced courses, AI tutor unlock), pricing page.
-Зависит от Backend + Analytics. Марина (Marketing) — pricing strategy.
+### Premium tier / monetization  ⚠️ UI готов, не хватает только бекенда
+**Размер:** ~2-3 недели (после Backend) — **сократилось**
+- ✅ Pricing UI готов в `pricing.html` (3 view'а: paywall + subscription modal + payment step, всё в DEMO-режиме)
+- ✅ Прайс-калькулятор работает (5 периодов × 3 плана с правильными скидками)
+- Что осталось: реальный платёжный шлюз (Stripe/ЮКасса), привязка к аккаунту, paywall-триггер на lesson 6 для free-юзеров
+- **Цены канонизированы 2026-06-02:** Полный 490₽/мес, Семейный 890₽/мес (см. assets/js/pricing.js)
+- Марина (Marketing) — финальная pricing strategy / промо
 
-### Achievements / badges system
-**Размер:** ~2 недели
-Расширение certification system. Master Plan уже описывает: 🔥 Speed Demon, 🎯 Sniper, ⚡ Lightning Fingers, 🏆 Champion, 📚 Bookworm.
+### Achievements / badges system  🟢 КАРКАС УЖЕ ЕСТЬ
+**Размер:** ~1-2 недели (сократилось)
+- ✅ Дашборд имеет секцию «Достижения» с 6 бейджами (Первый урок / 7 дней подряд / 40 зн/мин / 95% точность / Половина курса / Завершить курс) — логика unlock'а уже привязана к lessonProgress + history
+- Что осталось: расширить набор бейджей (Master Plan описывает 🔥 Speed Demon, 🎯 Sniper, ⚡ Lightning Fingers, 🏆 Champion, 📚 Bookworm), сделать страницу/модал «все достижения», unlock-анимации/тосты
+- Pure frontend, без бекенда
+
+### Settings page  🟢 frontend-only (новый пункт)
+**Размер:** ~1 неделя
+- Сейчас «Настройки» в dashboard profile menu — placeholder («СКОРО»). Тип/раскладка/звук/метроном/зум меняются только из toolbar тренажёра. Юзер не может поменять профиль/наставника/язык интерфейса вне онбординга.
+- Что нужно: отдельная `settings.html` — name/gender/audience/mentor + язык интерфейса + дефолты клавиатуры. Чтение/запись `profile`. Кнопка «Сбросить прогресс».
+- Закрывает placeholder в профиль-меню.
+
+### Click мышью / touch по виртуальной клавиатуре  🟢 (вынесено сюда из верификации)
+**Размер:** ~3-5 дней
+- Подключить click/touchstart на `.key` в Shadow DOM `<typing-keyboard>` → dispatchEvent KeyboardEvent на `#capture` с правильным `key`+`code`
+- Без `inputmode="none"` (это уже Mobile keyboard item) — просто для desktop click
+- Перекрывается с **Mobile touch-keyboard** (P1) — можно сделать частью того пункта
 
 ---
 
@@ -199,14 +235,30 @@ Stripe integration, premium content (advanced courses, AI tutor unlock), pricing
 
 ---
 
+## Что можно делать ПРЯМО СЕЙЧАС (без бекенда)
+
+Сводка по статусам — что можно двигать локально пока ждём Backend:
+
+| Пункт | Размер | Готовность | Зависимости |
+|---|---|---|---|
+| **Mobile touch-keyboard** | 4-5 нед | компонент уже есть, нужен touch-режим + адаптив | нет |
+| **Click мышью по on-screen клавише** | 3-5 дней | подмножество предыдущего | нет |
+| **Achievements expansion** | 1-2 нед | каркас на дашборде уже есть, расширить | нет |
+| **Settings page** | 1 нед | закрывает placeholder в профиль-меню | нет |
+| **Full UI i18n** | 4-5 нед | profile.language уже есть, нужны locale-файлы | нет |
+| **Lesson Builder UI** | 2 нед | JSON schema есть, нужно UI | нет |
+
+🔴 **Блокировано Backend'ом:** Accounts/sync, Analytics, Tournament, AI tutor, реальный платёжный шлюз для Premium.
+
 ## Когда стартует Phase 2
 
-Решение PO. Сейчас репо в стабильном state v0.1-mvp. Phase 2 фичи требуют:
+Решение PO. Сейчас репо в стабильном state v0.2-parity + дизайн-апдейт (16 локальных коммитов в `integration/new-shell`). Phase 2 фичи требуют:
 1. Customer validation: реально ли пользователям нужен tournament/multiplayer? Полина может провести интервью с current users.
 2. Resource allocation: какие из агентов команды доступны (Алекс/Борис/Дима для Backend; Юля для Mobile)
 3. Funding: backend hosting + Stripe + monitoring инфраструктура — операционные расходы
 
 См. также:
 - [Мастер-план системы курсов](Мастер-план%20системы%20курсов.md) — изначальная контент-дорожная карта
-- [MVP_PRD.md](MVP_PRD.md) — оригинальный PRD
+- [MVP_PRD.md](MVP_PRD.md) — оригинальный PRD (цены обновлены 2026-06-02 под дизайнерскую модель)
 - [PR #1 description](../../docs/.sessions/pr1_description.md) — что было сделано в MVP
+- [design_handoff_implementation.md](../.sessions/design_handoff_implementation.md) — хронология Phase 0-8 + сборка + клавиатура

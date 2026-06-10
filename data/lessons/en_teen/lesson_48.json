@@ -17,9 +17,30 @@
   "new_keys": [],
   "finger_focus": "Bigram speed",
   "tips": [
-    "These bigrams = 20% of all English",
-    "Each pair = ONE motion, not two",
-    "If a pair feels slow, drill it 10x"
+    {
+      "type": "lead",
+      "text": "These bigrams = 20% of all English"
+    },
+    {
+      "type": "drop",
+      "text": "Each pair = ONE motion, not two"
+    },
+    {
+      "type": "exercise",
+      "target": "th in er an re or at en nd te he as on of",
+      "finger": "purple",
+      "hint": "Bigram speed"
+    },
+    {
+      "type": "p",
+      "text": "If a pair feels slow, drill it 10x"
+    },
+    {
+      "type": "exercise",
+      "target": "nt to ti is it ar st al de be ng wh ch ed",
+      "finger": "purple",
+      "hint": "Bigram speed"
+    }
   ],
   "character_tips": {
     "anna": "Bigrams are speed building blocks. Pair = motion.",

@@ -24,10 +24,36 @@
   "new_keys": [],
   "finger_focus": "Teen mastery comprehensive exam",
   "tips": [
-    "🎓 TEEN COURSE FINAL — 95 WPM, 350 chars",
-    "Pass at 60+ WPM = Gold cert, 80+ = Platinum",
-    "After this you are CERTIFIED teen typist",
-    "Type slowly if you must — accuracy gates cert level"
+    {
+      "type": "lead",
+      "text": "🎓 TEEN COURSE FINAL — 95 WPM, 350 chars"
+    },
+    {
+      "type": "drop",
+      "text": "Pass at 60+ WPM = Gold cert, 80+ = Platinum"
+    },
+    {
+      "type": "exercise",
+      "target": "Seventy-five lessons ago, the keyboard was a puzzle. Today, it's an extension of your thinking. You can write essays in minutes, send messages faster than you can speak, and keep",
+      "finger": "purple",
+      "hint": "Teen mastery comprehensive exam"
+    },
+    {
+      "type": "p",
+      "text": "After this you are CERTIFIED teen typist"
+    },
+    {
+      "type": "callout",
+      "icon": "💡",
+      "title": "Подсказка",
+      "text": "Type slowly if you must — accuracy gates cert level"
+    },
+    {
+      "type": "exercise",
+      "target": "up with any deadline. This final passage is the gate — long, dense, mixed content at 95 WPM. Pass it, and the Teen Mastery certificate is yours. Type with care.",
+      "finger": "purple",
+      "hint": "Teen mastery comprehensive exam"
+    }
   ],
   "character_tips": {
     "anna": "🎓🏆 TEEN FINAL. 75 lessons led here. Type with care — certificate is one paragraph away.",

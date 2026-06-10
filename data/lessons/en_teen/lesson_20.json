@@ -19,9 +19,30 @@
   "new_keys": [],
   "finger_focus": "Right bottom + frequent letters",
   "tips": [
-    "N and M = right index + middle finger DOWN",
-    "Most common bottom-row letters",
-    "All 26 letters under your fingers now"
+    {
+      "type": "lead",
+      "text": "N and M = right index + middle finger DOWN"
+    },
+    {
+      "type": "drop",
+      "text": "Most common bottom-row letters"
+    },
+    {
+      "type": "exercise",
+      "target": "now man and number money name come name",
+      "finger": "blue",
+      "hint": "Right bottom + frequent letters"
+    },
+    {
+      "type": "p",
+      "text": "All 26 letters under your fingers now"
+    },
+    {
+      "type": "exercise",
+      "target": "common manual ninja announce mention amount among nominate",
+      "finger": "green",
+      "hint": "Right bottom + frequent letters"
+    }
   ],
   "character_tips": {
     "anna": "N and M finish the alphabet. Every letter at your speed now.",

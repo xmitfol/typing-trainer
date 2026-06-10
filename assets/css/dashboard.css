@@ -1,0 +1,519 @@
+/* dashboard.css — Phase 4: dashboard layout.
+ * Scoped under .dashboard-page. Uses tokens.css. */
+
+.dashboard-page {
+    font-family: var(--font-ui);
+    background: var(--bg);
+    color: var(--ink);
+    min-height: 100vh;
+    -webkit-font-smoothing: antialiased;
+}
+.dashboard-page *, .dashboard-page *::before, .dashboard-page *::after { box-sizing: border-box; }
+.dashboard-page a { color: inherit; text-decoration: none; }
+
+/* ─── Header ────────────────────────────────────────────────────────────── */
+.dh-header {
+    position: sticky; top: 0; z-index: 10;
+    background: rgba(245, 244, 240, 0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--divider);
+    padding: 14px 32px;
+    display: flex; align-items: center; gap: 28px;
+}
+.dh-logo { display: flex; align-items: center; gap: 10px; }
+.dh-logo__mark {
+    width: 32px; height: 32px; border-radius: 8px;
+    background: var(--brand-grad);
+    display: grid; place-items: center;
+    color: #fff;
+    font-family: var(--font-mono);
+    font-weight: 700; font-size: 13px;
+    box-shadow: 0 3px 10px rgba(116,185,255,0.3);
+}
+.dh-logo__name { font-weight: 800; font-size: 15px; letter-spacing: -0.01em; }
+
+.dh-nav { display: flex; gap: 4px; margin-left: 12px; }
+.dh-nav__item {
+    padding: 8px 14px; border-radius: 8px;
+    color: var(--sub);
+    font-size: 13.5px; font-weight: 500;
+}
+.dh-nav__item--active {
+    background: rgba(0,0,0,0.05);
+    color: var(--ink);
+    font-weight: 700;
+}
+.dh-nav__item:hover { color: var(--ink); }
+
+.dh-spacer { flex: 1; }
+
+/* Language switcher */
+.dh-lang-wrap { position: relative; }
+.dh-lang-btn {
+    display: flex; align-items: center; gap: 8px;
+    background: var(--surface);
+    border: 1px solid var(--divider);
+    border-radius: 10px;
+    padding: 8px 12px;
+    cursor: pointer;
+    font-family: var(--font-ui);
+    box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+}
+.dh-lang-btn__flag {
+    font-family: var(--font-mono);
+    font-size: 10px; font-weight: 700;
+    letter-spacing: 0.5px;
+    padding: 2px 6px;
+    border-radius: 3px;
+    background: rgba(0,0,0,0.06);
+    color: var(--sub);
+}
+.dh-lang-btn[data-lang="ru"] .dh-lang-btn__flag { background: #fef3c7; color: #92400e; }
+.dh-lang-btn[data-lang="en"] .dh-lang-btn__flag { background: #dbeafe; color: #1e40af; }
+.dh-lang-btn__layout {
+    font-size: 11px; color: var(--faint);
+    font-family: var(--font-mono);
+}
+.dh-lang-menu {
+    position: absolute; top: calc(100% + 6px); right: 0;
+    width: 280px;
+    background: var(--surface);
+    border: 1px solid var(--divider);
+    border-radius: 12px;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.12);
+    padding: 6px;
+    z-index: 20;
+    display: none;
+}
+.dh-lang-menu.open { display: block; }
+.dh-lang-menu__head {
+    padding: 10px 12px 6px;
+    font-size: 11px; color: var(--faint);
+    font-family: var(--font-mono);
+    letter-spacing: 0.06em;
+}
+.dh-lang-item {
+    width: 100%; display: flex; align-items: center; gap: 10px;
+    padding: 10px 12px;
+    background: transparent; border: none;
+    border-radius: 8px; cursor: pointer; text-align: left;
+    font-family: var(--font-ui);
+}
+.dh-lang-item:hover { background: rgba(0,0,0,0.04); }
+.dh-lang-item--active { background: var(--accent-bg); }
+.dh-lang-item__badge {
+    font-family: var(--font-mono);
+    font-size: 10px; font-weight: 700;
+    padding: 3px 7px; border-radius: 4px;
+    background: rgba(0,0,0,0.06);
+    color: var(--sub);
+}
+.dh-lang-item__name {
+    font-size: 13.5px; font-weight: 600; color: var(--ink);
+}
+.dh-lang-item--active .dh-lang-item__name { font-weight: 700; }
+.dh-lang-item__layout {
+    font-family: var(--font-mono); color: var(--faint);
+    font-weight: 500; font-size: 11px; margin-left: 4px;
+}
+.dh-lang-item__sub {
+    font-size: 11px; color: var(--faint);
+    font-family: var(--font-mono);
+}
+.dh-lang-item__check {
+    width: 18px; height: 18px; border-radius: 50%;
+    background: var(--accent);
+    display: grid; place-items: center;
+}
+.dh-lang-menu__divider { height: 1px; background: var(--divider); margin: 6px 0; }
+.dh-lang-menu__add {
+    width: 100%; padding: 10px 12px; background: transparent;
+    border: none; border-radius: 8px; cursor: pointer; text-align: left;
+    font-size: 13px; color: var(--accent); font-weight: 600;
+    font-family: var(--font-ui);
+}
+
+/* Profile pill */
+.dh-profile-wrap { position: relative; }
+.dh-profile-btn {
+    display: flex; align-items: center; gap: 10px;
+    background: var(--surface);
+    border: 1px solid var(--divider);
+    border-radius: 999px;
+    padding: 4px 14px 4px 4px;
+    cursor: pointer;
+    font-family: var(--font-ui);
+    box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+}
+.dh-profile-btn__name { font-size: 13.5px; font-weight: 600; color: var(--ink); }
+.dh-profile-btn svg { opacity: 0.5; }
+
+.dh-profile-menu {
+    position: absolute; top: calc(100% + 6px); right: 0;
+    width: 240px;
+    background: var(--surface);
+    border: 1px solid var(--divider);
+    border-radius: 12px;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.12);
+    padding: 6px;
+    z-index: 20;
+    display: none;
+}
+.dh-profile-menu.open { display: block; }
+.dh-profile-menu__head {
+    padding: 12px 14px 10px;
+    border-bottom: 1px solid var(--divider);
+    margin-bottom: 6px;
+}
+.dh-profile-menu__name { font-size: 14px; font-weight: 700; color: var(--ink); }
+.dh-profile-menu__sub  {
+    font-size: 12px; color: var(--faint); font-family: var(--font-mono);
+}
+.dh-profile-menu__item {
+    width: 100%; display: flex; align-items: center; gap: 10px;
+    padding: 10px 12px;
+    background: transparent; border: none;
+    font-size: 13.5px; font-weight: 500; color: var(--ink);
+    border-radius: 8px; cursor: pointer;
+    text-align: left; font-family: var(--font-ui);
+}
+.dh-profile-menu__item:hover { background: rgba(0,0,0,0.04); }
+.dh-profile-menu__icon {
+    font-family: var(--font-mono); color: var(--faint);
+    font-size: 14px; width: 16px;
+}
+
+/* ─── Welcome strip ──────────────────────────────────────────────────────── */
+.dh-welcome {
+    padding: 28px 32px 12px;
+    max-width: 1280px; margin: 0 auto;
+}
+.dh-welcome__inner {
+    display: flex; justify-content: space-between; align-items: flex-end;
+}
+.dh-welcome__date {
+    font-family: var(--font-mono); font-size: 11px;
+    color: var(--faint); letter-spacing: 0.06em; margin-bottom: 6px;
+}
+.dh-welcome__h1 {
+    margin: 0; font-size: 32px; font-weight: 800;
+    letter-spacing: -0.02em;
+}
+.dh-welcome__name {
+    background: var(--brand-grad);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+.dh-streak {
+    display: flex; align-items: center; gap: 8px;
+    padding: 8px 14px;
+    background: #fef3c7; border: 1px solid #fde68a;
+    border-radius: 999px;
+    font-family: var(--font-mono); font-size: 12.5px; font-weight: 700;
+    color: #92400e;
+}
+
+/* ─── Main grid ──────────────────────────────────────────────────────────── */
+.dh-main {
+    padding: 8px 32px 60px;
+    max-width: 1280px; margin: 0 auto;
+    display: grid;
+    grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
+    gap: 20px;
+}
+.dh-col { display: flex; flex-direction: column; gap: 20px; }
+
+/* ─── Course card ────────────────────────────────────────────────────────── */
+.dh-course {
+    background: var(--surface);
+    border: 1px solid var(--divider);
+    border-radius: 20px;
+    padding: 28px;
+    position: relative; overflow: hidden;
+}
+.dh-course__swatch {
+    position: absolute; top: -60px; right: -60px;
+    width: 240px; height: 240px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(116,185,255,0.13) 0%, transparent 70%);
+    pointer-events: none;
+}
+.dh-course__inner { position: relative; }
+.dh-course__hd {
+    display: flex; align-items: flex-start; justify-content: space-between;
+    margin-bottom: 18px;
+}
+.dh-course__label {
+    font-size: 11px; color: var(--faint);
+    font-family: var(--font-mono); letter-spacing: 0.06em;
+    margin-bottom: 6px;
+}
+.dh-course__title-row {
+    display: flex; align-items: center; gap: 10px;
+    margin-bottom: 6px;
+}
+.dh-course__title-row h2 {
+    margin: 0; font-size: 26px; font-weight: 800;
+    letter-spacing: -0.02em;
+}
+.dh-course__lang-chip {
+    font-size: 10px; font-family: var(--font-mono); font-weight: 700;
+    padding: 3px 8px; border-radius: 999px;
+    background: var(--accent-bg); color: var(--accent);
+    letter-spacing: 0.04em;
+}
+.dh-course__sub { font-size: 13.5px; color: var(--sub); }
+.dh-course__pct {
+    text-align: right;
+    font-family: var(--font-mono); font-weight: 800; font-size: 32px;
+    color: var(--ink); letter-spacing: -0.02em;
+}
+.dh-course__pct-sub {
+    font-size: 11.5px; color: var(--faint);
+    font-family: var(--font-mono);
+}
+.dh-course__bar {
+    height: 8px; background: var(--divider);
+    border-radius: 999px; margin-bottom: 22px; overflow: hidden;
+}
+.dh-course__bar-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--f-blue) 0%, var(--f-purple) 100%);
+    border-radius: 999px;
+    box-shadow: 0 0 12px rgba(116,185,255,0.5);
+}
+.dh-course__next {
+    background: linear-gradient(135deg, #fbf9f3 0%, #f5f4f0 100%);
+    border: 1px solid var(--divider);
+    border-radius: 14px;
+    padding: 18px;
+    display: flex; align-items: center; gap: 16px;
+}
+.dh-course__next-num {
+    width: 56px; height: 56px; border-radius: 12px;
+    background: var(--brand-grad);
+    display: grid; place-items: center;
+    color: #fff;
+    font-family: var(--font-mono); font-weight: 800; font-size: 18px;
+}
+.dh-course__next-info { flex: 1; }
+.dh-course__next-label {
+    font-size: 11px; color: var(--faint);
+    font-family: var(--font-mono); letter-spacing: 0.06em;
+}
+.dh-course__next-title { font-size: 17px; font-weight: 700; margin-top: 2px; }
+.dh-course__next-meta { font-size: 12.5px; color: var(--sub); margin-top: 2px; }
+.dh-course__continue {
+    padding: 12px 22px;
+    background: var(--accent); color: #fff;
+    border: none; border-radius: 11px;
+    font-size: 14px; font-weight: 700; font-family: var(--font-ui);
+    cursor: pointer;
+    box-shadow: 0 6px 14px rgba(59,130,246,0.3);
+    text-decoration: none;
+    display: inline-flex; align-items: center; gap: 6px;
+}
+.dh-course__continue:hover { transform: translateY(-1px); }
+
+/* ─── Lesson list ────────────────────────────────────────────────────────── */
+.dh-card {
+    background: var(--surface);
+    border: 1px solid var(--divider);
+    border-radius: 18px;
+    padding: 24px;
+}
+.dh-card__hd {
+    display: flex; align-items: baseline; justify-content: space-between;
+    margin-bottom: 16px;
+}
+.dh-card__hd h3 { margin: 0; font-size: 17px; font-weight: 700; }
+.dh-card__link {
+    font-size: 12px; color: var(--accent); font-weight: 600;
+    font-family: var(--font-mono);
+}
+
+.dh-lessons { display: flex; flex-direction: column; gap: 6px; }
+.dh-lesson {
+    display: flex; align-items: center; gap: 14px;
+    padding: 12px 14px;
+    border-radius: 12px;
+    transition: all 0.15s ease;
+    border: 1px solid transparent;
+}
+.dh-lesson--next {
+    background: var(--accent-bg);
+    border-color: var(--accent);
+}
+.dh-lesson--locked { opacity: 0.5; }
+.dh-lesson__num {
+    width: 36px; height: 36px; border-radius: 9px;
+    display: grid; place-items: center;
+    color: #fff;
+    font-family: var(--font-mono); font-weight: 700; font-size: 13px;
+    flex-shrink: 0;
+}
+.dh-lesson__num--done { background: var(--success); }
+.dh-lesson__num--next-pink   { background: var(--f-pink); }
+.dh-lesson__num--next-green  { background: var(--f-green); }
+.dh-lesson__num--next-blue   { background: var(--f-blue); }
+.dh-lesson__num--next-indigo { background: var(--f-indigo); }
+.dh-lesson__num--locked { background: var(--divider); color: var(--sub); }
+.dh-lesson__info { flex: 1; min-width: 0; }
+.dh-lesson__title { font-size: 14px; font-weight: 600; color: var(--ink); }
+.dh-lesson--next .dh-lesson__title { font-weight: 700; }
+.dh-lesson__now-chip {
+    margin-left: 8px;
+    font-size: 10px; font-family: var(--font-mono); font-weight: 700;
+    color: var(--accent); letter-spacing: 0.04em;
+}
+.dh-lesson__meta {
+    font-size: 11.5px; color: var(--sub);
+    font-family: var(--font-mono); margin-top: 2px;
+}
+.dh-lesson__meta--locked { color: var(--faint); }
+.dh-lesson__start {
+    padding: 7px 14px;
+    background: var(--accent); color: #fff;
+    border: none; border-radius: 8px;
+    font-size: 12px; font-weight: 700; font-family: var(--font-ui);
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-flex; align-items: center; gap: 4px;
+}
+
+/* ─── Quick actions ──────────────────────────────────────────────────────── */
+.dh-qa { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+.dh-qa__card {
+    background: var(--surface);
+    border: 1px solid var(--divider);
+    border-radius: 14px;
+    padding: 16px 18px;
+    text-align: left;
+    cursor: pointer;
+    font-family: var(--font-ui);
+    display: flex; align-items: center; gap: 14px;
+}
+.dh-qa__card:hover { transform: translateY(-2px); }
+.dh-qa__icon {
+    width: 40px; height: 40px; border-radius: 10px;
+    display: grid; place-items: center;
+    font-size: 22px;
+    flex-shrink: 0;
+}
+.dh-qa__icon--orange { background: rgba(253,203,110,0.13); }
+.dh-qa__icon--green  { background: rgba(0,184,148,0.13); }
+.dh-qa__icon--blue   { background: rgba(116,185,255,0.13); }
+.dh-qa__icon--purple { background: rgba(162,155,254,0.13); }
+.dh-qa__label { font-size: 13.5px; font-weight: 700; color: var(--ink); }
+.dh-qa__sub   { font-size: 11.5px; color: var(--sub); }
+
+/* ─── Mentor card ────────────────────────────────────────────────────────── */
+.dh-mentor {
+    background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+    border: 1px solid #fde68a;
+    border-radius: 18px;
+    padding: 20px;
+    display: flex; align-items: center; gap: 14px;
+}
+.dh-mentor__portrait { flex-shrink: 0; }
+.dh-mentor__role {
+    font-size: 11px; color: #92400e;
+    font-family: var(--font-mono);
+    letter-spacing: 0.06em; font-weight: 700;
+}
+.dh-mentor__text {
+    font-size: 13.5px; color: #451a03;
+    line-height: 1.4; margin-top: 4px;
+}
+
+/* ─── Stats ──────────────────────────────────────────────────────────────── */
+.dh-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.dh-stat {
+    padding: 12px 14px;
+    background: var(--bg);
+    border-radius: 10px;
+}
+.dh-stat__label {
+    font-size: 11px; color: var(--faint);
+    font-family: var(--font-mono);
+    letter-spacing: 0.04em; margin-bottom: 4px;
+}
+.dh-stat__row { display: flex; align-items: baseline; gap: 4px; }
+.dh-stat__val {
+    font-size: 24px; font-weight: 800;
+    font-family: var(--font-mono); letter-spacing: -0.02em;
+}
+.dh-stat__unit { font-size: 11px; color: var(--sub); font-family: var(--font-mono); }
+.dh-stat__trend {
+    margin-left: auto;
+    font-size: 10.5px; font-weight: 700;
+    color: var(--success); font-family: var(--font-mono);
+}
+.dh-stat__trend[data-dir="down"] { color: var(--error); }
+
+/* ─── Achievements ───────────────────────────────────────────────────────── */
+.dh-ach__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+.dh-ach__item {
+    padding: 14px 12px;
+    border-radius: 12px;
+    text-align: center;
+    border: 1px solid transparent;
+}
+.dh-ach__item--earned {
+    background: var(--bg);
+    border-color: var(--divider);
+}
+.dh-ach__item:not(.dh-ach__item--earned) { opacity: 0.55; }
+.dh-ach__icon { font-size: 28px; margin-bottom: 8px; }
+.dh-ach__item:not(.dh-ach__item--earned) .dh-ach__icon { filter: grayscale(1); }
+.dh-ach__label {
+    font-size: 11px; font-weight: 600; color: var(--ink);
+    line-height: 1.3;
+}
+.dh-ach__bar {
+    margin-top: 6px; height: 3px; background: var(--divider);
+    border-radius: 999px; overflow: hidden;
+}
+.dh-ach__bar-fill { height: 100%; background: var(--accent); }
+
+/* ─── «Скоро» badge для нереализованных placeholder'ов ────────────────────── */
+.dh-soon {
+    position: relative;
+    opacity: 0.55;
+    pointer-events: none;
+    cursor: default;
+}
+.dh-soon::after {
+    content: 'СКОРО';
+    margin-left: 6px;
+    padding: 1px 6px;
+    border-radius: 4px;
+    background: rgba(0,0,0,0.08);
+    color: var(--sub);
+    font-family: var(--font-mono);
+    font-size: 9px; font-weight: 700;
+    letter-spacing: 0.06em;
+    vertical-align: middle;
+}
+/* На QA-карточках badge абсолютно позиционирован сверху-справа */
+.dh-qa__card.dh-soon { opacity: 0.6; }
+.dh-qa__card.dh-soon::after {
+    position: absolute; top: 8px; right: 10px; margin: 0;
+}
+
+/* ─── Responsive ─────────────────────────────────────────────────────────── */
+@media (max-width: 960px) {
+    .dh-main { grid-template-columns: 1fr; }
+    .dh-nav { display: none; }
+    .dh-qa { grid-template-columns: 1fr 1fr; }
+    .dh-ach__grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 540px) {
+    .dh-header { padding: 12px 18px; gap: 14px; }
+    .dh-welcome, .dh-main { padding-left: 18px; padding-right: 18px; }
+    .dh-course { padding: 20px; }
+    .dh-course__next { flex-direction: column; align-items: flex-start; gap: 12px; }
+    .dh-course__continue { width: 100%; justify-content: center; }
+    .dh-qa { grid-template-columns: 1fr; }
+}
