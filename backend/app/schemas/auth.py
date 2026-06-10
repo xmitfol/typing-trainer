@@ -44,6 +44,20 @@ class SignupRequest(CaptchaSolution):
     language: Language = "ru"
 
 
+class SigninRequest(BaseModel):
+    """POST /auth/signin body.
+
+    Поля captcha_* — опциональны: требуются только если сервер вернул
+    403 CAPTCHA_REQUIRED (после серии неудачных попыток с этого IP).
+    """
+
+    email: EmailStr
+    password: str
+    captcha_challenge: str | None = None
+    captcha_signature: str | None = None
+    captcha_nonce: str | None = None
+
+
 class ChallengeResponse(BaseModel):
     """GET /auth/challenge response (ADR-006)."""
 

@@ -4,15 +4,23 @@
 Бизнес-логика — в services/auth_service.py.
 """
 
+from uuid import UUID
+
 import structlog
-from fastapi import APIRouter, HTTPException, Request, Response, status
+from fastapi import APIRouter, Cookie, HTTPException, Request, Response, status
+from jose import JWTError
 
 from app.config import get_settings
 from app.core.captcha import issue_challenge, verify_captcha
-from app.core.exceptions import EmailTakenError
-from app.core.security import create_access_token, create_refresh_token
+from app.core.exceptions import EmailTakenError, InvalidCredentialsError
+from app.core.security import create_access_token, create_refresh_token, decode_token
 from app.deps import DbSession, RedisClient
-from app.schemas.auth import ChallengeResponse, SignupRequest, UserPublic
+from app.schemas.auth import (
+    ChallengeResponse,
+    SigninRequest,
+    SignupRequest,
+    UserPublic,
+)
 from app.services import auth_service
 
 logger = structlog.get_logger(__name__)
@@ -21,6 +29,21 @@ router = APIRouter()
 
 ACCESS_COOKIE = "access_token"
 REFRESH_COOKIE = "refresh_token"
+
+# Redis-ключ отозванных refresh-jti (ротация = one-time-use refresh).
+REVOKED_PREFIX = "refresh:revoked:"
+
+# Conditional-captcha порог: после стольких неудачных signin с одного IP за час
+# требуем PoW (security spec §2 / ADR-006).
+SIGNIN_CAPTCHA_THRESHOLD = 3
+SIGNIN_FAIL_TTL = 3600
+
+
+def _captcha_failed() -> HTTPException:
+    return HTTPException(
+        status.HTTP_403_FORBIDDEN,
+        detail={"code": "CAPTCHA_FAILED", "message": "Проверка не пройдена"},
+    )
 
 
 def _set_auth_cookies(response: Response, user_id) -> None:
@@ -46,6 +69,19 @@ def _set_auth_cookies(response: Response, user_id) -> None:
         refresh_token,
         max_age=settings.jwt_refresh_ttl_days * 24 * 3600,
         **common,
+    )
+
+
+def _clear_auth_cookies(response: Response) -> None:
+    settings = get_settings()
+    for name in (ACCESS_COOKIE, REFRESH_COOKIE):
+        response.delete_cookie(name, domain=settings.cookie_domain, path="/")
+
+
+def _token_invalid() -> HTTPException:
+    return HTTPException(
+        status.HTTP_401_UNAUTHORIZED,
+        detail={"code": "TOKEN_INVALID", "message": "Сессия истекла, войдите снова"},
     )
 
 
@@ -81,10 +117,7 @@ async def signup(
     # Слой 1: honeypot — непустое скрытое поле = бот
     if payload.honeypot:
         logger.info("signup.honeypot_tripped", ip=ip)
-        raise HTTPException(
-            status.HTTP_403_FORBIDDEN,
-            detail={"code": "CAPTCHA_FAILED", "message": "Проверка не пройдена"},
-        )
+        raise _captcha_failed()
 
     # Слой 2: proof-of-work + replay-guard
     ok = await verify_captcha(
@@ -95,10 +128,7 @@ async def signup(
         redis=redis,
     )
     if not ok:
-        raise HTTPException(
-            status.HTTP_403_FORBIDDEN,
-            detail={"code": "CAPTCHA_FAILED", "message": "Проверка не пройдена"},
-        )
+        raise _captcha_failed()
 
     try:
         user = await auth_service.signup(session, payload)
@@ -110,3 +140,122 @@ async def signup(
 
     _set_auth_cookies(response, user.id)
     return UserPublic.model_validate(user)
+
+
+@router.post(
+    "/signin",
+    response_model=UserPublic,
+    summary="Вход по email/password",
+)
+async def signin(
+    payload: SigninRequest,
+    request: Request,
+    response: Response,
+    session: DbSession,
+    redis: RedisClient,
+) -> UserPublic:
+    """Логин → httpOnly cookies. Anti-timing: одинаковый 401 для любой ошибки.
+
+    Conditional-captcha: после SIGNIN_CAPTCHA_THRESHOLD неудач с одного IP за
+    час требуется PoW (403 CAPTCHA_REQUIRED → клиент берёт challenge и повторяет).
+    """
+    ip = request.client.host if request.client else None
+    fail_key = f"signin:fail:{ip}"
+    fail_count = int(await redis.get(fail_key) or 0)
+
+    # Порог неудач превышен — требуем капчу
+    if fail_count >= SIGNIN_CAPTCHA_THRESHOLD:
+        if not (payload.captcha_challenge and payload.captcha_signature and payload.captcha_nonce):
+            raise HTTPException(
+                status.HTTP_403_FORBIDDEN,
+                detail={"code": "CAPTCHA_REQUIRED", "message": "Пройдите проверку"},
+            )
+        ok = await verify_captcha(
+            payload.captcha_challenge,
+            payload.captcha_signature,
+            payload.captcha_nonce,
+            ip=ip,
+            redis=redis,
+        )
+        if not ok:
+            raise _captcha_failed()
+
+    try:
+        user = await auth_service.signin(session, payload.email, payload.password)
+    except InvalidCredentialsError as e:
+        # Считаем неудачу по IP (для conditional-captcha), TTL час
+        new_count = await redis.incr(fail_key)
+        if new_count == 1:
+            await redis.expire(fail_key, SIGNIN_FAIL_TTL)
+        raise HTTPException(
+            status.HTTP_401_UNAUTHORIZED,
+            detail={"code": e.code, "message": e.message},
+        ) from e
+
+    await redis.delete(fail_key)  # успех — сбрасываем счётчик
+    _set_auth_cookies(response, user.id)
+    return UserPublic.model_validate(user)
+
+
+@router.post(
+    "/refresh",
+    response_model=UserPublic,
+    summary="Обновить access-токен по refresh-cookie",
+)
+async def refresh(
+    response: Response,
+    session: DbSession,
+    redis: RedisClient,
+    refresh_token: str | None = Cookie(default=None),
+) -> UserPublic:
+    """Ротация: старый refresh-jti отзывается, выдаётся новая пара токенов.
+
+    Повторное использование уже ротированного токена → 401 (jti в blocklist'е).
+    """
+    if not refresh_token:
+        raise _token_invalid()
+    try:
+        claims = decode_token(refresh_token, "refresh")
+    except JWTError:
+        raise _token_invalid() from None
+
+    jti = claims["jti"]
+    if await redis.get(REVOKED_PREFIX + jti):
+        raise _token_invalid()  # уже использован/отозван
+
+    user = await auth_service.get_active_user(session, UUID(claims["sub"]))
+    if user is None:
+        raise _token_invalid()
+
+    # Отзываем старый jti (TTL = срок жизни refresh), выдаём новую пару
+    settings = get_settings()
+    await redis.set(
+        REVOKED_PREFIX + jti, "1", ex=settings.jwt_refresh_ttl_days * 24 * 3600
+    )
+    _set_auth_cookies(response, user.id)
+    return UserPublic.model_validate(user)
+
+
+@router.post(
+    "/signout",
+    status_code=status.HTTP_204_NO_CONTENT,
+    summary="Выход — очистка cookies + отзыв refresh-токена",
+)
+async def signout(
+    response: Response,
+    redis: RedisClient,
+    refresh_token: str | None = Cookie(default=None),
+) -> None:
+    """Чистит auth-cookies и отзывает текущий refresh-jti."""
+    if refresh_token:
+        try:
+            claims = decode_token(refresh_token, "refresh")
+            settings = get_settings()
+            await redis.set(
+                REVOKED_PREFIX + claims["jti"],
+                "1",
+                ex=settings.jwt_refresh_ttl_days * 24 * 3600,
+            )
+        except JWTError:
+            pass  # битый токен — просто чистим cookies
+    _clear_auth_cookies(response)

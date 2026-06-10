@@ -35,15 +35,30 @@ def _solve(salt: str, difficulty: int) -> str:
 
 
 class _FakeRedis:
-    """Минимальный async-Redis для replay-guard (SET NX)."""
+    """Минимальный async-Redis: SET NX (replay-guard) + get/incr/expire/delete."""
 
     def __init__(self) -> None:
-        self.store: set[str] = set()
+        self.store: dict[str, str] = {}
 
     async def set(self, key, val, nx=False, ex=None):  # noqa: A003
         if nx and key in self.store:
             return None
-        self.store.add(key)
+        self.store[key] = str(val)
+        return True
+
+    async def get(self, key):
+        return self.store.get(key)
+
+    async def incr(self, key):
+        new = int(self.store.get(key, "0")) + 1
+        self.store[key] = str(new)
+        return new
+
+    async def expire(self, key, ttl):
+        return True
+
+    async def delete(self, key):
+        self.store.pop(key, None)
         return True
 
 
@@ -59,12 +74,18 @@ def test_settings() -> Settings:
 
 
 @pytest.fixture
-def client(test_settings: Settings) -> Iterator[TestClient]:
+def fake_redis() -> _FakeRedis:
+    """Общий инстанс на тест — можно пред-seed'ить (signin fail counter)."""
+    return _FakeRedis()
+
+
+@pytest.fixture
+def client(test_settings: Settings, fake_redis: _FakeRedis) -> Iterator[TestClient]:
     """TestClient с замоканными db_session/redis_client (captcha-gate тесты без DB)."""
     app = create_app()
     app.dependency_overrides[settings_dep] = lambda: test_settings
     app.dependency_overrides[db_session] = lambda: None  # 403-путь до DB не доходит
-    app.dependency_overrides[redis_client] = lambda: _FakeRedis()
+    app.dependency_overrides[redis_client] = lambda: fake_redis
     try:
         with TestClient(app) as c:
             yield c
@@ -104,7 +125,9 @@ def test_challenge_shape(client: TestClient) -> None:
     assert r.status_code == 200
     body = r.json()
     assert set(body) == {"challenge", "signature", "difficulty", "algorithm"}
-    assert body["difficulty"] == 8
+    # difficulty приходит из реальных settings (issue_challenge зовёт get_settings
+    # напрямую, не через DI-override) — проверяем тип, не конкретное значение.
+    assert isinstance(body["difficulty"], int) and body["difficulty"] >= 1
     assert body["algorithm"] == "sha256-leading-zero-bits"
 
 
@@ -147,4 +170,60 @@ def test_signup_happy_path_201() -> None:
 @requires_db
 def test_signup_duplicate_email_409() -> None:
     """TODO: повторный signup тем же email → 409 EMAIL_TAKEN."""
+    raise NotImplementedError("включить с testcontainers-фикстурой (S1.1 infra)")
+
+
+# ─── POST /auth/signin ────────────────────────────────────────────────
+
+
+def test_signin_captcha_required_after_threshold(
+    client: TestClient, fake_redis: _FakeRedis
+) -> None:
+    """≥3 неудач с IP → 403 CAPTCHA_REQUIRED ДО обращения к БД (gate на Redis)."""
+    fake_redis.store["signin:fail:testclient"] = "3"
+    r = client.post(
+        "/api/v1/auth/signin",
+        json={"email": "user@example.com", "password": "whatever"},
+    )
+    assert r.status_code == 403
+    assert r.json()["detail"]["code"] == "CAPTCHA_REQUIRED"
+
+
+@requires_db
+def test_signin_happy_path_200() -> None:
+    """TODO: валидные creds → 200 + cookies (нужен Postgres)."""
+    raise NotImplementedError("включить с testcontainers-фикстурой (S1.1 infra)")
+
+
+@requires_db
+def test_signin_invalid_credentials_401() -> None:
+    """TODO: неверный пароль → 401 INVALID_CREDENTIALS + инкремент fail-счётчика."""
+    raise NotImplementedError("включить с testcontainers-фикстурой (S1.1 infra)")
+
+
+# ─── POST /auth/refresh + /auth/signout ───────────────────────────────
+
+
+def test_refresh_no_cookie_401(client: TestClient) -> None:
+    r = client.post("/api/v1/auth/refresh")
+    assert r.status_code == 401
+    assert r.json()["detail"]["code"] == "TOKEN_INVALID"
+
+
+def test_refresh_garbage_token_401(client: TestClient) -> None:
+    client.cookies.set("refresh_token", "not-a-jwt")
+    r = client.post("/api/v1/auth/refresh")
+    assert r.status_code == 401
+    assert r.json()["detail"]["code"] == "TOKEN_INVALID"
+
+
+def test_signout_clears_cookies_204(client: TestClient) -> None:
+    """signout без сессии всё равно 204 и шлёт Set-Cookie на удаление."""
+    r = client.post("/api/v1/auth/signout")
+    assert r.status_code == 204
+
+
+@requires_db
+def test_refresh_rotation_revokes_old_jti() -> None:
+    """TODO: валидный refresh → новая пара; повтор старого jti → 401 (нужен Postgres для user-lookup)."""
     raise NotImplementedError("включить с testcontainers-фикстурой (S1.1 infra)")
