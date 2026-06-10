@@ -12,7 +12,9 @@ from fastapi.middleware.cors import CORSMiddleware
 
 from app.api.router import api_router
 from app.config import get_settings
+from app.core.db import dispose_engine
 from app.core.logging import configure_logging
+from app.core.redis import close_redis
 
 logger = structlog.get_logger(__name__)
 
@@ -21,8 +23,9 @@ logger = structlog.get_logger(__name__)
 async def lifespan(app: FastAPI) -> AsyncIterator[None]:
     """Startup / shutdown hooks.
 
-    Sprint 0 — пусто. Sprint 1+: подключение к DB / Redis, запуск APScheduler
-    (cleanup анонимов 3д), warm-up LessonRepository кеша.
+    Engine/Redis создаются лениво при первом запросе; здесь — корректное
+    закрытие пулов на shutdown. Sprint 2+: запуск APScheduler (cleanup
+    анонимов 3д), warm-up LessonRepository кеша.
     """
     configure_logging()
     settings = get_settings()
@@ -33,6 +36,8 @@ async def lifespan(app: FastAPI) -> AsyncIterator[None]:
         debug=settings.app_debug,
     )
     yield
+    await dispose_engine()
+    await close_redis()
     logger.info("app.shutdown")
 
 
