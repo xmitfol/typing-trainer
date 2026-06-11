@@ -10,7 +10,6 @@
 """
 
 import hashlib
-import os
 from collections.abc import Iterator
 
 import pytest
@@ -20,11 +19,7 @@ from app.config import Settings
 from app.core.captcha import _leading_zero_bits
 from app.deps import db_session, redis_client, settings_dep
 from app.main import create_app
-
-requires_db = pytest.mark.skipif(
-    not os.getenv("TEST_DATABASE_URL"),
-    reason="нужен живой Postgres (CITEXT/partial index); ждёт testcontainers-фикстуру",
-)
+from app.tests.conftest import requires_db  # Docker-gated (B1-001 fixture)
 
 
 def _solve(salt: str, difficulty: int) -> str:
@@ -162,15 +157,26 @@ def test_signup_validation_422(client: TestClient) -> None:
 
 
 @requires_db
-def test_signup_happy_path_201() -> None:
-    """TODO: при наличии testcontainers — signup → 201 + cookies + user_settings."""
-    raise NotImplementedError("включить с testcontainers-фикстурой (S1.1 infra)")
+def test_signup_happy_path_201(db_client: TestClient) -> None:
+    """signup с валидным PoW → 201 + auth-cookies + публичная проекция."""
+    r = db_client.post("/api/v1/auth/signup", json=_valid_signup_payload(db_client))
+    assert r.status_code == 201, r.text
+    body = r.json()
+    assert body["email"] == "user@example.com"
+    assert body["email_verified"] is False
+    assert body["audience"] == "adult"
+    assert "password_hash" not in body
+    assert "access_token" in r.cookies and "refresh_token" in r.cookies
 
 
 @requires_db
-def test_signup_duplicate_email_409() -> None:
-    """TODO: повторный signup тем же email → 409 EMAIL_TAKEN."""
-    raise NotImplementedError("включить с testcontainers-фикстурой (S1.1 infra)")
+def test_signup_duplicate_email_409(db_client: TestClient) -> None:
+    """Повторный signup тем же email → 409 EMAIL_TAKEN (второй challenge свежий)."""
+    first = db_client.post("/api/v1/auth/signup", json=_valid_signup_payload(db_client))
+    assert first.status_code == 201, first.text
+    second = db_client.post("/api/v1/auth/signup", json=_valid_signup_payload(db_client))
+    assert second.status_code == 409
+    assert second.json()["detail"]["code"] == "EMAIL_TAKEN"
 
 
 # ─── POST /auth/signin ────────────────────────────────────────────────
@@ -190,15 +196,34 @@ def test_signin_captcha_required_after_threshold(
 
 
 @requires_db
-def test_signin_happy_path_200() -> None:
-    """TODO: валидные creds → 200 + cookies (нужен Postgres)."""
-    raise NotImplementedError("включить с testcontainers-фикстурой (S1.1 infra)")
+def test_signin_happy_path_200(db_client: TestClient) -> None:
+    """Регистрируем юзера, затем валидный signin → 200 + cookies."""
+    payload = _valid_signup_payload(db_client)
+    assert db_client.post("/api/v1/auth/signup", json=payload).status_code == 201
+    db_client.cookies.clear()  # уберём cookies от signup — проверяем чистый signin
+
+    r = db_client.post(
+        "/api/v1/auth/signin",
+        json={"email": payload["email"], "password": payload["password"]},
+    )
+    assert r.status_code == 200, r.text
+    assert r.json()["email"] == payload["email"]
+    assert "access_token" in r.cookies and "refresh_token" in r.cookies
 
 
 @requires_db
-def test_signin_invalid_credentials_401() -> None:
-    """TODO: неверный пароль → 401 INVALID_CREDENTIALS + инкремент fail-счётчика."""
-    raise NotImplementedError("включить с testcontainers-фикстурой (S1.1 infra)")
+def test_signin_invalid_credentials_401(db_client: TestClient) -> None:
+    """Неверный пароль → 401 INVALID_CREDENTIALS."""
+    payload = _valid_signup_payload(db_client)
+    assert db_client.post("/api/v1/auth/signup", json=payload).status_code == 201
+    db_client.cookies.clear()
+
+    r = db_client.post(
+        "/api/v1/auth/signin",
+        json={"email": payload["email"], "password": "wrong-password"},
+    )
+    assert r.status_code == 401
+    assert r.json()["detail"]["code"] == "INVALID_CREDENTIALS"
 
 
 # ─── POST /auth/refresh + /auth/signout ───────────────────────────────
@@ -224,6 +249,20 @@ def test_signout_clears_cookies_204(client: TestClient) -> None:
 
 
 @requires_db
-def test_refresh_rotation_revokes_old_jti() -> None:
-    """TODO: валидный refresh → новая пара; повтор старого jti → 401 (нужен Postgres для user-lookup)."""
-    raise NotImplementedError("включить с testcontainers-фикстурой (S1.1 infra)")
+def test_refresh_rotation_revokes_old_jti(db_client: TestClient) -> None:
+    """Валидный refresh → новая пара; повтор старого refresh-токена → 401."""
+    assert db_client.post(
+        "/api/v1/auth/signup", json=_valid_signup_payload(db_client)
+    ).status_code == 201
+    old_refresh = db_client.cookies.get("refresh_token")
+    assert old_refresh
+
+    # Первый refresh с R1 → 200 + новая пара (R2 в cookies клиента)
+    r1 = db_client.post("/api/v1/auth/refresh")
+    assert r1.status_code == 200, r1.text
+
+    # Повторный refresh со СТАРЫМ R1 → 401 (jti отозван при ротации)
+    db_client.cookies.set("refresh_token", old_refresh)
+    r2 = db_client.post("/api/v1/auth/refresh")
+    assert r2.status_code == 401
+    assert r2.json()["detail"]["code"] == "TOKEN_INVALID"

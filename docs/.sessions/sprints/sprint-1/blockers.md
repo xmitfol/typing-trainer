@@ -1,20 +1,30 @@
 # Sprint 1 · Blockers
 
 > Активные блокеры. Эскалация в течение 4 часов после появления.
-> Sprint **не стартовал** — все блокеры пока pre-emptive.
+> Sprint **активен**, auth-core (S1.4–S1.6) код-готов; оба активных блокера на критпути к gate. **Эскалация PO рекомендована (день идёт, оба на Диме).**
 
 ---
 
 ## Active blockers
 
-### B1-001: testcontainers Postgres-фикстуры нет → S1.4 integration acceptance не зелёный
+### B1-001: testcontainers Postgres-фикстуры нет → integration acceptance auth-core не зелёный
 - **Discovered**: 2026-06-11
-- **Affects**: S1.4 (acceptance «integration: happy path + duplicate email»), косвенно S1.5/S1.6 (тоже потребуют живую БД)
-- **Owner unblock**: Дима (testcontainers postgres-15-alpine в `conftest.py` + CI service); fallback — Борис
-- **Описание**: `backend/app/tests/conftest.py` всё ещё Sprint-0 sync `TestClient` без async db-session. Happy-path и duplicate-email тесты в `test_auth.py` помечены `@requires_db` (`pytest.mark.skipif(not os.getenv("TEST_DATABASE_URL"))`) и **скипаются** локально. Captcha-gate (honeypot/PoW→403, enum→422) runnable и зелёный. Код S1.4/S1.4b готов и мержабелен — блокируется только integration-проверка gate.
-- **Workaround**: запустить тесты против локального Postgres через `TEST_DATABASE_URL=...` вручную; постоянное решение — async `db_session` fixture на testcontainers (как заложено в комментарии conftest «Sprint 1+»).
-- **Escalation**: Y, Диме — нужна оценка/ETA фикстуры. Если Дима занят S1.7 mailhog/docker — fallback Борис.
-- **ETA unblock**: запрошено у Димы (target day 2 Sprint 1).
+- **Affects**: S1.4, **S1.5, S1.6** (все три имеют DB-зависимые `@requires_db` тесты: signup happy/duplicate, signin happy/invalid-cred, refresh-rotation) — снимается одной фикстурой
+- **Owner unblock**: Дима (testcontainers postgres-16-alpine в `conftest.py` + CI service); fallback — Борис
+- **Описание**: `backend/app/tests/conftest.py` всё ещё Sprint-0 sync `TestClient` без async db-session. DB-зависимые тесты в `test_auth.py` помечены `@requires_db` (skipif без `TEST_DATABASE_URL`) и **скипаются** локально. Runnable-зелёные: captcha-gate, signin captcha-gate, refresh no/garbage→401, signout→204. Весь код S1.4–S1.6 мержабелен — блокируется только integration-проверка gate.
+- **Workaround**: запустить тесты против локального Postgres через `TEST_DATABASE_URL=...` вручную; постоянное решение — async `db_session` fixture на testcontainers.
+- **Escalation**: **Y — эскалация PO**. Изначально запрошено у Димы (target day 2). Теперь блокирует acceptance уже 3 закрытых задач → нужна ETA сегодня или fallback на Бориса.
+- **ETA unblock**: target day 2 Sprint 1 (нужно подтверждение от Димы).
+- **Resolved**: —
+
+### B1-002: mailhog отсутствует в docker-compose → S1.7/S1.8 E2E и welcome email не проверяемы
+- **Discovered**: 2026-06-11
+- **Affects**: S1.7 (E2E «письмо ловится в mailhog UI»), S1.8 (verify/forgot/reset E2E), gate `verify_signup_flow.py` (welcome email шаг)
+- **Owner unblock**: Дима (D1 — mailhog в `backend/docker-compose.yml`, порты 1025 SMTP / 8025 web UI)
+- **Описание**: `backend/docker-compose.yml` содержит только postgres/redis/adminer. Mailhog НЕТ. Email-service в `backend/app/` ещё не написан. Код S1.7 можно писать против SMTP-абстракции (aiosmtplib → localhost:1025) **не дожидаясь Димы**, но E2E-приёмка (письмо в UI) ждёт сервис.
+- **Workaround**: Клод пишет email-service как SMTP-абстракцию + S1.7/S1.8 endpoints против неё; unit-тесты с mock-SMTP. E2E-gate откладывается до mailhog.
+- **Escalation**: **Y — эскалация PO** (тот же owner Дима, что и B1-001 — оба на критпути, оба на одном человеке).
+- **ETA unblock**: не назначена → запросить у Димы.
 - **Resolved**: —
 
 ---

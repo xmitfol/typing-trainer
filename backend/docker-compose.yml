@@ -1,4 +1,4 @@
-# Local dev — postgres + redis + adminer.
+# Local dev — postgres + redis + adminer + mailpit (dev SMTP).
 # Использование: `make docker-up` (или `docker compose up -d`).
 # Backend сам запускается через `make dev` локально (не в compose),
 # чтобы был hot-reload на изменения кода.
@@ -50,6 +50,29 @@ services:
     environment:
       ADMINER_DEFAULT_SERVER: postgres
       ADMINER_DESIGN: pepa-linha-dark
+
+  # Dev SMTP-перехватчик (B1-002). Mailpit — поддерживаемый преемник mailhog
+  # (сам mailhog не развивается с 2020). Совместим с config.py:
+  # smtp_host=localhost, smtp_port=1025, smtp_use_tls=False, без creds.
+  #   SMTP  → localhost:1025  (бэкенд шлёт письма сюда)
+  #   Web UI→ http://localhost:8025  (смотрим перехваченные письма)
+  mailpit:
+    image: axllent/mailpit:latest
+    container_name: tt_mailpit
+    restart: unless-stopped
+    ports:
+      - "1025:1025"   # SMTP
+      - "8025:8025"   # Web UI / REST API
+    environment:
+      MP_SMTP_AUTH_ACCEPT_ANY: "true"      # dev: без проверки логина/пароля
+      MP_SMTP_AUTH_ALLOW_INSECURE: "true"  # dev: разрешаем plain SMTP без TLS
+      MP_MAX_MESSAGES: "500"               # кольцевой буфер, не растём бесконечно
+    healthcheck:
+      # У образа есть встроенный wget; /readyz — health-эндпоинт mailpit.
+      test: ["CMD", "wget", "-q", "-O", "-", "http://localhost:8025/readyz"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
 
 volumes:
   postgres_data:
