@@ -1,18 +1,37 @@
-# Session Handoff — 2026-06-11
+# Session Handoff — 2026-06-11 (обновлён: Sprint 1 auth-core)
 
-> **Last session ended**: 2026-06-11 (~28 days, начало 2026-06-02)
+> **Last session ended**: 2026-06-11 (Sprint 1 в работе; предыдущий заход — Phase 2 milestone)
 > **For**: следующий Клод-architect или Иван (PO) при следующем заходе
-> **TL;DR**: 43 коммита запушены, PR #25 ожидает review/merge, Sprint 0 закрыт, Sprint 1 готов к KICKOFF после 6 PO action items.
+> **TL;DR**: PR #25 **смержен**, Sprint 1 активен. Auth-core (signup/signin/signout/refresh) написан, запушен в `sprint-1/auth-foundation`. Капча → self-hosted (ADR-006), email → mailhog (Y360 отложен). Gate Sprint 1 ~60%. Дальше: S1.7 email → S1.8 verify/forgot/reset → S1.9 frontend.
+
+---
+
+## 0. Как продолжить (next session — читать первым)
+
+**Состояние:** Sprint 1 auth-foundation, ветка `sprint-1/auth-foundation` (запушена, 6 коммитов над master). PR в master ещё НЕ открывал — открыть когда gate Sprint 1 ближе к зелёному.
+
+**Рабочий режим (PO Иван, 2026-06-11):** действовать автономно, сверяясь с **Никой** (PM-агент) на узловых точках; PO-решения (продуктовые/архитектурные развилки, необратимые действия) — подтверждать у Ивана. См. memory `feedback_autonomous_with_nika`.
+
+**Следующий шаг (рекомендация Ники):** `email-service` (SMTP-абстракция aiosmtplib→mailpit localhost:1025) → **S1.7** welcome email → **S1.8** verify-email/forgot/reset. Код не блокируется инфрой; E2E-шаги повиснут до реального `docker compose up`.
+
+**Что НЕ проверить в dev-окружении Клода:** backend-стек (pytest/structlog/sqlalchemy) и Docker НЕ установлены. Весь backend-код проверяется `ast.parse` (syntax) + автономной логикой. Полный pytest + `docker compose up` + verify B1-001 — в CI / у Бориса.
 
 ---
 
 ## 1. Где мы остановились
 
 ### Active state
-- **Branch**: `integration/new-shell` запушен на `origin/integration/new-shell`
-- **PR**: [#25](https://github.com/xmitfol/typing-trainer/pull/25) — Phase 2 milestone: design audit closure + Backend SDD + Sprint 0 ready
-- **Commits**: 43 шт. над master, все pushed
+- **Branch**: `sprint-1/auth-foundation` запушен на origin (6 коммитов над master)
+- **master**: содержит merged PR #25 (merge-commit `60677e0`)
+- **PR #25**: ✅ MERGED 2026-06-11 (Phase 2 milestone, 44 коммита)
 - **Local working tree**: clean
+
+### Что сделано в этом заходе (2026-06-11, Sprint 1)
+- **PO-решения**: PR #25 merged; капча → self-hosted ([ADR-006](../spec/backend/decisions/ADR-006.md), honeypot+PoW, отказ от Yandex SmartCaptcha); email → mailhog на dev (Y360 отложен).
+- **S1.10** OpenAPI-контракт auth: [backend/openapi.yaml](../../backend/openapi.yaml) — 8 endpoints, JWT в httpOnly cookies.
+- **Auth-core** (S1.0/S1.4/S1.4b/S1.5/S1.6): `core/db.py`+`core/redis.py` (async wiring, deps.py был заглушкой), `schemas/auth.py`, `services/auth_service.py`, `core/exceptions.py`, `api/v1/auth.py` (challenge/signup/signin/refresh/signout — honeypot+PoW gate, anti-timing, conditional-captcha, refresh-ротация с revoke jti в Redis).
+- **Инфра** (Дима): `mailpit` в docker-compose (B1-002 закрыт); testcontainers Postgres-фикстура в `conftest.py` (B1-001 — код готов, нужен прогон с Docker).
+- **Тесты**: `test_auth.py` — 14 (9 runnable без DB: captcha-gate/401/204; 5 DB-integration через `db_client`, гейт на Docker).
 
 ### Что закрыто за сессию
 | Phase | Что | Где |
@@ -84,27 +103,27 @@ ADR-005 PO ещё не подтвердил (рекомендую прочита
 
 ## 4. Что делать дальше (следующая сессия)
 
-### Если PR #25 merge'нут
-**Sprint 1 KICKOFF — Auth foundation** (по [03_IMPL_PLAN.md §3](../spec/backend/03_IMPL_PLAN.md)):
-1. S1.1 Alembic migration уже готова (`backend/alembic/versions/202606071800_initial_schema.py`) — нужен `alembic upgrade head` в dev
-2. S1.2 Models уже готовы (`backend/app/models/user.py`)
-3. S1.3 Security helpers уже готовы (`backend/app/core/security.py`)
-4. S1.4 `POST /api/v1/auth/signup` — НУЖНО НАПИСАТЬ (Борис или Клод-играет-Бориса)
-5. S1.5 `POST /api/v1/auth/signin` — НУЖНО НАПИСАТЬ
-6. S1.6 `POST /api/v1/auth/signout` + refresh — НУЖНО НАПИСАТЬ
-7. S1.7 Email integration с Y360 — ждёт PO action #3
-8. S1.8 Email verification + forgot/reset — НУЖНО НАПИСАТЬ
+**Sprint 1 — Auth foundation, gate ~60%.** Готово: S1.0-S1.6, S1.10 (см. [sprint-1/board.md](sprints/sprint-1/board.md)). Auth-core (signup/signin/signout/refresh) написан и запушен.
 
-**Гейт Sprint 1**: `verify_signup_flow.py` зелёный.
+### Осталось до gate Sprint 1
+| Задача | Что | Owner | Зависит |
+|---|---|---|---|
+| **S1.7** | `email-service` (SMTP-абстракция aiosmtplib→mailpit) + welcome email при signup | Клод/Борис | mailpit (✅ в compose) |
+| **S1.8** | `POST /auth/verify-email` + `/auth/forgot` + `/auth/reset` | Клод/Борис | S1.7 (email-service) |
+| **S1.9** | Frontend: `<auth-modal>`/`auth.html` wire к API + **PoW-solver в Web Worker** + honeypot | Алекс | контракт openapi.yaml ✅ |
+| verify B1-001 | один прогон `pytest -m '' app/tests/test_auth.py` в среде с **Docker** → 5 integration-тестов зелёные | Дима/Борис | Docker |
 
-### Если PR не merge'нут / blocked
-Параллельные tracks:
-- **Алекс**: pre-design `<auth-modal>` mockup на основе figma handoff
-- **Тимофей**: api_guide draft (для onboarding Бориса)
-- **Ника**: Sprint 4 board pre-fill (achievements engine, 7 задач)
-- **Ника**: Sprint 5 board pre-fill (Lessons API + paywall, 6 задач)
-- **Ника**: dependency_map_sprint_8_9.md (analytics + GDPR)
-- **Клод**: написать заранее services/ модули (auth_service, user_service)
+**Рекомендованный порядок (Ника):** email-service → S1.7 → S1.8 (код не блокируется инфрой; E2E «письмо в mailpit UI» повиснет до `docker compose up`).
+
+**Гейт Sprint 1**: `verify_signup_flow.py` зелёный (signup→welcome→verify→signin→signout→reset).
+
+### Открытые блокеры (Sprint 1)
+- **B1-001** testcontainers — фикстура написана, нужен прогон с Docker (ETA ~1 debug-итерация). Owner Дима/Борис. См. [blockers.md](sprints/sprint-1/blockers.md).
+- **B1-002** mailpit — ✅ закрыт (в docker-compose), зелёный после `docker compose up -d`.
+
+### Параллельные prep-tracks (если есть простой)
+- **Ника**: Sprint 4/5 boards pre-fill; dependency_map_sprint_8_9
+- **Тимофей**: api_guide draft из openapi.yaml
 
 ---
 
@@ -126,15 +145,14 @@ ADR-005 PO ещё не подтвердил (рекомендую прочита
 | Метрика | Значение |
 |---|---|
 | **Дедлайн PERT P80** | 17 октября 2026 (W42) |
-| **Local commits ahead of master** | 0 (всё запушено) |
-| **PR open** | #25 (43 commits inside) |
-| **Backend Python файлов** | 23 (все syntax-OK) |
-| **Models в БД** | 8 таблиц + 16 индексов |
-| **Frontend verify scripts** | 28 (все зелёные) |
-| **Backend tests готовы** | ~35 (Sprint 0 baseline) |
-| **Active risks** | 11 (1 closed, 4 mitigating, 6 open) |
+| **Активная ветка** | `sprint-1/auth-foundation` (6 коммитов над master, запушено) |
+| **PR #25** | ✅ MERGED (merge-commit 60677e0) |
+| **Auth endpoints** | 5 (challenge/signup/signin/refresh/signout), syntax-OK |
+| **Backend tests** | 14 в test_auth (9 runnable + 5 DB-integration, Docker-gated); ~35 Sprint-0 baseline |
+| **ADR** | 6 (ADR-006 = self-hosted captcha, NEW) |
 | **Sprint 0 status** | ✅ Closed |
-| **Sprint 1-3 boards** | pre-filled, pending start |
+| **Sprint 1 status** | 🟢 In progress, gate ~60% (auth-core 100%) |
+| **Active blockers** | B1-001 (testcontainers, нужен Docker-прогон), B1-002 ✅ closed |
 
 ---
 
