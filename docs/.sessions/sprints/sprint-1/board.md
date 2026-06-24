@@ -1,17 +1,34 @@
 # Sprint 1 · Board · Auth foundation
 
-> **Status**: 🟢 **In progress — весь КОД готов** (backend auth + frontend S1.9; Клод/Алекс, ветка `sprint-1/auth-foundation`, коммит d4ecf2e). До зелёного gate осталось только операционное (Docker-прогон + same-origin proxy + verify_signup_flow.py).
+> **Status**: ✅ **CLOSED (2026-06-24)** — весь код + инфра + операционный Docker-прогон выполнены. Gate ЗЕЛЁНЫЙ. (backend auth + frontend S1.9 + same-origin proxy; Клод/Алекс/«Дима», ветка `sprint-1/auth-foundation`, до коммита de92edd).
 > **Цель**: пользователь может зарегистрироваться, войти, выйти; email-верификация работает
 > **Source**: [03_IMPL_PLAN.md §3 Sprint 1](../../../spec/backend/03_IMPL_PLAN.md)
 > **Estimate duration**: week 1 (5 days)
 > **Owner**: Борис (Backend) + Клод (review) + Алекс (frontend integration), координация — Ника
 > **Cross-team deps**: см. [dependency_map.md](../dependency_map.md)
 
-## Gate
+## Gate — ✅ GREEN (8/8, 2026-06-24)
 ✅ Юзер может: signup → получить welcome email → подтвердить → войти → выйти → восстановить пароль.
-✅ `verify_signup_flow.py` зелёный.
+✅ `verify_signup_flow.py` зелёный — **8/8**.
 
-**Gate progress (2026-06-24): ~90%. Весь КОД Sprint 1 написан — кодовых пунктов за командой не осталось.** Backend auth **код-готовность 100%** (8 endpoints ↔ `openapi.yaml`). Frontend **S1.9 done** (d4ecf2e): `auth.html` + `auth.js` + `auth.css` (views signin/signup/forgot/reset), PoW-solver в Web Worker (`pow-worker.js`, sha256 кросс-язык выверен против backend `app/core/captcha.py`), honeypot (`nickname2`), реальные auth-методы в `api-client.js`, профиль-мост в localStorage для router-guard, conditional-captcha retry на signin 403. email_service: verify/reset ссылки → `auth.html?action=verify|reset&token=`. Инфра-блокеры B1-001/B1-002 сняты как код (6bc572f). До зелёного gate осталось **только операционное (зона Димы/Бориса/Квинна, не код)**: (а) **Docker-прогон** testcontainers+mailpit+pytest, (б) **same-origin proxy** для E2E (новый блокер **B1-003** — auth-cookies SameSite=Lax не работают cross-origin), (в) прогон **`verify_signup_flow.py`** на этом стеке. Критпуть к gate: **B1-003 (same-origin proxy, Дима) → Docker-прогон (Дима/Борис) → verify_signup_flow.py (Квинн) → зелёный gate**.
+**Gate progress: 100%.** Подтверждён реальным E2E-прогоном на VM против Dockerized стека (не моки) через single-origin nginx `:8090`:
+```
+✅ signup → dashboard          (PoW решён в браузере, капча пройдена, httpOnly cookie)
+✅ signout → signin → dashboard
+✅ неверный пароль → 401
+✅ forgot → подтверждение       (капча + письмо)
+✅ verify-email по РЕАЛЬНОМУ токену из mailpit → подтверждён
+✅ reset по токену → вход новым паролём → dashboard
+verify_signup_flow: 8/8
+```
+Дополнительно подтверждено прогоном: 3 письма реально дошли в mailpit (welcome + verify + reset), `/api/v1/health` ok, миграции `alembic upgrade` прошли на чистой БД.
+
+**Блокеры B1-001/B1-002/B1-003 сняты прогоном** (не только кодом):
+- B1-001 (testcontainers postgres) — DB-integration happy-path (signup/signin/refresh-rotation/verify→forgot→reset) прошли на живой БД.
+- B1-002 (mailpit) — 3 письма реально доставлены и распарсены.
+- B1-003 (same-origin proxy) — браузер-поток через nginx `:8090` с SameSite=Lax cookies прошёл.
+
+Docker-прогон вскрыл 3 РЕАЛЬНЫХ бага (Клод пофиксил, закоммичено до de92edd) — см. [retro.md](retro.md) lessons-learned.
 
 ## Tasks
 
@@ -20,12 +37,13 @@
 — нет (весь код Sprint 1 написан; остаток — операционный, см. BLOCKED/PENDING).
 
 ### IN PROGRESS
-- 🟡 **Integration/E2E acceptance всего auth (S1.4–S1.8)** — весь backend-код готов и мержабелен. Runnable и зелёные: captcha-gate (honeypot/PoW→403, enum→422), signin captcha-gate, refresh no/garbage→401, signout→204, email-рендер + мок-SMTP (test_email 7). DB-зависимые happy-path (signup→verify→signin→refresh-rotation, forgot→reset) под `@requires_db` и E2E «письмо в mailpit» ждут **Docker-прогон** (фикстуры готовы, см. BLOCKED/PENDING). Снимается одним прогоном на Docker-машине.
+— нет. Всё закрыто.
 
-### BLOCKED
-- 🔴 **B1-003: same-origin proxy для E2E** — auth-cookies выставлены `SameSite=Lax`; при cross-origin (фронт :8001 ↔ api :8000) браузер не прикрепит их к fetch → `verify_signup_flow.py` не пройдёт. Нужен reverse-proxy: single origin, `/api/v1/*` → uvicorn, статика рядом. Owner: **Дима** (часть Docker-прогона). См. [blockers.md#B1-003](blockers.md).
-- 🟡 **Integration acceptance всего auth (S1.4–S1.8) + E2E фронта (S1.9)** PENDING **Docker-прогон** — фикстуры написаны (testcontainers postgres в `conftest.py`, mailpit dev SMTP в `docker-compose.yml`, коммит 6bc572f), но DB-зависимые и E2E-тесты **скипаются без живого Docker-демона**. Нужен реальный прогон на Docker-машине + same-origin proxy (B1-003) (Дима/Борис, CI), затем `verify_signup_flow.py` (Квинн). Это последний pending для зелёного gate — **код-часть закрыта**.
-- ✅ ~~Integration acceptance S1.4–S1.6 BLOCKED B1-001~~ — снято как **код**: testcontainers postgres-фикстура wired в `conftest.py` (6bc572f). Остаётся только Docker-прогон (см. PENDING выше).
+### BLOCKED / OPERATIONAL PENDING — все сняты
+- ✅ ~~**Integration/E2E acceptance всего auth (S1.4–S1.8)**~~ — **CLOSED**: DB-зависимые happy-path (signup→verify→signin→refresh-rotation, forgot→reset) и E2E «письмо в mailpit» прошли на живом Docker-стеке (2026-06-24). `@requires_db`-тесты зелёные.
+- ✅ ~~**B1-003: same-origin proxy для E2E**~~ — **RESOLVED + VALIDATED**: nginx-proxy под профилем `app` (single origin :8090) проверен реальным браузер-потоком с SameSite=Lax cookies.
+- ✅ ~~**OP-1: финальный Docker-прогон → зелёный gate**~~ — **DONE (2026-06-24)**: `docker compose --profile app up -d` → `pytest` (снял B1-001) → `verify_signup_flow.py` 8/8 (снял B1-003). Проверено: alembic upgrade на чистой БД, DB-integration, 3 письма в mailpit, браузер-поток с cookies. Прогон вскрыл 3 бага — пофиксено (см. retro.md).
+- ✅ ~~Integration acceptance S1.4–S1.6 BLOCKED B1-001~~ — снято как **код**: testcontainers postgres-фикстура wired в `conftest.py` (6bc572f). Остаётся только Docker-прогон (OP-1).
 - ✅ ~~S1.7 E2E BLOCKED D1 (mailhog)~~ — снято: B1-002 mailpit (преемник mailhog) добавлен в `docker-compose.yml` (6bc572f). E2E ждёт Docker-прогон.
 - ✅ ~~Все задачи S1.x BLOCKED Sprint 0~~ — снято: Sprint 0 закрыт (PR #25 merged 60677e0).
 - ✅ ~~S1.7 BLOCKED Y360 creds~~ — снято: PO отложил Y360, dev на mailpit (ADR/handoff 2026-06-11)
@@ -70,6 +88,7 @@
 - См. [standup.md](standup.md)
 
 ## Notes
-- Sprint **активирован** (Sprint 0 gate закрыт, PR #25 merged). Auth vertical в работе.
-- Critical path: ~~S1.0~~ → ~~S1.1~~ → ~~S1.2~~ → ~~S1.3/S1.4~~ → ~~S1.5/S1.6~~ → ~~S1.7~~ → ~~S1.8~~ → ~~S1.9 (frontend, d4ecf2e)~~ — **весь КОД Sprint 1 закрыт** → **B1-003 same-origin proxy (Дима) → Docker-прогон (Дима/Борис) → verify_signup_flow.py (Квинн)** → зелёный gate. Кодовых пунктов за Клодом/Алексом по Sprint 1 не осталось; остаток — операционный.
+- Sprint **ЗАКРЫТ 2026-06-24**, gate зелёный 8/8. Auth vertical работает end-to-end на Dockerized стеке.
+- Critical path (весь пройден): ~~S1.0~~ → ~~S1.1~~ → ~~S1.2~~ → ~~S1.3/S1.4~~ → ~~S1.5/S1.6~~ → ~~S1.7~~ → ~~S1.8~~ → ~~S1.9 (d4ecf2e)~~ → ~~B1-003 same-origin proxy (e18a95d)~~ → ~~OP-1 Docker-прогон + verify_signup_flow.py 8/8~~ → ✅ **зелёный gate**.
 - Y360 prod-config (SMTP creds) отложен PO в Sprint 2; dev полностью на mailpit.
+- Итог и lessons-learned: [retro.md](retro.md).

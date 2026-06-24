@@ -255,6 +255,48 @@ paths:
             application/json:
               schema: { $ref: "#/components/schemas/Error" }
 
+  /auth/oauth/{provider}/start:
+    get:
+      tags: [auth]
+      summary: Начать OAuth-вход (редирект к провайдеру)
+      description: |
+        Sprint 2 (ADR-007). Генерирует state (+ PKCE для VK), кладёт в Redis,
+        редиректит на authorize-URL провайдера.
+      operationId: oauthStart
+      parameters:
+        - $ref: "#/components/parameters/OAuthProvider"
+      responses:
+        "302":
+          description: Redirect на authorize-URL провайдера.
+          headers:
+            Location: { schema: { type: string } }
+
+  /auth/oauth/{provider}/callback:
+    get:
+      tags: [auth]
+      summary: OAuth callback — обмен кода, логин, редирект на фронт
+      description: |
+        Sprint 2 (ADR-007). Валидирует state (GETDEL Redis), меняет code→token,
+        тянет userinfo, резолвит аккаунт (по external_id → по email → создание),
+        ставит httpOnly cookies, редиректит: новый юзер → onboarding.html?oauth=1&new=1,
+        существующий → dashboard.html. Токен провайдера не хранится.
+      operationId: oauthCallback
+      parameters:
+        - $ref: "#/components/parameters/OAuthProvider"
+        - { name: code, in: query, required: true, schema: { type: string } }
+        - { name: state, in: query, required: true, schema: { type: string } }
+      responses:
+        "302":
+          description: Redirect на фронт (dashboard/onboarding). Set-Cookie auth.
+          headers:
+            Set-Cookie: { $ref: "#/components/headers/AuthCookies" }
+            Location: { schema: { type: string } }
+        "400":
+          description: state невалиден/истёк, или провайдер не вернул email (OAUTH_NO_EMAIL).
+          content:
+            application/json:
+              schema: { $ref: "#/components/schemas/Error" }
+
 components:
   securitySchemes:
     accessCookie:
@@ -273,6 +315,12 @@ components:
       required: false
       schema: { type: string }
       description: Опциональный ключ идемпотентности для безопасного повтора signup.
+    OAuthProvider:
+      name: provider
+      in: path
+      required: true
+      schema: { type: string, enum: [yandex, vk] }
+      description: OAuth-провайдер (ADR-007).
 
   headers:
     AuthCookies:
@@ -422,6 +470,7 @@ components:
                 - CAPTCHA_REQUIRED
                 - TOKEN_INVALID
                 - RATE_LIMITED
+                - OAUTH_NO_EMAIL
             message:
               type: string
               description: Человекочитаемое сообщение (i18n по Accept-Language).
