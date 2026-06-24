@@ -12,14 +12,25 @@ from jose import JWTError
 
 from app.config import get_settings
 from app.core.captcha import issue_challenge, verify_captcha
+from app.core.email_tokens import (
+    RESET_PREFIX,
+    RESET_TTL_SECONDS,
+    VERIFY_PREFIX,
+    VERIFY_TTL_SECONDS,
+    consume_token,
+    issue_token,
+)
 from app.core.exceptions import EmailTakenError, InvalidCredentialsError
 from app.core.security import create_access_token, create_refresh_token, decode_token
 from app.deps import DbSession, EmailServiceDep, RedisClient
 from app.schemas.auth import (
     ChallengeResponse,
+    ForgotPasswordRequest,
+    ResetPasswordRequest,
     SigninRequest,
     SignupRequest,
     UserPublic,
+    VerifyEmailRequest,
 )
 from app.services import auth_service
 
@@ -44,6 +55,17 @@ def _captcha_failed() -> HTTPException:
         status.HTTP_403_FORBIDDEN,
         detail={"code": "CAPTCHA_FAILED", "message": "Проверка не пройдена"},
     )
+
+
+async def _require_captcha(
+    *, challenge: str, signature: str, nonce: str, honeypot: str, ip: str | None, redis
+) -> None:
+    """honeypot + PoW gate (ADR-006). 403 CAPTCHA_FAILED при провале."""
+    if honeypot:
+        logger.info("captcha.honeypot_tripped", ip=ip)
+        raise _captcha_failed()
+    if not await verify_captcha(challenge, signature, nonce, ip=ip, redis=redis):
+        raise _captcha_failed()
 
 
 def _set_auth_cookies(response: Response, user_id) -> None:
@@ -114,22 +136,14 @@ async def signup(
     Защита от ботов (ADR-006): honeypot пустой + валидное PoW + не replay.
     """
     ip = request.client.host if request.client else None
-
-    # Слой 1: honeypot — непустое скрытое поле = бот
-    if payload.honeypot:
-        logger.info("signup.honeypot_tripped", ip=ip)
-        raise _captcha_failed()
-
-    # Слой 2: proof-of-work + replay-guard
-    ok = await verify_captcha(
-        payload.captcha_challenge,
-        payload.captcha_signature,
-        payload.captcha_nonce,
+    await _require_captcha(
+        challenge=payload.captcha_challenge,
+        signature=payload.captcha_signature,
+        nonce=payload.captcha_nonce,
+        honeypot=payload.honeypot,
         ip=ip,
         redis=redis,
     )
-    if not ok:
-        raise _captcha_failed()
 
     try:
         user = await auth_service.signup(session, payload)
@@ -139,11 +153,16 @@ async def signup(
             detail={"code": e.code, "message": e.message},
         ) from e
 
-    # S1.7: welcome email — best-effort, не валим регистрацию при сбое SMTP
+    # S1.7/S1.8: welcome + verification email — best-effort, сбой SMTP/Redis
+    # не валит регистрацию (юзер создан; повторную отправку добавим в Sprint 2).
     try:
         await emailer.send_welcome(to=user.email, name=user.name, language=user.language)
-    except Exception as e:  # noqa: BLE001 — любой сбой почты не должен ломать signup
-        logger.warning("signup.welcome_email_failed", user_id=str(user.id), error=str(e))
+        token = await issue_token(redis, VERIFY_PREFIX, user.id, VERIFY_TTL_SECONDS)
+        await emailer.send_verification(
+            to=user.email, name=user.name, language=user.language, token=token
+        )
+    except Exception as e:  # noqa: BLE001 — почта/Redis не должны ломать signup
+        logger.warning("signup.post_email_failed", user_id=str(user.id), error=str(e))
 
     _set_auth_cookies(response, user.id)
     return UserPublic.model_validate(user)
@@ -266,3 +285,85 @@ async def signout(
         except JWTError:
             pass  # битый токен — просто чистим cookies
     _clear_auth_cookies(response)
+
+
+@router.post(
+    "/verify-email",
+    status_code=status.HTTP_204_NO_CONTENT,
+    summary="Подтвердить email по токену из письма",
+)
+async def verify_email(
+    payload: VerifyEmailRequest,
+    session: DbSession,
+    redis: RedisClient,
+) -> None:
+    """Одноразовый токен (Redis GETDEL) → email_verified=true."""
+    user_id = await consume_token(redis, VERIFY_PREFIX, payload.token)
+    if user_id is None:
+        raise HTTPException(
+            status.HTTP_400_BAD_REQUEST,
+            detail={"code": "TOKEN_INVALID", "message": "Ссылка недействительна или истекла"},
+        )
+    await auth_service.mark_email_verified(session, user_id)
+
+
+@router.post(
+    "/forgot",
+    status_code=status.HTTP_202_ACCEPTED,
+    summary="Запрос на сброс пароля",
+)
+async def forgot_password(
+    payload: ForgotPasswordRequest,
+    request: Request,
+    session: DbSession,
+    redis: RedisClient,
+    emailer: EmailServiceDep,
+) -> None:
+    """Всегда 202 (не раскрываем существование email). Требует капчу (ADR-006).
+
+    Если email известен — выдаём reset-токен и шлём письмо (best-effort).
+    """
+    ip = request.client.host if request.client else None
+    await _require_captcha(
+        challenge=payload.captcha_challenge,
+        signature=payload.captcha_signature,
+        nonce=payload.captcha_nonce,
+        honeypot=payload.honeypot,
+        ip=ip,
+        redis=redis,
+    )
+
+    user = await auth_service.find_active_by_email(session, payload.email)
+    if user is not None:
+        try:
+            token = await issue_token(redis, RESET_PREFIX, user.id, RESET_TTL_SECONDS)
+            await emailer.send_password_reset(
+                to=user.email, name=user.name, language=user.language, token=token
+            )
+        except Exception as e:  # noqa: BLE001 — сбой почты/Redis не раскрываем клиенту
+            logger.warning("forgot.email_failed", error=str(e))
+    # 202 в любом случае (status_code в декораторе)
+
+
+@router.post(
+    "/reset",
+    status_code=status.HTTP_204_NO_CONTENT,
+    summary="Установить новый пароль по токену сброса",
+)
+async def reset_password(
+    payload: ResetPasswordRequest,
+    session: DbSession,
+    redis: RedisClient,
+) -> None:
+    """Одноразовый reset-токен (GETDEL) → новый Argon2-хеш.
+
+    TODO Sprint 2: глобальная инвалидация активных сессий (нужен per-user
+    token-version; сейчас старые refresh-токены доживут до своего TTL).
+    """
+    user_id = await consume_token(redis, RESET_PREFIX, payload.token)
+    if user_id is None:
+        raise HTTPException(
+            status.HTTP_400_BAD_REQUEST,
+            detail={"code": "TOKEN_INVALID", "message": "Ссылка недействительна или истекла"},
+        )
+    await auth_service.set_password(session, user_id, payload.password)

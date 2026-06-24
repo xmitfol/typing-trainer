@@ -58,6 +58,25 @@ class SigninRequest(BaseModel):
     captcha_nonce: str | None = None
 
 
+class VerifyEmailRequest(BaseModel):
+    """POST /auth/verify-email body."""
+
+    token: str
+
+
+class ForgotPasswordRequest(CaptchaSolution):
+    """POST /auth/forgot body — email + капча (ADR-006, защита от перебора)."""
+
+    email: EmailStr
+
+
+class ResetPasswordRequest(BaseModel):
+    """POST /auth/reset body."""
+
+    token: str
+    password: str = Field(min_length=8, max_length=128)
+
+
 class ChallengeResponse(BaseModel):
     """GET /auth/challenge response (ADR-006)."""
 

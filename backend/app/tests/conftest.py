@@ -258,6 +258,9 @@ async def redis_fake():  # type: ignore[no-untyped-def]
             self.store.pop(key, None)
             return True
 
+        async def getdel(self, key):
+            return self.store.pop(key, None)
+
     return _FakeRedis()
 
 

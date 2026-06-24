@@ -30,7 +30,7 @@ async def _email_exists(session: AsyncSession, email: str) -> bool:
     return (await session.execute(stmt)).first() is not None
 
 
-async def _find_active_by_email(session: AsyncSession, email: str) -> User | None:
+async def find_active_by_email(session: AsyncSession, email: str) -> User | None:
     """Активный (не soft-deleted) юзер по email или None."""
     stmt = select(User).where(User.email == email, User.deleted_at.is_(None)).limit(1)
     return (await session.execute(stmt)).scalar_one_or_none()
@@ -40,6 +40,27 @@ async def get_active_user(session: AsyncSession, user_id: UUID) -> User | None:
     """Активный юзер по id или None (для refresh — проверить, что не удалён)."""
     stmt = select(User).where(User.id == user_id, User.deleted_at.is_(None)).limit(1)
     return (await session.execute(stmt)).scalar_one_or_none()
+
+
+async def mark_email_verified(session: AsyncSession, user_id: UUID) -> None:
+    """Пометить email подтверждённым (S1.8 verify-email). Идемпотентно."""
+    user = await get_active_user(session, user_id)
+    if user is None:
+        return
+    if not user.email_verified:
+        user.email_verified = True
+        await session.commit()
+        logger.info("email.verified", user_id=str(user_id))
+
+
+async def set_password(session: AsyncSession, user_id: UUID, new_password: str) -> None:
+    """Установить новый пароль (S1.8 reset). Хеширует Argon2id."""
+    user = await get_active_user(session, user_id)
+    if user is None:
+        return
+    user.password_hash = hash_password(new_password)
+    await session.commit()
+    logger.info("password.reset", user_id=str(user_id))
 
 
 async def signup(session: AsyncSession, dto: SignupRequest) -> User:
@@ -88,7 +109,7 @@ async def signin(session: AsyncSession, email: str, password: str) -> User:
     чтобы время ответа не выдавало существование аккаунта. Один и тот же
     error для всех веток.
     """
-    user = await _find_active_by_email(session, email)
+    user = await find_active_by_email(session, email)
     has_password = bool(user and user.password_hash)
     target_hash = user.password_hash if has_password else get_dummy_hash()
 
