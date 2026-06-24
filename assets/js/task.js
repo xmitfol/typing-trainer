@@ -271,12 +271,17 @@ document.addEventListener('DOMContentLoaded', async function () {
         const minByLen = (targetText && targetText.length) ? targetText.length * 0.1 : 0;
         return Math.max(elapsed, 2.0, minByLen);
     }
+    // Строгий режим: курсор двигается только на верной клавише, поэтому typed =
+    // число верно набранных символов; errors = неверные попытки (могут копиться
+    // на одной позиции). WPM считаем по typed; accuracy = typed / (typed+errors).
     function calcWpm(elapsed) {
-        const correct = Math.max(0, typed - errors);
         const eff = effElapsed(elapsed);
-        return eff > 0 ? Math.round(correct / (eff / 60)) : 0;
+        return eff > 0 ? Math.round(typed / (eff / 60)) : 0;
     }
-    function calcAcc() { return typed > 0 ? Math.max(0, Math.round(((typed - errors) / typed) * 100)) : 100; }
+    function calcAcc() {
+        const total = typed + errors;
+        return total > 0 ? Math.max(0, Math.round((typed / total) * 100)) : 100;
+    }
 
     // SpeedGraph: храним до SPEED_GRAPH_MAX_POINTS последних замеров WPM, рисуем polyline.
     // viewBox = «0 0 (N*10) 100», max шкалы = 600 зн/мин (как в design SpeedGraph).
@@ -323,6 +328,10 @@ document.addEventListener('DOMContentLoaded', async function () {
         // Caps Lock state — обновляем на любом keydown
         syncCapsBadge(e);
 
+        // Игнорируем автоповтор (зажатая клавиша): одно физическое нажатие =
+        // один шаг. Иначе удержание «пролистывает» упражнение до конца.
+        if (e.repeat) { e.preventDefault(); return; }
+
         if (e.key === 'Backspace') {
             if (typed > 0) { typed--; renderTarget(); updateStats(); }
             if (e.code) kb.flashActive(e.code, 140);
@@ -351,8 +360,14 @@ document.addEventListener('DOMContentLoaded', async function () {
 
         const expected = targetText[typed];
         if (e.key === expected) {
+            // Верная клавиша — двигаем курсор.
             kb.flashActive(e.code, 140);
+            typed++;
+            renderTarget();
+            updateStats();
+            if (typed >= targetText.length) finishExercise();
         } else {
+            // Неверная клавиша — стоим на месте, ждём правильную. Считаем ошибку.
             kb.flashError(e.code);
             errors++;
             // Наставник реагирует один раз, когда ошибок становится больше половины лимита
@@ -362,11 +377,8 @@ document.addEventListener('DOMContentLoaded', async function () {
                     { name: profile.name || '', errors, limit: errorLimit },
                     'Не спеши — лучше медленно, но точно.');
             }
+            updateStats();
         }
-        typed++;
-        renderTarget();
-        updateStats();
-        if (typed >= targetText.length) finishExercise();
     }
 
     // ─── Finish ──────────────────────────────────────────────────
