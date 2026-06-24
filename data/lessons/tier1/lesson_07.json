@@ -2,506 +2,62 @@
   "id": "tier1_lesson_07",
   "tier": 1,
   "lesson_number": 7,
-  "title": "Добавляем Р и П",
-  "description": "Новые буквы: Р (левый указательный, верхний ряд) и П (правый безымянный, верхний ряд)",
-  "target_wpm": 18,
-  "text_length": 80,
+  "title": "Верхний ряд: Й и Ц",
+  "description": "Выход на верхний ряд левой руки: Й (мизинец) и Ц (безымянный)",
+  "target_wpm": 16,
+  "text_length": 31,
   "error_limit_percent": 5,
-  "error_limit": 4,
-  "text": "пар пир репа пена перо пора парад опера тропа пыль рыть порт репортаж",
+  "error_limit": 3,
+  "text": "йй цц ай ой вой рай дай цап",
   "text_sequence": [
-    {
-      "char": "п",
-      "hand": "left",
-      "finger": "ring",
-      "key": "П"
-    },
-    {
-      "char": "а",
-      "hand": "left",
-      "finger": "index",
-      "key": "А"
-    },
-    {
-      "char": "р",
-      "hand": "left",
-      "finger": "index",
-      "key": "Р"
-    },
-    {
-      "char": " ",
-      "hand": "right",
-      "finger": "thumb",
-      "key": "Space",
-      "space_side": "right"
-    },
-    {
-      "char": "п",
-      "hand": "right",
-      "finger": "ring",
-      "key": "П"
-    },
-    {
-      "char": "и",
-      "hand": "right",
-      "finger": "index",
-      "key": "И"
-    },
-    {
-      "char": "р",
-      "hand": "right",
-      "finger": "index",
-      "key": "Р"
-    },
-    {
-      "char": " ",
-      "hand": "left",
-      "finger": "thumb",
-      "key": "Space",
-      "space_side": "left"
-    },
-    {
-      "char": "р",
-      "hand": "left",
-      "finger": "index",
-      "key": "Р"
-    },
-    {
-      "char": "е",
-      "hand": "left",
-      "finger": "index",
-      "key": "Е"
-    },
-    {
-      "char": "п",
-      "hand": "left",
-      "finger": "ring",
-      "key": "П"
-    },
-    {
-      "char": "а",
-      "hand": "left",
-      "finger": "index",
-      "key": "А"
-    },
-    {
-      "char": " ",
-      "hand": "right",
-      "finger": "thumb",
-      "key": "Space",
-      "space_side": "right"
-    },
-    {
-      "char": "п",
-      "hand": "right",
-      "finger": "ring",
-      "key": "П"
-    },
-    {
-      "char": "е",
-      "hand": "right",
-      "finger": "index",
-      "key": "Е"
-    },
-    {
-      "char": "н",
-      "hand": "right",
-      "finger": "index",
-      "key": "Н"
-    },
-    {
-      "char": "а",
-      "hand": "right",
-      "finger": "index",
-      "key": "А"
-    },
-    {
-      "char": " ",
-      "hand": "left",
-      "finger": "thumb",
-      "key": "Space",
-      "space_side": "left"
-    },
-    {
-      "char": "п",
-      "hand": "left",
-      "finger": "ring",
-      "key": "П"
-    },
-    {
-      "char": "е",
-      "hand": "left",
-      "finger": "index",
-      "key": "Е"
-    },
-    {
-      "char": "р",
-      "hand": "left",
-      "finger": "index",
-      "key": "Р"
-    },
-    {
-      "char": "о",
-      "hand": "left",
-      "finger": "index",
-      "key": "О"
-    },
-    {
-      "char": " ",
-      "hand": "right",
-      "finger": "thumb",
-      "key": "Space",
-      "space_side": "right"
-    },
-    {
-      "char": "п",
-      "hand": "right",
-      "finger": "ring",
-      "key": "П"
-    },
-    {
-      "char": "о",
-      "hand": "right",
-      "finger": "index",
-      "key": "О"
-    },
-    {
-      "char": "р",
-      "hand": "right",
-      "finger": "index",
-      "key": "Р"
-    },
-    {
-      "char": "а",
-      "hand": "right",
-      "finger": "index",
-      "key": "А"
-    },
-    {
-      "char": " ",
-      "hand": "left",
-      "finger": "thumb",
-      "key": "Space",
-      "space_side": "left"
-    },
-    {
-      "char": "п",
-      "hand": "left",
-      "finger": "ring",
-      "key": "П"
-    },
-    {
-      "char": "а",
-      "hand": "left",
-      "finger": "index",
-      "key": "А"
-    },
-    {
-      "char": "р",
-      "hand": "left",
-      "finger": "index",
-      "key": "Р"
-    },
-    {
-      "char": "а",
-      "hand": "left",
-      "finger": "index",
-      "key": "А"
-    },
-    {
-      "char": "д",
-      "hand": "left",
-      "finger": "ring",
-      "key": "Д"
-    },
-    {
-      "char": " ",
-      "hand": "right",
-      "finger": "thumb",
-      "key": "Space",
-      "space_side": "right"
-    },
-    {
-      "char": "о",
-      "hand": "right",
-      "finger": "index",
-      "key": "О"
-    },
-    {
-      "char": "п",
-      "hand": "right",
-      "finger": "ring",
-      "key": "П"
-    },
-    {
-      "char": "е",
-      "hand": "right",
-      "finger": "index",
-      "key": "Е"
-    },
-    {
-      "char": "р",
-      "hand": "right",
-      "finger": "index",
-      "key": "Р"
-    },
-    {
-      "char": "а",
-      "hand": "right",
-      "finger": "index",
-      "key": "А"
-    },
-    {
-      "char": " ",
-      "hand": "left",
-      "finger": "thumb",
-      "key": "Space",
-      "space_side": "left"
-    },
-    {
-      "char": "т",
-      "hand": "left",
-      "finger": "index",
-      "key": "Т"
-    },
-    {
-      "char": "р",
-      "hand": "left",
-      "finger": "index",
-      "key": "Р"
-    },
-    {
-      "char": "о",
-      "hand": "left",
-      "finger": "index",
-      "key": "О"
-    },
-    {
-      "char": "п",
-      "hand": "left",
-      "finger": "ring",
-      "key": "П"
-    },
-    {
-      "char": "а",
-      "hand": "left",
-      "finger": "index",
-      "key": "А"
-    },
-    {
-      "char": " ",
-      "hand": "right",
-      "finger": "thumb",
-      "key": "Space",
-      "space_side": "right"
-    },
-    {
-      "char": "п",
-      "hand": "right",
-      "finger": "ring",
-      "key": "П"
-    },
-    {
-      "char": "ы",
-      "hand": "right",
-      "finger": "ring",
-      "key": "Ы"
-    },
-    {
-      "char": "л",
-      "hand": "right",
-      "finger": "middle",
-      "key": "Л"
-    },
-    {
-      "char": "ь",
-      "hand": "right",
-      "finger": "middle",
-      "key": "Ь"
-    },
-    {
-      "char": " ",
-      "hand": "left",
-      "finger": "thumb",
-      "key": "Space",
-      "space_side": "left"
-    },
-    {
-      "char": "р",
-      "hand": "left",
-      "finger": "index",
-      "key": "Р"
-    },
-    {
-      "char": "ы",
-      "hand": "left",
-      "finger": "ring",
-      "key": "Ы"
-    },
-    {
-      "char": "т",
-      "hand": "left",
-      "finger": "index",
-      "key": "Т"
-    },
-    {
-      "char": "ь",
-      "hand": "left",
-      "finger": "middle",
-      "key": "Ь"
-    },
-    {
-      "char": " ",
-      "hand": "right",
-      "finger": "thumb",
-      "key": "Space",
-      "space_side": "right"
-    },
-    {
-      "char": "п",
-      "hand": "right",
-      "finger": "ring",
-      "key": "П"
-    },
-    {
-      "char": "о",
-      "hand": "right",
-      "finger": "index",
-      "key": "О"
-    },
-    {
-      "char": "р",
-      "hand": "right",
-      "finger": "index",
-      "key": "Р"
-    },
-    {
-      "char": "т",
-      "hand": "right",
-      "finger": "index",
-      "key": "Т"
-    },
-    {
-      "char": " ",
-      "hand": "left",
-      "finger": "thumb",
-      "key": "Space",
-      "space_side": "left"
-    },
-    {
-      "char": "р",
-      "hand": "left",
-      "finger": "index",
-      "key": "Р"
-    },
-    {
-      "char": "е",
-      "hand": "left",
-      "finger": "index",
-      "key": "Е"
-    },
-    {
-      "char": "п",
-      "hand": "left",
-      "finger": "ring",
-      "key": "П"
-    },
-    {
-      "char": "о",
-      "hand": "left",
-      "finger": "index",
-      "key": "О"
-    },
-    {
-      "char": "р",
-      "hand": "left",
-      "finger": "index",
-      "key": "Р"
-    },
-    {
-      "char": "т",
-      "hand": "left",
-      "finger": "index",
-      "key": "Т"
-    },
-    {
-      "char": "а",
-      "hand": "left",
-      "finger": "index",
-      "key": "А"
-    },
-    {
-      "char": "д",
-      "hand": "left",
-      "finger": "ring",
-      "key": "Д"
-    }
+    {"char": "й", "hand": "left", "finger": "pinky", "key": "Й"},
+    {"char": "й", "hand": "left", "finger": "pinky", "key": "Й"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "ц", "hand": "left", "finger": "ring", "key": "Ц"},
+    {"char": "ц", "hand": "left", "finger": "ring", "key": "Ц"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "а", "hand": "left", "finger": "index", "key": "А"},
+    {"char": "й", "hand": "left", "finger": "pinky", "key": "Й"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "о", "hand": "right", "finger": "index", "key": "О"},
+    {"char": "й", "hand": "left", "finger": "pinky", "key": "Й"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "в", "hand": "left", "finger": "middle", "key": "В"},
+    {"char": "о", "hand": "right", "finger": "index", "key": "О"},
+    {"char": "й", "hand": "left", "finger": "pinky", "key": "Й"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "р", "hand": "left", "finger": "index", "key": "Р"},
+    {"char": "а", "hand": "left", "finger": "index", "key": "А"},
+    {"char": "й", "hand": "left", "finger": "pinky", "key": "Й"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "д", "hand": "right", "finger": "ring", "key": "Д"},
+    {"char": "а", "hand": "left", "finger": "index", "key": "А"},
+    {"char": "й", "hand": "left", "finger": "pinky", "key": "Й"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "ц", "hand": "left", "finger": "ring", "key": "Ц"},
+    {"char": "а", "hand": "left", "finger": "index", "key": "А"},
+    {"char": "п", "hand": "left", "finger": "pinky", "key": "П"}
   ],
-  "keys_trained": [
-    "А",
-    "О",
-    "В",
-    "Н",
-    "Л",
-    "Д",
-    "Е",
-    "И",
-    "Т",
-    "Ы",
-    "Ь",
-    "Р",
-    "П",
-    "Space"
-  ],
-  "new_keys": [
-    "Р",
-    "П"
-  ],
-  "finger_focus": "Левый указательный (Р вверх) и безымянные пальцы (П)",
+  "keys_trained": ["А", "О", "В", "Л", "Ы", "Д", "Ф", "Ж", "П", "Р", "Э", "Й", "Ц", "Space"],
+  "new_keys": ["Й", "Ц"],
+  "finger_focus": "Левые мизинец (Й) и безымянный (Ц) — первое движение на верхний ряд",
   "tips": [
-    {
-      "type": "lead",
-      "text": "Р - левый указательный, тянется вверх от А к верхнему ряду"
-    },
-    {
-      "type": "drop",
-      "text": "П - безымянный палец, верхний ряд (сложно!)"
-    },
-    {
-      "type": "exercise",
-      "target": "пар пир репа пена перо пора",
-      "finger": "orange",
-      "hint": "Левый указательный (Р вверх) и безымянные пальцы (П)"
-    },
-    {
-      "type": "p",
-      "text": "ПАР, ПИР, РЕПА - слова с новыми буквами"
-    },
-    {
-      "type": "callout",
-      "icon": "💡",
-      "title": "Подсказка",
-      "text": "Безымянный на верхнем ряду - трудное движение, не спеши"
-    },
-    {
-      "type": "p",
-      "text": "ПАРАД, ОПЕРА, ТРОПА - длинные слова для практики"
-    },
-    {
-      "type": "exercise",
-      "target": "парад опера тропа пыль рыть порт репортаж",
-      "finger": "pink",
-      "hint": "Левый указательный (Р вверх) и безымянные пальцы (П)"
-    }
+    {"type": "lead", "text": "Это первый выход на ВЕРХНИЙ ряд. Домашний ряд уже автоматизирован — теперь учимся тянуться вверх и возвращаться."},
+    {"type": "drop", "text": "Й — мизинец левой руки, вверх от Ф. Ц — безымянный левой руки, вверх от Ы."},
+    {"type": "exercise", "target": "йй цц ай ой", "finger": "pink", "hint": "Левые мизинец (Й) и безымянный (Ц) — движение вверх от домашнего ряда"},
+    {"type": "p", "text": "После каждого удара по верхнему ряду ОБЯЗАТЕЛЬНО возвращай палец на домашнюю клавишу — это главный навык."},
+    {"type": "callout", "icon": "💡", "title": "Подсказка", "text": "Й и Ц — слабые пальцы на верхнем ряду. Не спеши, тянись точно и сразу возвращайся домой"},
+    {"type": "p", "text": "ВОЙ, РАЙ, ДАЙ — короткие слова с Й; Ц пока тренируем в слогах"},
+    {"type": "exercise", "target": "вой рай дай цап", "finger": "orange", "hint": "Левые мизинец (Й) и безымянный (Ц) — движение вверх от домашнего ряда"}
   ],
   "character_tips": {
-    "anna": "Отлично! Р расширяет указательный, а П - сложный вызов для безымянного! ПАРАД-ОПЕРА-ТРОПА!",
-    "maxim": "Хорошо! П на верхнем ряду безымянным - технически сложное движение. Требует точности и практики.",
-    "knopych": "Вау! ПАР-ПИР-РЕПА! ПАРАД-ОПЕРА! Слова становятся все красивее и сложнее!",
-    "klavochka": "Какой ты умница! Пальчики тянутся высоко! Р и П - такие важные буквы для слов!"
+    "anna": "Отлично! Первый шаг на верхний ряд! Й и Ц — слабые пальцы тянутся вверх. ВОЙ, РАЙ, ДАЙ!",
+    "maxim": "Хорошая работа! Верхний ряд начинается с мизинца и безымянного. Главное — возвращать палец домой после каждого удара.",
+    "knopych": "Вау! Й-Й-Й! Ц-Ц-Ц! Поднялись на верхний ряд! ВОЙ-РАЙ-ДАЙ — здорово!",
+    "klavochka": "Какой ты умница! Пальчики потянулись вверх и нашли Й и Ц! И сразу вернулись домой!"
   },
   "phase": 1,
   "rhythmLesson": false,
   "created_at": "2025-11-19",
-  "version": "2.0"
+  "version": "3.0"
 }

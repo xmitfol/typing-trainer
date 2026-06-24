@@ -2,510 +2,64 @@
   "id": "tier1_lesson_08",
   "tier": 1,
   "lesson_number": 8,
-  "title": "Добавляем К и У",
-  "description": "Новые буквы: К (левый средний, верхний ряд) и У (правый указательный, верхний ряд)",
-  "target_wpm": 18,
-  "text_length": 90,
+  "title": "Верхний ряд: У и К",
+  "description": "Верхний ряд левой руки: У (средний) и К (указательный)",
+  "target_wpm": 16,
+  "text_length": 31,
   "error_limit_percent": 5,
-  "error_limit": 5,
-  "text": "как кот ток рука урок укол утро крот паук наука лук руки пары вокруг",
+  "error_limit": 3,
+  "text": "уу кк лук рука урок куда крой",
   "text_sequence": [
-    {
-      "char": "к",
-      "hand": "left",
-      "finger": "middle",
-      "key": "К"
-    },
-    {
-      "char": "а",
-      "hand": "left",
-      "finger": "index",
-      "key": "А"
-    },
-    {
-      "char": "к",
-      "hand": "left",
-      "finger": "middle",
-      "key": "К"
-    },
-    {
-      "char": " ",
-      "hand": "right",
-      "finger": "thumb",
-      "key": "Space",
-      "space_side": "right"
-    },
-    {
-      "char": "к",
-      "hand": "right",
-      "finger": "middle",
-      "key": "К"
-    },
-    {
-      "char": "о",
-      "hand": "right",
-      "finger": "index",
-      "key": "О"
-    },
-    {
-      "char": "т",
-      "hand": "right",
-      "finger": "index",
-      "key": "Т"
-    },
-    {
-      "char": " ",
-      "hand": "left",
-      "finger": "thumb",
-      "key": "Space",
-      "space_side": "left"
-    },
-    {
-      "char": "т",
-      "hand": "left",
-      "finger": "index",
-      "key": "Т"
-    },
-    {
-      "char": "о",
-      "hand": "left",
-      "finger": "index",
-      "key": "О"
-    },
-    {
-      "char": "к",
-      "hand": "left",
-      "finger": "middle",
-      "key": "К"
-    },
-    {
-      "char": " ",
-      "hand": "right",
-      "finger": "thumb",
-      "key": "Space",
-      "space_side": "right"
-    },
-    {
-      "char": "р",
-      "hand": "right",
-      "finger": "index",
-      "key": "Р"
-    },
-    {
-      "char": "у",
-      "hand": "right",
-      "finger": "index",
-      "key": "У"
-    },
-    {
-      "char": "к",
-      "hand": "right",
-      "finger": "middle",
-      "key": "К"
-    },
-    {
-      "char": "а",
-      "hand": "right",
-      "finger": "index",
-      "key": "А"
-    },
-    {
-      "char": " ",
-      "hand": "left",
-      "finger": "thumb",
-      "key": "Space",
-      "space_side": "left"
-    },
-    {
-      "char": "у",
-      "hand": "left",
-      "finger": "index",
-      "key": "У"
-    },
-    {
-      "char": "р",
-      "hand": "left",
-      "finger": "index",
-      "key": "Р"
-    },
-    {
-      "char": "о",
-      "hand": "left",
-      "finger": "index",
-      "key": "О"
-    },
-    {
-      "char": "к",
-      "hand": "left",
-      "finger": "middle",
-      "key": "К"
-    },
-    {
-      "char": " ",
-      "hand": "right",
-      "finger": "thumb",
-      "key": "Space",
-      "space_side": "right"
-    },
-    {
-      "char": "у",
-      "hand": "right",
-      "finger": "index",
-      "key": "У"
-    },
-    {
-      "char": "к",
-      "hand": "right",
-      "finger": "middle",
-      "key": "К"
-    },
-    {
-      "char": "о",
-      "hand": "right",
-      "finger": "index",
-      "key": "О"
-    },
-    {
-      "char": "л",
-      "hand": "right",
-      "finger": "middle",
-      "key": "Л"
-    },
-    {
-      "char": " ",
-      "hand": "left",
-      "finger": "thumb",
-      "key": "Space",
-      "space_side": "left"
-    },
-    {
-      "char": "у",
-      "hand": "left",
-      "finger": "index",
-      "key": "У"
-    },
-    {
-      "char": "т",
-      "hand": "left",
-      "finger": "index",
-      "key": "Т"
-    },
-    {
-      "char": "р",
-      "hand": "left",
-      "finger": "index",
-      "key": "Р"
-    },
-    {
-      "char": "о",
-      "hand": "left",
-      "finger": "index",
-      "key": "О"
-    },
-    {
-      "char": " ",
-      "hand": "right",
-      "finger": "thumb",
-      "key": "Space",
-      "space_side": "right"
-    },
-    {
-      "char": "к",
-      "hand": "right",
-      "finger": "middle",
-      "key": "К"
-    },
-    {
-      "char": "р",
-      "hand": "right",
-      "finger": "index",
-      "key": "Р"
-    },
-    {
-      "char": "о",
-      "hand": "right",
-      "finger": "index",
-      "key": "О"
-    },
-    {
-      "char": "т",
-      "hand": "right",
-      "finger": "index",
-      "key": "Т"
-    },
-    {
-      "char": " ",
-      "hand": "left",
-      "finger": "thumb",
-      "key": "Space",
-      "space_side": "left"
-    },
-    {
-      "char": "п",
-      "hand": "left",
-      "finger": "ring",
-      "key": "П"
-    },
-    {
-      "char": "а",
-      "hand": "left",
-      "finger": "index",
-      "key": "А"
-    },
-    {
-      "char": "у",
-      "hand": "left",
-      "finger": "index",
-      "key": "У"
-    },
-    {
-      "char": "к",
-      "hand": "left",
-      "finger": "middle",
-      "key": "К"
-    },
-    {
-      "char": " ",
-      "hand": "right",
-      "finger": "thumb",
-      "key": "Space",
-      "space_side": "right"
-    },
-    {
-      "char": "н",
-      "hand": "right",
-      "finger": "index",
-      "key": "Н"
-    },
-    {
-      "char": "а",
-      "hand": "right",
-      "finger": "index",
-      "key": "А"
-    },
-    {
-      "char": "у",
-      "hand": "right",
-      "finger": "index",
-      "key": "У"
-    },
-    {
-      "char": "к",
-      "hand": "right",
-      "finger": "middle",
-      "key": "К"
-    },
-    {
-      "char": "а",
-      "hand": "right",
-      "finger": "index",
-      "key": "А"
-    },
-    {
-      "char": " ",
-      "hand": "left",
-      "finger": "thumb",
-      "key": "Space",
-      "space_side": "left"
-    },
-    {
-      "char": "л",
-      "hand": "left",
-      "finger": "middle",
-      "key": "Л"
-    },
-    {
-      "char": "у",
-      "hand": "left",
-      "finger": "index",
-      "key": "У"
-    },
-    {
-      "char": "к",
-      "hand": "left",
-      "finger": "middle",
-      "key": "К"
-    },
-    {
-      "char": " ",
-      "hand": "right",
-      "finger": "thumb",
-      "key": "Space",
-      "space_side": "right"
-    },
-    {
-      "char": "р",
-      "hand": "right",
-      "finger": "index",
-      "key": "Р"
-    },
-    {
-      "char": "у",
-      "hand": "right",
-      "finger": "index",
-      "key": "У"
-    },
-    {
-      "char": "к",
-      "hand": "right",
-      "finger": "middle",
-      "key": "К"
-    },
-    {
-      "char": "и",
-      "hand": "right",
-      "finger": "index",
-      "key": "И"
-    },
-    {
-      "char": " ",
-      "hand": "left",
-      "finger": "thumb",
-      "key": "Space",
-      "space_side": "left"
-    },
-    {
-      "char": "п",
-      "hand": "left",
-      "finger": "ring",
-      "key": "П"
-    },
-    {
-      "char": "а",
-      "hand": "left",
-      "finger": "index",
-      "key": "А"
-    },
-    {
-      "char": "р",
-      "hand": "left",
-      "finger": "index",
-      "key": "Р"
-    },
-    {
-      "char": "ы",
-      "hand": "left",
-      "finger": "ring",
-      "key": "Ы"
-    },
-    {
-      "char": " ",
-      "hand": "right",
-      "finger": "thumb",
-      "key": "Space",
-      "space_side": "right"
-    },
-    {
-      "char": "в",
-      "hand": "right",
-      "finger": "middle",
-      "key": "В"
-    },
-    {
-      "char": "о",
-      "hand": "right",
-      "finger": "index",
-      "key": "О"
-    },
-    {
-      "char": "к",
-      "hand": "right",
-      "finger": "middle",
-      "key": "К"
-    },
-    {
-      "char": "р",
-      "hand": "right",
-      "finger": "index",
-      "key": "Р"
-    },
-    {
-      "char": "у",
-      "hand": "right",
-      "finger": "index",
-      "key": "У"
-    },
-    {
-      "char": "г",
-      "hand": "right",
-      "finger": "index",
-      "key": "Г"
-    }
+    {"char": "у", "hand": "left", "finger": "middle", "key": "У"},
+    {"char": "у", "hand": "left", "finger": "middle", "key": "У"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "к", "hand": "left", "finger": "index", "key": "К"},
+    {"char": "к", "hand": "left", "finger": "index", "key": "К"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "л", "hand": "right", "finger": "middle", "key": "Л"},
+    {"char": "у", "hand": "left", "finger": "middle", "key": "У"},
+    {"char": "к", "hand": "left", "finger": "index", "key": "К"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "р", "hand": "left", "finger": "index", "key": "Р"},
+    {"char": "у", "hand": "left", "finger": "middle", "key": "У"},
+    {"char": "к", "hand": "left", "finger": "index", "key": "К"},
+    {"char": "а", "hand": "left", "finger": "index", "key": "А"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "у", "hand": "left", "finger": "middle", "key": "У"},
+    {"char": "р", "hand": "left", "finger": "index", "key": "Р"},
+    {"char": "о", "hand": "right", "finger": "index", "key": "О"},
+    {"char": "к", "hand": "left", "finger": "index", "key": "К"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "к", "hand": "left", "finger": "index", "key": "К"},
+    {"char": "у", "hand": "left", "finger": "middle", "key": "У"},
+    {"char": "д", "hand": "right", "finger": "ring", "key": "Д"},
+    {"char": "а", "hand": "left", "finger": "index", "key": "А"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "к", "hand": "left", "finger": "index", "key": "К"},
+    {"char": "р", "hand": "left", "finger": "index", "key": "Р"},
+    {"char": "о", "hand": "right", "finger": "index", "key": "О"},
+    {"char": "й", "hand": "left", "finger": "pinky", "key": "Й"}
   ],
-  "keys_trained": [
-    "А",
-    "О",
-    "В",
-    "Н",
-    "Л",
-    "Д",
-    "Е",
-    "И",
-    "Т",
-    "Ы",
-    "Ь",
-    "Р",
-    "П",
-    "К",
-    "У",
-    "Г",
-    "Space"
-  ],
-  "new_keys": [
-    "К",
-    "У",
-    "Г"
-  ],
-  "finger_focus": "Средние пальцы (К) и указательные (У вверх)",
+  "keys_trained": ["А", "О", "В", "Л", "Ы", "Д", "Ф", "Ж", "П", "Р", "Э", "Й", "Ц", "У", "К", "Space"],
+  "new_keys": ["У", "К"],
+  "finger_focus": "Левые средний (У) и указательный (К) на верхнем ряду",
   "tips": [
-    {
-      "type": "lead",
-      "text": "К - средний палец, тянется вверх к верхнему ряду"
-    },
-    {
-      "type": "drop",
-      "text": "У - правый указательный, верхний ряд"
-    },
-    {
-      "type": "exercise",
-      "target": "как кот ток рука урок укол утро",
-      "finger": "green",
-      "hint": "Средние пальцы (К) и указательные (У вверх)"
-    },
-    {
-      "type": "p",
-      "text": "КАК, КОТ, ТОК - короткие слова для практики"
-    },
-    {
-      "type": "callout",
-      "icon": "💡",
-      "title": "Подсказка",
-      "text": "РУКА, УРОК, УТРО - слова с У"
-    },
-    {
-      "type": "p",
-      "text": "ПАУК, НАУКА - более сложные комбинации"
-    },
-    {
-      "type": "pullquote",
-      "text": "Бонус: Г (правый указательный) в слове ВОКРУГ",
-      "by": "методика курса"
-    },
-    {
-      "type": "exercise",
-      "target": "крот паук наука лук руки пары вокруг",
-      "finger": "blue",
-      "hint": "Средние пальцы (К) и указательные (У вверх)"
-    }
+    {"type": "lead", "text": "У — средний палец левой руки, вверх от В. К — указательный левой руки, вверх от А."},
+    {"type": "drop", "text": "Это сильные пальцы, но движение вверх для них новое — тянись точно и возвращайся на домашний ряд."},
+    {"type": "exercise", "target": "уу кк лук рука", "finger": "green", "hint": "Левые средний (У) и указательный (К) на верхнем ряду"},
+    {"type": "p", "text": "ЛУК, РУКА, УРОК — первые настоящие слова с буквами верхнего ряда!"},
+    {"type": "callout", "icon": "💡", "title": "Подсказка", "text": "После У и К возвращай пальцы на В и А — не теряй опору домашнего ряда"},
+    {"type": "p", "text": "КУДА, КРОЙ — комбинации с уже освоенными буквами"},
+    {"type": "exercise", "target": "урок куда крой", "finger": "blue", "hint": "Левые средний (У) и указательный (К) на верхнем ряду"}
   ],
   "character_tips": {
-    "anna": "Отлично! К и У расширяют верхний ряд! РУКА-УРОК-ПАУК-НАУКА - уже сложные слова!",
-    "maxim": "Хорошо! Средний палец на верхнем ряду (К) - важный навык. У дополняет указательный.",
-    "knopych": "Вау! КАК-КОТ-ТОК! ПАУК-НАУКА! Слова все интереснее! ВОКРУГ - это уже предложение!",
-    "klavochka": "Какой ты умница! Пальчики танцуют по верхнему ряду! КОТ-КРОТ-ПАУК - как сказка!"
+    "anna": "Отлично! У и К — сильные пальцы на верхнем ряду. ЛУК, РУКА, УРОК — уже осмысленные слова!",
+    "maxim": "Хорошая работа! Средний и указательный осваивают верхний ряд. Это база для будущей скорости.",
+    "knopych": "Вау! ЛУК-РУКА-УРОК! Слова растут! У и К открыли верхний ряд по-настоящему!",
+    "klavochka": "Какой ты умница! Сильные пальчики тянутся вверх! РУКА, УРОК — красивые слова!"
   },
   "phase": 1,
   "rhythmLesson": false,
   "created_at": "2025-11-19",
-  "version": "2.0"
+  "version": "3.0"
 }

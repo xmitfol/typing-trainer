@@ -2,483 +2,83 @@
   "id": "tier1_lesson_06",
   "tier": 1,
   "lesson_number": 6,
-  "title": "Ритм-упражнение: Простые слова",
-  "description": "Тренировка ритма на простых словах без новых букв",
-  "target_wpm": 18,
-  "text_length": 70,
+  "title": "Ритм-упражнение: слова домашнего ряда",
+  "description": "Закрепление всего домашнего ряда без новых букв — ритм и равномерность",
+  "target_wpm": 16,
+  "text_length": 50,
   "error_limit_percent": 5,
   "error_limit": 4,
-  "text": "оно оно они они вода вода вина вина дело дело тина тина выть выть",
+  "text": "вода вода дрова дрова правда правда повар повар",
   "text_sequence": [
-    {
-      "char": "о",
-      "hand": "left",
-      "finger": "index",
-      "key": "О"
-    },
-    {
-      "char": "н",
-      "hand": "left",
-      "finger": "index",
-      "key": "Н"
-    },
-    {
-      "char": "о",
-      "hand": "left",
-      "finger": "index",
-      "key": "О"
-    },
-    {
-      "char": " ",
-      "hand": "right",
-      "finger": "thumb",
-      "key": "Space",
-      "space_side": "right"
-    },
-    {
-      "char": "о",
-      "hand": "right",
-      "finger": "index",
-      "key": "О"
-    },
-    {
-      "char": "н",
-      "hand": "right",
-      "finger": "index",
-      "key": "Н"
-    },
-    {
-      "char": "о",
-      "hand": "right",
-      "finger": "index",
-      "key": "О"
-    },
-    {
-      "char": " ",
-      "hand": "left",
-      "finger": "thumb",
-      "key": "Space",
-      "space_side": "left"
-    },
-    {
-      "char": "о",
-      "hand": "left",
-      "finger": "index",
-      "key": "О"
-    },
-    {
-      "char": "н",
-      "hand": "left",
-      "finger": "index",
-      "key": "Н"
-    },
-    {
-      "char": "и",
-      "hand": "left",
-      "finger": "index",
-      "key": "И"
-    },
-    {
-      "char": " ",
-      "hand": "right",
-      "finger": "thumb",
-      "key": "Space",
-      "space_side": "right"
-    },
-    {
-      "char": "о",
-      "hand": "right",
-      "finger": "index",
-      "key": "О"
-    },
-    {
-      "char": "н",
-      "hand": "right",
-      "finger": "index",
-      "key": "Н"
-    },
-    {
-      "char": "и",
-      "hand": "right",
-      "finger": "index",
-      "key": "И"
-    },
-    {
-      "char": " ",
-      "hand": "left",
-      "finger": "thumb",
-      "key": "Space",
-      "space_side": "left"
-    },
-    {
-      "char": "в",
-      "hand": "left",
-      "finger": "middle",
-      "key": "В"
-    },
-    {
-      "char": "о",
-      "hand": "left",
-      "finger": "index",
-      "key": "О"
-    },
-    {
-      "char": "д",
-      "hand": "left",
-      "finger": "ring",
-      "key": "Д"
-    },
-    {
-      "char": "а",
-      "hand": "left",
-      "finger": "index",
-      "key": "А"
-    },
-    {
-      "char": " ",
-      "hand": "right",
-      "finger": "thumb",
-      "key": "Space",
-      "space_side": "right"
-    },
-    {
-      "char": "в",
-      "hand": "right",
-      "finger": "middle",
-      "key": "В"
-    },
-    {
-      "char": "о",
-      "hand": "right",
-      "finger": "index",
-      "key": "О"
-    },
-    {
-      "char": "д",
-      "hand": "right",
-      "finger": "ring",
-      "key": "Д"
-    },
-    {
-      "char": "а",
-      "hand": "right",
-      "finger": "index",
-      "key": "А"
-    },
-    {
-      "char": " ",
-      "hand": "left",
-      "finger": "thumb",
-      "key": "Space",
-      "space_side": "left"
-    },
-    {
-      "char": "в",
-      "hand": "left",
-      "finger": "middle",
-      "key": "В"
-    },
-    {
-      "char": "и",
-      "hand": "left",
-      "finger": "index",
-      "key": "И"
-    },
-    {
-      "char": "н",
-      "hand": "left",
-      "finger": "index",
-      "key": "Н"
-    },
-    {
-      "char": "а",
-      "hand": "left",
-      "finger": "index",
-      "key": "А"
-    },
-    {
-      "char": " ",
-      "hand": "right",
-      "finger": "thumb",
-      "key": "Space",
-      "space_side": "right"
-    },
-    {
-      "char": "в",
-      "hand": "right",
-      "finger": "middle",
-      "key": "В"
-    },
-    {
-      "char": "и",
-      "hand": "right",
-      "finger": "index",
-      "key": "И"
-    },
-    {
-      "char": "н",
-      "hand": "right",
-      "finger": "index",
-      "key": "Н"
-    },
-    {
-      "char": "а",
-      "hand": "right",
-      "finger": "index",
-      "key": "А"
-    },
-    {
-      "char": " ",
-      "hand": "left",
-      "finger": "thumb",
-      "key": "Space",
-      "space_side": "left"
-    },
-    {
-      "char": "д",
-      "hand": "left",
-      "finger": "ring",
-      "key": "Д"
-    },
-    {
-      "char": "е",
-      "hand": "left",
-      "finger": "index",
-      "key": "Е"
-    },
-    {
-      "char": "л",
-      "hand": "left",
-      "finger": "middle",
-      "key": "Л"
-    },
-    {
-      "char": "о",
-      "hand": "left",
-      "finger": "index",
-      "key": "О"
-    },
-    {
-      "char": " ",
-      "hand": "right",
-      "finger": "thumb",
-      "key": "Space",
-      "space_side": "right"
-    },
-    {
-      "char": "д",
-      "hand": "right",
-      "finger": "ring",
-      "key": "Д"
-    },
-    {
-      "char": "е",
-      "hand": "right",
-      "finger": "index",
-      "key": "Е"
-    },
-    {
-      "char": "л",
-      "hand": "right",
-      "finger": "middle",
-      "key": "Л"
-    },
-    {
-      "char": "о",
-      "hand": "right",
-      "finger": "index",
-      "key": "О"
-    },
-    {
-      "char": " ",
-      "hand": "left",
-      "finger": "thumb",
-      "key": "Space",
-      "space_side": "left"
-    },
-    {
-      "char": "т",
-      "hand": "left",
-      "finger": "index",
-      "key": "Т"
-    },
-    {
-      "char": "и",
-      "hand": "left",
-      "finger": "index",
-      "key": "И"
-    },
-    {
-      "char": "н",
-      "hand": "left",
-      "finger": "index",
-      "key": "Н"
-    },
-    {
-      "char": "а",
-      "hand": "left",
-      "finger": "index",
-      "key": "А"
-    },
-    {
-      "char": " ",
-      "hand": "right",
-      "finger": "thumb",
-      "key": "Space",
-      "space_side": "right"
-    },
-    {
-      "char": "т",
-      "hand": "right",
-      "finger": "index",
-      "key": "Т"
-    },
-    {
-      "char": "и",
-      "hand": "right",
-      "finger": "index",
-      "key": "И"
-    },
-    {
-      "char": "н",
-      "hand": "right",
-      "finger": "index",
-      "key": "Н"
-    },
-    {
-      "char": "а",
-      "hand": "right",
-      "finger": "index",
-      "key": "А"
-    },
-    {
-      "char": " ",
-      "hand": "left",
-      "finger": "thumb",
-      "key": "Space",
-      "space_side": "left"
-    },
-    {
-      "char": "в",
-      "hand": "left",
-      "finger": "middle",
-      "key": "В"
-    },
-    {
-      "char": "ы",
-      "hand": "left",
-      "finger": "ring",
-      "key": "Ы"
-    },
-    {
-      "char": "т",
-      "hand": "left",
-      "finger": "index",
-      "key": "Т"
-    },
-    {
-      "char": "ь",
-      "hand": "left",
-      "finger": "middle",
-      "key": "Ь"
-    },
-    {
-      "char": " ",
-      "hand": "right",
-      "finger": "thumb",
-      "key": "Space",
-      "space_side": "right"
-    },
-    {
-      "char": "в",
-      "hand": "right",
-      "finger": "middle",
-      "key": "В"
-    },
-    {
-      "char": "ы",
-      "hand": "right",
-      "finger": "ring",
-      "key": "Ы"
-    },
-    {
-      "char": "т",
-      "hand": "right",
-      "finger": "index",
-      "key": "Т"
-    },
-    {
-      "char": "ь",
-      "hand": "right",
-      "finger": "middle",
-      "key": "Ь"
-    }
+    {"char": "в", "hand": "left", "finger": "middle", "key": "В"},
+    {"char": "о", "hand": "right", "finger": "index", "key": "О"},
+    {"char": "д", "hand": "right", "finger": "ring", "key": "Д"},
+    {"char": "а", "hand": "left", "finger": "index", "key": "А"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "в", "hand": "left", "finger": "middle", "key": "В"},
+    {"char": "о", "hand": "right", "finger": "index", "key": "О"},
+    {"char": "д", "hand": "right", "finger": "ring", "key": "Д"},
+    {"char": "а", "hand": "left", "finger": "index", "key": "А"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "д", "hand": "right", "finger": "ring", "key": "Д"},
+    {"char": "р", "hand": "left", "finger": "index", "key": "Р"},
+    {"char": "о", "hand": "right", "finger": "index", "key": "О"},
+    {"char": "в", "hand": "left", "finger": "middle", "key": "В"},
+    {"char": "а", "hand": "left", "finger": "index", "key": "А"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "д", "hand": "right", "finger": "ring", "key": "Д"},
+    {"char": "р", "hand": "left", "finger": "index", "key": "Р"},
+    {"char": "о", "hand": "right", "finger": "index", "key": "О"},
+    {"char": "в", "hand": "left", "finger": "middle", "key": "В"},
+    {"char": "а", "hand": "left", "finger": "index", "key": "А"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "п", "hand": "left", "finger": "pinky", "key": "П"},
+    {"char": "р", "hand": "left", "finger": "index", "key": "Р"},
+    {"char": "а", "hand": "left", "finger": "index", "key": "А"},
+    {"char": "в", "hand": "left", "finger": "middle", "key": "В"},
+    {"char": "д", "hand": "right", "finger": "ring", "key": "Д"},
+    {"char": "а", "hand": "left", "finger": "index", "key": "А"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "п", "hand": "left", "finger": "pinky", "key": "П"},
+    {"char": "р", "hand": "left", "finger": "index", "key": "Р"},
+    {"char": "а", "hand": "left", "finger": "index", "key": "А"},
+    {"char": "в", "hand": "left", "finger": "middle", "key": "В"},
+    {"char": "д", "hand": "right", "finger": "ring", "key": "Д"},
+    {"char": "а", "hand": "left", "finger": "index", "key": "А"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "п", "hand": "left", "finger": "pinky", "key": "П"},
+    {"char": "о", "hand": "right", "finger": "index", "key": "О"},
+    {"char": "в", "hand": "left", "finger": "middle", "key": "В"},
+    {"char": "а", "hand": "left", "finger": "index", "key": "А"},
+    {"char": "р", "hand": "left", "finger": "index", "key": "Р"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "п", "hand": "left", "finger": "pinky", "key": "П"},
+    {"char": "о", "hand": "right", "finger": "index", "key": "О"},
+    {"char": "в", "hand": "left", "finger": "middle", "key": "В"},
+    {"char": "а", "hand": "left", "finger": "index", "key": "А"},
+    {"char": "р", "hand": "left", "finger": "index", "key": "Р"}
   ],
-  "keys_trained": [
-    "А",
-    "О",
-    "В",
-    "Н",
-    "Л",
-    "Д",
-    "Е",
-    "И",
-    "Т",
-    "Ы",
-    "Ь",
-    "Space"
-  ],
+  "keys_trained": ["А", "О", "В", "Л", "Ы", "Д", "Ф", "Ж", "П", "Р", "Э", "Space"],
   "new_keys": [],
-  "finger_focus": "Все изученные пальцы - закрепление через повторение слов",
+  "finger_focus": "Все пальцы домашнего ряда — фокус на ритме и равномерности",
   "tips": [
-    {
-      "type": "lead",
-      "text": "🎵 Второй ритм-урок - наслаждайся!"
-    },
-    {
-      "type": "drop",
-      "text": "Сегодня печатаем простые слова ДВАЖДЫ"
-    },
-    {
-      "type": "exercise",
-      "target": "оно оно они они вода вода вина",
-      "finger": "blue",
-      "hint": "Все изученные пальцы - закрепление через повторение слов"
-    },
-    {
-      "type": "p",
-      "text": "Почувствуй как мышцы запоминают паттерны: ВОДА-ВОДА"
-    },
-    {
-      "type": "callout",
-      "icon": "💡",
-      "title": "Запомни",
-      "text": "Ритм важнее скорости - печатай ровно"
-    },
-    {
-      "type": "p",
-      "text": "Это последняя передышка перед новыми буквами!"
-    },
-    {
-      "type": "pullquote",
-      "text": "Расслабь плечи и запястья",
-      "by": "методика курса"
-    },
-    {
-      "type": "exercise",
-      "target": "вина дело дело тина тина выть выть",
-      "finger": "green",
-      "hint": "Все изученные пальцы - закрепление через повторение слов"
-    }
+    {"type": "lead", "text": "🎵 Без новых букв — закрепляем домашний ряд"},
+    {"type": "drop", "text": "Печатай ровно, в одном темпе, не покидая исходную позицию"},
+    {"type": "exercise", "target": "вода вода дрова дрова", "finger": "blue", "hint": "Все пальцы домашнего ряда — фокус на ритме и равномерности"},
+    {"type": "p", "text": "Почувствуй, как мышцы запоминают слова: ВОДА-ВОДА, ДРОВА-ДРОВА"},
+    {"type": "callout", "icon": "💡", "title": "Запомни", "text": "Ритм важнее скорости — печатай ровно, пальцы всегда возвращаются домой"},
+    {"type": "p", "text": "Это последняя передышка перед выходом на верхний ряд"},
+    {"type": "pullquote", "text": "Расслабь плечи и запястья, представь метроном", "by": "методика курса"},
+    {"type": "exercise", "target": "правда правда повар повар", "finger": "green", "hint": "Все пальцы домашнего ряда — фокус на ритме и равномерности"}
   ],
   "character_tips": {
-    "anna": "Отлично! Второй ритм-урок! ВОДА-ВОДА, ДЕЛО-ДЕЛО - повторение закрепляет мышечную память!",
-    "maxim": "Хорошо! Повторяющиеся паттерны - это тренировка автоматизма. Мозг учится предугадывать движения.",
-    "knopych": "Вау! Эхо-челлендж! ОНО-ОНО, ОНИ-ОНИ, ВОДА-ВОДА! Как эхо в горах!",
-    "klavochka": "Какой ты молодец! Слова повторяются, а пальчики танцуют одинаковые движения! Как красиво!"
+    "anna": "Отлично! Ритм-урок на домашнем ряду. ВОДА-ВОДА, ПРАВДА-ПРАВДА — повторение закрепляет память!",
+    "maxim": "Хорошо! Повторяющиеся слова тренируют автоматизм. Мозг учится предугадывать движения по домашнему ряду.",
+    "knopych": "Вау! Эхо-челлендж! ВОДА-ВОДА, ДРОВА-ДРОВА! Как эхо в горах — раз-два, раз-два!",
+    "klavochka": "Какой ты молодец! Слова повторяются, пальчики танцуют одинаковые движения дома! Как красиво!"
   },
   "phase": 1,
   "rhythmLesson": true,
   "created_at": "2025-11-19",
-  "version": "2.0"
+  "version": "3.0"
 }
