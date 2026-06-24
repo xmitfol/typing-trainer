@@ -27,8 +27,11 @@
 
     // ─── Configuration ──────────────────────────────────────────────────
     const DEFAULT_CONFIG = {
-        // Базовый URL backend. На Sprint 3+ переключается на prod.
-        baseUrl: 'http://localhost:8000/api/v1',
+        // Базовый URL backend. ОТНОСИТЕЛЬНЫЙ `/api/v1` → same-origin: работает
+        // и за dev-прокси (nginx :8090, B1-003), и в prod (фронт+API на одном
+        // домене). Cross-origin сломал бы SameSite=Lax auth-cookies. Для
+        // отдельного backend-хоста — setConfig({baseUrl:'https://api.../api/v1'}).
+        baseUrl: '/api/v1',
         // Глобальный switch: false = всегда localStorage. true = пытаемся API
         // с fallback на localStorage при ошибке/offline.
         useApi: false,

@@ -1,11 +1,21 @@
 # Sprint 1 · Blockers
 
 > Активные блокеры. Эскалация в течение 4 часов после появления.
-> Sprint **активен**, auth-core (S1.4–S1.6) код-готов; оба активных блокера на критпути к gate. **Эскалация PO рекомендована (день идёт, оба на Диме).**
+> Sprint **активен**, **весь КОД Sprint 1 написан** (backend auth + frontend S1.9, d4ecf2e). Все 3 активных блокера — операционные (Docker/proxy/E2E-прогон), на критпути к зелёному gate, **все на Диме (+Квинн на прогоне)**. **Эскалация PO рекомендована: gate упирается только в инфра-прогон, нужен слот Димы сегодня.**
 
 ---
 
 ## Active blockers
+
+### B1-003: нет same-origin reverse-proxy → auth-cookies не работают cross-origin, verify_signup_flow.py не пройдёт
+- **Discovered**: 2026-06-24
+- **Affects**: S1.9 E2E, gate `verify_signup_flow.py` (весь auth-поток в браузере)
+- **Owner unblock**: **Дима** (reverse-proxy для dev/E2E-стека; часть Docker-прогона)
+- **Описание**: httpOnly auth-cookies (access/refresh) выставлены `SameSite=Lax`. При cross-origin (фронт `:8001` ↔ api `:8000`) браузер **не прикрепит их к fetch** → после signup/signin сессия не держится, `verify_signup_flow.py` падает. Нужен **single origin**: reverse-proxy (nginx/caddy/uvicorn-mount), где `/api/v1/*` проксируется на uvicorn, статика (`auth.html`, `assets/`) отдаётся рядом с того же origin.
+- **Workaround**: на время ручной проверки — поднять статику и API под одним origin (любой reverse-proxy); постоянное решение — зафиксировать proxy в dev docker-compose / CI E2E-стеке.
+- **Escalation**: **Y — эскалация PO** (тот же owner Дима; последний инфра-шаг к зелёному gate).
+- **ETA unblock**: не назначена → запросить у Димы (нужен сегодня).
+- **Resolved**: —
 
 ### B1-001: testcontainers Postgres-фикстуры нет → integration acceptance auth-core не зелёный
 - **Discovered**: 2026-06-11

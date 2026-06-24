@@ -5,19 +5,19 @@ Verify auth flow (Sprint 1 gate) — S1.9 frontend ↔ backend auth-core.
 forgot → сообщение; опционально (если доступен mailpit REST) — verify-email и
 reset по реальному токену из письма.
 
-⚠️ ТРЕБОВАНИЯ К ОКРУЖЕНИЮ (важно — иначе cookies не пройдут):
-  Frontend и API ДОЛЖНЫ обслуживаться с ОДНОГО origin. httpOnly-cookie auth
-  выставлены с SameSite=Lax — при cross-origin (фронт :8001 ↔ api :8000) браузер
-  НЕ прикрепит их к fetch. В dev поднимать через reverse-proxy: один origin,
-  где `/api/v1/*` проксируется на uvicorn, а статика отдаётся рядом.
-  (Задача инфры — Дима; см. blockers B1-002/Docker-прогон.)
+SAME-ORIGIN (важно — иначе cookies не пройдут):
+  Frontend и API обслуживаются с ОДНОГО origin. httpOnly-cookie auth выставлены
+  SameSite=Lax — при cross-origin браузер не прикрепит их к fetch. Это решено
+  nginx-прокси (B1-003): `docker compose --profile app up -d` поднимает backend +
+  nginx на :8090, где статика и /api живут на одном origin.
 
   Переменные окружения:
-    BASE         — origin со статикой + проксированным /api/v1 (default http://127.0.0.1:8001)
+    BASE         — single-origin прокси (default http://localhost:8090)
     MAILPIT_URL  — REST mailpit для извлечения токенов (default http://127.0.0.1:8025; опц.)
 
-Запуск (на машине с поднятым стеком + playwright):
-    BASE=http://127.0.0.1:8001 python scripts/verify_signup_flow.py
+Запуск (на машине с Docker + playwright):
+    cd backend && docker compose --profile app up -d
+    BASE=http://localhost:8090 python scripts/verify_signup_flow.py
 """
 import io
 import os
@@ -32,7 +32,7 @@ import urllib.request
 
 from playwright.sync_api import sync_playwright
 
-BASE = os.environ.get('BASE', 'http://127.0.0.1:8001').rstrip('/')
+BASE = os.environ.get('BASE', 'http://localhost:8090').rstrip('/')
 MAILPIT_URL = os.environ.get('MAILPIT_URL', 'http://127.0.0.1:8025').rstrip('/')
 PASSWORD = 'correct-horse-battery-staple'
 

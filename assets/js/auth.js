@@ -221,13 +221,11 @@
 
     // ─── Init ───────────────────────────────────────────────────────────
     function init() {
-        // baseUrl из глобального конфига приложения (если задан)
-        window.apiClient.init().then(function () {
-            try {
-                var base = window.Settings && window.Settings.get('api.baseUrl', null);
-                if (base) window.apiClient.setConfig({ baseUrl: String(base).replace(/\/$/, '') });
-            } catch (e) { /* ignore */ }
-        });
+        // baseUrl по умолчанию относительный (/api/v1) — same-origin за прокси.
+        // Settings.api.baseUrl НЕ применяем: он указывает на голый хост без
+        // /api/v1 и ломает same-origin. Для отдельного backend-хоста —
+        // apiClient.setConfig({baseUrl:'https://api.example/api/v1'}).
+        window.apiClient.init();
 
         // Навигация по data-go
         document.addEventListener('click', function (e) {
