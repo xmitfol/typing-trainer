@@ -58,7 +58,10 @@ def _mailpit_latest_link(to_email: str, action: str) -> str | None:
                 body = r.read().decode()
         except Exception:  # noqa: BLE001
             continue
-        match = re.search(r'auth\.html\?action=' + action + r'&token=([A-Za-z0-9_\-]+)', body)
+        # В HTML-письме `&` экранирован Jinja как `&amp;` (валидный HTML).
+        match = re.search(
+            r'auth\.html\?action=' + action + r'(?:&amp;|&)token=([A-Za-z0-9_\-]+)', body
+        )
         if match:
             return f"{BASE}/auth.html?action={action}&token={match.group(1)}"
     return None
