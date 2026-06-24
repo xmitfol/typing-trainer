@@ -118,7 +118,26 @@ document.addEventListener('DOMContentLoaded', async function () {
     }
     if (!lesson || !lesson.text) { targetEl.textContent = `Урок ${lessonNum} не загружен`; return; }
 
-    const targetText = lesson.text;
+    // ─── Гайдед-шаг (?exercise=N) ────────────────────────────────
+    // Тренируемся на тексте отдельного шага урока, а не на всём уроке. Финиш
+    // такого шага НЕ пишет lesson_progress (звёзды) — лишь отмечает шаг
+    // пройденным (exerciseProgress) и возвращает в теорию. placement-шаг — это
+    // обычный drill на якорных клавишах (А/О = F/J), отличается лишь инструкцией.
+    const exerciseIdx = parseInt(params.get('exercise'), 10) || 0;
+    let currentStep = null, stepMode = false;
+    if (exerciseIdx > 0 && lesson.guided && Array.isArray(lesson.tips)) {
+        const steps = lesson.tips.filter(tp => tp && tp.type === 'step');
+        currentStep = steps[exerciseIdx - 1] || null;
+        stepMode = !!(currentStep && currentStep.target);
+    }
+    // Прямой URL на шаг, чей предыдущий ещё не пройден → назад в теорию.
+    if (stepMode && exerciseIdx > 1 && window.exerciseProgress
+        && !window.exerciseProgress.isStepDone(tier, lessonNum, exerciseIdx - 1)) {
+        window.location.replace(`lesson.html?tier=${encodeURIComponent(tier)}&lesson=${lessonNum}`);
+        return;
+    }
+
+    let targetText = stepMode ? String(currentStep.target) : lesson.text;
     const moduleN = lesson.phase || 1;
     const exId = `${moduleN}.${lessonNum}`;
     numEl.textContent = exId;
@@ -133,6 +152,15 @@ document.addEventListener('DOMContentLoaded', async function () {
         || `Печатай ровно. Цель: ${lesson.target_wpm || '—'} зн/мин, допустимо ошибок: ${Number.isFinite(lesson.error_limit) ? lesson.error_limit : '—'}.`;
     tipEl.textContent = initTip;
     hintEl.textContent = lesson.finger_focus || 'Указательные пальцы — твои якоря на буквах А и О.';
+    // i18n с явным фолбэком (t() возвращает ключ, если перевода нет).
+    const tf = (k, fb) => { const v = t(k); return (v && v !== k) ? v : fb; };
+    // В режиме шага — инструкция шага вместо общей подсказки урока.
+    if (stepMode) {
+        tipEl.textContent = currentStep.hint || initTip;
+        hintEl.textContent = currentStep.kind === 'placement'
+            ? 'Не смотри на руки — нащупай клавиши пальцами.'
+            : (currentStep.hint || '');
+    }
 
     // ─── State ───────────────────────────────────────────────────
     let typed = 0, errors = 0, attempt = 1, startTime = null, timer = null, done = false;
@@ -321,7 +349,36 @@ document.addEventListener('DOMContentLoaded', async function () {
     }
 
     // ─── Finish ──────────────────────────────────────────────────
+    // Гайдед-шаг: отмечаем пройденным, без звёзд/прогресса урока, возврат в теорию.
+    function finishStep() {
+        done = true;
+        clearInterval(timer);
+        if (window.exerciseProgress) window.exerciseProgress.markStepDone(tier, lessonNum, exerciseIdx);
+
+        $('success-num').textContent = exId;
+        $('success-avatar').innerHTML = window.portraits ? window.portraits.mentor(mentorId, 150) : '';
+        $('final-grade').textContent = '✓';
+        $('final-speed').textContent = '—';
+        $('final-acc').textContent = '—';
+        $('final-rhythm').textContent = '—';
+        $('success-title').textContent = tf('task.stepDoneTitle', 'Шаг пройден');
+        $('success-msg').textContent = tf('task.stepDoneMsg', 'Отлично! Вернись к уроку и переходи к следующему шагу.');
+        setBubble('lessonCompleteSuccess', { name: profile.name || '' }, 'Молодец! Шаг пройден.');
+
+        const nextBtn = $('next-btn');
+        nextBtn.textContent = tf('task.backToLesson', '← Назад к уроку');
+        nextBtn.href = `lesson.html?tier=${encodeURIComponent(tier)}&lesson=${lessonNum}`;
+
+        kb.removeAttribute('highlight-char');
+        taskBody.classList.add('hide');
+        toolbar.classList.add('hide');
+        kbStage.classList.add('hide');
+        successEl.classList.add('show');
+        spawnConfetti();
+    }
+
     function finishExercise() {
+        if (stepMode) { finishStep(); return; }
         done = true;
         clearInterval(timer);
         const elapsed = startTime ? (Date.now() - startTime) / 1000 : 0;

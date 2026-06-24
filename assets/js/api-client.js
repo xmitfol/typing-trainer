@@ -52,6 +52,7 @@
         certifications: 'typing_trainer_certifications',
         currentLesson: 'typing_trainer_current_lesson',
         userLessons: 'typing_trainer_user_lessons',
+        lessonExercises: 'typing_trainer_lesson_exercises',  // per-exercise гайдед-прогресс (локальный, Sprint 3+ зеркало)
     };
 
     const state = {
