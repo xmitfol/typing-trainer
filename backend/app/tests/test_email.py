@@ -91,7 +91,7 @@ async def test_send_verification_url_has_token(settings: Settings) -> None:
         )
     msg: EmailMessage = mock_send.call_args.args[0]
     html = _html_part(msg)
-    assert "https://app.example.com/verify-email?token=TKN123" in html
+    assert "https://app.example.com/auth.html?action=verify&token=TKN123" in html
 
 
 @pytest.mark.asyncio
@@ -103,4 +103,4 @@ async def test_send_password_reset_url_has_token(settings: Settings) -> None:
             to="u@e.com", name="X", language="ru", token="RST456"
         )
     msg: EmailMessage = mock_send.call_args.args[0]
-    assert "https://app.example.com/reset-password?token=RST456" in _html_part(msg)
+    assert "https://app.example.com/auth.html?action=reset&token=RST456" in _html_part(msg)
