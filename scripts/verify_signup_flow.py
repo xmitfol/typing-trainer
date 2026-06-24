@@ -52,6 +52,11 @@ def _mailpit_latest_link(to_email: str, action: str) -> str | None:
     import json
     msgs = json.loads(data).get('messages', [])
     for m in msgs:
+        # Фильтр по получателю — mailpit копит письма разных прогонов, нельзя
+        # взять чужой токен (иначе reset применится не к тому юзеру).
+        recipients = [a.get('Address', '').lower() for a in m.get('To', [])]
+        if to_email.lower() not in recipients:
+            continue
         mid = m.get('ID')
         try:
             with urllib.request.urlopen(f"{MAILPIT_URL}/api/v1/message/{mid}", timeout=5) as r:
