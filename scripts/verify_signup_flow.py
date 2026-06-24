@@ -60,10 +60,12 @@ def _mailpit_latest_link(to_email: str, action: str) -> str | None:
         mid = m.get('ID')
         try:
             with urllib.request.urlopen(f"{MAILPIT_URL}/api/v1/message/{mid}", timeout=5) as r:
-                body = r.read().decode()
+                msg = json.loads(r.read().decode())
         except Exception:  # noqa: BLE001
             continue
-        # В HTML-письме `&` экранирован Jinja как `&amp;` (валидный HTML).
+        # /message/{id} отдаёт JSON; тело — в полях HTML/Text (там `&` уже
+        # раскодирован из &, а Jinja-escape оставляет `&amp;`).
+        body = (msg.get('HTML') or '') + (msg.get('Text') or '')
         match = re.search(
             r'auth\.html\?action=' + action + r'(?:&amp;|&)token=([A-Za-z0-9_\-]+)', body
         )
