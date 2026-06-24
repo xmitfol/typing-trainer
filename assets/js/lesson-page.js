@@ -199,6 +199,7 @@ document.addEventListener('DOMContentLoaded', async function () {
     const totalSteps = tips.filter(t => t && t.type === 'step').length;
     let guidedStepIdx = 0;        // 1-based индекс текущего step при обходе
     let prevStepsAllDone = true;  // все шаги ДО текущего пройдены
+    let firstIncompleteStep = 0;  // первый непройденный шаг (для «Выполнить задание»)
     tips.forEach((tip, idx) => {
         // Backward compat: строка → параграф (1-й как drop-cap, каждый 3-й как callout).
         // Объект {type, ...} → специальный рендер: callout / pullquote / exercise / figure.
@@ -251,6 +252,7 @@ document.addEventListener('DOMContentLoaded', async function () {
                 const sIdx = ++guidedStepIdx;
                 const done = !!(window.exerciseProgress && window.exerciseProgress.isStepDone(tier, lessonNum, sIdx));
                 const status = done ? 'done' : (prevStepsAllDone ? 'active' : 'locked');
+                if (!done && firstIncompleteStep === 0) firstIncompleteStep = sIdx;
                 tipsContainer.appendChild(makeGuidedStep(sIdx, tip, status));
                 prevStepsAllDone = prevStepsAllDone && done;
                 break;
@@ -502,9 +504,15 @@ document.addEventListener('DOMContentLoaded', async function () {
         }
     }
 
-    // «Выполнить задание →» в топбаре — прямой шорткат к практике (повтор/переделка)
+    // «Выполнить задание →» в топбаре — шорткат к практике.
+    // Гайдед-урок: ведём к первому НЕпройденному шагу (не в полный заход в обход
+    // лестницы). Когда все шаги пройдены (firstIncompleteStep===0) — полный заход.
     const topTask = $('#lpTopTask');
-    if (topTask) topTask.href = `task.html?tier=${encodeURIComponent(tier)}&lesson=${lessonNum}`;
+    if (topTask) {
+        topTask.href = (guided && totalSteps > 0 && firstIncompleteStep > 0)
+            ? `task.html?tier=${encodeURIComponent(tier)}&lesson=${lessonNum}&exercise=${firstIncompleteStep}`
+            : `task.html?tier=${encodeURIComponent(tier)}&lesson=${lessonNum}`;
+    }
 
     // ─── Prev/Next nav ───────────────────────────────────────────
     const prevN = lessonNum - 1;
