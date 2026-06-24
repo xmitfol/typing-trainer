@@ -363,7 +363,10 @@ document.addEventListener('DOMContentLoaded', async function () {
         $('final-rhythm').textContent = '—';
         $('success-title').textContent = tf('task.stepDoneTitle', 'Шаг пройден');
         $('success-msg').textContent = tf('task.stepDoneMsg', 'Отлично! Вернись к уроку и переходи к следующему шагу.');
-        setBubble('lessonCompleteSuccess', { name: profile.name || '' }, 'Молодец! Шаг пройден.');
+        // Прямой текст без шаблонных переменных: у шага нет оценки/точности,
+        // поэтому НЕ используем реплику lessonCompleteSuccess (в ней {accuracy}).
+        tipEl.textContent = (profile.name ? profile.name + ', ш' : 'Ш') + 'аг пройден! Возвращайся к уроку.';
+        hintEl.textContent = '';
 
         const nextBtn = $('next-btn');
         nextBtn.textContent = tf('task.backToLesson', '← Назад к уроку');
