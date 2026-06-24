@@ -464,16 +464,12 @@ document.addEventListener('DOMContentLoaded', async function () {
     }
     $('#lpExerciseCount').textContent = `0/${total}`;
 
-    // Пройденный урок — ✓-бейдж рядом с кнопкой тренажёра (открывать можно
-    // сколько угодно для повтора; статус выполнения виден сразу).
-    if (lessonDone) {
-        const openBtn = $('#lpOpenTrainer');
-        if (openBtn && !openBtn.parentElement.querySelector('.lp-exercise__done-badge')) {
-            const badge = document.createElement('span');
-            badge.className = 'lp-exercise__done-badge';
-            badge.textContent = '✓ Пройдено';
-            openBtn.insertAdjacentElement('beforebegin', badge);
-        }
+    // Гайдед-урок: финальный «полный заход» — заблокирован/затемнён как шаги
+    // выше, пока не пройдены все шаги.
+    const fullRunLocked = guided && totalSteps > 0
+        && !(window.exerciseProgress && window.exerciseProgress.allStepsDone(tier, lessonNum, totalSteps));
+    if (guided && totalSteps > 0) {
+        $('#lpExerciseBadge').textContent = `${exBadge} · ${(window.i18n ? window.i18n.t('lesson.fullRun') : '') || 'Полный заход'}`;
     }
 
     // «Открыть тренажёр» сохраняет currentLesson и идёт в task.html
@@ -486,21 +482,26 @@ document.addEventListener('DOMContentLoaded', async function () {
         } catch (err) {}
     });
 
-    // Гайдед-урок: финальный полный заход заблокирован, пока не пройдены все шаги.
-    if (guided && totalSteps > 0) {
-        const allStepsDone = !!(window.exerciseProgress && window.exerciseProgress.allStepsDone(tier, lessonNum, totalSteps));
-        $('#lpExerciseBadge').textContent = `${exBadge} · ${(window.i18n ? window.i18n.t('lesson.fullRun') : '') || 'Полный заход'}`;
-        if (!allStepsDone) {
-            const openBtn = $('#lpOpenTrainer');
-            openBtn.classList.add('lp-exercise__open--locked');
-            openBtn.setAttribute('aria-disabled', 'true');
-            openBtn.addEventListener('click', (e) => e.preventDefault(), true);
-            if (!openBtn.parentElement.querySelector('.lp-step__lock')) {
-                const lock = document.createElement('span');
-                lock.className = 'lp-step__lock';
-                lock.textContent = '🔒 ' + ((window.i18n ? window.i18n.t('lesson.fullRunLocked') : '') || 'Сначала пройди все шаги выше');
-                openBtn.insertAdjacentElement('beforebegin', lock);
-            }
+    if (fullRunLocked) {
+        // Закрытый вид как у заблокированных шагов: затемнение блока, без кнопки,
+        // только замок. (Не показываем ✓-бейдж, даже если урок проходили раньше.)
+        $('#lpExercise').classList.add('lp-exercise--locked');
+        const openBtn = $('#lpOpenTrainer');
+        openBtn.style.display = 'none';
+        if (!openBtn.parentElement.querySelector('.lp-step__lock')) {
+            const lock = document.createElement('span');
+            lock.className = 'lp-step__lock';
+            lock.textContent = '🔒 ' + ((window.i18n ? window.i18n.t('lesson.fullRunLocked') : '') || 'Сначала пройди все шаги выше');
+            openBtn.insertAdjacentElement('beforebegin', lock);
+        }
+    } else if (lessonDone) {
+        // Полный заход доступен и урок уже пройден ранее — ✓ рядом с кнопкой.
+        const openBtn = $('#lpOpenTrainer');
+        if (!openBtn.parentElement.querySelector('.lp-exercise__done-badge')) {
+            const badge = document.createElement('span');
+            badge.className = 'lp-exercise__done-badge';
+            badge.textContent = '✓ Пройдено';
+            openBtn.insertAdjacentElement('beforebegin', badge);
         }
     }
 
