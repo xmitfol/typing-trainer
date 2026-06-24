@@ -212,6 +212,21 @@ document.addEventListener('DOMContentLoaded', async function () {
         }, 4500);
     }
 
+    // ─── Раздельный пробел: какой большой палец жмёт ────────────────
+    // Правило: пробел жмём большим пальцем руки, ПРОТИВОПОЛОЖНОЙ последней
+    // букве (набрал левой → пробел правым, и наоборот). Совпадает со
+    // space_side в lesson.text_sequence. RU + EN раскладки (кириллица и
+    // латиница — разные кодпоинты, в Set'ах не конфликтуют).
+    const LEFT_HAND = new Set('ёйцукефывапячсмиqwertasdfgzxcvb'.split(''));
+    const RIGHT_HAND = new Set('нгшщзхъролджэтьбюyuiophjklnm'.split(''));
+    function spaceSideFor(prevChar) {
+        if (!prevChar) return 'right';
+        const c = prevChar.toLowerCase();
+        if (LEFT_HAND.has(c)) return 'right';
+        if (RIGHT_HAND.has(c)) return 'left';
+        return 'right';  // неизвестная клавиша — дефолт правый палец
+    }
+
     // ─── Render target (слова — неразрывные, перенос целиком) ─────
     function renderTarget() {
         let html = '', openWord = false;
@@ -233,10 +248,16 @@ document.addEventListener('DOMContentLoaded', async function () {
 
         const nextCh = targetText[typed];
         // hideIndicator (toolbar) глушит подсветку клавиш + текущего символа.
-        if (!fingerHint || hideIndicator) { kb.removeAttribute('highlight-char'); return; }
-        if (nextCh === ' ') kb.setAttribute('highlight-char', ' ');
-        else if (nextCh) kb.setAttribute('highlight-char', nextCh);
-        else kb.removeAttribute('highlight-char');
+        if (!fingerHint || hideIndicator) { kb.removeAttribute('highlight-char'); kb.removeAttribute('space-half'); return; }
+        if (nextCh === ' ') {
+            kb.setAttribute('highlight-char', ' ');
+            // Подсказка: какой большой палец — противоположный последней букве.
+            kb.setAttribute('space-half', spaceSideFor(targetText[typed - 1]));
+        } else {
+            kb.removeAttribute('space-half');
+            if (nextCh) kb.setAttribute('highlight-char', nextCh);
+            else kb.removeAttribute('highlight-char');
+        }
     }
 
     // ─── Metrics ─────────────────────────────────────────────────
