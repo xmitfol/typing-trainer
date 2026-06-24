@@ -1,37 +1,42 @@
-# Session Handoff — 2026-06-11 (обновлён: Sprint 1 auth-core)
+# Session Handoff — 2026-06-24 (Sprint 1 CLOSED, gate 8/8)
 
-> **Last session ended**: 2026-06-11 (Sprint 1 в работе; предыдущий заход — Phase 2 milestone)
+> **Last session ended**: 2026-06-24 (Sprint 1 завершён; auth-foundation доказан E2E)
 > **For**: следующий Клод-architect или Иван (PO) при следующем заходе
-> **TL;DR**: PR #25 **смержен**, Sprint 1 активен. Auth-core (signup/signin/signout/refresh) написан, запушен в `sprint-1/auth-foundation`. Капча → self-hosted (ADR-006), email → mailhog (Y360 отложен). Gate Sprint 1 ~60%. Дальше: S1.7 email → S1.8 verify/forgot/reset → S1.9 frontend.
+> **TL;DR**: **Sprint 1 CLOSED — gate GREEN 8/8** (реальный E2E на Dockerized стеке VM). Полный auth: signup/signin/signout/refresh/verify-email/forgot/reset + welcome/verify/reset письма, self-hosted PoW-капча (ADR-006), same-origin nginx-proxy. Всё на ветке `sprint-1/auth-foundation`. Дальше: **Sprint 2 — OAuth** (ADR-007 готов) + guest-migration.
 
 ---
 
 ## 0. Как продолжить (next session — читать первым)
 
-**Состояние:** Sprint 1 auth-foundation, ветка `sprint-1/auth-foundation` (запушена, 6 коммитов над master). PR в master ещё НЕ открывал — открыть когда gate Sprint 1 ближе к зелёному.
+**Состояние:** Sprint 1 закрыт. Ветка `sprint-1/auth-foundation` (запушена, ~17 коммитов над master, до `c9c239c`). PR в master **ещё НЕ открыт** — решение PO: открыть/смержить Sprint 1 перед стартом Sprint 2 (или вести Sprint 2 в этой же ветке).
 
-**Рабочий режим (PO Иван, 2026-06-11):** действовать автономно, сверяясь с **Никой** (PM-агент) на узловых точках; PO-решения (продуктовые/архитектурные развилки, необратимые действия) — подтверждать у Ивана. См. memory `feedback_autonomous_with_nika`.
+**Рабочий режим (PO Иван):** автономно, сверяясь с **Никой** (PM) на узлах; PO-решения (продуктовые/архитектурные развилки, необратимое) — у Ивана. См. memory `feedback_autonomous_with_nika`.
 
-**Следующий шаг (рекомендация Ники):** `email-service` (SMTP-абстракция aiosmtplib→mailpit localhost:1025) → **S1.7** welcome email → **S1.8** verify-email/forgot/reset. Код не блокируется инфрой; E2E-шаги повиснут до реального `docker compose up`.
+**Следующий шаг (Sprint 2, рекомендация Ники):** **S2.1** PO регистрирует OAuth-приложения Yandex+VK (client_id/secret + redirect_uri). Параллельно код: **S2.2** `core/oauth.py` (generic + Yandex стратегия) → **S2.3** `/auth/oauth/yandex/start`+`/callback` → **S2.4** VK. Архитектура зафиксирована в **[ADR-007](../spec/backend/decisions/ADR-007.md)**, эндпоинты в openapi.yaml. Плюс S2.5 guest-migration, S2.6/S2.7 frontend.
+**Настоятельно (lessons-learned)**: завести инфра-задачу «CI с реальным Docker-прогоном стека» — 2 из 3 багов Sprint 1 проходили бы зелёный unit-CI (см. retro.md).
 
-**Что НЕ проверить в dev-окружении Клода:** backend-стек (pytest/structlog/sqlalchemy) и Docker НЕ установлены. Весь backend-код проверяется `ast.parse` (syntax) + автономной логикой. Полный pytest + `docker compose up` + verify B1-001 — в CI / у Бориса.
+**Тестовый стек (как прогнать gate / E2E):**
+- **VM cme-server (192.168.7.115)** теперь с Docker 29.6.0 (см. memory `vm-playwright-pattern`). Стек: `git clone` ветки → `cd backend && docker compose --profile app up -d` (на VM host-порты pg/redis заняты системными → в clone'е переназначены 5433/6380). E2E: `BASE=http://localhost:8090 python scripts/verify_signup_flow.py` через VM venv playwright. **Прогон даёт 8/8.**
+- В dev-окружении Клода нет Docker/pytest — только syntax + автономная логика.
 
 ---
 
 ## 1. Где мы остановились
 
 ### Active state
-- **Branch**: `sprint-1/auth-foundation` запушен на origin (6 коммитов над master)
-- **master**: содержит merged PR #25 (merge-commit `60677e0`)
-- **PR #25**: ✅ MERGED 2026-06-11 (Phase 2 milestone, 44 коммита)
+- **Branch**: `sprint-1/auth-foundation` (~17 коммитов над master, до `c9c239c`, запушено)
+- **master**: merged PR #25 (`60677e0`); PR для Sprint 1 ещё не открыт
+- **Sprint 1**: ✅ CLOSED, gate GREEN 8/8 (2026-06-24)
 - **Local working tree**: clean
 
-### Что сделано в этом заходе (2026-06-11, Sprint 1)
-- **PO-решения**: PR #25 merged; капча → self-hosted ([ADR-006](../spec/backend/decisions/ADR-006.md), honeypot+PoW, отказ от Yandex SmartCaptcha); email → mailhog на dev (Y360 отложен).
-- **S1.10** OpenAPI-контракт auth: [backend/openapi.yaml](../../backend/openapi.yaml) — 8 endpoints, JWT в httpOnly cookies.
-- **Auth-core** (S1.0/S1.4/S1.4b/S1.5/S1.6): `core/db.py`+`core/redis.py` (async wiring, deps.py был заглушкой), `schemas/auth.py`, `services/auth_service.py`, `core/exceptions.py`, `api/v1/auth.py` (challenge/signup/signin/refresh/signout — honeypot+PoW gate, anti-timing, conditional-captcha, refresh-ротация с revoke jti в Redis).
-- **Инфра** (Дима): `mailpit` в docker-compose (B1-002 закрыт); testcontainers Postgres-фикстура в `conftest.py` (B1-001 — код готов, нужен прогон с Docker).
-- **Тесты**: `test_auth.py` — 14 (9 runnable без DB: captcha-gate/401/204; 5 DB-integration через `db_client`, гейт на Docker).
+### Что сделано (Sprint 1, итог)
+- **Auth backend** (8 endpoints): signup/signin/signout/refresh/challenge + verify-email/forgot/reset. Argon2 + JWT httpOnly cookies + refresh-ротация (Redis blocklist) + anti-timing + conditional-captcha.
+- **Капча** self-hosted PoW+honeypot ([ADR-006](../spec/backend/decisions/ADR-006.md)) — фронт solver в Web Worker, выверен против backend.
+- **Email** ([ADR-005 §8] i18n RU+EN): welcome/verify/reset через aiosmtplib (dev=mailpit/prod=Y360). Одноразовые токены в Redis.
+- **Frontend S1.9**: `auth.html` + `auth.js` + PoW Web Worker (`pow-worker.js`) + `api-client` auth-методы.
+- **Инфра**: docker-compose профиль `app` (backend+nginx proxy, same-origin :8090), mailpit, testcontainers-фикстура. ADR-006/007.
+- **3 бага найдены живым прогоном и пофикшены**: Dockerfile process-subst (dash), psycopg2-binary для alembic, verify-скрипт mailpit-extraction.
+- **Тесты**: test_auth 20 + test_email 7 + verify_signup_flow.py (E2E 8/8 на VM).
 
 ### Что закрыто за сессию
 | Phase | Что | Где |
@@ -101,29 +106,24 @@ ADR-005 PO ещё не подтвердил (рекомендую прочита
 
 ---
 
-## 4. Что делать дальше (следующая сессия)
+## 4. Что делать дальше — Sprint 2 (OAuth + guest-migration)
 
-**Sprint 1 — Auth foundation, gate ~60%.** Готово: S1.0-S1.6, S1.10 (см. [sprint-1/board.md](sprints/sprint-1/board.md)). Auth-core (signup/signin/signout/refresh) написан и запушен.
+**Sprint 1 ✅ CLOSED** (gate 8/8). Дальше [03_IMPL_PLAN.md §4](../spec/backend/03_IMPL_PLAN.md), архитектура OAuth — [ADR-007](../spec/backend/decisions/ADR-007.md).
 
-### Осталось до gate Sprint 1
-| Задача | Что | Owner | Зависит |
-|---|---|---|---|
-| **S1.7** | `email-service` (SMTP-абстракция aiosmtplib→mailpit) + welcome email при signup | Клод/Борис | mailpit (✅ в compose) |
-| **S1.8** | `POST /auth/verify-email` + `/auth/forgot` + `/auth/reset` | Клод/Борис | S1.7 (email-service) |
-| **S1.9** | Frontend: `<auth-modal>`/`auth.html` wire к API + **PoW-solver в Web Worker** + honeypot | Алекс | контракт openapi.yaml ✅ |
-| verify B1-001 | один прогон `pytest -m '' app/tests/test_auth.py` в среде с **Docker** → 5 integration-тестов зелёные | Дима/Борис | Docker |
+| Задача | Что | Owner |
+|---|---|---|
+| **S2.1** | Регистрация OAuth-приложений Yandex + VK (client_id/secret + redirect_uri) | **PO (Иван)** |
+| **S2.2** | `app/core/oauth.py` — generic helper + Yandex стратегия | Борис/Клод |
+| **S2.3** | `GET /auth/oauth/yandex/start` + `/callback` (контракт в openapi.yaml ✅) | Борис/Клод |
+| **S2.4** | VK OAuth (VK ID, PKCE) — повтор паттерна | Борис/Клод |
+| **S2.5** | `POST /auth/migrate-guest` + APScheduler cleanup анонимов 3д (ADR-001) | Борис |
+| **S2.6/S2.7** | Frontend: модал «сохрани прогресс» + localStorage→API adapter | Алекс |
+| **CI (lessons-learned)** | GitHub Actions с реальным Docker-прогоном стека + verify_signup_flow | Дима |
 
-**Рекомендованный порядок (Ника):** email-service → S1.7 → S1.8 (код не блокируется инфрой; E2E «письмо в mailpit UI» повиснет до `docker compose up`).
+**Решение PO нужно:** открыть PR `sprint-1/auth-foundation`→master и смержить перед Sprint 2 (или вести Sprint 2 в той же ветке). + S2.1 регистрация OAuth-приложений.
 
-**Гейт Sprint 1**: `verify_signup_flow.py` зелёный (signup→welcome→verify→signin→signout→reset).
-
-### Открытые блокеры (Sprint 1)
-- **B1-001** testcontainers — фикстура написана, нужен прогон с Docker (ETA ~1 debug-итерация). Owner Дима/Борис. См. [blockers.md](sprints/sprint-1/blockers.md).
-- **B1-002** mailpit — ✅ закрыт (в docker-compose), зелёный после `docker compose up -d`.
-
-### Параллельные prep-tracks (если есть простой)
-- **Ника**: Sprint 4/5 boards pre-fill; dependency_map_sprint_8_9
-- **Тимофей**: api_guide draft из openapi.yaml
+### Прогон gate/E2E (когда нужно)
+VM cme-server с Docker (см. §0 + memory `vm-playwright-pattern`): `docker compose --profile app up -d` → `BASE=http://localhost:8090 python scripts/verify_signup_flow.py` = 8/8.
 
 ---
 
@@ -136,7 +136,8 @@ ADR-005 PO ещё не подтвердил (рекомендую прочита
 | [ADR-003](../spec/backend/decisions/ADR-003.md) | Family read-only parental visibility | Sprint 9 |
 | [ADR-004](../spec/backend/decisions/ADR-004.md) | Single-vendor YC — **OPTIONAL** теперь (GH unblocked) | deferred |
 | [ADR-005](../spec/backend/decisions/ADR-005.md) | YooKassa Hybrid recurring + email fallback | Sprint 6-7 |
-| [ADR-006](../spec/backend/decisions/ADR-006.md) | Self-hosted anti-bot (honeypot+PoW) вместо SmartCaptcha | Sprint 1 (S1.4) |
+| [ADR-006](../spec/backend/decisions/ADR-006.md) | Self-hosted anti-bot (honeypot+PoW) вместо SmartCaptcha | Sprint 1 |
+| [ADR-007](../spec/backend/decisions/ADR-007.md) | OAuth Yandex+VK — server-side auth code flow | Sprint 2 |
 
 ---
 
@@ -145,14 +146,13 @@ ADR-005 PO ещё не подтвердил (рекомендую прочита
 | Метрика | Значение |
 |---|---|
 | **Дедлайн PERT P80** | 17 октября 2026 (W42) |
-| **Активная ветка** | `sprint-1/auth-foundation` (6 коммитов над master, запушено) |
-| **PR #25** | ✅ MERGED (merge-commit 60677e0) |
-| **Auth endpoints** | 5 (challenge/signup/signin/refresh/signout), syntax-OK |
-| **Backend tests** | 14 в test_auth (9 runnable + 5 DB-integration, Docker-gated); ~35 Sprint-0 baseline |
-| **ADR** | 6 (ADR-006 = self-hosted captcha, NEW) |
-| **Sprint 0 status** | ✅ Closed |
-| **Sprint 1 status** | 🟢 In progress, gate ~60% (auth-core 100%) |
-| **Active blockers** | B1-001 (testcontainers, нужен Docker-прогон), B1-002 ✅ closed |
+| **Активная ветка** | `sprint-1/auth-foundation` (~17 коммитов над master, до c9c239c) |
+| **Auth endpoints** | 10 в openapi.yaml (8 реализованы Sprint 1 + 2 OAuth-prep) |
+| **Backend tests** | test_auth 20 + test_email 7 + verify_signup_flow E2E **8/8** на VM |
+| **ADR** | 7 (ADR-007 = OAuth, NEW) |
+| **Sprint 0/1 status** | ✅ Closed (Sprint 1 gate GREEN 8/8) |
+| **Blockers** | нет открытых (B1-001/002/003 сняты прогоном) |
+| **Тестовый стек** | VM cme-server + Docker 29.6.0; `docker compose --profile app` → 8090 |
 
 ---
 
