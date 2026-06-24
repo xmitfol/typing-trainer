@@ -356,16 +356,23 @@
     .key[data-state="highlight"][data-finger="indigo"] { background: repeating-linear-gradient(45deg, #4a90e2 0 7px, #2f6fc0 7px 12px); box-shadow: 0 0 0 2.5px #1e3a8a, 0 4px 14px rgba(30,58,138,0.5); }
     .key[data-state="highlight"][data-finger="purple"] { background: repeating-linear-gradient(45deg, #a29bfe 0 7px, #847cf0 7px 12px); box-shadow: 0 0 0 2.5px #6c5ce7, 0 4px 14px rgba(108,92,231,0.5); }
 
-    /* Split-space — single bar, highlights whole when it's the next key */
+    /* Split-space — две половины (левый/правый большой палец). Подсвечивается
+       нужная половина по атрибуту space-half; если half не задан — обе. */
     .key--space {
       background: #e0dcfe;
       border-color: rgba(0,0,0,0.05);
       padding: 0;
       overflow: hidden;
+      display: flex;
     }
-    .key--space[data-state="highlight"] {
+    .key--space-half {
+      flex: 1;
+      height: 100%;
+    }
+    .key--space-l { border-right: 1px solid rgba(108,92,231,0.45); }
+    .key--space-half[data-state="highlight"] {
       background: repeating-linear-gradient(45deg, #a29bfe 0 7px, #847cf0 7px 12px);
-      box-shadow: 0 0 0 2.5px #6c5ce7, 0 4px 14px rgba(108,92,231,0.5);
+      box-shadow: inset 0 0 0 2.5px #6c5ce7;
       animation: pulse 1.4s ease-in-out infinite;
     }
 
@@ -462,12 +469,19 @@
     const dkey = inferKey(data);
     const dkAttr = dkey ? `data-key="${dkey.replace(/"/g, '&quot;')}"` : '';
 
-    // Special: Space highlights as a whole bar when it's the next key.
+    // Space — две половины (левый/правый большой палец). Когда пробел следующий
+    // и задан space-half ('left'/'right') — подсвечиваем нужную половину; если
+    // half не задан — обе (обратная совместимость).
     if (data.code === 'Space') {
-      const state = opts.stateOf(data);
-      const dstate = state !== 'default' ? `data-state="${state}"` : '';
-      return `<div class="key key--space" data-finger="purple" data-code="Space" data-key=" " ${dstate}
-        style="width:${w}px;height:${h}px"></div>`;
+      const isHl = opts.stateOf(data) === 'highlight';
+      const half = (opts.spaceHalf && opts.spaceHalf()) || '';
+      const lState = isHl && half !== 'right' ? ' data-state="highlight"' : '';
+      const rState = isHl && half !== 'left' ? ' data-state="highlight"' : '';
+      return `<div class="key key--space" data-finger="purple" data-code="Space" data-key=" "
+        style="width:${w}px;height:${h}px">
+        <div class="key--space-half key--space-l"${lState}></div>
+        <div class="key--space-half key--space-r"${rState}></div>
+      </div>`;
     }
 
     const cls = ['key'];
