@@ -28,6 +28,9 @@ dependencies = [
     "arq>=0.26.3",
     # HTTP client (для OAuth / YooKassa)
     "httpx>=0.27.0",
+    # Email (S1.7+): async SMTP + Jinja2-шаблоны (i18n RU+EN, ADR-005 §8)
+    "aiosmtplib>=3.0.0",
+    "jinja2>=3.1.0",
     # Logging
     "structlog>=24.4.0",
     # Rate limiting

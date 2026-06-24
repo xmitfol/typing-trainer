@@ -103,6 +103,8 @@ class Settings(BaseSettings):
     smtp_password: str = ""
     smtp_use_tls: bool = False     # dev: mailhog (no TLS) | prod: True
     smtp_from: str = "typing-trainer <noreply@typing-trainer.ru>"
+    # Базовый URL фронта — для ссылок в письмах (verify-email / reset).
+    frontend_base_url: str = "http://localhost:8001"
 
     # ─── OAuth (Sprint 2) ──────────────────────────────────────────
     yandex_oauth_client_id: str = ""

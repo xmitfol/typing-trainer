@@ -15,6 +15,7 @@ from sqlalchemy.ext.asyncio import AsyncSession
 from app.config import Settings, get_settings
 from app.core.db import get_session
 from app.core.redis import get_redis
+from app.services.email_service import EmailService, get_email_service
 
 
 def settings_dep() -> Settings:
@@ -39,8 +40,14 @@ async def redis_client() -> Redis:
     return get_redis()
 
 
+async def email_sender() -> EmailService:
+    """EmailService (S1.7+). В тестах переопределяется через dependency_overrides."""
+    return get_email_service()
+
+
 DbSession = Annotated[AsyncSession, Depends(db_session)]
 RedisClient = Annotated[Redis, Depends(redis_client)]
+EmailServiceDep = Annotated[EmailService, Depends(email_sender)]
 
 
 # ─── Placeholders на Sprint 1+ ──────────────────────────────────────────

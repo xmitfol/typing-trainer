@@ -14,7 +14,7 @@ from app.config import get_settings
 from app.core.captcha import issue_challenge, verify_captcha
 from app.core.exceptions import EmailTakenError, InvalidCredentialsError
 from app.core.security import create_access_token, create_refresh_token, decode_token
-from app.deps import DbSession, RedisClient
+from app.deps import DbSession, EmailServiceDep, RedisClient
 from app.schemas.auth import (
     ChallengeResponse,
     SigninRequest,
@@ -107,6 +107,7 @@ async def signup(
     response: Response,
     session: DbSession,
     redis: RedisClient,
+    emailer: EmailServiceDep,
 ) -> UserPublic:
     """Создаёт пользователя + user_settings, ставит auth-cookies.
 
@@ -137,6 +138,12 @@ async def signup(
             status.HTTP_409_CONFLICT,
             detail={"code": e.code, "message": e.message},
         ) from e
+
+    # S1.7: welcome email — best-effort, не валим регистрацию при сбое SMTP
+    try:
+        await emailer.send_welcome(to=user.email, name=user.name, language=user.language)
+    except Exception as e:  # noqa: BLE001 — любой сбой почты не должен ломать signup
+        logger.warning("signup.welcome_email_failed", user_id=str(user.id), error=str(e))
 
     _set_auth_cookies(response, user.id)
     return UserPublic.model_validate(user)

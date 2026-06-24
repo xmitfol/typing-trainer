@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="ru">
+<body style="font-family: -apple-system, Segoe UI, Roboto, sans-serif; color: #1a1a2e; max-width: 560px; margin: 0 auto; padding: 24px;">
+  <h1 style="font-size: 22px;">Подтвердите email</h1>
+  <p>Привет, {{ name }}! Чтобы активировать аккаунт, подтвердите адрес электронной почты.</p>
+  <p style="margin-top: 28px;">
+    <a href="{{ verify_url }}"
+       style="background: #5b6cff; color: #fff; text-decoration: none; padding: 12px 24px; border-radius: 8px; display: inline-block;">
+      Подтвердить email
+    </a>
+  </p>
+  <p style="color: #6b7280; font-size: 13px; margin-top: 24px;">
+    Ссылка действует {{ ttl_hours }} ч. Если вы не регистрировались — проигнорируйте письмо.
+  </p>
+</body>
+</html>
