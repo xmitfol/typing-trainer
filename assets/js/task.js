@@ -405,7 +405,8 @@ document.addEventListener('DOMContentLoaded', async function () {
 
         const nextBtn = $('next-btn');
         nextBtn.textContent = tf('task.backToLesson', '← Назад к уроку');
-        nextBtn.href = `lesson.html?tier=${encodeURIComponent(tier)}&lesson=${lessonNum}`;
+        // Возврат к ПРОЙДЕННОМУ шагу на странице урока (не в начало текста).
+        nextBtn.href = `lesson.html?tier=${encodeURIComponent(tier)}&lesson=${lessonNum}&step=${exerciseIdx}`;
 
         kb.removeAttribute('highlight-char');
         taskBody.classList.add('hide');

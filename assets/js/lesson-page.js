@@ -294,6 +294,7 @@ document.addEventListener('DOMContentLoaded', async function () {
         const box = document.createElement('div');
         box.className = `lp-exercise lp-exercise--step lp-exercise--${status}`;
         box.dataset.finger = fingerColor;
+        box.dataset.step = num;  // для возврата из тренажёра к этому шагу (?step=N)
 
         let metaHtml;
         if (status === 'locked') {
@@ -555,6 +556,16 @@ document.addEventListener('DOMContentLoaded', async function () {
         $('#lpNavNextHint').textContent = `УРОК ${nextN} →`;
         window.lessonLoader.loadLesson(tier, nextN).then(l => {
             $('#lpNavNextTitle').textContent = (l && l.title) || `Урок ${nextN}`;
+        });
+    }
+
+    // Возврат из тренажёра к пройденному шагу (?step=N) — сразу позиционируем
+    // страницу на этом упражнении, а не в начале текста.
+    const stepParam = parseInt(params.get('step'), 10);
+    if (stepParam > 0) {
+        requestAnimationFrame(() => {
+            const el = document.querySelector(`.lp-exercise--step[data-step="${stepParam}"]`);
+            if (el) el.scrollIntoView({ behavior: 'auto', block: 'center' });
         });
     }
 
