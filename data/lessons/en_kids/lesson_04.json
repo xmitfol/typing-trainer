@@ -2,56 +2,67 @@
   "id": "en_kids_lesson_04",
   "tier": "en_kids",
   "lesson_number": 4,
-  "title": "Letter F and friends",
-  "description": "Letter F — your anchor key. Feel the little bump?",
+  "title": "Home row done: ; G H",
+  "description": "Finish the home row: ; (right pinky), G and H (index reach)",
   "target_wpm": 11,
-  "text_length": 61,
+  "text_length": 53,
   "error_limit_percent": 10,
   "error_limit": 6,
-  "text": "f f f f fa fa fa af af af fad fad fad ass ass ass sad sad sad",
+  "text": "; ; g g h h had has gash hall flash glass; a sad lad;",
   "text_sequence": [],
   "keys_trained": [
     "A",
-    "S",
     "D",
-    "F"
+    "F",
+    "G",
+    "H",
+    "J",
+    "K",
+    "L",
+    "S",
+    ";",
+    "Space"
   ],
-  "new_keys": [],
-  "finger_focus": "Left index finger finds F — anchor!",
+  "new_keys": [
+    ";",
+    "G",
+    "H"
+  ],
+  "finger_focus": "Right pinky ; and index reach G/H",
   "tips": [
     {
       "type": "lead",
-      "text": "F is your LEFT anchor — feel the bump under your finger"
+      "text": "; is the right pinky's home; G and H are index reaches"
     },
     {
       "type": "drop",
-      "text": "Always come back to F"
+      "text": "The whole home row is yours now"
     },
     {
       "type": "exercise",
-      "target": "f f f f fa fa fa af af",
-      "finger": "blue",
-      "hint": "Left index finger finds F — anchor!"
+      "target": "; ; g g h h had has",
+      "finger": "pink",
+      "hint": "Right pinky ; and index reach G/H"
     },
     {
       "type": "p",
-      "text": "Left hand is complete!"
+      "text": "First sentence: \"a sad lad;\""
     },
     {
       "type": "exercise",
-      "target": "af fad fad fad ass ass ass sad sad sad",
+      "target": "gash hall flash glass;",
       "finger": "green",
-      "hint": "Left index finger finds F — anchor!"
+      "hint": "Right pinky ; and index reach G/H"
     }
   ],
   "character_tips": {
-    "anna": "F has a little bump. That's your anchor — always find it by feel 🌷",
-    "maxim": "F-anchor. The most important key. Always find it without looking.",
-    "knopych": "F = ANCHOR! 🎯 Feel the bump? That's your home!",
-    "klavochka": "F is your home, my dear! Like a cozy pillow under your finger 🛌"
+    "anna": "Home row complete! ; G H — and your first sentence 🌸",
+    "maxim": "Home row done. ; is the right pinky; G and H are index reaches.",
+    "knopych": "HOME ROW 100%! 🎯 Eight keys plus G, H!",
+    "klavochka": "The whole cozy row is yours now, dear 💖"
   },
   "phase": 1,
   "rhythmLesson": false,
   "created_at": "2026-05-25",
-  "version": "1.0"
+  "version": "2.0"
 }

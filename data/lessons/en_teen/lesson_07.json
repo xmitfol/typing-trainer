@@ -2,62 +2,84 @@
   "id": "en_teen_lesson_07",
   "tier": "en_teen",
   "lesson_number": 7,
-  "title": "Bottom row: Z X C V B",
-  "description": "Left hand bottom — the trickiest reach",
+  "title": "Bottom row strong fingers: V M B N C",
+  "description": "Drop DOWN to the bottom row: index (V M B N) and middle (C)",
   "target_wpm": 30,
-  "text_length": 89,
+  "text_length": 62,
   "error_limit_percent": 8,
   "error_limit": 7,
-  "text": "ax ax ax cab cab cab vex vex vex back back back zap zap zap five five five bake bake bake",
+  "text": "move number brave climb clam combat nimble vivid become carbon",
   "text_sequence": [],
   "keys_trained": [
-    "Z",
-    "X",
-    "C",
-    "V",
-    "B",
     "A",
-    "S",
+    "B",
+    "C",
     "D",
+    "E",
     "F",
+    "G",
+    "H",
+    "I",
+    "J",
+    "K",
+    "L",
+    "M",
+    "N",
+    "O",
+    "P",
+    "Q",
+    "R",
+    "S",
+    "T",
+    "U",
+    "V",
+    "W",
+    "Y",
+    ";",
     "Space"
   ],
-  "new_keys": [],
-  "finger_focus": "Left bottom + home row",
+  "new_keys": [
+    "V",
+    "M",
+    "B",
+    "N",
+    "C"
+  ],
+  "finger_focus": "Bottom row index (V M B N) + middle (C)",
   "tips": [
     {
       "type": "lead",
-      "text": "Bottom row = DOWN from home — most awkward stretch"
+      "text": "Bottom row, strong fingers first: index (V, M, B, N), middle (C)"
     },
     {
       "type": "drop",
-      "text": "Curl fingers under to reach"
+      "text": "Curl the fingers under to reach down, then return"
     },
     {
       "type": "exercise",
-      "target": "ax ax ax cab cab cab vex vex vex back",
-      "finger": "blue",
-      "hint": "Left bottom + home row"
+      "target": "move number brave climb",
+      "finger": "green",
+      "hint": "Bottom row index (V M B N) + middle (C)"
     },
     {
       "type": "p",
-      "text": "Z and X are rare — but you still need them"
+      "text": "Words: move, number, brave, become, carbon"
     },
     {
       "type": "exercise",
-      "target": "back back zap zap zap five five five bake bake bake",
-      "finger": "green",
-      "hint": "Left bottom + home row"
+      "target": "clam combat nimble vivid become carbon",
+      "finger": "blue",
+      "hint": "Bottom row index (V M B N) + middle (C)"
     }
   ],
   "character_tips": {
-    "anna": "Bottom row is hardest. Curl your fingers UNDER your palms to reach.",
-    "maxim": "Master the bottom row = master 95% of typing struggles.",
-    "knopych": "BOTTOM ROW BOSS! ⬇️ Curl those fingers!",
+    "anna": "Bottom row, strong fingers first: V, M, B, N, then C. Curl and return.",
+    "maxim": "Index leads the bottom row too: V M B N, middle takes C.",
+    "knopych": "GOING DOWN! ⬇️ Strong fingers dive first!",
     "klavochka": "Reaching low like picking flowers, my dear 🌻"
   },
   "phase": 1,
   "rhythmLesson": false,
   "created_at": "2026-05-25",
-  "version": "1.0"
+  "version": "2.0"
 }

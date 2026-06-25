@@ -2,55 +2,295 @@
   "id": "ru_kids_lesson_11",
   "tier": "ru_kids",
   "lesson_number": 11,
-  "title": "Новые буквы: Л и Д",
-  "description": "Две новые буквы — Л и Д",
+  "title": "Буквы П и Р",
+  "description": "Левая рука: П и Р. Слова папа, лапа, повар, право!",
   "target_wpm": 19,
-  "text_length": 52,
+  "text_length": 37,
   "error_limit_percent": 10,
   "error_limit": 5,
-  "text": "л л л д д д ло ло ло да да да дело дело дом дом дама",
-  "text_sequence": [],
+  "text": "п п р р пар лапа папа рад право повар",
+  "text_sequence": [
+    {
+      "char": "п",
+      "hand": "left",
+      "finger": "pinky",
+      "key": "П"
+    },
+    {
+      "char": " ",
+      "hand": "right",
+      "finger": "thumb",
+      "key": "Space",
+      "space_side": "right"
+    },
+    {
+      "char": "п",
+      "hand": "left",
+      "finger": "pinky",
+      "key": "П"
+    },
+    {
+      "char": " ",
+      "hand": "right",
+      "finger": "thumb",
+      "key": "Space",
+      "space_side": "right"
+    },
+    {
+      "char": "р",
+      "hand": "left",
+      "finger": "index",
+      "key": "Р"
+    },
+    {
+      "char": " ",
+      "hand": "right",
+      "finger": "thumb",
+      "key": "Space",
+      "space_side": "right"
+    },
+    {
+      "char": "р",
+      "hand": "left",
+      "finger": "index",
+      "key": "Р"
+    },
+    {
+      "char": " ",
+      "hand": "right",
+      "finger": "thumb",
+      "key": "Space",
+      "space_side": "right"
+    },
+    {
+      "char": "п",
+      "hand": "left",
+      "finger": "pinky",
+      "key": "П"
+    },
+    {
+      "char": "а",
+      "hand": "left",
+      "finger": "index",
+      "key": "А"
+    },
+    {
+      "char": "р",
+      "hand": "left",
+      "finger": "index",
+      "key": "Р"
+    },
+    {
+      "char": " ",
+      "hand": "left",
+      "finger": "thumb",
+      "key": "Space",
+      "space_side": "left"
+    },
+    {
+      "char": "л",
+      "hand": "right",
+      "finger": "middle",
+      "key": "Л"
+    },
+    {
+      "char": "а",
+      "hand": "left",
+      "finger": "index",
+      "key": "А"
+    },
+    {
+      "char": "п",
+      "hand": "left",
+      "finger": "pinky",
+      "key": "П"
+    },
+    {
+      "char": "а",
+      "hand": "left",
+      "finger": "index",
+      "key": "А"
+    },
+    {
+      "char": " ",
+      "hand": "right",
+      "finger": "thumb",
+      "key": "Space",
+      "space_side": "right"
+    },
+    {
+      "char": "п",
+      "hand": "left",
+      "finger": "pinky",
+      "key": "П"
+    },
+    {
+      "char": "а",
+      "hand": "left",
+      "finger": "index",
+      "key": "А"
+    },
+    {
+      "char": "п",
+      "hand": "left",
+      "finger": "pinky",
+      "key": "П"
+    },
+    {
+      "char": "а",
+      "hand": "left",
+      "finger": "index",
+      "key": "А"
+    },
+    {
+      "char": " ",
+      "hand": "right",
+      "finger": "thumb",
+      "key": "Space",
+      "space_side": "right"
+    },
+    {
+      "char": "р",
+      "hand": "left",
+      "finger": "index",
+      "key": "Р"
+    },
+    {
+      "char": "а",
+      "hand": "left",
+      "finger": "index",
+      "key": "А"
+    },
+    {
+      "char": "д",
+      "hand": "right",
+      "finger": "ring",
+      "key": "Д"
+    },
+    {
+      "char": " ",
+      "hand": "right",
+      "finger": "thumb",
+      "key": "Space",
+      "space_side": "right"
+    },
+    {
+      "char": "п",
+      "hand": "left",
+      "finger": "pinky",
+      "key": "П"
+    },
+    {
+      "char": "р",
+      "hand": "left",
+      "finger": "index",
+      "key": "Р"
+    },
+    {
+      "char": "а",
+      "hand": "left",
+      "finger": "index",
+      "key": "А"
+    },
+    {
+      "char": "в",
+      "hand": "left",
+      "finger": "middle",
+      "key": "В"
+    },
+    {
+      "char": "о",
+      "hand": "right",
+      "finger": "index",
+      "key": "О"
+    },
+    {
+      "char": " ",
+      "hand": "right",
+      "finger": "thumb",
+      "key": "Space",
+      "space_side": "right"
+    },
+    {
+      "char": "п",
+      "hand": "left",
+      "finger": "pinky",
+      "key": "П"
+    },
+    {
+      "char": "о",
+      "hand": "right",
+      "finger": "index",
+      "key": "О"
+    },
+    {
+      "char": "в",
+      "hand": "left",
+      "finger": "middle",
+      "key": "В"
+    },
+    {
+      "char": "а",
+      "hand": "left",
+      "finger": "index",
+      "key": "А"
+    },
+    {
+      "char": "р",
+      "hand": "left",
+      "finger": "index",
+      "key": "Р"
+    }
+  ],
   "keys_trained": [
+    "А",
+    "О",
+    "В",
     "Л",
+    "Ы",
     "Д",
-    "А-Я"
+    "Ф",
+    "Ж",
+    "П",
+    "Р",
+    "Space"
   ],
   "new_keys": [],
-  "finger_focus": "Буквы Л и Д",
+  "finger_focus": "Новые буквы П и Р",
   "tips": [
     {
       "type": "lead",
-      "text": "Л и Д на домашнем ряду"
+      "text": "Новые буковки — П и Р!"
     },
     {
       "type": "drop",
-      "text": "«Дело», «дом», «дама» — новые слова"
+      "text": "П — левый мизинец, Р — левый указательный 🌸"
     },
     {
       "type": "exercise",
-      "target": "л л л д д д ло ло",
-      "finger": "blue",
-      "hint": "Буквы Л и Д"
+      "target": "п п р р п р",
+      "finger": "pink",
+      "hint": "П — мизинец, Р — указательный (левая рука)"
     },
     {
       "type": "p",
-      "text": "Загибай пальчики мягко"
+      "text": "ПАПА, ЛАПА, ПРАВО, ПОВАР — сколько слов! 👨‍🍳"
     },
     {
       "type": "exercise",
-      "target": "ло да да да дело дело дом дом дама",
-      "finger": "green",
-      "hint": "Буквы Л и Д"
+      "target": "пар папа лапа повар",
+      "finger": "blue",
+      "hint": "Слова: пар, папа, лапа, повар"
     }
   ],
   "character_tips": {
-    "anna": "Две новые буковки: Л и Д. Слова «дом», «дело»!",
-    "maxim": "Две буквы добавлены. Словарь растёт.",
-    "knopych": "🤖 Л И Д! Новые кнопочки!",
-    "klavochka": "Два новых дружочка, мой милый — Л и Д 💕"
+    "anna": "П и Р — левая рука. «папа», «повар» 🌷",
+    "maxim": "П и Р достраивают домашний ряд. Много новых слов.",
+    "knopych": "П-Р! 🤖 ПАПА! ПОВАР! ПРАВО! Словарь растёт!",
+    "klavochka": "Папа, лапа, повар — сколько добрых слов, дитя моё! П и Р 👨‍🍳💕"
   },
   "phase": 2,
   "rhythmLesson": false,
   "created_at": "2026-05-26",
-  "version": "1.0"
+  "version": "2.0"
 }

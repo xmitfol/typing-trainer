@@ -5,19 +5,22 @@
   "title": "Rhythm: home-row flow",
   "description": "Find your rhythm with home-row words",
   "target_wpm": 24,
-  "text_length": 89,
+  "text_length": 77,
   "error_limit_percent": 8,
   "error_limit": 7,
-  "text": "ask ask ask sad sad sad lad lad lad jak jak jak dad dad dad fall fall fall lass lass lass",
+  "text": "ask ask ask sad sad sad lad lad lad gash gash gash hall hall hall flash flash",
   "text_sequence": [],
   "keys_trained": [
     "A",
-    "S",
     "D",
     "F",
+    "G",
+    "H",
     "J",
     "K",
     "L",
+    "S",
+    ";",
     "Space"
   ],
   "new_keys": [],
@@ -33,7 +36,7 @@
     },
     {
       "type": "exercise",
-      "target": "ask ask ask sad sad sad lad lad lad jak",
+      "target": "ask ask ask sad sad sad lad",
       "finger": "blue",
       "hint": "Home row rhythm"
     },
@@ -43,7 +46,7 @@
     },
     {
       "type": "exercise",
-      "target": "jak jak dad dad dad fall fall fall lass lass lass",
+      "target": "gash gash hall hall flash flash",
       "finger": "green",
       "hint": "Home row rhythm"
     }
@@ -57,5 +60,5 @@
   "phase": 1,
   "rhythmLesson": true,
   "created_at": "2026-05-25",
-  "version": "1.0"
+  "version": "2.0"
 }

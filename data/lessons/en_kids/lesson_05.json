@@ -2,57 +2,63 @@
   "id": "en_kids_lesson_05",
   "tier": "en_kids",
   "lesson_number": 5,
-  "title": "Right hand starts: J",
-  "description": "Letter J — right index finger. Feel the OTHER bump!",
+  "title": "Rhythm: home-row words",
+  "description": "No new letters — just smooth, happy home-row words",
   "target_wpm": 11,
-  "text_length": 54,
+  "text_length": 61,
   "error_limit_percent": 10,
   "error_limit": 5,
-  "text": "j j j j j ja ja ja aj aj aj jaja jaja jaja sad sad fad",
+  "text": "ask ask sad sad lad lad all all fall fall glass flash had has",
   "text_sequence": [],
   "keys_trained": [
     "A",
-    "S",
     "D",
     "F",
-    "J"
+    "G",
+    "H",
+    "J",
+    "K",
+    "L",
+    "S",
+    ";",
+    "Space"
   ],
   "new_keys": [],
-  "finger_focus": "Right index finger finds J",
+  "finger_focus": "Home-row words, both hands",
   "tips": [
     {
       "type": "lead",
-      "text": "J is your RIGHT anchor — another bump!"
+      "text": "No new letters — keep a happy, steady beat"
     },
     {
       "type": "drop",
-      "text": "J and F are your two homes"
+      "text": "Slow is fine; smooth is best"
     },
     {
       "type": "exercise",
-      "target": "j j j j j ja ja ja",
+      "target": "ask ask sad sad lad lad",
       "finger": "blue",
-      "hint": "Right index finger finds J"
+      "hint": "Home-row words, both hands"
     },
     {
       "type": "p",
-      "text": "Right hand wakes up now"
+      "text": "Feel the words flow"
     },
     {
       "type": "exercise",
-      "target": "aj aj aj jaja jaja jaja sad sad fad",
+      "target": "all fall glass flash had has",
       "finger": "green",
-      "hint": "Right index finger finds J"
+      "hint": "Home-row words, both hands"
     }
   ],
   "character_tips": {
-    "anna": "J is your right anchor — bump on the other side! Two homes now 🌸",
-    "maxim": "Two anchors: F (left) and J (right). Always find them by feel.",
-    "knopych": "J = OTHER ANCHOR! 🎯 Both hands now have homes!",
-    "klavochka": "Two cozy pillows, my dear — one for each hand 💕"
+    "anna": "No new letters — just enjoy the flow of your words 🌷",
+    "maxim": "Rhythm day. Smooth beats fast. Keep it steady.",
+    "knopych": "GROOVE TIME! 🎵 Keep the beat, no rush!",
+    "klavochka": "Let the words dance, my sunshine 💃"
   },
   "phase": 1,
-  "rhythmLesson": false,
+  "rhythmLesson": true,
   "created_at": "2026-05-25",
-  "version": "1.0"
+  "version": "2.0"
 }

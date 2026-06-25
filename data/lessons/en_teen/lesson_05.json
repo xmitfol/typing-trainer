@@ -2,62 +2,76 @@
   "id": "en_teen_lesson_05",
   "tier": "en_teen",
   "lesson_number": 5,
-  "title": "Top row: Q W E R T",
-  "description": "Move up to top row — left hand reaches",
+  "title": "Top row strong fingers: R U E I T Y",
+  "description": "Move UP to the top row with your strongest fingers: index (R U T Y) and middle (E I)",
   "target_wpm": 26,
-  "text_length": 85,
+  "text_length": 72,
   "error_limit_percent": 8,
   "error_limit": 6,
-  "text": "we we we re re re ter ter ter wet wet wet sew sew sew red red red were were tree tree",
+  "text": "rite tire tree tried trust three fried glide grid dirty fairy hardy gear",
   "text_sequence": [],
   "keys_trained": [
-    "Q",
-    "W",
-    "E",
-    "R",
-    "T",
     "A",
-    "S",
     "D",
+    "E",
     "F",
+    "G",
+    "H",
+    "I",
+    "J",
+    "K",
+    "L",
+    "R",
+    "S",
+    "T",
+    "U",
+    "Y",
+    ";",
     "Space"
   ],
-  "new_keys": [],
-  "finger_focus": "Left top row + home row mix",
+  "new_keys": [
+    "R",
+    "U",
+    "E",
+    "I",
+    "T",
+    "Y"
+  ],
+  "finger_focus": "Top row index (R U T Y) + middle (E I)",
   "tips": [
     {
       "type": "lead",
-      "text": "Q-W-E-R-T are stretches UP from home row"
+      "text": "Strongest fingers reach UP first: index (R, U, T, Y) and middle (E, I)"
     },
     {
       "type": "drop",
-      "text": "Reach with the SAME finger that owns each column"
+      "text": "Reach up, then snap straight back to the home row"
     },
     {
       "type": "exercise",
-      "target": "we we we re re re ter ter ter wet wet",
+      "target": "rite tire tree tried dirty",
       "finger": "blue",
-      "hint": "Left top row + home row mix"
+      "hint": "Top row index (R U T Y) + middle (E I)"
     },
     {
       "type": "p",
-      "text": "Return to home row after each top-row keystroke"
+      "text": "Words: tree, tried, trust, three, glide"
     },
     {
       "type": "exercise",
-      "target": "wet sew sew sew red red red were were tree tree",
+      "target": "tried trust three fried glide gear",
       "finger": "green",
-      "hint": "Left top row + home row mix"
+      "hint": "Top row index (R U T Y) + middle (E I)"
     }
   ],
   "character_tips": {
-    "anna": "Stretch UP to top row, then immediately return to home row.",
-    "maxim": "QWERT is left hand's reach. Every typist learns this stretch.",
-    "knopych": "TOP ROW UNLOCKED! ⬆️ Reach high, return home!",
-    "klavochka": "Tippy-toes for fingers, my dear 🌷"
+    "anna": "Top row begins with your strongest fingers. Reach up, return home.",
+    "maxim": "Index and middle lead the top row: R U T Y, then E I. Logical and strong.",
+    "knopych": "TOP ROW UNLOCKED! ⬆️ Strong fingers reach first!",
+    "klavochka": "Tippy-toes for your strongest fingers, my dear 🌷"
   },
   "phase": 1,
   "rhythmLesson": false,
   "created_at": "2026-05-25",
-  "version": "1.0"
+  "version": "2.0"
 }

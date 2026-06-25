@@ -2,54 +2,60 @@
   "id": "en_kids_lesson_02",
   "tier": "en_kids",
   "lesson_number": 2,
-  "title": "Letter S",
-  "description": "Letter S — left ring finger",
+  "title": "Middle fingers: D and K",
+  "description": "Middle fingers now — D (left) and K (right)",
   "target_wpm": 9,
-  "text_length": 31,
+  "text_length": 43,
   "error_limit_percent": 10,
   "error_limit": 3,
-  "text": "s s s s s as as as sa sa sa ass",
+  "text": "d d d k k k dk kd dk kd fd jk fdk jkd dk kd",
   "text_sequence": [],
   "keys_trained": [
-    "A",
-    "S"
+    "D",
+    "F",
+    "J",
+    "K",
+    "Space"
   ],
-  "new_keys": [],
-  "finger_focus": "Left ring finger finds S",
+  "new_keys": [
+    "D",
+    "K"
+  ],
+  "finger_focus": "Middle fingers find D and K",
   "tips": [
     {
       "type": "lead",
-      "text": "S is right next to A"
+      "text": "D is left middle, K is right middle"
     },
     {
       "type": "drop",
-      "text": "Use your left ring finger"
+      "text": "They sit right next to F and J"
     },
     {
       "type": "exercise",
-      "target": "s s s s s as",
-      "finger": "orange",
-      "hint": "Left ring finger finds S"
+      "target": "d d d k k k dk kd",
+      "finger": "green",
+      "hint": "Middle fingers find D and K"
     },
     {
       "type": "p",
-      "text": "Try \"as\" and \"sa\" — your first tiny word!"
+      "text": "Always slide back to F and J"
     },
     {
       "type": "exercise",
-      "target": "as as sa sa sa ass",
-      "finger": "pink",
-      "hint": "Left ring finger finds S"
+      "target": "fd jk fdk jkd dk kd",
+      "finger": "orange",
+      "hint": "Middle fingers find D and K"
     }
   ],
   "character_tips": {
-    "anna": "S is next to A. Try \"as\" — your first word! 🌸",
-    "maxim": "Two letters now. Tiny words possible.",
-    "knopych": "S unlocked! Try 'as' — that's a real word! 🌟",
-    "klavochka": "Two letters, two friends, my dear! Like A and S holding hands ✨"
+    "anna": "D and K join the family — middle fingers now 🌷",
+    "maxim": "Middle fingers: D and K. Right next to your anchors.",
+    "knopych": "D + K UNLOCKED! 🎯 Four letters!",
+    "klavochka": "Two new friends, my sunshine ☀️"
   },
   "phase": 1,
   "rhythmLesson": false,
   "created_at": "2026-05-25",
-  "version": "1.0"
+  "version": "2.0"
 }

@@ -2,55 +2,80 @@
   "id": "en_kids_lesson_12",
   "tier": "en_kids",
   "lesson_number": 12,
-  "title": "Letters O and U",
-  "description": "More letters — O and U",
+  "title": "Bottom row: V M C",
+  "description": "Go DOWN to the bottom row — V, M (index) and C (middle)",
   "target_wpm": 20,
-  "text_length": 68,
+  "text_length": 48,
   "error_limit_percent": 10,
   "error_limit": 6,
-  "text": "o o o u u u up up up out out out you you you sun sun fun fun cup cup",
+  "text": "v v m m c c move come cave music camp vivid clam",
   "text_sequence": [],
   "keys_trained": [
+    "A",
+    "C",
+    "D",
+    "E",
+    "F",
+    "G",
+    "H",
+    "I",
+    "J",
+    "K",
+    "L",
+    "M",
     "O",
+    "P",
+    "Q",
+    "R",
+    "S",
+    "T",
     "U",
-    "A-Z"
+    "V",
+    "W",
+    "Y",
+    ";",
+    "Space"
   ],
-  "new_keys": [],
-  "finger_focus": "Top row O and U",
+  "new_keys": [
+    "V",
+    "M",
+    "C"
+  ],
+  "finger_focus": "Bottom row V/M (index), C (middle)",
   "tips": [
     {
       "type": "lead",
-      "text": "O is right ring finger UP"
+      "text": "V and M drop with the index fingers; C drops with left middle"
     },
     {
       "type": "drop",
-      "text": "U is right index UP"
+      "text": "Down, then straight back home"
     },
     {
       "type": "exercise",
-      "target": "o o o u u u up up up out",
-      "finger": "blue",
-      "hint": "Top row O and U"
+      "target": "v v m m c c move come",
+      "finger": "green",
+      "hint": "Bottom row V/M (index), C (middle)"
     },
     {
       "type": "p",
-      "text": "Now you can write \"you\" and \"sun\"!"
+      "text": "Words: move, come, cave, music"
     },
     {
       "type": "exercise",
-      "target": "out out you you you sun sun fun fun cup cup",
-      "finger": "green",
-      "hint": "Top row O and U"
+      "target": "cave music camp vivid clam",
+      "finger": "blue",
+      "hint": "Bottom row V/M (index), C (middle)"
     }
   ],
   "character_tips": {
-    "anna": "O and U. Now you can write \"you\" — say hello to someone!",
-    "maxim": "Vowels online. Words multiply fast.",
-    "knopych": "🤖 O AND U! Even MORE buttons!",
-    "klavochka": "Sunshine letters, my sweet — O and U ☀️"
+    "anna": "Down we go! V, M, C — \"move\" and \"come\" now 🌸",
+    "maxim": "Bottom row starts: V/M index drops, C left-middle drop.",
+    "knopych": "DIVING DOWN! 🌊 V M C!",
+    "klavochka": "Fingers dip down for V, M, C, then home 💤"
   },
   "phase": 2,
   "rhythmLesson": false,
   "created_at": "2026-05-25",
-  "version": "1.0"
+  "version": "2.0"
 }

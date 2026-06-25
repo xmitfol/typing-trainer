@@ -5,60 +5,376 @@
   "title": "Верхний ряд: ЙЦУКЕ",
   "description": "Тянемся вверх — левая рука осваивает верх",
   "target_wpm": 26,
-  "text_length": 63,
+  "text_length": 50,
   "error_limit_percent": 8,
   "error_limit": 5,
-  "text": "цена кейс уже кит еле жук куда туда лекция стук цеце ёж ёж улей",
-  "text_sequence": [],
+  "text": "уже куда лук урок рука клей акула пекло улей кулак",
+  "text_sequence": [
+    {
+      "char": "у",
+      "hand": "left",
+      "finger": "middle",
+      "key": "У"
+    },
+    {
+      "char": "ж",
+      "hand": "right",
+      "finger": "pinky",
+      "key": "Ж"
+    },
+    {
+      "char": "е",
+      "hand": "left",
+      "finger": "index",
+      "key": "Е"
+    },
+    {
+      "char": " ",
+      "hand": "right",
+      "finger": "thumb",
+      "key": "Space",
+      "space_side": "right"
+    },
+    {
+      "char": "к",
+      "hand": "left",
+      "finger": "index",
+      "key": "К"
+    },
+    {
+      "char": "у",
+      "hand": "left",
+      "finger": "middle",
+      "key": "У"
+    },
+    {
+      "char": "д",
+      "hand": "right",
+      "finger": "ring",
+      "key": "Д"
+    },
+    {
+      "char": "а",
+      "hand": "left",
+      "finger": "index",
+      "key": "А"
+    },
+    {
+      "char": " ",
+      "hand": "left",
+      "finger": "thumb",
+      "key": "Space",
+      "space_side": "left"
+    },
+    {
+      "char": "л",
+      "hand": "right",
+      "finger": "middle",
+      "key": "Л"
+    },
+    {
+      "char": "у",
+      "hand": "left",
+      "finger": "middle",
+      "key": "У"
+    },
+    {
+      "char": "к",
+      "hand": "left",
+      "finger": "index",
+      "key": "К"
+    },
+    {
+      "char": " ",
+      "hand": "right",
+      "finger": "thumb",
+      "key": "Space",
+      "space_side": "right"
+    },
+    {
+      "char": "у",
+      "hand": "left",
+      "finger": "middle",
+      "key": "У"
+    },
+    {
+      "char": "р",
+      "hand": "left",
+      "finger": "index",
+      "key": "Р"
+    },
+    {
+      "char": "о",
+      "hand": "right",
+      "finger": "index",
+      "key": "О"
+    },
+    {
+      "char": "к",
+      "hand": "left",
+      "finger": "index",
+      "key": "К"
+    },
+    {
+      "char": " ",
+      "hand": "right",
+      "finger": "thumb",
+      "key": "Space",
+      "space_side": "right"
+    },
+    {
+      "char": "р",
+      "hand": "left",
+      "finger": "index",
+      "key": "Р"
+    },
+    {
+      "char": "у",
+      "hand": "left",
+      "finger": "middle",
+      "key": "У"
+    },
+    {
+      "char": "к",
+      "hand": "left",
+      "finger": "index",
+      "key": "К"
+    },
+    {
+      "char": "а",
+      "hand": "left",
+      "finger": "index",
+      "key": "А"
+    },
+    {
+      "char": " ",
+      "hand": "right",
+      "finger": "thumb",
+      "key": "Space",
+      "space_side": "right"
+    },
+    {
+      "char": "к",
+      "hand": "left",
+      "finger": "index",
+      "key": "К"
+    },
+    {
+      "char": "л",
+      "hand": "right",
+      "finger": "middle",
+      "key": "Л"
+    },
+    {
+      "char": "е",
+      "hand": "left",
+      "finger": "index",
+      "key": "Е"
+    },
+    {
+      "char": "й",
+      "hand": "left",
+      "finger": "pinky",
+      "key": "Й"
+    },
+    {
+      "char": " ",
+      "hand": "right",
+      "finger": "thumb",
+      "key": "Space",
+      "space_side": "right"
+    },
+    {
+      "char": "а",
+      "hand": "left",
+      "finger": "index",
+      "key": "А"
+    },
+    {
+      "char": "к",
+      "hand": "left",
+      "finger": "index",
+      "key": "К"
+    },
+    {
+      "char": "у",
+      "hand": "left",
+      "finger": "middle",
+      "key": "У"
+    },
+    {
+      "char": "л",
+      "hand": "right",
+      "finger": "middle",
+      "key": "Л"
+    },
+    {
+      "char": "а",
+      "hand": "left",
+      "finger": "index",
+      "key": "А"
+    },
+    {
+      "char": " ",
+      "hand": "right",
+      "finger": "thumb",
+      "key": "Space",
+      "space_side": "right"
+    },
+    {
+      "char": "п",
+      "hand": "left",
+      "finger": "pinky",
+      "key": "П"
+    },
+    {
+      "char": "е",
+      "hand": "left",
+      "finger": "index",
+      "key": "Е"
+    },
+    {
+      "char": "к",
+      "hand": "left",
+      "finger": "index",
+      "key": "К"
+    },
+    {
+      "char": "л",
+      "hand": "right",
+      "finger": "middle",
+      "key": "Л"
+    },
+    {
+      "char": "о",
+      "hand": "right",
+      "finger": "index",
+      "key": "О"
+    },
+    {
+      "char": " ",
+      "hand": "right",
+      "finger": "thumb",
+      "key": "Space",
+      "space_side": "right"
+    },
+    {
+      "char": "у",
+      "hand": "left",
+      "finger": "middle",
+      "key": "У"
+    },
+    {
+      "char": "л",
+      "hand": "right",
+      "finger": "middle",
+      "key": "Л"
+    },
+    {
+      "char": "е",
+      "hand": "left",
+      "finger": "index",
+      "key": "Е"
+    },
+    {
+      "char": "й",
+      "hand": "left",
+      "finger": "pinky",
+      "key": "Й"
+    },
+    {
+      "char": " ",
+      "hand": "right",
+      "finger": "thumb",
+      "key": "Space",
+      "space_side": "right"
+    },
+    {
+      "char": "к",
+      "hand": "left",
+      "finger": "index",
+      "key": "К"
+    },
+    {
+      "char": "у",
+      "hand": "left",
+      "finger": "middle",
+      "key": "У"
+    },
+    {
+      "char": "л",
+      "hand": "right",
+      "finger": "middle",
+      "key": "Л"
+    },
+    {
+      "char": "а",
+      "hand": "left",
+      "finger": "index",
+      "key": "А"
+    },
+    {
+      "char": "к",
+      "hand": "left",
+      "finger": "index",
+      "key": "К"
+    }
+  ],
   "keys_trained": [
+    "А",
+    "О",
+    "В",
+    "Л",
+    "Ы",
+    "Д",
+    "Ф",
+    "Ж",
+    "П",
+    "Р",
+    "Э",
     "Й",
     "Ц",
     "У",
     "К",
     "Е",
-    "А",
-    "В",
-    "О",
-    "Д",
-    "Ж",
     "Space"
   ],
   "new_keys": [],
-  "finger_focus": "Левый верхний + домашний",
+  "finger_focus": "Верхний ряд левой руки: ЙЦУКЕ",
   "tips": [
     {
       "type": "lead",
-      "text": "ЙЦУКЕ — тянись ВВЕРХ от домашнего"
+      "text": "Тянемся ВВЕРХ от домашнего: Й Ц У К Е — левая рука."
     },
     {
       "type": "drop",
-      "text": "Тем же пальцем, что владеет колонкой"
+      "text": "Тем же пальцем, что владеет колонкой, и сразу обратно на базу."
     },
     {
       "type": "exercise",
-      "target": "цена кейс уже кит еле жук куда",
+      "target": "уже куда лук урок рука",
       "finger": "blue",
       "hint": "Левый верхний + домашний"
     },
     {
       "type": "p",
-      "text": "Возвращайся в домашний после каждого нажатия"
+      "text": "После каждого верхнего удара — возврат пальца в домашний ряд."
     },
     {
       "type": "exercise",
-      "target": "туда лекция стук цеце ёж ёж улей",
+      "target": "клей акула пекло улей",
       "finger": "green",
       "hint": "Левый верхний + домашний"
     }
   ],
   "character_tips": {
-    "anna": "Тянись ВВЕРХ к верхнему ряду, потом сразу обратно в домашний.",
+    "anna": "Тянись ВВЕРХ к ЙЦУКЕ и сразу обратно в домашний.",
     "maxim": "ЙЦУКЕ — растяжка левой руки. Каждый машинист учит этот jump.",
     "knopych": "ВЕРХНИЙ РЯД РАЗБЛОКИРОВАН! ⬆️ Тянись и возвращайся!",
-    "klavochka": "Пальчики на цыпочках, мой милый 🌷"
+    "klavochka": "Пальчики на цыпочках вверх и домой, мой милый 🌷⬆️"
   },
   "phase": 1,
   "rhythmLesson": false,
   "created_at": "2026-05-26",
-  "version": "1.0"
+  "version": "2.0"
 }

@@ -2,60 +2,66 @@
   "id": "en_teen_lesson_02",
   "tier": "en_teen",
   "lesson_number": 2,
-  "title": "Home row: real words",
-  "description": "Build short words from home row keys only",
+  "title": "Home row complete: G and H",
+  "description": "G and H are index-finger reaches that finish the home row",
   "target_wpm": 20,
-  "text_length": 60,
+  "text_length": 66,
   "error_limit_percent": 8,
   "error_limit": 4,
-  "text": "ask sad lad fall sass lass dad fad jak lad dad fall sass ask",
+  "text": "gash glass flash hall had has flag sash gala dash gjf hjk had hall",
   "text_sequence": [],
   "keys_trained": [
     "A",
-    "S",
     "D",
     "F",
+    "G",
+    "H",
     "J",
     "K",
     "L",
+    "S",
+    ";",
     "Space"
   ],
-  "new_keys": [],
-  "finger_focus": "Home row word formation",
+  "new_keys": [
+    "G",
+    "H"
+  ],
+  "finger_focus": "Index fingers reach to G and H",
   "tips": [
     {
       "type": "lead",
-      "text": "Real words from just home row — you can already write!"
+      "text": "G is one key right of F; H is one key left of J — both index reaches"
     },
     {
       "type": "drop",
-      "text": "Notice your fingers barely move"
+      "text": "This completes the home row — eight keys plus G and H"
     },
     {
       "type": "exercise",
-      "target": "ask sad lad fall sass lass dad",
+      "target": "gash glass flash hall",
       "finger": "blue",
-      "hint": "Home row word formation"
+      "hint": "Index fingers reach to G and H"
     },
     {
       "type": "p",
-      "text": "Spaces with thumb — keep it light"
+      "text": "Real words now: gash, glass, flash, flag"
     },
     {
       "type": "exercise",
-      "target": "fad jak lad dad fall sass ask",
+      "target": "had has flag sash gala dash",
       "finger": "green",
-      "hint": "Home row word formation"
+      "hint": "Index fingers reach to G and H"
     }
   ],
   "character_tips": {
-    "anna": "Real words already, just from home row. Your fingers know the pattern.",
-    "maxim": "Eight keys, dozens of words. The keyboard rewards efficiency.",
-    "knopych": "WORDS UNLOCKED! 🎮 Home row OP — overpowered!",
-    "klavochka": "Look at you, writing real words! 🌸 Tiny victory!"
+    "anna": "G and H finish the home row — index-finger reaches, then straight back.",
+    "maxim": "Index fingers are strongest, so G and H slot in easily. Home row done.",
+    "knopych": "G + H! 🤖 Home row 100% — index super-reach!",
+    "klavochka": "Two more cozy keys, my dear — G and H ✨"
   },
   "phase": 1,
   "rhythmLesson": false,
   "created_at": "2026-05-25",
-  "version": "1.0"
+  "version": "2.0"
 }

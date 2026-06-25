@@ -2,55 +2,253 @@
   "id": "ru_kids_lesson_03",
   "tier": "ru_kids",
   "lesson_number": 3,
-  "title": "Буква В и слово «во»",
-  "description": "Буква В — левый указательный. Сделай слово «во»!",
+  "title": "Буква В и слоги",
+  "description": "Буква В — левый средний. Первые слоги: во, ов, ва.",
   "target_wpm": 10,
-  "text_length": 46,
+  "text_length": 31,
   "error_limit_percent": 10,
   "error_limit": 4,
-  "text": "в в в в во во во ов ов ов ва ва ва аво аво ваа",
-  "text_sequence": [],
+  "text": "в в в во во ов ов ва ва ава аво",
+  "text_sequence": [
+    {
+      "char": "в",
+      "hand": "left",
+      "finger": "middle",
+      "key": "В"
+    },
+    {
+      "char": " ",
+      "hand": "right",
+      "finger": "thumb",
+      "key": "Space",
+      "space_side": "right"
+    },
+    {
+      "char": "в",
+      "hand": "left",
+      "finger": "middle",
+      "key": "В"
+    },
+    {
+      "char": " ",
+      "hand": "right",
+      "finger": "thumb",
+      "key": "Space",
+      "space_side": "right"
+    },
+    {
+      "char": "в",
+      "hand": "left",
+      "finger": "middle",
+      "key": "В"
+    },
+    {
+      "char": " ",
+      "hand": "right",
+      "finger": "thumb",
+      "key": "Space",
+      "space_side": "right"
+    },
+    {
+      "char": "в",
+      "hand": "left",
+      "finger": "middle",
+      "key": "В"
+    },
+    {
+      "char": "о",
+      "hand": "right",
+      "finger": "index",
+      "key": "О"
+    },
+    {
+      "char": " ",
+      "hand": "right",
+      "finger": "thumb",
+      "key": "Space",
+      "space_side": "right"
+    },
+    {
+      "char": "в",
+      "hand": "left",
+      "finger": "middle",
+      "key": "В"
+    },
+    {
+      "char": "о",
+      "hand": "right",
+      "finger": "index",
+      "key": "О"
+    },
+    {
+      "char": " ",
+      "hand": "left",
+      "finger": "thumb",
+      "key": "Space",
+      "space_side": "left"
+    },
+    {
+      "char": "о",
+      "hand": "right",
+      "finger": "index",
+      "key": "О"
+    },
+    {
+      "char": "в",
+      "hand": "left",
+      "finger": "middle",
+      "key": "В"
+    },
+    {
+      "char": " ",
+      "hand": "left",
+      "finger": "thumb",
+      "key": "Space",
+      "space_side": "left"
+    },
+    {
+      "char": "о",
+      "hand": "right",
+      "finger": "index",
+      "key": "О"
+    },
+    {
+      "char": "в",
+      "hand": "left",
+      "finger": "middle",
+      "key": "В"
+    },
+    {
+      "char": " ",
+      "hand": "right",
+      "finger": "thumb",
+      "key": "Space",
+      "space_side": "right"
+    },
+    {
+      "char": "в",
+      "hand": "left",
+      "finger": "middle",
+      "key": "В"
+    },
+    {
+      "char": "а",
+      "hand": "left",
+      "finger": "index",
+      "key": "А"
+    },
+    {
+      "char": " ",
+      "hand": "right",
+      "finger": "thumb",
+      "key": "Space",
+      "space_side": "right"
+    },
+    {
+      "char": "в",
+      "hand": "left",
+      "finger": "middle",
+      "key": "В"
+    },
+    {
+      "char": "а",
+      "hand": "left",
+      "finger": "index",
+      "key": "А"
+    },
+    {
+      "char": " ",
+      "hand": "right",
+      "finger": "thumb",
+      "key": "Space",
+      "space_side": "right"
+    },
+    {
+      "char": "а",
+      "hand": "left",
+      "finger": "index",
+      "key": "А"
+    },
+    {
+      "char": "в",
+      "hand": "left",
+      "finger": "middle",
+      "key": "В"
+    },
+    {
+      "char": "а",
+      "hand": "left",
+      "finger": "index",
+      "key": "А"
+    },
+    {
+      "char": " ",
+      "hand": "right",
+      "finger": "thumb",
+      "key": "Space",
+      "space_side": "right"
+    },
+    {
+      "char": "а",
+      "hand": "left",
+      "finger": "index",
+      "key": "А"
+    },
+    {
+      "char": "в",
+      "hand": "left",
+      "finger": "middle",
+      "key": "В"
+    },
+    {
+      "char": "о",
+      "hand": "right",
+      "finger": "index",
+      "key": "О"
+    }
+  ],
   "keys_trained": [
     "А",
     "О",
-    "В"
+    "В",
+    "Space"
   ],
   "new_keys": [],
-  "finger_focus": "Левый указательный находит В",
+  "finger_focus": "Левый средний находит В",
   "tips": [
     {
       "type": "lead",
-      "text": "В — левый указательный пальчик"
+      "text": "Буковка В!"
     },
     {
       "type": "drop",
-      "text": "Теперь можно составить «во», «ва», «ов»"
+      "text": "Её жмёт ЛЕВЫЙ средний пальчик 🌸"
     },
     {
       "type": "exercise",
-      "target": "в в в в во во во ов",
-      "finger": "blue",
-      "hint": "Левый указательный находит В"
+      "target": "в в в в в",
+      "finger": "green",
+      "hint": "Левый средний — на букву В"
     },
     {
       "type": "p",
-      "text": "Смотри, настоящие слоги!"
+      "text": "Соединяем буквы в слоги: во, ов, ва!"
     },
     {
       "type": "exercise",
-      "target": "ов ов ва ва ва аво аво ваа",
+      "target": "во ов ва ава аво",
       "finger": "green",
-      "hint": "Левый указательный находит В"
+      "hint": "Слоги: во — ов — ва"
     }
   ],
   "character_tips": {
-    "anna": "Три буквы! «во», «ва» — настоящие слоги ✨",
-    "maxim": "Три буквы, несколько слогов. Быстрый прогресс.",
-    "knopych": "СЛОГИ! 🎉 во, ва, ов — ты уже пишешь!",
-    "klavochka": "Три маленькие буковки складываются в слоги, моя ласточка 🌟 Так умница!"
+    "anna": "В — левый средний пальчик. Получаются слоги 🌷",
+    "maxim": "Третья буква — В, левый средний. Появились слоги.",
+    "knopych": "В-в-в! 🤖 ВО! ОВ! ВА! Почти слова!",
+    "klavochka": "Какой ты молодец! В — это левый средний пальчик. Соедини буковки: во-ов-ва 💕"
   },
   "phase": 1,
   "rhythmLesson": false,
   "created_at": "2026-05-26",
-  "version": "1.0"
+  "version": "2.0"
 }

@@ -2,14 +2,527 @@
   "id": "en_tier1_lesson_09",
   "tier": "en_tier1",
   "lesson_number": 9,
-  "title": "Final letters: P, Q, X, Z, semicolon",
-  "description": "Finish the alphabet with rare-but-needed letters",
+  "title": "Bottom row: X Z B N + semicolon",
+  "description": "Finish the bottom row — X, Z (left), B, N (index reach) — plus the semicolon",
   "target_wpm": 22,
-  "text_length": 75,
+  "text_length": 83,
   "error_limit_percent": 6,
   "error_limit": 5,
-  "text": "quick brown fox jumps over a lazy dog please pass the box zero zip",
-  "text_sequence": [],
+  "text": "xz bn box zinc brave brown number maze blaze bonze; combine; verbs zip; bend; banjo",
+  "text_sequence": [
+    {
+      "char": "x",
+      "hand": "left",
+      "finger": "ring",
+      "key": "X"
+    },
+    {
+      "char": "z",
+      "hand": "left",
+      "finger": "pinky",
+      "key": "Z"
+    },
+    {
+      "char": " ",
+      "hand": "right",
+      "finger": "thumb",
+      "key": "Space",
+      "space_side": "right"
+    },
+    {
+      "char": "b",
+      "hand": "left",
+      "finger": "index",
+      "key": "B"
+    },
+    {
+      "char": "n",
+      "hand": "right",
+      "finger": "index",
+      "key": "N"
+    },
+    {
+      "char": " ",
+      "hand": "left",
+      "finger": "thumb",
+      "key": "Space",
+      "space_side": "left"
+    },
+    {
+      "char": "b",
+      "hand": "left",
+      "finger": "index",
+      "key": "B"
+    },
+    {
+      "char": "o",
+      "hand": "right",
+      "finger": "ring",
+      "key": "O"
+    },
+    {
+      "char": "x",
+      "hand": "left",
+      "finger": "ring",
+      "key": "X"
+    },
+    {
+      "char": " ",
+      "hand": "right",
+      "finger": "thumb",
+      "key": "Space",
+      "space_side": "right"
+    },
+    {
+      "char": "z",
+      "hand": "left",
+      "finger": "pinky",
+      "key": "Z"
+    },
+    {
+      "char": "i",
+      "hand": "right",
+      "finger": "middle",
+      "key": "I"
+    },
+    {
+      "char": "n",
+      "hand": "right",
+      "finger": "index",
+      "key": "N"
+    },
+    {
+      "char": "c",
+      "hand": "left",
+      "finger": "middle",
+      "key": "C"
+    },
+    {
+      "char": " ",
+      "hand": "left",
+      "finger": "thumb",
+      "key": "Space",
+      "space_side": "left"
+    },
+    {
+      "char": "b",
+      "hand": "left",
+      "finger": "index",
+      "key": "B"
+    },
+    {
+      "char": "r",
+      "hand": "left",
+      "finger": "index",
+      "key": "R"
+    },
+    {
+      "char": "a",
+      "hand": "left",
+      "finger": "pinky",
+      "key": "A"
+    },
+    {
+      "char": "v",
+      "hand": "left",
+      "finger": "index",
+      "key": "V"
+    },
+    {
+      "char": "e",
+      "hand": "left",
+      "finger": "middle",
+      "key": "E"
+    },
+    {
+      "char": " ",
+      "hand": "right",
+      "finger": "thumb",
+      "key": "Space",
+      "space_side": "right"
+    },
+    {
+      "char": "b",
+      "hand": "left",
+      "finger": "index",
+      "key": "B"
+    },
+    {
+      "char": "r",
+      "hand": "left",
+      "finger": "index",
+      "key": "R"
+    },
+    {
+      "char": "o",
+      "hand": "right",
+      "finger": "ring",
+      "key": "O"
+    },
+    {
+      "char": "w",
+      "hand": "left",
+      "finger": "ring",
+      "key": "W"
+    },
+    {
+      "char": "n",
+      "hand": "right",
+      "finger": "index",
+      "key": "N"
+    },
+    {
+      "char": " ",
+      "hand": "left",
+      "finger": "thumb",
+      "key": "Space",
+      "space_side": "left"
+    },
+    {
+      "char": "n",
+      "hand": "right",
+      "finger": "index",
+      "key": "N"
+    },
+    {
+      "char": "u",
+      "hand": "right",
+      "finger": "index",
+      "key": "U"
+    },
+    {
+      "char": "m",
+      "hand": "right",
+      "finger": "index",
+      "key": "M"
+    },
+    {
+      "char": "b",
+      "hand": "left",
+      "finger": "index",
+      "key": "B"
+    },
+    {
+      "char": "e",
+      "hand": "left",
+      "finger": "middle",
+      "key": "E"
+    },
+    {
+      "char": "r",
+      "hand": "left",
+      "finger": "index",
+      "key": "R"
+    },
+    {
+      "char": " ",
+      "hand": "right",
+      "finger": "thumb",
+      "key": "Space",
+      "space_side": "right"
+    },
+    {
+      "char": "m",
+      "hand": "right",
+      "finger": "index",
+      "key": "M"
+    },
+    {
+      "char": "a",
+      "hand": "left",
+      "finger": "pinky",
+      "key": "A"
+    },
+    {
+      "char": "z",
+      "hand": "left",
+      "finger": "pinky",
+      "key": "Z"
+    },
+    {
+      "char": "e",
+      "hand": "left",
+      "finger": "middle",
+      "key": "E"
+    },
+    {
+      "char": " ",
+      "hand": "left",
+      "finger": "thumb",
+      "key": "Space",
+      "space_side": "left"
+    },
+    {
+      "char": "b",
+      "hand": "left",
+      "finger": "index",
+      "key": "B"
+    },
+    {
+      "char": "l",
+      "hand": "right",
+      "finger": "ring",
+      "key": "L"
+    },
+    {
+      "char": "a",
+      "hand": "left",
+      "finger": "pinky",
+      "key": "A"
+    },
+    {
+      "char": "z",
+      "hand": "left",
+      "finger": "pinky",
+      "key": "Z"
+    },
+    {
+      "char": "e",
+      "hand": "left",
+      "finger": "middle",
+      "key": "E"
+    },
+    {
+      "char": " ",
+      "hand": "right",
+      "finger": "thumb",
+      "key": "Space",
+      "space_side": "right"
+    },
+    {
+      "char": "b",
+      "hand": "left",
+      "finger": "index",
+      "key": "B"
+    },
+    {
+      "char": "o",
+      "hand": "right",
+      "finger": "ring",
+      "key": "O"
+    },
+    {
+      "char": "n",
+      "hand": "right",
+      "finger": "index",
+      "key": "N"
+    },
+    {
+      "char": "z",
+      "hand": "left",
+      "finger": "pinky",
+      "key": "Z"
+    },
+    {
+      "char": "e",
+      "hand": "left",
+      "finger": "middle",
+      "key": "E"
+    },
+    {
+      "char": ";",
+      "hand": "right",
+      "finger": "pinky",
+      "key": ";"
+    },
+    {
+      "char": " ",
+      "hand": "left",
+      "finger": "thumb",
+      "key": "Space",
+      "space_side": "left"
+    },
+    {
+      "char": "c",
+      "hand": "left",
+      "finger": "middle",
+      "key": "C"
+    },
+    {
+      "char": "o",
+      "hand": "right",
+      "finger": "ring",
+      "key": "O"
+    },
+    {
+      "char": "m",
+      "hand": "right",
+      "finger": "index",
+      "key": "M"
+    },
+    {
+      "char": "b",
+      "hand": "left",
+      "finger": "index",
+      "key": "B"
+    },
+    {
+      "char": "i",
+      "hand": "right",
+      "finger": "middle",
+      "key": "I"
+    },
+    {
+      "char": "n",
+      "hand": "right",
+      "finger": "index",
+      "key": "N"
+    },
+    {
+      "char": "e",
+      "hand": "left",
+      "finger": "middle",
+      "key": "E"
+    },
+    {
+      "char": ";",
+      "hand": "right",
+      "finger": "pinky",
+      "key": ";"
+    },
+    {
+      "char": " ",
+      "hand": "right",
+      "finger": "thumb",
+      "key": "Space",
+      "space_side": "right"
+    },
+    {
+      "char": "v",
+      "hand": "left",
+      "finger": "index",
+      "key": "V"
+    },
+    {
+      "char": "e",
+      "hand": "left",
+      "finger": "middle",
+      "key": "E"
+    },
+    {
+      "char": "r",
+      "hand": "left",
+      "finger": "index",
+      "key": "R"
+    },
+    {
+      "char": "b",
+      "hand": "left",
+      "finger": "index",
+      "key": "B"
+    },
+    {
+      "char": "s",
+      "hand": "left",
+      "finger": "ring",
+      "key": "S"
+    },
+    {
+      "char": " ",
+      "hand": "left",
+      "finger": "thumb",
+      "key": "Space",
+      "space_side": "left"
+    },
+    {
+      "char": "z",
+      "hand": "left",
+      "finger": "pinky",
+      "key": "Z"
+    },
+    {
+      "char": "i",
+      "hand": "right",
+      "finger": "middle",
+      "key": "I"
+    },
+    {
+      "char": "p",
+      "hand": "right",
+      "finger": "pinky",
+      "key": "P"
+    },
+    {
+      "char": ";",
+      "hand": "right",
+      "finger": "pinky",
+      "key": ";"
+    },
+    {
+      "char": " ",
+      "hand": "right",
+      "finger": "thumb",
+      "key": "Space",
+      "space_side": "right"
+    },
+    {
+      "char": "b",
+      "hand": "left",
+      "finger": "index",
+      "key": "B"
+    },
+    {
+      "char": "e",
+      "hand": "left",
+      "finger": "middle",
+      "key": "E"
+    },
+    {
+      "char": "n",
+      "hand": "right",
+      "finger": "index",
+      "key": "N"
+    },
+    {
+      "char": "d",
+      "hand": "left",
+      "finger": "middle",
+      "key": "D"
+    },
+    {
+      "char": ";",
+      "hand": "right",
+      "finger": "pinky",
+      "key": ";"
+    },
+    {
+      "char": " ",
+      "hand": "left",
+      "finger": "thumb",
+      "key": "Space",
+      "space_side": "left"
+    },
+    {
+      "char": "b",
+      "hand": "left",
+      "finger": "index",
+      "key": "B"
+    },
+    {
+      "char": "a",
+      "hand": "left",
+      "finger": "pinky",
+      "key": "A"
+    },
+    {
+      "char": "n",
+      "hand": "right",
+      "finger": "index",
+      "key": "N"
+    },
+    {
+      "char": "j",
+      "hand": "right",
+      "finger": "index",
+      "key": "J"
+    },
+    {
+      "char": "o",
+      "hand": "right",
+      "finger": "ring",
+      "key": "O"
+    }
+  ],
   "keys_trained": [
     "A",
     "B",
@@ -37,59 +550,57 @@
     "X",
     "Y",
     "Z",
+    ";",
     "Space"
   ],
   "new_keys": [
-    "P",
-    "Q",
     "X",
-    "Z"
+    "Z",
+    "B",
+    "N",
+    ";"
   ],
-  "finger_focus": "All remaining: P (right pinky up), Q (left pinky up), X (left ring bottom), Z (left pinky bottom)",
+  "finger_focus": "Bottom row: X (left ring), Z (left pinky), B/N (index reach), semicolon (right pinky)",
   "tips": [
     {
       "type": "lead",
-      "text": "P — right pinky reach up"
+      "text": "X below S (left ring), Z below A (left pinky)"
     },
     {
       "type": "drop",
-      "text": "Q — left pinky reach up (rare!)"
+      "text": "B and N are index reaches on the bottom row; semicolon rests under the right pinky"
     },
     {
       "type": "exercise",
-      "target": "quick brown fox jumps over a lazy",
+      "target": "xz bn box zinc brave",
       "finger": "pink",
-      "hint": "Буквы: P Q X Z"
+      "hint": "Bottom row: X (left ring), Z (left pinky), B/N (index reach), semicolon (right pinky)"
     },
     {
       "type": "p",
-      "text": "X — left ring drops"
+      "text": "Last letters! The whole alphabet is now under your fingers"
     },
     {
       "type": "callout",
       "icon": "💡",
       "title": "Подсказка",
-      "text": "Z — left pinky drops (rare!)"
-    },
-    {
-      "type": "p",
-      "text": "Now you can type the famous: \"the quick brown fox jumps over a lazy dog\""
+      "text": "Words: box, zinc, brown, number, blaze"
     },
     {
       "type": "exercise",
-      "target": "dog please pass the box zero zip",
-      "finger": "orange",
-      "hint": "Буквы: P Q X Z"
+      "target": "brown number maze blaze bend",
+      "finger": "green",
+      "hint": "Bottom row: X (left ring), Z (left pinky), B/N (index reach), semicolon (right pinky)"
     }
   ],
   "character_tips": {
-    "anna": "Finishing the alphabet! Q, X, Z — rare, but you need their positions.",
-    "maxim": "The full English alphabet is on your fingertips. Final test is near.",
-    "knopych": "ALPHABET! ALL 26 LETTERS ARE YOURS! 🏆",
-    "klavochka": "Well done! All the letters learned — you're a real typist! ⭐"
+    "anna": "🎓 The last letters! X, Z, B, N complete the alphabet. Every key is now under your fingers.",
+    "maxim": "Bottom row finished. X and Z (left), B and N (index reaches). Full alphabet unlocked.",
+    "knopych": "FINAL LETTERS! X Z B N — alphabet 100%! LEVEL UP! 🏆",
+    "klavochka": "You did it! The whole English alphabet lives on your fingers now 🎉"
   },
   "phase": 1,
   "rhythmLesson": false,
   "created_at": "2026-05-25",
-  "version": "1.0"
+  "version": "2.0"
 }

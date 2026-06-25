@@ -9,15 +9,257 @@
   "error_limit_percent": 8,
   "error_limit": 3,
   "text": "фыва олдж фыва олдж фыва олдж фыва олдж",
-  "text_sequence": [],
+  "text_sequence": [
+    {
+      "char": "ф",
+      "hand": "left",
+      "finger": "pinky",
+      "key": "Ф"
+    },
+    {
+      "char": "ы",
+      "hand": "left",
+      "finger": "ring",
+      "key": "Ы"
+    },
+    {
+      "char": "в",
+      "hand": "left",
+      "finger": "middle",
+      "key": "В"
+    },
+    {
+      "char": "а",
+      "hand": "left",
+      "finger": "index",
+      "key": "А"
+    },
+    {
+      "char": " ",
+      "hand": "left",
+      "finger": "thumb",
+      "key": "Space",
+      "space_side": "left"
+    },
+    {
+      "char": "о",
+      "hand": "right",
+      "finger": "index",
+      "key": "О"
+    },
+    {
+      "char": "л",
+      "hand": "right",
+      "finger": "middle",
+      "key": "Л"
+    },
+    {
+      "char": "д",
+      "hand": "right",
+      "finger": "ring",
+      "key": "Д"
+    },
+    {
+      "char": "ж",
+      "hand": "right",
+      "finger": "pinky",
+      "key": "Ж"
+    },
+    {
+      "char": " ",
+      "hand": "right",
+      "finger": "thumb",
+      "key": "Space",
+      "space_side": "right"
+    },
+    {
+      "char": "ф",
+      "hand": "left",
+      "finger": "pinky",
+      "key": "Ф"
+    },
+    {
+      "char": "ы",
+      "hand": "left",
+      "finger": "ring",
+      "key": "Ы"
+    },
+    {
+      "char": "в",
+      "hand": "left",
+      "finger": "middle",
+      "key": "В"
+    },
+    {
+      "char": "а",
+      "hand": "left",
+      "finger": "index",
+      "key": "А"
+    },
+    {
+      "char": " ",
+      "hand": "left",
+      "finger": "thumb",
+      "key": "Space",
+      "space_side": "left"
+    },
+    {
+      "char": "о",
+      "hand": "right",
+      "finger": "index",
+      "key": "О"
+    },
+    {
+      "char": "л",
+      "hand": "right",
+      "finger": "middle",
+      "key": "Л"
+    },
+    {
+      "char": "д",
+      "hand": "right",
+      "finger": "ring",
+      "key": "Д"
+    },
+    {
+      "char": "ж",
+      "hand": "right",
+      "finger": "pinky",
+      "key": "Ж"
+    },
+    {
+      "char": " ",
+      "hand": "right",
+      "finger": "thumb",
+      "key": "Space",
+      "space_side": "right"
+    },
+    {
+      "char": "ф",
+      "hand": "left",
+      "finger": "pinky",
+      "key": "Ф"
+    },
+    {
+      "char": "ы",
+      "hand": "left",
+      "finger": "ring",
+      "key": "Ы"
+    },
+    {
+      "char": "в",
+      "hand": "left",
+      "finger": "middle",
+      "key": "В"
+    },
+    {
+      "char": "а",
+      "hand": "left",
+      "finger": "index",
+      "key": "А"
+    },
+    {
+      "char": " ",
+      "hand": "left",
+      "finger": "thumb",
+      "key": "Space",
+      "space_side": "left"
+    },
+    {
+      "char": "о",
+      "hand": "right",
+      "finger": "index",
+      "key": "О"
+    },
+    {
+      "char": "л",
+      "hand": "right",
+      "finger": "middle",
+      "key": "Л"
+    },
+    {
+      "char": "д",
+      "hand": "right",
+      "finger": "ring",
+      "key": "Д"
+    },
+    {
+      "char": "ж",
+      "hand": "right",
+      "finger": "pinky",
+      "key": "Ж"
+    },
+    {
+      "char": " ",
+      "hand": "right",
+      "finger": "thumb",
+      "key": "Space",
+      "space_side": "right"
+    },
+    {
+      "char": "ф",
+      "hand": "left",
+      "finger": "pinky",
+      "key": "Ф"
+    },
+    {
+      "char": "ы",
+      "hand": "left",
+      "finger": "ring",
+      "key": "Ы"
+    },
+    {
+      "char": "в",
+      "hand": "left",
+      "finger": "middle",
+      "key": "В"
+    },
+    {
+      "char": "а",
+      "hand": "left",
+      "finger": "index",
+      "key": "А"
+    },
+    {
+      "char": " ",
+      "hand": "left",
+      "finger": "thumb",
+      "key": "Space",
+      "space_side": "left"
+    },
+    {
+      "char": "о",
+      "hand": "right",
+      "finger": "index",
+      "key": "О"
+    },
+    {
+      "char": "л",
+      "hand": "right",
+      "finger": "middle",
+      "key": "Л"
+    },
+    {
+      "char": "д",
+      "hand": "right",
+      "finger": "ring",
+      "key": "Д"
+    },
+    {
+      "char": "ж",
+      "hand": "right",
+      "finger": "pinky",
+      "key": "Ж"
+    }
+  ],
   "keys_trained": [
-    "Ф",
-    "Ы",
-    "В",
     "А",
     "О",
+    "В",
     "Л",
+    "Ы",
     "Д",
+    "Ф",
     "Ж",
     "Space"
   ],
@@ -26,11 +268,11 @@
   "tips": [
     {
       "type": "lead",
-      "text": "Эти 8 клавиш — твоя база, возвращайся сюда после каждого нажатия"
+      "text": "Эти 8 клавиш — твоя база. Возвращайся сюда после каждого нажатия."
     },
     {
       "type": "drop",
-      "text": "Чувствуй бугорки на А и О — твои якоря"
+      "text": "Чувствуй бугорки на А и О — твои якоря."
     },
     {
       "type": "exercise",
@@ -51,12 +293,12 @@
   ],
   "character_tips": {
     "anna": "Начинаем с домашнего ряда. Найди А и О на ощупь — это твои якоря.",
-    "maxim": "ФЫВА ОЛДЖ — восемь клавиш, на которые возвращаешься миллион раз. Начни здесь.",
-    "knopych": "БИП-БУП! Домашний ряд активирован! 🤖 Чувствуешь бугорки на А и О? Да? Поехали!",
-    "klavochka": "Эти клавиши — твои подушечки для пальцев, моё дитя! Уютно и удобно 💤"
+    "maxim": "ФЫВА ОЛДЖ — восемь клавиш, на которые возвращаешься миллион раз. Старт здесь.",
+    "knopych": "БИП-БУП! Домашний ряд активирован! 🤖 Чувствуешь бугорки на А и О? Поехали!",
+    "klavochka": "Эти клавиши — твои подушечки для пальцев, моё дитя! Уютно 💤"
   },
   "phase": 1,
   "rhythmLesson": false,
   "created_at": "2026-05-26",
-  "version": "1.0"
+  "version": "2.0"
 }

@@ -3,53 +3,68 @@
   "tier": "en_kids",
   "lesson_number": 10,
   "title": "KIDS BLOCK 1 FINAL: First letter test",
-  "description": "First milestone — type these short words at 18 WPM",
+  "description": "Show what you learned — a friendly letter test",
   "target_wpm": 18,
-  "text_length": 53,
+  "text_length": 54,
   "error_limit_percent": 10,
   "error_limit": 5,
-  "text": "cat dog fish bee ant cow ask sad lad fall add jak dad",
+  "text": "ask sad lad fall red side like word slow hello our dog",
   "text_sequence": [],
   "keys_trained": [
-    "A-Z subset",
+    "A",
+    "D",
+    "E",
+    "F",
+    "G",
+    "H",
+    "I",
+    "J",
+    "K",
+    "L",
+    "O",
+    "R",
+    "S",
+    "U",
+    "W",
+    ";",
     "Space"
   ],
   "new_keys": [],
-  "finger_focus": "Home row + first sight words",
+  "finger_focus": "All learned letters",
   "tips": [
     {
       "type": "lead",
-      "text": "🎓 First Kids milestone!"
+      "text": "Show off everything you learned!"
     },
     {
       "type": "drop",
-      "text": "18 WPM is great for a beginner"
+      "text": "Accuracy first — take your time"
     },
     {
       "type": "exercise",
-      "target": "cat dog fish bee ant cow",
+      "target": "ask sad lad fall red side",
       "finger": "blue",
-      "hint": "Home row + first sight words"
+      "hint": "All learned letters"
     },
     {
       "type": "p",
-      "text": "Block 2 brings more letters and more fun words"
+      "text": "You're a real typist now!"
     },
     {
       "type": "exercise",
-      "target": "ask sad lad fall add jak dad",
+      "target": "like word slow hello our dog",
       "finger": "green",
-      "hint": "Home row + first sight words"
+      "hint": "All learned letters"
     }
   ],
   "character_tips": {
-    "anna": "🎯 First milestone, little friend! You did it! 🌸",
-    "maxim": "First block done. Solid foundation for a young typist.",
-    "knopych": "BLOCK 1 DONE! 🎉 Tiny typist becomes Big Typist!",
-    "klavochka": "My darling, you finished! 🎉🎉🎉 First star earned ⭐"
+    "anna": "Test time! Show everything you learned 🌸 You've got this!",
+    "maxim": "Checkpoint. Accuracy first, speed later.",
+    "knopych": "BOSS LEVEL! 🏆 Show your skills!",
+    "klavochka": "You're ready, my sunshine — go gently and shine ✨"
   },
   "phase": 1,
   "rhythmLesson": false,
   "created_at": "2026-05-25",
-  "version": "1.0"
+  "version": "2.0"
 }

@@ -2,59 +2,68 @@
   "id": "en_kids_lesson_06",
   "tier": "en_kids",
   "lesson_number": 6,
-  "title": "Letters K and L",
-  "description": "Right middle and ring fingers — K and L",
+  "title": "Top row: R and U",
+  "description": "Reach UP to the top row — R (left index) and U (right index)",
   "target_wpm": 12,
-  "text_length": 68,
+  "text_length": 52,
   "error_limit_percent": 10,
   "error_limit": 6,
-  "text": "k k k l l l ka ka ka la la la kal kal kal jak jak jak fall fall fall",
+  "text": "r r u u rug fur dark surf guard sugar rush hard gash",
   "text_sequence": [],
   "keys_trained": [
     "A",
-    "S",
     "D",
     "F",
+    "G",
+    "H",
     "J",
     "K",
-    "L"
+    "L",
+    "R",
+    "S",
+    "U",
+    ";",
+    "Space"
   ],
-  "new_keys": [],
-  "finger_focus": "Right middle + ring finger",
+  "new_keys": [
+    "R",
+    "U"
+  ],
+  "finger_focus": "Index fingers reach up to R and U",
   "tips": [
     {
       "type": "lead",
-      "text": "K and L next to J"
+      "text": "R is left index reaching UP, U is right index reaching UP"
     },
     {
       "type": "drop",
-      "text": "Right middle finger = K, right ring = L"
+      "text": "Reach up, then come straight back to F and J"
     },
     {
       "type": "exercise",
-      "target": "k k k l l l ka ka ka la",
-      "finger": "orange",
-      "hint": "Right middle + ring finger"
+      "target": "r r u u rug fur dark",
+      "finger": "blue",
+      "hint": "Index fingers reach up to R and U"
     },
     {
       "type": "p",
-      "text": "More tiny words possible"
+      "text": "New words: rug, fur, surf, guard"
     },
     {
       "type": "exercise",
-      "target": "la la kal kal kal jak jak jak fall fall fall",
-      "finger": "pink",
-      "hint": "Right middle + ring finger"
+      "target": "surf guard rush sugar hard",
+      "finger": "green",
+      "hint": "Index fingers reach up to R and U"
     }
   ],
   "character_tips": {
-    "anna": "K and L. Two more friends. \"Fall\" is your new word 🌷",
-    "maxim": "Six home-row keys. Real words appearing.",
-    "knopych": "K + L UNLOCKED! 🎯 Six letters in your collection!",
-    "klavochka": "Two new friends joined, my sunshine ☀️"
+    "anna": "R and U are your first top-row letters — index fingers up! 🌸",
+    "maxim": "Top row begins. R above F, U above J. Index reaches.",
+    "knopych": "LIFT OFF! 🚀 R and U — up and back!",
+    "klavochka": "Up you reach for R and U, then home again ✨"
   },
   "phase": 1,
   "rhythmLesson": false,
   "created_at": "2026-05-25",
-  "version": "1.0"
+  "version": "2.0"
 }

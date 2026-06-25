@@ -2,62 +2,78 @@
   "id": "en_teen_lesson_06",
   "tier": "en_teen",
   "lesson_number": 6,
-  "title": "Top row: Y U I O P",
-  "description": "Right hand top row",
+  "title": "Top row complete: W O Q P",
+  "description": "Finish the top row with the weaker fingers: ring (W O) and pinky (Q P)",
   "target_wpm": 28,
-  "text_length": 90,
+  "text_length": 65,
   "error_limit_percent": 8,
   "error_limit": 7,
-  "text": "you you you our our our up up up pop pop pop joy joy joy try try try poi poi poi pour pour",
+  "text": "power quote wood query proper world wrote prop trip grew drop top",
   "text_sequence": [],
   "keys_trained": [
-    "Y",
-    "U",
+    "A",
+    "D",
+    "E",
+    "F",
+    "G",
+    "H",
     "I",
-    "O",
-    "P",
     "J",
     "K",
     "L",
+    "O",
+    "P",
+    "Q",
+    "R",
+    "S",
+    "T",
+    "U",
+    "W",
+    "Y",
     ";",
     "Space"
   ],
-  "new_keys": [],
-  "finger_focus": "Right top row + home row mix",
+  "new_keys": [
+    "W",
+    "O",
+    "Q",
+    "P"
+  ],
+  "finger_focus": "Top row ring (W O) + pinky (Q P)",
   "tips": [
     {
       "type": "lead",
-      "text": "YUIOP completes the top row"
+      "text": "Now the weaker fingers finish the top row: ring (W, O), pinky (Q, P)"
     },
     {
       "type": "drop",
-      "text": "Right pinky reaches for P — careful, it's a stretch"
+      "text": "P is a pinky stretch — careful and deliberate"
     },
     {
       "type": "exercise",
-      "target": "you you you our our our up up up pop pop",
-      "finger": "blue",
-      "hint": "Right top row + home row mix"
+      "target": "power quote wood query",
+      "finger": "orange",
+      "hint": "Top row ring (W O) + pinky (Q P)"
     },
     {
       "type": "p",
-      "text": "Use the same finger that owns each column"
+      "text": "Top row complete — you control 20 letters"
     },
     {
       "type": "exercise",
-      "target": "pop joy joy joy try try try poi poi poi pour pour",
-      "finger": "green",
-      "hint": "Right top row + home row mix"
+      "target": "proper world wrote trip grew drop",
+      "finger": "pink",
+      "hint": "Top row ring (W O) + pinky (Q P)"
     }
   ],
   "character_tips": {
-    "anna": "Right hand top row. P is the pinky stretch — practice it.",
-    "maxim": "Top row complete. You now control 20 letters.",
-    "knopych": "RIGHT TOP ROW! ⬆️🟢 Both hands now reaching high!",
-    "klavochka": "Both hands flying up, my treasure 🦋"
+    "anna": "Now the weaker ring and pinky fingers finish the top row. Go gently.",
+    "maxim": "W, O, Q, P — the harder fingers. Top row complete after this.",
+    "knopych": "TOP ROW CLEARED! ⬆️🟢 Weak fingers conquered!",
+    "klavochka": "Gentle ring and pinky reach W, O, Q, P 🦋"
   },
   "phase": 1,
   "rhythmLesson": false,
   "created_at": "2026-05-25",
-  "version": "1.0"
+  "version": "2.0"
 }

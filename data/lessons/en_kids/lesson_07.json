@@ -2,61 +2,70 @@
   "id": "en_kids_lesson_07",
   "tier": "en_kids",
   "lesson_number": 7,
-  "title": "Semicolon and a tiny sentence",
-  "description": "Right pinky — the semicolon. Make a sentence!",
+  "title": "Top row: E and I",
+  "description": "Middle fingers reach UP — E (left) and I (right)",
   "target_wpm": 13,
-  "text_length": 45,
+  "text_length": 51,
   "error_limit_percent": 10,
   "error_limit": 4,
-  "text": "; ; ; a sad lad; a fall; jak falls; dad asks;",
+  "text": "e e i i red fire side like ride life desk dear dies",
   "text_sequence": [],
   "keys_trained": [
     "A",
-    "S",
     "D",
+    "E",
     "F",
+    "G",
+    "H",
+    "I",
     "J",
     "K",
     "L",
+    "R",
+    "S",
+    "U",
     ";",
     "Space"
   ],
-  "new_keys": [],
-  "finger_focus": "Right pinky + semicolons + spaces",
+  "new_keys": [
+    "E",
+    "I"
+  ],
+  "finger_focus": "Middle fingers reach up to E and I",
   "tips": [
     {
       "type": "lead",
-      "text": "Semicolon (;) is your right pinky's home"
+      "text": "E is left middle UP, I is right middle UP"
     },
     {
       "type": "drop",
-      "text": "Space bar with your thumb"
+      "text": "Return your middle fingers to D and K"
     },
     {
       "type": "exercise",
-      "target": "; ; ; a sad lad;",
-      "finger": "pink",
-      "hint": "Right pinky + semicolons + spaces"
+      "target": "e e i i red fire side",
+      "finger": "green",
+      "hint": "Middle fingers reach up to E and I"
     },
     {
       "type": "p",
-      "text": "First sentence: \"a sad lad\""
+      "text": "Try \"like\", \"ride\", \"life\"!"
     },
     {
       "type": "exercise",
-      "target": "a fall; jak falls; dad asks;",
-      "finger": "orange",
-      "hint": "Right pinky + semicolons + spaces"
+      "target": "like ride life dear dies",
+      "finger": "blue",
+      "hint": "Middle fingers reach up to E and I"
     }
   ],
   "character_tips": {
-    "anna": "First sentence ever! \"A sad lad\". You're writing 🌸",
-    "maxim": "Real sentence. The first of many.",
-    "knopych": "SENTENCE LEVEL UNLOCKED! 🎉 \"a sad lad\" — that's writing!",
-    "klavochka": "A whole sentence, my treasure! 💖 Look at you!"
+    "anna": "E and I — now you can write \"like\" and \"ride\"! 🌷",
+    "maxim": "Middle fingers up: E above D, I above K.",
+    "knopych": "🤖 E AND I! New buttons up top!",
+    "klavochka": "Two sweet new friends, my dear — E and I 💕"
   },
   "phase": 1,
   "rhythmLesson": false,
   "created_at": "2026-05-25",
-  "version": "1.0"
+  "version": "2.0"
 }

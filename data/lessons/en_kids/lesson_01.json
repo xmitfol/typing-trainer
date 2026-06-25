@@ -2,47 +2,58 @@
   "id": "en_kids_lesson_01",
   "tier": "en_kids",
   "lesson_number": 1,
-  "title": "Hello! Letter A",
-  "description": "Your very first letter — A. Press it with your left pinky.",
+  "title": "Two anchors: F and J",
+  "description": "Your two anchor keys — F (left index) and J (right index). Feel the bumps!",
   "target_wpm": 8,
-  "text_length": 19,
+  "text_length": 41,
   "error_limit_percent": 10,
   "error_limit": 2,
-  "text": "a a a a a a a a a a",
+  "text": "f f f j j j fj fj jf jf ff jj fj jf ff jj",
   "text_sequence": [],
   "keys_trained": [
-    "A"
+    "F",
+    "J",
+    "Space"
   ],
-  "new_keys": [],
-  "finger_focus": "Left pinky finds A",
+  "new_keys": [
+    "F",
+    "J"
+  ],
+  "finger_focus": "Index fingers find F and J anchors",
   "tips": [
     {
       "type": "lead",
-      "text": "Just one letter — letter A"
+      "text": "F is your LEFT anchor, J is your RIGHT anchor — feel the little bumps!"
     },
     {
       "type": "drop",
-      "text": "Use your LEFT little finger (pinky)"
+      "text": "Both index fingers. Press gently."
     },
     {
       "type": "exercise",
-      "target": "a a a a a a a a a a",
-      "finger": "pink",
-      "hint": "Left pinky finds A"
+      "target": "f f f j j j fj fj",
+      "finger": "blue",
+      "hint": "Index fingers find F and J anchors"
     },
     {
       "type": "p",
-      "text": "Press gently, like a key on a piano"
+      "text": "Two homes, one for each hand"
+    },
+    {
+      "type": "exercise",
+      "target": "jf jf ff jj fj jf",
+      "finger": "green",
+      "hint": "Index fingers find F and J anchors"
     }
   ],
   "character_tips": {
-    "anna": "Hello, little friend! Press A with your left pinky 🌸",
-    "maxim": "First letter. Pinky finger. Gentle press.",
-    "knopych": "Hi there! 🤖 Press A! That's it!",
-    "klavochka": "Hello, my dear! 🌷 Just one letter today. Press A. Soft fingers!"
+    "anna": "F and J have little bumps — find them with your eyes closed 🌸",
+    "maxim": "Two anchors: F (left), J (right). Strongest fingers go first.",
+    "knopych": "BUMPS FOUND! 🎯 F and J — your two homes!",
+    "klavochka": "Two cozy pillows, my dear — one for each hand 💕"
   },
   "phase": 1,
   "rhythmLesson": false,
   "created_at": "2026-05-25",
-  "version": "1.0"
+  "version": "2.0"
 }

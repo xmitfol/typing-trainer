@@ -2,56 +2,327 @@
   "id": "ru_kids_lesson_04",
   "tier": "ru_kids",
   "lesson_number": 4,
-  "title": "Буква Н и первые слова",
-  "description": "Буква Н — правый указательный. Делаем «он», «на»!",
+  "title": "Буква Л и первые слова",
+  "description": "Буква Л — правый средний. Слова: вол, лава, вал!",
   "target_wpm": 11,
-  "text_length": 49,
+  "text_length": 43,
   "error_limit_percent": 10,
   "error_limit": 4,
-  "text": "н н н н на на на он он он но но но она она на нос",
-  "text_sequence": [],
+  "text": "л л л вол вол лов лов вал вал лава лава ало",
+  "text_sequence": [
+    {
+      "char": "л",
+      "hand": "right",
+      "finger": "middle",
+      "key": "Л"
+    },
+    {
+      "char": " ",
+      "hand": "left",
+      "finger": "thumb",
+      "key": "Space",
+      "space_side": "left"
+    },
+    {
+      "char": "л",
+      "hand": "right",
+      "finger": "middle",
+      "key": "Л"
+    },
+    {
+      "char": " ",
+      "hand": "left",
+      "finger": "thumb",
+      "key": "Space",
+      "space_side": "left"
+    },
+    {
+      "char": "л",
+      "hand": "right",
+      "finger": "middle",
+      "key": "Л"
+    },
+    {
+      "char": " ",
+      "hand": "right",
+      "finger": "thumb",
+      "key": "Space",
+      "space_side": "right"
+    },
+    {
+      "char": "в",
+      "hand": "left",
+      "finger": "middle",
+      "key": "В"
+    },
+    {
+      "char": "о",
+      "hand": "right",
+      "finger": "index",
+      "key": "О"
+    },
+    {
+      "char": "л",
+      "hand": "right",
+      "finger": "middle",
+      "key": "Л"
+    },
+    {
+      "char": " ",
+      "hand": "right",
+      "finger": "thumb",
+      "key": "Space",
+      "space_side": "right"
+    },
+    {
+      "char": "в",
+      "hand": "left",
+      "finger": "middle",
+      "key": "В"
+    },
+    {
+      "char": "о",
+      "hand": "right",
+      "finger": "index",
+      "key": "О"
+    },
+    {
+      "char": "л",
+      "hand": "right",
+      "finger": "middle",
+      "key": "Л"
+    },
+    {
+      "char": " ",
+      "hand": "left",
+      "finger": "thumb",
+      "key": "Space",
+      "space_side": "left"
+    },
+    {
+      "char": "л",
+      "hand": "right",
+      "finger": "middle",
+      "key": "Л"
+    },
+    {
+      "char": "о",
+      "hand": "right",
+      "finger": "index",
+      "key": "О"
+    },
+    {
+      "char": "в",
+      "hand": "left",
+      "finger": "middle",
+      "key": "В"
+    },
+    {
+      "char": " ",
+      "hand": "left",
+      "finger": "thumb",
+      "key": "Space",
+      "space_side": "left"
+    },
+    {
+      "char": "л",
+      "hand": "right",
+      "finger": "middle",
+      "key": "Л"
+    },
+    {
+      "char": "о",
+      "hand": "right",
+      "finger": "index",
+      "key": "О"
+    },
+    {
+      "char": "в",
+      "hand": "left",
+      "finger": "middle",
+      "key": "В"
+    },
+    {
+      "char": " ",
+      "hand": "right",
+      "finger": "thumb",
+      "key": "Space",
+      "space_side": "right"
+    },
+    {
+      "char": "в",
+      "hand": "left",
+      "finger": "middle",
+      "key": "В"
+    },
+    {
+      "char": "а",
+      "hand": "left",
+      "finger": "index",
+      "key": "А"
+    },
+    {
+      "char": "л",
+      "hand": "right",
+      "finger": "middle",
+      "key": "Л"
+    },
+    {
+      "char": " ",
+      "hand": "right",
+      "finger": "thumb",
+      "key": "Space",
+      "space_side": "right"
+    },
+    {
+      "char": "в",
+      "hand": "left",
+      "finger": "middle",
+      "key": "В"
+    },
+    {
+      "char": "а",
+      "hand": "left",
+      "finger": "index",
+      "key": "А"
+    },
+    {
+      "char": "л",
+      "hand": "right",
+      "finger": "middle",
+      "key": "Л"
+    },
+    {
+      "char": " ",
+      "hand": "left",
+      "finger": "thumb",
+      "key": "Space",
+      "space_side": "left"
+    },
+    {
+      "char": "л",
+      "hand": "right",
+      "finger": "middle",
+      "key": "Л"
+    },
+    {
+      "char": "а",
+      "hand": "left",
+      "finger": "index",
+      "key": "А"
+    },
+    {
+      "char": "в",
+      "hand": "left",
+      "finger": "middle",
+      "key": "В"
+    },
+    {
+      "char": "а",
+      "hand": "left",
+      "finger": "index",
+      "key": "А"
+    },
+    {
+      "char": " ",
+      "hand": "left",
+      "finger": "thumb",
+      "key": "Space",
+      "space_side": "left"
+    },
+    {
+      "char": "л",
+      "hand": "right",
+      "finger": "middle",
+      "key": "Л"
+    },
+    {
+      "char": "а",
+      "hand": "left",
+      "finger": "index",
+      "key": "А"
+    },
+    {
+      "char": "в",
+      "hand": "left",
+      "finger": "middle",
+      "key": "В"
+    },
+    {
+      "char": "а",
+      "hand": "left",
+      "finger": "index",
+      "key": "А"
+    },
+    {
+      "char": " ",
+      "hand": "right",
+      "finger": "thumb",
+      "key": "Space",
+      "space_side": "right"
+    },
+    {
+      "char": "а",
+      "hand": "left",
+      "finger": "index",
+      "key": "А"
+    },
+    {
+      "char": "л",
+      "hand": "right",
+      "finger": "middle",
+      "key": "Л"
+    },
+    {
+      "char": "о",
+      "hand": "right",
+      "finger": "index",
+      "key": "О"
+    }
+  ],
   "keys_trained": [
     "А",
     "О",
     "В",
-    "Н"
+    "Л",
+    "Space"
   ],
   "new_keys": [],
-  "finger_focus": "Правый указательный находит Н",
+  "finger_focus": "Правый средний находит Л",
   "tips": [
     {
       "type": "lead",
-      "text": "Н — правый указательный пальчик"
+      "text": "Буковка Л — и первые слова!"
     },
     {
       "type": "drop",
-      "text": "Слова «он», «на», «но» — настоящие!"
+      "text": "Её жмёт ПРАВЫЙ средний пальчик 🌸"
     },
     {
       "type": "exercise",
-      "target": "н н н н на на на он",
-      "finger": "blue",
-      "hint": "Правый указательный находит Н"
+      "target": "л л л л л",
+      "finger": "green",
+      "hint": "Правый средний — на букву Л"
     },
     {
       "type": "p",
-      "text": "«Она» — даже целое слово"
+      "text": "ВОЛ, ВАЛ, ЛОВ, ЛАВА — это уже настоящие слова! 🎉"
     },
     {
       "type": "exercise",
-      "target": "он он но но но она она на нос",
+      "target": "вол лов вал лава",
       "finger": "green",
-      "hint": "Правый указательный находит Н"
+      "hint": "Первые слова: вол, лов, вал, лава"
     }
   ],
   "character_tips": {
-    "anna": "Н — правый указательный. «он», «на», «она» — настоящие слова 🌷",
-    "maxim": "Четыре буквы. Реальные слова появились.",
-    "knopych": "Н = НОВОЕ СЛОВО! 🎯 он, на, она!",
-    "klavochka": "Уже настоящие слова, моя дорогая! Как красиво 💕"
+    "anna": "Л — правый средний. «вол», «лава» — настоящие слова! 🌷",
+    "maxim": "Четыре буквы домашнего ряда: А О В Л. Слова появились.",
+    "knopych": "Л-л-л! 🎯 ВОЛ! ЛАВА! Это ДОМАШНИЙ ряд, без прыжков!",
+    "klavochka": "Ах, какие красивые слова, моя радость! Вол, лава — всё пальчики нашли сами 💕"
   },
   "phase": 1,
   "rhythmLesson": false,
   "created_at": "2026-05-26",
-  "version": "1.0"
+  "version": "2.0"
 }

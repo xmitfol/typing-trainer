@@ -2,55 +2,291 @@
   "id": "ru_kids_lesson_12",
   "tier": "ru_kids",
   "lesson_number": 12,
-  "title": "Буквы Е и К",
-  "description": "Ещё буквы — Е и К",
+  "title": "Буквы Э и Й",
+  "description": "Э завершает домашний ряд, Й — первая буква верхнего ряда.",
   "target_wpm": 20,
-  "text_length": 50,
+  "text_length": 36,
   "error_limit_percent": 10,
   "error_limit": 5,
-  "text": "е е е к к к ел ел ел кот кот кот ока ока кино кино",
-  "text_sequence": [],
+  "text": "э э й й эра пэр правда дрова рай вой",
+  "text_sequence": [
+    {
+      "char": "э",
+      "hand": "right",
+      "finger": "pinky",
+      "key": "Э"
+    },
+    {
+      "char": " ",
+      "hand": "left",
+      "finger": "thumb",
+      "key": "Space",
+      "space_side": "left"
+    },
+    {
+      "char": "э",
+      "hand": "right",
+      "finger": "pinky",
+      "key": "Э"
+    },
+    {
+      "char": " ",
+      "hand": "right",
+      "finger": "thumb",
+      "key": "Space",
+      "space_side": "right"
+    },
+    {
+      "char": "й",
+      "hand": "left",
+      "finger": "pinky",
+      "key": "Й"
+    },
+    {
+      "char": " ",
+      "hand": "right",
+      "finger": "thumb",
+      "key": "Space",
+      "space_side": "right"
+    },
+    {
+      "char": "й",
+      "hand": "left",
+      "finger": "pinky",
+      "key": "Й"
+    },
+    {
+      "char": " ",
+      "hand": "left",
+      "finger": "thumb",
+      "key": "Space",
+      "space_side": "left"
+    },
+    {
+      "char": "э",
+      "hand": "right",
+      "finger": "pinky",
+      "key": "Э"
+    },
+    {
+      "char": "р",
+      "hand": "left",
+      "finger": "index",
+      "key": "Р"
+    },
+    {
+      "char": "а",
+      "hand": "left",
+      "finger": "index",
+      "key": "А"
+    },
+    {
+      "char": " ",
+      "hand": "right",
+      "finger": "thumb",
+      "key": "Space",
+      "space_side": "right"
+    },
+    {
+      "char": "п",
+      "hand": "left",
+      "finger": "pinky",
+      "key": "П"
+    },
+    {
+      "char": "э",
+      "hand": "right",
+      "finger": "pinky",
+      "key": "Э"
+    },
+    {
+      "char": "р",
+      "hand": "left",
+      "finger": "index",
+      "key": "Р"
+    },
+    {
+      "char": " ",
+      "hand": "right",
+      "finger": "thumb",
+      "key": "Space",
+      "space_side": "right"
+    },
+    {
+      "char": "п",
+      "hand": "left",
+      "finger": "pinky",
+      "key": "П"
+    },
+    {
+      "char": "р",
+      "hand": "left",
+      "finger": "index",
+      "key": "Р"
+    },
+    {
+      "char": "а",
+      "hand": "left",
+      "finger": "index",
+      "key": "А"
+    },
+    {
+      "char": "в",
+      "hand": "left",
+      "finger": "middle",
+      "key": "В"
+    },
+    {
+      "char": "д",
+      "hand": "right",
+      "finger": "ring",
+      "key": "Д"
+    },
+    {
+      "char": "а",
+      "hand": "left",
+      "finger": "index",
+      "key": "А"
+    },
+    {
+      "char": " ",
+      "hand": "left",
+      "finger": "thumb",
+      "key": "Space",
+      "space_side": "left"
+    },
+    {
+      "char": "д",
+      "hand": "right",
+      "finger": "ring",
+      "key": "Д"
+    },
+    {
+      "char": "р",
+      "hand": "left",
+      "finger": "index",
+      "key": "Р"
+    },
+    {
+      "char": "о",
+      "hand": "right",
+      "finger": "index",
+      "key": "О"
+    },
+    {
+      "char": "в",
+      "hand": "left",
+      "finger": "middle",
+      "key": "В"
+    },
+    {
+      "char": "а",
+      "hand": "left",
+      "finger": "index",
+      "key": "А"
+    },
+    {
+      "char": " ",
+      "hand": "right",
+      "finger": "thumb",
+      "key": "Space",
+      "space_side": "right"
+    },
+    {
+      "char": "р",
+      "hand": "left",
+      "finger": "index",
+      "key": "Р"
+    },
+    {
+      "char": "а",
+      "hand": "left",
+      "finger": "index",
+      "key": "А"
+    },
+    {
+      "char": "й",
+      "hand": "left",
+      "finger": "pinky",
+      "key": "Й"
+    },
+    {
+      "char": " ",
+      "hand": "right",
+      "finger": "thumb",
+      "key": "Space",
+      "space_side": "right"
+    },
+    {
+      "char": "в",
+      "hand": "left",
+      "finger": "middle",
+      "key": "В"
+    },
+    {
+      "char": "о",
+      "hand": "right",
+      "finger": "index",
+      "key": "О"
+    },
+    {
+      "char": "й",
+      "hand": "left",
+      "finger": "pinky",
+      "key": "Й"
+    }
+  ],
   "keys_trained": [
-    "Е",
-    "К",
-    "А-Я"
+    "А",
+    "О",
+    "В",
+    "Л",
+    "Ы",
+    "Д",
+    "Ф",
+    "Ж",
+    "П",
+    "Р",
+    "Э",
+    "Й",
+    "Space"
   ],
   "new_keys": [],
-  "finger_focus": "Е и К",
+  "finger_focus": "Э завершает дом, Й — первый верхний",
   "tips": [
     {
       "type": "lead",
-      "text": "Е — левый средний наверх"
+      "text": "Буковки Э и Й!"
     },
     {
       "type": "drop",
-      "text": "К — правый средний внизу"
+      "text": "Э — правый мизинчик (домашний ряд готов!), Й — левый мизинец ВВЕРХ 🌸"
     },
     {
       "type": "exercise",
-      "target": "е е е к к к ел ел",
-      "finger": "blue",
-      "hint": "Е и К"
+      "target": "э э й й э й",
+      "finger": "pink",
+      "hint": "Э справа, Й — тянемся вверх левым мизинцем"
     },
     {
       "type": "p",
-      "text": "Теперь можем «кино», «кот», «ел»"
+      "text": "Домашний ряд весь наш! Й — первая буковка ВЕРХНЕГО ряда ⬆️"
     },
     {
       "type": "exercise",
-      "target": "ел кот кот кот ока ока кино кино",
-      "finger": "green",
-      "hint": "Е и К"
+      "target": "эра пэр правда рай",
+      "finger": "pink",
+      "hint": "Слова: эра, пэр, правда, рай"
     }
   ],
   "character_tips": {
-    "anna": "Е и К. Слова «кот», «кино» — увидимся в кино! 🌷",
-    "maxim": "Две новые. Кино, кот — приятные слова.",
-    "knopych": "🤖 Е И К! Ещё кнопочки!",
-    "klavochka": "Солнечные буковки, мой милый — Е и К ☀️"
+    "anna": "Э завершает домашний ряд, Й — первый верхний 🌷",
+    "maxim": "Э (прав. миз.) — дом готов. Й (лев. миз.) — верхний ряд.",
+    "knopych": "Э-Й! 🤖 Домашний ряд ВЕСЬ! Й — вверх! ⬆️",
+    "klavochka": "Весь нижний домик готов, радость моя! А Й — потянулись вверх 🌷⬆️"
   },
   "phase": 2,
   "rhythmLesson": false,
   "created_at": "2026-05-26",
-  "version": "1.0"
+  "version": "2.0"
 }

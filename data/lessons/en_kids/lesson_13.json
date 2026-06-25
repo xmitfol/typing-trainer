@@ -2,55 +2,85 @@
   "id": "en_kids_lesson_13",
   "tier": "en_kids",
   "lesson_number": 13,
-  "title": "Letters T and N",
-  "description": "Important letters — T and N",
+  "title": "Last letters: X Z B N",
+  "description": "The last letters — X, Z, B, N. Now you know the whole keyboard!",
   "target_wpm": 21,
-  "text_length": 70,
+  "text_length": 52,
   "error_limit_percent": 10,
   "error_limit": 7,
-  "text": "t t t n n n the the the an an an in in in on on on not not not tan tan",
+  "text": "x x z z b b n n box zebra brave number jump quiz win",
   "text_sequence": [],
   "keys_trained": [
-    "T",
+    "A",
+    "B",
+    "C",
+    "D",
+    "E",
+    "F",
+    "G",
+    "H",
+    "I",
+    "J",
+    "K",
+    "L",
+    "M",
     "N",
-    "A-Z"
+    "O",
+    "P",
+    "Q",
+    "R",
+    "S",
+    "T",
+    "U",
+    "V",
+    "W",
+    "X",
+    "Y",
+    "Z",
+    ";",
+    "Space"
   ],
-  "new_keys": [],
-  "finger_focus": "T and N",
+  "new_keys": [
+    "X",
+    "Z",
+    "B",
+    "N"
+  ],
+  "finger_focus": "Bottom row X/Z (left), B/N (index)",
   "tips": [
     {
       "type": "lead",
-      "text": "T is left index UP"
+      "text": "X, Z (left) and B, N (index reaches) finish the bottom row"
     },
     {
       "type": "drop",
-      "text": "N is right index DOWN"
+      "text": "The whole alphabet is now under your fingers!"
     },
     {
       "type": "exercise",
-      "target": "t t t n n n the the the an an",
-      "finger": "blue",
-      "hint": "T and N"
+      "target": "x x z z b b n n box zebra",
+      "finger": "pink",
+      "hint": "Bottom row X/Z (left), B/N (index)"
     },
     {
       "type": "p",
-      "text": "\"the\" is the most common word in English"
+      "text": "You know every key now — amazing!"
     },
     {
       "type": "exercise",
-      "target": "an in in in on on on not not not tan tan",
+      "target": "brave number jump quiz win",
       "finger": "green",
-      "hint": "T and N"
+      "hint": "Bottom row X/Z (left), B/N (index)"
     }
   ],
   "character_tips": {
-    "anna": "T and N. \"The\" is used EVERYWHERE — type it lots!",
-    "maxim": "T and N = top frequency letters. Vital.",
-    "knopych": "🤖 T AND N! Super important!",
-    "klavochka": "Two strong letters, my treasure 💪"
+    "anna": "🎓 Last letters! X, Z, B, N — you know the whole keyboard!",
+    "maxim": "Alphabet complete. X/Z left, B/N index reaches.",
+    "knopych": "ALPHABET 100%! 🏆 LEVEL UP!",
+    "klavochka": "Every key is yours now, my treasure 🎉"
   },
   "phase": 2,
   "rhythmLesson": false,
   "created_at": "2026-05-25",
-  "version": "1.0"
+  "version": "2.0"
 }

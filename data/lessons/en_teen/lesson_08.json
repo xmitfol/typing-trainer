@@ -2,58 +2,83 @@
   "id": "en_teen_lesson_08",
   "tier": "en_teen",
   "lesson_number": 8,
-  "title": "Bottom row: N M",
-  "description": "Right hand bottom complete",
+  "title": "Bottom row complete: X Z",
+  "description": "Finish the bottom row and the alphabet: ring (X) and pinky (Z)",
   "target_wpm": 32,
-  "text_length": 95,
+  "text_length": 63,
   "error_limit_percent": 8,
   "error_limit": 7,
-  "text": "man man man and and and now now now men men men come come come name name name money money money",
+  "text": "box zap zigzag jazz crazy exit fizzy zebra examine dozen quartz",
   "text_sequence": [],
   "keys_trained": [
-    "N",
-    "M",
+    "A",
+    "B",
+    "C",
+    "D",
+    "E",
+    "F",
+    "G",
+    "H",
+    "I",
     "J",
     "K",
     "L",
+    "M",
+    "N",
+    "O",
+    "P",
+    "Q",
+    "R",
+    "S",
+    "T",
+    "U",
+    "V",
+    "W",
+    "X",
+    "Y",
+    "Z",
+    ";",
     "Space"
   ],
-  "new_keys": [],
-  "finger_focus": "Right bottom + home row",
+  "new_keys": [
+    "X",
+    "Z"
+  ],
+  "finger_focus": "Bottom row ring (X) + pinky (Z)",
   "tips": [
     {
       "type": "lead",
-      "text": "N and M are right index/middle finger reaches DOWN"
+      "text": "X (ring) and Z (pinky) finish the bottom row — and the alphabet"
     },
     {
       "type": "drop",
-      "text": "Common letters — N and M appear in 90% of sentences"
+      "text": "Z and X are rare, but you still own them now"
     },
     {
       "type": "exercise",
-      "target": "man man man and and and now now now men",
-      "finger": "blue",
-      "hint": "Right bottom + home row"
+      "target": "box zap zigzag jazz crazy",
+      "finger": "pink",
+      "hint": "Bottom row ring (X) + pinky (Z)"
     },
     {
       "type": "p",
-      "text": "After this lesson, you know all 26 letters"
+      "text": "All 26 letters online — the rest is practice"
     },
     {
       "type": "exercise",
-      "target": "men men come come come name name name money money money",
-      "finger": "green",
-      "hint": "Right bottom + home row"
+      "target": "exit fizzy zebra examine dozen quartz",
+      "finger": "orange",
+      "hint": "Bottom row ring (X) + pinky (Z)"
     }
   ],
   "character_tips": {
-    "anna": "N and M complete your alphabet. From here, you can type anything.",
-    "maxim": "All 26 letters online. The rest is practice.",
+    "anna": "X and Z complete your alphabet. From here, you can type anything.",
+    "maxim": "All 26 letters online. Ring and pinky finish the job. The rest is practice.",
     "knopych": "ALPHABET COMPLETE! 🔓 26/26 letters unlocked!",
     "klavochka": "Every letter your friend now, my sunshine ☀️"
   },
   "phase": 1,
   "rhythmLesson": false,
   "created_at": "2026-05-25",
-  "version": "1.0"
+  "version": "2.0"
 }

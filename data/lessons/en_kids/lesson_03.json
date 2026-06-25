@@ -2,55 +2,64 @@
   "id": "en_kids_lesson_03",
   "tier": "en_kids",
   "lesson_number": 3,
-  "title": "Letter D and the word 'sad'",
-  "description": "Letter D — left middle finger. Make the word 'sad'!",
+  "title": "Ring + pinky: S, L, A — first words!",
+  "description": "Ring fingers S and L, and the left pinky A — now you can make real words!",
   "target_wpm": 10,
-  "text_length": 61,
+  "text_length": 48,
   "error_limit_percent": 10,
   "error_limit": 6,
-  "text": "d d d d ad ad ad da da da sad sad sad dad dad dad add add add",
+  "text": "s s l l a a as as ask ask sad lad all fall salad",
   "text_sequence": [],
   "keys_trained": [
     "A",
+    "D",
+    "F",
+    "J",
+    "K",
+    "L",
     "S",
-    "D"
+    "Space"
   ],
-  "new_keys": [],
-  "finger_focus": "Left middle finger finds D",
+  "new_keys": [
+    "S",
+    "L",
+    "A"
+  ],
+  "finger_focus": "Ring fingers S/L and left pinky A",
   "tips": [
     {
       "type": "lead",
-      "text": "D is left middle finger"
+      "text": "S and L are ring fingers; A is your left pinky"
     },
     {
       "type": "drop",
-      "text": "Now you can make \"sad\", \"dad\", \"add\""
+      "text": "Now you can spell real words!"
     },
     {
       "type": "exercise",
-      "target": "d d d d ad ad ad da da",
-      "finger": "green",
-      "hint": "Left middle finger finds D"
+      "target": "s s l l a a as ask",
+      "finger": "orange",
+      "hint": "Ring fingers S/L and left pinky A"
     },
     {
       "type": "p",
-      "text": "Look at that — real words!"
+      "text": "Try \"ask\", \"sad\", \"all\" — real words!"
     },
     {
       "type": "exercise",
-      "target": "da sad sad sad dad dad dad add add add",
-      "finger": "blue",
-      "hint": "Left middle finger finds D"
+      "target": "sad lad all fall salad",
+      "finger": "pink",
+      "hint": "Ring fingers S/L and left pinky A"
     }
   ],
   "character_tips": {
-    "anna": "Three letters! \"Sad\", \"dad\" — real words ✨",
-    "maxim": "Three letters, four words. Fast progress.",
-    "knopych": "WORDS! 🎉 sad, dad, add — you're a writer!",
-    "klavochka": "Three little letters making words, my treasure 🌟 So clever!"
+    "anna": "S, L and A — now you can write \"ask\" and \"sad\"! Real words ✨",
+    "maxim": "With A on board, real words appear: ask, sad, lad, all.",
+    "knopych": "WORDS! 🎉 ask, sad, lad — you're a writer!",
+    "klavochka": "Real little words now, my treasure 🌟 So clever!"
   },
   "phase": 1,
   "rhythmLesson": false,
   "created_at": "2026-05-25",
-  "version": "1.0"
+  "version": "2.0"
 }

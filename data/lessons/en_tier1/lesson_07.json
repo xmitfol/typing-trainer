@@ -2,14 +2,478 @@
   "id": "en_tier1_lesson_07",
   "tier": "en_tier1",
   "lesson_number": 7,
-  "title": "Add W and N (more frequent letters)",
-  "description": "W (top ring left) and N (right index home-bottom) — both very common",
+  "title": "Top row: Q P T Y (pinky + index reach)",
+  "description": "Pinkies reach Q (above A) and P; index fingers stretch up to T and Y — top row complete",
   "target_wpm": 18,
-  "text_length": 64,
+  "text_length": 75,
   "error_limit_percent": 5,
   "error_limit": 4,
-  "text": "we now then when know own one win two news any easy why see",
-  "text_sequence": [],
+  "text": "qp ty type quiet party tower equip query torque story pretty type the quote",
+  "text_sequence": [
+    {
+      "char": "q",
+      "hand": "left",
+      "finger": "pinky",
+      "key": "Q"
+    },
+    {
+      "char": "p",
+      "hand": "right",
+      "finger": "pinky",
+      "key": "P"
+    },
+    {
+      "char": " ",
+      "hand": "right",
+      "finger": "thumb",
+      "key": "Space",
+      "space_side": "right"
+    },
+    {
+      "char": "t",
+      "hand": "left",
+      "finger": "index",
+      "key": "T"
+    },
+    {
+      "char": "y",
+      "hand": "right",
+      "finger": "index",
+      "key": "Y"
+    },
+    {
+      "char": " ",
+      "hand": "left",
+      "finger": "thumb",
+      "key": "Space",
+      "space_side": "left"
+    },
+    {
+      "char": "t",
+      "hand": "left",
+      "finger": "index",
+      "key": "T"
+    },
+    {
+      "char": "y",
+      "hand": "right",
+      "finger": "index",
+      "key": "Y"
+    },
+    {
+      "char": "p",
+      "hand": "right",
+      "finger": "pinky",
+      "key": "P"
+    },
+    {
+      "char": "e",
+      "hand": "left",
+      "finger": "middle",
+      "key": "E"
+    },
+    {
+      "char": " ",
+      "hand": "right",
+      "finger": "thumb",
+      "key": "Space",
+      "space_side": "right"
+    },
+    {
+      "char": "q",
+      "hand": "left",
+      "finger": "pinky",
+      "key": "Q"
+    },
+    {
+      "char": "u",
+      "hand": "right",
+      "finger": "index",
+      "key": "U"
+    },
+    {
+      "char": "i",
+      "hand": "right",
+      "finger": "middle",
+      "key": "I"
+    },
+    {
+      "char": "e",
+      "hand": "left",
+      "finger": "middle",
+      "key": "E"
+    },
+    {
+      "char": "t",
+      "hand": "left",
+      "finger": "index",
+      "key": "T"
+    },
+    {
+      "char": " ",
+      "hand": "left",
+      "finger": "thumb",
+      "key": "Space",
+      "space_side": "left"
+    },
+    {
+      "char": "p",
+      "hand": "right",
+      "finger": "pinky",
+      "key": "P"
+    },
+    {
+      "char": "a",
+      "hand": "left",
+      "finger": "pinky",
+      "key": "A"
+    },
+    {
+      "char": "r",
+      "hand": "left",
+      "finger": "index",
+      "key": "R"
+    },
+    {
+      "char": "t",
+      "hand": "left",
+      "finger": "index",
+      "key": "T"
+    },
+    {
+      "char": "y",
+      "hand": "right",
+      "finger": "index",
+      "key": "Y"
+    },
+    {
+      "char": " ",
+      "hand": "right",
+      "finger": "thumb",
+      "key": "Space",
+      "space_side": "right"
+    },
+    {
+      "char": "t",
+      "hand": "left",
+      "finger": "index",
+      "key": "T"
+    },
+    {
+      "char": "o",
+      "hand": "right",
+      "finger": "ring",
+      "key": "O"
+    },
+    {
+      "char": "w",
+      "hand": "left",
+      "finger": "ring",
+      "key": "W"
+    },
+    {
+      "char": "e",
+      "hand": "left",
+      "finger": "middle",
+      "key": "E"
+    },
+    {
+      "char": "r",
+      "hand": "left",
+      "finger": "index",
+      "key": "R"
+    },
+    {
+      "char": " ",
+      "hand": "left",
+      "finger": "thumb",
+      "key": "Space",
+      "space_side": "left"
+    },
+    {
+      "char": "e",
+      "hand": "left",
+      "finger": "middle",
+      "key": "E"
+    },
+    {
+      "char": "q",
+      "hand": "left",
+      "finger": "pinky",
+      "key": "Q"
+    },
+    {
+      "char": "u",
+      "hand": "right",
+      "finger": "index",
+      "key": "U"
+    },
+    {
+      "char": "i",
+      "hand": "right",
+      "finger": "middle",
+      "key": "I"
+    },
+    {
+      "char": "p",
+      "hand": "right",
+      "finger": "pinky",
+      "key": "P"
+    },
+    {
+      "char": " ",
+      "hand": "right",
+      "finger": "thumb",
+      "key": "Space",
+      "space_side": "right"
+    },
+    {
+      "char": "q",
+      "hand": "left",
+      "finger": "pinky",
+      "key": "Q"
+    },
+    {
+      "char": "u",
+      "hand": "right",
+      "finger": "index",
+      "key": "U"
+    },
+    {
+      "char": "e",
+      "hand": "left",
+      "finger": "middle",
+      "key": "E"
+    },
+    {
+      "char": "r",
+      "hand": "left",
+      "finger": "index",
+      "key": "R"
+    },
+    {
+      "char": "y",
+      "hand": "right",
+      "finger": "index",
+      "key": "Y"
+    },
+    {
+      "char": " ",
+      "hand": "left",
+      "finger": "thumb",
+      "key": "Space",
+      "space_side": "left"
+    },
+    {
+      "char": "t",
+      "hand": "left",
+      "finger": "index",
+      "key": "T"
+    },
+    {
+      "char": "o",
+      "hand": "right",
+      "finger": "ring",
+      "key": "O"
+    },
+    {
+      "char": "r",
+      "hand": "left",
+      "finger": "index",
+      "key": "R"
+    },
+    {
+      "char": "q",
+      "hand": "left",
+      "finger": "pinky",
+      "key": "Q"
+    },
+    {
+      "char": "u",
+      "hand": "right",
+      "finger": "index",
+      "key": "U"
+    },
+    {
+      "char": "e",
+      "hand": "left",
+      "finger": "middle",
+      "key": "E"
+    },
+    {
+      "char": " ",
+      "hand": "right",
+      "finger": "thumb",
+      "key": "Space",
+      "space_side": "right"
+    },
+    {
+      "char": "s",
+      "hand": "left",
+      "finger": "ring",
+      "key": "S"
+    },
+    {
+      "char": "t",
+      "hand": "left",
+      "finger": "index",
+      "key": "T"
+    },
+    {
+      "char": "o",
+      "hand": "right",
+      "finger": "ring",
+      "key": "O"
+    },
+    {
+      "char": "r",
+      "hand": "left",
+      "finger": "index",
+      "key": "R"
+    },
+    {
+      "char": "y",
+      "hand": "right",
+      "finger": "index",
+      "key": "Y"
+    },
+    {
+      "char": " ",
+      "hand": "left",
+      "finger": "thumb",
+      "key": "Space",
+      "space_side": "left"
+    },
+    {
+      "char": "p",
+      "hand": "right",
+      "finger": "pinky",
+      "key": "P"
+    },
+    {
+      "char": "r",
+      "hand": "left",
+      "finger": "index",
+      "key": "R"
+    },
+    {
+      "char": "e",
+      "hand": "left",
+      "finger": "middle",
+      "key": "E"
+    },
+    {
+      "char": "t",
+      "hand": "left",
+      "finger": "index",
+      "key": "T"
+    },
+    {
+      "char": "t",
+      "hand": "left",
+      "finger": "index",
+      "key": "T"
+    },
+    {
+      "char": "y",
+      "hand": "right",
+      "finger": "index",
+      "key": "Y"
+    },
+    {
+      "char": " ",
+      "hand": "right",
+      "finger": "thumb",
+      "key": "Space",
+      "space_side": "right"
+    },
+    {
+      "char": "t",
+      "hand": "left",
+      "finger": "index",
+      "key": "T"
+    },
+    {
+      "char": "y",
+      "hand": "right",
+      "finger": "index",
+      "key": "Y"
+    },
+    {
+      "char": "p",
+      "hand": "right",
+      "finger": "pinky",
+      "key": "P"
+    },
+    {
+      "char": "e",
+      "hand": "left",
+      "finger": "middle",
+      "key": "E"
+    },
+    {
+      "char": " ",
+      "hand": "left",
+      "finger": "thumb",
+      "key": "Space",
+      "space_side": "left"
+    },
+    {
+      "char": "t",
+      "hand": "left",
+      "finger": "index",
+      "key": "T"
+    },
+    {
+      "char": "h",
+      "hand": "right",
+      "finger": "index",
+      "key": "H"
+    },
+    {
+      "char": "e",
+      "hand": "left",
+      "finger": "middle",
+      "key": "E"
+    },
+    {
+      "char": " ",
+      "hand": "right",
+      "finger": "thumb",
+      "key": "Space",
+      "space_side": "right"
+    },
+    {
+      "char": "q",
+      "hand": "left",
+      "finger": "pinky",
+      "key": "Q"
+    },
+    {
+      "char": "u",
+      "hand": "right",
+      "finger": "index",
+      "key": "U"
+    },
+    {
+      "char": "o",
+      "hand": "right",
+      "finger": "ring",
+      "key": "O"
+    },
+    {
+      "char": "t",
+      "hand": "left",
+      "finger": "index",
+      "key": "T"
+    },
+    {
+      "char": "e",
+      "hand": "left",
+      "finger": "middle",
+      "key": "E"
+    }
+  ],
   "keys_trained": [
     "A",
     "D",
@@ -21,8 +485,9 @@
     "J",
     "K",
     "L",
-    "N",
     "O",
+    "P",
+    "Q",
     "R",
     "S",
     "T",
@@ -32,44 +497,52 @@
     "Space"
   ],
   "new_keys": [
-    "W",
-    "N"
+    "Q",
+    "P",
+    "T",
+    "Y"
   ],
-  "finger_focus": "W (top, left ring), N (home-bottom, right index)",
+  "finger_focus": "Pinky reach Q/P, index reach T/Y — top row finished",
   "tips": [
     {
       "type": "lead",
-      "text": "W sits above S — left ring reaches up"
+      "text": "Q above A (left pinky), P above ; (right pinky) — the corners of the top row"
     },
     {
       "type": "drop",
-      "text": "N sits below J — right index drops down-left"
+      "text": "T and Y sit in the middle — index fingers stretch up to reach them"
     },
     {
       "type": "exercise",
-      "target": "we now then when know own one",
-      "finger": "orange",
-      "hint": "W (top, left ring), N (home-bottom, right index)"
+      "target": "qp ty type quiet party",
+      "finger": "pink",
+      "hint": "Pinky reach Q/P, index reach T/Y — top row finished"
     },
     {
       "type": "p",
-      "text": "Words become real: we, when, now, one, two"
+      "text": "Top row complete! Pinkies and index fingers cover the edges and centre"
+    },
+    {
+      "type": "callout",
+      "icon": "💡",
+      "title": "Подсказка",
+      "text": "Words: type, quiet, party, story, quote"
     },
     {
       "type": "exercise",
-      "target": "win two news any easy why see",
-      "finger": "pink",
-      "hint": "W (top, left ring), N (home-bottom, right index)"
+      "target": "tower equip story pretty quote",
+      "finger": "blue",
+      "hint": "Pinky reach Q/P, index reach T/Y — top row finished"
     }
   ],
   "character_tips": {
-    "anna": "W and N are mega-frequent. Words \"we\", \"when\", \"now\" — almost a conversation already.",
-    "maxim": "N is the most common consonant. With it, any English text becomes possible.",
-    "knopych": "Doubling the vocab! W, N — they unlock everything! 🚀",
-    "klavochka": "You're amazing! Now you have \"we\", \"now\", \"when\" — real words! 💖"
+    "anna": "Q, P, T, Y finish the top row. Pinkies hit the corners, index fingers stretch to the centre.",
+    "maxim": "Top row done. Q and P are the corner pinkies; T and Y are index stretches.",
+    "knopych": "Top row CLEARED! Q P T Y — combo complete! 🔥",
+    "klavochka": "Wonderful! The whole top row is yours now — Q, P, T, Y ✨"
   },
   "phase": 1,
   "rhythmLesson": false,
   "created_at": "2026-05-25",
-  "version": "1.0"
+  "version": "2.0"
 }

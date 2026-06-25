@@ -2,57 +2,19 @@
   "id": "en_tier1_lesson_04",
   "tier": "en_tier1",
   "lesson_number": 4,
-  "title": "Add R and U (top index)",
-  "description": "Index fingers reach up to R (left) and U (right)",
+  "title": "Top row: E and I (middle reach up)",
+  "description": "Middle fingers reach up to E (above D) and I (above K)",
   "target_wpm": 14,
-  "text_length": 54,
+  "text_length": 72,
   "error_limit_percent": 5,
   "error_limit": 3,
-  "text": "ru ur rise ride sure red user dial ask jade real",
+  "text": "ei ie field grief skied jade shield heel deal slide guide gear like dike",
   "text_sequence": [
     {
-      "char": "r",
+      "char": "e",
       "hand": "left",
-      "finger": "index",
-      "key": "R"
-    },
-    {
-      "char": "u",
-      "hand": "right",
-      "finger": "index",
-      "key": "U"
-    },
-    {
-      "char": " ",
-      "hand": "right",
-      "finger": "thumb",
-      "key": "Space",
-      "space_side": "right"
-    },
-    {
-      "char": "u",
-      "hand": "right",
-      "finger": "index",
-      "key": "U"
-    },
-    {
-      "char": "r",
-      "hand": "left",
-      "finger": "index",
-      "key": "R"
-    },
-    {
-      "char": " ",
-      "hand": "right",
-      "finger": "thumb",
-      "key": "Space",
-      "space_side": "right"
-    },
-    {
-      "char": "r",
-      "hand": "left",
-      "finger": "index",
-      "key": "R"
+      "finger": "middle",
+      "key": "E"
     },
     {
       "char": "i",
@@ -61,29 +23,11 @@
       "key": "I"
     },
     {
-      "char": "s",
-      "hand": "left",
-      "finger": "ring",
-      "key": "S"
-    },
-    {
-      "char": "e",
-      "hand": "left",
-      "finger": "middle",
-      "key": "E"
-    },
-    {
       "char": " ",
       "hand": "right",
       "finger": "thumb",
       "key": "Space",
       "space_side": "right"
-    },
-    {
-      "char": "r",
-      "hand": "left",
-      "finger": "index",
-      "key": "R"
     },
     {
       "char": "i",
@@ -92,12 +36,6 @@
       "key": "I"
     },
     {
-      "char": "d",
-      "hand": "left",
-      "finger": "middle",
-      "key": "D"
-    },
-    {
       "char": "e",
       "hand": "left",
       "finger": "middle",
@@ -105,103 +43,16 @@
     },
     {
       "char": " ",
-      "hand": "right",
+      "hand": "left",
       "finger": "thumb",
       "key": "Space",
-      "space_side": "right"
+      "space_side": "left"
     },
     {
-      "char": "s",
-      "hand": "left",
-      "finger": "ring",
-      "key": "S"
-    },
-    {
-      "char": "u",
-      "hand": "right",
-      "finger": "index",
-      "key": "U"
-    },
-    {
-      "char": "r",
+      "char": "f",
       "hand": "left",
       "finger": "index",
-      "key": "R"
-    },
-    {
-      "char": "e",
-      "hand": "left",
-      "finger": "middle",
-      "key": "E"
-    },
-    {
-      "char": " ",
-      "hand": "right",
-      "finger": "thumb",
-      "key": "Space",
-      "space_side": "right"
-    },
-    {
-      "char": "r",
-      "hand": "left",
-      "finger": "index",
-      "key": "R"
-    },
-    {
-      "char": "e",
-      "hand": "left",
-      "finger": "middle",
-      "key": "E"
-    },
-    {
-      "char": "d",
-      "hand": "left",
-      "finger": "middle",
-      "key": "D"
-    },
-    {
-      "char": " ",
-      "hand": "right",
-      "finger": "thumb",
-      "key": "Space",
-      "space_side": "right"
-    },
-    {
-      "char": "u",
-      "hand": "right",
-      "finger": "index",
-      "key": "U"
-    },
-    {
-      "char": "s",
-      "hand": "left",
-      "finger": "ring",
-      "key": "S"
-    },
-    {
-      "char": "e",
-      "hand": "left",
-      "finger": "middle",
-      "key": "E"
-    },
-    {
-      "char": "r",
-      "hand": "left",
-      "finger": "index",
-      "key": "R"
-    },
-    {
-      "char": " ",
-      "hand": "right",
-      "finger": "thumb",
-      "key": "Space",
-      "space_side": "right"
-    },
-    {
-      "char": "d",
-      "hand": "left",
-      "finger": "middle",
-      "key": "D"
+      "key": "F"
     },
     {
       "char": "i",
@@ -210,10 +61,10 @@
       "key": "I"
     },
     {
-      "char": "a",
+      "char": "e",
       "hand": "left",
-      "finger": "pinky",
-      "key": "A"
+      "finger": "middle",
+      "key": "E"
     },
     {
       "char": "l",
@@ -222,6 +73,12 @@
       "key": "L"
     },
     {
+      "char": "d",
+      "hand": "left",
+      "finger": "middle",
+      "key": "D"
+    },
+    {
       "char": " ",
       "hand": "right",
       "finger": "thumb",
@@ -229,10 +86,41 @@
       "space_side": "right"
     },
     {
-      "char": "a",
+      "char": "g",
       "hand": "left",
-      "finger": "pinky",
-      "key": "A"
+      "finger": "index",
+      "key": "G"
+    },
+    {
+      "char": "r",
+      "hand": "left",
+      "finger": "index",
+      "key": "R"
+    },
+    {
+      "char": "i",
+      "hand": "right",
+      "finger": "middle",
+      "key": "I"
+    },
+    {
+      "char": "e",
+      "hand": "left",
+      "finger": "middle",
+      "key": "E"
+    },
+    {
+      "char": "f",
+      "hand": "left",
+      "finger": "index",
+      "key": "F"
+    },
+    {
+      "char": " ",
+      "hand": "left",
+      "finger": "thumb",
+      "key": "Space",
+      "space_side": "left"
     },
     {
       "char": "s",
@@ -245,6 +133,24 @@
       "hand": "right",
       "finger": "middle",
       "key": "K"
+    },
+    {
+      "char": "i",
+      "hand": "right",
+      "finger": "middle",
+      "key": "I"
+    },
+    {
+      "char": "e",
+      "hand": "left",
+      "finger": "middle",
+      "key": "E"
+    },
+    {
+      "char": "d",
+      "hand": "left",
+      "finger": "middle",
+      "key": "D"
     },
     {
       "char": " ",
@@ -279,16 +185,90 @@
     },
     {
       "char": " ",
+      "hand": "left",
+      "finger": "thumb",
+      "key": "Space",
+      "space_side": "left"
+    },
+    {
+      "char": "s",
+      "hand": "left",
+      "finger": "ring",
+      "key": "S"
+    },
+    {
+      "char": "h",
+      "hand": "right",
+      "finger": "index",
+      "key": "H"
+    },
+    {
+      "char": "i",
+      "hand": "right",
+      "finger": "middle",
+      "key": "I"
+    },
+    {
+      "char": "e",
+      "hand": "left",
+      "finger": "middle",
+      "key": "E"
+    },
+    {
+      "char": "l",
+      "hand": "right",
+      "finger": "ring",
+      "key": "L"
+    },
+    {
+      "char": "d",
+      "hand": "left",
+      "finger": "middle",
+      "key": "D"
+    },
+    {
+      "char": " ",
       "hand": "right",
       "finger": "thumb",
       "key": "Space",
       "space_side": "right"
     },
     {
-      "char": "r",
-      "hand": "left",
+      "char": "h",
+      "hand": "right",
       "finger": "index",
-      "key": "R"
+      "key": "H"
+    },
+    {
+      "char": "e",
+      "hand": "left",
+      "finger": "middle",
+      "key": "E"
+    },
+    {
+      "char": "e",
+      "hand": "left",
+      "finger": "middle",
+      "key": "E"
+    },
+    {
+      "char": "l",
+      "hand": "right",
+      "finger": "ring",
+      "key": "L"
+    },
+    {
+      "char": " ",
+      "hand": "left",
+      "finger": "thumb",
+      "key": "Space",
+      "space_side": "left"
+    },
+    {
+      "char": "d",
+      "hand": "left",
+      "finger": "middle",
+      "key": "D"
     },
     {
       "char": "e",
@@ -307,11 +287,177 @@
       "hand": "right",
       "finger": "ring",
       "key": "L"
+    },
+    {
+      "char": " ",
+      "hand": "right",
+      "finger": "thumb",
+      "key": "Space",
+      "space_side": "right"
+    },
+    {
+      "char": "s",
+      "hand": "left",
+      "finger": "ring",
+      "key": "S"
+    },
+    {
+      "char": "l",
+      "hand": "right",
+      "finger": "ring",
+      "key": "L"
+    },
+    {
+      "char": "i",
+      "hand": "right",
+      "finger": "middle",
+      "key": "I"
+    },
+    {
+      "char": "d",
+      "hand": "left",
+      "finger": "middle",
+      "key": "D"
+    },
+    {
+      "char": "e",
+      "hand": "left",
+      "finger": "middle",
+      "key": "E"
+    },
+    {
+      "char": " ",
+      "hand": "left",
+      "finger": "thumb",
+      "key": "Space",
+      "space_side": "left"
+    },
+    {
+      "char": "g",
+      "hand": "left",
+      "finger": "index",
+      "key": "G"
+    },
+    {
+      "char": "u",
+      "hand": "right",
+      "finger": "index",
+      "key": "U"
+    },
+    {
+      "char": "i",
+      "hand": "right",
+      "finger": "middle",
+      "key": "I"
+    },
+    {
+      "char": "d",
+      "hand": "left",
+      "finger": "middle",
+      "key": "D"
+    },
+    {
+      "char": "e",
+      "hand": "left",
+      "finger": "middle",
+      "key": "E"
+    },
+    {
+      "char": " ",
+      "hand": "right",
+      "finger": "thumb",
+      "key": "Space",
+      "space_side": "right"
+    },
+    {
+      "char": "g",
+      "hand": "left",
+      "finger": "index",
+      "key": "G"
+    },
+    {
+      "char": "e",
+      "hand": "left",
+      "finger": "middle",
+      "key": "E"
+    },
+    {
+      "char": "a",
+      "hand": "left",
+      "finger": "pinky",
+      "key": "A"
+    },
+    {
+      "char": "r",
+      "hand": "left",
+      "finger": "index",
+      "key": "R"
+    },
+    {
+      "char": " ",
+      "hand": "left",
+      "finger": "thumb",
+      "key": "Space",
+      "space_side": "left"
+    },
+    {
+      "char": "l",
+      "hand": "right",
+      "finger": "ring",
+      "key": "L"
+    },
+    {
+      "char": "i",
+      "hand": "right",
+      "finger": "middle",
+      "key": "I"
+    },
+    {
+      "char": "k",
+      "hand": "right",
+      "finger": "middle",
+      "key": "K"
+    },
+    {
+      "char": "e",
+      "hand": "left",
+      "finger": "middle",
+      "key": "E"
+    },
+    {
+      "char": " ",
+      "hand": "right",
+      "finger": "thumb",
+      "key": "Space",
+      "space_side": "right"
+    },
+    {
+      "char": "d",
+      "hand": "left",
+      "finger": "middle",
+      "key": "D"
+    },
+    {
+      "char": "i",
+      "hand": "right",
+      "finger": "middle",
+      "key": "I"
+    },
+    {
+      "char": "k",
+      "hand": "right",
+      "finger": "middle",
+      "key": "K"
+    },
+    {
+      "char": "e",
+      "hand": "left",
+      "finger": "middle",
+      "key": "E"
     }
   ],
   "keys_trained": [
     "A",
-    "S",
     "D",
     "E",
     "F",
@@ -322,54 +468,55 @@
     "K",
     "L",
     "R",
+    "S",
     "U",
     "Space"
   ],
   "new_keys": [
-    "R",
-    "U"
+    "E",
+    "I"
   ],
-  "finger_focus": "Index fingers reach up to R (above F) and U (above J)",
+  "finger_focus": "Middle fingers reach up to E (above D) and I (above K)",
   "tips": [
     {
       "type": "lead",
-      "text": "R sits above F — left index reaches up-left"
+      "text": "E is directly above D — left middle finger reaches up"
     },
     {
       "type": "drop",
-      "text": "U sits above J — right index reaches up"
+      "text": "I is directly above K — right middle finger reaches up"
     },
     {
       "type": "exercise",
-      "target": "ru ur rise ride sure",
-      "finger": "blue",
-      "hint": "Index fingers reach up to R (above F) and U (above J)"
+      "target": "ei ie field grief skied",
+      "finger": "green",
+      "hint": "Middle fingers reach up to E (above D) and I (above K)"
     },
     {
       "type": "p",
-      "text": "Real words: rise, ride, sure, user, read"
+      "text": "Return the middle finger to D / K after every press"
     },
     {
       "type": "callout",
       "icon": "💡",
       "title": "Подсказка",
-      "text": "After R or U, return to F or J"
+      "text": "Words to type: field, jade, slide, guide"
     },
     {
       "type": "exercise",
-      "target": "red user dial ask jade real",
-      "finger": "green",
-      "hint": "Index fingers reach up to R (above F) and U (above J)"
+      "target": "jade slide guide gear deal",
+      "finger": "blue",
+      "hint": "Middle fingers reach up to E (above D) and I (above K)"
     }
   ],
   "character_tips": {
-    "anna": "R and U sit above F and J. Your index fingers make the longest journeys!",
-    "maxim": "Amazing how many words open up with just R and U — see: \"sure\", \"user\", \"red\".",
-    "knopych": "Index fingers are titans! R and U — two jumps up, two back! 💪",
-    "klavochka": "Great job! Index fingers reach R and U, and words start to look real! 🌈"
+    "anna": "E and I are top row — middle fingers reach up and return straight to home.",
+    "maxim": "Middle finger: light and precise. E above D, I above K. Always return home.",
+    "knopych": "Middle fingers jump! E and I — up and back, don't get lost! 🎯",
+    "klavochka": "Your middle fingers make a sweet little hop to E and I ⭐"
   },
   "phase": 1,
   "rhythmLesson": false,
   "created_at": "2026-05-25",
-  "version": "1.0"
+  "version": "2.0"
 }

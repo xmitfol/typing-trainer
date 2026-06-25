@@ -5,63 +5,396 @@
   "title": "Нижний ряд: ЯЧСМИТ",
   "description": "Левая рука тянется ВНИЗ — самая хитрая растяжка",
   "target_wpm": 30,
-  "text_length": 71,
+  "text_length": 51,
   "error_limit_percent": 8,
   "error_limit": 5,
-  "text": "ясная ночь, мать читает сыну сказку. мысли тихо текут, пять часов утра.",
-  "text_sequence": [],
+  "text": "час мир сила мчит чан тачка машина нота ясно чисто.",
+  "text_sequence": [
+    {
+      "char": "ч",
+      "hand": "left",
+      "finger": "ring",
+      "key": "Ч"
+    },
+    {
+      "char": "а",
+      "hand": "left",
+      "finger": "index",
+      "key": "А"
+    },
+    {
+      "char": "с",
+      "hand": "left",
+      "finger": "middle",
+      "key": "С"
+    },
+    {
+      "char": " ",
+      "hand": "right",
+      "finger": "thumb",
+      "key": "Space",
+      "space_side": "right"
+    },
+    {
+      "char": "м",
+      "hand": "left",
+      "finger": "index",
+      "key": "М"
+    },
+    {
+      "char": "и",
+      "hand": "left",
+      "finger": "index",
+      "key": "И"
+    },
+    {
+      "char": "р",
+      "hand": "left",
+      "finger": "index",
+      "key": "Р"
+    },
+    {
+      "char": " ",
+      "hand": "right",
+      "finger": "thumb",
+      "key": "Space",
+      "space_side": "right"
+    },
+    {
+      "char": "с",
+      "hand": "left",
+      "finger": "middle",
+      "key": "С"
+    },
+    {
+      "char": "и",
+      "hand": "left",
+      "finger": "index",
+      "key": "И"
+    },
+    {
+      "char": "л",
+      "hand": "right",
+      "finger": "middle",
+      "key": "Л"
+    },
+    {
+      "char": "а",
+      "hand": "left",
+      "finger": "index",
+      "key": "А"
+    },
+    {
+      "char": " ",
+      "hand": "right",
+      "finger": "thumb",
+      "key": "Space",
+      "space_side": "right"
+    },
+    {
+      "char": "м",
+      "hand": "left",
+      "finger": "index",
+      "key": "М"
+    },
+    {
+      "char": "ч",
+      "hand": "left",
+      "finger": "ring",
+      "key": "Ч"
+    },
+    {
+      "char": "и",
+      "hand": "left",
+      "finger": "index",
+      "key": "И"
+    },
+    {
+      "char": "т",
+      "hand": "right",
+      "finger": "index",
+      "key": "Т"
+    },
+    {
+      "char": " ",
+      "hand": "right",
+      "finger": "thumb",
+      "key": "Space",
+      "space_side": "right"
+    },
+    {
+      "char": "ч",
+      "hand": "left",
+      "finger": "ring",
+      "key": "Ч"
+    },
+    {
+      "char": "а",
+      "hand": "left",
+      "finger": "index",
+      "key": "А"
+    },
+    {
+      "char": "н",
+      "hand": "right",
+      "finger": "index",
+      "key": "Н"
+    },
+    {
+      "char": " ",
+      "hand": "left",
+      "finger": "thumb",
+      "key": "Space",
+      "space_side": "left"
+    },
+    {
+      "char": "т",
+      "hand": "right",
+      "finger": "index",
+      "key": "Т"
+    },
+    {
+      "char": "а",
+      "hand": "left",
+      "finger": "index",
+      "key": "А"
+    },
+    {
+      "char": "ч",
+      "hand": "left",
+      "finger": "ring",
+      "key": "Ч"
+    },
+    {
+      "char": "к",
+      "hand": "left",
+      "finger": "index",
+      "key": "К"
+    },
+    {
+      "char": "а",
+      "hand": "left",
+      "finger": "index",
+      "key": "А"
+    },
+    {
+      "char": " ",
+      "hand": "right",
+      "finger": "thumb",
+      "key": "Space",
+      "space_side": "right"
+    },
+    {
+      "char": "м",
+      "hand": "left",
+      "finger": "index",
+      "key": "М"
+    },
+    {
+      "char": "а",
+      "hand": "left",
+      "finger": "index",
+      "key": "А"
+    },
+    {
+      "char": "ш",
+      "hand": "right",
+      "finger": "middle",
+      "key": "Ш"
+    },
+    {
+      "char": "и",
+      "hand": "left",
+      "finger": "index",
+      "key": "И"
+    },
+    {
+      "char": "н",
+      "hand": "right",
+      "finger": "index",
+      "key": "Н"
+    },
+    {
+      "char": "а",
+      "hand": "left",
+      "finger": "index",
+      "key": "А"
+    },
+    {
+      "char": " ",
+      "hand": "left",
+      "finger": "thumb",
+      "key": "Space",
+      "space_side": "left"
+    },
+    {
+      "char": "н",
+      "hand": "right",
+      "finger": "index",
+      "key": "Н"
+    },
+    {
+      "char": "о",
+      "hand": "right",
+      "finger": "index",
+      "key": "О"
+    },
+    {
+      "char": "т",
+      "hand": "right",
+      "finger": "index",
+      "key": "Т"
+    },
+    {
+      "char": "а",
+      "hand": "left",
+      "finger": "index",
+      "key": "А"
+    },
+    {
+      "char": " ",
+      "hand": "right",
+      "finger": "thumb",
+      "key": "Space",
+      "space_side": "right"
+    },
+    {
+      "char": "я",
+      "hand": "left",
+      "finger": "pinky",
+      "key": "Я"
+    },
+    {
+      "char": "с",
+      "hand": "left",
+      "finger": "middle",
+      "key": "С"
+    },
+    {
+      "char": "н",
+      "hand": "right",
+      "finger": "index",
+      "key": "Н"
+    },
+    {
+      "char": "о",
+      "hand": "right",
+      "finger": "index",
+      "key": "О"
+    },
+    {
+      "char": " ",
+      "hand": "right",
+      "finger": "thumb",
+      "key": "Space",
+      "space_side": "right"
+    },
+    {
+      "char": "ч",
+      "hand": "left",
+      "finger": "ring",
+      "key": "Ч"
+    },
+    {
+      "char": "и",
+      "hand": "left",
+      "finger": "index",
+      "key": "И"
+    },
+    {
+      "char": "с",
+      "hand": "left",
+      "finger": "middle",
+      "key": "С"
+    },
+    {
+      "char": "т",
+      "hand": "right",
+      "finger": "index",
+      "key": "Т"
+    },
+    {
+      "char": "о",
+      "hand": "right",
+      "finger": "index",
+      "key": "О"
+    },
+    {
+      "char": ".",
+      "hand": "left",
+      "finger": "ring",
+      "key": "."
+    }
+  ],
   "keys_trained": [
+    "А",
+    "О",
+    "В",
+    "Л",
+    "Ы",
+    "Д",
+    "Ф",
+    "Ж",
+    "П",
+    "Р",
+    "Э",
+    "Й",
+    "Ц",
+    "У",
+    "К",
+    "Е",
+    "Н",
+    "Г",
+    "Ш",
+    "Щ",
+    "З",
+    "Х",
+    "Ъ",
     "Я",
     "Ч",
     "С",
     "М",
     "И",
     "Т",
-    "А",
-    "В",
-    "О",
-    "Д",
-    "Ж",
     "Space",
-    ",",
     "."
   ],
   "new_keys": [],
-  "finger_focus": "Левый нижний + домашний",
+  "finger_focus": "Нижний ряд левой руки: ЯЧСМИТ",
   "tips": [
     {
       "type": "lead",
-      "text": "Нижний ряд = ВНИЗ от домашнего — самая неудобная растяжка"
+      "text": "Спускаемся ВНИЗ: Я Ч С М И Т — левая рука."
     },
     {
       "type": "drop",
-      "text": "Загибай пальцы под ладонь чтобы достать"
+      "text": "От базы вниз и обратно. Самый сложный ряд — не торопись."
     },
     {
       "type": "exercise",
-      "target": "ясная ночь, мать читает сыну сказку.",
+      "target": "час мир сила мчит чан",
       "finger": "blue",
       "hint": "Левый нижний + домашний"
     },
     {
       "type": "p",
-      "text": "Не торопись — точность важнее"
+      "text": "И, Т — указательные вниз; С М — средний/указательный; Я Ч — слабые."
     },
     {
       "type": "exercise",
-      "target": "мысли тихо текут, пять часов утра.",
+      "target": "тачка машина нота ясно чисто.",
       "finger": "green",
       "hint": "Левый нижний + домашний"
     }
   ],
   "character_tips": {
-    "anna": "Нижний ряд — самый сложный. Загибай пальцы ПОД ладонь чтобы достать.",
-    "maxim": "Освой нижний = решил 95% проблем с печатью.",
-    "knopych": "БОСС НИЖНЕГО РЯДА! ⬇️ Гни эти пальцы!",
-    "klavochka": "Тянемся вниз как за цветами, мой милый 🌻"
+    "anna": "Я Ч С М И Т — нижний ряд левой руки. Вниз и сразу домой.",
+    "maxim": "Нижний ряд — последний и самый трудный. Возврат на базу обязателен.",
+    "knopych": "НИЖНИЙ РЯД! ⬇️ МАШИНА! ТАЧКА! Спускаемся и домой!",
+    "klavochka": "Вниз потянулись пальчики, мой милый: час, мир, машина ⬇️🌷"
   },
   "phase": 1,
   "rhythmLesson": false,
   "created_at": "2026-05-26",
-  "version": "1.0"
+  "version": "2.0"
 }

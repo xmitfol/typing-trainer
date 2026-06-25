@@ -5,19 +5,21 @@
   "title": "Home row: short sentences",
   "description": "Practice rhythm with home-row sentences",
   "target_wpm": 22,
-  "text_length": 48,
+  "text_length": 53,
   "error_limit_percent": 8,
   "error_limit": 3,
-  "text": "a sad lad asks dad; a lass falls; dads ask lads;",
+  "text": "a glass had a flash; dad asks a sad lad; halls flash;",
   "text_sequence": [],
   "keys_trained": [
     "A",
-    "S",
     "D",
     "F",
+    "G",
+    "H",
     "J",
     "K",
     "L",
+    "S",
     ";",
     "Space"
   ],
@@ -34,7 +36,7 @@
     },
     {
       "type": "exercise",
-      "target": "a sad lad asks dad;",
+      "target": "a glass had a flash;",
       "finger": "blue",
       "hint": "Home row + punctuation intro"
     },
@@ -44,7 +46,7 @@
     },
     {
       "type": "exercise",
-      "target": "a lass falls; dads ask lads;",
+      "target": "dad asks a sad lad; halls flash;",
       "finger": "green",
       "hint": "Home row + punctuation intro"
     }
@@ -58,5 +60,5 @@
   "phase": 1,
   "rhythmLesson": false,
   "created_at": "2026-05-25",
-  "version": "1.0"
+  "version": "2.0"
 }
