@@ -372,3 +372,26 @@
     .tp-stats { flex-direction: column; }
     .tp-success__h1 { font-size: 32px; }
 }
+
+/* ─── Коуч-панель: разбор захода + мотивация (Phase A) ──────────────── */
+.coach { margin: 0 0 22px; max-width: 460px; }
+.coach__cols { display: flex; gap: 18px; margin-bottom: 14px; }
+.coach__col { flex: 1; min-width: 0; }
+.coach__head {
+    font-size: 12px; font-weight: 700; letter-spacing: 0.03em;
+    margin-bottom: 6px;
+}
+.coach__head--good { color: var(--success, #10b981); }
+.coach__head--up { color: var(--accent, #3b82f6); }
+.coach__list {
+    margin: 0; padding-left: 18px;
+    font-size: 13.5px; color: var(--sub, #6b7280); line-height: 1.5;
+}
+.coach__list li { margin-bottom: 3px; }
+.coach__quote {
+    font-family: var(--font-serif, "Source Serif 4", Georgia, serif);
+    font-style: italic; font-size: 15px;
+    color: var(--text, #1a1a2e); line-height: 1.55;
+    border-left: 3px solid var(--accent, #3b82f6);
+    padding-left: 12px;
+}

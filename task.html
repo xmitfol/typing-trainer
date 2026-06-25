@@ -346,7 +346,21 @@
                             <span style="margin-left:auto;padding:4px 12px;background:var(--success);color:#fff;border-radius:999px;font-family:var(--font-mono);font-size:11px;font-weight:700;letter-spacing:0.06em" data-i18n="task.completed">✓ ВЫПОЛНЕНО</span>
                         </div>
                         <h1 class="serif" style="margin:14px 0 14px;font-size:48px;font-weight:700;letter-spacing:-0.02em" id="success-title">Всё верно.</h1>
-                        <p class="serif" style="margin:0 0 24px;font-size:16px;color:var(--sub);line-height:1.55;max-width:420px" id="success-msg">Упражнение пройдено. Идём дальше.</p>
+                        <p class="serif" style="margin:0 0 16px;font-size:16px;color:var(--sub);line-height:1.55;max-width:420px" id="success-msg">Упражнение пройдено. Идём дальше.</p>
+                        <!-- Коуч-панель: разбор захода + мотивация (Phase A, coach.js) -->
+                        <div class="coach" id="coach-panel" hidden>
+                            <div class="coach__cols">
+                                <div class="coach__col">
+                                    <div class="coach__head coach__head--good">💪 Что хорошо</div>
+                                    <ul class="coach__list" id="coach-good"></ul>
+                                </div>
+                                <div class="coach__col">
+                                    <div class="coach__head coach__head--up">🎯 Над чем поработать</div>
+                                    <ul class="coach__list" id="coach-improve"></ul>
+                                </div>
+                            </div>
+                            <div class="coach__quote" id="coach-quote"></div>
+                        </div>
                         <div class="row" style="gap:10px">
                             <button class="btn btn--secondary" id="retry-btn" data-i18n="task.retry">↻ Повторить</button>
                             <a class="btn" id="next-btn" href="#">Продолжить →</a>
@@ -423,6 +437,7 @@
     <script src="assets/js/character-system.js"></script>
     <script src="assets/js/i18n.js"></script>
     <script src="assets/js/exercise-progress.js"></script>
+    <script src="assets/js/coach.js"></script>
     <script src="assets/js/task.js"></script>
 </body>
 </html>

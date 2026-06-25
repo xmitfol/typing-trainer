@@ -165,6 +165,7 @@ document.addEventListener('DOMContentLoaded', async function () {
     // ─── State ───────────────────────────────────────────────────
     let typed = 0, errors = 0, attempt = 1, startTime = null, timer = null, done = false;
     let tooManyShown = false;  // one-shot per attempt — наставник предупреждает один раз
+    const keyErrors = {};      // ошибки по клавишам (ожидаемый символ → счётчик) — для коуч-разбора
     const errorLimit = Number.isFinite(lesson.error_limit) ? lesson.error_limit : 2;
     const halfErrorLimit = Math.max(1, Math.ceil(errorLimit / 2));
 
@@ -370,6 +371,7 @@ document.addEventListener('DOMContentLoaded', async function () {
             // Неверная клавиша — стоим на месте, ждём правильную. Считаем ошибку.
             kb.flashError(e.code);
             errors++;
+            keyErrors[expected] = (keyErrors[expected] || 0) + 1;  // для коуч-разбора
             // Наставник реагирует один раз, когда ошибок становится больше половины лимита
             if (!tooManyShown && errors > halfErrorLimit) {
                 tooManyShown = true;
@@ -484,6 +486,20 @@ document.addEventListener('DOMContentLoaded', async function () {
                               : 'Неплохо. На следующей попытке целься в 95%+.')
                 : 'Ошибок многовато — попробуем ещё раз?'
         );
+
+        // Коуч-разбор (Phase A): что хорошо / над чем поработать + мотивация.
+        if (window.coach) {
+            let topKey = null, topN = 0;
+            for (const k in keyErrors) {
+                if (k !== ' ' && keyErrors[k] > topN) { topN = keyErrors[k]; topKey = k; }
+            }
+            const a = window.coach.analyze({ accuracy: acc, wpm, rhythm, targetWpm: lesson.target_wpm, topMistakeKey: topKey });
+            const fill = (id, items) => { $(id).innerHTML = items.map(x => `<li>${escapeHtml(x)}</li>`).join(''); };
+            fill('coach-good', a.good);
+            fill('coach-improve', a.improve);
+            $('coach-quote').textContent = window.coach.motivate(mentorId, passed);
+            $('coach-panel').hidden = false;
+        }
 
         // «Продолжить» → теория следующего урока (или к списку, если последний).
         // Для tier=user следующего урока нет — возвращаемся в Конструктор.
