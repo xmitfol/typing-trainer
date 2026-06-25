@@ -519,20 +519,16 @@ document.addEventListener('DOMContentLoaded', async function () {
         const isCyr = (lesson.new_keys || []).some(k => /[а-яё]/i.test(k)) || /[а-яё]/i.test(targetText);
         const state = (passed && stars >= 3) ? 'success' : 'struggle';
 
-        // Следующий урок / список.
-        let nextHref, nextLabel;
-        if (isUserLesson) {
-            nextHref = 'builder.html'; nextLabel = t('task.backToBuilder');
-        } else if (lessonNum + 1 <= totalLessons) {
-            nextHref = `lesson.html?tier=${encodeURIComponent(tier)}&lesson=${lessonNum + 1}`;
-            nextLabel = 'Следующий урок →';
-        } else {
-            nextHref = 'course.html'; nextLabel = 'К списку уроков';
-        }
+        // «Продолжить →» → назад к уроку (теория), читать дальше. Свои уроки → конструктор.
+        const continueHref = isUserLesson
+            ? 'builder.html'
+            : `lesson.html?tier=${encodeURIComponent(tier)}&lesson=${lessonNum}`;
         const mentorName = (mentorChar && mentorChar.character && mentorChar.character.name)
             || ({ anna: 'Анна', maxim: 'Максим', knopych: 'Кнопыч', klavochka: 'Клавочка' }[mentorId]) || '';
 
         // Богатый «Отчёт по уроку» (экран B). Конец ШАГА остаётся кратким (finishStep).
+        const taskCardEl2 = document.querySelector('.task-card');
+        const mentorEl = document.querySelector('.mentor');
         if (window.lessonSummary) {
             window.lessonSummary.render(successEl, {
                 mentor: mentorId, mentorName,
@@ -542,11 +538,17 @@ document.addEventListener('DOMContentLoaded', async function () {
                 showSpeed: !isUserLesson && lessonNum >= 6,
                 good: ca.good, work: ca.improve, quote,
                 lesson: lessonNum, lessonsTotal: totalLessons,
-                state, nextHref, nextLabel, listHref: 'course.html',
+                state, continueHref, attempt,
             });
-            const rep = $('rep-retry');  // «Повторить урок» → вернуть тренажёр и сбросить заход
+            // Отчёт — самостоятельная карточка: убираем хром внешней .task-card
+            // (двойной фон) и прячем плавающий бабл наставника (он есть в шапке отчёта).
+            if (taskCardEl2) taskCardEl2.classList.add('report-mode');
+            if (mentorEl) mentorEl.style.display = 'none';
+            const rep = $('rep-retry');  // «Повторить» → вернуть тренажёр и сбросить заход
             if (rep) rep.addEventListener('click', () => {
                 successEl.classList.remove('show');
+                if (taskCardEl2) taskCardEl2.classList.remove('report-mode');
+                if (mentorEl) mentorEl.style.display = '';
                 taskBody.classList.remove('hide'); toolbar.classList.remove('hide'); kbStage.classList.remove('hide');
                 reset();
             });

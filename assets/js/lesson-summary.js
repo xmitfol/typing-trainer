@@ -43,13 +43,12 @@
         const isSuccess = r.state === 'success';
         const accentBg = isSuccess ? '#dbeafe' : '#fef3c7';
         const accentBorder = isSuccess ? '#93c5fd' : '#fcd34d';
-        const nextBtn = `<a class="btn btn--secondary" href="${r.nextHref}">${esc(r.nextLabel)}</a>`;
-        const nextBtnLg = `<a class="btn btn--lg" href="${r.nextHref}">${esc(r.nextLabel)}</a>`;
-        const retryLg = `<button class="btn btn--lg" id="rep-retry" type="button">↻ Повторить урок</button>`;
+        // По workflow (теория → тренажёр → назад к уроку) — две кнопки по центру:
+        // «Продолжить →» (на lesson.html этого урока) и «↻ Повторить».
+        const contLg = `<a class="btn btn--lg" href="${r.continueHref}">Продолжить →</a>`;
+        const contSm = `<a class="btn btn--secondary" href="${r.continueHref}">Продолжить →</a>`;
+        const retryLg = `<button class="btn btn--lg" id="rep-retry" type="button">↻ Повторить</button>`;
         const retrySm = `<button class="btn btn--secondary" id="rep-retry" type="button">↻ Повторить</button>`;
-        // Ghost «К списку» не дублируем, если первичная/вторичная и так ведёт туда
-        // (последний урок курса: «Следующий урок» → список).
-        const listBtn = (r.nextHref !== r.listHref) ? `<a class="btn btn--ghost" href="${r.listHref}">К списку уроков</a>` : '';
 
         root.innerHTML = `
       <div class="report-card">
@@ -59,7 +58,7 @@
             ${window.portraits ? window.portraits.mentor(r.mentor, 130) : ''}
           </div>
           <div>
-            <div class="report-kicker" style="color:${isSuccess ? 'var(--success)' : 'var(--warn)'}">${isSuccess ? 'УРОК ПРОЙДЕН ✓' : 'УРОК ЗАВЕРШЁН'}</div>
+            <div class="report-kicker" style="color:${isSuccess ? 'var(--success)' : 'var(--warn)'}">${isSuccess ? 'УРОК ПРОЙДЕН ✓' : 'УРОК ЗАВЕРШЁН'}${r.attempt > 1 ? ` · ПОПЫТКА ${r.attempt}` : ''}</div>
             <h1 class="report-title">Урок ${r.lessonNum}</h1>
             <div class="report-subtitle">${esc(r.lessonTitle)}</div>
           </div>
@@ -118,9 +117,7 @@
         </section>
 
         <div class="report-actions">
-          ${isSuccess
-                ? `${nextBtnLg}${retrySm}${listBtn}`
-                : `${retryLg}${nextBtn}${listBtn}`}
+          ${isSuccess ? `${contLg}${retrySm}` : `${retryLg}${contSm}`}
         </div>
       </div>`;
     }

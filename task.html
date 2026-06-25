@@ -278,7 +278,12 @@
         .report-quote__by { font-size: 12.5px; color: var(--sub); margin-top: 10px; font-weight: 600; }
         .course-track { height: 8px; background: var(--divider); border-radius: 999px; overflow: hidden; }
         .course-fill { height: 100%; background: linear-gradient(90deg, var(--f-blue), var(--f-purple)); border-radius: 999px; }
-        .report-actions { display: flex; gap: 10px; align-items: center; margin-top: 30px; flex-wrap: wrap; }
+        .report-actions { display: flex; gap: 10px; align-items: center; justify-content: center; margin-top: 30px; flex-wrap: wrap; }
+        /* Режим отчёта: отчёт — самостоятельная карточка, внешняя .task-card без
+           своего фона/бордера/тени (иначе карточка в карточке — двойной фон). */
+        .task-card.report-mode {
+            background: transparent; border: none; box-shadow: none; padding: 0;
+        }
         .report-confetti { position: absolute; inset: 0 0 auto 0; height: 6px; background: repeating-linear-gradient(90deg, var(--f-pink) 0 14px, var(--f-orange) 14px 28px, var(--f-green) 28px 42px, var(--f-blue) 42px 56px, var(--f-purple) 56px 70px); }
         @media (max-width: 640px) {
             .report-head { flex-direction: column; text-align: center; }

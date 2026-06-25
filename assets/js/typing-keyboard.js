@@ -168,10 +168,10 @@
       { l: 'Ctrl', f: 'pink', w: 1.25, mod: true, code: 'ControlLeft' },
       { l: '',  f: 'pink', w: 1, mod: true, code: 'MetaLeft' },
       { l: 'Alt',  f: 'pink', w: 1, mod: true, code: 'AltLeft' },
-      { l: 'Space', f: 'purple', w: 3, code: 'Space' },
+      { l: 'Space', f: 'purple', w: 3, code: 'Space', spaceSide: 'left' },
     ],
     right: [
-      { l: 'Space', f: 'purple', w: 3, code: 'Space' },
+      { l: 'Space', f: 'purple', w: 3, code: 'Space', spaceSide: 'right' },
       { l: 'Alt',  f: 'pink', w: 1, mod: true, code: 'AltRight' },
       { l: '',   f: 'pink', w: 1, mod: true },
       { l: 'Ctrl', f: 'pink', w: 1.25, mod: true, code: 'ControlRight' },
@@ -474,6 +474,14 @@
     // half не задан — обе (обратная совместимость).
     if (data.code === 'Space') {
       const isHl = opts.stateOf(data) === 'highlight';
+      // Эргономика: пробел — отдельная физическая половина. Рендерим сплошной;
+      // подсветка только у нужной стороны (фильтр по spaceSide в _stateOf).
+      if (data.spaceSide) {
+        const dstate = isHl ? ' data-state="highlight"' : '';
+        return `<div class="key key--space" data-finger="purple" data-code="Space" data-key=" "
+          data-space-side="${data.spaceSide}" style="width:${w}px;height:${h}px"${dstate}></div>`;
+      }
+      // Classic: единый пробел рисуем двумя половинами — подсказка нужного большого пальца.
       const half = (opts.spaceHalf && opts.spaceHalf()) || '';
       const lState = isHl && half !== 'right' ? ' data-state="highlight"' : '';
       const rState = isHl && half !== 'left' ? ' data-state="highlight"' : '';
@@ -722,8 +730,14 @@
       const highlightChar = rawHighlight.toLowerCase();
       if (errorKey && code === errorKey) return 'error';
       if (activeKey && code === activeKey) return 'active';
-      // Space matches by character (its label is "Space", not " ")
-      if (code === 'Space' && rawHighlight === ' ') return 'highlight';
+      // Space matches by character (its label is "Space", not " ").
+      // Эргономика: половина с spaceSide подсвечивается только если совпадает
+      // с space-half (рука, противоположная предыдущей букве); иначе гаснет.
+      if (code === 'Space' && rawHighlight === ' ') {
+        const half = this.getAttribute('space-half');
+        if (data.spaceSide && half && data.spaceSide !== half) return 'default';
+        return 'highlight';
+      }
       if (highlightChar && code !== 'Space' && label === highlightChar) return 'highlight';
       return 'default';
     }
