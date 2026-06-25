@@ -517,7 +517,8 @@ document.addEventListener('DOMContentLoaded', async function () {
             .map(k => [k, CHAR_FINGER[k] || 'blue']);
         const learnedTotal = (lesson.keys_trained || []).filter(k => k && k !== 'Space' && String(k).trim()).length;
         const isCyr = (lesson.new_keys || []).some(k => /[а-яё]/i.test(k)) || /[а-яё]/i.test(targetText);
-        const state = (passed && stars >= 3) ? 'success' : 'struggle';
+        // Порог по звёздам (методспек дизайнера): < 3 звёзд → «с трудом».
+        const state = stars >= 3 ? 'success' : 'struggle';
 
         // «Продолжить →» → назад к уроку (теория), читать дальше. Свои уроки → конструктор.
         const continueHref = isUserLesson

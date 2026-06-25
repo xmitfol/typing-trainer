@@ -58,7 +58,7 @@
             ${window.portraits ? window.portraits.mentor(r.mentor, 130) : ''}
           </div>
           <div>
-            <div class="report-kicker" style="color:${isSuccess ? 'var(--success)' : 'var(--warn)'}">${isSuccess ? 'УРОК ПРОЙДЕН ✓' : 'УРОК ЗАВЕРШЁН'}${r.attempt > 1 ? ` · ПОПЫТКА ${r.attempt}` : ''}</div>
+            <div class="report-kicker" style="color:${isSuccess ? 'var(--success)' : 'var(--warn)'}">${isSuccess ? 'УРОК ПРОЙДЕН ✓' : 'УРОК ЗАВЕРШЁН'}</div>
             <h1 class="report-title">Урок ${r.lessonNum}</h1>
             <div class="report-subtitle">${esc(r.lessonTitle)}</div>
           </div>
@@ -89,6 +89,10 @@
             <div class="report-label">РИТМИЧНОСТЬ</div>
             <div class="metric-val metric-val--sm">${r.rhythm}<span>%</span></div>
           </div>
+          <div class="metric">
+            <div class="report-label">ПОПЫТКИ</div>
+            <div class="metric-val metric-val--sm">${r.attempt || 1}</div>
+          </div>
           ${r.showSpeed ? `<div class="metric"><div class="report-label">СКОРОСТЬ</div><div class="metric-val metric-val--sm">${r.speed}<span>зн/мин</span></div></div>` : ''}
         </section>
 
@@ -117,7 +121,7 @@
         </section>
 
         <div class="report-actions">
-          ${isSuccess ? `${contLg}${retrySm}` : `${retryLg}${contSm}`}
+          ${isSuccess ? `${retrySm}${contLg}` : `${contSm}${retryLg}`}
         </div>
       </div>`;
     }
