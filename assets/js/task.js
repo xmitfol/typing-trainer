@@ -171,6 +171,7 @@ document.addEventListener('DOMContentLoaded', async function () {
     let typed = 0, errors = 0, attempt = 1, startTime = null, timer = null, done = false;
     let tooManyShown = false;  // one-shot per attempt — наставник предупреждает один раз
     const keyErrors = {};      // ошибки по клавишам (ожидаемый символ → счётчик) — для коуч-разбора
+    const errorPositions = new Set();  // позиции промахов — подчёркиваются до конца захода
     const errorLimit = Number.isFinite(lesson.error_limit) ? lesson.error_limit : 2;
     const halfErrorLimit = Math.max(1, Math.ceil(errorLimit / 2));
 
@@ -252,8 +253,9 @@ document.addEventListener('DOMContentLoaded', async function () {
         let html = '', openWord = false;
         for (let i = 0; i < targetText.length; i++) {
             const ch = targetText[i];
-            const cls = i < typed ? 'done' : (i === typed && !done ? 'cur' : '');
-            const fin = cls === 'cur' ? CHAR_FINGER[ch.toLowerCase()] : null;
+            let cls = i < typed ? 'done' : (i === typed && !done ? 'cur' : '');
+            if (errorPositions.has(i)) cls += ' char--erred';  // место промаха — до конца захода
+            const fin = (i === typed && !done) ? CHAR_FINGER[ch.toLowerCase()] : null;
             const fattr = fin ? ` data-finger="${fin}"` : '';
             if (ch === ' ') {
                 if (openWord) { html += '</span>'; openWord = false; }
@@ -391,8 +393,9 @@ document.addEventListener('DOMContentLoaded', async function () {
             }
             // Неверная клавиша — стоим на месте, ждём правильную. Считаем ошибку.
             kb.flashError(e.code);
-            const curEl = targetEl.querySelector('.cur');  // подчеркнуть место промаха
-            if (curEl) curEl.classList.add('cur--err');
+            errorPositions.add(typed);  // отметить место промаха (останется до конца захода)
+            const curEl = targetEl.querySelector('.cur');
+            if (curEl) curEl.classList.add('char--erred');
             errors++;
             keyErrors[expected] = (keyErrors[expected] || 0) + 1;  // для коуч-разбора
             // Наставник реагирует один раз, когда ошибок становится больше половины лимита
@@ -581,6 +584,7 @@ document.addEventListener('DOMContentLoaded', async function () {
         attempt++; attemptEl.textContent = attempt;
         statTime.textContent = '00:00';
         tooManyShown = false;
+        errorPositions.clear();
         keyIntervals.length = 0; lastKeyTime = 0;
         const cf = $('confetti'); if (cf) cf.innerHTML = '';
         // Вернуть стартовую реплику наставника
