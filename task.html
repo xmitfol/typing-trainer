@@ -23,7 +23,7 @@
         }
 
         /* Mentor bubble */
-        .mentor { position: absolute; top: -78px; right: 24px; display: flex; align-items: flex-end; gap: 14px; z-index: 5; }
+        .mentor { position: absolute; top: -88px; right: 60px; display: flex; align-items: flex-end; gap: 14px; z-index: 5; }
         .mentor__bubble {
             background: #fef9c3; border: 1px solid #fde68a;
             border-radius: 14px; padding: 14px 18px; max-width: 520px;
@@ -73,39 +73,32 @@
             background: var(--surface); border: 1px solid var(--divider);
             border-radius: var(--r-md); padding: 26px;
             font-family: var(--font-mono); font-size: 26px; line-height: 1.6;
-            letter-spacing: 0.06em; color: var(--faint); min-height: 200px;
+            letter-spacing: 0.06em; color: var(--faint);
+            /* Не пустует снизу: контент по центру по вертикали, окно тянется в пределах */
+            min-height: 90px; max-height: 220px; overflow-y: auto;
+            display: flex; align-items: center;
             white-space: normal; overflow-wrap: normal; word-break: normal;
         }
+        .target__inner { width: 100%; }
         .target .word { white-space: nowrap; }
         .target .space { white-space: normal; }
         .target .done { color: var(--ink); }
         .target .err  { color: #fff; background: var(--error); padding: 1px 4px; border-radius: 4px; }
         .target .cur  { color: #fff; background: var(--ink); padding: 1px 4px; border-radius: 4px; }
+        /* Текущий символ — в цвет своего пальца (карта CHAR_FINGER в task.js).
+           Светлые пальцы (оранж/голубой/фиол) — тёмный текст для контраста. */
+        .target .cur[data-finger="pink"]   { background: var(--f-pink);   color: #fff; }
+        .target .cur[data-finger="orange"] { background: var(--f-orange); color: var(--ink); }
+        .target .cur[data-finger="green"]  { background: var(--f-green);  color: #fff; }
+        .target .cur[data-finger="blue"]   { background: var(--f-blue);   color: var(--ink); }
+        .target .cur[data-finger="indigo"] { background: var(--f-indigo); color: #fff; }
+        .target .cur[data-finger="purple"] { background: var(--f-purple); color: var(--ink); }
 
         .progress-row { display: flex; align-items: center; gap: 10px; margin-bottom: 14px; }
         .progress-track { flex: 1; height: 6px; background: var(--divider); border-radius: 999px; overflow: hidden; }
         .progress-fill { height: 100%; width: 0%; background: linear-gradient(90deg, var(--f-blue), var(--f-purple)); border-radius: 999px; transition: width .15s ease; }
 
         .capture { position: absolute; opacity: 0; pointer-events: none; width: 1px; height: 1px; }
-
-        /* Speed graph (live WPM samples) — из design task.jsx SpeedGraph */
-        .speed-graph {
-            height: 92px; margin-top: 14px;
-            background: #fff; border: 1px solid var(--divider);
-            border-radius: 8px; padding: 10px 14px;
-            position: relative;
-        }
-        .speed-graph__yaxis {
-            position: absolute; left: 6px; top: 8px; bottom: 8px;
-            display: flex; flex-direction: column; justify-content: space-between;
-            font-family: var(--font-mono); font-size: 8.5px; color: var(--faint);
-        }
-        .speed-graph__grid {
-            margin-left: 26px; height: 100%;
-            background: repeating-linear-gradient(0deg, transparent 0, transparent 17px, rgba(0,0,0,0.04) 17px, rgba(0,0,0,0.04) 18px);
-            position: relative;
-        }
-        .speed-graph__grid svg { position: absolute; inset: 0; }
 
         /* Confetti celebrate animation на success-экране при errors ≤ limit */
         .confetti {
@@ -304,18 +297,6 @@
                     <!-- inputmode="none" → не вызывает системную клавиатуру на touch-устройствах,
                          ввод идёт через физическую клавиатуру или клик/тап по on-screen клавише -->
                     <input class="capture" id="capture" inputmode="none" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false" />
-
-                    <!-- Mini speed graph (live WPM samples, from design task.jsx SpeedGraph) -->
-                    <div class="speed-graph" id="speed-graph" aria-hidden="true">
-                        <div class="speed-graph__yaxis">
-                            <span>600</span><span>300</span><span>100</span>
-                        </div>
-                        <div class="speed-graph__grid">
-                            <svg id="speed-graph-svg" width="100%" height="100%" viewBox="0 0 300 100" preserveAspectRatio="none">
-                                <polyline id="speed-graph-line" fill="none" stroke="var(--accent)" stroke-width="1.5" stroke-linejoin="round" points=""></polyline>
-                            </svg>
-                        </div>
-                    </div>
                 </div>
 
                 <div class="col" style="gap:18px">

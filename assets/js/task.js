@@ -229,21 +229,37 @@ document.addEventListener('DOMContentLoaded', async function () {
     }
 
     // ─── Render target (слова — неразрывные, перенос целиком) ─────
+    // Карта символ → палец (ЙЦУКЕН) — подсветка ТЕКУЩЕГО символа в цвет его пальца:
+    // взгляд связывает «что печатать» → «каким пальцем» → «какая клавиша горит».
+    const CHAR_FINGER = {
+        'й': 'pink', 'ф': 'pink', 'я': 'pink', 'ё': 'pink',
+        'ц': 'orange', 'ы': 'orange', 'ч': 'orange',
+        'у': 'green', 'в': 'green', 'с': 'green',
+        'к': 'blue', 'а': 'blue', 'м': 'blue', 'е': 'blue', 'п': 'blue', 'и': 'blue',
+        'н': 'indigo', 'р': 'indigo', 'т': 'indigo', 'г': 'indigo', 'о': 'indigo', 'ь': 'indigo',
+        'ш': 'green', 'л': 'green', 'б': 'green',
+        'щ': 'orange', 'д': 'orange', 'ю': 'orange',
+        'з': 'pink', 'ж': 'pink', 'х': 'pink', 'э': 'pink', 'ъ': 'pink',
+        ' ': 'purple',
+    };
+
     function renderTarget() {
         let html = '', openWord = false;
         for (let i = 0; i < targetText.length; i++) {
             const ch = targetText[i];
             const cls = i < typed ? 'done' : (i === typed && !done ? 'cur' : '');
+            const fin = cls === 'cur' ? CHAR_FINGER[ch.toLowerCase()] : null;
+            const fattr = fin ? ` data-finger="${fin}"` : '';
             if (ch === ' ') {
                 if (openWord) { html += '</span>'; openWord = false; }
-                html += `<span class="space ${cls}"> </span>`;
+                html += `<span class="space ${cls}"${fattr}> </span>`;
             } else {
                 if (!openWord) { html += '<span class="word">'; openWord = true; }
-                html += `<span class="${cls}">${escapeHtml(ch)}</span>`;
+                html += `<span class="${cls}"${fattr}>${escapeHtml(ch)}</span>`;
             }
         }
         if (openWord) html += '</span>';
-        targetEl.innerHTML = html;
+        targetEl.innerHTML = `<div class="target__inner">${html}</div>`;
         countEl.textContent = `${typed}/${targetText.length}`;
         fillEl.style.width = `${(typed / targetText.length) * 100}%`;
 
@@ -284,23 +300,6 @@ document.addEventListener('DOMContentLoaded', async function () {
         return total > 0 ? Math.max(0, Math.round((typed / total) * 100)) : 100;
     }
 
-    // SpeedGraph: храним до SPEED_GRAPH_MAX_POINTS последних замеров WPM, рисуем polyline.
-    // viewBox = «0 0 (N*10) 100», max шкалы = 600 зн/мин (как в design SpeedGraph).
-    const SPEED_GRAPH_MAX_POINTS = 30;
-    const SPEED_GRAPH_MAX = 600;
-    const speedSamples = [];
-    const speedLineEl = $('speed-graph-line');
-    function renderSpeedGraph() {
-        if (!speedLineEl) return;
-        if (speedSamples.length === 0) { speedLineEl.setAttribute('points', ''); return; }
-        const pts = speedSamples.map((v, i) => {
-            const x = i * 10;
-            const y = Math.max(0, 100 - Math.min(v, SPEED_GRAPH_MAX) / SPEED_GRAPH_MAX * 100);
-            return `${x},${y.toFixed(1)}`;
-        }).join(' ');
-        speedLineEl.setAttribute('points', pts);
-    }
-
     function updateStats() {
         const elapsed = startTime ? (Date.now() - startTime) / 1000 : 0;
         const m = Math.floor(elapsed / 60), s = Math.floor(elapsed % 60);
@@ -308,12 +307,6 @@ document.addEventListener('DOMContentLoaded', async function () {
         const wpmNow = calcWpm(elapsed);
         statSpeed.innerHTML = `${wpmNow} <span style="font-size:11px;color:var(--faint)">зн/мин</span>`;
         statAcc.innerHTML = `${calcAcc()}<span style="font-size:11px;color:var(--faint)">%</span>`;
-        // Sample WPM, скользящее окно
-        if (startTime && !done) {
-            speedSamples.push(wpmNow);
-            if (speedSamples.length > SPEED_GRAPH_MAX_POINTS) speedSamples.shift();
-            renderSpeedGraph();
-        }
     }
 
     // ─── Caps Lock индикатор ─────────────────────────────────────
@@ -554,7 +547,6 @@ document.addEventListener('DOMContentLoaded', async function () {
         attempt++; attemptEl.textContent = attempt;
         statTime.textContent = '00:00';
         tooManyShown = false;
-        speedSamples.length = 0; renderSpeedGraph();
         keyIntervals.length = 0; lastKeyTime = 0;
         const cf = $('confetti'); if (cf) cf.innerHTML = '';
         // Вернуть стартовую реплику наставника

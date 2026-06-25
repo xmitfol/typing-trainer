@@ -1,0 +1,93 @@
+/* tokens.css — design tokens for typing-trainer
+ * Phase 0 · Foundation
+ * All variables that compose the visual system. Override per [data-theme="dark"]. */
+
+:root {
+  /* Surfaces */
+  --bg:          #f5f4f0;
+  --bg-alt:      #ecebe5;
+  --surface:     #ffffff;
+  --divider:     rgba(0, 0, 0, 0.08);
+  --divider-strong: rgba(0, 0, 0, 0.12);
+
+  /* Text */
+  --ink:         #1a1a17;
+  --sub:         rgba(26, 26, 23, 0.60);
+  --faint:       rgba(26, 26, 23, 0.40);
+
+  /* Accents */
+  --accent:      #3b82f6;
+  --accent-bg:   #eef4ff;
+  --success:     #10b981;
+  --success-bg:  #f0fdf4;
+  --warn:        #f59e0b;
+  --warn-bg:     #fef3c7;
+  --error:       #ef4444;
+  --error-bg:    #fef2f2;
+
+  /* Finger palette — FIXED (user instruction, do not change) */
+  --f-pink:      #ff7675;
+  --f-pink-2:    #e84393;
+  --f-orange:    #fdcb6e;
+  --f-orange-2:  #f39c12;
+  --f-green:     #00b894;
+  --f-green-2:   #00a085;
+  --f-blue:      #74b9ff;
+  --f-blue-2:    #0984e3;
+  --f-indigo:    #4a90e2;
+  --f-indigo-2:  #2d3436;
+  --f-purple:    #a29bfe;
+  --f-purple-2:  #6c5ce7;
+
+  --grad-pink:   linear-gradient(180deg, var(--f-pink)   0%, var(--f-pink-2)   100%);
+  --grad-orange: linear-gradient(180deg, var(--f-orange) 0%, var(--f-orange-2) 100%);
+  --grad-green:  linear-gradient(180deg, var(--f-green)  0%, var(--f-green-2)  100%);
+  --grad-blue:   linear-gradient(180deg, var(--f-blue)   0%, var(--f-blue-2)   100%);
+  --grad-indigo: linear-gradient(180deg, var(--f-indigo) 0%, var(--f-indigo-2) 100%);
+  --grad-purple: linear-gradient(180deg, var(--f-purple) 0%, var(--f-purple-2) 100%);
+
+  /* Brand */
+  --brand-grad:  linear-gradient(135deg, var(--f-blue) 0%, var(--f-purple) 100%);
+
+  /* Type */
+  --font-ui:     "Manrope", ui-sans-serif, system-ui, -apple-system, sans-serif;
+  --font-mono:   "JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+  --font-serif:  "Source Serif 4", "Charter", Georgia, serif;
+
+  /* Radii */
+  --r-sm:   6px;
+  --r-md:   10px;
+  --r-lg:   14px;
+  --r-xl:   18px;
+  --r-2xl:  24px;
+  --r-pill: 999px;
+
+  /* Shadows */
+  --shadow-sm: 0 1px 2px rgba(0,0,0,0.04);
+  --shadow-md: 0 4px 12px rgba(0,0,0,0.06);
+  --shadow-lg: 0 24px 60px rgba(0,0,0,0.06), 0 1px 0 rgba(255,255,255,1) inset;
+  --shadow-accent: 0 8px 20px rgba(59, 130, 246, 0.35);
+
+  /* Spacing scale (use freely) */
+  --s-1: 4px; --s-2: 8px; --s-3: 12px; --s-4: 16px;
+  --s-5: 20px; --s-6: 24px; --s-7: 32px; --s-8: 40px;
+  --s-9: 56px; --s-10: 72px;
+
+  /* Transitions */
+  --t-fast:   .12s ease;
+  --t-base:   .15s ease;
+  --t-slow:   .25s ease;
+}
+
+[data-theme="dark"] {
+  --bg:         #161614;
+  --bg-alt:     #1d1d1b;
+  --surface:    #1d1d1b;
+  --divider:    rgba(255, 255, 255, 0.06);
+  --divider-strong: rgba(255, 255, 255, 0.10);
+  --ink:        #f3f1ea;
+  --sub:        rgba(243, 241, 234, 0.55);
+  --faint:      rgba(243, 241, 234, 0.35);
+  --accent-bg:  rgba(59, 130, 246, 0.15);
+  --shadow-lg:  0 24px 60px rgba(0,0,0,0.4), 0 1px 0 rgba(255,255,255,0.03) inset;
+}
