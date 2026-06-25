@@ -47,7 +47,9 @@
         const nextBtnLg = `<a class="btn btn--lg" href="${r.nextHref}">${esc(r.nextLabel)}</a>`;
         const retryLg = `<button class="btn btn--lg" id="rep-retry" type="button">↻ Повторить урок</button>`;
         const retrySm = `<button class="btn btn--secondary" id="rep-retry" type="button">↻ Повторить</button>`;
-        const listBtn = `<a class="btn btn--ghost" href="${r.listHref}">К списку уроков</a>`;
+        // Ghost «К списку» не дублируем, если первичная/вторичная и так ведёт туда
+        // (последний урок курса: «Следующий урок» → список).
+        const listBtn = (r.nextHref !== r.listHref) ? `<a class="btn btn--ghost" href="${r.listHref}">К списку уроков</a>` : '';
 
         root.innerHTML = `
       <div class="report-card">
