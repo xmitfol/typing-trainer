@@ -186,6 +186,11 @@
         .layout-select:hover { background-color: var(--bg-alt); color: var(--ink); }
         .layout-select:focus { outline: none; border-color: var(--divider); color: var(--ink); }
 
+        /* Контейнер шириной с клавиатуру (fit-content), центрирован в карточке.
+           Тулбар внутри заполняет эту ширину → его группы выравниваются по краям
+           клавиатуры, а не карточки (была дыра: тулбар 1280, клавиатура уже). */
+        .kb-area { width: fit-content; max-width: 100%; margin: 0 auto; }
+        .kb-area > .toolbar { width: 100%; box-sizing: border-box; }
         .kb-stage { display: flex; justify-content: center; overflow: hidden; }
 
         /* Toast разблокировки достижения */
@@ -361,6 +366,9 @@
                 </div>
             </div>
 
+            <!-- Тулбар + клавиатура в одном центрированном контейнере (.kb-area),
+                 шириной с клавиатуру: группы тулбара садятся над краями клавиатуры. -->
+            <div class="kb-area">
             <!-- Toolbar -->
             <div class="toolbar" id="toolbar">
                 <button class="tool-btn" id="finger-hint-btn" title="Подсветка расстановки пальцев (вкл.)">
@@ -406,6 +414,7 @@
             <div class="kb-stage" id="kb-stage">
                 <typing-keyboard id="kb" type="classic" unit="40"></typing-keyboard>
             </div>
+            </div><!-- /.kb-area -->
         </div>
     </div>
 
