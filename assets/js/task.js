@@ -124,9 +124,10 @@ document.addEventListener('DOMContentLoaded', async function () {
     // пройденным (exerciseProgress) и возвращает в теорию. placement-шаг — это
     // обычный drill на якорных клавишах (А/О = F/J), отличается лишь инструкцией.
     const exerciseIdx = parseInt(params.get('exercise'), 10) || 0;
-    let currentStep = null, stepMode = false;
+    let currentStep = null, stepMode = false, totalSteps = 0;
     if (exerciseIdx > 0 && lesson.guided && Array.isArray(lesson.tips)) {
         const steps = lesson.tips.filter(tp => tp && tp.type === 'step');
+        totalSteps = steps.length;
         currentStep = steps[exerciseIdx - 1] || null;
         stepMode = !!(currentStep && currentStep.target);
     }
@@ -416,17 +417,27 @@ document.addEventListener('DOMContentLoaded', async function () {
         $('final-speed').textContent = '—';
         $('final-acc').textContent = '—';
         $('final-rhythm').textContent = '—';
-        $('success-title').textContent = tf('task.stepDoneTitle', 'Шаг пройден');
-        $('success-msg').textContent = tf('task.stepDoneMsg', 'Отлично! Вернись к уроку и переходи к следующему шагу.');
-        // Прямой текст без шаблонных переменных: у шага нет оценки/точности,
-        // поэтому НЕ используем реплику lessonCompleteSuccess (в ней {accuracy}).
-        tipEl.textContent = (profile.name ? profile.name + ', ш' : 'Ш') + 'аг пройден! Возвращайся к уроку.';
-        hintEl.textContent = '';
-
+        // Вариант 2 потока: последний шаг ведёт не назад к уроку, а на ФИНАЛЬНЫЙ
+        // ЗАХОД (полный текст урока) → оттуда «Отчёт по уроку».
+        const isLastStep = totalSteps > 0 && exerciseIdx >= totalSteps;
         const nextBtn = $('next-btn');
-        nextBtn.textContent = tf('task.backToLesson', '← Назад к уроку');
-        // Возврат к ПРОЙДЕННОМУ шагу на странице урока (не в начало текста).
-        nextBtn.href = `lesson.html?tier=${encodeURIComponent(tier)}&lesson=${lessonNum}&step=${exerciseIdx}`;
+        if (isLastStep) {
+            $('success-title').textContent = 'Все шаги пройдены!';
+            $('success-msg').textContent = 'Отлично! Остался финальный заход — пройди урок целиком.';
+            tipEl.textContent = (profile.name ? profile.name + ', в' : 'В') + 'се шаги позади! Теперь финальный заход на весь урок.';
+            nextBtn.textContent = 'Финальный заход →';
+            nextBtn.href = `task.html?tier=${encodeURIComponent(tier)}&lesson=${lessonNum}`;
+        } else {
+            $('success-title').textContent = tf('task.stepDoneTitle', 'Шаг пройден');
+            $('success-msg').textContent = tf('task.stepDoneMsg', 'Отлично! Вернись к уроку и переходи к следующему шагу.');
+            // Прямой текст без шаблонных переменных: у шага нет оценки/точности,
+            // поэтому НЕ используем реплику lessonCompleteSuccess (в ней {accuracy}).
+            tipEl.textContent = (profile.name ? profile.name + ', ш' : 'Ш') + 'аг пройден! Возвращайся к уроку.';
+            // Возврат к ПРОЙДЕННОМУ шагу на странице урока (не в начало текста).
+            nextBtn.textContent = tf('task.backToLesson', '← Назад к уроку');
+            nextBtn.href = `lesson.html?tier=${encodeURIComponent(tier)}&lesson=${lessonNum}&step=${exerciseIdx}`;
+        }
+        hintEl.textContent = '';
 
         kb.removeAttribute('highlight-char');
         taskBody.classList.add('hide');
@@ -481,62 +492,59 @@ document.addEventListener('DOMContentLoaded', async function () {
             }
         }
 
-        $('success-num').textContent = exId;
-        $('success-avatar').innerHTML = window.portraits ? window.portraits.mentor(mentorId, 150) : '';
-        $('final-grade').textContent = '★'.repeat(stars) + '☆'.repeat(5 - stars);
-        $('final-speed').innerHTML = `${wpm} <span style="font-size:11px;color:var(--faint)">зн/мин</span>`;
-        $('final-acc').innerHTML = `${acc}<span style="font-size:11px;color:var(--faint)">%</span>`;
         const rhythm = calcRhythm();
-        $('final-rhythm').innerHTML = rhythm == null
-            ? '—'
-            : `${rhythm}<span style="font-size:11px;color:var(--faint)">%</span>`;
-
-        $('success-title').textContent = t(`task.titles.${stars}`);
-        $('success-msg').textContent = acc === 100
-            ? t('task.msgPerfect')
-            : t(stars >= 4 ? 'task.msgGood' : 'task.msgRetry', { acc });
-
-        // Наставник в bubble: успех (errors в пределах лимита) или превышение лимита.
-        const vars = { name: profile.name || '', wpm, accuracy: acc, errors, limit: errorLimit, level: lesson.title || '' };
         const passed = errors <= errorLimit;
-        setBubble(
-            passed ? 'lessonCompleteSuccess' : 'errorLimitExceeded',
-            vars,
-            passed
-                ? (stars >= 4 ? 'Отлично! Ритм уверенный, можно чуть ускориться.'
-                              : 'Неплохо. На следующей попытке целься в 95%+.')
-                : 'Ошибок многовато — попробуем ещё раз?'
-        );
 
-        // Коуч-разбор (Phase A): что хорошо / над чем поработать + мотивация.
-        if (window.coach) {
-            let topKey = null, topN = 0;
-            for (const k in keyErrors) {
-                if (k !== ' ' && keyErrors[k] > topN) { topN = keyErrors[k]; topKey = k; }
-            }
-            const a = window.coach.analyze({ accuracy: acc, wpm, rhythm, targetWpm: lesson.target_wpm, topMistakeKey: topKey });
-            const fill = (id, items) => { $(id).innerHTML = items.map(x => `<li>${escapeHtml(x)}</li>`).join(''); };
-            fill('coach-good', a.good);
-            fill('coach-improve', a.improve);
-            $('coach-quote').textContent = window.coach.motivate(mentorId, passed);
-            $('coach-panel').hidden = false;
+        // Коуч-разбор (что хорошо / над чем поработать + топ-ошибка) + мотивация.
+        let topKey = null, topN = 0;
+        for (const k in keyErrors) {
+            if (k !== ' ' && keyErrors[k] > topN) { topN = keyErrors[k]; topKey = k; }
         }
+        const ca = window.coach
+            ? window.coach.analyze({ accuracy: acc, wpm, rhythm, targetWpm: lesson.target_wpm, topMistakeKey: topKey })
+            : { good: [], improve: [] };
+        const quote = window.coach ? window.coach.motivate(mentorId, passed) : '';
 
-        // «Продолжить» → теория следующего урока (или к списку, если последний).
-        // Для tier=user следующего урока нет — возвращаемся в Конструктор.
-        const nextBtn = $('next-btn');
+        // Освоенные клавиши урока → [буква, палец] (CHAR_FINGER).
+        const learnedKeys = (lesson.new_keys || [])
+            .map(k => String(k).toLowerCase())
+            .filter(k => k && k.trim() && k !== 'space')
+            .map(k => [k, CHAR_FINGER[k] || 'blue']);
+        const learnedTotal = (lesson.keys_trained || []).filter(k => k && k !== 'Space' && String(k).trim()).length;
+        const isCyr = (lesson.new_keys || []).some(k => /[а-яё]/i.test(k)) || /[а-яё]/i.test(targetText);
+        const state = (passed && stars >= 3) ? 'success' : 'struggle';
+
+        // Следующий урок / список.
+        let nextHref, nextLabel;
         if (isUserLesson) {
-            nextBtn.textContent = t('task.backToBuilder');
-            nextBtn.href = 'builder.html';
+            nextHref = 'builder.html'; nextLabel = t('task.backToBuilder');
+        } else if (lessonNum + 1 <= totalLessons) {
+            nextHref = `lesson.html?tier=${encodeURIComponent(tier)}&lesson=${lessonNum + 1}`;
+            nextLabel = 'Следующий урок →';
         } else {
-            const nextN = lessonNum + 1;
-            if (nextN <= totalLessons) {
-                nextBtn.textContent = t('task.continueLesson', { n: nextN });
-                nextBtn.href = `lesson.html?tier=${encodeURIComponent(tier)}&lesson=${nextN}`;
-            } else {
-                nextBtn.textContent = t('task.continueList');
-                nextBtn.href = 'course.html';
-            }
+            nextHref = 'course.html'; nextLabel = 'К списку уроков';
+        }
+        const mentorName = (mentorChar && mentorChar.character && mentorChar.character.name)
+            || ({ anna: 'Анна', maxim: 'Максим', knopych: 'Кнопыч', klavochka: 'Клавочка' }[mentorId]) || '';
+
+        // Богатый «Отчёт по уроку» (экран B). Конец ШАГА остаётся кратким (finishStep).
+        if (window.lessonSummary) {
+            window.lessonSummary.render(successEl, {
+                mentor: mentorId, mentorName,
+                lessonNum, lessonTitle: lesson.title || `Урок ${lessonNum}`,
+                keys: learnedKeys, learnedTotal, learnedAll: isCyr ? 33 : 26,
+                stars, acc, rhythm: rhythm == null ? 0 : rhythm, speed: wpm,
+                showSpeed: !isUserLesson && lessonNum >= 6,
+                good: ca.good, work: ca.improve, quote,
+                lesson: lessonNum, lessonsTotal: totalLessons,
+                state, nextHref, nextLabel, listHref: 'course.html',
+            });
+            const rep = $('rep-retry');  // «Повторить урок» → вернуть тренажёр и сбросить заход
+            if (rep) rep.addEventListener('click', () => {
+                successEl.classList.remove('show');
+                taskBody.classList.remove('hide'); toolbar.classList.remove('hide'); kbStage.classList.remove('hide');
+                reset();
+            });
         }
 
         kb.removeAttribute('highlight-char');
@@ -544,9 +552,6 @@ document.addEventListener('DOMContentLoaded', async function () {
         toolbar.classList.add('hide');
         kbStage.classList.add('hide');
         successEl.classList.add('show');
-
-        // Confetti — только при successful pass (errors в пределах лимита)
-        if (passed) spawnConfetti();
     }
 
     function spawnConfetti() {
