@@ -391,6 +391,8 @@ document.addEventListener('DOMContentLoaded', async function () {
             }
             // Неверная клавиша — стоим на месте, ждём правильную. Считаем ошибку.
             kb.flashError(e.code);
+            const curEl = targetEl.querySelector('.cur');  // подчеркнуть место промаха
+            if (curEl) curEl.classList.add('cur--err');
             errors++;
             keyErrors[expected] = (keyErrors[expected] || 0) + 1;  // для коуч-разбора
             // Наставник реагирует один раз, когда ошибок становится больше половины лимита

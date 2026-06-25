@@ -93,6 +93,9 @@
         .target .cur[data-finger="blue"]   { background: var(--f-blue);   color: var(--ink); }
         .target .cur[data-finger="indigo"] { background: var(--f-indigo); color: #fff; }
         .target .cur[data-finger="purple"] { background: var(--f-purple); color: var(--ink); }
+        /* Ошибка в строгом режиме: курсор стоит на месте — подчёркиваем красным,
+           чтобы видеть, где именно промах. Снимается при верном нажатии (ре-рендер). */
+        .target .cur--err { box-shadow: 0 4px 0 -1px var(--error); }
 
         .progress-row { display: flex; align-items: center; gap: 10px; margin-bottom: 14px; }
         .progress-track { flex: 1; height: 6px; background: var(--divider); border-radius: 999px; overflow: hidden; }
