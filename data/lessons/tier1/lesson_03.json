@@ -5,22 +5,28 @@
   "title": "Добавляем Ф и Ж",
   "description": "Мизинцы домашнего ряда: Ф (левый мизинец) и Ж (правый мизинец)",
   "target_wpm": 12,
-  "text_length": 33,
+  "text_length": 37,
   "error_limit_percent": 5,
   "error_limit": 2,
-  "text": "фф жж жало ждал лажа жажда вода",
+  "text": "ф ф ф ж ж ж жало ждал лажа жажда вода",
   "text_sequence": [
     {"char": "ф", "hand": "left", "finger": "pinky", "key": "Ф"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "ф", "hand": "left", "finger": "pinky", "key": "Ф"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
     {"char": "ф", "hand": "left", "finger": "pinky", "key": "Ф"},
     {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
     {"char": "ж", "hand": "right", "finger": "pinky", "key": "Ж"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "ж", "hand": "right", "finger": "pinky", "key": "Ж"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
     {"char": "ж", "hand": "right", "finger": "pinky", "key": "Ж"},
     {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
     {"char": "ж", "hand": "right", "finger": "pinky", "key": "Ж"},
     {"char": "а", "hand": "left", "finger": "index", "key": "А"},
     {"char": "л", "hand": "right", "finger": "middle", "key": "Л"},
     {"char": "о", "hand": "right", "finger": "index", "key": "О"},
-    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
     {"char": "ж", "hand": "right", "finger": "pinky", "key": "Ж"},
     {"char": "д", "hand": "right", "finger": "ring", "key": "Д"},
     {"char": "а", "hand": "left", "finger": "index", "key": "А"},
@@ -36,7 +42,7 @@
     {"char": "ж", "hand": "right", "finger": "pinky", "key": "Ж"},
     {"char": "д", "hand": "right", "finger": "ring", "key": "Д"},
     {"char": "а", "hand": "left", "finger": "index", "key": "А"},
-    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
     {"char": "в", "hand": "left", "finger": "middle", "key": "В"},
     {"char": "о", "hand": "right", "finger": "index", "key": "О"},
     {"char": "д", "hand": "right", "finger": "ring", "key": "Д"},
@@ -45,14 +51,67 @@
   "keys_trained": ["А", "О", "В", "Л", "Ы", "Д", "Ф", "Ж", "Space"],
   "new_keys": ["Ф", "Ж"],
   "finger_focus": "Мизинцы домашнего ряда (Ф — левый, Ж — правый)",
+  "guided": true,
   "tips": [
-    {"type": "lead", "text": "Ф — мизинец левой руки, домашний ряд (крайняя левая буква)"},
-    {"type": "drop", "text": "Ж — мизинец правой руки, домашний ряд"},
-    {"type": "exercise", "target": "фф жж жало ждал", "finger": "pink", "hint": "Мизинцы домашнего ряда (Ф — левый, Ж — правый)"},
-    {"type": "p", "text": "ЖАЛО, ЖДАЛ, ЛАЖА — слова целиком из домашнего ряда!"},
-    {"type": "callout", "icon": "💡", "title": "Подсказка", "text": "Мизинец — самый слабый палец. Нажимай Ф и Ж мягко и возвращай палец на место"},
-    {"type": "p", "text": "Теперь весь домашний ряд почти собран — все буквы под пальцами на своих гнёздах"},
-    {"type": "exercise", "target": "лажа жажда вода", "finger": "pink", "hint": "Мизинцы домашнего ряда (Ф — левый, Ж — правый)"}
+    {
+      "type": "lead",
+      "text": "Безымянные уже работают — добавляем самые крайние буквы домашнего ряда: Ф и Ж. Обе на месте, тянуться не нужно. Главное на этом уроке — разбудить мизинцы, самые слабые пальцы."
+    },
+    {
+      "type": "drop",
+      "text": "Ф — мизинец левой руки (крайняя левая буква, слева от Ы), Ж — мизинец правой (крайняя правая, справа от Д). Большие пальцы над пробелом, остальные на исходной ФЫВА ОЛДЖ. Нащупай Ф и Ж, не отрывая других пальцев от дома."
+    },
+    {
+      "type": "callout",
+      "icon": "🤏",
+      "title": "Мизинец — особое внимание",
+      "text": "Мизинец слушается хуже всех пальцев и быстрее устаёт. Не дави сильно и не спеши: спокойный счёт «раз» на каждое нажатие и сразу возвращай палец на место."
+    },
+    {
+      "type": "step",
+      "kind": "drill",
+      "target": "ф ф ф ф ф ф ф ф ф ф ф ф ф ф ф ф ф ф ф ф",
+      "finger": "pink",
+      "title": "Буква Ф",
+      "hint": "Мизинец левой руки — буква Ф, после каждой — пробел"
+    },
+    {
+      "type": "step",
+      "kind": "drill",
+      "target": "ж ж ж ж ж ж ж ж ж ж ж ж ж ж ж ж ж ж ж ж",
+      "finger": "pink",
+      "title": "Буква Ж",
+      "hint": "Мизинец правой руки — буква Ж, после каждой — пробел"
+    },
+    {
+      "type": "step",
+      "kind": "drill",
+      "target": "ф ж ф ж ф ж ф ж ф ж ф ж ф ж ф ж ф ж ф ж",
+      "finger": "pink",
+      "title": "Чередование",
+      "hint": "Чередуем мизинцы: Ф — Ж — Ф — Ж, после каждой — пробел"
+    },
+    {
+      "type": "p",
+      "text": "Мизинцы включились — собираем слова. С Ф и Ж домашний ряд почти весь под пальцами, и из освоенных букв складываются настоящие слова. Читай слово целиком и набирай ровно, не глядя на руки."
+    },
+    {
+      "type": "pullquote",
+      "text": "Точность бьёт скорость. Скорость приходит сама, когда точность стабилизируется.",
+      "by": "методика курса"
+    },
+    {
+      "type": "step",
+      "kind": "drill",
+      "target": "жало ждал лажа жажда вода жало ждал лажа жажда вода",
+      "finger": "pink",
+      "title": "Слова",
+      "hint": "Слова из освоенных букв: жало, ждал, лажа, жажда, вода"
+    },
+    {
+      "type": "p",
+      "text": "Все шаги пройдены? Тогда нажми «Открыть тренажёр» ниже и сделай полный заход на весь текст урока. Этот заход сохраняется в прогресс и открывает следующий урок."
+    }
   ],
   "character_tips": {
     "anna": "Отлично! Ф и Ж — буквы для мизинцев. ЖАЛО, ЖДАЛ — настоящие слова, и всё ещё домашний ряд!",
@@ -63,5 +122,5 @@
   "phase": 1,
   "rhythmLesson": false,
   "created_at": "2025-11-19",
-  "version": "3.0"
+  "version": "4.0"
 }

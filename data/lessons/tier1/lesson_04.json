@@ -3,70 +3,129 @@
   "tier": 1,
   "lesson_number": 4,
   "title": "Добавляем П и Р",
-  "description": "Последние буквы рук на домашнем ряду: П (левый мизинец) и Р (левый указательный)",
+  "description": "Буквы в центре домашнего ряда: П и Р под указательными пальцами левой руки",
   "target_wpm": 14,
-  "text_length": 38,
+  "text_length": 42,
   "error_limit_percent": 5,
   "error_limit": 2,
-  "text": "пп рр пар лапа рад право повар парад",
+  "text": "п п п р р р пар лапа рад право повар парад",
   "text_sequence": [
-    {"char": "п", "hand": "left", "finger": "pinky", "key": "П"},
-    {"char": "п", "hand": "left", "finger": "pinky", "key": "П"},
+    {"char": "п", "hand": "left", "finger": "index", "key": "П"},
     {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
-    {"char": "р", "hand": "left", "finger": "index", "key": "Р"},
-    {"char": "р", "hand": "left", "finger": "index", "key": "Р"},
+    {"char": "п", "hand": "left", "finger": "index", "key": "П"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "п", "hand": "left", "finger": "index", "key": "П"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "р", "hand": "right", "finger": "index", "key": "Р"},
     {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
-    {"char": "п", "hand": "left", "finger": "pinky", "key": "П"},
+    {"char": "р", "hand": "right", "finger": "index", "key": "Р"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "р", "hand": "right", "finger": "index", "key": "Р"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "п", "hand": "left", "finger": "index", "key": "П"},
     {"char": "а", "hand": "left", "finger": "index", "key": "А"},
-    {"char": "р", "hand": "left", "finger": "index", "key": "Р"},
-    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "р", "hand": "right", "finger": "index", "key": "Р"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
     {"char": "л", "hand": "right", "finger": "middle", "key": "Л"},
     {"char": "а", "hand": "left", "finger": "index", "key": "А"},
-    {"char": "п", "hand": "left", "finger": "pinky", "key": "П"},
+    {"char": "п", "hand": "left", "finger": "index", "key": "П"},
     {"char": "а", "hand": "left", "finger": "index", "key": "А"},
-    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
-    {"char": "р", "hand": "left", "finger": "index", "key": "Р"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "р", "hand": "right", "finger": "index", "key": "Р"},
     {"char": "а", "hand": "left", "finger": "index", "key": "А"},
     {"char": "д", "hand": "right", "finger": "ring", "key": "Д"},
-    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
-    {"char": "п", "hand": "left", "finger": "pinky", "key": "П"},
-    {"char": "р", "hand": "left", "finger": "index", "key": "Р"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "п", "hand": "left", "finger": "index", "key": "П"},
+    {"char": "р", "hand": "right", "finger": "index", "key": "Р"},
     {"char": "а", "hand": "left", "finger": "index", "key": "А"},
     {"char": "в", "hand": "left", "finger": "middle", "key": "В"},
     {"char": "о", "hand": "right", "finger": "index", "key": "О"},
     {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
-    {"char": "п", "hand": "left", "finger": "pinky", "key": "П"},
+    {"char": "п", "hand": "left", "finger": "index", "key": "П"},
     {"char": "о", "hand": "right", "finger": "index", "key": "О"},
     {"char": "в", "hand": "left", "finger": "middle", "key": "В"},
     {"char": "а", "hand": "left", "finger": "index", "key": "А"},
-    {"char": "р", "hand": "left", "finger": "index", "key": "Р"},
-    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
-    {"char": "п", "hand": "left", "finger": "pinky", "key": "П"},
+    {"char": "р", "hand": "right", "finger": "index", "key": "Р"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "п", "hand": "left", "finger": "index", "key": "П"},
     {"char": "а", "hand": "left", "finger": "index", "key": "А"},
-    {"char": "р", "hand": "left", "finger": "index", "key": "Р"},
+    {"char": "р", "hand": "right", "finger": "index", "key": "Р"},
     {"char": "а", "hand": "left", "finger": "index", "key": "А"},
     {"char": "д", "hand": "right", "finger": "ring", "key": "Д"}
   ],
   "keys_trained": ["А", "О", "В", "Л", "Ы", "Д", "Ф", "Ж", "П", "Р", "Space"],
   "new_keys": ["П", "Р"],
-  "finger_focus": "Левый мизинец (П) и левый указательный (Р), домашний ряд",
+  "finger_focus": "Указательные пальцы в центре домашнего ряда (П и Р)",
+  "guided": true,
   "tips": [
-    {"type": "lead", "text": "П и Р тоже живут на домашнем ряду, в его середине (ФЫВА-П-Р-ОЛДЖ)"},
-    {"type": "drop", "text": "Р — растяжка указательного левой руки вправо; П — мизинец. Оба — без движения вверх или вниз"},
-    {"type": "exercise", "target": "пп рр пар лапа", "finger": "pink", "hint": "Левый мизинец (П) и левый указательный (Р), домашний ряд"},
-    {"type": "p", "text": "ПАР, ЛАПА, РАД, ПРАВО — настоящие слова, и всё это домашний ряд!"},
-    {"type": "callout", "icon": "💡", "title": "Подсказка", "text": "Р — короткая растяжка указательного к центру. Возвращай палец на А"},
-    {"type": "p", "text": "Теперь у тебя собран почти весь домашний ряд: можно печатать слова и фразы"},
-    {"type": "exercise", "target": "право повар парад", "finger": "blue", "hint": "Левый мизинец (П) и левый указательный (Р), домашний ряд"}
+    {
+      "type": "lead",
+      "text": "Добавляем П и Р — они стоят в центре домашнего ряда, между левой и правой группами (ФЫВА-П-Р-ОЛДЖ). Указательные пальцы — самые сильные, но к этим буквам нужно чуть потянуться вбок."
+    },
+    {
+      "type": "drop",
+      "text": "Р — короткая растяжка указательного к центру, П — рядом с ним. Оба нажатия без движения вверх или вниз: потянулся вбок, нажал и сразу вернул указательный на свою исходную клавишу. Большие пальцы над пробелом."
+    },
+    {
+      "type": "callout",
+      "icon": "👉",
+      "title": "Тянись и возвращайся",
+      "text": "Не уводи всю руку — двигается только указательный палец. После каждого нажатия П или Р сразу возвращай его на исходную позицию, чтобы не терять опору."
+    },
+    {
+      "type": "step",
+      "kind": "drill",
+      "target": "п п п п п п п п п п п п п п п п п п п п",
+      "finger": "blue",
+      "title": "Буква П",
+      "hint": "Указательный палец — буква П, после каждой — пробел"
+    },
+    {
+      "type": "step",
+      "kind": "drill",
+      "target": "р р р р р р р р р р р р р р р р р р р р",
+      "finger": "indigo",
+      "title": "Буква Р",
+      "hint": "Указательный палец — буква Р, после каждой — пробел"
+    },
+    {
+      "type": "step",
+      "kind": "drill",
+      "target": "п р п р п р п р п р п р п р п р п р п р",
+      "finger": "blue",
+      "title": "Чередование",
+      "hint": "Чередуем П — Р — П — Р, после каждой — пробел"
+    },
+    {
+      "type": "p",
+      "text": "П и Р открывают десятки новых слов. Вместе с освоенными буквами теперь складываются настоящие слова с растяжкой в центр. Читай слово целиком и набирай ровно, не глядя на руки."
+    },
+    {
+      "type": "pullquote",
+      "text": "Точность бьёт скорость. Скорость приходит сама, когда точность стабилизируется.",
+      "by": "методика курса"
+    },
+    {
+      "type": "step",
+      "kind": "drill",
+      "target": "пар лапа рад право повар парад пар лапа рад право повар парад",
+      "finger": "blue",
+      "title": "Слова",
+      "hint": "Слова из освоенных букв: пар, лапа, рад, право, повар, парад"
+    },
+    {
+      "type": "p",
+      "text": "Все шаги пройдены? Тогда нажми «Открыть тренажёр» ниже и сделай полный заход на весь текст урока. Этот заход сохраняется в прогресс и открывает следующий урок."
+    }
   ],
   "character_tips": {
-    "anna": "Отлично! П и Р достраивают домашний ряд. ПАР, ЛАПА, ПОВАР, ПАРАД — целые слова без верхнего ряда!",
-    "maxim": "Хорошая работа! Р — растяжка указательного, П — работа мизинца. Эти буквы открывают десятки новых слов.",
+    "anna": "Отлично! П и Р в центре ряда. ПАР, ЛАПА, ПОВАР, ПАРАД — целые слова без верхнего ряда!",
+    "maxim": "Хорошая работа! П и Р — небольшая растяжка указательных к центру. Эти буквы открывают десятки новых слов.",
     "knopych": "Вау! ПАР-ЛАПА-ПАРАД! ПОВАР! Слова растут, а руки всё ещё дома!",
-    "klavochka": "Какой ты умница! Почти весь домашний ряд под пальчиками! ПРАВО, ПОВАР — красивые слова!"
+    "klavochka": "Какой ты умница! Указательные потянулись к центру! ПРАВО, ПОВАР — красивые слова!"
   },
   "phase": 1,
   "rhythmLesson": false,
   "created_at": "2025-11-19",
-  "version": "3.0"
+  "version": "4.0"
 }

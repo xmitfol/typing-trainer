@@ -5,59 +5,107 @@
   "title": "Добавляем Э",
   "description": "Последняя буква домашнего ряда: Э (правый мизинец) и закрепление слов",
   "target_wpm": 14,
-  "text_length": 38,
+  "text_length": 39,
   "error_limit_percent": 5,
   "error_limit": 3,
-  "text": "ээ эра пэр правда дрова провод повар",
+  "text": "э э э эра пэр правда дрова провод повар",
   "text_sequence": [
     {"char": "э", "hand": "right", "finger": "pinky", "key": "Э"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
     {"char": "э", "hand": "right", "finger": "pinky", "key": "Э"},
     {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
     {"char": "э", "hand": "right", "finger": "pinky", "key": "Э"},
-    {"char": "р", "hand": "left", "finger": "index", "key": "Р"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "э", "hand": "right", "finger": "pinky", "key": "Э"},
+    {"char": "р", "hand": "right", "finger": "index", "key": "Р"},
     {"char": "а", "hand": "left", "finger": "index", "key": "А"},
     {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
-    {"char": "п", "hand": "left", "finger": "pinky", "key": "П"},
+    {"char": "п", "hand": "left", "finger": "index", "key": "П"},
     {"char": "э", "hand": "right", "finger": "pinky", "key": "Э"},
-    {"char": "р", "hand": "left", "finger": "index", "key": "Р"},
+    {"char": "р", "hand": "right", "finger": "index", "key": "Р"},
     {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
-    {"char": "п", "hand": "left", "finger": "pinky", "key": "П"},
-    {"char": "р", "hand": "left", "finger": "index", "key": "Р"},
+    {"char": "п", "hand": "left", "finger": "index", "key": "П"},
+    {"char": "р", "hand": "right", "finger": "index", "key": "Р"},
     {"char": "а", "hand": "left", "finger": "index", "key": "А"},
     {"char": "в", "hand": "left", "finger": "middle", "key": "В"},
     {"char": "д", "hand": "right", "finger": "ring", "key": "Д"},
     {"char": "а", "hand": "left", "finger": "index", "key": "А"},
     {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
     {"char": "д", "hand": "right", "finger": "ring", "key": "Д"},
-    {"char": "р", "hand": "left", "finger": "index", "key": "Р"},
+    {"char": "р", "hand": "right", "finger": "index", "key": "Р"},
     {"char": "о", "hand": "right", "finger": "index", "key": "О"},
     {"char": "в", "hand": "left", "finger": "middle", "key": "В"},
     {"char": "а", "hand": "left", "finger": "index", "key": "А"},
-    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
-    {"char": "п", "hand": "left", "finger": "pinky", "key": "П"},
-    {"char": "р", "hand": "left", "finger": "index", "key": "Р"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "п", "hand": "left", "finger": "index", "key": "П"},
+    {"char": "р", "hand": "right", "finger": "index", "key": "Р"},
     {"char": "о", "hand": "right", "finger": "index", "key": "О"},
     {"char": "в", "hand": "left", "finger": "middle", "key": "В"},
     {"char": "о", "hand": "right", "finger": "index", "key": "О"},
     {"char": "д", "hand": "right", "finger": "ring", "key": "Д"},
-    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
-    {"char": "п", "hand": "left", "finger": "pinky", "key": "П"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "п", "hand": "left", "finger": "index", "key": "П"},
     {"char": "о", "hand": "right", "finger": "index", "key": "О"},
     {"char": "в", "hand": "left", "finger": "middle", "key": "В"},
     {"char": "а", "hand": "left", "finger": "index", "key": "А"},
-    {"char": "р", "hand": "left", "finger": "index", "key": "Р"}
+    {"char": "р", "hand": "right", "finger": "index", "key": "Р"}
   ],
   "keys_trained": ["А", "О", "В", "Л", "Ы", "Д", "Ф", "Ж", "П", "Р", "Э", "Space"],
   "new_keys": ["Э"],
   "finger_focus": "Правый мизинец (Э) и закрепление всего домашнего ряда",
+  "guided": true,
   "tips": [
-    {"type": "lead", "text": "Э — мизинец правой руки, крайняя правая буква домашнего ряда (ОЛДЖ-Э)"},
-    {"type": "drop", "text": "С Э домашний ряд собран полностью: Ф Ы В А П Р О Л Д Ж Э"},
-    {"type": "exercise", "target": "ээ эра пэр", "finger": "pink", "hint": "Правый мизинец (Э) и закрепление всего домашнего ряда"},
-    {"type": "p", "text": "Э — редкая буква, поэтому даём её как добивку. Зато теперь весь ряд под пальцами!"},
-    {"type": "callout", "icon": "💡", "title": "Поздравляем", "text": "Это последняя буква домашнего ряда. Дальше — закрепление, потом верхний ряд"},
-    {"type": "p", "text": "ПРАВДА, ДРОВА, ПРОВОД, ПОВАР — длинные слова целиком из домашнего ряда"},
-    {"type": "exercise", "target": "правда дрова провод повар", "finger": "blue", "hint": "Правый мизинец (Э) и закрепление всего домашнего ряда"}
+    {
+      "type": "lead",
+      "text": "Сегодня одна новая буква — Э, крайняя правая на домашнем ряду (ОЛДЖ-Э). С ней домашний ряд собран полностью: Ф Ы В А П Р О Л Д Ж Э."
+    },
+    {
+      "type": "drop",
+      "text": "Э — мизинец правой руки, сразу справа от Ж. Тянуться никуда не нужно, буква на своём гнезде. Большие пальцы над пробелом, остальные на исходной ФЫВА ОЛДЖ. Нащупай Э, не отрывая других пальцев от дома."
+    },
+    {
+      "type": "callout",
+      "icon": "🤏",
+      "title": "Снова мизинец",
+      "text": "Э — работа правого мизинца, самого слабого пальца. Нажимай мягко и сразу возвращай палец на место. Э встречается редко, но её гнездо важно знать твёрдо."
+    },
+    {
+      "type": "step",
+      "kind": "drill",
+      "target": "э э э э э э э э э э э э э э э э э э э э",
+      "finger": "pink",
+      "title": "Буква Э",
+      "hint": "Мизинец правой руки — буква Э, после каждой — пробел"
+    },
+    {
+      "type": "step",
+      "kind": "drill",
+      "target": "э а э а э а э а э а э а э а э а э а э а",
+      "finger": "pink",
+      "title": "Чередование",
+      "hint": "Координация мизинца с указательным: Э — А — Э — А, после каждой — пробел"
+    },
+    {
+      "type": "p",
+      "text": "Домашний ряд собран полностью — теперь из освоенных букв складываются длинные слова. Читай слово целиком и набирай ровно, не глядя на руки."
+    },
+    {
+      "type": "pullquote",
+      "text": "Точность бьёт скорость. Скорость приходит сама, когда точность стабилизируется.",
+      "by": "методика курса"
+    },
+    {
+      "type": "step",
+      "kind": "drill",
+      "target": "эра пэр правда дрова провод повар эра пэр правда дрова провод повар",
+      "finger": "blue",
+      "title": "Слова",
+      "hint": "Слова из освоенных букв: эра, пэр, правда, дрова, провод, повар"
+    },
+    {
+      "type": "p",
+      "text": "Все шаги пройдены? Тогда нажми «Открыть тренажёр» ниже и сделай полный заход на весь текст урока. Этот заход сохраняется в прогресс и открывает следующий урок."
+    }
   ],
   "character_tips": {
     "anna": "Отлично! Э — последняя буква домашнего ряда. Теперь весь ряд твой: ПРАВДА, ПРОВОД — длинные слова!",
@@ -68,5 +116,5 @@
   "phase": 1,
   "rhythmLesson": false,
   "created_at": "2025-11-19",
-  "version": "3.0"
+  "version": "4.0"
 }

@@ -5,7 +5,7 @@
   "title": "Ритм-упражнение: слова домашнего ряда",
   "description": "Закрепление всего домашнего ряда без новых букв — ритм и равномерность",
   "target_wpm": 16,
-  "text_length": 50,
+  "text_length": 47,
   "error_limit_percent": 5,
   "error_limit": 4,
   "text": "вода вода дрова дрова правда правда повар повар",
@@ -19,57 +19,109 @@
     {"char": "о", "hand": "right", "finger": "index", "key": "О"},
     {"char": "д", "hand": "right", "finger": "ring", "key": "Д"},
     {"char": "а", "hand": "left", "finger": "index", "key": "А"},
-    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
     {"char": "д", "hand": "right", "finger": "ring", "key": "Д"},
-    {"char": "р", "hand": "left", "finger": "index", "key": "Р"},
+    {"char": "р", "hand": "right", "finger": "index", "key": "Р"},
     {"char": "о", "hand": "right", "finger": "index", "key": "О"},
     {"char": "в", "hand": "left", "finger": "middle", "key": "В"},
     {"char": "а", "hand": "left", "finger": "index", "key": "А"},
     {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
     {"char": "д", "hand": "right", "finger": "ring", "key": "Д"},
-    {"char": "р", "hand": "left", "finger": "index", "key": "Р"},
+    {"char": "р", "hand": "right", "finger": "index", "key": "Р"},
     {"char": "о", "hand": "right", "finger": "index", "key": "О"},
     {"char": "в", "hand": "left", "finger": "middle", "key": "В"},
     {"char": "а", "hand": "left", "finger": "index", "key": "А"},
-    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
-    {"char": "п", "hand": "left", "finger": "pinky", "key": "П"},
-    {"char": "р", "hand": "left", "finger": "index", "key": "Р"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "п", "hand": "left", "finger": "index", "key": "П"},
+    {"char": "р", "hand": "right", "finger": "index", "key": "Р"},
     {"char": "а", "hand": "left", "finger": "index", "key": "А"},
     {"char": "в", "hand": "left", "finger": "middle", "key": "В"},
     {"char": "д", "hand": "right", "finger": "ring", "key": "Д"},
     {"char": "а", "hand": "left", "finger": "index", "key": "А"},
     {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
-    {"char": "п", "hand": "left", "finger": "pinky", "key": "П"},
-    {"char": "р", "hand": "left", "finger": "index", "key": "Р"},
+    {"char": "п", "hand": "left", "finger": "index", "key": "П"},
+    {"char": "р", "hand": "right", "finger": "index", "key": "Р"},
     {"char": "а", "hand": "left", "finger": "index", "key": "А"},
     {"char": "в", "hand": "left", "finger": "middle", "key": "В"},
     {"char": "д", "hand": "right", "finger": "ring", "key": "Д"},
     {"char": "а", "hand": "left", "finger": "index", "key": "А"},
-    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
-    {"char": "п", "hand": "left", "finger": "pinky", "key": "П"},
-    {"char": "о", "hand": "right", "finger": "index", "key": "О"},
-    {"char": "в", "hand": "left", "finger": "middle", "key": "В"},
-    {"char": "а", "hand": "left", "finger": "index", "key": "А"},
-    {"char": "р", "hand": "left", "finger": "index", "key": "Р"},
     {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
-    {"char": "п", "hand": "left", "finger": "pinky", "key": "П"},
+    {"char": "п", "hand": "left", "finger": "index", "key": "П"},
     {"char": "о", "hand": "right", "finger": "index", "key": "О"},
     {"char": "в", "hand": "left", "finger": "middle", "key": "В"},
     {"char": "а", "hand": "left", "finger": "index", "key": "А"},
-    {"char": "р", "hand": "left", "finger": "index", "key": "Р"}
+    {"char": "р", "hand": "right", "finger": "index", "key": "Р"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "п", "hand": "left", "finger": "index", "key": "П"},
+    {"char": "о", "hand": "right", "finger": "index", "key": "О"},
+    {"char": "в", "hand": "left", "finger": "middle", "key": "В"},
+    {"char": "а", "hand": "left", "finger": "index", "key": "А"},
+    {"char": "р", "hand": "right", "finger": "index", "key": "Р"}
   ],
   "keys_trained": ["А", "О", "В", "Л", "Ы", "Д", "Ф", "Ж", "П", "Р", "Э", "Space"],
   "new_keys": [],
   "finger_focus": "Все пальцы домашнего ряда — фокус на ритме и равномерности",
+  "guided": true,
   "tips": [
-    {"type": "lead", "text": "🎵 Без новых букв — закрепляем домашний ряд"},
-    {"type": "drop", "text": "Печатай ровно, в одном темпе, не покидая исходную позицию"},
-    {"type": "exercise", "target": "вода вода дрова дрова", "finger": "blue", "hint": "Все пальцы домашнего ряда — фокус на ритме и равномерности"},
-    {"type": "p", "text": "Почувствуй, как мышцы запоминают слова: ВОДА-ВОДА, ДРОВА-ДРОВА"},
-    {"type": "callout", "icon": "💡", "title": "Запомни", "text": "Ритм важнее скорости — печатай ровно, пальцы всегда возвращаются домой"},
-    {"type": "p", "text": "Это последняя передышка перед выходом на верхний ряд"},
-    {"type": "pullquote", "text": "Расслабь плечи и запястья, представь метроном", "by": "методика курса"},
-    {"type": "exercise", "target": "правда правда повар повар", "finger": "green", "hint": "Все пальцы домашнего ряда — фокус на ритме и равномерности"}
+    {
+      "type": "lead",
+      "text": "🎵 Новых букв сегодня нет — закрепляем домашний ряд через ритм. Главное на этом уроке не скорость, а ровный, одинаковый темп: каждое нажатие через равные промежутки, как удары метронома."
+    },
+    {
+      "type": "drop",
+      "text": "Руки уже знают все буквы домашнего ряда. Поставь пальцы на ФЫВА ОЛДЖ, большие — над пробелом, и не покидай исходную позицию. Повторяй каждое слово ровно, считая про себя: раз-два-три-четыре."
+    },
+    {
+      "type": "callout",
+      "icon": "🎶",
+      "title": "Ровный счёт",
+      "text": "Включи внутренний метроном. Печатай не «как получится», а строго в такт: между любыми двумя нажатиями — одинаковая пауза. Темп важнее скорости — лучше медленно и ровно, чем быстро и рвано."
+    },
+    {
+      "type": "step",
+      "kind": "drill",
+      "target": "вода вода вода вода вода",
+      "finger": "green",
+      "title": "Ритм: вода",
+      "hint": "Повторяй ровно, в одном темпе: вода — вода — вода. Считай раз-два-три-четыре"
+    },
+    {
+      "type": "step",
+      "kind": "drill",
+      "target": "дрова дрова дрова дрова",
+      "finger": "indigo",
+      "title": "Ритм: дрова",
+      "hint": "Повторяй ровно, без рывков: дрова — дрова — дрова. Держи одинаковые паузы"
+    },
+    {
+      "type": "step",
+      "kind": "drill",
+      "target": "правда правда правда",
+      "finger": "blue",
+      "title": "Ритм: правда",
+      "hint": "Повторяй ровно: правда — правда — правда. Не ускоряйся к концу"
+    },
+    {
+      "type": "step",
+      "kind": "drill",
+      "target": "повар повар повар",
+      "finger": "blue",
+      "title": "Ритм: повар",
+      "hint": "Повторяй ровно: повар — повар — повар. Ровный счёт до самого конца"
+    },
+    {
+      "type": "p",
+      "text": "Почувствуй, как мышцы запоминают слова целиком: ВОДА-ВОДА, ДРОВА-ДРОВА. Повторение в ровном темпе превращает движения в автоматизм — это последняя передышка перед выходом на верхний ряд."
+    },
+    {
+      "type": "pullquote",
+      "text": "Расслабь плечи и запястья, представь метроном — ритм важнее скорости.",
+      "by": "методика курса"
+    },
+    {
+      "type": "p",
+      "text": "Все шаги пройдены? Тогда нажми «Открыть тренажёр» ниже и сделай полный заход на весь текст урока. Этот заход сохраняется в прогресс и открывает следующий урок."
+    }
   ],
   "character_tips": {
     "anna": "Отлично! Ритм-урок на домашнем ряду. ВОДА-ВОДА, ПРАВДА-ПРАВДА — повторение закрепляет память!",
@@ -80,5 +132,5 @@
   "phase": 1,
   "rhythmLesson": true,
   "created_at": "2025-11-19",
-  "version": "3.0"
+  "version": "4.0"
 }
