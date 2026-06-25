@@ -8,14 +8,20 @@
   "text_length": 36,
   "error_limit_percent": 5,
   "error_limit": 3,
-  "text": "сс мм сам сома мама рама маска сосна",
+  "text": "с с с м м м сам сома мама рама маска сосна",
   "text_sequence": [
     {"char": "с", "hand": "left", "finger": "middle", "key": "С"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "с", "hand": "left", "finger": "middle", "key": "С"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
     {"char": "с", "hand": "left", "finger": "middle", "key": "С"},
     {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
     {"char": "м", "hand": "left", "finger": "index", "key": "М"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
     {"char": "м", "hand": "left", "finger": "index", "key": "М"},
-    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "м", "hand": "left", "finger": "index", "key": "М"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
     {"char": "с", "hand": "left", "finger": "middle", "key": "С"},
     {"char": "а", "hand": "left", "finger": "index", "key": "А"},
     {"char": "м", "hand": "left", "finger": "index", "key": "М"},
@@ -24,17 +30,17 @@
     {"char": "о", "hand": "right", "finger": "index", "key": "О"},
     {"char": "м", "hand": "left", "finger": "index", "key": "М"},
     {"char": "а", "hand": "left", "finger": "index", "key": "А"},
-    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
     {"char": "м", "hand": "left", "finger": "index", "key": "М"},
     {"char": "а", "hand": "left", "finger": "index", "key": "А"},
     {"char": "м", "hand": "left", "finger": "index", "key": "М"},
     {"char": "а", "hand": "left", "finger": "index", "key": "А"},
     {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
-    {"char": "р", "hand": "left", "finger": "index", "key": "Р"},
+    {"char": "р", "hand": "right", "finger": "index", "key": "Р"},
     {"char": "а", "hand": "left", "finger": "index", "key": "А"},
     {"char": "м", "hand": "left", "finger": "index", "key": "М"},
     {"char": "а", "hand": "left", "finger": "index", "key": "А"},
-    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
     {"char": "м", "hand": "left", "finger": "index", "key": "М"},
     {"char": "а", "hand": "left", "finger": "index", "key": "А"},
     {"char": "с", "hand": "left", "finger": "middle", "key": "С"},
@@ -82,44 +88,21 @@
     "М"
   ],
   "finger_focus": "Левые средний (С) и указательный (М) на нижнем ряду",
+  "guided": true,
   "tips": [
-    {
-      "type": "lead",
-      "text": "Сильные пальцы левой руки идут вниз. С — средний левой, вниз от В. М — указательный левой, вниз от А."
-    },
-    {
-      "type": "drop",
-      "text": "Сильным пальцам движение вниз даётся легче — но возврат на домашний ряд так же важен."
-    },
-    {
-      "type": "exercise",
-      "target": "сс мм сам сома",
-      "finger": "green",
-      "hint": "Левые средний (С) и указательный (М) на нижнем ряду"
-    },
-    {
-      "type": "p",
-      "text": "САМ, СОМА, МАМА, РАМА — простые и тёплые слова с С и М."
-    },
-    {
-      "type": "callout",
-      "icon": "💡",
-      "title": "Подсказка",
-      "text": "После С возвращай средний на В, после М — указательный на А. Нижний ряд под домашним."
-    },
-    {
-      "type": "p",
-      "text": "МАСКА, СОСНА — слова подлиннее, с С в разных местах."
-    },
-    {
-      "type": "exercise",
-      "target": "мама рама маска сосна",
-      "finger": "blue",
-      "hint": "Левые средний (С) и указательный (М) на нижнем ряду"
-    }
+    {"type": "lead", "text": "Снова вниз — теперь сильными пальцами левой руки. С — средний левой, опускается вниз от В. М — указательный левой, вниз от А. Сильным пальцам спуститься вниз легче, чем слабым, но возврат на домашний ряд так же важен — это всё ещё самый трудный ряд вслепую."},
+    {"type": "drop", "text": "Пальцы на ФЫВА ОЛДЖ, большие — над пробелом. Опусти средний на С, нажми и верни его на В; опусти указательный на М, нажми и верни на А. Уводи вниз только нужный палец, остальные держатся дома."},
+    {"type": "callout", "icon": "⬇️", "title": "Вниз и сразу домой", "text": "Не давай кисти провалиться вниз вслед за пальцем. Работает один палец: коротко опустился, нажал, поднялся домой. После С — средний на В, после М — указательный на А."},
+    {"type": "step", "kind": "drill", "target": "с с с с с с с с с с с с с с с с с с с с", "finger": "green", "title": "Буква С", "hint": "Средний палец левой руки вниз — буква С, после каждой возвращай палец на В"},
+    {"type": "step", "kind": "drill", "target": "м м м м м м м м м м м м м м м м м м м м", "finger": "blue", "title": "Буква М", "hint": "Указательный палец левой руки вниз — буква М, после каждой возвращай палец на А"},
+    {"type": "step", "kind": "drill", "target": "с м с м с м с м с м с м с м с м с м с м", "finger": "green", "title": "Чередование", "hint": "Чередуем сильные пальцы вниз: С — М — С — М, после каждой — домой"},
+    {"type": "p", "text": "Сильные пальцы освоили спуск — собираем слова. С С и М складываются простые и тёплые слова: читай слово целиком и набирай ровно, не глядя на руки, каждый палец после удара — обратно на дом."},
+    {"type": "pullquote", "text": "Точность бьёт скорость. Скорость приходит сама, когда точность стабилизируется.", "by": "методика курса"},
+    {"type": "step", "kind": "drill", "target": "сам сома мама рама маска сосна сам сома мама рама маска сосна", "finger": "blue", "title": "Слова", "hint": "Слова с новыми буквами: сам, сома, мама, рама, маска, сосна"},
+    {"type": "p", "text": "Все шаги пройдены? Тогда нажми «Открыть тренажёр» ниже и сделай полный заход на весь текст урока. Этот заход сохраняется в прогресс и открывает следующий урок."}
   ],
   "character_tips": {
-    "anna": "Отлично! С и М — сильные пальцы на нижнем ряду. САМ, МАМА, РАМА — тёплые слова!",
+    "anna": "Отлично! С и М — сильные пальцы опускаются на нижний ряд и сразу домой. САМ, МАМА, РАМА — тёплые слова!",
     "maxim": "Хорошая работа! Средний и указательный левой руки осваивают нижний ряд. Сильные пальцы — основа скорости.",
     "knopych": "Вау! САМ-СОМА-МАМА-РАМА! С и М спустились вниз и сразу домой!",
     "klavochka": "Какой ты умница! МАМА, РАМА — самые добрые слова! Пальчики молодцы!"
@@ -127,5 +110,5 @@
   "phase": 1,
   "rhythmLesson": false,
   "created_at": "2025-11-19",
-  "version": "3.0"
+  "version": "4.0"
 }

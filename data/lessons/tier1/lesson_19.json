@@ -8,39 +8,45 @@
   "text_length": 34,
   "error_limit_percent": 5,
   "error_limit": 3,
-  "text": "ьь бб боль раб зуб рыба банк бровь",
+  "text": "ь ь ь б б б боль раб зуб рыба банк бровь",
   "text_sequence": [
     {"char": "ь", "hand": "right", "finger": "index", "key": "Ь"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
     {"char": "ь", "hand": "right", "finger": "index", "key": "Ь"},
-    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "ь", "hand": "right", "finger": "index", "key": "Ь"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
     {"char": "б", "hand": "right", "finger": "middle", "key": "Б"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "б", "hand": "right", "finger": "middle", "key": "Б"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
     {"char": "б", "hand": "right", "finger": "middle", "key": "Б"},
     {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
     {"char": "б", "hand": "right", "finger": "middle", "key": "Б"},
     {"char": "о", "hand": "right", "finger": "index", "key": "О"},
     {"char": "л", "hand": "right", "finger": "middle", "key": "Л"},
     {"char": "ь", "hand": "right", "finger": "index", "key": "Ь"},
-    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
-    {"char": "р", "hand": "left", "finger": "index", "key": "Р"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "р", "hand": "right", "finger": "index", "key": "Р"},
     {"char": "а", "hand": "left", "finger": "index", "key": "А"},
     {"char": "б", "hand": "right", "finger": "middle", "key": "Б"},
     {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
     {"char": "з", "hand": "right", "finger": "pinky", "key": "З"},
     {"char": "у", "hand": "left", "finger": "middle", "key": "У"},
     {"char": "б", "hand": "right", "finger": "middle", "key": "Б"},
-    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
-    {"char": "р", "hand": "left", "finger": "index", "key": "Р"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "р", "hand": "right", "finger": "index", "key": "Р"},
     {"char": "ы", "hand": "left", "finger": "ring", "key": "Ы"},
     {"char": "б", "hand": "right", "finger": "middle", "key": "Б"},
     {"char": "а", "hand": "left", "finger": "index", "key": "А"},
-    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
     {"char": "б", "hand": "right", "finger": "middle", "key": "Б"},
     {"char": "а", "hand": "left", "finger": "index", "key": "А"},
     {"char": "н", "hand": "right", "finger": "index", "key": "Н"},
     {"char": "к", "hand": "left", "finger": "index", "key": "К"},
     {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
     {"char": "б", "hand": "right", "finger": "middle", "key": "Б"},
-    {"char": "р", "hand": "left", "finger": "index", "key": "Р"},
+    {"char": "р", "hand": "right", "finger": "index", "key": "Р"},
     {"char": "о", "hand": "right", "finger": "index", "key": "О"},
     {"char": "в", "hand": "left", "finger": "middle", "key": "В"},
     {"char": "ь", "hand": "right", "finger": "index", "key": "Ь"}
@@ -84,44 +90,21 @@
     "Б"
   ],
   "finger_focus": "Правые указательный (Ь) и средний (Б) на нижнем ряду",
+  "guided": true,
   "tips": [
-    {
-      "type": "lead",
-      "text": "Правая рука осваивает нижний ряд. Ь — указательный правой, вниз от О. Б — средний правой, вниз от Л."
-    },
-    {
-      "type": "drop",
-      "text": "Мягкий знак — частый гость в конце слов. Наконец-то можно писать ДЕНЬ, БОЛЬ, ОБУВЬ полностью."
-    },
-    {
-      "type": "exercise",
-      "target": "ьь бб боль раб",
-      "finger": "indigo",
-      "hint": "Правые указательный (Ь) и средний (Б) на нижнем ряду"
-    },
-    {
-      "type": "p",
-      "text": "БОЛЬ, РАБ, ЗУБ, РЫБА — с буквой Б и мягким знаком слова стали полнее."
-    },
-    {
-      "type": "callout",
-      "icon": "💡",
-      "title": "Подсказка",
-      "text": "После Ь возвращай палец на О, после Б — на Л. Мягкий знак сам не звучит, но меняет слово."
-    },
-    {
-      "type": "p",
-      "text": "БАНК, БРОВЬ — Б в начале и Ь в конце слова."
-    },
-    {
-      "type": "exercise",
-      "target": "зуб рыба банк бровь",
-      "finger": "green",
-      "hint": "Правые указательный (Ь) и средний (Б) на нижнем ряду"
-    }
+    {"type": "lead", "text": "Теперь вниз идёт правая рука. Ь — указательный правой руки, опускается вниз от О. Б — средний правой руки, вниз от Л. Мягкий знак — частый гость в конце слов: наконец-то можно писать ДЕНЬ, БОЛЬ, ОБУВЬ полностью."},
+    {"type": "drop", "text": "Пальцы на ФЫВА ОЛДЖ, большие — над пробелом. Опусти правый указательный на Ь, нажми и верни на О; опусти правый средний на Б, нажми и верни на Л. Вниз уходит только нужный палец, остальные держатся дома."},
+    {"type": "callout", "icon": "⬇️", "title": "Вниз и сразу домой", "text": "Движение короткое: палец опустился на нижний ряд, нажал и поднялся обратно. После Ь — указательный на О, после Б — средний на Л. Мягкий знак сам не звучит, но меняет слово."},
+    {"type": "step", "kind": "drill", "target": "ь ь ь ь ь ь ь ь ь ь ь ь ь ь ь ь ь ь ь ь", "finger": "indigo", "title": "Буква Ь", "hint": "Указательный палец правой руки вниз — мягкий знак Ь, после каждой возвращай палец на О"},
+    {"type": "step", "kind": "drill", "target": "б б б б б б б б б б б б б б б б б б б б", "finger": "green", "title": "Буква Б", "hint": "Средний палец правой руки вниз — буква Б, после каждой возвращай палец на Л"},
+    {"type": "step", "kind": "drill", "target": "ь б ь б ь б ь б ь б ь б ь б ь б ь б ь б", "finger": "indigo", "title": "Чередование", "hint": "Чередуем правые пальцы вниз: Ь — Б — Ь — Б, после каждой — домой"},
+    {"type": "p", "text": "Правая рука освоила спуск — собираем слова. С Б и мягким знаком слова стали полнее и грамматически точнее: читай слово целиком и набирай ровно, не глядя на руки, каждый палец после удара — обратно на дом."},
+    {"type": "pullquote", "text": "Точность бьёт скорость. Скорость приходит сама, когда точность стабилизируется.", "by": "методика курса"},
+    {"type": "step", "kind": "drill", "target": "боль раб зуб рыба банк бровь боль раб зуб рыба банк бровь", "finger": "green", "title": "Слова", "hint": "Слова с новыми буквами: боль, раб, зуб, рыба, банк, бровь"},
+    {"type": "p", "text": "Все шаги пройдены? Тогда нажми «Открыть тренажёр» ниже и сделай полный заход на весь текст урока. Этот заход сохраняется в прогресс и открывает следующий урок."}
   ],
   "character_tips": {
-    "anna": "Отлично! Ь и Б на нижнем ряду. БОЛЬ, РЫБА, БАНК — и мягкий знак наконец в деле!",
+    "anna": "Отлично! Ь и Б на нижнем ряду, вниз и сразу домой. БОЛЬ, РЫБА, БАНК — и мягкий знак наконец в деле!",
     "maxim": "Хорошая работа! Мягкий знак и Б завершают центр нижнего ряда. Слова стали грамматически полными.",
     "knopych": "Вау! БОЛЬ-РАБ-ЗУБ-РЫБА! Мягкий знак Ь и буква Б на месте!",
     "klavochka": "Какой ты умница! БРОВЬ, БАНК — пальчики нашли Ь и Б внизу справа!"
@@ -129,5 +112,5 @@
   "phase": 1,
   "rhythmLesson": false,
   "created_at": "2025-11-19",
-  "version": "3.0"
+  "version": "4.0"
 }

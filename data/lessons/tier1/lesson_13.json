@@ -8,18 +8,24 @@
   "text_length": 35,
   "error_limit_percent": 5,
   "error_limit": 3,
-  "text": "хх ъъ хор ход уха ухо въезд подъезд",
+  "text": "х х х ъ ъ ъ хор ход уха ухо въезд подъезд",
   "text_sequence": [
     {"char": "х", "hand": "right", "finger": "pinky", "key": "Х"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
     {"char": "х", "hand": "right", "finger": "pinky", "key": "Х"},
-    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "х", "hand": "right", "finger": "pinky", "key": "Х"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
     {"char": "ъ", "hand": "right", "finger": "pinky", "key": "Ъ"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "ъ", "hand": "right", "finger": "pinky", "key": "Ъ"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
     {"char": "ъ", "hand": "right", "finger": "pinky", "key": "Ъ"},
     {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
     {"char": "х", "hand": "right", "finger": "pinky", "key": "Х"},
     {"char": "о", "hand": "right", "finger": "index", "key": "О"},
-    {"char": "р", "hand": "left", "finger": "index", "key": "Р"},
-    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "р", "hand": "right", "finger": "index", "key": "Р"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
     {"char": "х", "hand": "right", "finger": "pinky", "key": "Х"},
     {"char": "о", "hand": "right", "finger": "index", "key": "О"},
     {"char": "д", "hand": "right", "finger": "ring", "key": "Д"},
@@ -37,8 +43,8 @@
     {"char": "е", "hand": "left", "finger": "index", "key": "Е"},
     {"char": "з", "hand": "right", "finger": "pinky", "key": "З"},
     {"char": "д", "hand": "right", "finger": "ring", "key": "Д"},
-    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
-    {"char": "п", "hand": "left", "finger": "pinky", "key": "П"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "п", "hand": "left", "finger": "index", "key": "П"},
     {"char": "о", "hand": "right", "finger": "index", "key": "О"},
     {"char": "д", "hand": "right", "finger": "ring", "key": "Д"},
     {"char": "ъ", "hand": "right", "finger": "pinky", "key": "Ъ"},
@@ -77,40 +83,66 @@
     "Ъ"
   ],
   "finger_focus": "Правый мизинец завершает верхний ряд: Х и Ъ",
+  "guided": true,
   "tips": [
     {
       "type": "lead",
-      "text": "Завершаем верхний ряд. Х — правый мизинец, вверх и наружу от Ж. Ъ — правый мизинец, ещё дальше в угол."
+      "text": "Завершаем верхний ряд. Х — правый мизинец, вверх и наружу от Ж. Ъ — правый мизинец, ещё дальше в угол. Обе клавиши — крайние, мизинцу тянуться далеко."
     },
     {
       "type": "drop",
-      "text": "Это крайние клавиши верхнего ряда. Мизинец тянется далеко — держи кисть ровно и не разворачивай ладонь."
-    },
-    {
-      "type": "exercise",
-      "target": "хх ъъ хор ход",
-      "finger": "pink",
-      "hint": "Правый мизинец на верхнем ряду: Х и Ъ"
-    },
-    {
-      "type": "p",
-      "text": "ХОР, ХОД, УХА, УХО — короткие слова с Х."
+      "text": "Держи пальцы на ФЫВА ОЛДЖ, кисть ровно, не разворачивай ладонь. Тянись вверх только мизинцем, остальные пальцы не отрывай от дома. Мизинец — самый слабый, дай ему больше внимания."
     },
     {
       "type": "callout",
-      "icon": "💡",
-      "title": "Подсказка",
-      "text": "Ъ почти всегда стоит перед Е: ВЪЕЗД, ПОДЪЕЗД. После удара мизинец возвращается на Ж."
+      "icon": "🖐",
+      "title": "Слабому пальцу — внимание",
+      "text": "Х и Ъ — самые дальние клавиши верхнего ряда под самым слабым пальцем. Не дави сильно и не спеши: тянись точно и сразу возвращай мизинец на Ж. Ъ почти всегда стоит перед Е: ВЪЕЗД, ПОДЪЕЗД."
+    },
+    {
+      "type": "step",
+      "kind": "drill",
+      "target": "х х х х х х х х х х х х х х х х х х х х",
+      "finger": "pink",
+      "title": "Буква Х",
+      "hint": "Мизинец правой руки тянется вверх и наружу от Ж — буква Х, после каждой возвращайся домой и ставь пробел"
+    },
+    {
+      "type": "step",
+      "kind": "drill",
+      "target": "ъ ъ ъ ъ ъ ъ ъ ъ ъ ъ ъ ъ ъ ъ ъ ъ ъ ъ ъ ъ",
+      "finger": "pink",
+      "title": "Буква Ъ",
+      "hint": "Мизинец правой руки тянется в угол верхнего ряда — твёрдый знак Ъ, после каждой возвращайся домой и ставь пробел"
+    },
+    {
+      "type": "step",
+      "kind": "drill",
+      "target": "х ъ х ъ х ъ х ъ х ъ х ъ х ъ х ъ х ъ х ъ",
+      "finger": "pink",
+      "title": "Чередование",
+      "hint": "Чередуем мизинцем две крайние клавиши: Х — Ъ — Х — Ъ, после каждой — пробел"
     },
     {
       "type": "p",
-      "text": "ВЪЕЗД, ПОДЪЕЗД — твёрдый знак в работе. Верхний ряд полностью освоен!"
+      "text": "Мизинец дотянулся до крайних клавиш — собираем слова. ХОР, ХОД, УХА, УХО — короткие слова с Х, ВЪЕЗД и ПОДЪЕЗД — с твёрдым знаком. Читай слово целиком и набирай ровно, не глядя на руки."
     },
     {
-      "type": "exercise",
-      "target": "уха ухо въезд подъезд",
+      "type": "pullquote",
+      "text": "Точность бьёт скорость. Скорость приходит сама, когда точность стабилизируется.",
+      "by": "методика курса"
+    },
+    {
+      "type": "step",
+      "kind": "drill",
+      "target": "хор ход уха ухо въезд подъезд хор ход уха ухо въезд подъезд",
       "finger": "pink",
-      "hint": "Правый мизинец на верхнем ряду: Х и Ъ"
+      "title": "Слова",
+      "hint": "Слова из освоенных букв: хор, ход, уха, ухо, въезд, подъезд"
+    },
+    {
+      "type": "p",
+      "text": "Все шаги пройдены? Тогда нажми «Открыть тренажёр» ниже и сделай полный заход на весь текст урока. Верхний ряд полностью освоен!"
     }
   ],
   "character_tips": {
@@ -122,5 +154,5 @@
   "phase": 1,
   "rhythmLesson": false,
   "created_at": "2025-11-19",
-  "version": "3.0"
+  "version": "4.0"
 }

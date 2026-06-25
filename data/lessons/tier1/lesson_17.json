@@ -8,23 +8,29 @@
   "text_length": 33,
   "error_limit_percent": 5,
   "error_limit": 3,
-  "text": "ии тт мир кит рис сила тигр исток",
+  "text": "и и и т т т мир кит рис сила тигр исток",
   "text_sequence": [
     {"char": "и", "hand": "left", "finger": "index", "key": "И"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "и", "hand": "left", "finger": "index", "key": "И"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
     {"char": "и", "hand": "left", "finger": "index", "key": "И"},
     {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
     {"char": "т", "hand": "right", "finger": "index", "key": "Т"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "т", "hand": "right", "finger": "index", "key": "Т"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
     {"char": "т", "hand": "right", "finger": "index", "key": "Т"},
     {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
     {"char": "м", "hand": "left", "finger": "index", "key": "М"},
     {"char": "и", "hand": "left", "finger": "index", "key": "И"},
-    {"char": "р", "hand": "left", "finger": "index", "key": "Р"},
-    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "р", "hand": "right", "finger": "index", "key": "Р"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
     {"char": "к", "hand": "left", "finger": "index", "key": "К"},
     {"char": "и", "hand": "left", "finger": "index", "key": "И"},
     {"char": "т", "hand": "right", "finger": "index", "key": "Т"},
     {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
-    {"char": "р", "hand": "left", "finger": "index", "key": "Р"},
+    {"char": "р", "hand": "right", "finger": "index", "key": "Р"},
     {"char": "и", "hand": "left", "finger": "index", "key": "И"},
     {"char": "с", "hand": "left", "finger": "middle", "key": "С"},
     {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
@@ -32,12 +38,12 @@
     {"char": "и", "hand": "left", "finger": "index", "key": "И"},
     {"char": "л", "hand": "right", "finger": "middle", "key": "Л"},
     {"char": "а", "hand": "left", "finger": "index", "key": "А"},
-    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
     {"char": "т", "hand": "right", "finger": "index", "key": "Т"},
     {"char": "и", "hand": "left", "finger": "index", "key": "И"},
     {"char": "г", "hand": "right", "finger": "index", "key": "Г"},
-    {"char": "р", "hand": "left", "finger": "index", "key": "Р"},
-    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "р", "hand": "right", "finger": "index", "key": "Р"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
     {"char": "и", "hand": "left", "finger": "index", "key": "И"},
     {"char": "с", "hand": "left", "finger": "middle", "key": "С"},
     {"char": "т", "hand": "right", "finger": "index", "key": "Т"},
@@ -81,44 +87,21 @@
     "Т"
   ],
   "finger_focus": "Указательные на нижнем ряду: И (левый) и Т (правый)",
+  "guided": true,
   "tips": [
-    {
-      "type": "lead",
-      "text": "Указательные завершают центр нижнего ряда. И — указательный левой, вниз и внутрь от А. Т — указательный правой, вниз от Р."
-    },
-    {
-      "type": "drop",
-      "text": "И и Т — очень частые буквы, и теперь словарь резко расширяется. Указательные тянутся вниз уверенно."
-    },
-    {
-      "type": "exercise",
-      "target": "ии тт мир кит",
-      "finger": "blue",
-      "hint": "Указательные на нижнем ряду: И (левый) и Т (правый)"
-    },
-    {
-      "type": "p",
-      "text": "МИР, КИТ, РИС, СИЛА — с буквой И слова стали богаче."
-    },
-    {
-      "type": "callout",
-      "icon": "💡",
-      "title": "Подсказка",
-      "text": "После И возвращай палец на А, после Т — на Р. Центр нижнего ряда почти освоен."
-    },
-    {
-      "type": "p",
-      "text": "ТИГР, ИСТОК — слова с Т и И в связке."
-    },
-    {
-      "type": "exercise",
-      "target": "рис сила тигр исток",
-      "finger": "indigo",
-      "hint": "Указательные на нижнем ряду: И (левый) и Т (правый)"
-    }
+    {"type": "lead", "text": "Указательные завершают центр нижнего ряда. И — указательный левой руки, опускается вниз и чуть внутрь от А. Т — указательный правой руки, вниз от Р. И и Т — очень частые буквы, и теперь словарь резко расширяется."},
+    {"type": "drop", "text": "Пальцы на ФЫВА ОЛДЖ, большие — над пробелом. Опусти левый указательный на И, нажми и верни на А; опусти правый указательный на Т, нажми и верни на Р. Указательные — самые сильные, вниз идут уверенно, но дом не теряй."},
+    {"type": "callout", "icon": "⬇️", "title": "Вниз и сразу домой", "text": "Указательному до нижнего ряда близко — движение короткое. Опустился, нажал, поднялся обратно. После И — палец на А, после Т — на Р. Центр нижнего ряда почти освоен."},
+    {"type": "step", "kind": "drill", "target": "и и и и и и и и и и и и и и и и и и и и", "finger": "blue", "title": "Буква И", "hint": "Указательный палец левой руки вниз — буква И, после каждой возвращай палец на А"},
+    {"type": "step", "kind": "drill", "target": "т т т т т т т т т т т т т т т т т т т т", "finger": "indigo", "title": "Буква Т", "hint": "Указательный палец правой руки вниз — буква Т, после каждой возвращай палец на Р"},
+    {"type": "step", "kind": "drill", "target": "и т и т и т и т и т и т и т и т и т и т", "finger": "blue", "title": "Чередование", "hint": "Чередуем указательные вниз: И — Т — И — Т, после каждой — домой"},
+    {"type": "p", "text": "С двумя частыми буквами словарь резко вырос — собираем слова. С И и Т складывается гораздо больше слов: читай слово целиком и набирай ровно, не глядя на руки, каждый палец после удара — обратно на дом."},
+    {"type": "pullquote", "text": "Точность бьёт скорость. Скорость приходит сама, когда точность стабилизируется.", "by": "методика курса"},
+    {"type": "step", "kind": "drill", "target": "мир кит рис сила тигр исток мир кит рис сила тигр исток", "finger": "indigo", "title": "Слова", "hint": "Слова с новыми буквами: мир, кит, рис, сила, тигр, исток"},
+    {"type": "p", "text": "Все шаги пройдены? Тогда нажми «Открыть тренажёр» ниже и сделай полный заход на весь текст урока. Этот заход сохраняется в прогресс и открывает следующий урок."}
   ],
   "character_tips": {
-    "anna": "Отлично! И и Т — частые буквы на нижнем ряду. МИР, КИТ, РИС, СИЛА — словарь растёт!",
+    "anna": "Отлично! И и Т — частые буквы на нижнем ряду, вниз и сразу домой. МИР, КИТ, РИС, СИЛА — словарь растёт!",
     "maxim": "Хорошая работа! С появлением И и Т доступно гораздо больше слов. Указательные уверенно идут вниз.",
     "knopych": "Вау! МИР-КИТ-РИС-ТИГР! И и Т открыли кучу новых слов!",
     "klavochka": "Какой ты умница! СИЛА, ИСТОК — пальчики нашли И и Т внизу и вернулись домой!"
@@ -126,5 +109,5 @@
   "phase": 1,
   "rhythmLesson": false,
   "created_at": "2025-11-19",
-  "version": "3.0"
+  "version": "4.0"
 }

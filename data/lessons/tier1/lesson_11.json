@@ -8,25 +8,31 @@
   "text_length": 37,
   "error_limit_percent": 5,
   "error_limit": 3,
-  "text": "щщ зз зов роза гроза глаза зола греза",
+  "text": "щ щ щ з з з зов роза гроза глаза зола греза",
   "text_sequence": [
     {"char": "щ", "hand": "right", "finger": "ring", "key": "Щ"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
     {"char": "щ", "hand": "right", "finger": "ring", "key": "Щ"},
-    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "щ", "hand": "right", "finger": "ring", "key": "Щ"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
     {"char": "з", "hand": "right", "finger": "pinky", "key": "З"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "з", "hand": "right", "finger": "pinky", "key": "З"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
     {"char": "з", "hand": "right", "finger": "pinky", "key": "З"},
     {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
     {"char": "з", "hand": "right", "finger": "pinky", "key": "З"},
     {"char": "о", "hand": "right", "finger": "index", "key": "О"},
     {"char": "в", "hand": "left", "finger": "middle", "key": "В"},
     {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
-    {"char": "р", "hand": "left", "finger": "index", "key": "Р"},
+    {"char": "р", "hand": "right", "finger": "index", "key": "Р"},
     {"char": "о", "hand": "right", "finger": "index", "key": "О"},
     {"char": "з", "hand": "right", "finger": "pinky", "key": "З"},
     {"char": "а", "hand": "left", "finger": "index", "key": "А"},
-    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
     {"char": "г", "hand": "right", "finger": "index", "key": "Г"},
-    {"char": "р", "hand": "left", "finger": "index", "key": "Р"},
+    {"char": "р", "hand": "right", "finger": "index", "key": "Р"},
     {"char": "о", "hand": "right", "finger": "index", "key": "О"},
     {"char": "з", "hand": "right", "finger": "pinky", "key": "З"},
     {"char": "а", "hand": "left", "finger": "index", "key": "А"},
@@ -36,14 +42,14 @@
     {"char": "а", "hand": "left", "finger": "index", "key": "А"},
     {"char": "з", "hand": "right", "finger": "pinky", "key": "З"},
     {"char": "а", "hand": "left", "finger": "index", "key": "А"},
-    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
     {"char": "з", "hand": "right", "finger": "pinky", "key": "З"},
     {"char": "о", "hand": "right", "finger": "index", "key": "О"},
     {"char": "л", "hand": "right", "finger": "middle", "key": "Л"},
     {"char": "а", "hand": "left", "finger": "index", "key": "А"},
     {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
     {"char": "г", "hand": "right", "finger": "index", "key": "Г"},
-    {"char": "р", "hand": "left", "finger": "index", "key": "Р"},
+    {"char": "р", "hand": "right", "finger": "index", "key": "Р"},
     {"char": "е", "hand": "left", "finger": "index", "key": "Е"},
     {"char": "з", "hand": "right", "finger": "pinky", "key": "З"},
     {"char": "а", "hand": "left", "finger": "index", "key": "А"}
@@ -77,40 +83,66 @@
     "З"
   ],
   "finger_focus": "Правые безымянный (Щ) и мизинец (З) — слабые пальцы на верхнем ряду",
+  "guided": true,
   "tips": [
     {
       "type": "lead",
-      "text": "Самые слабые пальцы правой руки выходят вверх. Щ — безымянный правой, вверх от Д. З — мизинец правой, вверх от Ж."
+      "text": "Самые слабые пальцы правой руки выходят вверх. Щ — безымянный правой, вверх от Д. З — мизинец правой, вверх от Ж. Слабым пальцам тянуться вверх труднее всего — точность важнее скорости."
     },
     {
       "type": "drop",
-      "text": "Слабым пальцам тянуться вверх труднее всего — не спеши, точность важнее скорости."
-    },
-    {
-      "type": "exercise",
-      "target": "щщ зз зов роза",
-      "finger": "orange",
-      "hint": "Правые безымянный (Щ) и мизинец (З) на верхнем ряду"
-    },
-    {
-      "type": "p",
-      "text": "ЗОВ, РОЗА, ГРОЗА — с буквой З уже много настоящих слов."
+      "text": "Держи пальцы на ФЫВА ОЛДЖ, тянись вверх только работающим пальцем, остальные не отрывай от дома. Не дави сильно и не спеши — мизинцу З особенно трудно, дай ему больше внимания."
     },
     {
       "type": "callout",
-      "icon": "💡",
-      "title": "Подсказка",
-      "text": "После Щ возвращай безымянный на Д, после З — мизинец на Ж. Слабые пальцы любят опору."
+      "icon": "🖐",
+      "title": "Слабые пальцы любят опору",
+      "text": "Безымянный и мизинец слушаются хуже сильных пальцев. После Щ возвращай безымянный на Д, после З — мизинец на Ж. Опора домашнего ряда помогает слабому пальцу попасть точно."
+    },
+    {
+      "type": "step",
+      "kind": "drill",
+      "target": "щ щ щ щ щ щ щ щ щ щ щ щ щ щ щ щ щ щ щ щ",
+      "finger": "orange",
+      "title": "Буква Щ",
+      "hint": "Безымянный палец правой руки тянется вверх от Д — буква Щ, после каждой возвращайся домой и ставь пробел"
+    },
+    {
+      "type": "step",
+      "kind": "drill",
+      "target": "з з з з з з з з з з з з з з з з з з з з",
+      "finger": "pink",
+      "title": "Буква З",
+      "hint": "Мизинец правой руки тянется вверх от Ж — буква З, после каждой возвращайся домой и ставь пробел"
+    },
+    {
+      "type": "step",
+      "kind": "drill",
+      "target": "щ з щ з щ з щ з щ з щ з щ з щ з щ з щ з",
+      "finger": "orange",
+      "title": "Чередование",
+      "hint": "Чередуем безымянный и мизинец: Щ — З — Щ — З, после каждой — пробел"
     },
     {
       "type": "p",
-      "text": "ГЛАЗА, ЗОЛА, ГРЕЗА — закрепляем З в разных позициях. Щ пока тренируем в повторах."
+      "text": "Слабые пальцы потянулись вверх — собираем слова. ЗОВ, РОЗА, ГРОЗА, ГЛАЗА, ЗОЛА, ГРЕЗА — с буквой З уже много настоящих слов. Читай слово целиком и набирай ровно, не глядя на руки."
     },
     {
-      "type": "exercise",
-      "target": "гроза глаза зола греза",
+      "type": "pullquote",
+      "text": "Точность бьёт скорость. Скорость приходит сама, когда точность стабилизируется.",
+      "by": "методика курса"
+    },
+    {
+      "type": "step",
+      "kind": "drill",
+      "target": "зов роза гроза глаза зола греза зов роза гроза глаза зола греза",
       "finger": "pink",
-      "hint": "Правые безымянный (Щ) и мизинец (З) на верхнем ряду"
+      "title": "Слова",
+      "hint": "Слова из освоенных букв: зов, роза, гроза, глаза, зола, греза"
+    },
+    {
+      "type": "p",
+      "text": "Все шаги пройдены? Тогда нажми «Открыть тренажёр» ниже и сделай полный заход на весь текст урока. Этот заход сохраняется в прогресс и открывает следующий урок."
     }
   ],
   "character_tips": {
@@ -122,5 +154,5 @@
   "phase": 1,
   "rhythmLesson": false,
   "created_at": "2025-11-19",
-  "version": "3.0"
+  "version": "4.0"
 }

@@ -12,36 +12,36 @@
   "text_sequence": [
     {"char": "г", "hand": "right", "finger": "index", "key": "Г"},
     {"char": "о", "hand": "right", "finger": "index", "key": "О"},
-    {"char": "р", "hand": "left", "finger": "index", "key": "Р"},
+    {"char": "р", "hand": "right", "finger": "index", "key": "Р"},
     {"char": "а", "hand": "left", "finger": "index", "key": "А"},
     {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
     {"char": "г", "hand": "right", "finger": "index", "key": "Г"},
     {"char": "о", "hand": "right", "finger": "index", "key": "О"},
-    {"char": "р", "hand": "left", "finger": "index", "key": "Р"},
+    {"char": "р", "hand": "right", "finger": "index", "key": "Р"},
     {"char": "а", "hand": "left", "finger": "index", "key": "А"},
-    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
-    {"char": "р", "hand": "left", "finger": "index", "key": "Р"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "р", "hand": "right", "finger": "index", "key": "Р"},
     {"char": "о", "hand": "right", "finger": "index", "key": "О"},
     {"char": "з", "hand": "right", "finger": "pinky", "key": "З"},
     {"char": "а", "hand": "left", "finger": "index", "key": "А"},
     {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
-    {"char": "р", "hand": "left", "finger": "index", "key": "Р"},
-    {"char": "о", "hand": "right", "finger": "index", "key": "О"},
-    {"char": "з", "hand": "right", "finger": "pinky", "key": "З"},
-    {"char": "а", "hand": "left", "finger": "index", "key": "А"},
-    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
-    {"char": "г", "hand": "right", "finger": "index", "key": "Г"},
-    {"char": "р", "hand": "left", "finger": "index", "key": "Р"},
+    {"char": "р", "hand": "right", "finger": "index", "key": "Р"},
     {"char": "о", "hand": "right", "finger": "index", "key": "О"},
     {"char": "з", "hand": "right", "finger": "pinky", "key": "З"},
     {"char": "а", "hand": "left", "finger": "index", "key": "А"},
     {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
     {"char": "г", "hand": "right", "finger": "index", "key": "Г"},
-    {"char": "р", "hand": "left", "finger": "index", "key": "Р"},
+    {"char": "р", "hand": "right", "finger": "index", "key": "Р"},
     {"char": "о", "hand": "right", "finger": "index", "key": "О"},
     {"char": "з", "hand": "right", "finger": "pinky", "key": "З"},
     {"char": "а", "hand": "left", "finger": "index", "key": "А"},
-    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "г", "hand": "right", "finger": "index", "key": "Г"},
+    {"char": "р", "hand": "right", "finger": "index", "key": "Р"},
+    {"char": "о", "hand": "right", "finger": "index", "key": "О"},
+    {"char": "з", "hand": "right", "finger": "pinky", "key": "З"},
+    {"char": "а", "hand": "left", "finger": "index", "key": "А"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
     {"char": "н", "hand": "right", "finger": "index", "key": "Н"},
     {"char": "о", "hand": "right", "finger": "index", "key": "О"},
     {"char": "г", "hand": "right", "finger": "index", "key": "Г"},
@@ -78,45 +78,66 @@
   ],
   "new_keys": [],
   "finger_focus": "Все пальцы верхнего ряда — фокус на ритме и возврате на домашний ряд",
+  "guided": true,
   "tips": [
     {
       "type": "lead",
-      "text": "🎵 Без новых букв — закрепляем верхний ряд"
+      "text": "🎵 Новых букв сегодня нет — закрепляем верхний ряд через ритм. Главное на этом уроке не скорость, а ровный, одинаковый темп: каждое нажатие через равные промежутки, как удары метронома."
     },
     {
       "type": "drop",
-      "text": "Печатай ровно, после каждого удара по верхнему ряду возвращай палец домой"
-    },
-    {
-      "type": "exercise",
-      "target": "гора гора роза роза",
-      "finger": "green",
-      "hint": "Все пальцы верхнего ряда — ритм и возврат домой"
-    },
-    {
-      "type": "p",
-      "text": "Почувствуй, как пальцы сами находят верхний ряд: ГОРА-ГОРА, РОЗА-РОЗА"
+      "text": "Руки уже знают верхний ряд. Поставь пальцы на ФЫВА ОЛДЖ, большие — над пробелом, и после каждого удара по верхнему ряду возвращай палец домой. Повторяй каждое слово ровно, считая про себя: раз-два-три-четыре."
     },
     {
       "type": "callout",
-      "icon": "💡",
-      "title": "Запомни",
-      "text": "Ритм важнее скорости — верхний ряд уже не пугает, пальцы знают дорогу"
+      "icon": "🎶",
+      "title": "Ровный счёт",
+      "text": "Включи внутренний метроном. Печатай не «как получится», а строго в такт: между любыми двумя нажатиями — одинаковая пауза. Темп важнее скорости — лучше медленно и ровно, чем быстро и рвано."
+    },
+    {
+      "type": "step",
+      "kind": "drill",
+      "target": "гора гора гора гора гора",
+      "finger": "indigo",
+      "title": "Ритм: гора",
+      "hint": "Повторяй ровно, в одном темпе: гора — гора — гора. Считай раз-два-три-четыре"
+    },
+    {
+      "type": "step",
+      "kind": "drill",
+      "target": "роза роза роза роза",
+      "finger": "pink",
+      "title": "Ритм: роза",
+      "hint": "Повторяй ровно, без рывков: роза — роза — роза. Держи одинаковые паузы"
+    },
+    {
+      "type": "step",
+      "kind": "drill",
+      "target": "гроза гроза гроза",
+      "finger": "indigo",
+      "title": "Ритм: гроза",
+      "hint": "Повторяй ровно: гроза — гроза — гроза. Не ускоряйся к концу"
+    },
+    {
+      "type": "step",
+      "kind": "drill",
+      "target": "нога нога нога",
+      "finger": "indigo",
+      "title": "Ритм: нога",
+      "hint": "Повторяй ровно: нога — нога — нога. Ровный счёт до самого конца"
     },
     {
       "type": "p",
-      "text": "Это передышка перед завершением верхнего ряда буквами Х и Ъ"
+      "text": "Почувствуй, как пальцы сами находят верхний ряд: ГОРА-ГОРА, РОЗА-РОЗА. Повторение в ровном темпе превращает движения в автоматизм — это передышка перед завершением верхнего ряда буквами Х и Ъ."
     },
     {
       "type": "pullquote",
-      "text": "Расслабь плечи, представь метроном — ровный темп строит память",
+      "text": "Расслабь плечи и запястья, представь метроном — ритм важнее скорости.",
       "by": "методика курса"
     },
     {
-      "type": "exercise",
-      "target": "гроза гроза нога нога",
-      "finger": "indigo",
-      "hint": "Все пальцы верхнего ряда — ритм и возврат домой"
+      "type": "p",
+      "text": "Все шаги пройдены? Тогда нажми «Открыть тренажёр» ниже и сделай полный заход на весь текст урока. Этот заход сохраняется в прогресс и открывает следующий урок."
     }
   ],
   "character_tips": {
@@ -128,5 +149,5 @@
   "phase": 1,
   "rhythmLesson": true,
   "created_at": "2025-11-19",
-  "version": "3.0"
+  "version": "4.0"
 }

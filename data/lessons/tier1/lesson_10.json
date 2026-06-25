@@ -8,31 +8,37 @@
   "text_length": 33,
   "error_limit_percent": 5,
   "error_limit": 3,
-  "text": "гг шш гора нога шаг шар наша ваша",
+  "text": "г г г ш ш ш гора нога шаг шар наша ваша",
   "text_sequence": [
     {"char": "г", "hand": "right", "finger": "index", "key": "Г"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
     {"char": "г", "hand": "right", "finger": "index", "key": "Г"},
-    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "г", "hand": "right", "finger": "index", "key": "Г"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
     {"char": "ш", "hand": "right", "finger": "middle", "key": "Ш"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "ш", "hand": "right", "finger": "middle", "key": "Ш"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
     {"char": "ш", "hand": "right", "finger": "middle", "key": "Ш"},
     {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
     {"char": "г", "hand": "right", "finger": "index", "key": "Г"},
     {"char": "о", "hand": "right", "finger": "index", "key": "О"},
-    {"char": "р", "hand": "left", "finger": "index", "key": "Р"},
+    {"char": "р", "hand": "right", "finger": "index", "key": "Р"},
     {"char": "а", "hand": "left", "finger": "index", "key": "А"},
     {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
     {"char": "н", "hand": "right", "finger": "index", "key": "Н"},
     {"char": "о", "hand": "right", "finger": "index", "key": "О"},
     {"char": "г", "hand": "right", "finger": "index", "key": "Г"},
     {"char": "а", "hand": "left", "finger": "index", "key": "А"},
-    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
-    {"char": "ш", "hand": "right", "finger": "middle", "key": "Ш"},
-    {"char": "а", "hand": "left", "finger": "index", "key": "А"},
-    {"char": "г", "hand": "right", "finger": "index", "key": "Г"},
     {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
     {"char": "ш", "hand": "right", "finger": "middle", "key": "Ш"},
     {"char": "а", "hand": "left", "finger": "index", "key": "А"},
-    {"char": "р", "hand": "left", "finger": "index", "key": "Р"},
+    {"char": "г", "hand": "right", "finger": "index", "key": "Г"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "ш", "hand": "right", "finger": "middle", "key": "Ш"},
+    {"char": "а", "hand": "left", "finger": "index", "key": "А"},
+    {"char": "р", "hand": "right", "finger": "index", "key": "Р"},
     {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
     {"char": "н", "hand": "right", "finger": "index", "key": "Н"},
     {"char": "а", "hand": "left", "finger": "index", "key": "А"},
@@ -71,40 +77,66 @@
     "Ш"
   ],
   "finger_focus": "Правые указательный (Г) и средний (Ш) на верхнем ряду",
+  "guided": true,
   "tips": [
     {
       "type": "lead",
-      "text": "Продолжаем верхний ряд правой рукой. Г — указательный правой, вверх от Р. Ш — средний правой, вверх от Л."
+      "text": "Продолжаем верхний ряд правой рукой. Г — указательный правой, вверх от Р. Ш — средний правой, вверх от Л. Это сильные пальцы, движение вверх им даётся легко."
     },
     {
       "type": "drop",
-      "text": "Указательный уже знает дорогу вверх (буква Н), теперь к нему присоединяется средний с буквой Ш."
-    },
-    {
-      "type": "exercise",
-      "target": "гг шш гора нога",
-      "finger": "green",
-      "hint": "Правые указательный (Г) и средний (Ш) на верхнем ряду"
-    },
-    {
-      "type": "p",
-      "text": "ГОРА, НОГА, ШАГ, ШАР — слова растут вместе с новыми буквами."
+      "text": "Указательный уже знает дорогу вверх (буква Н), теперь к нему присоединяется средний с буквой Ш. Держи пальцы на ФЫВА ОЛДЖ, тянись вверх только работающим пальцем и возвращайся домой."
     },
     {
       "type": "callout",
-      "icon": "💡",
-      "title": "Подсказка",
-      "text": "Г и Ш — соседи на верхнем ряду. После удара возвращай пальцы на Р и Л."
+      "icon": "🔼",
+      "title": "Соседи наверху",
+      "text": "Г и Ш — соседи на верхнем ряду, под сильными пальцами правой руки. После удара возвращай указательный на Р, а средний на Л — опора домашнего ряда не теряется."
+    },
+    {
+      "type": "step",
+      "kind": "drill",
+      "target": "г г г г г г г г г г г г г г г г г г г г",
+      "finger": "indigo",
+      "title": "Буква Г",
+      "hint": "Указательный палец правой руки тянется вверх от Р — буква Г, после каждой возвращайся домой и ставь пробел"
+    },
+    {
+      "type": "step",
+      "kind": "drill",
+      "target": "ш ш ш ш ш ш ш ш ш ш ш ш ш ш ш ш ш ш ш ш",
+      "finger": "green",
+      "title": "Буква Ш",
+      "hint": "Средний палец правой руки тянется вверх от Л — буква Ш, после каждой возвращайся домой и ставь пробел"
+    },
+    {
+      "type": "step",
+      "kind": "drill",
+      "target": "г ш г ш г ш г ш г ш г ш г ш г ш г ш г ш",
+      "finger": "indigo",
+      "title": "Чередование",
+      "hint": "Чередуем указательный и средний правой руки: Г — Ш — Г — Ш, после каждой — пробел"
     },
     {
       "type": "p",
-      "text": "НАША, ВАША — мягкие слова с Ш в середине."
+      "text": "Пальцы освоили новые буквы — собираем слова. ГОРА, НОГА, ШАГ, ШАР — слова растут вместе с новыми буквами, НАША и ВАША — мягкие слова с Ш в середине. Читай слово целиком и набирай ровно."
     },
     {
-      "type": "exercise",
-      "target": "шаг шар наша ваша",
-      "finger": "indigo",
-      "hint": "Правые указательный (Г) и средний (Ш) на верхнем ряду"
+      "type": "pullquote",
+      "text": "Точность бьёт скорость. Скорость приходит сама, когда точность стабилизируется.",
+      "by": "методика курса"
+    },
+    {
+      "type": "step",
+      "kind": "drill",
+      "target": "гора нога шаг шар наша ваша гора нога шаг шар наша ваша",
+      "finger": "green",
+      "title": "Слова",
+      "hint": "Слова из освоенных букв: гора, нога, шаг, шар, наша, ваша"
+    },
+    {
+      "type": "p",
+      "text": "Все шаги пройдены? Тогда нажми «Открыть тренажёр» ниже и сделай полный заход на весь текст урока. Этот заход сохраняется в прогресс и открывает следующий урок."
     }
   ],
   "character_tips": {
@@ -116,5 +148,5 @@
   "phase": 1,
   "rhythmLesson": false,
   "created_at": "2025-11-19",
-  "version": "3.0"
+  "version": "4.0"
 }

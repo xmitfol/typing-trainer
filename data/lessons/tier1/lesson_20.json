@@ -8,34 +8,40 @@
   "text_length": 30,
   "error_limit_percent": 5,
   "error_limit": 3,
-  "text": "юю ёё юг юла мою пою бюро ёлка",
+  "text": "ю ю ю ё ё ё юг юла мою пою бюро ёлка",
   "text_sequence": [
     {"char": "ю", "hand": "right", "finger": "ring", "key": "Ю"},
-    {"char": "ю", "hand": "right", "finger": "ring", "key": "Ю"},
-    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
-    {"char": "ё", "hand": "left", "finger": "pinky", "key": "Ё"},
-    {"char": "ё", "hand": "left", "finger": "pinky", "key": "Ё"},
     {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
     {"char": "ю", "hand": "right", "finger": "ring", "key": "Ю"},
-    {"char": "г", "hand": "right", "finger": "index", "key": "Г"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "ю", "hand": "right", "finger": "ring", "key": "Ю"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "ё", "hand": "left", "finger": "pinky", "key": "Ё"},
     {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "ё", "hand": "left", "finger": "pinky", "key": "Ё"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "ё", "hand": "left", "finger": "pinky", "key": "Ё"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "ю", "hand": "right", "finger": "ring", "key": "Ю"},
+    {"char": "г", "hand": "right", "finger": "index", "key": "Г"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
     {"char": "ю", "hand": "right", "finger": "ring", "key": "Ю"},
     {"char": "л", "hand": "right", "finger": "middle", "key": "Л"},
     {"char": "а", "hand": "left", "finger": "index", "key": "А"},
-    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
     {"char": "м", "hand": "left", "finger": "index", "key": "М"},
     {"char": "о", "hand": "right", "finger": "index", "key": "О"},
     {"char": "ю", "hand": "right", "finger": "ring", "key": "Ю"},
-    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
-    {"char": "п", "hand": "left", "finger": "pinky", "key": "П"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "п", "hand": "left", "finger": "index", "key": "П"},
     {"char": "о", "hand": "right", "finger": "index", "key": "О"},
     {"char": "ю", "hand": "right", "finger": "ring", "key": "Ю"},
     {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
     {"char": "б", "hand": "right", "finger": "middle", "key": "Б"},
     {"char": "ю", "hand": "right", "finger": "ring", "key": "Ю"},
-    {"char": "р", "hand": "left", "finger": "index", "key": "Р"},
+    {"char": "р", "hand": "right", "finger": "index", "key": "Р"},
     {"char": "о", "hand": "right", "finger": "index", "key": "О"},
-    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
     {"char": "ё", "hand": "left", "finger": "pinky", "key": "Ё"},
     {"char": "л", "hand": "right", "finger": "middle", "key": "Л"},
     {"char": "к", "hand": "left", "finger": "index", "key": "К"},
@@ -82,50 +88,27 @@
     "Ё"
   ],
   "finger_focus": "Ю (правый безымянный, нижний ряд) и Ё (левый мизинец) — последние буквы алфавита",
+  "guided": true,
   "tips": [
-    {
-      "type": "lead",
-      "text": "Последние две буквы! Ю — безымянный правой руки, вниз от Д. Ё — мизинец левой руки, в левом верхнем углу над Й."
-    },
-    {
-      "type": "drop",
-      "text": "С Ю и Ё освоены все 33 буквы русского алфавита. Постановка рук завершена — дальше скорость и тексты."
-    },
-    {
-      "type": "exercise",
-      "target": "юю ёё юг юла",
-      "finger": "orange",
-      "hint": "Ю (правый безымянный) и Ё (левый мизинец) — последние буквы"
-    },
-    {
-      "type": "p",
-      "text": "ЮГ, ЮЛА, МОЮ, ПОЮ — короткие слова с Ю."
-    },
-    {
-      "type": "callout",
-      "icon": "💡",
-      "title": "Подсказка",
-      "text": "Ё стоит отдельно, в углу над Й — мизинец тянется далеко вверх-влево. После удара сразу домой."
-    },
-    {
-      "type": "p",
-      "text": "БЮРО, ЁЛКА — Ю в середине и Ё в начале. Все 33 буквы покорены!"
-    },
-    {
-      "type": "exercise",
-      "target": "мою пою бюро ёлка",
-      "finger": "pink",
-      "hint": "Ю (правый безымянный) и Ё (левый мизинец) — последние буквы"
-    }
+    {"type": "lead", "text": "Последние две буквы алфавита! Ю — безымянный правой руки, опускается вниз от Д. Ё — мизинец левой руки, в левом верхнем углу над Й. Освоишь их — и все 33 буквы русского алфавита будут твои."},
+    {"type": "drop", "text": "Пальцы на ФЫВА ОЛДЖ, большие — над пробелом. Опусти правый безымянный на Ю, нажми и верни на Д. Ё стоит отдельно, в углу над Й: мизинец тянется далеко вверх-влево, нажимает и сразу возвращается на Ф. Дом не теряй."},
+    {"type": "callout", "icon": "🏁", "title": "Финишная прямая", "text": "Ю требует точного спуска слабым безымянным, Ё — дальнего движения мизинцем в угол. Оба пальца слабые — не спеши, бей точно и возвращай палец домой. После Ю — безымянный на Д, после Ё — мизинец на Ф."},
+    {"type": "step", "kind": "drill", "target": "ю ю ю ю ю ю ю ю ю ю ю ю ю ю ю ю ю ю ю ю", "finger": "orange", "title": "Буква Ю", "hint": "Безымянный палец правой руки вниз — буква Ю, после каждой возвращай палец на Д"},
+    {"type": "step", "kind": "drill", "target": "ё ё ё ё ё ё ё ё ё ё ё ё ё ё ё ё ё ё ё ё", "finger": "pink", "title": "Буква Ё", "hint": "Мизинец левой руки вверх-влево в угол — буква Ё, после каждой возвращай палец на Ф"},
+    {"type": "step", "kind": "drill", "target": "ю ё ю ё ю ё ю ё ю ё ю ё ю ё ю ё ю ё ю ё", "finger": "orange", "title": "Чередование", "hint": "Чередуем последние буквы: Ю — Ё — Ю — Ё, после каждой — домой"},
+    {"type": "p", "text": "Две последние буквы в руках — собираем слова. Это финальный шаг: с Ю и Ё алфавит замыкается. Читай слово целиком и набирай ровно, не глядя на руки, каждый палец после удара — обратно на дом."},
+    {"type": "pullquote", "text": "Все 33 буквы собраны. Постановка рук завершена — дальше только скорость и связные тексты.", "by": "методика курса"},
+    {"type": "step", "kind": "drill", "target": "юг юла мою пою бюро ёлка юг юла мою пою бюро ёлка", "finger": "pink", "title": "Слова", "hint": "Слова с новыми буквами: юг, юла, мою, пою, бюро, ёлка"},
+    {"type": "p", "text": "Поздравляем — это была последняя буква! Все 33 буквы алфавита освоены. Нажми «Открыть тренажёр» ниже и сделай полный заход на весь текст урока: он сохраняется в прогресс и завершает постановку рук."}
   ],
   "character_tips": {
-    "anna": "Поздравляю! Ю и Ё — последние буквы. ЮГ, ЮЛА, ЁЛКА — теперь все 33 буквы твои!",
-    "maxim": "Отличная работа! Алфавит освоен полностью. Постановка рук завершена — впереди скорость и связные тексты.",
-    "knopych": "Вау-у-у! ВСЕ 33 БУКВЫ! ЮГ-ЮЛА-БЮРО-ЁЛКА! Алфавит покорён!",
-    "klavochka": "Какой ты молодец! Ю и Ё — и весь алфавит готов! ЁЛКА, БЮРО — праздничные слова!"
+    "anna": "Поздравляю! Ю и Ё — последние буквы. Теперь все 33 буквы алфавита твои! ЮГ, ЮЛА, ЁЛКА — постановка рук завершена!",
+    "maxim": "Отличная работа! Алфавит освоен полностью, постановка рук завершена. Все буквы под пальцами — впереди скорость и связные тексты.",
+    "knopych": "Вау-у-у! ВСЕ 33 БУКВЫ! ЮГ-ЮЛА-БЮРО-ЁЛКА! Алфавит покорён целиком — мы это сделали!",
+    "klavochka": "Какой ты молодец! Ю и Ё — и весь алфавит готов! ЁЛКА, БЮРО — праздничные слова на финал!"
   },
   "phase": 1,
   "rhythmLesson": false,
   "created_at": "2025-11-19",
-  "version": "3.0"
+  "version": "4.0"
 }

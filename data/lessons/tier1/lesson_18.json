@@ -13,12 +13,12 @@
     {"char": "т", "hand": "right", "finger": "index", "key": "Т"},
     {"char": "и", "hand": "left", "finger": "index", "key": "И"},
     {"char": "г", "hand": "right", "finger": "index", "key": "Г"},
-    {"char": "р", "hand": "left", "finger": "index", "key": "Р"},
-    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "р", "hand": "right", "finger": "index", "key": "Р"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
     {"char": "т", "hand": "right", "finger": "index", "key": "Т"},
     {"char": "и", "hand": "left", "finger": "index", "key": "И"},
     {"char": "г", "hand": "right", "finger": "index", "key": "Г"},
-    {"char": "р", "hand": "left", "finger": "index", "key": "Р"},
+    {"char": "р", "hand": "right", "finger": "index", "key": "Р"},
     {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
     {"char": "и", "hand": "left", "finger": "index", "key": "И"},
     {"char": "с", "hand": "left", "finger": "middle", "key": "С"},
@@ -31,7 +31,7 @@
     {"char": "т", "hand": "right", "finger": "index", "key": "Т"},
     {"char": "о", "hand": "right", "finger": "index", "key": "О"},
     {"char": "к", "hand": "left", "finger": "index", "key": "К"},
-    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
     {"char": "м", "hand": "left", "finger": "index", "key": "М"},
     {"char": "а", "hand": "left", "finger": "index", "key": "А"},
     {"char": "с", "hand": "left", "finger": "middle", "key": "С"},
@@ -43,7 +43,7 @@
     {"char": "с", "hand": "left", "finger": "middle", "key": "С"},
     {"char": "к", "hand": "left", "finger": "index", "key": "К"},
     {"char": "а", "hand": "left", "finger": "index", "key": "А"},
-    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
     {"char": "с", "hand": "left", "finger": "middle", "key": "С"},
     {"char": "о", "hand": "right", "finger": "index", "key": "О"},
     {"char": "с", "hand": "left", "finger": "middle", "key": "С"},
@@ -90,46 +90,18 @@
   ],
   "new_keys": [],
   "finger_focus": "Все пальцы — слова из трёх рядов, ритм и возврат домой",
+  "guided": true,
   "tips": [
-    {
-      "type": "lead",
-      "text": "🎵 Без новых букв — закрепляем все три ряда"
-    },
-    {
-      "type": "drop",
-      "text": "Слова используют домашний, верхний и нижний ряд — печатай ровно и держи опору"
-    },
-    {
-      "type": "exercise",
-      "target": "тигр тигр исток исток",
-      "finger": "indigo",
-      "hint": "Все пальцы — три ряда, ритм и возврат домой"
-    },
-    {
-      "type": "p",
-      "text": "Почувствуй движения во все стороны: ТИГР-ТИГР, ИСТОК-ИСТОК"
-    },
-    {
-      "type": "callout",
-      "icon": "💡",
-      "title": "Запомни",
-      "text": "Дом — центр всего: вверх, вниз и обратно. Ритм собирает движения воедино"
-    },
-    {
-      "type": "p",
-      "text": "Последняя передышка перед завершением алфавита"
-    },
-    {
-      "type": "pullquote",
-      "text": "Спокойный ровный темп — лучший учитель пальцев",
-      "by": "методика курса"
-    },
-    {
-      "type": "exercise",
-      "target": "маска маска сосна сосна",
-      "finger": "green",
-      "hint": "Все пальцы — три ряда, ритм и возврат домой"
-    }
+    {"type": "lead", "text": "🎵 Новых букв сегодня нет — закрепляем все три ряда через ритм. Слова теперь используют домашний, верхний и нижний ряд сразу. Главное не скорость, а ровный, одинаковый темп: каждое нажатие через равные промежутки, как удары метронома."},
+    {"type": "drop", "text": "Пальцы прыгают во все стороны — вверх, вниз и обратно домой. Поставь руки на ФЫВА ОЛДЖ, большие — над пробелом, и после любого прыжка возвращайся на исходную позицию. Повторяй каждое слово ровно, считая про себя: раз-два-три-четыре."},
+    {"type": "callout", "icon": "🎶", "title": "Ровный счёт", "text": "Дом — центр всего: вверх, вниз и обратно. Включи внутренний метроном и печатай строго в такт: между любыми двумя нажатиями — одинаковая пауза. Темп важнее скорости — лучше медленно и ровно, чем быстро и рвано."},
+    {"type": "step", "kind": "drill", "target": "тигр тигр тигр тигр тигр", "finger": "indigo", "title": "Ритм: тигр", "hint": "Повторяй ровно, в одном темпе: тигр — тигр — тигр. Считай раз-два-три-четыре"},
+    {"type": "step", "kind": "drill", "target": "исток исток исток исток", "finger": "blue", "title": "Ритм: исток", "hint": "Повторяй ровно, без рывков: исток — исток — исток. Держи одинаковые паузы"},
+    {"type": "step", "kind": "drill", "target": "маска маска маска", "finger": "green", "title": "Ритм: маска", "hint": "Повторяй ровно: маска — маска — маска. Не ускоряйся к концу"},
+    {"type": "step", "kind": "drill", "target": "сосна сосна сосна", "finger": "green", "title": "Ритм: сосна", "hint": "Повторяй ровно: сосна — сосна — сосна. Ровный счёт до самого конца"},
+    {"type": "p", "text": "Почувствуй движения во все стороны и возврат домой: ТИГР-ТИГР, ИСТОК-ИСТОК. Повторение в ровном темпе собирает движения по всем трём рядам в единый автоматизм — это последняя передышка перед завершением алфавита."},
+    {"type": "pullquote", "text": "Спокойный ровный темп — лучший учитель пальцев.", "by": "методика курса"},
+    {"type": "p", "text": "Все шаги пройдены? Тогда нажми «Открыть тренажёр» ниже и сделай полный заход на весь текст урока. Этот заход сохраняется в прогресс и открывает следующий урок."}
   ],
   "character_tips": {
     "anna": "Отлично! Ритм-урок из трёх рядов. ТИГР-ТИГР, ИСТОК-ИСТОК — память собирается воедино!",
@@ -140,5 +112,5 @@
   "phase": 1,
   "rhythmLesson": true,
   "created_at": "2025-11-19",
-  "version": "3.0"
+  "version": "4.0"
 }

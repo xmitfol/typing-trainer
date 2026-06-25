@@ -8,14 +8,20 @@
   "text_length": 32,
   "error_limit_percent": 5,
   "error_limit": 3,
-  "text": "яя чч чай чан ряд чары врач заяц",
+  "text": "я я я ч ч ч чай чан ряд чары врач заяц",
   "text_sequence": [
     {"char": "я", "hand": "left", "finger": "pinky", "key": "Я"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "я", "hand": "left", "finger": "pinky", "key": "Я"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
     {"char": "я", "hand": "left", "finger": "pinky", "key": "Я"},
     {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
     {"char": "ч", "hand": "left", "finger": "ring", "key": "Ч"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
     {"char": "ч", "hand": "left", "finger": "ring", "key": "Ч"},
-    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "ч", "hand": "left", "finger": "ring", "key": "Ч"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
     {"char": "ч", "hand": "left", "finger": "ring", "key": "Ч"},
     {"char": "а", "hand": "left", "finger": "index", "key": "А"},
     {"char": "й", "hand": "left", "finger": "pinky", "key": "Й"},
@@ -24,17 +30,17 @@
     {"char": "а", "hand": "left", "finger": "index", "key": "А"},
     {"char": "н", "hand": "right", "finger": "index", "key": "Н"},
     {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
-    {"char": "р", "hand": "left", "finger": "index", "key": "Р"},
+    {"char": "р", "hand": "right", "finger": "index", "key": "Р"},
     {"char": "я", "hand": "left", "finger": "pinky", "key": "Я"},
     {"char": "д", "hand": "right", "finger": "ring", "key": "Д"},
-    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
     {"char": "ч", "hand": "left", "finger": "ring", "key": "Ч"},
     {"char": "а", "hand": "left", "finger": "index", "key": "А"},
-    {"char": "р", "hand": "left", "finger": "index", "key": "Р"},
+    {"char": "р", "hand": "right", "finger": "index", "key": "Р"},
     {"char": "ы", "hand": "left", "finger": "ring", "key": "Ы"},
-    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
     {"char": "в", "hand": "left", "finger": "middle", "key": "В"},
-    {"char": "р", "hand": "left", "finger": "index", "key": "Р"},
+    {"char": "р", "hand": "right", "finger": "index", "key": "Р"},
     {"char": "а", "hand": "left", "finger": "index", "key": "А"},
     {"char": "ч", "hand": "left", "finger": "ring", "key": "Ч"},
     {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
@@ -76,50 +82,27 @@
     "Ч"
   ],
   "finger_focus": "Левые мизинец (Я) и безымянный (Ч) — первое движение на нижний ряд",
+  "guided": true,
   "tips": [
-    {
-      "type": "lead",
-      "text": "Первый выход на НИЖНИЙ ряд. Я — мизинец левой руки, вниз от Ф. Ч — безымянный левой руки, вниз от Ы."
-    },
-    {
-      "type": "drop",
-      "text": "Теперь пальцы учатся двигаться не только вверх, но и вниз от домашнего ряда. После удара — сразу обратно домой."
-    },
-    {
-      "type": "exercise",
-      "target": "яя чч чай чан",
-      "finger": "pink",
-      "hint": "Левые мизинец (Я) и безымянный (Ч) на нижнем ряду"
-    },
-    {
-      "type": "p",
-      "text": "ЧАЙ, ЧАН, РЯД — короткие слова с новыми буквами нижнего ряда."
-    },
-    {
-      "type": "callout",
-      "icon": "💡",
-      "title": "Подсказка",
-      "text": "После Я возвращай мизинец на Ф, после Ч — безымянный на Ы. Движение вниз короткое и точное."
-    },
-    {
-      "type": "p",
-      "text": "ЧАРЫ, ВРАЧ, ЗАЯЦ — слова с Ч и Я в разных позициях."
-    },
-    {
-      "type": "exercise",
-      "target": "ряд чары врач заяц",
-      "finger": "orange",
-      "hint": "Левые мизинец (Я) и безымянный (Ч) на нижнем ряду"
-    }
+    {"type": "lead", "text": "Первый выход на НИЖНИЙ ряд. До сих пор пальцы тянулись только вверх — теперь учатся опускаться ВНИЗ от домашнего ряда и сразу возвращаться домой. Это самый трудный ряд: вниз вслепую попасть тяжелее, поэтому здесь особое внимание точности."},
+    {"type": "drop", "text": "Я — мизинец левой руки, опускается вниз от Ф. Ч — безымянный левой руки, вниз от Ы. Пальцы на ФЫВА ОЛДЖ, большие — над пробелом. Опусти палец на нижний ряд, нажми и тут же верни его на исходную клавишу — не теряй домашнюю опору."},
+    {"type": "callout", "icon": "⬇️", "title": "Вниз и сразу домой", "text": "Движение на нижний ряд короткое: палец опускается чуть вниз, нажимает и возвращается. Не уводи вниз всю кисть — работает только нужный палец. После Я мизинец на Ф, после Ч безымянный на Ы."},
+    {"type": "step", "kind": "drill", "target": "я я я я я я я я я я я я я я я я я я я я", "finger": "pink", "title": "Буква Я", "hint": "Мизинец левой руки вниз — буква Я, после каждой возвращай палец на Ф"},
+    {"type": "step", "kind": "drill", "target": "ч ч ч ч ч ч ч ч ч ч ч ч ч ч ч ч ч ч ч ч", "finger": "orange", "title": "Буква Ч", "hint": "Безымянный левой руки вниз — буква Ч, после каждой возвращай палец на Ы"},
+    {"type": "step", "kind": "drill", "target": "я ч я ч я ч я ч я ч я ч я ч я ч я ч я ч", "finger": "pink", "title": "Чередование", "hint": "Чередуем слабые пальцы вниз: Я — Ч — Я — Ч, после каждой — домой"},
+    {"type": "p", "text": "Слабые пальцы научились ходить вниз — собираем слова. С Я и Ч уже складываются короткие слова: читай слово целиком и набирай ровно, не глядя на руки, каждый палец после удара — обратно на дом."},
+    {"type": "pullquote", "text": "Точность бьёт скорость. Скорость приходит сама, когда точность стабилизируется.", "by": "методика курса"},
+    {"type": "step", "kind": "drill", "target": "чай чан ряд чары врач заяц чай чан ряд чары врач заяц", "finger": "orange", "title": "Слова", "hint": "Слова с новыми буквами: чай, чан, ряд, чары, врач, заяц"},
+    {"type": "p", "text": "Все шаги пройдены? Тогда нажми «Открыть тренажёр» ниже и сделай полный заход на весь текст урока. Этот заход сохраняется в прогресс и открывает следующий урок."}
   ],
   "character_tips": {
-    "anna": "Отлично! Первый шаг на нижний ряд! Я и Ч — слабые пальцы тянутся вниз. ЧАЙ, ЧАН, РЯД!",
-    "maxim": "Хорошая работа! Нижний ряд начинается с мизинца и безымянного. Возвращай палец домой после каждого удара.",
+    "anna": "Отлично! Первый шаг на нижний ряд! Я и Ч — слабые пальцы опускаются вниз и сразу домой. ЧАЙ, ЧАН, РЯД!",
+    "maxim": "Хорошая работа! Нижний ряд начинается с мизинца и безымянного. Вниз попасть труднее — возвращай палец домой после каждого удара.",
     "knopych": "Вау! Спустились на нижний ряд! ЧАЙ-ЧАН-ВРАЧ-ЗАЯЦ! Я и Ч в деле!",
     "klavochka": "Какой ты умница! Пальчики потянулись вниз и нашли Я и Ч! И сразу домой!"
   },
   "phase": 1,
   "rhythmLesson": false,
   "created_at": "2025-11-19",
-  "version": "3.0"
+  "version": "4.0"
 }
