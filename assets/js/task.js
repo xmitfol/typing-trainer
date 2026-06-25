@@ -161,6 +161,10 @@ document.addEventListener('DOMContentLoaded', async function () {
             ? 'Не смотри на руки — нащупай клавиши пальцами.'
             : (currentStep.hint || '');
     }
+    // Дефолтные тексты bubble — чтобы вернуть после временной подсказки о раскладке.
+    const bubbleDefaultTip = tipEl.textContent;
+    const bubbleDefaultHint = hintEl.textContent;
+    let layoutWarned = false;
 
     // ─── State ───────────────────────────────────────────────────
     let typed = 0, errors = 0, attempt = 1, startTime = null, timer = null, done = false;
@@ -355,12 +359,35 @@ document.addEventListener('DOMContentLoaded', async function () {
         const expected = targetText[typed];
         if (e.key === expected) {
             // Верная клавиша — двигаем курсор.
+            if (layoutWarned) {  // раскладку починили — вернуть обычную подсказку
+                layoutWarned = false;
+                tipEl.textContent = bubbleDefaultTip;
+                hintEl.textContent = bubbleDefaultHint;
+            }
             kb.flashActive(e.code, 140);
             typed++;
             renderTarget();
             updateStats();
             if (typed >= targetText.length) finishExercise();
         } else {
+            // Не та раскладка: ждём кириллицу, а пришла латиница (или наоборот).
+            // Физическая клавиша при этом верная — это не ошибка набора, а раскладка,
+            // поэтому подсказываем и НЕ штрафуем (не трогаем errors/keyErrors).
+            const isLatin = /^[a-zA-Z]$/.test(e.key);
+            const isCyr = /^[а-яёА-ЯЁ]$/.test(e.key);
+            const expectCyr = /[а-яё]/i.test(expected);
+            const expectLatin = /[a-z]/i.test(expected);
+            if ((expectCyr && isLatin) || (expectLatin && isCyr)) {
+                if (!layoutWarned) {
+                    layoutWarned = true;
+                    const wrong = expectCyr ? 'английская' : 'русская';
+                    const right = expectCyr ? 'русскую' : 'английскую';
+                    tipEl.textContent = (profile.name ? profile.name + ', к' : 'К') +
+                        `ажется, включена ${wrong} раскладка.`;
+                    hintEl.textContent = `Переключись на ${right} раскладку (Alt+Shift или Win+Пробел) и продолжай.`;
+                }
+                return;
+            }
             // Неверная клавиша — стоим на месте, ждём правильную. Считаем ошибку.
             kb.flashError(e.code);
             errors++;
