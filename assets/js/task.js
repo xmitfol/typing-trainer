@@ -391,6 +391,21 @@ document.addEventListener('DOMContentLoaded', async function () {
                 }
                 return;
             }
+            // Тот же символ, но заглавный (буква верная, регистр нет) → Caps Lock / Shift.
+            // Не штрафуем — подсказываем выключить.
+            if (e.key.length === 1 && e.key !== expected &&
+                e.key.toLowerCase() === String(expected).toLowerCase()) {
+                if (!layoutWarned) {
+                    layoutWarned = true;
+                    const caps = e.getModifierState && e.getModifierState('CapsLock');
+                    tipEl.textContent = (profile.name ? profile.name + ', т' : 'Т') +
+                        (caps ? 'ы набираешь заглавными — включён Caps Lock.' : 'ы набираешь заглавными буквами.');
+                    hintEl.textContent = caps
+                        ? 'Выключи Caps Lock — в уроке строчные буквы.'
+                        : 'В уроке строчные буквы — проверь Caps Lock и Shift.';
+                }
+                return;
+            }
             // Неверная клавиша — стоим на месте, ждём правильную. Считаем ошибку.
             kb.flashError(e.code);
             errorPositions.add(typed);  // отметить место промаха (останется до конца захода)
