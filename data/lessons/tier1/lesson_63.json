@@ -8,7 +8,7 @@
   "text_length": 194,
   "error_limit_percent": 5,
   "error_limit": 9,
-  "text": "У хорошего навыка три опоры: спокойствие (даже когда пальцы спешат), точность - проверенная сотней повторений - и терпение; вместе эти три качества за два месяца превращают новичка в человека, который печатает свободно и легко, не глядя на руки.",
+  "text": "У хорошего навыка три опоры: спокойствие (даже когда пальцы спешат), точность - проверенная сотней повторений - и терпение; вместе, неспешно, эти три качества превращают новичка в человека, который печатает свободно и легко, не глядя на руки.",
   "text_sequence": [
     {"char": "У", "hand": "left", "finger": "middle", "key": "У"},
     {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
@@ -140,7 +140,18 @@
     {"char": "с", "hand": "left", "finger": "middle", "key": "С"},
     {"char": "т", "hand": "right", "finger": "index", "key": "Т"},
     {"char": "е", "hand": "left", "finger": "index", "key": "Е"},
-    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": ",", "hand": "right", "finger": "pinky", "key": ","},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "н", "hand": "right", "finger": "index", "key": "Н"},
+    {"char": "е", "hand": "left", "finger": "index", "key": "Е"},
+    {"char": "с", "hand": "left", "finger": "middle", "key": "С"},
+    {"char": "п", "hand": "left", "finger": "index", "key": "П"},
+    {"char": "е", "hand": "left", "finger": "index", "key": "Е"},
+    {"char": "ш", "hand": "right", "finger": "middle", "key": "Ш"},
+    {"char": "н", "hand": "right", "finger": "index", "key": "Н"},
+    {"char": "о", "hand": "right", "finger": "index", "key": "О"},
+    {"char": ",", "hand": "right", "finger": "pinky", "key": ","},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
     {"char": "э", "hand": "right", "finger": "pinky", "key": "Э"},
     {"char": "т", "hand": "right", "finger": "index", "key": "Т"},
     {"char": "и", "hand": "left", "finger": "index", "key": "И"},
@@ -156,20 +167,6 @@
     {"char": "с", "hand": "left", "finger": "middle", "key": "С"},
     {"char": "т", "hand": "right", "finger": "index", "key": "Т"},
     {"char": "в", "hand": "left", "finger": "middle", "key": "В"},
-    {"char": "а", "hand": "left", "finger": "index", "key": "А"},
-    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
-    {"char": "з", "hand": "right", "finger": "pinky", "key": "З"},
-    {"char": "а", "hand": "left", "finger": "index", "key": "А"},
-    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
-    {"char": "д", "hand": "right", "finger": "ring", "key": "Д"},
-    {"char": "в", "hand": "left", "finger": "middle", "key": "В"},
-    {"char": "а", "hand": "left", "finger": "index", "key": "А"},
-    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
-    {"char": "м", "hand": "left", "finger": "index", "key": "М"},
-    {"char": "е", "hand": "left", "finger": "index", "key": "Е"},
-    {"char": "с", "hand": "left", "finger": "middle", "key": "С"},
-    {"char": "я", "hand": "left", "finger": "pinky", "key": "Я"},
-    {"char": "ц", "hand": "left", "finger": "ring", "key": "Ц"},
     {"char": "а", "hand": "left", "finger": "index", "key": "А"},
     {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
     {"char": "п", "hand": "left", "finger": "index", "key": "П"},
@@ -266,7 +263,7 @@
     },
     {
       "type": "drop",
-      "text": "У каждого знака свой ритм: точка с запятой острее, тире шире."
+      "text": "У каждого знака свой ритм: точка с запятой острее, тире шире. Так нас учили в корректуре."
     },
     {
       "type": "exercise",
@@ -276,11 +273,11 @@
     },
     {
       "type": "p",
-      "text": "Не передумывайте на ходу: печатайте, потом перечитывайте."
+      "text": "Не передумывайте на ходу: сперва наберите, потом перечитайте. - А. Т. Якимов, редактор"
     },
     {
       "type": "exercise",
-      "target": "- и терпение; вместе эти три качества за два месяца превращают новичка в человека, который печатает свободно.",
+      "target": "- и терпение; вместе, неспешно, эти три качества превращают новичка в человека, который печатает свободно.",
       "finger": "purple",
       "hint": "Все знаки в реальной прозе"
     }
