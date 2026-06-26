@@ -2,14 +2,68 @@
   "id": "tier1_lesson_95",
   "tier": "tier1",
   "lesson_number": 95,
-  "title": "Ритм: финальная разминка",
-  "description": "Один урок до экзамена — спокойная плавная проза",
+  "title": "Ритм-упражнение: финальная разминка",
+  "description": "Закрепление через ритм — ровный темп на знакомых словах, без новых букв",
   "target_wpm": 103,
   "text_length": 269,
   "error_limit_percent": 4,
   "error_limit": 10,
-  "text": "Один урок остался, мой герой. Сделай вдох. Сядь ровно. Положи пальцы на основной ряд. Найди Ф и Ы на ощупь. Следующий урок — твой сертификационный экзамен. Ты справишься. Девяносто девять уроков назад клавиатура была загадкой. Сегодня она — продолжение твоего мышления.",
-  "text_sequence": [],
+  "text": "герой герой вдох вдох пальцы пальцы загадкой загадкой",
+  "text_sequence": [
+    {"char": "г", "hand": "right", "finger": "index", "key": "Г"},
+    {"char": "е", "hand": "left", "finger": "index", "key": "Е"},
+    {"char": "р", "hand": "right", "finger": "index", "key": "Р"},
+    {"char": "о", "hand": "right", "finger": "index", "key": "О"},
+    {"char": "й", "hand": "left", "finger": "pinky", "key": "Й"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "г", "hand": "right", "finger": "index", "key": "Г"},
+    {"char": "е", "hand": "left", "finger": "index", "key": "Е"},
+    {"char": "р", "hand": "right", "finger": "index", "key": "Р"},
+    {"char": "о", "hand": "right", "finger": "index", "key": "О"},
+    {"char": "й", "hand": "left", "finger": "pinky", "key": "Й"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "в", "hand": "left", "finger": "middle", "key": "В"},
+    {"char": "д", "hand": "right", "finger": "ring", "key": "Д"},
+    {"char": "о", "hand": "right", "finger": "index", "key": "О"},
+    {"char": "х", "hand": "right", "finger": "pinky", "key": "Х"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "в", "hand": "left", "finger": "middle", "key": "В"},
+    {"char": "д", "hand": "right", "finger": "ring", "key": "Д"},
+    {"char": "о", "hand": "right", "finger": "index", "key": "О"},
+    {"char": "х", "hand": "right", "finger": "pinky", "key": "Х"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "п", "hand": "left", "finger": "index", "key": "П"},
+    {"char": "а", "hand": "left", "finger": "index", "key": "А"},
+    {"char": "л", "hand": "right", "finger": "middle", "key": "Л"},
+    {"char": "ь", "hand": "right", "finger": "index", "key": "Ь"},
+    {"char": "ц", "hand": "left", "finger": "ring", "key": "Ц"},
+    {"char": "ы", "hand": "left", "finger": "ring", "key": "Ы"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "п", "hand": "left", "finger": "index", "key": "П"},
+    {"char": "а", "hand": "left", "finger": "index", "key": "А"},
+    {"char": "л", "hand": "right", "finger": "middle", "key": "Л"},
+    {"char": "ь", "hand": "right", "finger": "index", "key": "Ь"},
+    {"char": "ц", "hand": "left", "finger": "ring", "key": "Ц"},
+    {"char": "ы", "hand": "left", "finger": "ring", "key": "Ы"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "з", "hand": "right", "finger": "pinky", "key": "З"},
+    {"char": "а", "hand": "left", "finger": "index", "key": "А"},
+    {"char": "г", "hand": "right", "finger": "index", "key": "Г"},
+    {"char": "а", "hand": "left", "finger": "index", "key": "А"},
+    {"char": "д", "hand": "right", "finger": "ring", "key": "Д"},
+    {"char": "к", "hand": "left", "finger": "index", "key": "К"},
+    {"char": "о", "hand": "right", "finger": "index", "key": "О"},
+    {"char": "й", "hand": "left", "finger": "pinky", "key": "Й"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "з", "hand": "right", "finger": "pinky", "key": "З"},
+    {"char": "а", "hand": "left", "finger": "index", "key": "А"},
+    {"char": "г", "hand": "right", "finger": "index", "key": "Г"},
+    {"char": "а", "hand": "left", "finger": "index", "key": "А"},
+    {"char": "д", "hand": "right", "finger": "ring", "key": "Д"},
+    {"char": "к", "hand": "left", "finger": "index", "key": "К"},
+    {"char": "о", "hand": "right", "finger": "index", "key": "О"},
+    {"char": "й", "hand": "left", "finger": "pinky", "key": "Й"}
+  ],
   "keys_trained": [
     "А-Я",
     "Space",
@@ -19,41 +73,77 @@
     "Shift"
   ],
   "new_keys": [],
-  "finger_focus": "Финальная разминка",
+  "finger_focus": "Все пальцы — фокус на ровном, метрономном ритме",
+  "guided": true,
   "tips": [
     {
       "type": "lead",
-      "text": "Спокойная мета-проза"
+      "text": "🎵 Новых букв сегодня нет — закрепляем уже освоенные слова через ритм. Главное не скорость, а ровный, одинаковый темп: каждое нажатие через равные промежутки, как удары метронома."
     },
     {
       "type": "drop",
-      "text": "Один урок до финала"
+      "text": "Руки уже знают все буквы. Поставь пальцы на основной ряд, большие — над пробелом, и не покидай исходную позицию. Повторяй каждое слово ровно, считая про себя: раз-два-три-четыре."
     },
     {
-      "type": "exercise",
-      "target": "Один урок остался, мой герой. Сделай вдох. Сядь ровно. Положи пальцы на основной ряд. Найди Ф и Ы на ощупь.",
-      "finger": "purple",
-      "hint": "Финальная разминка"
+      "type": "callout",
+      "icon": "🎶",
+      "title": "Ровный счёт",
+      "text": "Включи внутренний метроном. Печатай не «как получится», а строго в такт: между любыми двумя нажатиями — одинаковая пауза. Темп важнее скорости — лучше медленно и ровно, чем быстро и рвано."
+    },
+    {
+      "type": "step",
+      "kind": "drill",
+      "target": "герой герой герой герой герой",
+      "finger": "indigo",
+      "title": "Ритм: герой",
+      "hint": "Повторяй ровно, в одном темпе: герой — герой — герой. Считай раз-два-три-четыре"
+    },
+    {
+      "type": "step",
+      "kind": "drill",
+      "target": "вдох вдох вдох вдох вдох",
+      "finger": "green",
+      "title": "Ритм: вдох",
+      "hint": "Повторяй ровно, без рывков: вдох — вдох — вдох. Держи одинаковые паузы"
+    },
+    {
+      "type": "step",
+      "kind": "drill",
+      "target": "пальцы пальцы пальцы пальцы",
+      "finger": "blue",
+      "title": "Ритм: пальцы",
+      "hint": "Повторяй ровно: пальцы — пальцы — пальцы. Не ускоряйся к концу"
+    },
+    {
+      "type": "step",
+      "kind": "drill",
+      "target": "загадкой загадкой загадкой",
+      "finger": "pink",
+      "title": "Ритм: загадкой",
+      "hint": "Повторяй ровно: загадкой — загадкой — загадкой. Ровный счёт до самого конца"
     },
     {
       "type": "p",
-      "text": "Уверенность + готовность"
+      "text": "Почувствуй, как мышцы запоминают слова целиком: ГЕРОЙ-ГЕРОЙ, ПАЛЬЦЫ-ПАЛЬЦЫ. Повторение в ровном темпе превращает движения в автоматизм — спокойная разминка перед экзаменом."
     },
     {
-      "type": "exercise",
-      "target": "Следующий урок — твой сертификационный экзамен. Ты справишься. Девяносто девять уроков назад клавиатура была загадкой. Сегодня она — продолжение твоего мышления.",
-      "finger": "purple",
-      "hint": "Финальная разминка"
+      "type": "pullquote",
+      "text": "Расслабь плечи и запястья, представь метроном — ритм важнее скорости.",
+      "by": "методика курса"
+    },
+    {
+      "type": "p",
+      "text": "Все шаги пройдены? Тогда нажми «Открыть тренажёр» ниже и сделай полный заход на весь текст урока. Этот заход сохраняется в прогресс и открывает следующий урок."
     }
   ],
   "character_tips": {
-    "anna": "Последняя разминка. Дыши. Ты тренировался для этого.",
-    "maxim": "Финальная разминка. Тело и ум готовы.",
-    "knopych": "ФИНАЛЬНЫЙ БОСС СЛЕДУЮЩИЙ! ⚔️ Руки готовы!",
-    "klavochka": "Один вдох до твоей короны, мой герой 👑🌸"
+    "anna": "Отлично! Ритм-урок на знакомых словах. ГЕРОЙ-ГЕРОЙ, ВДОХ-ВДОХ — повторение закрепляет память!",
+    "maxim": "Хорошо! Повторяющиеся слова тренируют автоматизм. Мозг учится предугадывать движения.",
+    "knopych": "Вау! Эхо-челлендж! ВДОХ-ВДОХ, ПАЛЬЦЫ-ПАЛЬЦЫ! Как эхо в горах — раз-два, раз-два!",
+    "klavochka": "Какой ты молодец! Слова повторяются, пальчики танцуют одинаковые движения! Как красиво!"
   },
   "phase": 7,
   "rhythmLesson": true,
   "created_at": "2026-05-26",
-  "version": "1.0"
+  "version": "4.0"
 }

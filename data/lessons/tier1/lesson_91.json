@@ -2,14 +2,80 @@
   "id": "tier1_lesson_91",
   "tier": "tier1",
   "lesson_number": 91,
-  "title": "Ритм: полный мастерский абзац",
-  "description": "Длинный плавный абзац на 100 WPM — финальный ритм-тест",
+  "title": "Ритм-упражнение: полный мастерский абзац",
+  "description": "Закрепление через ритм — ровный темп на знакомых словах, без новых букв",
   "target_wpm": 100,
   "text_length": 358,
   "error_limit_percent": 4,
   "error_limit": 14,
-  "text": "Два урока до финиша. Ты сидишь ровно на ста словах в минуту — числе, которое отделяет быстрых машинисток от элитных. Чтобы дать контекст: большинство профессиональных писателей упираются в шестьдесят. Старшие журналисты в хороший день доходят до восьмидесяти. Только стенографы и самые быстрые машинистки мира регулярно пересекают сотню. Ты теперь среди них.",
-  "text_sequence": [],
+  "text": "финиша финиша машинисток машинисток контекст контекст сотню сотню",
+  "text_sequence": [
+    {"char": "ф", "hand": "left", "finger": "pinky", "key": "Ф"},
+    {"char": "и", "hand": "left", "finger": "index", "key": "И"},
+    {"char": "н", "hand": "right", "finger": "index", "key": "Н"},
+    {"char": "и", "hand": "left", "finger": "index", "key": "И"},
+    {"char": "ш", "hand": "right", "finger": "middle", "key": "Ш"},
+    {"char": "а", "hand": "left", "finger": "index", "key": "А"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "ф", "hand": "left", "finger": "pinky", "key": "Ф"},
+    {"char": "и", "hand": "left", "finger": "index", "key": "И"},
+    {"char": "н", "hand": "right", "finger": "index", "key": "Н"},
+    {"char": "и", "hand": "left", "finger": "index", "key": "И"},
+    {"char": "ш", "hand": "right", "finger": "middle", "key": "Ш"},
+    {"char": "а", "hand": "left", "finger": "index", "key": "А"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "м", "hand": "left", "finger": "index", "key": "М"},
+    {"char": "а", "hand": "left", "finger": "index", "key": "А"},
+    {"char": "ш", "hand": "right", "finger": "middle", "key": "Ш"},
+    {"char": "и", "hand": "left", "finger": "index", "key": "И"},
+    {"char": "н", "hand": "right", "finger": "index", "key": "Н"},
+    {"char": "и", "hand": "left", "finger": "index", "key": "И"},
+    {"char": "с", "hand": "left", "finger": "middle", "key": "С"},
+    {"char": "т", "hand": "right", "finger": "index", "key": "Т"},
+    {"char": "о", "hand": "right", "finger": "index", "key": "О"},
+    {"char": "к", "hand": "left", "finger": "index", "key": "К"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "м", "hand": "left", "finger": "index", "key": "М"},
+    {"char": "а", "hand": "left", "finger": "index", "key": "А"},
+    {"char": "ш", "hand": "right", "finger": "middle", "key": "Ш"},
+    {"char": "и", "hand": "left", "finger": "index", "key": "И"},
+    {"char": "н", "hand": "right", "finger": "index", "key": "Н"},
+    {"char": "и", "hand": "left", "finger": "index", "key": "И"},
+    {"char": "с", "hand": "left", "finger": "middle", "key": "С"},
+    {"char": "т", "hand": "right", "finger": "index", "key": "Т"},
+    {"char": "о", "hand": "right", "finger": "index", "key": "О"},
+    {"char": "к", "hand": "left", "finger": "index", "key": "К"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "к", "hand": "left", "finger": "index", "key": "К"},
+    {"char": "о", "hand": "right", "finger": "index", "key": "О"},
+    {"char": "н", "hand": "right", "finger": "index", "key": "Н"},
+    {"char": "т", "hand": "right", "finger": "index", "key": "Т"},
+    {"char": "е", "hand": "left", "finger": "index", "key": "Е"},
+    {"char": "к", "hand": "left", "finger": "index", "key": "К"},
+    {"char": "с", "hand": "left", "finger": "middle", "key": "С"},
+    {"char": "т", "hand": "right", "finger": "index", "key": "Т"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "к", "hand": "left", "finger": "index", "key": "К"},
+    {"char": "о", "hand": "right", "finger": "index", "key": "О"},
+    {"char": "н", "hand": "right", "finger": "index", "key": "Н"},
+    {"char": "т", "hand": "right", "finger": "index", "key": "Т"},
+    {"char": "е", "hand": "left", "finger": "index", "key": "Е"},
+    {"char": "к", "hand": "left", "finger": "index", "key": "К"},
+    {"char": "с", "hand": "left", "finger": "middle", "key": "С"},
+    {"char": "т", "hand": "right", "finger": "index", "key": "Т"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "с", "hand": "left", "finger": "middle", "key": "С"},
+    {"char": "о", "hand": "right", "finger": "index", "key": "О"},
+    {"char": "т", "hand": "right", "finger": "index", "key": "Т"},
+    {"char": "н", "hand": "right", "finger": "index", "key": "Н"},
+    {"char": "ю", "hand": "right", "finger": "ring", "key": "Ю"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "с", "hand": "left", "finger": "middle", "key": "С"},
+    {"char": "о", "hand": "right", "finger": "index", "key": "О"},
+    {"char": "т", "hand": "right", "finger": "index", "key": "Т"},
+    {"char": "н", "hand": "right", "finger": "index", "key": "Н"},
+    {"char": "ю", "hand": "right", "finger": "ring", "key": "Ю"}
+  ],
   "keys_trained": [
     "А-Я",
     "Space",
@@ -19,41 +85,77 @@
     "Shift"
   ],
   "new_keys": [],
-  "finger_focus": "100 WPM устойчиво",
+  "finger_focus": "Все пальцы — фокус на ровном, метрономном ритме",
+  "guided": true,
   "tips": [
     {
       "type": "lead",
-      "text": "100 WPM = топ-1% машинисток мира"
+      "text": "🎵 Новых букв сегодня нет — закрепляем уже освоенные слова через ритм. Главное не скорость, а ровный, одинаковый темп: каждое нажатие через равные промежутки, как удары метронома."
     },
     {
       "type": "drop",
-      "text": "Два урока до финала. Держи ритм."
+      "text": "Руки уже знают все буквы. Поставь пальцы на основной ряд, большие — над пробелом, и не покидай исходную позицию. Повторяй каждое слово ровно, считая про себя: раз-два-три-четыре."
     },
     {
-      "type": "exercise",
-      "target": "Два урока до финиша. Ты сидишь ровно на ста словах в минуту — числе, которое отделяет быстрых машинисток от элитных. Чтобы дать контекст: большинство профессиональных",
-      "finger": "purple",
-      "hint": "100 WPM устойчиво"
+      "type": "callout",
+      "icon": "🎶",
+      "title": "Ровный счёт",
+      "text": "Включи внутренний метроном. Печатай не «как получится», а строго в такт: между любыми двумя нажатиями — одинаковая пауза. Темп важнее скорости — лучше медленно и ровно, чем быстро и рвано."
+    },
+    {
+      "type": "step",
+      "kind": "drill",
+      "target": "финиша финиша финиша финиша",
+      "finger": "pink",
+      "title": "Ритм: финиша",
+      "hint": "Повторяй ровно, в одном темпе: финиша — финиша — финиша. Считай раз-два-три-четыре"
+    },
+    {
+      "type": "step",
+      "kind": "drill",
+      "target": "машинисток машинисток машинисток",
+      "finger": "blue",
+      "title": "Ритм: машинисток",
+      "hint": "Повторяй ровно, без рывков: машинисток — машинисток. Держи одинаковые паузы"
+    },
+    {
+      "type": "step",
+      "kind": "drill",
+      "target": "контекст контекст контекст",
+      "finger": "blue",
+      "title": "Ритм: контекст",
+      "hint": "Повторяй ровно: контекст — контекст — контекст. Не ускоряйся к концу"
+    },
+    {
+      "type": "step",
+      "kind": "drill",
+      "target": "сотню сотню сотню сотню сотню",
+      "finger": "green",
+      "title": "Ритм: сотню",
+      "hint": "Повторяй ровно: сотню — сотню — сотню. Ровный счёт до самого конца"
     },
     {
       "type": "p",
-      "text": "Если 100 WPM здесь даётся легко — готов к финалу"
+      "text": "Почувствуй, как мышцы запоминают слова целиком: ФИНИША-ФИНИША, СОТНЮ-СОТНЮ. Повторение в ровном темпе превращает движения в автоматизм — и тогда сотня слов в минуту даётся сама собой."
     },
     {
-      "type": "exercise",
-      "target": "писателей упираются в шестьдесят. Старшие журналисты в хороший день доходят до восьмидесяти. Только стенографы и самые быстрые машинистки мира регулярно пересекают сотню. Ты теперь среди них.",
-      "finger": "purple",
-      "hint": "100 WPM устойчиво"
+      "type": "pullquote",
+      "text": "Расслабь плечи и запястья, представь метроном — ритм важнее скорости.",
+      "by": "методика курса"
+    },
+    {
+      "type": "p",
+      "text": "Все шаги пройдены? Тогда нажми «Открыть тренажёр» ниже и сделай полный заход на весь текст урока. Этот заход сохраняется в прогресс и открывает следующий урок."
     }
   ],
   "character_tips": {
-    "anna": "🎯 100 WPM! Топ-1% всех машинисток. Мало кто на планете это умеет.",
-    "maxim": "100 WPM устойчиво = мировой класс. Гордись. Два до финала.",
-    "knopych": "100! 💯 ТРЁХЗНАЧНЫЕ! ТЫ ЛЕГЕНДА!",
-    "klavochka": "Моя звезда достигла небес ⭐ Сто! Прекрасно!"
+    "anna": "Отлично! Ритм-урок на знакомых словах. ФИНИША-ФИНИША, СОТНЮ-СОТНЮ — повторение закрепляет память!",
+    "maxim": "Хорошо! Повторяющиеся слова тренируют автоматизм. Мозг учится предугадывать движения.",
+    "knopych": "Вау! Эхо-челлендж! СОТНЮ-СОТНЮ, ФИНИША-ФИНИША! Как эхо в горах — раз-два, раз-два!",
+    "klavochka": "Какой ты молодец! Слова повторяются, пальчики танцуют одинаковые движения! Как красиво!"
   },
   "phase": 7,
   "rhythmLesson": true,
   "created_at": "2026-05-26",
-  "version": "1.0"
+  "version": "4.0"
 }

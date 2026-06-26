@@ -2,14 +2,72 @@
   "id": "tier1_lesson_97",
   "tier": "tier1",
   "lesson_number": 97,
-  "title": "Гимн скорости и точности",
-  "description": "Текст-метафора о завершении пути",
+  "title": "Ритм-упражнение: гимн скорости и точности",
+  "description": "Закрепление через ритм — ровный темп на знакомых словах, без новых букв",
   "target_wpm": 104,
   "text_length": 279,
   "error_limit_percent": 4,
   "error_limit": 11,
-  "text": "Сначала была мысль о клавише. Потом — клавиша. Потом — слово, фраза, абзац. Сейчас всё это сливается в одно непрерывное движение. Между мыслью и текстом больше нет промежутка. Это и есть настоящее владение — когда инструмент исчезает, и остаётся только то, что ты хочешь сказать.",
-  "text_sequence": [],
+  "text": "мысль мысль клавиша клавиша слово слово движение движение",
+  "text_sequence": [
+    {"char": "м", "hand": "left", "finger": "index", "key": "М"},
+    {"char": "ы", "hand": "left", "finger": "ring", "key": "Ы"},
+    {"char": "с", "hand": "left", "finger": "middle", "key": "С"},
+    {"char": "л", "hand": "right", "finger": "middle", "key": "Л"},
+    {"char": "ь", "hand": "right", "finger": "index", "key": "Ь"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "м", "hand": "left", "finger": "index", "key": "М"},
+    {"char": "ы", "hand": "left", "finger": "ring", "key": "Ы"},
+    {"char": "с", "hand": "left", "finger": "middle", "key": "С"},
+    {"char": "л", "hand": "right", "finger": "middle", "key": "Л"},
+    {"char": "ь", "hand": "right", "finger": "index", "key": "Ь"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "к", "hand": "left", "finger": "index", "key": "К"},
+    {"char": "л", "hand": "right", "finger": "middle", "key": "Л"},
+    {"char": "а", "hand": "left", "finger": "index", "key": "А"},
+    {"char": "в", "hand": "left", "finger": "middle", "key": "В"},
+    {"char": "и", "hand": "left", "finger": "index", "key": "И"},
+    {"char": "ш", "hand": "right", "finger": "middle", "key": "Ш"},
+    {"char": "а", "hand": "left", "finger": "index", "key": "А"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "к", "hand": "left", "finger": "index", "key": "К"},
+    {"char": "л", "hand": "right", "finger": "middle", "key": "Л"},
+    {"char": "а", "hand": "left", "finger": "index", "key": "А"},
+    {"char": "в", "hand": "left", "finger": "middle", "key": "В"},
+    {"char": "и", "hand": "left", "finger": "index", "key": "И"},
+    {"char": "ш", "hand": "right", "finger": "middle", "key": "Ш"},
+    {"char": "а", "hand": "left", "finger": "index", "key": "А"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "с", "hand": "left", "finger": "middle", "key": "С"},
+    {"char": "л", "hand": "right", "finger": "middle", "key": "Л"},
+    {"char": "о", "hand": "right", "finger": "index", "key": "О"},
+    {"char": "в", "hand": "left", "finger": "middle", "key": "В"},
+    {"char": "о", "hand": "right", "finger": "index", "key": "О"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "с", "hand": "left", "finger": "middle", "key": "С"},
+    {"char": "л", "hand": "right", "finger": "middle", "key": "Л"},
+    {"char": "о", "hand": "right", "finger": "index", "key": "О"},
+    {"char": "в", "hand": "left", "finger": "middle", "key": "В"},
+    {"char": "о", "hand": "right", "finger": "index", "key": "О"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "д", "hand": "right", "finger": "ring", "key": "Д"},
+    {"char": "в", "hand": "left", "finger": "middle", "key": "В"},
+    {"char": "и", "hand": "left", "finger": "index", "key": "И"},
+    {"char": "ж", "hand": "right", "finger": "pinky", "key": "Ж"},
+    {"char": "е", "hand": "left", "finger": "index", "key": "Е"},
+    {"char": "н", "hand": "right", "finger": "index", "key": "Н"},
+    {"char": "и", "hand": "left", "finger": "index", "key": "И"},
+    {"char": "е", "hand": "left", "finger": "index", "key": "Е"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "д", "hand": "right", "finger": "ring", "key": "Д"},
+    {"char": "в", "hand": "left", "finger": "middle", "key": "В"},
+    {"char": "и", "hand": "left", "finger": "index", "key": "И"},
+    {"char": "ж", "hand": "right", "finger": "pinky", "key": "Ж"},
+    {"char": "е", "hand": "left", "finger": "index", "key": "Е"},
+    {"char": "н", "hand": "right", "finger": "index", "key": "Н"},
+    {"char": "и", "hand": "left", "finger": "index", "key": "И"},
+    {"char": "е", "hand": "left", "finger": "index", "key": "Е"}
+  ],
   "keys_trained": [
     "А-Я",
     "Space",
@@ -19,41 +77,77 @@
     "Shift"
   ],
   "new_keys": [],
-  "finger_focus": "Гимн перед финалом",
+  "finger_focus": "Все пальцы — фокус на ровном, метрономном ритме",
+  "guided": true,
   "tips": [
     {
       "type": "lead",
-      "text": "Финальная медитация перед экзаменом"
+      "text": "🎵 Новых букв сегодня нет — закрепляем уже освоенные слова через ритм. Главное не скорость, а ровный, одинаковый темп: каждое нажатие через равные промежутки, как удары метронома."
     },
     {
       "type": "drop",
-      "text": "104 WPM с длинными фразами и тире"
+      "text": "Руки уже знают все буквы. Поставь пальцы на основной ряд, большие — над пробелом, и не покидай исходную позицию. Повторяй каждое слово ровно, считая про себя: раз-два-три-четыре."
     },
     {
-      "type": "exercise",
-      "target": "Сначала была мысль о клавише. Потом — клавиша. Потом — слово, фраза, абзац. Сейчас всё это сливается в одно непрерывное движение. Между",
-      "finger": "purple",
-      "hint": "Гимн перед финалом"
+      "type": "callout",
+      "icon": "🎶",
+      "title": "Ровный счёт",
+      "text": "Включи внутренний метроном. Печатай не «как получится», а строго в такт: между любыми двумя нажатиями — одинаковая пауза. Темп важнее скорости — лучше медленно и ровно, чем быстро и рвано."
+    },
+    {
+      "type": "step",
+      "kind": "drill",
+      "target": "мысль мысль мысль мысль мысль",
+      "finger": "blue",
+      "title": "Ритм: мысль",
+      "hint": "Повторяй ровно, в одном темпе: мысль — мысль — мысль. Считай раз-два-три-четыре"
+    },
+    {
+      "type": "step",
+      "kind": "drill",
+      "target": "клавиша клавиша клавиша клавиша",
+      "finger": "blue",
+      "title": "Ритм: клавиша",
+      "hint": "Повторяй ровно, без рывков: клавиша — клавиша — клавиша. Держи одинаковые паузы"
+    },
+    {
+      "type": "step",
+      "kind": "drill",
+      "target": "слово слово слово слово слово",
+      "finger": "green",
+      "title": "Ритм: слово",
+      "hint": "Повторяй ровно: слово — слово — слово. Не ускоряйся к концу"
+    },
+    {
+      "type": "step",
+      "kind": "drill",
+      "target": "движение движение движение",
+      "finger": "orange",
+      "title": "Ритм: движение",
+      "hint": "Повторяй ровно: движение — движение — движение. Ровный счёт до самого конца"
     },
     {
       "type": "p",
-      "text": "Внутренняя готовность"
+      "text": "Почувствуй, как мышцы запоминают слова целиком: МЫСЛЬ-МЫСЛЬ, СЛОВО-СЛОВО. Повторение в ровном темпе превращает движения в автоматизм — инструмент исчезает, остаётся только мысль."
     },
     {
-      "type": "exercise",
-      "target": "мыслью и текстом больше нет промежутка. Это и есть настоящее владение — когда инструмент исчезает, и остаётся только то, что ты хочешь сказать.",
-      "finger": "purple",
-      "hint": "Гимн перед финалом"
+      "type": "pullquote",
+      "text": "Расслабь плечи и запястья, представь метроном — ритм важнее скорости.",
+      "by": "методика курса"
+    },
+    {
+      "type": "p",
+      "text": "Все шаги пройдены? Тогда нажми «Открыть тренажёр» ниже и сделай полный заход на весь текст урока. Этот заход сохраняется в прогресс и открывает следующий урок."
     }
   ],
   "character_tips": {
-    "anna": "Медитация перед финалом. Дыши. Помни, чего достиг.",
-    "maxim": "Метафорическая проза — последняя настройка ума.",
-    "knopych": "АНТЕМ ЧЕМПИОНА! 🎵 Голос судьбы!",
-    "klavochka": "Поэзия твоего пути, моё дитя 🌅"
+    "anna": "Отлично! Ритм-урок на знакомых словах. МЫСЛЬ-МЫСЛЬ, СЛОВО-СЛОВО — повторение закрепляет память!",
+    "maxim": "Хорошо! Повторяющиеся слова тренируют автоматизм. Мозг учится предугадывать движения.",
+    "knopych": "Вау! Эхо-челлендж! СЛОВО-СЛОВО, КЛАВИША-КЛАВИША! Как эхо в горах — раз-два, раз-два!",
+    "klavochka": "Какой ты молодец! Слова повторяются, пальчики танцуют одинаковые движения! Как красиво!"
   },
   "phase": 7,
   "rhythmLesson": true,
   "created_at": "2026-05-26",
-  "version": "1.0"
+  "version": "4.0"
 }

@@ -2,14 +2,64 @@
   "id": "tier1_lesson_62",
   "tier": "tier1",
   "lesson_number": 62,
-  "title": "Ритм: длинный абзац",
-  "description": "Многосентенциальный абзац — устойчивый темп",
+  "title": "Ритм-упражнение: длинный абзац",
+  "description": "Закрепление через ритм — ровный темп на знакомых словах, без новых букв",
   "target_wpm": 72,
   "text_length": 201,
   "error_limit_percent": 5,
   "error_limit": 10,
-  "text": "Команда работала допоздна. Все экраны светились, все клавиатуры стучали. К восьми часам баг был исправлен, тесты проходили, новая фича готова к деплою. Кто-то заказал пиццу. Неделя наконец закончилась.",
-  "text_sequence": [],
+  "text": "команда команда экраны экраны баг баг пицца пицца",
+  "text_sequence": [
+    {"char": "к", "hand": "left", "finger": "index", "key": "К"},
+    {"char": "о", "hand": "right", "finger": "index", "key": "О"},
+    {"char": "м", "hand": "left", "finger": "index", "key": "М"},
+    {"char": "а", "hand": "left", "finger": "index", "key": "А"},
+    {"char": "н", "hand": "right", "finger": "index", "key": "Н"},
+    {"char": "д", "hand": "right", "finger": "ring", "key": "Д"},
+    {"char": "а", "hand": "left", "finger": "index", "key": "А"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "к", "hand": "left", "finger": "index", "key": "К"},
+    {"char": "о", "hand": "right", "finger": "index", "key": "О"},
+    {"char": "м", "hand": "left", "finger": "index", "key": "М"},
+    {"char": "а", "hand": "left", "finger": "index", "key": "А"},
+    {"char": "н", "hand": "right", "finger": "index", "key": "Н"},
+    {"char": "д", "hand": "right", "finger": "ring", "key": "Д"},
+    {"char": "а", "hand": "left", "finger": "index", "key": "А"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "э", "hand": "right", "finger": "pinky", "key": "Э"},
+    {"char": "к", "hand": "left", "finger": "index", "key": "К"},
+    {"char": "р", "hand": "right", "finger": "index", "key": "Р"},
+    {"char": "а", "hand": "left", "finger": "index", "key": "А"},
+    {"char": "н", "hand": "right", "finger": "index", "key": "Н"},
+    {"char": "ы", "hand": "left", "finger": "ring", "key": "Ы"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "э", "hand": "right", "finger": "pinky", "key": "Э"},
+    {"char": "к", "hand": "left", "finger": "index", "key": "К"},
+    {"char": "р", "hand": "right", "finger": "index", "key": "Р"},
+    {"char": "а", "hand": "left", "finger": "index", "key": "А"},
+    {"char": "н", "hand": "right", "finger": "index", "key": "Н"},
+    {"char": "ы", "hand": "left", "finger": "ring", "key": "Ы"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "б", "hand": "right", "finger": "middle", "key": "Б"},
+    {"char": "а", "hand": "left", "finger": "index", "key": "А"},
+    {"char": "г", "hand": "right", "finger": "index", "key": "Г"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "б", "hand": "right", "finger": "middle", "key": "Б"},
+    {"char": "а", "hand": "left", "finger": "index", "key": "А"},
+    {"char": "г", "hand": "right", "finger": "index", "key": "Г"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "п", "hand": "left", "finger": "index", "key": "П"},
+    {"char": "и", "hand": "left", "finger": "index", "key": "И"},
+    {"char": "ц", "hand": "left", "finger": "ring", "key": "Ц"},
+    {"char": "ц", "hand": "left", "finger": "ring", "key": "Ц"},
+    {"char": "а", "hand": "left", "finger": "index", "key": "А"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "п", "hand": "left", "finger": "index", "key": "П"},
+    {"char": "и", "hand": "left", "finger": "index", "key": "И"},
+    {"char": "ц", "hand": "left", "finger": "ring", "key": "Ц"},
+    {"char": "ц", "hand": "left", "finger": "ring", "key": "Ц"},
+    {"char": "а", "hand": "left", "finger": "index", "key": "А"}
+  ],
   "keys_trained": [
     "А-Я",
     "Space",
@@ -18,41 +68,77 @@
     "Shift"
   ],
   "new_keys": [],
-  "finger_focus": "Многосентенциальный поток",
+  "finger_focus": "Все пальцы — фокус на ровном, метрономном ритме",
+  "guided": true,
   "tips": [
     {
       "type": "lead",
-      "text": "Реальная проза — много предложений в потоке"
+      "text": "🎵 Новых букв сегодня нет — закрепляем уже освоенные слова через ритм. Главное не скорость, а ровный, одинаковый темп: каждое нажатие через равные промежутки, как удары метронома."
     },
     {
       "type": "drop",
-      "text": "Точки — это акценты, а не полные стопы"
+      "text": "Руки уже знают все буквы. Поставь пальцы на основной ряд, большие — над пробелом, и не покидай исходную позицию. Повторяй каждое слово ровно, считая про себя: раз-два-три-четыре."
     },
     {
-      "type": "exercise",
-      "target": "Команда работала допоздна. Все экраны светились, все клавиатуры стучали. К восьми часам баг был",
-      "finger": "purple",
-      "hint": "Многосентенциальный поток"
+      "type": "callout",
+      "icon": "🎶",
+      "title": "Ровный счёт",
+      "text": "Включи внутренний метроном. Печатай не «как получится», а строго в такт: между любыми двумя нажатиями — одинаковая пауза. Темп важнее скорости — лучше медленно и ровно, чем быстро и рвано."
+    },
+    {
+      "type": "step",
+      "kind": "drill",
+      "target": "команда команда команда команда",
+      "finger": "blue",
+      "title": "Ритм: команда",
+      "hint": "Повторяй ровно, в одном темпе: команда — команда — команда. Считай раз-два-три-четыре"
+    },
+    {
+      "type": "step",
+      "kind": "drill",
+      "target": "экраны экраны экраны экраны",
+      "finger": "pink",
+      "title": "Ритм: экраны",
+      "hint": "Повторяй ровно, без рывков: экраны — экраны — экраны. Держи одинаковые паузы"
+    },
+    {
+      "type": "step",
+      "kind": "drill",
+      "target": "баг баг баг баг баг",
+      "finger": "green",
+      "title": "Ритм: баг",
+      "hint": "Повторяй ровно: баг — баг — баг. Не ускоряйся к концу"
+    },
+    {
+      "type": "step",
+      "kind": "drill",
+      "target": "пицца пицца пицца пицца",
+      "finger": "blue",
+      "title": "Ритм: пицца",
+      "hint": "Повторяй ровно: пицца — пицца — пицца. Ровный счёт до самого конца"
     },
     {
       "type": "p",
-      "text": "Метроном 72 BPM — держи через все предложения"
+      "text": "Почувствуй, как мышцы запоминают слова целиком: КОМАНДА-КОМАНДА, ЭКРАНЫ-ЭКРАНЫ. Повторение в ровном темпе превращает движения в автоматизм — и тогда любой абзац идёт без задержек."
     },
     {
-      "type": "exercise",
-      "target": "исправлен, тесты проходили, новая фича готова к деплою. Кто-то заказал пиццу. Неделя наконец закончилась.",
-      "finger": "purple",
-      "hint": "Многосентенциальный поток"
+      "type": "pullquote",
+      "text": "Расслабь плечи и запястья, представь метроном — ритм важнее скорости.",
+      "by": "методика курса"
+    },
+    {
+      "type": "p",
+      "text": "Все шаги пройдены? Тогда нажми «Открыть тренажёр» ниже и сделай полный заход на весь текст урока. Этот заход сохраняется в прогресс и открывает следующий урок."
     }
   ],
   "character_tips": {
-    "anna": "Многосентенциальный ритм = настоящая скорость письма. Держи темп.",
-    "maxim": "Каждая точка — такт, не остановка. Сохраняй поток.",
-    "knopych": "ПОТОК АБЗАЦА! 🌊 Не дай ему упасть!",
-    "klavochka": "Как песня со множеством куплетов, мой солнечный 🎵"
+    "anna": "Отлично! Ритм-урок на знакомых словах. КОМАНДА-КОМАНДА, ПИЦЦА-ПИЦЦА — повторение закрепляет память!",
+    "maxim": "Хорошо! Повторяющиеся слова тренируют автоматизм. Мозг учится предугадывать движения.",
+    "knopych": "Вау! Эхо-челлендж! БАГ-БАГ, ЭКРАНЫ-ЭКРАНЫ! Как эхо в горах — раз-два, раз-два!",
+    "klavochka": "Какой ты молодец! Слова повторяются, пальчики танцуют одинаковые движения! Как красиво!"
   },
   "phase": 5,
   "rhythmLesson": true,
   "created_at": "2026-05-26",
-  "version": "1.0"
+  "version": "4.0"
 }

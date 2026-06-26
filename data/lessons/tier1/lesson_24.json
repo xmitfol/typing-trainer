@@ -5,672 +5,34 @@
   "title": "Ритм-упражнение: Предложения и цифры",
   "description": "Закрепление предложений с цифрами и знаками препинания",
   "target_wpm": 32,
-  "text_length": 145,
+  "text_length": 23,
   "error_limit_percent": 5,
   "error_limit": 7,
-  "text": "Дом 10. Дом 10. Урок 1. Урок 1. Глава 2. Глава 2. Телефон 123-45. Телефон 123-45. Квартира 35. Квартира 35.",
+  "text": "дом урок глава квартира",
   "text_sequence": [
-    {
-      "char": "Д",
-      "hand": "left",
-      "finger": "ring",
-      "key": "Д"
-    },
-    {
-      "char": "о",
-      "hand": "left",
-      "finger": "index",
-      "key": "О"
-    },
-    {
-      "char": "м",
-      "hand": "left",
-      "finger": "index",
-      "key": "М"
-    },
-    {
-      "char": " ",
-      "hand": "right",
-      "finger": "thumb",
-      "key": "Space",
-      "space_side": "right"
-    },
-    {
-      "char": "1",
-      "hand": "right",
-      "finger": "pinky",
-      "key": "1"
-    },
-    {
-      "char": "0",
-      "hand": "right",
-      "finger": "pinky",
-      "key": "0"
-    },
-    {
-      "char": ".",
-      "hand": "right",
-      "finger": "ring",
-      "key": "."
-    },
-    {
-      "char": " ",
-      "hand": "left",
-      "finger": "thumb",
-      "key": "Space",
-      "space_side": "left"
-    },
-    {
-      "char": "Д",
-      "hand": "left",
-      "finger": "ring",
-      "key": "Д"
-    },
-    {
-      "char": "о",
-      "hand": "left",
-      "finger": "index",
-      "key": "О"
-    },
-    {
-      "char": "м",
-      "hand": "left",
-      "finger": "index",
-      "key": "М"
-    },
-    {
-      "char": " ",
-      "hand": "right",
-      "finger": "thumb",
-      "key": "Space",
-      "space_side": "right"
-    },
-    {
-      "char": "1",
-      "hand": "right",
-      "finger": "pinky",
-      "key": "1"
-    },
-    {
-      "char": "0",
-      "hand": "right",
-      "finger": "pinky",
-      "key": "0"
-    },
-    {
-      "char": ".",
-      "hand": "right",
-      "finger": "ring",
-      "key": "."
-    },
-    {
-      "char": " ",
-      "hand": "left",
-      "finger": "thumb",
-      "key": "Space",
-      "space_side": "left"
-    },
-    {
-      "char": "У",
-      "hand": "left",
-      "finger": "index",
-      "key": "У"
-    },
-    {
-      "char": "р",
-      "hand": "left",
-      "finger": "index",
-      "key": "Р"
-    },
-    {
-      "char": "о",
-      "hand": "left",
-      "finger": "index",
-      "key": "О"
-    },
-    {
-      "char": "к",
-      "hand": "left",
-      "finger": "middle",
-      "key": "К"
-    },
-    {
-      "char": " ",
-      "hand": "right",
-      "finger": "thumb",
-      "key": "Space",
-      "space_side": "right"
-    },
-    {
-      "char": "1",
-      "hand": "right",
-      "finger": "pinky",
-      "key": "1"
-    },
-    {
-      "char": ".",
-      "hand": "right",
-      "finger": "ring",
-      "key": "."
-    },
-    {
-      "char": " ",
-      "hand": "left",
-      "finger": "thumb",
-      "key": "Space",
-      "space_side": "left"
-    },
-    {
-      "char": "У",
-      "hand": "left",
-      "finger": "index",
-      "key": "У"
-    },
-    {
-      "char": "р",
-      "hand": "left",
-      "finger": "index",
-      "key": "Р"
-    },
-    {
-      "char": "о",
-      "hand": "left",
-      "finger": "index",
-      "key": "О"
-    },
-    {
-      "char": "к",
-      "hand": "left",
-      "finger": "middle",
-      "key": "К"
-    },
-    {
-      "char": " ",
-      "hand": "right",
-      "finger": "thumb",
-      "key": "Space",
-      "space_side": "right"
-    },
-    {
-      "char": "1",
-      "hand": "right",
-      "finger": "pinky",
-      "key": "1"
-    },
-    {
-      "char": ".",
-      "hand": "right",
-      "finger": "ring",
-      "key": "."
-    },
-    {
-      "char": " ",
-      "hand": "left",
-      "finger": "thumb",
-      "key": "Space",
-      "space_side": "left"
-    },
-    {
-      "char": "Г",
-      "hand": "left",
-      "finger": "index",
-      "key": "Г"
-    },
-    {
-      "char": "л",
-      "hand": "left",
-      "finger": "middle",
-      "key": "Л"
-    },
-    {
-      "char": "а",
-      "hand": "left",
-      "finger": "index",
-      "key": "А"
-    },
-    {
-      "char": "в",
-      "hand": "left",
-      "finger": "middle",
-      "key": "В"
-    },
-    {
-      "char": "а",
-      "hand": "left",
-      "finger": "index",
-      "key": "А"
-    },
-    {
-      "char": " ",
-      "hand": "right",
-      "finger": "thumb",
-      "key": "Space",
-      "space_side": "right"
-    },
-    {
-      "char": "2",
-      "hand": "right",
-      "finger": "pinky",
-      "key": "2"
-    },
-    {
-      "char": ".",
-      "hand": "right",
-      "finger": "ring",
-      "key": "."
-    },
-    {
-      "char": " ",
-      "hand": "left",
-      "finger": "thumb",
-      "key": "Space",
-      "space_side": "left"
-    },
-    {
-      "char": "Г",
-      "hand": "left",
-      "finger": "index",
-      "key": "Г"
-    },
-    {
-      "char": "л",
-      "hand": "left",
-      "finger": "middle",
-      "key": "Л"
-    },
-    {
-      "char": "а",
-      "hand": "left",
-      "finger": "index",
-      "key": "А"
-    },
-    {
-      "char": "в",
-      "hand": "left",
-      "finger": "middle",
-      "key": "В"
-    },
-    {
-      "char": "а",
-      "hand": "left",
-      "finger": "index",
-      "key": "А"
-    },
-    {
-      "char": " ",
-      "hand": "right",
-      "finger": "thumb",
-      "key": "Space",
-      "space_side": "right"
-    },
-    {
-      "char": "2",
-      "hand": "right",
-      "finger": "pinky",
-      "key": "2"
-    },
-    {
-      "char": ".",
-      "hand": "right",
-      "finger": "ring",
-      "key": "."
-    },
-    {
-      "char": " ",
-      "hand": "left",
-      "finger": "thumb",
-      "key": "Space",
-      "space_side": "left"
-    },
-    {
-      "char": "Т",
-      "hand": "left",
-      "finger": "index",
-      "key": "Т"
-    },
-    {
-      "char": "е",
-      "hand": "left",
-      "finger": "index",
-      "key": "Е"
-    },
-    {
-      "char": "л",
-      "hand": "left",
-      "finger": "middle",
-      "key": "Л"
-    },
-    {
-      "char": "е",
-      "hand": "left",
-      "finger": "index",
-      "key": "Е"
-    },
-    {
-      "char": "ф",
-      "hand": "left",
-      "finger": "index",
-      "key": "Ф"
-    },
-    {
-      "char": "о",
-      "hand": "left",
-      "finger": "index",
-      "key": "О"
-    },
-    {
-      "char": "н",
-      "hand": "left",
-      "finger": "index",
-      "key": "Н"
-    },
-    {
-      "char": " ",
-      "hand": "right",
-      "finger": "thumb",
-      "key": "Space",
-      "space_side": "right"
-    },
-    {
-      "char": "1",
-      "hand": "right",
-      "finger": "pinky",
-      "key": "1"
-    },
-    {
-      "char": "2",
-      "hand": "right",
-      "finger": "pinky",
-      "key": "2"
-    },
-    {
-      "char": "3",
-      "hand": "right",
-      "finger": "ring",
-      "key": "3"
-    },
-    {
-      "char": "-",
-      "hand": "right",
-      "finger": "pinky",
-      "key": "-"
-    },
-    {
-      "char": "4",
-      "hand": "right",
-      "finger": "ring",
-      "key": "4"
-    },
-    {
-      "char": "5",
-      "hand": "right",
-      "finger": "index",
-      "key": "5"
-    },
-    {
-      "char": ".",
-      "hand": "right",
-      "finger": "ring",
-      "key": "."
-    },
-    {
-      "char": " ",
-      "hand": "left",
-      "finger": "thumb",
-      "key": "Space",
-      "space_side": "left"
-    },
-    {
-      "char": "Т",
-      "hand": "left",
-      "finger": "index",
-      "key": "Т"
-    },
-    {
-      "char": "е",
-      "hand": "left",
-      "finger": "index",
-      "key": "Е"
-    },
-    {
-      "char": "л",
-      "hand": "left",
-      "finger": "middle",
-      "key": "Л"
-    },
-    {
-      "char": "е",
-      "hand": "left",
-      "finger": "index",
-      "key": "Е"
-    },
-    {
-      "char": "ф",
-      "hand": "left",
-      "finger": "index",
-      "key": "Ф"
-    },
-    {
-      "char": "о",
-      "hand": "left",
-      "finger": "index",
-      "key": "О"
-    },
-    {
-      "char": "н",
-      "hand": "left",
-      "finger": "index",
-      "key": "Н"
-    },
-    {
-      "char": " ",
-      "hand": "right",
-      "finger": "thumb",
-      "key": "Space",
-      "space_side": "right"
-    },
-    {
-      "char": "1",
-      "hand": "right",
-      "finger": "pinky",
-      "key": "1"
-    },
-    {
-      "char": "2",
-      "hand": "right",
-      "finger": "pinky",
-      "key": "2"
-    },
-    {
-      "char": "3",
-      "hand": "right",
-      "finger": "ring",
-      "key": "3"
-    },
-    {
-      "char": "-",
-      "hand": "right",
-      "finger": "pinky",
-      "key": "-"
-    },
-    {
-      "char": "4",
-      "hand": "right",
-      "finger": "ring",
-      "key": "4"
-    },
-    {
-      "char": "5",
-      "hand": "right",
-      "finger": "index",
-      "key": "5"
-    },
-    {
-      "char": ".",
-      "hand": "right",
-      "finger": "ring",
-      "key": "."
-    },
-    {
-      "char": " ",
-      "hand": "left",
-      "finger": "thumb",
-      "key": "Space",
-      "space_side": "left"
-    },
-    {
-      "char": "К",
-      "hand": "left",
-      "finger": "middle",
-      "key": "К"
-    },
-    {
-      "char": "в",
-      "hand": "left",
-      "finger": "middle",
-      "key": "В"
-    },
-    {
-      "char": "а",
-      "hand": "left",
-      "finger": "index",
-      "key": "А"
-    },
-    {
-      "char": "р",
-      "hand": "left",
-      "finger": "index",
-      "key": "Р"
-    },
-    {
-      "char": "т",
-      "hand": "left",
-      "finger": "index",
-      "key": "Т"
-    },
-    {
-      "char": "и",
-      "hand": "left",
-      "finger": "index",
-      "key": "И"
-    },
-    {
-      "char": "р",
-      "hand": "left",
-      "finger": "index",
-      "key": "Р"
-    },
-    {
-      "char": "а",
-      "hand": "left",
-      "finger": "index",
-      "key": "А"
-    },
-    {
-      "char": " ",
-      "hand": "right",
-      "finger": "thumb",
-      "key": "Space",
-      "space_side": "right"
-    },
-    {
-      "char": "3",
-      "hand": "right",
-      "finger": "ring",
-      "key": "3"
-    },
-    {
-      "char": "5",
-      "hand": "right",
-      "finger": "index",
-      "key": "5"
-    },
-    {
-      "char": ".",
-      "hand": "right",
-      "finger": "ring",
-      "key": "."
-    },
-    {
-      "char": " ",
-      "hand": "left",
-      "finger": "thumb",
-      "key": "Space",
-      "space_side": "left"
-    },
-    {
-      "char": "К",
-      "hand": "left",
-      "finger": "middle",
-      "key": "К"
-    },
-    {
-      "char": "в",
-      "hand": "left",
-      "finger": "middle",
-      "key": "В"
-    },
-    {
-      "char": "а",
-      "hand": "left",
-      "finger": "index",
-      "key": "А"
-    },
-    {
-      "char": "р",
-      "hand": "left",
-      "finger": "index",
-      "key": "Р"
-    },
-    {
-      "char": "т",
-      "hand": "left",
-      "finger": "index",
-      "key": "Т"
-    },
-    {
-      "char": "и",
-      "hand": "left",
-      "finger": "index",
-      "key": "И"
-    },
-    {
-      "char": "р",
-      "hand": "left",
-      "finger": "index",
-      "key": "Р"
-    },
-    {
-      "char": "а",
-      "hand": "left",
-      "finger": "index",
-      "key": "А"
-    },
-    {
-      "char": " ",
-      "hand": "right",
-      "finger": "thumb",
-      "key": "Space",
-      "space_side": "right"
-    },
-    {
-      "char": "3",
-      "hand": "right",
-      "finger": "ring",
-      "key": "3"
-    },
-    {
-      "char": "5",
-      "hand": "right",
-      "finger": "index",
-      "key": "5"
-    },
-    {
-      "char": ".",
-      "hand": "right",
-      "finger": "ring",
-      "key": "."
-    }
+    {"char": "д", "hand": "right", "finger": "ring", "key": "Д"},
+    {"char": "о", "hand": "right", "finger": "index", "key": "О"},
+    {"char": "м", "hand": "left", "finger": "index", "key": "М"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "у", "hand": "left", "finger": "middle", "key": "У"},
+    {"char": "р", "hand": "right", "finger": "index", "key": "Р"},
+    {"char": "о", "hand": "right", "finger": "index", "key": "О"},
+    {"char": "к", "hand": "left", "finger": "index", "key": "К"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "г", "hand": "right", "finger": "index", "key": "Г"},
+    {"char": "л", "hand": "right", "finger": "middle", "key": "Л"},
+    {"char": "а", "hand": "left", "finger": "index", "key": "А"},
+    {"char": "в", "hand": "left", "finger": "middle", "key": "В"},
+    {"char": "а", "hand": "left", "finger": "index", "key": "А"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "к", "hand": "left", "finger": "index", "key": "К"},
+    {"char": "в", "hand": "left", "finger": "middle", "key": "В"},
+    {"char": "а", "hand": "left", "finger": "index", "key": "А"},
+    {"char": "р", "hand": "right", "finger": "index", "key": "Р"},
+    {"char": "т", "hand": "right", "finger": "index", "key": "Т"},
+    {"char": "и", "hand": "left", "finger": "index", "key": "И"},
+    {"char": "р", "hand": "right", "finger": "index", "key": "Р"},
+    {"char": "а", "hand": "left", "finger": "index", "key": "А"}
   ],
   "keys_trained": [
     "А",
@@ -718,56 +80,77 @@
     "Shift"
   ],
   "new_keys": [],
-  "finger_focus": "Закрепление цифр и предложений",
+  "finger_focus": "Все пальцы — фокус на ровном ритме, а не на скорости",
   "tips": [
     {
       "type": "lead",
-      "text": "🎵 Восьмой ритм-урок - практика с цифрами!"
+      "text": "🎵 Новых букв сегодня нет — это СОЛО-ритм. Главное не скорость, а ровный, одинаковый темп: каждое нажатие через равные промежутки, как удары метронома. Лучше медленно и ровно, чем быстро и рвано."
     },
     {
       "type": "drop",
-      "text": "Повторяем практическую информацию дважды"
-    },
-    {
-      "type": "exercise",
-      "target": "Дом 10. Дом 10. Урок 1. Урок 1. Глава 2.",
-      "finger": "blue",
-      "hint": "Закрепление цифр и предложений"
-    },
-    {
-      "type": "p",
-      "text": "ДОМ-10, УРОК-1, ТЕЛЕФОН-123-45"
+      "text": "Руки уже знают весь алфавит. Поставь пальцы на исходную позицию ФЫВА ОЛДЖ, большие — над пробелом. Повторяй каждое слово ровно, считая про себя: раз-два-три-четыре. Не покидай домашний ряд без необходимости."
     },
     {
       "type": "callout",
-      "icon": "💡",
-      "title": "Подсказка",
-      "text": "Цифры становятся автоматическими"
+      "icon": "🎶",
+      "title": "Ровный счёт",
+      "text": "Включи внутренний метроном. Печатай не «как получится», а строго в такт: между любыми двумя нажатиями — одинаковая пауза. Не рви темп на трудных буквах — ровность важнее скорости."
+    },
+    {
+      "type": "step",
+      "kind": "drill",
+      "target": "дом дом дом дом дом",
+      "finger": "pink",
+      "title": "Ритм: дом",
+      "hint": "Повторяй ровно, в одном темпе: дом — дом — дом. Считай раз-два-три-четыре, держи одинаковые паузы"
+    },
+    {
+      "type": "step",
+      "kind": "drill",
+      "target": "урок урок урок урок",
+      "finger": "green",
+      "title": "Ритм: урок",
+      "hint": "Повторяй ровно, в одном темпе: урок — урок — урок. Считай раз-два-три-четыре, держи одинаковые паузы"
+    },
+    {
+      "type": "step",
+      "kind": "drill",
+      "target": "глава глава глава глава",
+      "finger": "indigo",
+      "title": "Ритм: глава",
+      "hint": "Повторяй ровно, в одном темпе: глава — глава — глава. Считай раз-два-три-четыре, держи одинаковые паузы"
+    },
+    {
+      "type": "step",
+      "kind": "drill",
+      "target": "квартира квартира квартира",
+      "finger": "blue",
+      "title": "Ритм: квартира",
+      "hint": "Повторяй ровно, в одном темпе: квартира — квартира — квартира. Считай раз-два-три-четыре, держи одинаковые паузы"
     },
     {
       "type": "p",
-      "text": "Мышечная память для адресов и номеров"
+      "text": "Почувствуй, как мышцы запоминают слова целиком. Повторение в ровном темпе превращает движения в автоматизм — одинаковые интервалы между нажатиями важнее, чем рекорд по скорости."
     },
     {
       "type": "pullquote",
-      "text": "Ровный темп даже с цифрами",
+      "text": "Расслабь плечи и запястья, представь метроном — ритм важнее скорости.",
       "by": "методика курса"
     },
     {
-      "type": "exercise",
-      "target": "Глава 2. Телефон 123-45. Телефон 123-45. Квартира 35. Квартира 35.",
-      "finger": "green",
-      "hint": "Закрепление цифр и предложений"
+      "type": "p",
+      "text": "Все шаги пройдены? Тогда нажми «Открыть тренажёр» ниже и сделай полный заход на весь текст урока. Этот заход сохраняется в прогресс и открывает следующий урок."
     }
   ],
   "character_tips": {
-    "anna": "Отлично! Восьмой ритм-урок! Цифры и слова вместе - это практический навык!",
-    "maxim": "Хорошо! Повторение с цифрами закрепляет навык набора смешанного контента.",
-    "knopych": "Вау! ДОМ-10-ДОМ-10! ТЕЛЕФОН-123-45 дважды! Как эхо важной информации!",
-    "klavochka": "Какой ты молодец! Цифры и слова танцуют вместе! КВАРТИРА-35-КВАРТИРА-35!"
+    "anna": "Отлично! Это ритм-урок без новых букв. ДОМ-ДОМ, УРОК-УРОК — печатай на ровный счёт, ритм важнее скорости!",
+    "maxim": "Хорошо! Повторяющиеся слова тренируют автоматизм. Держи одинаковые интервалы между нажатиями — мозг учится предугадывать движения.",
+    "knopych": "Вау! Эхо-челлендж! ДОМ-ДОМ, УРОК-УРОК! Как метроном — раз-два, раз-два, ровно-ровно!",
+    "klavochka": "Какой ты молодец! Слова повторяются, пальчики танцуют ровно, на один счёт. Не торопись на трудных буквах, мой милый!"
   },
   "phase": 2,
   "rhythmLesson": true,
   "created_at": "2025-11-19",
-  "version": "2.0"
+  "version": "4.0",
+  "guided": true
 }
