@@ -10,237 +10,43 @@
   "error_limit": 5,
   "text": "п п р р пар лапа папа рад право повар",
   "text_sequence": [
-    {
-      "char": "п",
-      "hand": "left",
-      "finger": "pinky",
-      "key": "П"
-    },
-    {
-      "char": " ",
-      "hand": "right",
-      "finger": "thumb",
-      "key": "Space",
-      "space_side": "right"
-    },
-    {
-      "char": "п",
-      "hand": "left",
-      "finger": "pinky",
-      "key": "П"
-    },
-    {
-      "char": " ",
-      "hand": "right",
-      "finger": "thumb",
-      "key": "Space",
-      "space_side": "right"
-    },
-    {
-      "char": "р",
-      "hand": "left",
-      "finger": "index",
-      "key": "Р"
-    },
-    {
-      "char": " ",
-      "hand": "right",
-      "finger": "thumb",
-      "key": "Space",
-      "space_side": "right"
-    },
-    {
-      "char": "р",
-      "hand": "left",
-      "finger": "index",
-      "key": "Р"
-    },
-    {
-      "char": " ",
-      "hand": "right",
-      "finger": "thumb",
-      "key": "Space",
-      "space_side": "right"
-    },
-    {
-      "char": "п",
-      "hand": "left",
-      "finger": "pinky",
-      "key": "П"
-    },
-    {
-      "char": "а",
-      "hand": "left",
-      "finger": "index",
-      "key": "А"
-    },
-    {
-      "char": "р",
-      "hand": "left",
-      "finger": "index",
-      "key": "Р"
-    },
-    {
-      "char": " ",
-      "hand": "left",
-      "finger": "thumb",
-      "key": "Space",
-      "space_side": "left"
-    },
-    {
-      "char": "л",
-      "hand": "right",
-      "finger": "middle",
-      "key": "Л"
-    },
-    {
-      "char": "а",
-      "hand": "left",
-      "finger": "index",
-      "key": "А"
-    },
-    {
-      "char": "п",
-      "hand": "left",
-      "finger": "pinky",
-      "key": "П"
-    },
-    {
-      "char": "а",
-      "hand": "left",
-      "finger": "index",
-      "key": "А"
-    },
-    {
-      "char": " ",
-      "hand": "right",
-      "finger": "thumb",
-      "key": "Space",
-      "space_side": "right"
-    },
-    {
-      "char": "п",
-      "hand": "left",
-      "finger": "pinky",
-      "key": "П"
-    },
-    {
-      "char": "а",
-      "hand": "left",
-      "finger": "index",
-      "key": "А"
-    },
-    {
-      "char": "п",
-      "hand": "left",
-      "finger": "pinky",
-      "key": "П"
-    },
-    {
-      "char": "а",
-      "hand": "left",
-      "finger": "index",
-      "key": "А"
-    },
-    {
-      "char": " ",
-      "hand": "right",
-      "finger": "thumb",
-      "key": "Space",
-      "space_side": "right"
-    },
-    {
-      "char": "р",
-      "hand": "left",
-      "finger": "index",
-      "key": "Р"
-    },
-    {
-      "char": "а",
-      "hand": "left",
-      "finger": "index",
-      "key": "А"
-    },
-    {
-      "char": "д",
-      "hand": "right",
-      "finger": "ring",
-      "key": "Д"
-    },
-    {
-      "char": " ",
-      "hand": "right",
-      "finger": "thumb",
-      "key": "Space",
-      "space_side": "right"
-    },
-    {
-      "char": "п",
-      "hand": "left",
-      "finger": "pinky",
-      "key": "П"
-    },
-    {
-      "char": "р",
-      "hand": "left",
-      "finger": "index",
-      "key": "Р"
-    },
-    {
-      "char": "а",
-      "hand": "left",
-      "finger": "index",
-      "key": "А"
-    },
-    {
-      "char": "в",
-      "hand": "left",
-      "finger": "middle",
-      "key": "В"
-    },
-    {
-      "char": "о",
-      "hand": "right",
-      "finger": "index",
-      "key": "О"
-    },
-    {
-      "char": " ",
-      "hand": "right",
-      "finger": "thumb",
-      "key": "Space",
-      "space_side": "right"
-    },
-    {
-      "char": "п",
-      "hand": "left",
-      "finger": "pinky",
-      "key": "П"
-    },
-    {
-      "char": "о",
-      "hand": "right",
-      "finger": "index",
-      "key": "О"
-    },
-    {
-      "char": "в",
-      "hand": "left",
-      "finger": "middle",
-      "key": "В"
-    },
-    {
-      "char": "а",
-      "hand": "left",
-      "finger": "index",
-      "key": "А"
-    },
-    {
-      "char": "р",
-      "hand": "left",
-      "finger": "index",
-      "key": "Р"
-    }
+    {"char": "п", "hand": "left", "finger": "index", "key": "П"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "п", "hand": "left", "finger": "index", "key": "П"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "р", "hand": "right", "finger": "index", "key": "Р"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "р", "hand": "right", "finger": "index", "key": "Р"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "п", "hand": "left", "finger": "index", "key": "П"},
+    {"char": "а", "hand": "left", "finger": "index", "key": "А"},
+    {"char": "р", "hand": "right", "finger": "index", "key": "Р"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "л", "hand": "right", "finger": "middle", "key": "Л"},
+    {"char": "а", "hand": "left", "finger": "index", "key": "А"},
+    {"char": "п", "hand": "left", "finger": "index", "key": "П"},
+    {"char": "а", "hand": "left", "finger": "index", "key": "А"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "п", "hand": "left", "finger": "index", "key": "П"},
+    {"char": "а", "hand": "left", "finger": "index", "key": "А"},
+    {"char": "п", "hand": "left", "finger": "index", "key": "П"},
+    {"char": "а", "hand": "left", "finger": "index", "key": "А"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "р", "hand": "right", "finger": "index", "key": "Р"},
+    {"char": "а", "hand": "left", "finger": "index", "key": "А"},
+    {"char": "д", "hand": "right", "finger": "ring", "key": "Д"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "п", "hand": "left", "finger": "index", "key": "П"},
+    {"char": "р", "hand": "right", "finger": "index", "key": "Р"},
+    {"char": "а", "hand": "left", "finger": "index", "key": "А"},
+    {"char": "в", "hand": "left", "finger": "middle", "key": "В"},
+    {"char": "о", "hand": "right", "finger": "index", "key": "О"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "п", "hand": "left", "finger": "index", "key": "П"},
+    {"char": "о", "hand": "right", "finger": "index", "key": "О"},
+    {"char": "в", "hand": "left", "finger": "middle", "key": "В"},
+    {"char": "а", "hand": "left", "finger": "index", "key": "А"},
+    {"char": "р", "hand": "right", "finger": "index", "key": "Р"}
   ],
   "keys_trained": [
     "А",
@@ -257,30 +63,61 @@
   ],
   "new_keys": [],
   "finger_focus": "Новые буквы П и Р",
+  "guided": true,
   "tips": [
     {
       "type": "lead",
-      "text": "Новые буковки — П и Р!"
+      "text": "Сегодня новые буковки — П и Р. Обе печатает левая ручка. С ними получится много добрых слов: папа, лапа, повар! 👨‍🍳"
     },
     {
       "type": "drop",
-      "text": "П — левый мизинец, Р — левый указательный 🌸"
+      "text": "Буква П — её нажимает левый указательный пальчик. И буква Р — тоже левый указательный, совсем рядышком. Другие пальчики ждут дома."
     },
     {
-      "type": "exercise",
-      "target": "п п р р п р",
-      "finger": "pink",
-      "hint": "П — мизинец, Р — указательный (левая рука)"
+      "type": "callout",
+      "icon": "🌸",
+      "title": "Не спеши",
+      "text": "П и Р живут близко-близко друг к дружке. Не торопись: спокойно найди букву, легонько нажми — и пальчик сразу вернётся домой."
+    },
+    {
+      "type": "step",
+      "kind": "drill",
+      "target": "п п п п п п п п п п",
+      "finger": "blue",
+      "title": "Буква П",
+      "hint": "Левый указательный находит букву П. После каждой — пробел"
+    },
+    {
+      "type": "step",
+      "kind": "drill",
+      "target": "р р р р р р р р р р",
+      "finger": "indigo",
+      "title": "Буква Р",
+      "hint": "Левый указательный находит букву Р. Нажимай спокойно"
+    },
+    {
+      "type": "step",
+      "kind": "drill",
+      "target": "п р п р п р п р п р",
+      "finger": "indigo",
+      "title": "По очереди",
+      "hint": "А теперь по очереди: П — Р — П — Р. Не путай соседей"
     },
     {
       "type": "p",
-      "text": "ПАПА, ЛАПА, ПРАВО, ПОВАР — сколько слов! 👨‍🍳"
+      "text": "Смотри, сколько новых слов получилось! Папа, лапа, повар, право. Читай слово целиком и печатай не спеша. 🌷"
     },
     {
-      "type": "exercise",
-      "target": "пар папа лапа повар",
+      "type": "step",
+      "kind": "drill",
+      "target": "пар папа лапа повар право",
       "finger": "blue",
-      "hint": "Слова: пар, папа, лапа, повар"
+      "title": "Слова",
+      "hint": "Слова из наших букв: пар, папа, лапа, повар, право"
+    },
+    {
+      "type": "p",
+      "text": "Все шаги прошёл? Молодец! Нажми «Открыть тренажёр» и пройди весь урок. У тебя обязательно получится. 💕"
     }
   ],
   "character_tips": {
@@ -292,5 +129,5 @@
   "phase": 2,
   "rhythmLesson": false,
   "created_at": "2026-05-26",
-  "version": "2.0"
+  "version": "4.0"
 }

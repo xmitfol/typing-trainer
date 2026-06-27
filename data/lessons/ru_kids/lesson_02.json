@@ -8,186 +8,39 @@
   "text_length": 28,
   "error_limit_percent": 10,
   "error_limit": 3,
-  "text": "о о о о о ао ао ао оа оа аоа",
+  "text": "о о о о о а о а о а о ао оа аоа",
   "text_sequence": [
-    {
-      "char": "о",
-      "hand": "right",
-      "finger": "index",
-      "key": "О"
-    },
-    {
-      "char": " ",
-      "hand": "left",
-      "finger": "thumb",
-      "key": "Space",
-      "space_side": "left"
-    },
-    {
-      "char": "о",
-      "hand": "right",
-      "finger": "index",
-      "key": "О"
-    },
-    {
-      "char": " ",
-      "hand": "left",
-      "finger": "thumb",
-      "key": "Space",
-      "space_side": "left"
-    },
-    {
-      "char": "о",
-      "hand": "right",
-      "finger": "index",
-      "key": "О"
-    },
-    {
-      "char": " ",
-      "hand": "left",
-      "finger": "thumb",
-      "key": "Space",
-      "space_side": "left"
-    },
-    {
-      "char": "о",
-      "hand": "right",
-      "finger": "index",
-      "key": "О"
-    },
-    {
-      "char": " ",
-      "hand": "left",
-      "finger": "thumb",
-      "key": "Space",
-      "space_side": "left"
-    },
-    {
-      "char": "о",
-      "hand": "right",
-      "finger": "index",
-      "key": "О"
-    },
-    {
-      "char": " ",
-      "hand": "right",
-      "finger": "thumb",
-      "key": "Space",
-      "space_side": "right"
-    },
-    {
-      "char": "а",
-      "hand": "left",
-      "finger": "index",
-      "key": "А"
-    },
-    {
-      "char": "о",
-      "hand": "right",
-      "finger": "index",
-      "key": "О"
-    },
-    {
-      "char": " ",
-      "hand": "right",
-      "finger": "thumb",
-      "key": "Space",
-      "space_side": "right"
-    },
-    {
-      "char": "а",
-      "hand": "left",
-      "finger": "index",
-      "key": "А"
-    },
-    {
-      "char": "о",
-      "hand": "right",
-      "finger": "index",
-      "key": "О"
-    },
-    {
-      "char": " ",
-      "hand": "right",
-      "finger": "thumb",
-      "key": "Space",
-      "space_side": "right"
-    },
-    {
-      "char": "а",
-      "hand": "left",
-      "finger": "index",
-      "key": "А"
-    },
-    {
-      "char": "о",
-      "hand": "right",
-      "finger": "index",
-      "key": "О"
-    },
-    {
-      "char": " ",
-      "hand": "left",
-      "finger": "thumb",
-      "key": "Space",
-      "space_side": "left"
-    },
-    {
-      "char": "о",
-      "hand": "right",
-      "finger": "index",
-      "key": "О"
-    },
-    {
-      "char": "а",
-      "hand": "left",
-      "finger": "index",
-      "key": "А"
-    },
-    {
-      "char": " ",
-      "hand": "left",
-      "finger": "thumb",
-      "key": "Space",
-      "space_side": "left"
-    },
-    {
-      "char": "о",
-      "hand": "right",
-      "finger": "index",
-      "key": "О"
-    },
-    {
-      "char": "а",
-      "hand": "left",
-      "finger": "index",
-      "key": "А"
-    },
-    {
-      "char": " ",
-      "hand": "right",
-      "finger": "thumb",
-      "key": "Space",
-      "space_side": "right"
-    },
-    {
-      "char": "а",
-      "hand": "left",
-      "finger": "index",
-      "key": "А"
-    },
-    {
-      "char": "о",
-      "hand": "right",
-      "finger": "index",
-      "key": "О"
-    },
-    {
-      "char": "а",
-      "hand": "left",
-      "finger": "index",
-      "key": "А"
-    }
+    {"char": "о", "hand": "right", "finger": "index", "key": "О"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "о", "hand": "right", "finger": "index", "key": "О"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "о", "hand": "right", "finger": "index", "key": "О"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "о", "hand": "right", "finger": "index", "key": "О"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "о", "hand": "right", "finger": "index", "key": "О"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "а", "hand": "left", "finger": "index", "key": "А"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "о", "hand": "right", "finger": "index", "key": "О"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "а", "hand": "left", "finger": "index", "key": "А"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "о", "hand": "right", "finger": "index", "key": "О"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "а", "hand": "left", "finger": "index", "key": "А"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "о", "hand": "right", "finger": "index", "key": "О"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "а", "hand": "left", "finger": "index", "key": "А"},
+    {"char": "о", "hand": "right", "finger": "index", "key": "О"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "о", "hand": "right", "finger": "index", "key": "О"},
+    {"char": "а", "hand": "left", "finger": "index", "key": "А"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "а", "hand": "left", "finger": "index", "key": "А"},
+    {"char": "о", "hand": "right", "finger": "index", "key": "О"},
+    {"char": "а", "hand": "left", "finger": "index", "key": "А"}
   ],
   "keys_trained": [
     "А",
@@ -196,30 +49,45 @@
   ],
   "new_keys": [],
   "finger_focus": "Правый указательный находит О",
+  "guided": true,
   "tips": [
     {
       "type": "lead",
-      "text": "Новая буковка — О!"
+      "text": "Привет, дружок! Букву А ты уже знаешь. Сегодня к ней придёт подружка — буковка О."
     },
     {
       "type": "drop",
-      "text": "Её жмёт ПРАВЫЙ указательный пальчик 🌸"
+      "text": "Букву О жмёт ПРАВЫЙ указательный пальчик. Нащупай её — на ней тоже есть маленький бугорок 🌸"
     },
     {
-      "type": "exercise",
-      "target": "о о о о о",
+      "type": "callout",
+      "icon": "🙈",
+      "title": "Не подсматривай",
+      "text": "Пусть глазки смотрят на экран, а пальчики ищут буковки сами. Они уже умные!"
+    },
+    {
+      "type": "step",
+      "kind": "drill",
+      "target": "о о о о о о о о о о о о",
       "finger": "indigo",
-      "hint": "Правый указательный — на букву О"
+      "title": "Буква О",
+      "hint": "Правый указательный пальчик — на букву О. Нажимай тихонько, после каждой — пробел."
     },
     {
       "type": "p",
-      "text": "А слева, О справа. Покачаемся: ао-ао-ао!"
+      "text": "А живёт слева, О — справа. Теперь покачаемся, как на качельках: то одну ручку, то другую."
     },
     {
-      "type": "exercise",
-      "target": "ао ао оа оа аоа",
+      "type": "step",
+      "kind": "drill",
+      "target": "а о а о а о а о а о а о",
       "finger": "indigo",
-      "hint": "Чередуем: А — О — А — О"
+      "title": "Качаемся: А — О",
+      "hint": "Левый пальчик — А, правый — О. Качайся не спеша: А — О — А — О."
+    },
+    {
+      "type": "p",
+      "text": "Какой ты молодец! Нажми «Открыть тренажёр» внизу и пройди весь урок. У тебя всё получится! 💕"
     }
   ],
   "character_tips": {
@@ -231,5 +99,5 @@
   "phase": 1,
   "rhythmLesson": false,
   "created_at": "2026-05-26",
-  "version": "2.0"
+  "version": "4.0"
 }

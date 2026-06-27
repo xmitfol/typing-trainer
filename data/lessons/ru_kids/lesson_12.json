@@ -10,231 +10,42 @@
   "error_limit": 5,
   "text": "э э й й эра пэр правда дрова рай вой",
   "text_sequence": [
-    {
-      "char": "э",
-      "hand": "right",
-      "finger": "pinky",
-      "key": "Э"
-    },
-    {
-      "char": " ",
-      "hand": "left",
-      "finger": "thumb",
-      "key": "Space",
-      "space_side": "left"
-    },
-    {
-      "char": "э",
-      "hand": "right",
-      "finger": "pinky",
-      "key": "Э"
-    },
-    {
-      "char": " ",
-      "hand": "right",
-      "finger": "thumb",
-      "key": "Space",
-      "space_side": "right"
-    },
-    {
-      "char": "й",
-      "hand": "left",
-      "finger": "pinky",
-      "key": "Й"
-    },
-    {
-      "char": " ",
-      "hand": "right",
-      "finger": "thumb",
-      "key": "Space",
-      "space_side": "right"
-    },
-    {
-      "char": "й",
-      "hand": "left",
-      "finger": "pinky",
-      "key": "Й"
-    },
-    {
-      "char": " ",
-      "hand": "left",
-      "finger": "thumb",
-      "key": "Space",
-      "space_side": "left"
-    },
-    {
-      "char": "э",
-      "hand": "right",
-      "finger": "pinky",
-      "key": "Э"
-    },
-    {
-      "char": "р",
-      "hand": "left",
-      "finger": "index",
-      "key": "Р"
-    },
-    {
-      "char": "а",
-      "hand": "left",
-      "finger": "index",
-      "key": "А"
-    },
-    {
-      "char": " ",
-      "hand": "right",
-      "finger": "thumb",
-      "key": "Space",
-      "space_side": "right"
-    },
-    {
-      "char": "п",
-      "hand": "left",
-      "finger": "pinky",
-      "key": "П"
-    },
-    {
-      "char": "э",
-      "hand": "right",
-      "finger": "pinky",
-      "key": "Э"
-    },
-    {
-      "char": "р",
-      "hand": "left",
-      "finger": "index",
-      "key": "Р"
-    },
-    {
-      "char": " ",
-      "hand": "right",
-      "finger": "thumb",
-      "key": "Space",
-      "space_side": "right"
-    },
-    {
-      "char": "п",
-      "hand": "left",
-      "finger": "pinky",
-      "key": "П"
-    },
-    {
-      "char": "р",
-      "hand": "left",
-      "finger": "index",
-      "key": "Р"
-    },
-    {
-      "char": "а",
-      "hand": "left",
-      "finger": "index",
-      "key": "А"
-    },
-    {
-      "char": "в",
-      "hand": "left",
-      "finger": "middle",
-      "key": "В"
-    },
-    {
-      "char": "д",
-      "hand": "right",
-      "finger": "ring",
-      "key": "Д"
-    },
-    {
-      "char": "а",
-      "hand": "left",
-      "finger": "index",
-      "key": "А"
-    },
-    {
-      "char": " ",
-      "hand": "left",
-      "finger": "thumb",
-      "key": "Space",
-      "space_side": "left"
-    },
-    {
-      "char": "д",
-      "hand": "right",
-      "finger": "ring",
-      "key": "Д"
-    },
-    {
-      "char": "р",
-      "hand": "left",
-      "finger": "index",
-      "key": "Р"
-    },
-    {
-      "char": "о",
-      "hand": "right",
-      "finger": "index",
-      "key": "О"
-    },
-    {
-      "char": "в",
-      "hand": "left",
-      "finger": "middle",
-      "key": "В"
-    },
-    {
-      "char": "а",
-      "hand": "left",
-      "finger": "index",
-      "key": "А"
-    },
-    {
-      "char": " ",
-      "hand": "right",
-      "finger": "thumb",
-      "key": "Space",
-      "space_side": "right"
-    },
-    {
-      "char": "р",
-      "hand": "left",
-      "finger": "index",
-      "key": "Р"
-    },
-    {
-      "char": "а",
-      "hand": "left",
-      "finger": "index",
-      "key": "А"
-    },
-    {
-      "char": "й",
-      "hand": "left",
-      "finger": "pinky",
-      "key": "Й"
-    },
-    {
-      "char": " ",
-      "hand": "right",
-      "finger": "thumb",
-      "key": "Space",
-      "space_side": "right"
-    },
-    {
-      "char": "в",
-      "hand": "left",
-      "finger": "middle",
-      "key": "В"
-    },
-    {
-      "char": "о",
-      "hand": "right",
-      "finger": "index",
-      "key": "О"
-    },
-    {
-      "char": "й",
-      "hand": "left",
-      "finger": "pinky",
-      "key": "Й"
-    }
+    {"char": "э", "hand": "right", "finger": "pinky", "key": "Э"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "э", "hand": "right", "finger": "pinky", "key": "Э"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "й", "hand": "left", "finger": "pinky", "key": "Й"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "й", "hand": "left", "finger": "pinky", "key": "Й"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "э", "hand": "right", "finger": "pinky", "key": "Э"},
+    {"char": "р", "hand": "right", "finger": "index", "key": "Р"},
+    {"char": "а", "hand": "left", "finger": "index", "key": "А"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "п", "hand": "left", "finger": "index", "key": "П"},
+    {"char": "э", "hand": "right", "finger": "pinky", "key": "Э"},
+    {"char": "р", "hand": "right", "finger": "index", "key": "Р"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "п", "hand": "left", "finger": "index", "key": "П"},
+    {"char": "р", "hand": "right", "finger": "index", "key": "Р"},
+    {"char": "а", "hand": "left", "finger": "index", "key": "А"},
+    {"char": "в", "hand": "left", "finger": "middle", "key": "В"},
+    {"char": "д", "hand": "right", "finger": "ring", "key": "Д"},
+    {"char": "а", "hand": "left", "finger": "index", "key": "А"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "д", "hand": "right", "finger": "ring", "key": "Д"},
+    {"char": "р", "hand": "right", "finger": "index", "key": "Р"},
+    {"char": "о", "hand": "right", "finger": "index", "key": "О"},
+    {"char": "в", "hand": "left", "finger": "middle", "key": "В"},
+    {"char": "а", "hand": "left", "finger": "index", "key": "А"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "р", "hand": "right", "finger": "index", "key": "Р"},
+    {"char": "а", "hand": "left", "finger": "index", "key": "А"},
+    {"char": "й", "hand": "left", "finger": "pinky", "key": "Й"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "в", "hand": "left", "finger": "middle", "key": "В"},
+    {"char": "о", "hand": "right", "finger": "index", "key": "О"},
+    {"char": "й", "hand": "left", "finger": "pinky", "key": "Й"}
   ],
   "keys_trained": [
     "А",
@@ -253,30 +64,61 @@
   ],
   "new_keys": [],
   "finger_focus": "Э завершает дом, Й — первый верхний",
+  "guided": true,
   "tips": [
     {
       "type": "lead",
-      "text": "Буковки Э и Й!"
+      "text": "Сегодня две новые буковки — Э и Й. С буквой Э наш нижний домик будет совсем готов, а буква Й позовёт нас наверх! 🌸"
     },
     {
       "type": "drop",
-      "text": "Э — правый мизинчик (домашний ряд готов!), Й — левый мизинец ВВЕРХ 🌸"
+      "text": "Буква Э — справа, её нажимает правый мизинчик. А буква Й живёт повыше — к ней тянется вверх левый мизинчик и сразу возвращается домой."
     },
     {
-      "type": "exercise",
-      "target": "э э й й э й",
+      "type": "callout",
+      "icon": "⬆️",
+      "title": "Тянемся и домой",
+      "text": "К букве Й надо чуть-чуть потянуться вверх — это не страшно. Нажал и сразу верни пальчик в его домик. Так пальчики не заблудятся."
+    },
+    {
+      "type": "step",
+      "kind": "drill",
+      "target": "э э э э э э э э э э",
       "finger": "pink",
-      "hint": "Э справа, Й — тянемся вверх левым мизинцем"
+      "title": "Буква Э",
+      "hint": "Правый мизинчик находит букву Э. После каждой — пробел"
+    },
+    {
+      "type": "step",
+      "kind": "drill",
+      "target": "й й й й й й й й й й",
+      "finger": "pink",
+      "title": "Буква Й",
+      "hint": "Левый мизинчик тянется вверх к букве Й и сразу домой"
+    },
+    {
+      "type": "step",
+      "kind": "drill",
+      "target": "э й э й э й э й э й",
+      "finger": "pink",
+      "title": "По очереди",
+      "hint": "По очереди: Э — Й — Э — Й. Правый мизинчик, потом левый вверх"
     },
     {
       "type": "p",
-      "text": "Домашний ряд весь наш! Й — первая буковка ВЕРХНЕГО ряда ⬆️"
+      "text": "Ура! Весь нижний домик теперь наш, а буква Й — самая первая на верхнем этаже. Давай попробуем слова. 🌷"
     },
     {
-      "type": "exercise",
-      "target": "эра пэр правда рай",
+      "type": "step",
+      "kind": "drill",
+      "target": "эра пэр правда рай вой",
       "finger": "pink",
-      "hint": "Слова: эра, пэр, правда, рай"
+      "title": "Слова",
+      "hint": "Слова из наших букв: эра, пэр, правда, рай, вой"
+    },
+    {
+      "type": "p",
+      "text": "Все шаги прошёл? Какой ты молодец! Нажми «Открыть тренажёр» и пройди весь урок целиком. Спокойно, не спеша. 💕"
     }
   ],
   "character_tips": {
@@ -288,5 +130,5 @@
   "phase": 2,
   "rhythmLesson": false,
   "created_at": "2026-05-26",
-  "version": "2.0"
+  "version": "4.0"
 }

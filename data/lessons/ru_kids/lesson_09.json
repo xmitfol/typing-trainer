@@ -10,243 +10,44 @@
   "error_limit": 5,
   "text": "ф ф ж ж жало жало ждал лажа жажда вода",
   "text_sequence": [
-    {
-      "char": "ф",
-      "hand": "left",
-      "finger": "pinky",
-      "key": "Ф"
-    },
-    {
-      "char": " ",
-      "hand": "right",
-      "finger": "thumb",
-      "key": "Space",
-      "space_side": "right"
-    },
-    {
-      "char": "ф",
-      "hand": "left",
-      "finger": "pinky",
-      "key": "Ф"
-    },
-    {
-      "char": " ",
-      "hand": "left",
-      "finger": "thumb",
-      "key": "Space",
-      "space_side": "left"
-    },
-    {
-      "char": "ж",
-      "hand": "right",
-      "finger": "pinky",
-      "key": "Ж"
-    },
-    {
-      "char": " ",
-      "hand": "left",
-      "finger": "thumb",
-      "key": "Space",
-      "space_side": "left"
-    },
-    {
-      "char": "ж",
-      "hand": "right",
-      "finger": "pinky",
-      "key": "Ж"
-    },
-    {
-      "char": " ",
-      "hand": "left",
-      "finger": "thumb",
-      "key": "Space",
-      "space_side": "left"
-    },
-    {
-      "char": "ж",
-      "hand": "right",
-      "finger": "pinky",
-      "key": "Ж"
-    },
-    {
-      "char": "а",
-      "hand": "left",
-      "finger": "index",
-      "key": "А"
-    },
-    {
-      "char": "л",
-      "hand": "right",
-      "finger": "middle",
-      "key": "Л"
-    },
-    {
-      "char": "о",
-      "hand": "right",
-      "finger": "index",
-      "key": "О"
-    },
-    {
-      "char": " ",
-      "hand": "left",
-      "finger": "thumb",
-      "key": "Space",
-      "space_side": "left"
-    },
-    {
-      "char": "ж",
-      "hand": "right",
-      "finger": "pinky",
-      "key": "Ж"
-    },
-    {
-      "char": "а",
-      "hand": "left",
-      "finger": "index",
-      "key": "А"
-    },
-    {
-      "char": "л",
-      "hand": "right",
-      "finger": "middle",
-      "key": "Л"
-    },
-    {
-      "char": "о",
-      "hand": "right",
-      "finger": "index",
-      "key": "О"
-    },
-    {
-      "char": " ",
-      "hand": "left",
-      "finger": "thumb",
-      "key": "Space",
-      "space_side": "left"
-    },
-    {
-      "char": "ж",
-      "hand": "right",
-      "finger": "pinky",
-      "key": "Ж"
-    },
-    {
-      "char": "д",
-      "hand": "right",
-      "finger": "ring",
-      "key": "Д"
-    },
-    {
-      "char": "а",
-      "hand": "left",
-      "finger": "index",
-      "key": "А"
-    },
-    {
-      "char": "л",
-      "hand": "right",
-      "finger": "middle",
-      "key": "Л"
-    },
-    {
-      "char": " ",
-      "hand": "left",
-      "finger": "thumb",
-      "key": "Space",
-      "space_side": "left"
-    },
-    {
-      "char": "л",
-      "hand": "right",
-      "finger": "middle",
-      "key": "Л"
-    },
-    {
-      "char": "а",
-      "hand": "left",
-      "finger": "index",
-      "key": "А"
-    },
-    {
-      "char": "ж",
-      "hand": "right",
-      "finger": "pinky",
-      "key": "Ж"
-    },
-    {
-      "char": "а",
-      "hand": "left",
-      "finger": "index",
-      "key": "А"
-    },
-    {
-      "char": " ",
-      "hand": "left",
-      "finger": "thumb",
-      "key": "Space",
-      "space_side": "left"
-    },
-    {
-      "char": "ж",
-      "hand": "right",
-      "finger": "pinky",
-      "key": "Ж"
-    },
-    {
-      "char": "а",
-      "hand": "left",
-      "finger": "index",
-      "key": "А"
-    },
-    {
-      "char": "ж",
-      "hand": "right",
-      "finger": "pinky",
-      "key": "Ж"
-    },
-    {
-      "char": "д",
-      "hand": "right",
-      "finger": "ring",
-      "key": "Д"
-    },
-    {
-      "char": "а",
-      "hand": "left",
-      "finger": "index",
-      "key": "А"
-    },
-    {
-      "char": " ",
-      "hand": "right",
-      "finger": "thumb",
-      "key": "Space",
-      "space_side": "right"
-    },
-    {
-      "char": "в",
-      "hand": "left",
-      "finger": "middle",
-      "key": "В"
-    },
-    {
-      "char": "о",
-      "hand": "right",
-      "finger": "index",
-      "key": "О"
-    },
-    {
-      "char": "д",
-      "hand": "right",
-      "finger": "ring",
-      "key": "Д"
-    },
-    {
-      "char": "а",
-      "hand": "left",
-      "finger": "index",
-      "key": "А"
-    }
+    {"char": "ф", "hand": "left", "finger": "pinky", "key": "Ф"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "ф", "hand": "left", "finger": "pinky", "key": "Ф"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "ж", "hand": "right", "finger": "pinky", "key": "Ж"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "ж", "hand": "right", "finger": "pinky", "key": "Ж"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "ж", "hand": "right", "finger": "pinky", "key": "Ж"},
+    {"char": "а", "hand": "left", "finger": "index", "key": "А"},
+    {"char": "л", "hand": "right", "finger": "middle", "key": "Л"},
+    {"char": "о", "hand": "right", "finger": "index", "key": "О"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "ж", "hand": "right", "finger": "pinky", "key": "Ж"},
+    {"char": "а", "hand": "left", "finger": "index", "key": "А"},
+    {"char": "л", "hand": "right", "finger": "middle", "key": "Л"},
+    {"char": "о", "hand": "right", "finger": "index", "key": "О"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "ж", "hand": "right", "finger": "pinky", "key": "Ж"},
+    {"char": "д", "hand": "right", "finger": "ring", "key": "Д"},
+    {"char": "а", "hand": "left", "finger": "index", "key": "А"},
+    {"char": "л", "hand": "right", "finger": "middle", "key": "Л"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "л", "hand": "right", "finger": "middle", "key": "Л"},
+    {"char": "а", "hand": "left", "finger": "index", "key": "А"},
+    {"char": "ж", "hand": "right", "finger": "pinky", "key": "Ж"},
+    {"char": "а", "hand": "left", "finger": "index", "key": "А"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "ж", "hand": "right", "finger": "pinky", "key": "Ж"},
+    {"char": "а", "hand": "left", "finger": "index", "key": "А"},
+    {"char": "ж", "hand": "right", "finger": "pinky", "key": "Ж"},
+    {"char": "д", "hand": "right", "finger": "ring", "key": "Д"},
+    {"char": "а", "hand": "left", "finger": "index", "key": "А"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "в", "hand": "left", "finger": "middle", "key": "В"},
+    {"char": "о", "hand": "right", "finger": "index", "key": "О"},
+    {"char": "д", "hand": "right", "finger": "ring", "key": "Д"},
+    {"char": "а", "hand": "left", "finger": "index", "key": "А"}
   ],
   "keys_trained": [
     "А",
@@ -261,30 +62,61 @@
   ],
   "new_keys": [],
   "finger_focus": "Мизинцы находят Ф и Ж",
+  "guided": true,
   "tips": [
     {
       "type": "lead",
-      "text": "Буковки мизинчиков — Ф и Ж!"
+      "text": "Сегодня знакомимся с двумя новыми буковками — Ф и Ж. Их печатают самые маленькие пальчики — мизинчики. Они крохотные, но очень старательные! 🌸"
     },
     {
       "type": "drop",
-      "text": "Ф — левый мизинец, Ж — правый мизинец 🌸"
+      "text": "Буква Ф живёт слева — её нажимает левый мизинчик. А буква Ж справа — её нажимает правый мизинчик. Другие пальчики остаются дома, не убегают."
     },
     {
-      "type": "exercise",
-      "target": "ф ф ж ж ф ж",
+      "type": "callout",
+      "icon": "🌸",
+      "title": "Мизинчик — малыш",
+      "text": "Мизинчик самый маленький и слушается похуже других. Не дави сильно, нажимай легонько и спокойно. А потом сразу верни пальчик домой."
+    },
+    {
+      "type": "step",
+      "kind": "drill",
+      "target": "ф ф ф ф ф ф ф ф ф ф",
       "finger": "pink",
-      "hint": "Мизинчики: Ф слева, Ж справа"
+      "title": "Буква Ф",
+      "hint": "Левый мизинчик находит букву Ф. После каждой — пробел"
+    },
+    {
+      "type": "step",
+      "kind": "drill",
+      "target": "ж ж ж ж ж ж ж ж ж ж",
+      "finger": "pink",
+      "title": "Буква Ж",
+      "hint": "Правый мизинчик находит букву Ж. Нажимай легонько"
+    },
+    {
+      "type": "step",
+      "kind": "drill",
+      "target": "ф ж ф ж ф ж ф ж ф ж",
+      "finger": "pink",
+      "title": "По очереди",
+      "hint": "А теперь по очереди: Ф — Ж — Ф — Ж. Левый мизинчик, потом правый"
     },
     {
       "type": "p",
-      "text": "ЖАЛО, ЖДАЛ, ЖАЖДА — теперь весь домашний ряд почти наш!"
+      "text": "Какой ты молодец! Даже самые маленькие пальчики тебя слушаются. Теперь весь нижний домик почти наш — давай соберём слова! 🌷"
     },
     {
-      "type": "exercise",
-      "target": "жало ждал лажа жажда",
+      "type": "step",
+      "kind": "drill",
+      "target": "жало ждал лажа жажда жало ждал",
       "finger": "pink",
-      "hint": "Слова: жало, ждал, лажа, жажда"
+      "title": "Слова",
+      "hint": "Читай слово целиком и печатай: жало, ждал, лажа, жажда"
+    },
+    {
+      "type": "p",
+      "text": "Все шаги прошёл? Умница! Нажми «Открыть тренажёр» и пройди весь урок целиком. Не подглядывай — пальчики сами вспомнят. 💕"
     }
   ],
   "character_tips": {
@@ -296,5 +128,5 @@
   "phase": 1,
   "rhythmLesson": false,
   "created_at": "2026-05-26",
-  "version": "2.0"
+  "version": "4.0"
 }
