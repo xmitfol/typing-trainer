@@ -3,43 +3,126 @@
   "tier": "ru_kids",
   "lesson_number": 15,
   "title": "Ритм: слова из 3 букв",
-  "description": "Тройки букв с ритмом",
+  "description": "Печатаем коротенькие слова в ровном ритме: кот-кот-кот.",
   "target_wpm": 22,
   "text_length": 59,
   "error_limit_percent": 10,
   "error_limit": 5,
   "text": "кот кот кот ест ест ест дом дом дом сон сон сон она она она",
-  "text_sequence": [],
+  "text_sequence": [
+    {"char": "к", "hand": "left", "finger": "index", "key": "К"},
+    {"char": "о", "hand": "right", "finger": "index", "key": "О"},
+    {"char": "т", "hand": "right", "finger": "index", "key": "Т"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "к", "hand": "left", "finger": "index", "key": "К"},
+    {"char": "о", "hand": "right", "finger": "index", "key": "О"},
+    {"char": "т", "hand": "right", "finger": "index", "key": "Т"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "к", "hand": "left", "finger": "index", "key": "К"},
+    {"char": "о", "hand": "right", "finger": "index", "key": "О"},
+    {"char": "т", "hand": "right", "finger": "index", "key": "Т"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "е", "hand": "left", "finger": "index", "key": "Е"},
+    {"char": "с", "hand": "left", "finger": "middle", "key": "С"},
+    {"char": "т", "hand": "right", "finger": "index", "key": "Т"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "е", "hand": "left", "finger": "index", "key": "Е"},
+    {"char": "с", "hand": "left", "finger": "middle", "key": "С"},
+    {"char": "т", "hand": "right", "finger": "index", "key": "Т"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "е", "hand": "left", "finger": "index", "key": "Е"},
+    {"char": "с", "hand": "left", "finger": "middle", "key": "С"},
+    {"char": "т", "hand": "right", "finger": "index", "key": "Т"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "д", "hand": "right", "finger": "ring", "key": "Д"},
+    {"char": "о", "hand": "right", "finger": "index", "key": "О"},
+    {"char": "м", "hand": "left", "finger": "index", "key": "М"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "д", "hand": "right", "finger": "ring", "key": "Д"},
+    {"char": "о", "hand": "right", "finger": "index", "key": "О"},
+    {"char": "м", "hand": "left", "finger": "index", "key": "М"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "д", "hand": "right", "finger": "ring", "key": "Д"},
+    {"char": "о", "hand": "right", "finger": "index", "key": "О"},
+    {"char": "м", "hand": "left", "finger": "index", "key": "М"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "с", "hand": "left", "finger": "middle", "key": "С"},
+    {"char": "о", "hand": "right", "finger": "index", "key": "О"},
+    {"char": "н", "hand": "right", "finger": "index", "key": "Н"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "с", "hand": "left", "finger": "middle", "key": "С"},
+    {"char": "о", "hand": "right", "finger": "index", "key": "О"},
+    {"char": "н", "hand": "right", "finger": "index", "key": "Н"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "с", "hand": "left", "finger": "middle", "key": "С"},
+    {"char": "о", "hand": "right", "finger": "index", "key": "О"},
+    {"char": "н", "hand": "right", "finger": "index", "key": "Н"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "о", "hand": "right", "finger": "index", "key": "О"},
+    {"char": "н", "hand": "right", "finger": "index", "key": "Н"},
+    {"char": "а", "hand": "left", "finger": "index", "key": "А"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "о", "hand": "right", "finger": "index", "key": "О"},
+    {"char": "н", "hand": "right", "finger": "index", "key": "Н"},
+    {"char": "а", "hand": "left", "finger": "index", "key": "А"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "о", "hand": "right", "finger": "index", "key": "О"},
+    {"char": "н", "hand": "right", "finger": "index", "key": "Н"},
+    {"char": "а", "hand": "left", "finger": "index", "key": "А"}
+  ],
   "keys_trained": [
     "А-Я",
     "Space"
   ],
   "new_keys": [],
   "finger_focus": "Ритм 3-буквенных слов",
+  "guided": true,
   "tips": [
     {
       "type": "lead",
-      "text": "Тройки букв — лёгкие и быстрые"
+      "text": "Сегодня новых букв нет, дружок, — поиграем в ритм! Будем печатать коротенькие слова из трёх буковок, ровно-ровно, как будто тихонько стучим в барабан. 🥁"
     },
     {
       "type": "drop",
-      "text": "Каждое слово трижды"
+      "text": "Поставь пальчики на свои домики и не убирай. Каждое слово печатай по три разочка, спокойно: тук-тук-тук, маленькая пауза, и снова."
     },
     {
-      "type": "exercise",
-      "target": "кот кот кот ест ест ест дом",
+      "type": "callout",
+      "icon": "🥁",
+      "title": "Ровный стук",
+      "text": "Не спеши и не торопись! Самое главное — стучать ровно, одинаково: между буковками одинаковые шажочки. Медленно и ровно лучше, чем быстро и вперемешку."
+    },
+    {
+      "type": "step",
+      "kind": "drill",
+      "target": "кот кот кот кот",
       "finger": "blue",
-      "hint": "Ритм 3-буквенных слов"
+      "title": "Ритм: кот",
+      "hint": "Печатай ровно, как маленький барабанчик: кот — кот — кот. Считай про себя: раз-два-три"
     },
     {
       "type": "p",
-      "text": "Как стук маленького барабанчика"
+      "text": "Слышишь свой стук? Тук-тук-тук, пауза, и снова. Как красиво пальчики танцуют в такт! 🥁"
     },
     {
-      "type": "exercise",
-      "target": "дом дом сон сон сон она она она",
+      "type": "step",
+      "kind": "drill",
+      "target": "ест ест ест ест",
       "finger": "green",
-      "hint": "Ритм 3-буквенных слов"
+      "title": "Ритм: ест",
+      "hint": "Держи тот же ровный ритм: ест — ест — ест. Одинаковые шажочки до конца"
+    },
+    {
+      "type": "step",
+      "kind": "drill",
+      "target": "дом дом сон сон она она",
+      "finger": "blue",
+      "title": "Ритм: дом",
+      "hint": "Печатай парами, спокойно: дом — дом, сон — сон, она — она"
+    },
+    {
+      "type": "p",
+      "text": "Молодец, что старался! Теперь нажми «Открыть тренажёр» и пройди весь урок целиком. Спокойно и ровно — у тебя получится. 🌷"
     }
   ],
   "character_tips": {
@@ -51,5 +134,5 @@
   "phase": 2,
   "rhythmLesson": true,
   "created_at": "2026-05-26",
-  "version": "1.0"
+  "version": "4.0"
 }
