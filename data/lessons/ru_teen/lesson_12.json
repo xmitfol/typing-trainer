@@ -3,13 +3,67 @@
   "tier": "ru_teen",
   "lesson_number": 12,
   "title": "Цифровой ряд: 6-0 (правая)",
-  "description": "Правая рука — цифры завершены",
+  "description": "Правая рука - цифры завершены",
   "target_wpm": 36,
   "text_length": 52,
   "error_limit_percent": 8,
   "error_limit": 4,
   "text": "6 7 8 9 0 67 78 89 90 66 77 88 99 00 6789 7890 67890",
-  "text_sequence": [],
+  "guided": true,
+  "text_sequence": [
+    {"char": "6", "hand": "right", "finger": "index", "key": "6"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "7", "hand": "right", "finger": "index", "key": "7"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "8", "hand": "right", "finger": "middle", "key": "8"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "9", "hand": "right", "finger": "ring", "key": "9"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "0", "hand": "right", "finger": "pinky", "key": "0"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "6", "hand": "right", "finger": "index", "key": "6"},
+    {"char": "7", "hand": "right", "finger": "index", "key": "7"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "7", "hand": "right", "finger": "index", "key": "7"},
+    {"char": "8", "hand": "right", "finger": "middle", "key": "8"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "8", "hand": "right", "finger": "middle", "key": "8"},
+    {"char": "9", "hand": "right", "finger": "ring", "key": "9"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "9", "hand": "right", "finger": "ring", "key": "9"},
+    {"char": "0", "hand": "right", "finger": "pinky", "key": "0"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "6", "hand": "right", "finger": "index", "key": "6"},
+    {"char": "6", "hand": "right", "finger": "index", "key": "6"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "7", "hand": "right", "finger": "index", "key": "7"},
+    {"char": "7", "hand": "right", "finger": "index", "key": "7"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "8", "hand": "right", "finger": "middle", "key": "8"},
+    {"char": "8", "hand": "right", "finger": "middle", "key": "8"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "9", "hand": "right", "finger": "ring", "key": "9"},
+    {"char": "9", "hand": "right", "finger": "ring", "key": "9"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "0", "hand": "right", "finger": "pinky", "key": "0"},
+    {"char": "0", "hand": "right", "finger": "pinky", "key": "0"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "6", "hand": "right", "finger": "index", "key": "6"},
+    {"char": "7", "hand": "right", "finger": "index", "key": "7"},
+    {"char": "8", "hand": "right", "finger": "middle", "key": "8"},
+    {"char": "9", "hand": "right", "finger": "ring", "key": "9"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "7", "hand": "right", "finger": "index", "key": "7"},
+    {"char": "8", "hand": "right", "finger": "middle", "key": "8"},
+    {"char": "9", "hand": "right", "finger": "ring", "key": "9"},
+    {"char": "0", "hand": "right", "finger": "pinky", "key": "0"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "6", "hand": "right", "finger": "index", "key": "6"},
+    {"char": "7", "hand": "right", "finger": "index", "key": "7"},
+    {"char": "8", "hand": "right", "finger": "middle", "key": "8"},
+    {"char": "9", "hand": "right", "finger": "ring", "key": "9"},
+    {"char": "0", "hand": "right", "finger": "pinky", "key": "0"}
+  ],
   "keys_trained": [
     "6",
     "7",
@@ -23,31 +77,58 @@
   "tips": [
     {
       "type": "lead",
-      "text": "6 — правый указательный, 0 — правый мизинец"
+      "text": "Левая половина цифр уже твоя - добираем правую: 6 7 8 9 0. После этого урока под пальцами все десять цифр, и числа можно набирать вслепую целиком."
     },
     {
       "type": "drop",
-      "text": "Та же логика, что НГШЩЗ"
+      "text": "Та же логика, что и слева: цифра жмётся пальцем своей колонки. 6 - указательный, 7 - средний, 8 - безымянный, 9 и 0 - мизинец. Тянись вверх нужным пальцем и сразу возвращай на ОЛДЖ."
     },
     {
-      "type": "exercise",
-      "target": "6 7 8 9 0 67 78 89",
+      "type": "callout",
+      "icon": "🎯",
+      "title": "Мизинцу тут тяжелее всех",
+      "text": "9 и 0 висят на правом мизинце, а он и слабый, и тянуться ему дальше всех. Не дави, просто делай эти две цифры чуть медленнее - точность тут важнее скорости."
+    },
+    {
+      "type": "step",
+      "kind": "drill",
+      "target": "6 7 8 6 7 8 6 7 8 6 7 8 6 7 8 6 7 8",
       "finger": "blue",
-      "hint": "Правые цифры"
+      "title": "Цифры 6 7 8",
+      "hint": "Правая рука вверх: 6 указательный, 7 средний, 8 безымянный. После каждой - пробел, палец домой."
+    },
+    {
+      "type": "step",
+      "kind": "drill",
+      "target": "9 0 9 0 9 0 9 0 9 0 9 0 9 0 9 0 9 0 9 0",
+      "finger": "green",
+      "title": "Цифры 9 0",
+      "hint": "Обе на правом мизинце: тянись вверх-вправо и сразу обратно на базу. Не спеши."
     },
     {
       "type": "p",
-      "text": "К концу курса цифры на скорости букв"
+      "text": "Все десять цифр на месте - собираем числа правой рукой. Двузначные, потом длиннее. Нащупывай каждую цифру по памяти, без взгляда вниз."
     },
     {
-      "type": "exercise",
-      "target": "90 66 77 88 99 00 6789 7890 67890",
+      "type": "pullquote",
+      "text": "Десять цифр под пальцами - это уже почти суперсила. Дальше просто доводи до автомата.",
+      "by": "Артём"
+    },
+    {
+      "type": "step",
+      "kind": "drill",
+      "target": "67 78 89 90 66 77 88 99 00 678 789 890 67890",
       "finger": "green",
-      "hint": "Правые цифры"
+      "title": "Числа",
+      "hint": "Цифры в связках: двойные, тройные, до нуля подряд. Каждый палец - вверх и домой."
+    },
+    {
+      "type": "p",
+      "text": "Прошёл все шаги? Жми «Открыть тренажёр» и пройди весь текст урока целиком. Этот заход сохранится в прогресс и откроет следующий урок."
     }
   ],
   "character_tips": {
-    "anna": "Правые цифры — тот же палец, что и колонка НГШЩЗ.",
+    "anna": "Правые цифры - тот же палец, что и колонка НГШЩЗ.",
     "maxim": "Все 10 цифр под пальцами. Время мешать с текстом.",
     "knopych": "ПОЛНЫЙ ЦИФРОВОЙ! 🔢 0-9 разблокированы!",
     "klavochka": "Считаем до десяти, моя звезда ⭐"
@@ -55,5 +136,5 @@
   "phase": 1,
   "rhythmLesson": false,
   "created_at": "2026-05-26",
-  "version": "1.0"
+  "version": "4.0"
 }

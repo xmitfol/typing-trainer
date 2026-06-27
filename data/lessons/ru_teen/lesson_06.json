@@ -8,341 +8,74 @@
   "text_length": 54,
   "error_limit_percent": 8,
   "error_limit": 5,
-  "text": "наш гора зной гонг шапка щука гнездо узор закон захар.",
+  "text": "н г ш щ з х наш гора зной гонг шапка щука гнездо узор закон захар.",
   "text_sequence": [
-    {
-      "char": "н",
-      "hand": "right",
-      "finger": "index",
-      "key": "Н"
-    },
-    {
-      "char": "а",
-      "hand": "left",
-      "finger": "index",
-      "key": "А"
-    },
-    {
-      "char": "ш",
-      "hand": "right",
-      "finger": "middle",
-      "key": "Ш"
-    },
-    {
-      "char": " ",
-      "hand": "left",
-      "finger": "thumb",
-      "key": "Space",
-      "space_side": "left"
-    },
-    {
-      "char": "г",
-      "hand": "right",
-      "finger": "index",
-      "key": "Г"
-    },
-    {
-      "char": "о",
-      "hand": "right",
-      "finger": "index",
-      "key": "О"
-    },
-    {
-      "char": "р",
-      "hand": "left",
-      "finger": "index",
-      "key": "Р"
-    },
-    {
-      "char": "а",
-      "hand": "left",
-      "finger": "index",
-      "key": "А"
-    },
-    {
-      "char": " ",
-      "hand": "left",
-      "finger": "thumb",
-      "key": "Space",
-      "space_side": "left"
-    },
-    {
-      "char": "з",
-      "hand": "right",
-      "finger": "pinky",
-      "key": "З"
-    },
-    {
-      "char": "н",
-      "hand": "right",
-      "finger": "index",
-      "key": "Н"
-    },
-    {
-      "char": "о",
-      "hand": "right",
-      "finger": "index",
-      "key": "О"
-    },
-    {
-      "char": "й",
-      "hand": "left",
-      "finger": "pinky",
-      "key": "Й"
-    },
-    {
-      "char": " ",
-      "hand": "left",
-      "finger": "thumb",
-      "key": "Space",
-      "space_side": "left"
-    },
-    {
-      "char": "г",
-      "hand": "right",
-      "finger": "index",
-      "key": "Г"
-    },
-    {
-      "char": "о",
-      "hand": "right",
-      "finger": "index",
-      "key": "О"
-    },
-    {
-      "char": "н",
-      "hand": "right",
-      "finger": "index",
-      "key": "Н"
-    },
-    {
-      "char": "г",
-      "hand": "right",
-      "finger": "index",
-      "key": "Г"
-    },
-    {
-      "char": " ",
-      "hand": "left",
-      "finger": "thumb",
-      "key": "Space",
-      "space_side": "left"
-    },
-    {
-      "char": "ш",
-      "hand": "right",
-      "finger": "middle",
-      "key": "Ш"
-    },
-    {
-      "char": "а",
-      "hand": "left",
-      "finger": "index",
-      "key": "А"
-    },
-    {
-      "char": "п",
-      "hand": "left",
-      "finger": "pinky",
-      "key": "П"
-    },
-    {
-      "char": "к",
-      "hand": "left",
-      "finger": "index",
-      "key": "К"
-    },
-    {
-      "char": "а",
-      "hand": "left",
-      "finger": "index",
-      "key": "А"
-    },
-    {
-      "char": " ",
-      "hand": "left",
-      "finger": "thumb",
-      "key": "Space",
-      "space_side": "left"
-    },
-    {
-      "char": "щ",
-      "hand": "right",
-      "finger": "ring",
-      "key": "Щ"
-    },
-    {
-      "char": "у",
-      "hand": "left",
-      "finger": "middle",
-      "key": "У"
-    },
-    {
-      "char": "к",
-      "hand": "left",
-      "finger": "index",
-      "key": "К"
-    },
-    {
-      "char": "а",
-      "hand": "left",
-      "finger": "index",
-      "key": "А"
-    },
-    {
-      "char": " ",
-      "hand": "left",
-      "finger": "thumb",
-      "key": "Space",
-      "space_side": "left"
-    },
-    {
-      "char": "г",
-      "hand": "right",
-      "finger": "index",
-      "key": "Г"
-    },
-    {
-      "char": "н",
-      "hand": "right",
-      "finger": "index",
-      "key": "Н"
-    },
-    {
-      "char": "е",
-      "hand": "left",
-      "finger": "index",
-      "key": "Е"
-    },
-    {
-      "char": "з",
-      "hand": "right",
-      "finger": "pinky",
-      "key": "З"
-    },
-    {
-      "char": "д",
-      "hand": "right",
-      "finger": "ring",
-      "key": "Д"
-    },
-    {
-      "char": "о",
-      "hand": "right",
-      "finger": "index",
-      "key": "О"
-    },
-    {
-      "char": " ",
-      "hand": "right",
-      "finger": "thumb",
-      "key": "Space",
-      "space_side": "right"
-    },
-    {
-      "char": "у",
-      "hand": "left",
-      "finger": "middle",
-      "key": "У"
-    },
-    {
-      "char": "з",
-      "hand": "right",
-      "finger": "pinky",
-      "key": "З"
-    },
-    {
-      "char": "о",
-      "hand": "right",
-      "finger": "index",
-      "key": "О"
-    },
-    {
-      "char": "р",
-      "hand": "left",
-      "finger": "index",
-      "key": "Р"
-    },
-    {
-      "char": " ",
-      "hand": "left",
-      "finger": "thumb",
-      "key": "Space",
-      "space_side": "left"
-    },
-    {
-      "char": "з",
-      "hand": "right",
-      "finger": "pinky",
-      "key": "З"
-    },
-    {
-      "char": "а",
-      "hand": "left",
-      "finger": "index",
-      "key": "А"
-    },
-    {
-      "char": "к",
-      "hand": "left",
-      "finger": "index",
-      "key": "К"
-    },
-    {
-      "char": "о",
-      "hand": "right",
-      "finger": "index",
-      "key": "О"
-    },
-    {
-      "char": "н",
-      "hand": "right",
-      "finger": "index",
-      "key": "Н"
-    },
-    {
-      "char": " ",
-      "hand": "left",
-      "finger": "thumb",
-      "key": "Space",
-      "space_side": "left"
-    },
-    {
-      "char": "з",
-      "hand": "right",
-      "finger": "pinky",
-      "key": "З"
-    },
-    {
-      "char": "а",
-      "hand": "left",
-      "finger": "index",
-      "key": "А"
-    },
-    {
-      "char": "х",
-      "hand": "right",
-      "finger": "pinky",
-      "key": "Х"
-    },
-    {
-      "char": "а",
-      "hand": "left",
-      "finger": "index",
-      "key": "А"
-    },
-    {
-      "char": "р",
-      "hand": "left",
-      "finger": "index",
-      "key": "Р"
-    },
-    {
-      "char": ".",
-      "hand": "left",
-      "finger": "ring",
-      "key": "."
-    }
+    {"char": "н", "hand": "right", "finger": "index", "key": "Н"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "г", "hand": "right", "finger": "index", "key": "Г"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "ш", "hand": "right", "finger": "middle", "key": "Ш"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "щ", "hand": "right", "finger": "ring", "key": "Щ"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "з", "hand": "right", "finger": "pinky", "key": "З"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "х", "hand": "right", "finger": "pinky", "key": "Х"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "н", "hand": "right", "finger": "index", "key": "Н"},
+    {"char": "а", "hand": "left", "finger": "index", "key": "А"},
+    {"char": "ш", "hand": "right", "finger": "middle", "key": "Ш"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "г", "hand": "right", "finger": "index", "key": "Г"},
+    {"char": "о", "hand": "right", "finger": "index", "key": "О"},
+    {"char": "р", "hand": "right", "finger": "index", "key": "Р"},
+    {"char": "а", "hand": "left", "finger": "index", "key": "А"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "з", "hand": "right", "finger": "pinky", "key": "З"},
+    {"char": "н", "hand": "right", "finger": "index", "key": "Н"},
+    {"char": "о", "hand": "right", "finger": "index", "key": "О"},
+    {"char": "й", "hand": "left", "finger": "pinky", "key": "Й"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "г", "hand": "right", "finger": "index", "key": "Г"},
+    {"char": "о", "hand": "right", "finger": "index", "key": "О"},
+    {"char": "н", "hand": "right", "finger": "index", "key": "Н"},
+    {"char": "г", "hand": "right", "finger": "index", "key": "Г"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "ш", "hand": "right", "finger": "middle", "key": "Ш"},
+    {"char": "а", "hand": "left", "finger": "index", "key": "А"},
+    {"char": "п", "hand": "left", "finger": "index", "key": "П"},
+    {"char": "к", "hand": "left", "finger": "index", "key": "К"},
+    {"char": "а", "hand": "left", "finger": "index", "key": "А"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "щ", "hand": "right", "finger": "ring", "key": "Щ"},
+    {"char": "у", "hand": "left", "finger": "middle", "key": "У"},
+    {"char": "к", "hand": "left", "finger": "index", "key": "К"},
+    {"char": "а", "hand": "left", "finger": "index", "key": "А"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "г", "hand": "right", "finger": "index", "key": "Г"},
+    {"char": "н", "hand": "right", "finger": "index", "key": "Н"},
+    {"char": "е", "hand": "left", "finger": "index", "key": "Е"},
+    {"char": "з", "hand": "right", "finger": "pinky", "key": "З"},
+    {"char": "д", "hand": "right", "finger": "ring", "key": "Д"},
+    {"char": "о", "hand": "right", "finger": "index", "key": "О"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "у", "hand": "left", "finger": "middle", "key": "У"},
+    {"char": "з", "hand": "right", "finger": "pinky", "key": "З"},
+    {"char": "о", "hand": "right", "finger": "index", "key": "О"},
+    {"char": "р", "hand": "right", "finger": "index", "key": "Р"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "з", "hand": "right", "finger": "pinky", "key": "З"},
+    {"char": "а", "hand": "left", "finger": "index", "key": "А"},
+    {"char": "к", "hand": "left", "finger": "index", "key": "К"},
+    {"char": "о", "hand": "right", "finger": "index", "key": "О"},
+    {"char": "н", "hand": "right", "finger": "index", "key": "Н"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "з", "hand": "right", "finger": "pinky", "key": "З"},
+    {"char": "а", "hand": "left", "finger": "index", "key": "А"},
+    {"char": "х", "hand": "right", "finger": "pinky", "key": "Х"},
+    {"char": "а", "hand": "left", "finger": "index", "key": "А"},
+    {"char": "р", "hand": "right", "finger": "index", "key": "Р"},
+    {"char": ".", "hand": "right", "finger": "pinky", "key": "."}
   ],
   "keys_trained": [
     "А",
@@ -373,40 +106,82 @@
   ],
   "new_keys": [],
   "finger_focus": "Верхний ряд правой руки: НГШЩЗХЪ",
+  "guided": true,
   "tips": [
     {
       "type": "lead",
-      "text": "Правая рука осваивает верх: Н Г Ш Щ З Х Ъ."
+      "text": "Теперь наверх тянется правая рука: Н Г Ш Щ З Х Ъ. Доберём этот кусок - и весь верхний ряд у тебя в кармане."
     },
     {
       "type": "drop",
-      "text": "Указательные Н Г — сильные, мизинцы З Х Ъ — слабые. Возврат домой."
+      "text": "Н и Г берёт указательный (он сильный, ему легко), Ш средний, Щ безымянный, а З Х Ъ достаются мизинцу - он слабее, так что не дави, просто точно попадай. Каждый палец после удара - назад на базу."
     },
     {
-      "type": "exercise",
-      "target": "наш гора зной гонг шапка",
+      "type": "callout",
+      "icon": "⬆️",
+      "title": "Мизинец не ленись",
+      "text": "З Х Ъ в дальнем углу, и мизинцу туда тянуться неохота. Не подглядывай и не помогай другой рукой - пусть мизинец сам нащупает. Пару раз промахнёшься - норм, перезашёл и дальше."
+    },
+    {
+      "type": "step",
+      "kind": "drill",
+      "target": "н г н г н г н г н г н г н г н г н г н г",
       "finger": "blue",
-      "hint": "Правый верхний + домашний"
+      "title": "Правый верх: Н Г",
+      "hint": "Указательный правой вверх от О: Н и Г. Удар и сразу домой"
+    },
+    {
+      "type": "step",
+      "kind": "drill",
+      "target": "ш щ ш щ ш щ ш щ ш щ ш щ ш щ ш щ ш щ",
+      "finger": "indigo",
+      "title": "Правый верх: Ш Щ",
+      "hint": "Средний Ш, безымянный Щ. Держи руку на базе"
+    },
+    {
+      "type": "step",
+      "kind": "drill",
+      "target": "з х з х з х з х з х з х з х з х з х з х",
+      "finger": "orange",
+      "title": "Правый верх: З Х",
+      "hint": "Мизинец тянется в дальний угол: З и Х. Не дави, просто попадай"
     },
     {
       "type": "p",
-      "text": "Н — указательный правой ВВЕРХ от О. Теперь весь верхний ряд открыт."
+      "text": "Все пальцы знают дорогу наверх? Собираем верх и домашний ряд в словах. Темп спокойный, после каждой верхней - возврат домой."
     },
     {
-      "type": "exercise",
-      "target": "щука гнездо узор закон захар.",
-      "finger": "orange",
-      "hint": "Правый верхний + домашний"
+      "type": "step",
+      "kind": "drill",
+      "target": "наш гора зной гонг шапка щука",
+      "finger": "green",
+      "hint": "Слова: наш, гора, зной, гонг, шапка, щука"
+    },
+    {
+      "type": "pullquote",
+      "text": "Ошибся - норм, перезашёл и дальше. Точность копится сама.",
+      "by": "Артём"
+    },
+    {
+      "type": "step",
+      "kind": "drill",
+      "target": "гнездо узор закон захар.",
+      "finger": "green",
+      "hint": "Слова длиннее: гнездо, узор, закон, захар"
+    },
+    {
+      "type": "p",
+      "text": "Прошёл все шаги? Жми «Открыть тренажёр» и пройди весь текст урока целиком. Этот заход сохранится в прогресс и откроет следующий."
     }
   ],
   "character_tips": {
-    "anna": "Н Г Ш Щ З Х Ъ — правая рука вверх. Весь верхний ряд собран.",
-    "maxim": "Правый верхний ряд. Н — указательный вверх от О, мизинцы добивают З Х Ъ.",
+    "anna": "Н Г Ш Щ З Х Ъ - правая рука вверх. Весь верхний ряд собран.",
+    "maxim": "Правый верхний ряд. Н - указательный вверх от О, мизинцы добивают З Х Ъ.",
     "knopych": "ПРАВЫЙ ВЕРХ! 🤖 ГОРА! ЗАКОН! ГНЕЗДО! Ряд закрыт! ⬆️",
     "klavochka": "Правая ручка тоже наверх потянулась, дитя: гора, закон 🌷"
   },
   "phase": 1,
   "rhythmLesson": false,
   "created_at": "2026-05-26",
-  "version": "2.0"
+  "version": "4.0"
 }
