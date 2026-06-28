@@ -3,7 +3,7 @@
   "tier": "en_teen",
   "lesson_number": 11,
   "title": "Numbers row: 1-5 (left hand)",
-  "description": "Reach to the numbers row — left side",
+  "description": "Reach to the numbers row - left side",
   "target_wpm": 35,
   "text_length": 52,
   "error_limit_percent": 8,
@@ -130,7 +130,7 @@
     "anna": "Numbers stretch FAR up. Use the same finger as the column letter.",
     "maxim": "Numbers on the main row, not numpad. The latter is a different skill.",
     "knopych": "DIGITS! 🔢 1-2-3-4-5, same fingers as Q-W-E-R-T!",
-    "klavochka": "Counting up to five, my dear — like steps! 🪜"
+    "klavochka": "Counting up to five, my dear - like steps! 🪜"
   },
   "phase": 1,
   "rhythmLesson": false,
