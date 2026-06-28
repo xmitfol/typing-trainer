@@ -9,7 +9,80 @@
   "error_limit_percent": 8,
   "error_limit": 6,
   "text": "rite tire tree tried trust three fried glide grid dirty fairy hardy gear",
-  "text_sequence": [],
+  "text_sequence": [
+    {"char": "r", "hand": "left", "finger": "index", "key": "R"},
+    {"char": "i", "hand": "right", "finger": "middle", "key": "I"},
+    {"char": "t", "hand": "left", "finger": "index", "key": "T"},
+    {"char": "e", "hand": "left", "finger": "middle", "key": "E"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "t", "hand": "left", "finger": "index", "key": "T"},
+    {"char": "i", "hand": "right", "finger": "middle", "key": "I"},
+    {"char": "r", "hand": "left", "finger": "index", "key": "R"},
+    {"char": "e", "hand": "left", "finger": "middle", "key": "E"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "t", "hand": "left", "finger": "index", "key": "T"},
+    {"char": "r", "hand": "left", "finger": "index", "key": "R"},
+    {"char": "e", "hand": "left", "finger": "middle", "key": "E"},
+    {"char": "e", "hand": "left", "finger": "middle", "key": "E"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "t", "hand": "left", "finger": "index", "key": "T"},
+    {"char": "r", "hand": "left", "finger": "index", "key": "R"},
+    {"char": "i", "hand": "right", "finger": "middle", "key": "I"},
+    {"char": "e", "hand": "left", "finger": "middle", "key": "E"},
+    {"char": "d", "hand": "left", "finger": "middle", "key": "D"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "t", "hand": "left", "finger": "index", "key": "T"},
+    {"char": "r", "hand": "left", "finger": "index", "key": "R"},
+    {"char": "u", "hand": "right", "finger": "index", "key": "U"},
+    {"char": "s", "hand": "left", "finger": "ring", "key": "S"},
+    {"char": "t", "hand": "left", "finger": "index", "key": "T"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "t", "hand": "left", "finger": "index", "key": "T"},
+    {"char": "h", "hand": "right", "finger": "index", "key": "H"},
+    {"char": "r", "hand": "left", "finger": "index", "key": "R"},
+    {"char": "e", "hand": "left", "finger": "middle", "key": "E"},
+    {"char": "e", "hand": "left", "finger": "middle", "key": "E"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "f", "hand": "left", "finger": "index", "key": "F"},
+    {"char": "r", "hand": "left", "finger": "index", "key": "R"},
+    {"char": "i", "hand": "right", "finger": "middle", "key": "I"},
+    {"char": "e", "hand": "left", "finger": "middle", "key": "E"},
+    {"char": "d", "hand": "left", "finger": "middle", "key": "D"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "g", "hand": "left", "finger": "index", "key": "G"},
+    {"char": "l", "hand": "right", "finger": "ring", "key": "L"},
+    {"char": "i", "hand": "right", "finger": "middle", "key": "I"},
+    {"char": "d", "hand": "left", "finger": "middle", "key": "D"},
+    {"char": "e", "hand": "left", "finger": "middle", "key": "E"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "g", "hand": "left", "finger": "index", "key": "G"},
+    {"char": "r", "hand": "left", "finger": "index", "key": "R"},
+    {"char": "i", "hand": "right", "finger": "middle", "key": "I"},
+    {"char": "d", "hand": "left", "finger": "middle", "key": "D"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "d", "hand": "left", "finger": "middle", "key": "D"},
+    {"char": "i", "hand": "right", "finger": "middle", "key": "I"},
+    {"char": "r", "hand": "left", "finger": "index", "key": "R"},
+    {"char": "t", "hand": "left", "finger": "index", "key": "T"},
+    {"char": "y", "hand": "right", "finger": "index", "key": "Y"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "f", "hand": "left", "finger": "index", "key": "F"},
+    {"char": "a", "hand": "left", "finger": "pinky", "key": "A"},
+    {"char": "i", "hand": "right", "finger": "middle", "key": "I"},
+    {"char": "r", "hand": "left", "finger": "index", "key": "R"},
+    {"char": "y", "hand": "right", "finger": "index", "key": "Y"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "h", "hand": "right", "finger": "index", "key": "H"},
+    {"char": "a", "hand": "left", "finger": "pinky", "key": "A"},
+    {"char": "r", "hand": "left", "finger": "index", "key": "R"},
+    {"char": "d", "hand": "left", "finger": "middle", "key": "D"},
+    {"char": "y", "hand": "right", "finger": "index", "key": "Y"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "g", "hand": "left", "finger": "index", "key": "G"},
+    {"char": "e", "hand": "left", "finger": "middle", "key": "E"},
+    {"char": "a", "hand": "left", "finger": "pinky", "key": "A"},
+    {"char": "r", "hand": "left", "finger": "index", "key": "R"}
+  ],
   "keys_trained": [
     "A",
     "D",
@@ -38,30 +111,66 @@
     "Y"
   ],
   "finger_focus": "Top row index (R U T Y) + middle (E I)",
+  "guided": true,
   "tips": [
     {
       "type": "lead",
-      "text": "Strongest fingers reach UP first: index (R, U, T, Y) and middle (E, I)"
+      "text": "Time to leave home base and go UP. We start with your strongest fingers: index (R, U, T, Y) and middle (E, I). They handle the reach best, so they go first."
     },
     {
       "type": "drop",
-      "text": "Reach up, then snap straight back to the home row"
+      "text": "Top row sits right above home. R and T are left-index reaches, U and Y are right-index reaches, E and I are middle-finger reaches. The move is the same every time: reach up, tap, snap straight back home. Keep your anchors on F and J."
     },
     {
-      "type": "exercise",
-      "target": "rite tire tree tried dirty",
+      "type": "callout",
+      "icon": "⬆️",
+      "title": "Up and back, every time",
+      "text": "Don't look down to find the top row - your finger knows the way. Reach, tap, return. If your hand floats away from home, you're done for. Anchor first, reach second."
+    },
+    {
+      "type": "step",
+      "kind": "drill",
+      "target": "r u r u r u r u r u r u r u r u r u r u",
       "finger": "blue",
-      "hint": "Top row index (R U T Y) + middle (E I)"
+      "title": "R and U",
+      "hint": "Index reaches: R with left index, U with right index"
+    },
+    {
+      "type": "step",
+      "kind": "drill",
+      "target": "e i e i e i e i e i e i e i e i e i e i",
+      "finger": "green",
+      "title": "E and I",
+      "hint": "Middle reaches: E with left middle, I with right middle"
+    },
+    {
+      "type": "step",
+      "kind": "drill",
+      "target": "t y t y t y t y t y t y t y t y t y t y",
+      "finger": "indigo",
+      "title": "T and Y",
+      "hint": "Index reaches: T with left index, Y with right index"
     },
     {
       "type": "p",
-      "text": "Words: tree, tried, trust, three, glide"
+      "text": "Strong fingers are reaching clean - now stitch it into words. These mix the new top-row keys with everything you already own. Read whole, type clean."
     },
     {
-      "type": "exercise",
-      "target": "tried trust three fried glide gear",
+      "type": "pullquote",
+      "text": "Accuracy beats speed. Speed shows up on its own once your accuracy stops wobbling.",
+      "by": "course method"
+    },
+    {
+      "type": "step",
+      "kind": "drill",
+      "target": "rite tire tree tried trust three fried glide grid dirty",
       "finger": "green",
-      "hint": "Top row index (R U T Y) + middle (E I)"
+      "title": "Words",
+      "hint": "Words: rite, tire, tree, tried, trust, three, fried, glide, grid, dirty"
+    },
+    {
+      "type": "p",
+      "text": "All steps done? Hit \"Open trainer\" below and do one full run on the whole lesson text. That run saves your progress and unlocks the next lesson."
     }
   ],
   "character_tips": {
@@ -73,5 +182,5 @@
   "phase": 1,
   "rhythmLesson": false,
   "created_at": "2026-05-25",
-  "version": "2.0"
+  "version": "4.0"
 }

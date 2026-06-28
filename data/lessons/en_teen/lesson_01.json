@@ -8,8 +8,60 @@
   "text_length": 49,
   "error_limit_percent": 8,
   "error_limit": 3,
-  "text": "asdf jkl; asdf jkl; asdf jkl; asdf jkl; asdf jkl;",
-  "text_sequence": [],
+  "text": "asdf jkl; asdf jkl; asdf jkl; ask sad lad fall sass",
+  "text_sequence": [
+    {"char": "a", "hand": "left", "finger": "pinky", "key": "A"},
+    {"char": "s", "hand": "left", "finger": "ring", "key": "S"},
+    {"char": "d", "hand": "left", "finger": "middle", "key": "D"},
+    {"char": "f", "hand": "left", "finger": "index", "key": "F"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "j", "hand": "right", "finger": "index", "key": "J"},
+    {"char": "k", "hand": "right", "finger": "middle", "key": "K"},
+    {"char": "l", "hand": "right", "finger": "ring", "key": "L"},
+    {"char": ";", "hand": "right", "finger": "pinky", "key": ";"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "a", "hand": "left", "finger": "pinky", "key": "A"},
+    {"char": "s", "hand": "left", "finger": "ring", "key": "S"},
+    {"char": "d", "hand": "left", "finger": "middle", "key": "D"},
+    {"char": "f", "hand": "left", "finger": "index", "key": "F"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "j", "hand": "right", "finger": "index", "key": "J"},
+    {"char": "k", "hand": "right", "finger": "middle", "key": "K"},
+    {"char": "l", "hand": "right", "finger": "ring", "key": "L"},
+    {"char": ";", "hand": "right", "finger": "pinky", "key": ";"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "a", "hand": "left", "finger": "pinky", "key": "A"},
+    {"char": "s", "hand": "left", "finger": "ring", "key": "S"},
+    {"char": "d", "hand": "left", "finger": "middle", "key": "D"},
+    {"char": "f", "hand": "left", "finger": "index", "key": "F"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "j", "hand": "right", "finger": "index", "key": "J"},
+    {"char": "k", "hand": "right", "finger": "middle", "key": "K"},
+    {"char": "l", "hand": "right", "finger": "ring", "key": "L"},
+    {"char": ";", "hand": "right", "finger": "pinky", "key": ";"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "a", "hand": "left", "finger": "pinky", "key": "A"},
+    {"char": "s", "hand": "left", "finger": "ring", "key": "S"},
+    {"char": "k", "hand": "right", "finger": "middle", "key": "K"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "s", "hand": "left", "finger": "ring", "key": "S"},
+    {"char": "a", "hand": "left", "finger": "pinky", "key": "A"},
+    {"char": "d", "hand": "left", "finger": "middle", "key": "D"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "l", "hand": "right", "finger": "ring", "key": "L"},
+    {"char": "a", "hand": "left", "finger": "pinky", "key": "A"},
+    {"char": "d", "hand": "left", "finger": "middle", "key": "D"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "f", "hand": "left", "finger": "index", "key": "F"},
+    {"char": "a", "hand": "left", "finger": "pinky", "key": "A"},
+    {"char": "l", "hand": "right", "finger": "ring", "key": "L"},
+    {"char": "l", "hand": "right", "finger": "ring", "key": "L"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "s", "hand": "left", "finger": "ring", "key": "S"},
+    {"char": "a", "hand": "left", "finger": "pinky", "key": "A"},
+    {"char": "s", "hand": "left", "finger": "ring", "key": "S"},
+    {"char": "s", "hand": "left", "finger": "ring", "key": "S"}
+  ],
   "keys_trained": [
     "A",
     "D",
@@ -32,30 +84,70 @@
     ";"
   ],
   "finger_focus": "Home row — left and right hands",
+  "guided": true,
   "tips": [
     {
       "type": "lead",
-      "text": "These 8 keys are home base — return here after every keystroke"
+      "text": "First lesson, and it's the most important one. Not the letters - the hands. Get your fingers landing on the right keys without looking, and you've basically unlocked the cheat code for everything else."
     },
     {
       "type": "drop",
-      "text": "Feel the bumps on F and J — those are your anchors"
+      "text": "These eight keys are home base. Left hand on A S D F (pinky to index), right hand on J K L ; (index to pinky). Feel the little bumps on F and J - those are your anchors. Land your index fingers there by feel and the rest fall into place. Thumbs rest on the space bar."
     },
     {
-      "type": "exercise",
-      "target": "asdf jkl; asdf jkl; asdf",
+      "type": "callout",
+      "icon": "🙈",
+      "title": "Don't look down",
+      "text": "The easiest way to fool yourself is to peek, then drop your fingers. Don't. Find the keys by feel. Your finger already knows where F and J are - that's the whole trick."
+    },
+    {
+      "type": "step",
+      "kind": "placement",
+      "target": "asdf jkl; asdf jkl; asdf jkl; asdf jkl; asdf jkl; asdf jkl; asdf jkl; asdf jkl; asdf jkl; asdf jkl;",
       "finger": "blue",
-      "hint": "Home row — left and right hands"
+      "title": "Set your hands",
+      "hint": "All eight fingers on A S D F and J K L ;. Run them in order, no looking. Ten passes to lock the position in."
     },
     {
       "type": "p",
-      "text": "Don't look at the keyboard. Trust your hands."
+      "text": "Hands are set. Now we build muscle memory - one group at a time, lots of reps. Left hand first: A S D F, pinky to index. Press, return home, repeat. Steady beat, eyes off your hands."
     },
     {
-      "type": "exercise",
-      "target": "jkl; asdf jkl; asdf jkl;",
+      "type": "step",
+      "kind": "drill",
+      "target": "a s d f a s d f a s d f a s d f a s d f",
+      "finger": "blue",
+      "title": "Left hand",
+      "hint": "Left hand home row: A S D F, pinky to index"
+    },
+    {
+      "type": "step",
+      "kind": "drill",
+      "target": "j k l ; j k l ; j k l ; j k l ; j k l ;",
+      "finger": "indigo",
+      "title": "Right hand",
+      "hint": "Right hand home row: J K L ;, index to pinky"
+    },
+    {
+      "type": "p",
+      "text": "Both hands warmed up? Time for real words - all of them stay on the home row, no reaching anywhere. Read the whole word, then type it clean."
+    },
+    {
+      "type": "pullquote",
+      "text": "Accuracy beats speed. Speed shows up on its own once your accuracy stops wobbling.",
+      "by": "course method"
+    },
+    {
+      "type": "step",
+      "kind": "drill",
+      "target": "ask sad lad fall sass ask sad lad fall sass",
       "finger": "green",
-      "hint": "Home row — left and right hands"
+      "title": "Words",
+      "hint": "Home row words: ask, sad, lad, fall, sass"
+    },
+    {
+      "type": "p",
+      "text": "All steps done? Hit \"Open trainer\" below and do one full run on the whole lesson text. That run saves your progress and unlocks the next lesson."
     }
   ],
   "character_tips": {
@@ -67,5 +159,5 @@
   "phase": 1,
   "rhythmLesson": false,
   "created_at": "2026-05-25",
-  "version": "2.0"
+  "version": "4.0"
 }

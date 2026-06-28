@@ -9,7 +9,71 @@
   "error_limit_percent": 8,
   "error_limit": 7,
   "text": "box zap zigzag jazz crazy exit fizzy zebra examine dozen quartz",
-  "text_sequence": [],
+  "text_sequence": [
+    {"char": "b", "hand": "left", "finger": "index", "key": "B"},
+    {"char": "o", "hand": "right", "finger": "ring", "key": "O"},
+    {"char": "x", "hand": "left", "finger": "ring", "key": "X"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "z", "hand": "left", "finger": "pinky", "key": "Z"},
+    {"char": "a", "hand": "left", "finger": "pinky", "key": "A"},
+    {"char": "p", "hand": "right", "finger": "pinky", "key": "P"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "z", "hand": "left", "finger": "pinky", "key": "Z"},
+    {"char": "i", "hand": "right", "finger": "middle", "key": "I"},
+    {"char": "g", "hand": "left", "finger": "index", "key": "G"},
+    {"char": "z", "hand": "left", "finger": "pinky", "key": "Z"},
+    {"char": "a", "hand": "left", "finger": "pinky", "key": "A"},
+    {"char": "g", "hand": "left", "finger": "index", "key": "G"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "j", "hand": "right", "finger": "index", "key": "J"},
+    {"char": "a", "hand": "left", "finger": "pinky", "key": "A"},
+    {"char": "z", "hand": "left", "finger": "pinky", "key": "Z"},
+    {"char": "z", "hand": "left", "finger": "pinky", "key": "Z"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "c", "hand": "left", "finger": "middle", "key": "C"},
+    {"char": "r", "hand": "left", "finger": "index", "key": "R"},
+    {"char": "a", "hand": "left", "finger": "pinky", "key": "A"},
+    {"char": "z", "hand": "left", "finger": "pinky", "key": "Z"},
+    {"char": "y", "hand": "right", "finger": "index", "key": "Y"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "e", "hand": "left", "finger": "middle", "key": "E"},
+    {"char": "x", "hand": "left", "finger": "ring", "key": "X"},
+    {"char": "i", "hand": "right", "finger": "middle", "key": "I"},
+    {"char": "t", "hand": "left", "finger": "index", "key": "T"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "f", "hand": "left", "finger": "index", "key": "F"},
+    {"char": "i", "hand": "right", "finger": "middle", "key": "I"},
+    {"char": "z", "hand": "left", "finger": "pinky", "key": "Z"},
+    {"char": "z", "hand": "left", "finger": "pinky", "key": "Z"},
+    {"char": "y", "hand": "right", "finger": "index", "key": "Y"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "z", "hand": "left", "finger": "pinky", "key": "Z"},
+    {"char": "e", "hand": "left", "finger": "middle", "key": "E"},
+    {"char": "b", "hand": "left", "finger": "index", "key": "B"},
+    {"char": "r", "hand": "left", "finger": "index", "key": "R"},
+    {"char": "a", "hand": "left", "finger": "pinky", "key": "A"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "e", "hand": "left", "finger": "middle", "key": "E"},
+    {"char": "x", "hand": "left", "finger": "ring", "key": "X"},
+    {"char": "a", "hand": "left", "finger": "pinky", "key": "A"},
+    {"char": "m", "hand": "right", "finger": "index", "key": "M"},
+    {"char": "i", "hand": "right", "finger": "middle", "key": "I"},
+    {"char": "n", "hand": "right", "finger": "index", "key": "N"},
+    {"char": "e", "hand": "left", "finger": "middle", "key": "E"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "d", "hand": "left", "finger": "middle", "key": "D"},
+    {"char": "o", "hand": "right", "finger": "ring", "key": "O"},
+    {"char": "z", "hand": "left", "finger": "pinky", "key": "Z"},
+    {"char": "e", "hand": "left", "finger": "middle", "key": "E"},
+    {"char": "n", "hand": "right", "finger": "index", "key": "N"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "q", "hand": "left", "finger": "pinky", "key": "Q"},
+    {"char": "u", "hand": "right", "finger": "index", "key": "U"},
+    {"char": "a", "hand": "left", "finger": "pinky", "key": "A"},
+    {"char": "r", "hand": "left", "finger": "index", "key": "R"},
+    {"char": "t", "hand": "left", "finger": "index", "key": "T"},
+    {"char": "z", "hand": "left", "finger": "pinky", "key": "Z"}
+  ],
   "keys_trained": [
     "A",
     "B",
@@ -48,27 +112,62 @@
   "tips": [
     {
       "type": "lead",
-      "text": "X (ring) and Z (pinky) finish the bottom row — and the alphabet"
+      "text": "Two letters left and then you own the whole alphabet. X is left ring, Z is left pinky, both on the bottom row. They are the rare ones - but rare does not mean you skip them."
     },
     {
       "type": "drop",
-      "text": "Z and X are rare, but you still own them now"
+      "text": "Z and X live below A and S, in the bottom-left corner. Z is your pinky curling down, X is your ring finger. Weak fingers, so go easy and keep them honest. Curl down, tap, back to home."
     },
     {
-      "type": "exercise",
-      "target": "box zap zigzag jazz crazy",
+      "type": "callout",
+      "icon": "🔓",
+      "title": "Weak fingers, light touch",
+      "text": "Pinky and ring are the least obedient fingers you have. Don't slam, don't rush. A calm, even tap beats a fast miss every time."
+    },
+    {
+      "type": "step",
+      "kind": "drill",
+      "target": "x x x x x x x x x x x x x x x x x x x x",
+      "finger": "orange",
+      "title": "Ring: X",
+      "hint": "X is your left ring finger curling down to the corner. Only this finger moves."
+    },
+    {
+      "type": "step",
+      "kind": "drill",
+      "target": "z z z z z z z z z z z z z z z z z z z z",
       "finger": "pink",
-      "hint": "Bottom row ring (X) + pinky (Z)"
+      "title": "Pinky: Z",
+      "hint": "Z is your left pinky, bottom-left corner. Go gentle - pinky is the weakest one."
+    },
+    {
+      "type": "step",
+      "kind": "drill",
+      "target": "x z x z x z x z x z x z x z x z x z x z",
+      "finger": "orange",
+      "title": "Alternate X and Z",
+      "hint": "Switch ring and pinky: X, Z, X, Z. Keep both honest, space after each."
     },
     {
       "type": "p",
-      "text": "All 26 letters online — the rest is practice"
+      "text": "That is all 26 letters under your fingers. Every word in English is now yours to type. Let's prove it with some words that lean on X and Z - the showoff letters."
     },
     {
-      "type": "exercise",
-      "target": "exit fizzy zebra examine dozen quartz",
-      "finger": "orange",
-      "hint": "Bottom row ring (X) + pinky (Z)"
+      "type": "pullquote",
+      "text": "Alphabet complete. From here it is all practice - and practice is where the cheat code actually kicks in.",
+      "by": "Jordan"
+    },
+    {
+      "type": "step",
+      "kind": "drill",
+      "target": "box zap zigzag jazz crazy exit fizzy zebra examine dozen quartz",
+      "finger": "pink",
+      "title": "Words",
+      "hint": "Words built on X and Z: box, zap, zigzag, jazz, exit, zebra, quartz."
+    },
+    {
+      "type": "p",
+      "text": "Nailed every step? Hit Open Trainer below and run the full lesson text in one go. That run saves your progress and unlocks the next lesson."
     }
   ],
   "character_tips": {
@@ -80,5 +179,6 @@
   "phase": 1,
   "rhythmLesson": false,
   "created_at": "2026-05-25",
-  "version": "2.0"
+  "version": "4.0",
+  "guided": true
 }

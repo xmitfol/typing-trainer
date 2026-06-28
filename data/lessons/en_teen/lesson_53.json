@@ -8,8 +8,92 @@
   "text_length": 211,
   "error_limit_percent": 5,
   "error_limit": 10,
-  "text": "Markets opened higher on Friday after positive earnings reports from three major tech firms. Analysts pointed to strong cloud growth and resilient consumer demand. The rally is expected to extend into next week.",
-  "text_sequence": [],
+  "text": "markets markets markets markets cloud cloud cloud cloud growth growth growth growth",
+  "text_sequence": [
+    {"char": "m", "hand": "right", "finger": "index", "key": "M"},
+    {"char": "a", "hand": "left", "finger": "pinky", "key": "A"},
+    {"char": "r", "hand": "left", "finger": "index", "key": "R"},
+    {"char": "k", "hand": "right", "finger": "middle", "key": "K"},
+    {"char": "e", "hand": "left", "finger": "middle", "key": "E"},
+    {"char": "t", "hand": "left", "finger": "index", "key": "T"},
+    {"char": "s", "hand": "left", "finger": "ring", "key": "S"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "m", "hand": "right", "finger": "index", "key": "M"},
+    {"char": "a", "hand": "left", "finger": "pinky", "key": "A"},
+    {"char": "r", "hand": "left", "finger": "index", "key": "R"},
+    {"char": "k", "hand": "right", "finger": "middle", "key": "K"},
+    {"char": "e", "hand": "left", "finger": "middle", "key": "E"},
+    {"char": "t", "hand": "left", "finger": "index", "key": "T"},
+    {"char": "s", "hand": "left", "finger": "ring", "key": "S"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "m", "hand": "right", "finger": "index", "key": "M"},
+    {"char": "a", "hand": "left", "finger": "pinky", "key": "A"},
+    {"char": "r", "hand": "left", "finger": "index", "key": "R"},
+    {"char": "k", "hand": "right", "finger": "middle", "key": "K"},
+    {"char": "e", "hand": "left", "finger": "middle", "key": "E"},
+    {"char": "t", "hand": "left", "finger": "index", "key": "T"},
+    {"char": "s", "hand": "left", "finger": "ring", "key": "S"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "m", "hand": "right", "finger": "index", "key": "M"},
+    {"char": "a", "hand": "left", "finger": "pinky", "key": "A"},
+    {"char": "r", "hand": "left", "finger": "index", "key": "R"},
+    {"char": "k", "hand": "right", "finger": "middle", "key": "K"},
+    {"char": "e", "hand": "left", "finger": "middle", "key": "E"},
+    {"char": "t", "hand": "left", "finger": "index", "key": "T"},
+    {"char": "s", "hand": "left", "finger": "ring", "key": "S"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "c", "hand": "left", "finger": "middle", "key": "C"},
+    {"char": "l", "hand": "right", "finger": "ring", "key": "L"},
+    {"char": "o", "hand": "right", "finger": "ring", "key": "O"},
+    {"char": "u", "hand": "right", "finger": "index", "key": "U"},
+    {"char": "d", "hand": "left", "finger": "middle", "key": "D"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "c", "hand": "left", "finger": "middle", "key": "C"},
+    {"char": "l", "hand": "right", "finger": "ring", "key": "L"},
+    {"char": "o", "hand": "right", "finger": "ring", "key": "O"},
+    {"char": "u", "hand": "right", "finger": "index", "key": "U"},
+    {"char": "d", "hand": "left", "finger": "middle", "key": "D"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "c", "hand": "left", "finger": "middle", "key": "C"},
+    {"char": "l", "hand": "right", "finger": "ring", "key": "L"},
+    {"char": "o", "hand": "right", "finger": "ring", "key": "O"},
+    {"char": "u", "hand": "right", "finger": "index", "key": "U"},
+    {"char": "d", "hand": "left", "finger": "middle", "key": "D"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "c", "hand": "left", "finger": "middle", "key": "C"},
+    {"char": "l", "hand": "right", "finger": "ring", "key": "L"},
+    {"char": "o", "hand": "right", "finger": "ring", "key": "O"},
+    {"char": "u", "hand": "right", "finger": "index", "key": "U"},
+    {"char": "d", "hand": "left", "finger": "middle", "key": "D"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "g", "hand": "left", "finger": "index", "key": "G"},
+    {"char": "r", "hand": "left", "finger": "index", "key": "R"},
+    {"char": "o", "hand": "right", "finger": "ring", "key": "O"},
+    {"char": "w", "hand": "left", "finger": "ring", "key": "W"},
+    {"char": "t", "hand": "left", "finger": "index", "key": "T"},
+    {"char": "h", "hand": "right", "finger": "index", "key": "H"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "g", "hand": "left", "finger": "index", "key": "G"},
+    {"char": "r", "hand": "left", "finger": "index", "key": "R"},
+    {"char": "o", "hand": "right", "finger": "ring", "key": "O"},
+    {"char": "w", "hand": "left", "finger": "ring", "key": "W"},
+    {"char": "t", "hand": "left", "finger": "index", "key": "T"},
+    {"char": "h", "hand": "right", "finger": "index", "key": "H"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "g", "hand": "left", "finger": "index", "key": "G"},
+    {"char": "r", "hand": "left", "finger": "index", "key": "R"},
+    {"char": "o", "hand": "right", "finger": "ring", "key": "O"},
+    {"char": "w", "hand": "left", "finger": "ring", "key": "W"},
+    {"char": "t", "hand": "left", "finger": "index", "key": "T"},
+    {"char": "h", "hand": "right", "finger": "index", "key": "H"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "g", "hand": "left", "finger": "index", "key": "G"},
+    {"char": "r", "hand": "left", "finger": "index", "key": "R"},
+    {"char": "o", "hand": "right", "finger": "ring", "key": "O"},
+    {"char": "w", "hand": "left", "finger": "ring", "key": "W"},
+    {"char": "t", "hand": "left", "finger": "index", "key": "T"},
+    {"char": "h", "hand": "right", "finger": "index", "key": "H"}
+  ],
   "keys_trained": [
     "A-Z",
     "Shift",
@@ -20,30 +104,53 @@
   ],
   "new_keys": [],
   "finger_focus": "News paragraph at speed",
+  "guided": true,
   "tips": [
     {
       "type": "lead",
-      "text": "Multi-sentence news at 80 WPM"
+      "text": "Newsroom speed is built on clean, repeatable motion - not panic. Loop each word until it runs itself, then carry that smoothness into real copy. Flow, not force."
     },
     {
       "type": "drop",
-      "text": "Metronome at 80 BPM — match it"
+      "text": "Hands on home row, eyes off the keys. Repeat each word at one even pace - same gap between every tap. Don't push the speed, let the steady beat set it for you."
     },
     {
-      "type": "exercise",
-      "target": "Markets opened higher on Friday after positive earnings reports from three major tech firms. Analysts pointed",
-      "finger": "purple",
-      "hint": "News paragraph at speed"
+      "type": "callout",
+      "icon": "🎶",
+      "title": "Even beat",
+      "text": "Lock a tempo you can hold all the way through. Smooth and even beats fast and jerky every time - a steady hand files faster than a rushed one. Trust the rhythm."
+    },
+    {
+      "type": "step",
+      "kind": "drill",
+      "target": "markets markets markets markets markets",
+      "finger": "blue",
+      "title": "Rhythm: markets",
+      "hint": "Loop it on the beat: markets - markets - markets. Same gap every time."
+    },
+    {
+      "type": "step",
+      "kind": "drill",
+      "target": "cloud cloud cloud cloud",
+      "finger": "green",
+      "title": "Rhythm: cloud",
+      "hint": "Hold the tempo: cloud - cloud - cloud. Flow, not force."
+    },
+    {
+      "type": "step",
+      "kind": "drill",
+      "target": "growth growth growth growth",
+      "finger": "blue",
+      "title": "Rhythm: growth",
+      "hint": "Stay even to the end: growth - growth - growth. Don't rush the finish."
     },
     {
       "type": "p",
-      "text": "Sustained journalism speed"
+      "text": "Feel the longer words flowing as one smooth move instead of a string of letters? That is the engine of speed - even reps turn effort into reflex, and reflex holds up under deadline."
     },
     {
-      "type": "exercise",
-      "target": "to strong cloud growth and resilient consumer demand. The rally is expected to extend into next week.",
-      "finger": "purple",
-      "hint": "News paragraph at speed"
+      "type": "p",
+      "text": "All three drills done? Hit \"Open trainer\" below and run the full lesson text in one go. That run saves to your progress and unlocks the next lesson."
     }
   ],
   "character_tips": {
@@ -55,5 +162,5 @@
   "phase": 4,
   "rhythmLesson": true,
   "created_at": "2026-05-25",
-  "version": "1.0"
+  "version": "4.0"
 }

@@ -8,8 +8,56 @@
   "text_length": 104,
   "error_limit_percent": 7,
   "error_limit": 7,
-  "text": "the quick brown fox jumps over the lazy dog while five wizards jinx my big quartz vow today and tomorrow",
-  "text_sequence": [],
+  "text": "the the the the fox fox fox fox dog dog dog dog",
+  "text_sequence": [
+    {"char": "t", "hand": "left", "finger": "index", "key": "T"},
+    {"char": "h", "hand": "right", "finger": "index", "key": "H"},
+    {"char": "e", "hand": "left", "finger": "middle", "key": "E"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "t", "hand": "left", "finger": "index", "key": "T"},
+    {"char": "h", "hand": "right", "finger": "index", "key": "H"},
+    {"char": "e", "hand": "left", "finger": "middle", "key": "E"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "t", "hand": "left", "finger": "index", "key": "T"},
+    {"char": "h", "hand": "right", "finger": "index", "key": "H"},
+    {"char": "e", "hand": "left", "finger": "middle", "key": "E"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "t", "hand": "left", "finger": "index", "key": "T"},
+    {"char": "h", "hand": "right", "finger": "index", "key": "H"},
+    {"char": "e", "hand": "left", "finger": "middle", "key": "E"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "f", "hand": "left", "finger": "index", "key": "F"},
+    {"char": "o", "hand": "right", "finger": "ring", "key": "O"},
+    {"char": "x", "hand": "left", "finger": "ring", "key": "X"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "f", "hand": "left", "finger": "index", "key": "F"},
+    {"char": "o", "hand": "right", "finger": "ring", "key": "O"},
+    {"char": "x", "hand": "left", "finger": "ring", "key": "X"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "f", "hand": "left", "finger": "index", "key": "F"},
+    {"char": "o", "hand": "right", "finger": "ring", "key": "O"},
+    {"char": "x", "hand": "left", "finger": "ring", "key": "X"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "f", "hand": "left", "finger": "index", "key": "F"},
+    {"char": "o", "hand": "right", "finger": "ring", "key": "O"},
+    {"char": "x", "hand": "left", "finger": "ring", "key": "X"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "d", "hand": "left", "finger": "middle", "key": "D"},
+    {"char": "o", "hand": "right", "finger": "ring", "key": "O"},
+    {"char": "g", "hand": "left", "finger": "index", "key": "G"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "d", "hand": "left", "finger": "middle", "key": "D"},
+    {"char": "o", "hand": "right", "finger": "ring", "key": "O"},
+    {"char": "g", "hand": "left", "finger": "index", "key": "G"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "d", "hand": "left", "finger": "middle", "key": "D"},
+    {"char": "o", "hand": "right", "finger": "ring", "key": "O"},
+    {"char": "g", "hand": "left", "finger": "index", "key": "G"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "d", "hand": "left", "finger": "middle", "key": "D"},
+    {"char": "o", "hand": "right", "finger": "ring", "key": "O"},
+    {"char": "g", "hand": "left", "finger": "index", "key": "G"}
+  ],
   "keys_trained": [
     "A-Z",
     "Space",
@@ -17,30 +65,53 @@
   ],
   "new_keys": [],
   "finger_focus": "Full alphabet rhythm",
+  "guided": true,
   "tips": [
     {
       "type": "lead",
-      "text": "Two pangrams back to back — every letter at least once"
+      "text": "No new keys here - just flow. You'll loop one short word over and over until your fingers fire without you asking them to. Flow, not force."
     },
     {
       "type": "drop",
-      "text": "Metronome at 46 BPM — match it"
+      "text": "Eyes off the keys, hands settled on home row. Repeat each word at a single even pace - same gap between every tap. Don't rush it, hold the beat steady the whole way."
     },
     {
-      "type": "exercise",
-      "target": "the quick brown fox jumps over the lazy dog while",
+      "type": "callout",
+      "icon": "🎶",
+      "title": "Even beat",
+      "text": "Set a tempo you can keep and don't break it. Smooth and even beats fast and jerky - every time. Trust the rhythm and let it pull you along."
+    },
+    {
+      "type": "step",
+      "kind": "drill",
+      "target": "the the the the the",
       "finger": "blue",
-      "hint": "Full alphabet rhythm"
+      "title": "Rhythm: the",
+      "hint": "Loop it on a steady beat: the - the - the. Same gap every tap."
+    },
+    {
+      "type": "step",
+      "kind": "drill",
+      "target": "fox fox fox fox",
+      "finger": "blue",
+      "title": "Rhythm: fox",
+      "hint": "Hold the tempo: fox - fox - fox. Flow, not force."
+    },
+    {
+      "type": "step",
+      "kind": "drill",
+      "target": "dog dog dog dog",
+      "finger": "green",
+      "title": "Rhythm: dog",
+      "hint": "Stay even to the end: dog - dog - dog. Don't speed up at the finish."
     },
     {
       "type": "p",
-      "text": "Don't slow at rare letters — keep the tempo"
+      "text": "Feel your hands grabbing the whole word in one move? That is the win. Even, repeated reps turn effort into reflex - and reflex is where the real speed lives."
     },
     {
-      "type": "exercise",
-      "target": "five wizards jinx my big quartz vow today and tomorrow",
-      "finger": "green",
-      "hint": "Full alphabet rhythm"
+      "type": "p",
+      "text": "All three drills done? Hit \"Open trainer\" below and run the full lesson text in one go. That run saves to your progress and unlocks the next lesson."
     }
   ],
   "character_tips": {
@@ -52,5 +123,5 @@
   "phase": 2,
   "rhythmLesson": true,
   "created_at": "2026-05-25",
-  "version": "1.0"
+  "version": "4.0"
 }

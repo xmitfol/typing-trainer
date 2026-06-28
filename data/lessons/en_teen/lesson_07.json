@@ -9,7 +9,70 @@
   "error_limit_percent": 8,
   "error_limit": 7,
   "text": "move number brave climb clam combat nimble vivid become carbon",
-  "text_sequence": [],
+  "text_sequence": [
+    {"char": "m", "hand": "right", "finger": "index", "key": "M"},
+    {"char": "o", "hand": "right", "finger": "ring", "key": "O"},
+    {"char": "v", "hand": "left", "finger": "index", "key": "V"},
+    {"char": "e", "hand": "left", "finger": "middle", "key": "E"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "n", "hand": "right", "finger": "index", "key": "N"},
+    {"char": "u", "hand": "right", "finger": "index", "key": "U"},
+    {"char": "m", "hand": "right", "finger": "index", "key": "M"},
+    {"char": "b", "hand": "left", "finger": "index", "key": "B"},
+    {"char": "e", "hand": "left", "finger": "middle", "key": "E"},
+    {"char": "r", "hand": "left", "finger": "index", "key": "R"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "b", "hand": "left", "finger": "index", "key": "B"},
+    {"char": "r", "hand": "left", "finger": "index", "key": "R"},
+    {"char": "a", "hand": "left", "finger": "pinky", "key": "A"},
+    {"char": "v", "hand": "left", "finger": "index", "key": "V"},
+    {"char": "e", "hand": "left", "finger": "middle", "key": "E"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "c", "hand": "left", "finger": "middle", "key": "C"},
+    {"char": "l", "hand": "right", "finger": "ring", "key": "L"},
+    {"char": "i", "hand": "right", "finger": "middle", "key": "I"},
+    {"char": "m", "hand": "right", "finger": "index", "key": "M"},
+    {"char": "b", "hand": "left", "finger": "index", "key": "B"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "c", "hand": "left", "finger": "middle", "key": "C"},
+    {"char": "l", "hand": "right", "finger": "ring", "key": "L"},
+    {"char": "a", "hand": "left", "finger": "pinky", "key": "A"},
+    {"char": "m", "hand": "right", "finger": "index", "key": "M"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "c", "hand": "left", "finger": "middle", "key": "C"},
+    {"char": "o", "hand": "right", "finger": "ring", "key": "O"},
+    {"char": "m", "hand": "right", "finger": "index", "key": "M"},
+    {"char": "b", "hand": "left", "finger": "index", "key": "B"},
+    {"char": "a", "hand": "left", "finger": "pinky", "key": "A"},
+    {"char": "t", "hand": "left", "finger": "index", "key": "T"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "n", "hand": "right", "finger": "index", "key": "N"},
+    {"char": "i", "hand": "right", "finger": "middle", "key": "I"},
+    {"char": "m", "hand": "right", "finger": "index", "key": "M"},
+    {"char": "b", "hand": "left", "finger": "index", "key": "B"},
+    {"char": "l", "hand": "right", "finger": "ring", "key": "L"},
+    {"char": "e", "hand": "left", "finger": "middle", "key": "E"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "v", "hand": "left", "finger": "index", "key": "V"},
+    {"char": "i", "hand": "right", "finger": "middle", "key": "I"},
+    {"char": "v", "hand": "left", "finger": "index", "key": "V"},
+    {"char": "i", "hand": "right", "finger": "middle", "key": "I"},
+    {"char": "d", "hand": "left", "finger": "middle", "key": "D"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "b", "hand": "left", "finger": "index", "key": "B"},
+    {"char": "e", "hand": "left", "finger": "middle", "key": "E"},
+    {"char": "c", "hand": "left", "finger": "middle", "key": "C"},
+    {"char": "o", "hand": "right", "finger": "ring", "key": "O"},
+    {"char": "m", "hand": "right", "finger": "index", "key": "M"},
+    {"char": "e", "hand": "left", "finger": "middle", "key": "E"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "c", "hand": "left", "finger": "middle", "key": "C"},
+    {"char": "a", "hand": "left", "finger": "pinky", "key": "A"},
+    {"char": "r", "hand": "left", "finger": "index", "key": "R"},
+    {"char": "b", "hand": "left", "finger": "index", "key": "B"},
+    {"char": "o", "hand": "right", "finger": "ring", "key": "O"},
+    {"char": "n", "hand": "right", "finger": "index", "key": "N"}
+  ],
   "keys_trained": [
     "A",
     "B",
@@ -49,27 +112,62 @@
   "tips": [
     {
       "type": "lead",
-      "text": "Bottom row, strong fingers first: index (V, M, B, N), middle (C)"
+      "text": "Last row on the map: the bottom one. We start with the strong fingers, like always. Index handles V M B N, middle grabs C. This is the row people fumble most, so we slow it down and lock it in."
     },
     {
       "type": "drop",
-      "text": "Curl the fingers under to reach down, then return"
+      "text": "The bottom row sits below home, so you curl your fingers down to reach it, not stretch out. V and B are left index, M and N are right index, C is left middle. Tap, then snap straight back to home. No need to look - feel for it."
     },
     {
-      "type": "exercise",
-      "target": "move number brave climb",
+      "type": "callout",
+      "icon": "👇",
+      "title": "Curl, don't slide",
+      "text": "Don't drag your whole hand down. Just curl the one finger you need and let the rest stay parked on home. The faster you bounce back, the less you get lost."
+    },
+    {
+      "type": "step",
+      "kind": "drill",
+      "target": "v v v v v m m m m m v m v m v m v m v m",
+      "finger": "blue",
+      "title": "Index: V and M",
+      "hint": "V is left index curling down, M is right index. Alternate clean, space after each."
+    },
+    {
+      "type": "step",
+      "kind": "drill",
+      "target": "b b b b b n n n n n b n b n b n b n b n",
+      "finger": "blue",
+      "title": "Index: B and N",
+      "hint": "B left index, N right index, both on the bottom row. Curl down and pop back."
+    },
+    {
+      "type": "step",
+      "kind": "drill",
+      "target": "c c c c c c c c c c c c c c c c c c c c",
       "finger": "green",
-      "hint": "Bottom row index (V M B N) + middle (C)"
+      "title": "Middle: C",
+      "hint": "C is your left middle finger curling down. Only this finger moves - rest stay home."
     },
     {
       "type": "p",
-      "text": "Words: move, number, brave, become, carbon"
+      "text": "Bottom row is online. Now we cash it in on real words - the kind with V, M, B, N, C all mixed in. Read the whole word first, then type it smooth. Speed is not the goal yet, clean is."
     },
     {
-      "type": "exercise",
-      "target": "clam combat nimble vivid become carbon",
-      "finger": "blue",
-      "hint": "Bottom row index (V M B N) + middle (C)"
+      "type": "pullquote",
+      "text": "Typing is a cheat code - but only once your fingers stop guessing. Accuracy first, speed shows up on its own.",
+      "by": "Jordan"
+    },
+    {
+      "type": "step",
+      "kind": "drill",
+      "target": "move number brave climb clam combat nimble vivid become carbon",
+      "finger": "green",
+      "title": "Words",
+      "hint": "Real words using the bottom row: move, number, brave, climb, combat, carbon."
+    },
+    {
+      "type": "p",
+      "text": "Nailed every step? Hit Open Trainer below and run the full lesson text in one go. That run saves your progress and unlocks the next lesson."
     }
   ],
   "character_tips": {
@@ -81,5 +179,6 @@
   "phase": 1,
   "rhythmLesson": false,
   "created_at": "2026-05-25",
-  "version": "2.0"
+  "version": "4.0",
+  "guided": true
 }
