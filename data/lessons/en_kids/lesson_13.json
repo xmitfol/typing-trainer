@@ -8,8 +8,61 @@
   "text_length": 52,
   "error_limit_percent": 10,
   "error_limit": 7,
-  "text": "x x z z b b n n box zebra brave number jump quiz win",
-  "text_sequence": [],
+  "text": "x z x z b n b n box zebra brave number jump quiz win",
+  "text_sequence": [
+    {"char": "x", "hand": "left", "finger": "ring", "key": "X"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "z", "hand": "left", "finger": "pinky", "key": "Z"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "x", "hand": "left", "finger": "ring", "key": "X"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "z", "hand": "left", "finger": "pinky", "key": "Z"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "b", "hand": "left", "finger": "index", "key": "B"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "n", "hand": "right", "finger": "index", "key": "N"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "b", "hand": "left", "finger": "index", "key": "B"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "n", "hand": "right", "finger": "index", "key": "N"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "b", "hand": "left", "finger": "index", "key": "B"},
+    {"char": "o", "hand": "right", "finger": "ring", "key": "O"},
+    {"char": "x", "hand": "left", "finger": "ring", "key": "X"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "z", "hand": "left", "finger": "pinky", "key": "Z"},
+    {"char": "e", "hand": "left", "finger": "middle", "key": "E"},
+    {"char": "b", "hand": "left", "finger": "index", "key": "B"},
+    {"char": "r", "hand": "left", "finger": "index", "key": "R"},
+    {"char": "a", "hand": "left", "finger": "pinky", "key": "A"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "b", "hand": "left", "finger": "index", "key": "B"},
+    {"char": "r", "hand": "left", "finger": "index", "key": "R"},
+    {"char": "a", "hand": "left", "finger": "pinky", "key": "A"},
+    {"char": "v", "hand": "left", "finger": "index", "key": "V"},
+    {"char": "e", "hand": "left", "finger": "middle", "key": "E"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "n", "hand": "right", "finger": "index", "key": "N"},
+    {"char": "u", "hand": "right", "finger": "index", "key": "U"},
+    {"char": "m", "hand": "right", "finger": "index", "key": "M"},
+    {"char": "b", "hand": "left", "finger": "index", "key": "B"},
+    {"char": "e", "hand": "left", "finger": "middle", "key": "E"},
+    {"char": "r", "hand": "left", "finger": "index", "key": "R"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "j", "hand": "right", "finger": "index", "key": "J"},
+    {"char": "u", "hand": "right", "finger": "index", "key": "U"},
+    {"char": "m", "hand": "right", "finger": "index", "key": "M"},
+    {"char": "p", "hand": "right", "finger": "pinky", "key": "P"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "q", "hand": "left", "finger": "pinky", "key": "Q"},
+    {"char": "u", "hand": "right", "finger": "index", "key": "U"},
+    {"char": "i", "hand": "right", "finger": "middle", "key": "I"},
+    {"char": "z", "hand": "left", "finger": "pinky", "key": "Z"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "w", "hand": "left", "finger": "ring", "key": "W"},
+    {"char": "i", "hand": "right", "finger": "middle", "key": "I"},
+    {"char": "n", "hand": "right", "finger": "index", "key": "N"}
+  ],
   "keys_trained": [
     "A",
     "B",
@@ -47,30 +100,53 @@
     "N"
   ],
   "finger_focus": "Bottom row X/Z (left), B/N (index)",
+  "guided": true,
   "tips": [
     {
       "type": "lead",
-      "text": "X, Z (left) and B, N (index reaches) finish the bottom row"
+      "text": "Big day, friend! These are the LAST four letters: X, Z, B and N. When you learn them, you will know every single letter. The whole alphabet will be yours!"
     },
     {
       "type": "drop",
-      "text": "The whole alphabet is now under your fingers!"
+      "text": "X and Z hide down in the left corner - your ring and pinky kittens reach for them. B and N are little stretches for your busy index fingers. Tap, then come right back home."
     },
     {
-      "type": "exercise",
-      "target": "x x z z b b n n box zebra",
-      "finger": "pink",
-      "hint": "Bottom row X/Z (left), B/N (index)"
+      "type": "callout",
+      "icon": "🌟",
+      "title": "The very last ones",
+      "text": "These corner letters are a tiny bit far away, so go slow and soft. You have learned every other letter already - these last four are easy for a champ like you!"
+    },
+    {
+      "type": "step",
+      "kind": "drill",
+      "target": "x z x z x z x z x z x z",
+      "finger": "orange",
+      "title": "X and Z",
+      "hint": "Left hand reaches the corner: ring finger to X, pinky to Z. A space after each one."
+    },
+    {
+      "type": "step",
+      "kind": "drill",
+      "target": "b n b n b n b n b n b n",
+      "finger": "blue",
+      "title": "B and N",
+      "hint": "Index fingers stretch: left to B, right to N. A space after each one."
     },
     {
       "type": "p",
-      "text": "You know every key now — amazing!"
+      "text": "You did it! You know EVERY letter now - the whole alphabet from A to Z! Look at these words: box, zebra, brave, number, jump, quiz, win. Read each one, then tap it gently."
     },
     {
-      "type": "exercise",
-      "target": "brave number jump quiz win",
-      "finger": "green",
-      "hint": "Bottom row X/Z (left), B/N (index)"
+      "type": "step",
+      "kind": "drill",
+      "target": "box zebra brave number jump quiz win",
+      "finger": "blue",
+      "title": "Little words",
+      "hint": "Big words from all your letters: box, zebra, brave, number, jump, quiz, win."
+    },
+    {
+      "type": "p",
+      "text": "Hooray! Every key is yours now. Press \"Open the trainer\" and type the whole lesson once. You learned the whole keyboard - you are amazing, champ!"
     }
   ],
   "character_tips": {
@@ -82,5 +158,5 @@
   "phase": 2,
   "rhythmLesson": false,
   "created_at": "2026-05-25",
-  "version": "2.0"
+  "version": "4.0"
 }

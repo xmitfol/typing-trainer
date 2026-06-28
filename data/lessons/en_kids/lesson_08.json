@@ -8,8 +8,60 @@
   "text_length": 47,
   "error_limit_percent": 10,
   "error_limit": 8,
-  "text": "w w o o word world slow grow hello dog low wood",
-  "text_sequence": [],
+  "text": "w w w o o o word slow grow hello dog low wood world",
+  "text_sequence": [
+    {"char": "w", "hand": "left", "finger": "ring", "key": "W"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "w", "hand": "left", "finger": "ring", "key": "W"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "w", "hand": "left", "finger": "ring", "key": "W"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "o", "hand": "right", "finger": "ring", "key": "O"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "o", "hand": "right", "finger": "ring", "key": "O"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "o", "hand": "right", "finger": "ring", "key": "O"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "w", "hand": "left", "finger": "ring", "key": "W"},
+    {"char": "o", "hand": "right", "finger": "ring", "key": "O"},
+    {"char": "r", "hand": "left", "finger": "index", "key": "R"},
+    {"char": "d", "hand": "left", "finger": "middle", "key": "D"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "s", "hand": "left", "finger": "ring", "key": "S"},
+    {"char": "l", "hand": "right", "finger": "ring", "key": "L"},
+    {"char": "o", "hand": "right", "finger": "ring", "key": "O"},
+    {"char": "w", "hand": "left", "finger": "ring", "key": "W"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "g", "hand": "left", "finger": "index", "key": "G"},
+    {"char": "r", "hand": "left", "finger": "index", "key": "R"},
+    {"char": "o", "hand": "right", "finger": "ring", "key": "O"},
+    {"char": "w", "hand": "left", "finger": "ring", "key": "W"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "h", "hand": "right", "finger": "index", "key": "H"},
+    {"char": "e", "hand": "left", "finger": "middle", "key": "E"},
+    {"char": "l", "hand": "right", "finger": "ring", "key": "L"},
+    {"char": "l", "hand": "right", "finger": "ring", "key": "L"},
+    {"char": "o", "hand": "right", "finger": "ring", "key": "O"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "d", "hand": "left", "finger": "middle", "key": "D"},
+    {"char": "o", "hand": "right", "finger": "ring", "key": "O"},
+    {"char": "g", "hand": "left", "finger": "index", "key": "G"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "l", "hand": "right", "finger": "ring", "key": "L"},
+    {"char": "o", "hand": "right", "finger": "ring", "key": "O"},
+    {"char": "w", "hand": "left", "finger": "ring", "key": "W"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "w", "hand": "left", "finger": "ring", "key": "W"},
+    {"char": "o", "hand": "right", "finger": "ring", "key": "O"},
+    {"char": "o", "hand": "right", "finger": "ring", "key": "O"},
+    {"char": "d", "hand": "left", "finger": "middle", "key": "D"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "w", "hand": "left", "finger": "ring", "key": "W"},
+    {"char": "o", "hand": "right", "finger": "ring", "key": "O"},
+    {"char": "r", "hand": "left", "finger": "index", "key": "R"},
+    {"char": "l", "hand": "right", "finger": "ring", "key": "L"},
+    {"char": "d", "hand": "left", "finger": "middle", "key": "D"}
+  ],
   "keys_trained": [
     "A",
     "D",
@@ -34,30 +86,61 @@
     "O"
   ],
   "finger_focus": "Ring fingers reach up to W and O",
+  "guided": true,
   "tips": [
     {
       "type": "lead",
-      "text": "W is left ring UP, O is right ring UP"
+      "text": "Hello, friend! Today your ring fingers learn to tiptoe UP. The left one taps W, and the right one taps O. Two new letter friends, just for you."
     },
     {
       "type": "drop",
-      "text": "Ring fingers are gentle — go slow"
+      "text": "Keep your hands resting on home, like sleepy kittens. The left ring finger lives on S, so it reaches up a little to W. The right ring finger lives on L, so it reaches up to O. After each tap, let the kitten curl back home."
     },
     {
-      "type": "exercise",
-      "target": "w w o o word world slow",
+      "type": "callout",
+      "icon": "🐱",
+      "title": "Be gentle and slow",
+      "text": "Ring fingers are the shy ones. They are a little sleepy and slow, and that is okay! Do not push hard. Tap softly, say \"one\" in your head, and let the finger come home. Slow and happy wins."
+    },
+    {
+      "type": "step",
+      "kind": "drill",
+      "target": "w w w w w w w w w w w w",
       "finger": "orange",
-      "hint": "Ring fingers reach up to W and O"
+      "title": "The letter W",
+      "hint": "Left ring finger tiptoes up to W, then home. A space after each one."
+    },
+    {
+      "type": "step",
+      "kind": "drill",
+      "target": "o o o o o o o o o o o o",
+      "finger": "orange",
+      "title": "The letter O",
+      "hint": "Right ring finger tiptoes up to O, then home. A space after each one."
+    },
+    {
+      "type": "step",
+      "kind": "drill",
+      "target": "w o w o w o w o w o w o",
+      "finger": "orange",
+      "title": "Take turns",
+      "hint": "Now hop: W then O, W then O. Both ring fingers take turns. Nice and easy."
     },
     {
       "type": "p",
-      "text": "Now you can write \"hello\" and \"world\"!"
+      "text": "Look at you go! Now you can make real words. You can even write \"hello\" and \"world\". Read the whole word first, then tap it softly. Eyes up, not on your hands."
     },
     {
-      "type": "exercise",
-      "target": "hello grow low wood dog",
-      "finger": "green",
-      "hint": "Ring fingers reach up to W and O"
+      "type": "step",
+      "kind": "drill",
+      "target": "word slow grow hello dog low wood world",
+      "finger": "orange",
+      "title": "Little words",
+      "hint": "Words from your letters: word, slow, grow, hello, dog, low, wood, world."
+    },
+    {
+      "type": "p",
+      "text": "All done? Wonderful! Press \"Open the trainer\" below and type the whole lesson once. You are doing so well, champ!"
     }
   ],
   "character_tips": {
@@ -69,5 +152,5 @@
   "phase": 1,
   "rhythmLesson": false,
   "created_at": "2026-05-25",
-  "version": "2.0"
+  "version": "4.0"
 }

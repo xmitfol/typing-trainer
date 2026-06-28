@@ -8,8 +8,59 @@
   "text_length": 50,
   "error_limit_percent": 10,
   "error_limit": 6,
-  "text": "t t y y q q p p type try happy party query the day",
-  "text_sequence": [],
+  "text": "t y t y q p q p type try happy party query the day",
+  "text_sequence": [
+    {"char": "t", "hand": "left", "finger": "index", "key": "T"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "y", "hand": "right", "finger": "index", "key": "Y"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "t", "hand": "left", "finger": "index", "key": "T"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "y", "hand": "right", "finger": "index", "key": "Y"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "q", "hand": "left", "finger": "pinky", "key": "Q"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "p", "hand": "right", "finger": "pinky", "key": "P"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "q", "hand": "left", "finger": "pinky", "key": "Q"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "p", "hand": "right", "finger": "pinky", "key": "P"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "t", "hand": "left", "finger": "index", "key": "T"},
+    {"char": "y", "hand": "right", "finger": "index", "key": "Y"},
+    {"char": "p", "hand": "right", "finger": "pinky", "key": "P"},
+    {"char": "e", "hand": "left", "finger": "middle", "key": "E"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "t", "hand": "left", "finger": "index", "key": "T"},
+    {"char": "r", "hand": "left", "finger": "index", "key": "R"},
+    {"char": "y", "hand": "right", "finger": "index", "key": "Y"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "h", "hand": "right", "finger": "index", "key": "H"},
+    {"char": "a", "hand": "left", "finger": "pinky", "key": "A"},
+    {"char": "p", "hand": "right", "finger": "pinky", "key": "P"},
+    {"char": "p", "hand": "right", "finger": "pinky", "key": "P"},
+    {"char": "y", "hand": "right", "finger": "index", "key": "Y"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "p", "hand": "right", "finger": "pinky", "key": "P"},
+    {"char": "a", "hand": "left", "finger": "pinky", "key": "A"},
+    {"char": "r", "hand": "left", "finger": "index", "key": "R"},
+    {"char": "t", "hand": "left", "finger": "index", "key": "T"},
+    {"char": "y", "hand": "right", "finger": "index", "key": "Y"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "q", "hand": "left", "finger": "pinky", "key": "Q"},
+    {"char": "u", "hand": "right", "finger": "index", "key": "U"},
+    {"char": "e", "hand": "left", "finger": "middle", "key": "E"},
+    {"char": "r", "hand": "left", "finger": "index", "key": "R"},
+    {"char": "y", "hand": "right", "finger": "index", "key": "Y"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "t", "hand": "left", "finger": "index", "key": "T"},
+    {"char": "h", "hand": "right", "finger": "index", "key": "H"},
+    {"char": "e", "hand": "left", "finger": "middle", "key": "E"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "d", "hand": "left", "finger": "middle", "key": "D"},
+    {"char": "a", "hand": "left", "finger": "pinky", "key": "A"},
+    {"char": "y", "hand": "right", "finger": "index", "key": "Y"}
+  ],
   "keys_trained": [
     "A",
     "D",
@@ -40,30 +91,53 @@
     "P"
   ],
   "finger_focus": "Index T/Y and pinky Q/P (top row)",
+  "guided": true,
   "tips": [
     {
       "type": "lead",
-      "text": "T and Y are index reaches; Q and P are the pinky corners"
+      "text": "Hi there, champ! Four new letters today: T, Y, Q and P. When you learn these, the whole top row is yours. How exciting!"
     },
     {
       "type": "drop",
-      "text": "Top row is finished after this!"
+      "text": "T and Y like a little stretch with your busy index fingers, up near the middle. Q and P live way out in the corners, and your sleepy pinky kittens reach for them. After each tap, bring your fingers back home."
     },
     {
-      "type": "exercise",
-      "target": "t t y y q q p p type try",
+      "type": "callout",
+      "icon": "🖐",
+      "title": "Pinkies are tiny",
+      "text": "Your little pinky fingers are the smallest, so they need a kind, slow turn. Tap Q and P softly and do not rush. Slow taps are happy taps."
+    },
+    {
+      "type": "step",
+      "kind": "drill",
+      "target": "t y t y t y t y t y t y",
+      "finger": "blue",
+      "title": "T and Y",
+      "hint": "Index fingers stretch up: left to T, right to Y. A space after each one."
+    },
+    {
+      "type": "step",
+      "kind": "drill",
+      "target": "q p q p q p q p q p q p",
       "finger": "pink",
-      "hint": "Index T/Y and pinky Q/P (top row)"
+      "title": "Q and P",
+      "hint": "Pinky corners: left to Q, right to P. Soft and slow, then home."
     },
     {
       "type": "p",
-      "text": "Words: type, try, happy, party"
+      "text": "Look how much you can write now! You can spell \"type\", \"try\", \"happy\", and \"party\". The little word \"the\" is everywhere - so handy! Read each word, then tap it gently."
     },
     {
-      "type": "exercise",
-      "target": "happy party query the day",
+      "type": "step",
+      "kind": "drill",
+      "target": "type try happy party query the day",
       "finger": "blue",
-      "hint": "Index T/Y and pinky Q/P (top row)"
+      "title": "Little words",
+      "hint": "Words from your letters: type, try, happy, party, query, the, day."
+    },
+    {
+      "type": "p",
+      "text": "All steps done? Hooray! The top row is finished. Press \"Open the trainer\" and type the whole lesson once. So proud of you, friend!"
     }
   ],
   "character_tips": {
@@ -75,5 +149,5 @@
   "phase": 2,
   "rhythmLesson": false,
   "created_at": "2026-05-25",
-  "version": "2.0"
+  "version": "4.0"
 }

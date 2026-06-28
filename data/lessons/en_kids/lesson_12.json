@@ -8,8 +8,59 @@
   "text_length": 48,
   "error_limit_percent": 10,
   "error_limit": 6,
-  "text": "v v m m c c move come cave music camp vivid clam",
-  "text_sequence": [],
+  "text": "v m v m c c c move come cave music camp vivid clam",
+  "text_sequence": [
+    {"char": "v", "hand": "left", "finger": "index", "key": "V"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "m", "hand": "right", "finger": "index", "key": "M"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "v", "hand": "left", "finger": "index", "key": "V"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "m", "hand": "right", "finger": "index", "key": "M"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "c", "hand": "left", "finger": "middle", "key": "C"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "c", "hand": "left", "finger": "middle", "key": "C"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "c", "hand": "left", "finger": "middle", "key": "C"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "m", "hand": "right", "finger": "index", "key": "M"},
+    {"char": "o", "hand": "right", "finger": "ring", "key": "O"},
+    {"char": "v", "hand": "left", "finger": "index", "key": "V"},
+    {"char": "e", "hand": "left", "finger": "middle", "key": "E"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "c", "hand": "left", "finger": "middle", "key": "C"},
+    {"char": "o", "hand": "right", "finger": "ring", "key": "O"},
+    {"char": "m", "hand": "right", "finger": "index", "key": "M"},
+    {"char": "e", "hand": "left", "finger": "middle", "key": "E"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "c", "hand": "left", "finger": "middle", "key": "C"},
+    {"char": "a", "hand": "left", "finger": "pinky", "key": "A"},
+    {"char": "v", "hand": "left", "finger": "index", "key": "V"},
+    {"char": "e", "hand": "left", "finger": "middle", "key": "E"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "m", "hand": "right", "finger": "index", "key": "M"},
+    {"char": "u", "hand": "right", "finger": "index", "key": "U"},
+    {"char": "s", "hand": "left", "finger": "ring", "key": "S"},
+    {"char": "i", "hand": "right", "finger": "middle", "key": "I"},
+    {"char": "c", "hand": "left", "finger": "middle", "key": "C"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "c", "hand": "left", "finger": "middle", "key": "C"},
+    {"char": "a", "hand": "left", "finger": "pinky", "key": "A"},
+    {"char": "m", "hand": "right", "finger": "index", "key": "M"},
+    {"char": "p", "hand": "right", "finger": "pinky", "key": "P"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "v", "hand": "left", "finger": "index", "key": "V"},
+    {"char": "i", "hand": "right", "finger": "middle", "key": "I"},
+    {"char": "v", "hand": "left", "finger": "index", "key": "V"},
+    {"char": "i", "hand": "right", "finger": "middle", "key": "I"},
+    {"char": "d", "hand": "left", "finger": "middle", "key": "D"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "c", "hand": "left", "finger": "middle", "key": "C"},
+    {"char": "l", "hand": "right", "finger": "ring", "key": "L"},
+    {"char": "a", "hand": "left", "finger": "pinky", "key": "A"},
+    {"char": "m", "hand": "right", "finger": "index", "key": "M"}
+  ],
   "keys_trained": [
     "A",
     "C",
@@ -42,30 +93,53 @@
     "C"
   ],
   "finger_focus": "Bottom row V/M (index), C (middle)",
+  "guided": true,
   "tips": [
     {
       "type": "lead",
-      "text": "V and M drop with the index fingers; C drops with left middle"
+      "text": "Hello again, friend! Today we go DOWN to the bottom row. Three new letters: V, M and C. Down we dip, then back up home!"
     },
     {
       "type": "drop",
-      "text": "Down, then straight back home"
+      "text": "Your busy index fingers dip down for V (left) and M (right). Your left middle finger dips down for C. Tap, then bring the finger straight back to its home key, like a kitten hopping back to its bed."
     },
     {
-      "type": "exercise",
-      "target": "v v m m c c move come",
+      "type": "callout",
+      "icon": "⬇️",
+      "title": "Down, then home",
+      "text": "When a finger dips down, keep your other fingers resting on home. Do not let the whole hand slide. Just one little finger goes down, taps, and comes back. Easy peasy!"
+    },
+    {
+      "type": "step",
+      "kind": "drill",
+      "target": "v m v m v m v m v m v m",
+      "finger": "blue",
+      "title": "V and M",
+      "hint": "Index fingers dip down: left to V, right to M. A space after each one."
+    },
+    {
+      "type": "step",
+      "kind": "drill",
+      "target": "c c c c c c c c c c c c",
       "finger": "green",
-      "hint": "Bottom row V/M (index), C (middle)"
+      "title": "The letter C",
+      "hint": "Left middle finger dips down to C, then home. A space after each one."
     },
     {
       "type": "p",
-      "text": "Words: move, come, cave, music"
+      "text": "Wonderful work! Now you can write fun words like \"move\", \"come\", \"cave\", and \"music\". Read each word first, then tap it nice and slow."
     },
     {
-      "type": "exercise",
-      "target": "cave music camp vivid clam",
+      "type": "step",
+      "kind": "drill",
+      "target": "move come cave music camp vivid clam",
       "finger": "blue",
-      "hint": "Bottom row V/M (index), C (middle)"
+      "title": "Little words",
+      "hint": "Words from your letters: move, come, cave, music, camp, vivid, clam."
+    },
+    {
+      "type": "p",
+      "text": "All steps done? You are a star! Press \"Open the trainer\" and type the whole lesson once. Keep going, champ!"
     }
   ],
   "character_tips": {
@@ -77,5 +151,5 @@
   "phase": 2,
   "rhythmLesson": false,
   "created_at": "2026-05-25",
-  "version": "2.0"
+  "version": "4.0"
 }

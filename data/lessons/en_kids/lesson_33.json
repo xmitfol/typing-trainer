@@ -5,41 +5,115 @@
   "title": "Rhythm: animal song",
   "description": "Cute animal song with rhythm",
   "target_wpm": 34,
-  "text_length": 115,
+  "text_length": 49,
   "error_limit_percent": 10,
   "error_limit": 11,
-  "text": "the little fox the little fox jumps and runs jumps and runs the happy bear the happy bear sings a song sings a song",
-  "text_sequence": [],
+  "text": "fox fox fox fox bear bear bear bear runs runs runs",
+  "text_sequence": [
+    {"char": "f", "hand": "left", "finger": "index", "key": "F"},
+    {"char": "o", "hand": "right", "finger": "ring", "key": "O"},
+    {"char": "x", "hand": "left", "finger": "ring", "key": "X"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "f", "hand": "left", "finger": "index", "key": "F"},
+    {"char": "o", "hand": "right", "finger": "ring", "key": "O"},
+    {"char": "x", "hand": "left", "finger": "ring", "key": "X"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "f", "hand": "left", "finger": "index", "key": "F"},
+    {"char": "o", "hand": "right", "finger": "ring", "key": "O"},
+    {"char": "x", "hand": "left", "finger": "ring", "key": "X"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "f", "hand": "left", "finger": "index", "key": "F"},
+    {"char": "o", "hand": "right", "finger": "ring", "key": "O"},
+    {"char": "x", "hand": "left", "finger": "ring", "key": "X"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "b", "hand": "left", "finger": "index", "key": "B"},
+    {"char": "e", "hand": "left", "finger": "middle", "key": "E"},
+    {"char": "a", "hand": "left", "finger": "pinky", "key": "A"},
+    {"char": "r", "hand": "left", "finger": "index", "key": "R"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "b", "hand": "left", "finger": "index", "key": "B"},
+    {"char": "e", "hand": "left", "finger": "middle", "key": "E"},
+    {"char": "a", "hand": "left", "finger": "pinky", "key": "A"},
+    {"char": "r", "hand": "left", "finger": "index", "key": "R"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "b", "hand": "left", "finger": "index", "key": "B"},
+    {"char": "e", "hand": "left", "finger": "middle", "key": "E"},
+    {"char": "a", "hand": "left", "finger": "pinky", "key": "A"},
+    {"char": "r", "hand": "left", "finger": "index", "key": "R"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "b", "hand": "left", "finger": "index", "key": "B"},
+    {"char": "e", "hand": "left", "finger": "middle", "key": "E"},
+    {"char": "a", "hand": "left", "finger": "pinky", "key": "A"},
+    {"char": "r", "hand": "left", "finger": "index", "key": "R"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "r", "hand": "left", "finger": "index", "key": "R"},
+    {"char": "u", "hand": "right", "finger": "index", "key": "U"},
+    {"char": "n", "hand": "right", "finger": "index", "key": "N"},
+    {"char": "s", "hand": "left", "finger": "ring", "key": "S"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "r", "hand": "left", "finger": "index", "key": "R"},
+    {"char": "u", "hand": "right", "finger": "index", "key": "U"},
+    {"char": "n", "hand": "right", "finger": "index", "key": "N"},
+    {"char": "s", "hand": "left", "finger": "ring", "key": "S"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "r", "hand": "left", "finger": "index", "key": "R"},
+    {"char": "u", "hand": "right", "finger": "index", "key": "U"},
+    {"char": "n", "hand": "right", "finger": "index", "key": "N"},
+    {"char": "s", "hand": "left", "finger": "ring", "key": "S"}
+  ],
   "keys_trained": [
     "A-Z",
     "Space"
   ],
   "new_keys": [],
   "finger_focus": "Song-like rhythm",
+  "guided": true,
   "tips": [
     {
       "type": "lead",
-      "text": "A song you can clap along to"
+      "text": "Here is a happy animal song, friend. We type the same little word a few times, and keep the beat like a drum: tap-tap, tap-tap."
     },
     {
       "type": "drop",
-      "text": "Repeating phrases = rhythm"
+      "text": "Type one word, then the same word again, at the same easy speed. Let the drum keep time for you, and your fingers will dance along."
     },
     {
-      "type": "exercise",
-      "target": "the little fox the little fox jumps and runs jumps and runs",
-      "finger": "purple",
-      "hint": "Song-like rhythm"
+      "type": "callout",
+      "icon": "🥁",
+      "title": "Clap the beat",
+      "text": "Hear it in your head: tap-tap, tap-tap. Keep the same little pause between every word, like clapping along to a song you love."
+    },
+    {
+      "type": "step",
+      "kind": "drill",
+      "target": "fox fox fox fox",
+      "finger": "blue",
+      "title": "Rhythm: fox",
+      "hint": "Same beat each time: fox, fox, fox. Hear the drum"
+    },
+    {
+      "type": "step",
+      "kind": "drill",
+      "target": "bear bear bear bear",
+      "finger": "blue",
+      "title": "Rhythm: bear",
+      "hint": "Tap-tap, tap-tap: bear, bear, bear. Stay smooth"
+    },
+    {
+      "type": "step",
+      "kind": "drill",
+      "target": "runs runs runs",
+      "finger": "blue",
+      "title": "Rhythm: runs",
+      "hint": "Keep the steady beat: runs, runs, runs. No rushing"
     },
     {
       "type": "p",
-      "text": "Steady beat as you type"
+      "text": "Wonderful, champ! The little fox and the happy bear are dancing to your beat. When the words repeat, your fingers learn the whole song."
     },
     {
-      "type": "exercise",
-      "target": "the happy bear the happy bear sings a song sings a song",
-      "finger": "purple",
-      "hint": "Song-like rhythm"
+      "type": "p",
+      "text": "All steps done? Press Open the trainer below and type the whole lesson once. You are doing great."
     }
   ],
   "character_tips": {
@@ -51,5 +125,5 @@
   "phase": 4,
   "rhythmLesson": true,
   "created_at": "2026-05-25",
-  "version": "1.0"
+  "version": "4.0"
 }
