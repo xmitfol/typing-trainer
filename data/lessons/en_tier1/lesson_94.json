@@ -25,11 +25,11 @@
   "tips": [
     {
       "type": "lead",
-      "text": "z, q, x, j are the slowest letters for most typists"
+      "text": "z, q, x, j are the letters most hands stumble on. We'll crowd them all into one page."
     },
     {
       "type": "drop",
-      "text": "This text has 4-5x more rare letters than average"
+      "text": "This copy runs four or five times the usual count of rare letters. No place to hide."
     },
     {
       "type": "exercise",
@@ -39,7 +39,7 @@
     },
     {
       "type": "p",
-      "text": "Pass at 96 WPM = your rare letters are as fast as common ones"
+      "text": "Hold the pace here and the odd letters cost you nothing. That's the whole point."
     },
     {
       "type": "exercise",
@@ -49,10 +49,10 @@
     }
   ],
   "character_tips": {
-    "anna": "Rare letters are the bottleneck for most fast typists. Pass this = uniform speed.",
-    "maxim": "z/q/x bottlenecks slow you down on real text. Kill them here.",
-    "knopych": "RARE LETTER BOSS! 🦓 The Z-Q-X dragon!",
-    "klavochka": "Every letter your friend, my dear — no exceptions! 💕"
+    "anna": "Rare letters are where most fast hands slow down. Even them out and your speed stays honest.",
+    "maxim": "On real copy, z, q and x are the snags. Smooth them here and they stop costing you time.",
+    "knopych": "The awkward letters. Reach for them the same as any other and they lose their teeth.",
+    "klavochka": "Treat every letter the same, no favourites and no strangers. The keyboard owes none of them special fear."
   },
   "phase": 7,
   "rhythmLesson": false,

@@ -26,40 +26,40 @@
   "tips": [
     {
       "type": "lead",
-      "text": "Capital letter: opposite-hand Shift"
+      "text": "For a capital, reach the Shift with the opposite hand. The letter's hand stays free to strike."
     },
     {
       "type": "drop",
-      "text": "For A (left pinky): use right Shift"
+      "text": "A sits under the left pinky, so the right Shift carries it. Let the hands divide the work."
     },
     {
       "type": "exercise",
       "target": "London, Paris, New York, Tokyo. The CEO of TechCorp said: \"AI",
       "finger": "blue",
-      "hint": "Shift + letter for capitals — opposite-hand Shift rule"
+      "hint": "Shift + letter for capitals - opposite-hand Shift rule"
     },
     {
       "type": "p",
-      "text": "For L (right ring): use left Shift"
+      "text": "L lives under the right ring finger, so the left Shift takes it. The rule is the same, mirrored."
     },
     {
       "type": "callout",
       "icon": "💡",
-      "title": "Подсказка",
-      "text": "Acronyms (CEO, AI, SaaS): hold Shift for entire word"
+      "title": "Note",
+      "text": "For an acronym - CEO, AI, SaaS - hold the Shift down through the whole word rather than tapping it letter by letter."
     },
     {
       "type": "exercise",
       "target": "will change SaaS, IoT, and ML.\" Alice Brown won the Nobel Prize.",
       "finger": "green",
-      "hint": "Shift + letter for capitals — opposite-hand Shift rule"
+      "hint": "Shift + letter for capitals - opposite-hand Shift rule"
     }
   ],
   "character_tips": {
-    "anna": "Capital letters demand smooth Shift use. Opposite hand rule.",
-    "maxim": "Names, places, acronyms — capitals are everywhere in pro writing.",
-    "knopych": "CAPS POWER! BIG LETTERS! ⚡",
-    "klavochka": "Big and small letters dancing — like a parade! 🎉"
+    "anna": "Capitals reward a smooth Shift. Opposite hand every time, and the rhythm never breaks.",
+    "maxim": "Names, places, acronyms - capitals run through everything you write at work. Drill the reach.",
+    "knopych": "Opposite-hand Shift. Once it's reflex, the big letters cost you nothing.",
+    "klavochka": "Tall letters and small ones, side by side, in step. Keep the line even."
   },
   "phase": 3,
   "rhythmLesson": false,

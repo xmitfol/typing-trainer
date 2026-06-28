@@ -22,11 +22,11 @@
   "tips": [
     {
       "type": "lead",
-      "text": "News writing = short clear sentences with names and dates"
+      "text": "This is the shape of a news story: short, clear sentences carrying names, places, and dates. I spent a career on copy like this."
     },
     {
       "type": "drop",
-      "text": "Practice capitalized words at speed — they're everywhere in news"
+      "text": "Capital letters fill every report - names, titles, places. Practice them at pace until the Shift no longer slows your hand."
     },
     {
       "type": "exercise",
@@ -36,7 +36,7 @@
     },
     {
       "type": "p",
-      "text": "Numbers (18, 2026) should flow at the same pace as text"
+      "text": "A date is a fact, and a fact gets typed cleanly. Let 18 and 2026 run at the same pace as the words; a wrong figure is worse than a wrong word."
     },
     {
       "type": "exercise",
@@ -46,10 +46,10 @@
     }
   ],
   "character_tips": {
-    "anna": "News writing is precise. Each fact has a place — type it accordingly.",
-    "maxim": "Real journalism. Train this and you can type any article.",
-    "knopych": "BREAKING NEWS! 📰 Type fast like a reporter!",
-    "klavochka": "Sharing the news of the day, my dear 📺"
+    "anna": "News copy is precise by trade. Every fact sits in its place, and you type it as it stands. - Eleanor Hayes, editor",
+    "maxim": "Learn to type a paragraph like this and no article on any desk will trouble you. - Eleanor Hayes, editor",
+    "knopych": "A reporter files against the clock. Steady hands beat frantic ones every time. - Eleanor Hayes, editor",
+    "klavochka": "The day's news, set down plainly and true. That is the whole craft. - Eleanor Hayes, editor"
   },
   "phase": 5,
   "rhythmLesson": false,

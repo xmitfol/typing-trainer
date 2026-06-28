@@ -26,11 +26,11 @@
   "tips": [
     {
       "type": "lead",
-      "text": "Block 6 = real-world application. Every lesson = work scenario."
+      "text": "From here on the lessons are lifted straight from working life. Every one is something you will actually have to type."
     },
     {
       "type": "drop",
-      "text": "Memo format has its own rhythm — headers, body, signoff"
+      "text": "A memo has its own shape - headers, body, signoff. Learn the shape and the words fall into place."
     },
     {
       "type": "exercise",
@@ -40,7 +40,7 @@
     },
     {
       "type": "p",
-      "text": "Email addresses should be one continuous motion by now"
+      "text": "An address like ops@company.com should run as a single motion now, the at-sign and the dots included. No stopping to find them."
     },
     {
       "type": "exercise",
@@ -50,10 +50,10 @@
     }
   ],
   "character_tips": {
-    "anna": "Block 6! Every lesson here you'll use in your real career.",
-    "maxim": "Memos, emails, reports — this is the bread and butter of work.",
-    "knopych": "REAL WORLD MODE! 💼 Office quest activated!",
-    "klavochka": "The writing of grown-up work, my dear — practice with care 📋"
+    "anna": "Everything from here is the writing of working days. Practise it well and the real thing holds no surprises. - Eleanor Hayes, editor",
+    "maxim": "Memos, emails, reports - the plain bread of any job. Type them cleanly and you are trusted with the loaf. - Eleanor Hayes, editor",
+    "knopych": "Don't dress it up. A memo's job is to be read once and understood. Keep it plain and keep it moving. - Eleanor Hayes, editor",
+    "klavochka": "This is grown-up correspondence now. Take care with the small marks - they are what make it read as proper. - Eleanor Hayes, editor"
   },
   "phase": 6,
   "rhythmLesson": false,

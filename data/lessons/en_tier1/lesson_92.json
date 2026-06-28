@@ -22,11 +22,11 @@
   "tips": [
     {
       "type": "lead",
-      "text": "Literary prose has a slower mental tempo but rewards fast fingers"
+      "text": "Good prose reads slow and types fast. Let the sentence set the pace."
     },
     {
       "type": "drop",
-      "text": "Imagery and adjectives test sustained accuracy under speed"
+      "text": "Imagery and long adjectives are where accuracy slips. Hold it steady."
     },
     {
       "type": "exercise",
@@ -36,7 +36,7 @@
     },
     {
       "type": "p",
-      "text": "Read the sentence in your mind first — then let your fingers follow"
+      "text": "Read the line in your head first. Then let your hands follow it."
     },
     {
       "type": "exercise",
@@ -46,10 +46,10 @@
     }
   ],
   "character_tips": {
-    "anna": "Literary prose at 94 WPM. Few professional writers type their own work this fast.",
-    "maxim": "Authors and editors live here. You're now at their working speed.",
-    "knopych": "POETRY POWER! 📖 Beautiful words flowing fast!",
-    "klavochka": "Like reading a favorite book aloud, my treasure 📚"
+    "anna": "Prose at this speed is a fine thing. Most writers never type their own copy this cleanly.",
+    "maxim": "This is the working speed of an editor on deadline. You're keeping it.",
+    "knopych": "A good paragraph, carried at pace. Mind the rhythm and it carries itself.",
+    "klavochka": "Type it the way you'd read it aloud to someone you respect: clear, unhurried, exact."
   },
   "phase": 7,
   "rhythmLesson": false,

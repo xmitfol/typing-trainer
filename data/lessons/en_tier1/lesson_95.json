@@ -23,11 +23,11 @@
   "tips": [
     {
       "type": "lead",
-      "text": "5 lessons left = victory lap"
+      "text": "Five lessons left. The hard part is behind you; this stretch is the proof."
     },
     {
       "type": "drop",
-      "text": "97 WPM is faster than the world's average human speaks"
+      "text": "97 words a minute is quicker than most people talk. You write faster than you speak now."
     },
     {
       "type": "exercise",
@@ -37,7 +37,7 @@
     },
     {
       "type": "p",
-      "text": "Final test is L99 — comprehensive at 105 WPM"
+      "text": "The last page is lesson 99: everything at once, 105 words a minute. You'll be ready."
     },
     {
       "type": "exercise",
@@ -47,10 +47,10 @@
     }
   ],
   "character_tips": {
-    "anna": "🎯 5 lessons left. The remaining work is celebration, not effort.",
-    "maxim": "97 WPM. Faster than most humans speak. Almost done.",
-    "knopych": "5 TO GO! 🎉 Victory lap!",
-    "klavochka": "Five steps to the summit, my hero! 🏔️"
+    "anna": "Five to go. What's left isn't more work to learn, it's the same skill, confirmed.",
+    "maxim": "97 a minute, faster than most people speak. The finish is in sight. Keep your head down.",
+    "knopych": "Five left. This part is the steady walk home, not the climb.",
+    "klavochka": "Five short steps to the top. You've earned the view; don't rush the last of it."
   },
   "phase": 7,
   "rhythmLesson": false,

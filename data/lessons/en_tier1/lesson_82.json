@@ -25,11 +25,11 @@
   "tips": [
     {
       "type": "lead",
-      "text": "Customer support typists handle 50-100 tickets a day"
+      "text": "A support desk answers dozens of these a day. The reader on the other end wants two things: to be heard, and to be helped."
     },
     {
       "type": "drop",
-      "text": "Empathetic tone + speed = service career gold"
+      "text": "Warmth and speed are not at odds. A reply that lands fast and reads kindly is the whole craft here."
     },
     {
       "type": "exercise",
@@ -39,7 +39,7 @@
     },
     {
       "type": "p",
-      "text": "The phrase \"thank you for reaching out\" should be muscle memory"
+      "text": "A phrase like \"thank you for reaching out\" should arrive without thought, so your attention stays on the customer's actual problem."
     },
     {
       "type": "exercise",
@@ -49,10 +49,10 @@
     }
   ],
   "character_tips": {
-    "anna": "Customer service is real-world high-volume typing. Master this rhythm.",
-    "maxim": "Support reps type more than most coders. This is a real career skill.",
-    "knopych": "SUPPORT HERO! 🦸 Save the customer, fast!",
-    "klavochka": "Kind words at speed, my dear — kindness is rhythm too 💕"
+    "anna": "Support is high-volume, real-world typing. Find the even rhythm and the day stops feeling like a sprint.",
+    "maxim": "A good reply is clear before it is fast. Cut the apology to one honest line, then get to the fix.",
+    "knopych": "The customer is waiting. Steady hands answer sooner than anxious ones.",
+    "klavochka": "Kindness has a rhythm too. Type the warm words as smoothly as the rest. - Eleanor Hayes, editor"
   },
   "phase": 6,
   "rhythmLesson": false,

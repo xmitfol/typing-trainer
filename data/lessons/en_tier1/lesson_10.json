@@ -44,40 +44,40 @@
   "tips": [
     {
       "type": "lead",
-      "text": "Two classic pangrams + scene description"
+      "text": "Here is the old fox again, this time with the sun coming up behind him. Every letter you own is in this line. Type it like a sentence you mean, not a list of keys."
     },
     {
       "type": "drop",
-      "text": "Keep wrists straight, fingers curved"
+      "text": "Wrists level, fingers curved over the home row. That posture is what carries you when the page is long and the night is short."
     },
     {
       "type": "exercise",
       "target": "the quick brown fox jumps over the lazy dog and",
       "finger": "blue",
-      "hint": "Full alphabet — pure speed and accuracy"
+      "hint": "Full alphabet - pure speed and accuracy"
     },
     {
       "type": "p",
-      "text": "Breathe — don't tense up at long words"
+      "text": "Breathe. The long words are no harder than the short ones; they only look that way. Keep the rhythm and they pass under your hands."
     },
     {
       "type": "callout",
       "icon": "💡",
-      "title": "Подсказка",
-      "text": "Target 25 WPM with under 7 errors — graduation!"
+      "title": "From the editor",
+      "text": "The mark is twenty-five words a minute with fewer than seven slips. Hit it and the basics are behind you for good."
     },
     {
       "type": "exercise",
       "target": "watches the sun rise above the city as morning begins",
       "finger": "green",
-      "hint": "Full alphabet — pure speed and accuracy"
+      "hint": "Full alphabet - pure speed and accuracy"
     }
   ],
   "character_tips": {
-    "anna": "🎓 FINAL! You've completed the basic English alphabet course. Move on — learn punctuation and numbers!",
-    "maxim": "Basic stage closed. The English alphabet is on your fingertips. Be proud!",
-    "knopych": "VICTORY! 🏆 English alphabet conquered! LEVEL UP!",
-    "klavochka": "Yay! You're a real English typing master! ✨🎉"
+    "anna": "That is the whole alphabet, typed clean. The desk you started at is behind you now. Punctuation and numbers come next, and you are ready for them. - Eleanor Hayes, editor",
+    "maxim": "You have the letters on your fingers, not in your head. That is the difference between a typist and a hunter. Well done. - Eleanor Hayes, editor",
+    "knopych": "Every key, in order, under speed. That is a finished hand. Take the win quietly and turn the page. - Eleanor Hayes, editor",
+    "klavochka": "You can set down any English word now without looking. Few people ever reach that. I am glad you did. - Eleanor Hayes, editor"
   },
   "phase": 1,
   "rhythmLesson": false,

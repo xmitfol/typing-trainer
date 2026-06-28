@@ -23,11 +23,11 @@
   "tips": [
     {
       "type": "lead",
-      "text": "Block 6 closes with 90 WPM on real business prose"
+      "text": "Block 6 closes here, on a long stretch of real business prose at 90 words a minute. No tricks left, just the work you have already put in."
     },
     {
       "type": "drop",
-      "text": "Pass = officially top 3% of typists globally"
+      "text": "Clear this and you sit among the fastest few who ever touch a keyboard. You did not get here by luck; you got here by showing up."
     },
     {
       "type": "exercise",
@@ -37,7 +37,7 @@
     },
     {
       "type": "p",
-      "text": "Final block (91-99) refines this to 100+ WPM mastery"
+      "text": "The last block, 91 through 99, takes this same speed and polishes it past 100. The hard climbing is behind you; what is left is refinement."
     },
     {
       "type": "exercise",
@@ -47,10 +47,10 @@
     }
   ],
   "character_tips": {
-    "anna": "🎓 BLOCK 6 FINAL! 90 WPM = elite professional. Top 3% in the world.",
-    "maxim": "Practical mastery cleared. Block 7 is pure refinement to 100+ WPM.",
-    "knopych": "BLOCK 6 BOSS DOWN! 🐉⚔️ ELITE MASTER!",
-    "klavochka": "My legend! ⭐⭐⭐⭐ Nine lessons to true mastery!"
+    "anna": "Block 6, done. Ninety words a minute is an elite professional's hand. You have earned the description.",
+    "maxim": "Practical mastery is cleared. What follows is pure refinement toward 100 and beyond.",
+    "knopych": "The big stretch is behind you. Stand up, take a breath, then go finish the climb.",
+    "klavochka": "Nine lessons stand between you and true mastery. You are more than ready for them. - Eleanor Hayes, editor"
   },
   "phase": 6,
   "rhythmLesson": false,

@@ -32,11 +32,11 @@
   "tips": [
     {
       "type": "lead",
-      "text": "Every key, every category, all at 98 WPM"
+      "text": "Every key, every kind of character, at 98 a minute. The messy real stuff."
     },
     {
       "type": "drop",
-      "text": "If you can pass this, L99 final is within reach"
+      "text": "Clear this and the final is well within reach. Treat it as a dress rehearsal."
     },
     {
       "type": "exercise",
@@ -46,7 +46,7 @@
     },
     {
       "type": "p",
-      "text": "Real ops / dev / data work lives in this density"
+      "text": "Real work looks like this: numbers, tags, symbols, all crowded together. Don't flinch at it."
     },
     {
       "type": "exercise",
@@ -56,10 +56,10 @@
     }
   ],
   "character_tips": {
-    "anna": "Highest content density. Every character type at full pro speed.",
-    "maxim": "DevOps and data engineers type this all day. You're matching them.",
-    "knopych": "FULL KEYBOARD MASTERY! 💪 Every key bows to you!",
-    "klavochka": "Every kind of letter your dear friend, my treasure 💎"
+    "anna": "The densest copy in the course. Every character class, at full working speed.",
+    "maxim": "People who write release notes and logs all day type exactly this. You're keeping their pace.",
+    "knopych": "The whole keyboard at once. By now nothing on it is a stranger.",
+    "klavochka": "Letters, numbers, symbols, all in one line. You know them all by name; type them like old colleagues."
   },
   "phase": 7,
   "rhythmLesson": false,

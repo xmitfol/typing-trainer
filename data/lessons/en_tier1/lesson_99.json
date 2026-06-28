@@ -22,40 +22,40 @@
   "tips": [
     {
       "type": "lead",
-      "text": "🎓 The final lesson. 420 characters of real prose at 105 WPM."
+      "text": "The last page. Some 420 characters of real prose at 105 a minute. Type it the way you mean it."
     },
     {
       "type": "drop",
-      "text": "Pass at 80+ WPM = Platinum certificate. 60+ = Gold. 40+ = Silver. 25+ = Bronze."
+      "text": "80 a minute earns Platinum, 60 Gold, 40 Silver, 25 Bronze. The accuracy is what's being read."
     },
     {
       "type": "exercise",
       "target": "Ninety-nine lessons ago, you sat down at a keyboard for the first time as a student. Today, you sit down as something else entirely: a typist. Your fingers know the keyboard the way a pianist knows a piano. Your eyes scan",
       "finger": "purple",
-      "hint": "Comprehensive mastery exam — every skill"
+      "hint": "Comprehensive mastery exam - every skill"
     },
     {
       "type": "p",
-      "text": "After this, you are certified. The course is complete."
+      "text": "When this page is done, so is the course. You started a student; you finish a typist. - Eleanor Hayes"
     },
     {
       "type": "callout",
       "icon": "💡",
-      "title": "Подсказка",
-      "text": "Type slowly if you must — accuracy gates the certificate level."
+      "title": "A last word",
+      "text": "Slow down if you have to. Accuracy is respect, and it's accuracy that sets the certificate. - Eleanor Hayes"
     },
     {
       "type": "exercise",
       "target": "ahead by entire phrases. Your hands no longer translate thought into text — they have become a continuation of your thinking. Take a moment. This is the last exercise. Type smoothly, breathe steadily, and finish the way you started: with care.",
       "finger": "purple",
-      "hint": "Comprehensive mastery exam — every skill"
+      "hint": "Comprehensive mastery exam - every skill"
     }
   ],
   "character_tips": {
-    "anna": "🎓🏆 THE FINAL. 99 lessons led to this. Type with care — your certificate is one paragraph away.",
-    "maxim": "End of the road. Pass = certified for life. Slow down if you must, but finish strong.",
-    "knopych": "FINAL BOSS! 🐲👑 ONE LAST FIGHT FOR THE PLATINUM CROWN!",
-    "klavochka": "My beloved hero, the final moment. Breathe, type, and earn your crown 👑✨"
+    "anna": "The final page. Ninety-nine lessons brought you here; one paragraph closes it. Type with care.",
+    "maxim": "The end of the road. Slow down if you must, but finish the way you'd want it read.",
+    "knopych": "One paragraph left in the whole course. Keep the rhythm and let it carry you home.",
+    "klavochka": "The last lines, my dear. A slow breath, then type them cleanly. You always could. - Eleanor Hayes"
   },
   "phase": 7,
   "rhythmLesson": false,

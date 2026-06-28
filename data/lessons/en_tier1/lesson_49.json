@@ -15,38 +15,38 @@
     "Space"
   ],
   "new_keys": [],
-  "finger_focus": "Full alphabet — hand alternation",
+  "finger_focus": "Full alphabet - hand alternation",
   "tips": [
     {
       "type": "lead",
-      "text": "5-letter words force more hand alternation — good for speed"
+      "text": "Longer words make your hands trade off, left then right. That hand-off is where speed actually lives."
     },
     {
       "type": "drop",
-      "text": "Don't peek at the keyboard, even on tricky words"
+      "text": "Don't glance down, not even on the awkward ones. Look down and you lose the thought before you've set it."
     },
     {
       "type": "exercise",
       "target": "about after again being below could every first found great might never other place right",
       "finger": "purple",
-      "hint": "Full alphabet — hand alternation"
+      "hint": "Full alphabet - hand alternation"
     },
     {
       "type": "p",
-      "text": "Consistency matters more than peaks — smooth wins"
+      "text": "An even pace beats a fast one with potholes. On deadline, the steady typist always finished first."
     },
     {
       "type": "exercise",
       "target": "small sound still their there these thing think three those today under water world write",
       "finger": "purple",
-      "hint": "Full alphabet — hand alternation"
+      "hint": "Full alphabet - hand alternation"
     }
   ],
   "character_tips": {
-    "anna": "Hand alternation is your best speed booster. Feel both hands working in sync.",
-    "maxim": "Five letters is enough to cover any real word. Master the rhythm.",
-    "knopych": "LEVEL UP! Five-letter combos! 🎮",
-    "klavochka": "Both hands dancing together, my treasure 💃"
+    "anna": "Hands trading the work is your best lift in speed. Feel them keep time together. - Eleanor Hayes, editor",
+    "maxim": "Five letters covers most real words. Settle into the rhythm and hold it. - Eleanor Hayes, editor",
+    "knopych": "A little longer now. Same calm hands, same even beat. - Eleanor Hayes, editor",
+    "klavochka": "Both hands in step, neither one rushing the other. - Eleanor Hayes, editor"
   },
   "phase": 4,
   "rhythmLesson": false,

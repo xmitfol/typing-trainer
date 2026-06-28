@@ -24,11 +24,11 @@
   "tips": [
     {
       "type": "lead",
-      "text": "News-style prose = clear, dense, fact-rich"
+      "text": "News prose is built to carry facts and nothing spare. Clear, tight, every word earning its place. This is the work I know best."
     },
     {
       "type": "drop",
-      "text": "Numbers and percentages mid-sentence are common — flow through them"
+      "text": "A figure or a percentage drops into the middle of a sentence and the line has to keep moving. Flow through it; don't stall."
     },
     {
       "type": "exercise",
@@ -38,7 +38,7 @@
     },
     {
       "type": "p",
-      "text": "Hold 78 WPM through the whole paragraph"
+      "text": "Hold the pace from the first word to the last. A paragraph that starts fast and limps to the end is a paragraph that lost its nerve."
     },
     {
       "type": "exercise",
@@ -48,10 +48,10 @@
     }
   ],
   "character_tips": {
-    "anna": "Real journalism is fast, dense, and precise. Train for it.",
-    "maxim": "News writing is the hardest non-fiction style — dense and timed.",
-    "knopych": "BREAKING! Live news at high speed! 📺",
-    "klavochka": "Reading the world's story, my treasure 🌍"
+    "anna": "Real news writing is fast, dense, and exact. It was my whole working life. Type it well and you can type anything. - Eleanor Hayes, editor",
+    "maxim": "News is the hardest plain prose there is - dense, factual, and always against the clock. Good training for the nerve. - Eleanor Hayes, editor",
+    "knopych": "No need to shout breaking news at yourself. The copy is calm; let your hands be calm too. - Eleanor Hayes, editor",
+    "klavochka": "You are typing the day's story now. Keep it even and let the facts speak for themselves. - Eleanor Hayes, editor"
   },
   "phase": 6,
   "rhythmLesson": false,

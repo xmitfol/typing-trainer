@@ -53,34 +53,34 @@
   "tips": [
     {
       "type": "lead",
-      "text": "160 chars — longest text so far"
+      "text": "The longest line yet, with clauses that turn and double back. This is how real sentences behave once a writer has something to say."
     },
     {
       "type": "drop",
-      "text": "Long sentences need steady pace, not bursts"
+      "text": "A long sentence is won by a steady pace, not by bursts. Find one even tempo and let it carry you all the way to the period."
     },
     {
       "type": "exercise",
       "target": "when she wrote the report, he watched closely; she paused, smiled, and said: \"this",
       "finger": "blue",
-      "hint": "All — endurance + complex punctuation"
+      "hint": "All - endurance + complex punctuation"
     },
     {
       "type": "p",
-      "text": "Take a breath at semicolons — let your brain catch up"
+      "text": "The semicolon is a small landing. Let your eyes rest there for a beat and let your mind catch up to your hands before the next clause."
     },
     {
       "type": "exercise",
       "target": "is the moment we waited for; let's celebrate it well.\" they did, with joy.",
       "finger": "green",
-      "hint": "All — endurance + complex punctuation"
+      "hint": "All - endurance + complex punctuation"
     }
   ],
   "character_tips": {
-    "anna": "Long sentences build endurance. Steady tempo wins.",
-    "maxim": "Professional writing is mostly long-form. This is your stamina test.",
-    "knopych": "BIG TEXT BATTLE! 160 chars without errors! 🐉",
-    "klavochka": "Long beautiful sentences — like a story 📖"
+    "anna": "Long sentences are where stamina is built. An even tempo always beats a sprint that stops short. - Eleanor Hayes, editor",
+    "maxim": "Most serious writing runs long. Treat this as the test of your wind, not just your speed. - Eleanor Hayes, editor",
+    "knopych": "A long line with clauses that wind. Hold one pace through all of it and it stays clean. - Eleanor Hayes, editor",
+    "klavochka": "A long sentence with a shape to it, like a small story. Keep the rhythm and ride it to the end. - Eleanor Hayes, editor"
   },
   "phase": 2,
   "rhythmLesson": false,

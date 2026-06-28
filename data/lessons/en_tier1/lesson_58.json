@@ -22,11 +22,11 @@
   "tips": [
     {
       "type": "lead",
-      "text": "Shift before letter, not after — practice the timing"
+      "text": "Press Shift just before the letter, never after. The timing is the whole game with capitals."
     },
     {
       "type": "drop",
-      "text": "Names and Q-numbers are everywhere in business writing"
+      "text": "Names, places, quarter numbers: real writing is full of them. This is the text you will actually type at work."
     },
     {
       "type": "exercise",
@@ -36,7 +36,7 @@
     },
     {
       "type": "p",
-      "text": "If Shift breaks your rhythm, drill capitals 5 times in a row"
+      "text": "If Shift keeps breaking your stride, run a handful of capitals on their own until the hand-off goes quiet."
     },
     {
       "type": "exercise",
@@ -46,10 +46,10 @@
     }
   ],
   "character_tips": {
-    "anna": "Shift timing is what separates 40 WPM from 60 WPM. Smooth shift = smooth speed.",
-    "maxim": "Business writing is half names. Master capital letters at speed.",
-    "knopych": "Caps lock OFF — Shift like a PRO! 🎯",
-    "klavochka": "Pinky press, finger tap, my dear — gentle but firm 🌸"
+    "anna": "Shift timing is what separates a fair typist from a fast one. Smooth the Shift and the speed smooths with it. - Eleanor Hayes, editor",
+    "maxim": "Half of business writing is names. Learn capitals at full pace and nothing slows you. - Eleanor Hayes, editor",
+    "knopych": "Leave Caps Lock alone. A clean Shift, pressed in time, does the job. - Eleanor Hayes, editor",
+    "klavochka": "Pinky down, finger taps, then release. Gentle but sure. - Eleanor Hayes, editor"
   },
   "phase": 4,
   "rhythmLesson": false,

@@ -31,11 +31,11 @@
   "tips": [
     {
       "type": "lead",
-      "text": "Real code = English words + symbols + brackets"
+      "text": "Code is English with stricter punctuation. The words you know; the brackets you drill."
     },
     {
       "type": "drop",
-      "text": "Brackets/braces should flow as natural punctuation"
+      "text": "Let the braces and parentheses fall like commas - part of the line, not a stumble in it."
     },
     {
       "type": "exercise",
@@ -45,7 +45,7 @@
     },
     {
       "type": "p",
-      "text": "Engineers type code 5+ hours daily — this is your gold mine"
+      "text": "Engineers live in this notation for hours at a stretch. Make the symbols automatic and the work gets quieter."
     },
     {
       "type": "exercise",
@@ -55,10 +55,10 @@
     }
   ],
   "character_tips": {
-    "anna": "Code is just structured English. Train the symbols, the rest is words.",
-    "maxim": "Engineers underrate typing speed — until they need to pair-program.",
-    "knopych": "CODE WIZARD! 🧙 Brackets, braces, semicolons — all friends!",
-    "klavochka": "The language of computers, my treasure — kind but precise 💻"
+    "anna": "Code is structured English. Drill the symbols, and the rest is just words you already trust.",
+    "maxim": "The brackets are where careless typists lose minutes. Place each one without looking and you keep the thread.",
+    "knopych": "Treat braces and semicolons as old friends, not surprises. They sit in the same spot every time.",
+    "klavochka": "The language of machines rewards exactness. Be kind to the line, but be precise. - Eleanor Hayes, editor"
   },
   "phase": 6,
   "rhythmLesson": false,

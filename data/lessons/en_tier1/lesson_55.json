@@ -19,11 +19,11 @@
   "tips": [
     {
       "type": "lead",
-      "text": "Action verbs appear in 30% of all writing"
+      "text": "Verbs do the heavy lifting in any sentence. Type them fast and your writing moves."
     },
     {
       "type": "drop",
-      "text": "Note: -ck, -mp, -nd endings — train these clusters"
+      "text": "Mind the endings: -ck, -mp, -nd. Those little clusters trip people up, so give them a few honest reps."
     },
     {
       "type": "exercise",
@@ -33,7 +33,7 @@
     },
     {
       "type": "p",
-      "text": "Each verb should feel like a beat — boom, boom, boom"
+      "text": "Let each verb land on its own even beat. Steady and unhurried beats fast and ragged every time."
     },
     {
       "type": "exercise",
@@ -43,10 +43,10 @@
     }
   ],
   "character_tips": {
-    "anna": "Verbs drive sentences. Drilling them = drilling 30% of all your writing.",
-    "maxim": "These are the engine words. Practice = speed in any context.",
-    "knopych": "ACTION! POW! BAM! 💥 Verbs hit hard!",
-    "klavochka": "Each word a heartbeat, my dear 💖"
+    "anna": "Verbs drive the sentence. Practice them and you practice a good slice of all your writing. - Eleanor Hayes, editor",
+    "maxim": "These are the engine words. Drill them and the speed follows you into any text. - Eleanor Hayes, editor",
+    "knopych": "Verbs do the work. Type them clean, one firm beat each. - Eleanor Hayes, editor",
+    "klavochka": "Each word its own steady beat, like a clock that keeps good time. - Eleanor Hayes, editor"
   },
   "phase": 4,
   "rhythmLesson": false,

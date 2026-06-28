@@ -23,11 +23,11 @@
   "tips": [
     {
       "type": "lead",
-      "text": "API/engineering docs are everywhere in modern work"
+      "text": "Technical writing turns up everywhere now, not just in engineering. The clearer it reads, the more it is worth."
     },
     {
       "type": "drop",
-      "text": "Technical terms (JWT, JSON, Bearer) — type as words, not letters"
+      "text": "Treat JWT, JSON, Bearer as whole words. Spell them out letter by letter and the sentence loses its stride."
     },
     {
       "type": "exercise",
@@ -37,7 +37,7 @@
     },
     {
       "type": "p",
-      "text": "Tech writing has rhythm too — find it"
+      "text": "Even dry instructions have a cadence. Find it and the hardest passage starts to read like plain prose."
     },
     {
       "type": "exercise",
@@ -47,10 +47,10 @@
     }
   ],
   "character_tips": {
-    "anna": "Engineering documentation at speed. A career skill across all of tech.",
-    "maxim": "Every engineer writes more than they code. This is real career payoff.",
-    "knopych": "DEV DOCS UNLOCKED! 💻 API ninja!",
-    "klavochka": "Clear instructions, my dear — like a kindly teacher's notes 📝"
+    "anna": "Documentation at speed is a skill that travels across every corner of tech. Clear instructions are never wasted work. - Eleanor Hayes, editor",
+    "maxim": "Most people who build things write far more than they build. Type the documents cleanly and the work gets used. - Eleanor Hayes, editor",
+    "knopych": "Don't rush the jargon. The terms are the load-bearing words; get them right and the rest carries itself. - Eleanor Hayes, editor",
+    "klavochka": "Clear instructions, plainly set down - like good teaching notes. Keep them tidy and someone will thank you for it. - Eleanor Hayes, editor"
   },
   "phase": 6,
   "rhythmLesson": false,

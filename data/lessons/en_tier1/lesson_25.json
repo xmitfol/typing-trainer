@@ -53,34 +53,34 @@
   "tips": [
     {
       "type": "lead",
-      "text": "180 chars with every punctuation mark you've learned"
+      "text": "The closing test for the block, and every mark you have learned is in it. Colons, semicolons, quotation marks, the lot. Set it down like finished copy."
     },
     {
       "type": "drop",
-      "text": "Pass at 30 WPM with under 14 errors = Block 2 complete"
+      "text": "Clear this at thirty words a minute with fewer than fourteen slips and the block is behind you. Pace, not panic, gets you there."
     },
     {
       "type": "exercise",
       "target": "she wrote: \"the path was long, but worth it; we learned much, and grew strong.\"",
       "finger": "blue",
-      "hint": "All — punctuation mastery gate"
+      "hint": "All - punctuation mastery gate"
     },
     {
       "type": "p",
-      "text": "Block 3: numbers and symbols open after this"
+      "text": "Past this gate the numbers and symbols open up. New keys, same calm hand. Finish this first."
     },
     {
       "type": "exercise",
       "target": "he replied: \"that's the key — patience pays off!\" they shook hands; the year ended well.",
       "finger": "green",
-      "hint": "All — punctuation mastery gate"
+      "hint": "All - punctuation mastery gate"
     }
   ],
   "character_tips": {
-    "anna": "🎓 BLOCK 2 FINAL! Punctuation mastered. Numbers and symbols next.",
-    "maxim": "Punctuation — done. Block 3 (numbers) brings new keys to the table.",
-    "knopych": "BLOCK 2 BOSS DEFEATED! 🐉 Numbers world unlocks! 🔢",
-    "klavochka": "Punctuation princess! Next adventure — numbers! 💖✨"
+    "anna": "This test closes the block. The punctuation is yours now. Numbers and symbols are the next stretch of road. - Eleanor Hayes, editor",
+    "maxim": "The marks are mastered. The next block brings the number row and the symbols above it, and a few new reaches to learn. - Eleanor Hayes, editor",
+    "knopych": "One clean passage and the block is done. Hold your tempo through the marks and walk it through. - Eleanor Hayes, editor",
+    "klavochka": "You have the punctuation in hand now. The next adventure is numbers, and you are ready for it. - Eleanor Hayes, editor"
   },
   "phase": 2,
   "rhythmLesson": false,

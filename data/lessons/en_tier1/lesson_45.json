@@ -22,11 +22,11 @@
   "tips": [
     {
       "type": "lead",
-      "text": "220 chars — biggest text yet"
+      "text": "220 characters - the longest run yet, and the closing exam of Block 3. Settle in and keep the rhythm even."
     },
     {
       "type": "drop",
-      "text": "Real business writing style"
+      "text": "This is how business actually reads: figures, names, a quote, a deadline. Type it like you mean it."
     },
     {
       "type": "exercise",
@@ -36,13 +36,13 @@
     },
     {
       "type": "p",
-      "text": "Pass at 35 WPM = Block 3 complete = you can type any modern text"
+      "text": "Hold 35 WPM and Block 3 is done - there's no modern text you can't set down. - Eleanor Hayes, editor"
     },
     {
       "type": "callout",
       "icon": "💡",
-      "title": "Подсказка",
-      "text": "Block 4 unlocks: pure speed building"
+      "title": "Note",
+      "text": "Block 4 is about one thing: speed, built on the accuracy you already have."
     },
     {
       "type": "exercise",
@@ -52,10 +52,10 @@
     }
   ],
   "character_tips": {
-    "anna": "🎓 BLOCK 3 FINAL! You can type ANY content now. Next blocks build pure speed.",
-    "maxim": "End of foundation. Blocks 4-7 are pure speed and refinement.",
-    "knopych": "BLOCK 3 BOSS DEFEATED! 🐉🏆 Speed mode unlocks!",
-    "klavochka": "Foundation complete, my hero! Now we fly fast! 🚀💖"
+    "anna": "Block 3, finished. Any content the day hands you, you can now type. The blocks ahead build speed.",
+    "maxim": "End of the foundation. What follows is speed and refinement, nothing you can't reach.",
+    "knopych": "Block 3 closed out clean. Speed work starts next.",
+    "klavochka": "The foundation is laid, and it's solid. Now we let the hands move quicker."
   },
   "phase": 3,
   "rhythmLesson": false,

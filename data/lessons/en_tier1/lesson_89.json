@@ -26,11 +26,11 @@
   "tips": [
     {
       "type": "lead",
-      "text": "Analytical writing = dense facts + clear conclusions"
+      "text": "Analytical writing packs facts tight and ends on a clear conclusion. Every figure has to be right; one wrong digit rewrites the story."
     },
     {
       "type": "drop",
-      "text": "Numbers and percentages mid-sentence test mixed-content speed"
+      "text": "Numbers and percent signs dropped mid-sentence are where your hands switch gears. This is the real test of mixed-content speed."
     },
     {
       "type": "exercise",
@@ -40,7 +40,7 @@
     },
     {
       "type": "p",
-      "text": "If 88 WPM is hard, drop to 80 and add accuracy"
+      "text": "If 88 fights you, ease back to 80 and put the gain into accuracy. A correct figure at a calmer pace beats a fast one you have to redo."
     },
     {
       "type": "exercise",
@@ -50,10 +50,10 @@
     }
   ],
   "character_tips": {
-    "anna": "Analytical writing at 88 WPM. Finance and consulting live here.",
-    "maxim": "Data + prose = strategic writing. Train both at once.",
-    "knopych": "NUMBERS AND WORDS! 📊 Full power!",
-    "klavochka": "Understanding the world through numbers, my sunshine 🌟"
+    "anna": "Analytical prose at 88. Finance and consulting live in exactly this kind of sentence.",
+    "maxim": "Numbers and words in one line is strategic writing. Train the handoff between them and both go faster.",
+    "knopych": "Figures and prose together, full attention. Eyes up, hands steady through every number.",
+    "klavochka": "A clear-headed paragraph makes sense of the world. Type the figures as carefully as the words. - Eleanor Hayes, editor"
   },
   "phase": 6,
   "rhythmLesson": false,

@@ -44,34 +44,34 @@
   "tips": [
     {
       "type": "lead",
-      "text": "Pangram + extension: covers all 26 letters"
+      "text": "This is the closing test for the block. The old fox carries every one of the twenty-six letters, and the line that follows asks for all of them again. Type it like proof."
     },
     {
       "type": "drop",
-      "text": "Pass this and Block 1 is closed — you can type any English text"
+      "text": "Clear this line and the alphabet is yours. From here on there is no English sentence you cannot set down."
     },
     {
       "type": "exercise",
       "target": "the quick brown fox jumps over the lazy dog",
       "finger": "blue",
-      "hint": "Whole alphabet — speed + accuracy gate"
+      "hint": "Whole alphabet - speed + accuracy gate"
     },
     {
       "type": "p",
-      "text": "Target: 25 WPM with under 7 errors"
+      "text": "The mark is twenty-five words a minute with fewer than seven slips. Hold your pace; do not chase the number."
     },
     {
       "type": "exercise",
       "target": "and watches the river flow under a wide blue sky",
       "finger": "green",
-      "hint": "Whole alphabet — speed + accuracy gate"
+      "hint": "Whole alphabet - speed + accuracy gate"
     }
   ],
   "character_tips": {
-    "anna": "🎓 BLOCK 1 FINAL! Pass this and you've mastered the alphabet. Next: punctuation.",
-    "maxim": "End of Block 1. You can type any English word now. Block 2 opens up punctuation.",
-    "knopych": "BOSS BATTLE! 🐉 Defeat the dragon to unlock Block 2! 🏆",
-    "klavochka": "Final test, sunshine! You've come so far! Believe in yourself! ✨"
+    "anna": "This is the test that closes the block. Pass it and the alphabet belongs to you. Punctuation is the next desk over. - Eleanor Hayes, editor",
+    "maxim": "End of the first block. Any English word will go under your hands now. Next we add the marks that turn words into proper copy. - Eleanor Hayes, editor",
+    "knopych": "One clean line stands between you and the next block. Keep your rhythm and walk through it. - Eleanor Hayes, editor",
+    "klavochka": "The last test of the block, and you have earned your way to it. Steady hands, clear head. You can do this. - Eleanor Hayes, editor"
   },
   "phase": 1,
   "rhythmLesson": false,

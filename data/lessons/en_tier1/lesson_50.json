@@ -19,38 +19,38 @@
     "Shift"
   ],
   "new_keys": [],
-  "finger_focus": "All — milestone speed gauge",
+  "finger_focus": "All - milestone speed gauge",
   "tips": [
     {
       "type": "lead",
-      "text": "50 lessons = halfway home"
+      "text": "Fifty lessons in. That is the halfway mark, and you earned every page of it."
     },
     {
       "type": "drop",
-      "text": "If you pass 45 WPM here, you're on track for 80+ by Block 7"
+      "text": "Clear 45 WPM here and you are well on your way to 80 and past it. No shortcuts got you this far; persistence did."
     },
     {
       "type": "exercise",
       "target": "Fifty lessons in. You started with home row and now you can write anything. Push your",
       "finger": "purple",
-      "hint": "All — milestone speed gauge"
+      "hint": "All - milestone speed gauge"
     },
     {
       "type": "p",
-      "text": "Set your peak today — you'll match it many times in Block 5"
+      "text": "Set a clean best today and remember the feel of it. You will return to that pace many times before long."
     },
     {
       "type": "exercise",
       "target": "speed today. Read ahead, trust your hands, and stay smooth — accuracy stays at ninety-three percent.",
       "finger": "purple",
-      "hint": "All — milestone speed gauge"
+      "hint": "All - milestone speed gauge"
     }
   ],
   "character_tips": {
-    "anna": "🎯 50-lesson milestone! You're officially halfway. Look at the WPM number — that's earned.",
-    "maxim": "Halfway checkpoint. Track your number here — Block 5 will push it higher.",
-    "knopych": "MIDPOINT BOSS! 🏔️ Conquered! Onward!",
-    "klavochka": "Half a journey, my star ⭐ Look how far you've come!"
+    "anna": "Halfway. Look at that WPM number and don't shrug it off; you put in the hours for it. - Eleanor Hayes, editor",
+    "maxim": "A checkpoint, not a finish line. Note your number; the back half will lift it higher. - Eleanor Hayes, editor",
+    "knopych": "Midpoint reached. Catch your breath, then keep the same steady hands. - Eleanor Hayes, editor",
+    "klavochka": "Half the road behind you. Quiet pride is allowed; then back to work. - Eleanor Hayes, editor"
   },
   "phase": 4,
   "rhythmLesson": false,

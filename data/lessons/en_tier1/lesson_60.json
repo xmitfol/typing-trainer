@@ -30,40 +30,40 @@
   "tips": [
     {
       "type": "lead",
-      "text": "260 characters — biggest text in the course so far"
+      "text": "This is the longest passage you have faced yet. A full page of real copy, the kind that lands on a desk every day."
     },
     {
       "type": "drop",
-      "text": "Pass at 55 WPM = officially fast typist (top ~20% of users)"
+      "text": "Clear it at this pace and you are, plainly, a fast typist. Not a beginner who has learned the keys, but someone who can make a deadline."
     },
     {
       "type": "exercise",
       "target": "By the end of Q2 2026, the team had shipped 12 features, closed 47 tickets, and gained 8,500 new users (+34%",
       "finger": "purple",
-      "hint": "Full keyboard — speed gate at 55 WPM"
+      "hint": "Full keyboard - speed gate at 55 WPM"
     },
     {
       "type": "p",
-      "text": "Block 5 unlocks: pure speed + accuracy refinement"
+      "text": "What follows is sharpening: holding speed while the accuracy tightens. The foundation is already poured."
     },
     {
       "type": "callout",
       "icon": "💡",
       "title": "Подсказка",
-      "text": "Save this number — Block 5 will push it past 70 WPM"
+      "text": "Write down the number you hit today. You will want to look back at it when the later work pushes you well past it."
     },
     {
       "type": "exercise",
       "target": "MoM). Average response time dropped to 180 ms. CEO David Lopez wrote: \"Outstanding work, everyone. Next quarter: aim for 95% retention.\"",
       "finger": "purple",
-      "hint": "Full keyboard — speed gate at 55 WPM"
+      "hint": "Full keyboard - speed gate at 55 WPM"
     }
   ],
   "character_tips": {
-    "anna": "🎓 BLOCK 4 FINAL! 55 WPM = officially fast. Block 5 makes you blazing.",
-    "maxim": "Speed gate cleared. Next: refine and push past 70 WPM in Block 5.",
-    "knopych": "BLOCK 4 BOSS DOWN! 🐉⚔️ SPEED MASTER unlocked!",
-    "klavochka": "My speed-star! ⭐ The next blocks make you fly higher!"
+    "anna": "Block four, done. You clear this gate and you have earned the word fast. Steady on. - Eleanor Hayes, editor",
+    "maxim": "The speed is there. From here the work is refinement, trimming the small errors until the page comes out clean the first time. - Eleanor Hayes, editor",
+    "knopych": "Four blocks behind you. You did not rush it, you built it. That is why it will last. - Eleanor Hayes, editor",
+    "klavochka": "You have come a long way, and quietly. Mark the moment, then turn the page. - Eleanor Hayes, editor"
   },
   "phase": 4,
   "rhythmLesson": false,

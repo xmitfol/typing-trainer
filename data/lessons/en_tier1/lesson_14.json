@@ -44,34 +44,34 @@
   "tips": [
     {
       "type": "lead",
-      "text": "Five-letter words start to feel natural at this WPM"
+      "text": "The longer words are where everyday writing actually lives. At this pace they start to feel ordinary, which is exactly what you want."
     },
     {
       "type": "drop",
-      "text": "Don't fear long words — break them mentally into syllables"
+      "text": "A long word is not one frightening thing; it is a few familiar pieces in a row. Break it at the syllable and type the pieces."
     },
     {
       "type": "exercise",
       "target": "before today we shared every story under the",
       "finger": "blue",
-      "hint": "All alphabet — longer word endurance"
+      "hint": "All alphabet - longer word endurance"
     },
     {
       "type": "p",
-      "text": "Keep wrists straight, not bent"
+      "text": "Keep the wrists level, not bent up or dropped. Good posture is what keeps you typing clean past the first tired minute."
     },
     {
       "type": "exercise",
       "target": "wide blue sky and watched the river flow",
       "finger": "green",
-      "hint": "All alphabet — longer word endurance"
+      "hint": "All alphabet - longer word endurance"
     }
   ],
   "character_tips": {
-    "anna": "Long words are just sequences of short patterns. Trust your fingers.",
-    "maxim": "Endurance matters — typing a long word without errors is real progress.",
-    "knopych": "MEGA WORDS! 5-7 letters of pure power! 💪",
-    "klavochka": "Big words for a big champion! 🌟"
+    "anna": "A long word is only short patterns strung together. You already know the patterns; trust your hands to find them. - Eleanor Hayes, editor",
+    "maxim": "Setting a long word down without a single slip is real ground gained. Stamina counts as much as speed on a long page. - Eleanor Hayes, editor",
+    "knopych": "Five and six letters at a stretch. Hold the rhythm and the long ones go by no slower than the short. - Eleanor Hayes, editor",
+    "klavochka": "Bigger words, same steady hand. You are building the endurance that real writing asks for. - Eleanor Hayes, editor"
   },
   "phase": 1,
   "rhythmLesson": false,

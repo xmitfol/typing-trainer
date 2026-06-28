@@ -29,11 +29,11 @@
   "tips": [
     {
       "type": "lead",
-      "text": "Tag opens with <, closes with >"
+      "text": "A tag opens with < and closes with >. Markup is unforgiving - a missing bracket and the whole line falls apart."
     },
     {
       "type": "drop",
-      "text": "Attributes inside: class=\"box\""
+      "text": "The attributes live inside: class=\"box\". Mind the quotes; they have to pair."
     },
     {
       "type": "exercise",
@@ -43,13 +43,13 @@
     },
     {
       "type": "p",
-      "text": "Close tags with </tag>"
+      "text": "Every tag you open, you close - </tag>. Leave one hanging and the page knows."
     },
     {
       "type": "callout",
       "icon": "💡",
-      "title": "Подсказка",
-      "text": "Self-closing: <img ... > (no closing tag needed)"
+      "title": "Note",
+      "text": "A few tags close themselves: <img ... > stands alone, no closing tag needed."
     },
     {
       "type": "exercise",
@@ -59,10 +59,10 @@
     }
   ],
   "character_tips": {
-    "anna": "HTML — the language of the web. < > /\" are your daily symbols.",
-    "maxim": "Web developers type these patterns thousands of times per day.",
-    "knopych": "WEB BUILDER! <html> </html> magic! 🌐⚡",
-    "klavochka": "Building web pages with tags — like decorating! 🎨"
+    "anna": "Markup is just structure you can see. The < > / and \" become second nature once you stop fearing them.",
+    "maxim": "People who build the web type these brackets all day. Make the shapes automatic.",
+    "knopych": "Open the tag, close the tag. Balanced and clean - that's the craft.",
+    "klavochka": "Tags wrap the words the way punctuation wraps a sentence. Tidy work, both."
   },
   "phase": 3,
   "rhythmLesson": false,

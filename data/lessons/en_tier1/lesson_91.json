@@ -22,11 +22,11 @@
   "tips": [
     {
       "type": "lead",
-      "text": "Block 7 = the final polish on a year-shaped skill"
+      "text": "Block 7 is the final polish on a skill you built slowly, a little at a time. This is the quiet part of the craft."
     },
     {
       "type": "drop",
-      "text": "92 WPM should feel calm by now, not strained"
+      "text": "Ninety-two should feel calm now, not strained. If your shoulders are up around your ears, you are pushing too hard. Let them drop."
     },
     {
       "type": "exercise",
@@ -36,7 +36,7 @@
     },
     {
       "type": "p",
-      "text": "If you have to fight for speed here, drop accuracy and try again"
+      "text": "If you are fighting for the speed, ease off and let the accuracy lead. Speed at this level is what good accuracy turns into on its own."
     },
     {
       "type": "exercise",
@@ -46,10 +46,10 @@
     }
   ],
   "character_tips": {
-    "anna": "Block 7! Mastery isn't effort — it's the absence of effort.",
-    "maxim": "Nine lessons to mastery. Each one polishes what you have.",
-    "knopych": "FINAL BLOCK! 🏔️ The summit is in sight!",
-    "klavochka": "The final ascent, my star ⭐ Steady and graceful!"
+    "anna": "Block 7. Mastery is not effort piled higher; it is effort that has disappeared into the hands.",
+    "maxim": "Nine lessons remain, and each one buffs what you already own. Nothing new to learn now, only to settle.",
+    "knopych": "The summit is in sight. Keep your pace honest and you will be standing on it soon.",
+    "klavochka": "The final ascent. Go steady and graceful; the quiet way is the fast way now. - Eleanor Hayes, editor"
   },
   "phase": 7,
   "rhythmLesson": false,

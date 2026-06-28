@@ -19,11 +19,11 @@
   "tips": [
     {
       "type": "lead",
-      "text": "'the', 'ing', 'and', 'ion' = top 4 trigrams by frequency"
+      "text": "These four three-letter runs turn up more than any others. Learn them as units and you write less, type more."
     },
     {
       "type": "drop",
-      "text": "These should feel like single chord-like motions"
+      "text": "Each one should land like a single rolling move, not three deliberate taps."
     },
     {
       "type": "exercise",
@@ -33,7 +33,7 @@
     },
     {
       "type": "p",
-      "text": "Speed test: type 'ing' 10 times — should take ~1.5 seconds"
+      "text": "Try this: run 'ing' ten times over. If it flows without a stutter, the cluster has become one motion."
     },
     {
       "type": "exercise",
@@ -43,10 +43,10 @@
     }
   ],
   "character_tips": {
-    "anna": "Three-letter chunks are the next level. Burn them in until they're effortless.",
-    "maxim": "These trigrams appear in every paragraph. Drill = compound interest.",
-    "knopych": "TRIPLE COMBO! 🎯 Three keys, ONE motion!",
-    "klavochka": "Like dancing in threes, my sweetheart 🌷"
+    "anna": "Three-letter chunks are the next step up. Work them in until they cost no thought. - Eleanor Hayes, editor",
+    "maxim": "These show up in every paragraph you will ever set. Small daily practice compounds. - Eleanor Hayes, editor",
+    "knopych": "Three keys, one move. Let it roll off the hand. - Eleanor Hayes, editor",
+    "klavochka": "Three letters in one easy sweep, no break between. - Eleanor Hayes, editor"
   },
   "phase": 4,
   "rhythmLesson": false,

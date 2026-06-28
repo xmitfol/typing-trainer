@@ -23,11 +23,11 @@
   "tips": [
     {
       "type": "lead",
-      "text": "Legal/contract prose has its own rhythm — extra-long sentences"
+      "text": "Contract prose runs long on purpose. The sentences stretch, the clauses pile up, and you keep an even hand all the way through."
     },
     {
       "type": "drop",
-      "text": "Words like \"hereinafter\" become single units — don't slow down"
+      "text": "Treat a word like \"hereinafter\" as one block, not nine letters. Stamp it whole and the long sentence stops being long."
     },
     {
       "type": "exercise",
@@ -37,7 +37,7 @@
     },
     {
       "type": "p",
-      "text": "Lawyers, paralegals, and contracts teams type this all day"
+      "text": "Lawyers and paralegals type this all day, and a single dropped word can cost a clause its meaning. Accuracy is respect here, and nowhere more so."
     },
     {
       "type": "exercise",
@@ -47,10 +47,10 @@
     }
   ],
   "character_tips": {
-    "anna": "Legal English is formal but rhythmic. Most legal writers cap at 60 WPM.",
-    "maxim": "If you can type contracts at 85 WPM, you're faster than 99% of paralegals.",
-    "knopych": "LEGAL EAGLE! ⚖️ Long sentences, no fear!",
-    "klavochka": "Careful and dignified, my dear — like a proper document 📜"
+    "anna": "Legal English is formal, but it has a rhythm under the weight. Find it and the long sentences carry you along.",
+    "maxim": "Hold 85 on a contract and you are well ahead of most who do this for a living. Precision is the whole point.",
+    "knopych": "Long sentences, no fear. Keep your eyes up and let the clauses unspool.",
+    "klavochka": "Type it the way a proper document deserves: careful, even, and clean to the last full stop. - Eleanor Hayes, editor"
   },
   "phase": 6,
   "rhythmLesson": false,

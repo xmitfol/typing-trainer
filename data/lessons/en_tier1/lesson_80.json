@@ -23,11 +23,11 @@
   "tips": [
     {
       "type": "lead",
-      "text": "80 WPM = top 5% of typists in the world"
+      "text": "Eighty words a minute. Few people ever get here, and none of them got here by luck. You typed your way to it."
     },
     {
       "type": "drop",
-      "text": "Pass this gate = you can outpace most people's spoken words"
+      "text": "Hold this and your hands move faster than most people speak. The keyboard has stopped being in your way."
     },
     {
       "type": "exercise",
@@ -37,7 +37,7 @@
     },
     {
       "type": "p",
-      "text": "Last 20 lessons polish you to 95+ WPM"
+      "text": "Twenty lessons left, and they are all polish. No new ground to break - just the same calm work, refined a little further each day."
     },
     {
       "type": "exercise",
@@ -47,10 +47,10 @@
     }
   ],
   "character_tips": {
-    "anna": "🎯 80 WPM gate. Top 5% globally. The world's average is 40 WPM — you're double.",
-    "maxim": "80 WPM sustained is the elite professional level. Carry this forward.",
-    "knopych": "80 WPM BOSS DOWN! 🏆 ELITE STATUS!",
-    "klavochka": "My star, you're soaring! ⭐ Twenty lessons to legend!"
+    "anna": "Eighty, sustained. Most of the world types half that. You did not get here by talent - you got here by turning up. - Eleanor Hayes, editor",
+    "maxim": "Eighty words a minute, held steady, is the level a busy desk relies on. Carry it forward and put it to honest use. - Eleanor Hayes, editor",
+    "knopych": "Don't make a trophy of the number. The real prize is hands that do the work without you watching them. - Eleanor Hayes, editor",
+    "klavochka": "Soaring now, and steady with it. Twenty lessons of quiet polish and the craft is truly yours. - Eleanor Hayes, editor"
   },
   "phase": 6,
   "rhythmLesson": false,

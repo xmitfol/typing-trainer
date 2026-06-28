@@ -44,34 +44,34 @@
   "tips": [
     {
       "type": "lead",
-      "text": "Short words become muscle memory — type without thinking"
+      "text": "These little words do most of the work in any sentence you will ever write. Learn them by hand and your fingers stop spelling and start typing."
     },
     {
       "type": "drop",
-      "text": "Don't pause between letters of the same word"
+      "text": "A word is one motion, not three. Do not stop between its letters; let it land in a single beat."
     },
     {
       "type": "exercise",
       "target": "the and had has did dad sad fed jak",
       "finger": "blue",
-      "hint": "All learned letters — focus on speed"
+      "hint": "All learned letters - focus on speed"
     },
     {
       "type": "p",
-      "text": "Eyes off keyboard — trust your fingers"
+      "text": "Keep your eyes on the copy, not on the keys. Your fingers know where they live; let them prove it."
     },
     {
       "type": "exercise",
       "target": "fee see fad lad add age sit ten ape rat",
       "finger": "green",
-      "hint": "All learned letters — focus on speed"
+      "hint": "All learned letters - focus on speed"
     }
   ],
   "character_tips": {
-    "anna": "Common short words are the building blocks. Practice them until they flow.",
-    "maxim": "These are the 100 most-used English words. Speed comes from rhythm, not effort.",
-    "knopych": "TURBO MODE! Short words — short typing! Quick-quick! ⚡",
-    "klavochka": "These tiny words are friends — learn them well, sunshine! 💖"
+    "anna": "These small words are the mortar between the bricks. Type them until they come without thought, and the long ones get easier too. - Eleanor Hayes, editor",
+    "maxim": "A handful of short words fills most of every page. Speed here comes from rhythm, not from pressing harder. - Eleanor Hayes, editor",
+    "knopych": "Short words, short reach. Settle into an even beat and they go by quickly enough. - Eleanor Hayes, editor",
+    "klavochka": "Get friendly with these little words. You will meet them in every line you ever set. - Eleanor Hayes, editor"
   },
   "phase": 1,
   "rhythmLesson": false,

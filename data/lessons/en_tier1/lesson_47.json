@@ -19,34 +19,34 @@
   "tips": [
     {
       "type": "lead",
-      "text": "3-letter words = one hand-shift unit"
+      "text": "A three-letter word lands as one motion, not three. Strike it whole."
     },
     {
       "type": "drop",
-      "text": "Don't slow down between words — flow"
+      "text": "Don't brake between the words. The flow is the point; keep it moving."
     },
     {
       "type": "exercise",
       "target": "all any but can did far for get had has her him his how its let lot may new now",
       "finger": "purple",
-      "hint": "Full alphabet — short bursts"
+      "hint": "Full alphabet - short bursts"
     },
     {
       "type": "p",
-      "text": "Spaces are part of the rhythm, not a pause"
+      "text": "The space is a beat, not a rest. Count it in and the rhythm holds."
     },
     {
       "type": "exercise",
       "target": "nor not now one our out put say see she sit ten the too try use was way who why yes",
       "finger": "purple",
-      "hint": "Full alphabet — short bursts"
+      "hint": "Full alphabet - short bursts"
     }
   ],
   "character_tips": {
-    "anna": "Three-letter words are pure rhythm. Find a beat and stay on it.",
-    "maxim": "These are the workhorses of English — drill until they're automatic.",
-    "knopych": "Tiny words, BIG speed! 🥁 Tap-tap-tap!",
-    "klavochka": "Like skipping stones on water, my dear! 💫"
+    "anna": "Three-letter words are pure rhythm. Find the beat and stay on it.",
+    "maxim": "The workhorses of the language. Drill them until they need no thought at all.",
+    "knopych": "Small words, real speed. Steady taps, one after another.",
+    "klavochka": "Light and quick across the keys, like stones skipped over water."
   },
   "phase": 4,
   "rhythmLesson": false,

@@ -24,11 +24,11 @@
   "tips": [
     {
       "type": "lead",
-      "text": "Technical writing has consistent terminology — same words repeat"
+      "text": "Technical writing leans on the same handful of terms over and over. Once your fingers learn them, the page moves quickly."
     },
     {
       "type": "drop",
-      "text": "Colons signal structure: ok with them and you're a tech writer"
+      "text": "A colon announces what comes next: a list, a definition, a result. Get comfortable with it and structured prose holds no fear."
     },
     {
       "type": "exercise",
@@ -38,7 +38,7 @@
     },
     {
       "type": "p",
-      "text": "Code-ish terms (API, JSON) should flow as words, not letter-by-letter"
+      "text": "Read API and JSON as single units, the way you would read a name. Letter-by-letter is where the stumbles creep in."
     },
     {
       "type": "exercise",
@@ -48,10 +48,10 @@
     }
   ],
   "character_tips": {
-    "anna": "Technical docs are everywhere in modern work. Master the rhythm.",
-    "maxim": "Engineers write more than they code. Tech prose = career skill.",
-    "knopych": "TECH MODE! ⚙️ JSON, API, all the buzzwords!",
-    "klavochka": "Clear and precise, like recipe instructions, my dear 📋"
+    "anna": "Technical pages turn up in nearly every job now. Learn their rhythm and you are ready for the work. - Eleanor Hayes, editor",
+    "maxim": "People who build things write far more than they expect to. Clean technical prose is a skill that pays. - Eleanor Hayes, editor",
+    "knopych": "The terms look strange at first, then they become old friends. Type them whole and keep moving. - Eleanor Hayes, editor",
+    "klavochka": "Clear, exact, no clutter. Good documentation reads like a recipe, and so should your typing of it. - Eleanor Hayes, editor"
   },
   "phase": 5,
   "rhythmLesson": false,

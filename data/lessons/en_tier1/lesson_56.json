@@ -22,11 +22,11 @@
   "tips": [
     {
       "type": "lead",
-      "text": "Pangrams use every letter — perfect speed measurement"
+      "text": "A pangram uses every letter once, which makes it an honest gauge of where you really stand."
     },
     {
       "type": "drop",
-      "text": "The 'brown fox' pangram is the typing classic for a reason"
+      "text": "The brown fox line has been the typist's proving ground for a long time. There is a reason it stuck."
     },
     {
       "type": "exercise",
@@ -36,7 +36,7 @@
     },
     {
       "type": "p",
-      "text": "If you can do this at 50+ WPM, you can type anything"
+      "text": "Clear this at 50 WPM and clean, and there is no ordinary text left that can slow you down."
     },
     {
       "type": "exercise",
@@ -46,10 +46,10 @@
     }
   ],
   "character_tips": {
-    "anna": "Every letter, no exceptions. This is the universal speed benchmark.",
-    "maxim": "Type this 5 times — your speed should climb each round.",
-    "knopych": "ALL THE LETTERS! 🦊 Catch the fox, jump the dog!",
-    "klavochka": "Every letter saying hello, my sunshine ☀️"
+    "anna": "Every letter, no exceptions. This is the benchmark typists have always measured against. - Eleanor Hayes, editor",
+    "maxim": "Run it five times over. Your pace should climb a little each round; that is the point. - Eleanor Hayes, editor",
+    "knopych": "Every letter in one line. Keep the hands calm and let it flow. - Eleanor Hayes, editor",
+    "klavochka": "The whole alphabet in a single sentence. A fine thing to type well. - Eleanor Hayes, editor"
   },
   "phase": 4,
   "rhythmLesson": false,

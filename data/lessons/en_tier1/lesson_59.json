@@ -28,11 +28,11 @@
   "tips": [
     {
       "type": "lead",
-      "text": "Real ops/business text mixes everything — train mixed content"
+      "text": "A real page never sorts itself into tidy boxes. Numbers, names, and symbols arrive together, so that is how you train."
     },
     {
       "type": "drop",
-      "text": "Don't slow for digits — they should be as fast as letters by now"
+      "text": "Don't drop your pace for a digit. By now a 7 should cost you no more than a t."
     },
     {
       "type": "exercise",
@@ -42,7 +42,7 @@
     },
     {
       "type": "p",
-      "text": "Symbols ($, #, %) flow into the same rhythm as text"
+      "text": "Treat $, #, and % as part of the sentence, not interruptions to it. They belong to the same even rhythm as the words around them."
     },
     {
       "type": "exercise",
@@ -52,10 +52,10 @@
     }
   ],
   "character_tips": {
-    "anna": "Mixed content is where most pros plateau. Push through it here.",
-    "maxim": "Real writing isn't just words. Drill mixed content like this until uniform.",
-    "knopych": "ALL THE KEYS! 🎮 Symbols, numbers, letters — full keyboard!",
-    "klavochka": "Every part of the keyboard your friend now, my treasure 💎"
+    "anna": "Mixed copy is where most people stall. Hold your speed through it and you have something most never learn. - Eleanor Hayes, editor",
+    "maxim": "A clean line of plain words is easy. The craft shows when figures and symbols sit in the middle and you never break stride. - Eleanor Hayes, editor",
+    "knopych": "Letters, numbers, symbols, all on one line. Take them at one steady pace and the page comes together. - Eleanor Hayes, editor",
+    "klavochka": "Every key on the board answers to you now. That is the quiet reward of the work. - Eleanor Hayes, editor"
   },
   "phase": 4,
   "rhythmLesson": false,

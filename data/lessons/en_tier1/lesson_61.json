@@ -22,11 +22,11 @@
   "tips": [
     {
       "type": "lead",
-      "text": "Block 5 starts here — speed AND accuracy together"
+      "text": "Now the two goals travel together: speed and accuracy, neither one bought at the cost of the other."
     },
     {
       "type": "drop",
-      "text": "Real narrative prose has natural rhythm — find it"
+      "text": "A good sentence already carries its own rhythm. Your job is to find it and ride it, not to fight it."
     },
     {
       "type": "exercise",
@@ -36,7 +36,7 @@
     },
     {
       "type": "p",
-      "text": "Don't slow down at commas — they're tempo, not stops"
+      "text": "A comma is a breath, not a full stop. Let it set the tempo and keep your hands moving through it."
     },
     {
       "type": "exercise",
@@ -46,10 +46,10 @@
     }
   ],
   "character_tips": {
-    "anna": "Block 5! From here we balance speed AND accuracy. Both must climb together.",
-    "maxim": "Real prose is your benchmark from now on. Type it like you talk it.",
-    "knopych": "BLOCK 5 BEGINS! 📖 Story mode unlocked!",
-    "klavochka": "Beautiful sentences flowing like a river, my dear 🌊"
+    "anna": "From here on, plain prose is the measure. Speed and accuracy climb side by side or not at all. - Eleanor Hayes, editor",
+    "maxim": "This is the writing you will actually do. Type it the way you would read it aloud, calm and even. - Eleanor Hayes, editor",
+    "knopych": "No symbols to dodge now, just a story. Let it run through your hands and don't look down. - Eleanor Hayes, editor",
+    "klavochka": "A well-made sentence has its own current. Find it, and the typing carries itself. - Eleanor Hayes, editor"
   },
   "phase": 5,
   "rhythmLesson": false,

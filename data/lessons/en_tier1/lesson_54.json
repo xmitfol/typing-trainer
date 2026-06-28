@@ -19,11 +19,11 @@
   "tips": [
     {
       "type": "lead",
-      "text": "'of the', 'in the', 'to the' = ~10% of all 2-word phrases"
+      "text": "Short word pairs like these make up a tenth of ordinary writing. Drill them and whole phrases come for free."
     },
     {
       "type": "drop",
-      "text": "Type the whole phrase without pausing between words"
+      "text": "Run the whole pair as one breath, no pause at the space. The hands should not stop to think mid-phrase."
     },
     {
       "type": "exercise",
@@ -33,7 +33,7 @@
     },
     {
       "type": "p",
-      "text": "If you can do 'the' in under 0.3s, you're at pro level"
+      "text": "When 'the' falls out of your hand without a thought, you have arrived. It is the most-typed word there is; make peace with it."
     },
     {
       "type": "exercise",
@@ -43,10 +43,10 @@
     }
   ],
   "character_tips": {
-    "anna": "Phrase-level chunking is where 60+ WPM lives. Words become groups.",
-    "maxim": "Stop typing word-by-word. Type phrase-by-phrase.",
-    "knopych": "Phrase combos! 🔗 Words linked into chains!",
-    "klavochka": "Like singing in lines, my love 🎶"
+    "anna": "Typing in phrases is where the real speed sits. Words stop being single things and become groups. - Eleanor Hayes, editor",
+    "maxim": "Stop typing word by word. Type the phrase whole. - Eleanor Hayes, editor",
+    "knopych": "Words linked into one chain, fed out smooth. - Eleanor Hayes, editor",
+    "klavochka": "A phrase typed in one line, like a sentence read aloud. - Eleanor Hayes, editor"
   },
   "phase": 4,
   "rhythmLesson": false,

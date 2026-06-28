@@ -63,34 +63,34 @@
   "tips": [
     {
       "type": "lead",
-      "text": "30 lessons done! 200-char milestone text"
+      "text": "Thirty lessons, and here's the proof: 200 characters that ask for everything at once."
     },
     {
       "type": "drop",
-      "text": "Every letter, digit, and punctuation mark you've trained"
+      "text": "Every letter, every digit, every mark you've trained. Set them down cleanly."
     },
     {
       "type": "exercise",
       "target": "today, 25 may 2026, marks 30 lessons completed. you've learned 26 letters, 10 digits, and",
       "finger": "blue",
-      "hint": "Everything learned so far — 200-char milestone"
+      "hint": "Everything learned so far - 200-char milestone"
     },
     {
       "type": "p",
-      "text": "Pass at 30 WPM and you're ready for Block 3 (symbols and speed)"
+      "text": "Hold 30 WPM here and Block 3 is yours - symbols and speed next. You earned the page; turn it. - Eleanor Hayes, editor"
     },
     {
       "type": "exercise",
       "target": "9 punctuation marks; that's the foundation. next: symbols, speed, and real-world practice. you've earned it!",
       "finger": "green",
-      "hint": "Everything learned so far — 200-char milestone"
+      "hint": "Everything learned so far - 200-char milestone"
     }
   ],
   "character_tips": {
-    "anna": "🏆 30 lessons! You're 30% through the course. Real fluency is forming.",
-    "maxim": "30 lessons. 26 letters, 10 digits, full punctuation. Time to add symbols.",
-    "knopych": "30-LEVEL CHECKPOINT! 🏆 You're a typing warrior now!",
-    "klavochka": "30 lessons, my star! You've come SO far! 🌟✨"
+    "anna": "Thirty lessons in. The hands have stopped hunting and started knowing. That's fluency taking hold.",
+    "maxim": "Twenty-six letters, ten digits, the full run of punctuation - all under control. Symbols come next.",
+    "knopych": "A clean checkpoint at thirty. No fanfare needed; the work speaks.",
+    "klavochka": "Thirty lessons, and steady ones. Look how far the page has carried you."
   },
   "phase": 3,
   "rhythmLesson": false,

@@ -56,34 +56,34 @@
   "tips": [
     {
       "type": "lead",
-      "text": "Numbers in sentences require switching between digit row and letters"
+      "text": "Now the numbers sit inside the sentence, where they belong. Each one asks your hand to leave the letters, reach to the digit row, and come back without losing the line."
     },
     {
       "type": "drop",
-      "text": "Dates and prices are common typing scenarios"
+      "text": "Dates, prices, a count of pages: these are the figures a desk types all day. Learn to fold them in cleanly and nothing on a page can surprise you."
     },
     {
       "type": "exercise",
       "target": "on 25 may 2026, we spent 150 dollars on 3 books",
       "finger": "blue",
-      "hint": "Numbers + letters mixed — real-world context"
+      "hint": "Numbers + letters mixed - real-world context"
     },
     {
       "type": "p",
-      "text": "Spaces between number and unit: 25 may, 150 dollars"
+      "text": "Mind the space between a figure and its word. A number and its unit stand apart, and that small gap is part of getting it right."
     },
     {
       "type": "exercise",
       "target": "and 7 pens. order 42 takes 5 days. the year is 2026.",
       "finger": "green",
-      "hint": "Numbers + letters mixed — real-world context"
+      "hint": "Numbers + letters mixed - real-world context"
     }
   ],
   "character_tips": {
-    "anna": "Numbers in context — this is real life typing. Reports, invoices, dates.",
-    "maxim": "Professional writing mixes numbers and words constantly. Practice the switch.",
-    "knopych": "REAL WORLD MODE! Numbers + words = real text! 🎮",
-    "klavochka": "Stories with numbers — like a recipe with ingredients! 📖"
+    "anna": "Numbers woven into words: this is the work itself. Reports, invoices, dates, all of it asks for exactly this. - Eleanor Hayes, editor",
+    "maxim": "Serious writing mixes figures and words without pause. Drill the reach to the digit row until the switch costs you nothing. - Eleanor Hayes, editor",
+    "knopych": "Letters and numbers in one line, the way real copy comes. Keep the reach short and the rhythm even. - Eleanor Hayes, editor",
+    "klavochka": "A sentence with figures in it, like a list with its amounts. Place each number with care and the line reads true. - Eleanor Hayes, editor"
   },
   "phase": 3,
   "rhythmLesson": false,

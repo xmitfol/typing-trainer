@@ -28,11 +28,11 @@
   "tips": [
     {
       "type": "lead",
-      "text": "Email: user@domain.com pattern"
+      "text": "An address has to be exact. One wrong character and the message never arrives - user@domain.com, set down whole."
     },
     {
       "type": "drop",
-      "text": "URL: https://site.com/path?param=value"
+      "text": "A URL is the same discipline: https://site.com/path?param=value, every mark in its place."
     },
     {
       "type": "exercise",
@@ -42,7 +42,7 @@
     },
     {
       "type": "p",
-      "text": "Username with # tag: user#1234 (Discord-style)"
+      "text": "A handle with a tag - user#1234 - reads as one unit. Type it as one, without slowing to check."
     },
     {
       "type": "exercise",
@@ -52,10 +52,10 @@
     }
   ],
   "character_tips": {
-    "anna": "URLs and emails are the daily glue of modern writing.",
-    "maxim": "Pro skill: type a URL without looking. Browser autocomplete works backwards.",
-    "knopych": "INTERNET TYPING! URLs flying! @s and .coms! 🌐",
-    "klavochka": "Like writing addresses on letters — but for the web! 💌"
+    "anna": "Addresses and links are the plumbing of a working day. Get them right and nothing leaks.",
+    "maxim": "Type a URL without looking down - the moment your eyes drop, you lose your place in it.",
+    "knopych": "The @ and the .com, laid down clean. That's the whole trick.",
+    "klavochka": "An address on an envelope had to be exact too. This is the same care, newer paper."
   },
   "phase": 3,
   "rhythmLesson": false,

@@ -50,34 +50,34 @@
   "tips": [
     {
       "type": "lead",
-      "text": "Longest text so far — 130 chars with 7+ punctuation marks"
+      "text": "This is the longest passage you have met, and it carries the full kit of punctuation. Read it as a paragraph with a voice in it, not a string of keys."
     },
     {
       "type": "drop",
-      "text": "If you slow down on punctuation, that's normal. Speed comes with practice"
+      "text": "If a comma or a quotation mark slows you down, that is no fault. The marks come fast enough once you stop reaching for them and start placing them."
     },
     {
       "type": "exercise",
       "target": "we work hard, study every day, and never give up. \"do we?\" she",
       "finger": "blue",
-      "hint": "Everything — full paragraph endurance"
+      "hint": "Everything - full paragraph endurance"
     },
     {
       "type": "p",
-      "text": "20% of Block 2 done — numbers and symbols come next"
+      "text": "You are a fifth of the way through the block. Numbers and symbols wait further on; for now, hold this paragraph clean to the end."
     },
     {
       "type": "exercise",
       "target": "asked. \"yes!\" they said. it's a good life, and we share it with friends.",
       "finger": "green",
-      "hint": "Everything — full paragraph endurance"
+      "hint": "Everything - full paragraph endurance"
     }
   ],
   "character_tips": {
-    "anna": "Block 2 mid-point! You can already write real paragraphs. Numbers and symbols are next.",
-    "maxim": "130 characters with full punctuation — that's professional-level writing. Onwards.",
-    "knopych": "BLOCK 2 HALF DONE! 🏆 Numbers and symbols incoming! 🔢",
-    "klavochka": "Halfway through Block 2! You're growing so fast! 💖"
+    "anna": "The middle of the block, and you are already setting real paragraphs with proper marks. Numbers and symbols are the road ahead. - Eleanor Hayes, editor",
+    "maxim": "A long passage with every mark in its place is the work a desk does all day. You are doing it. Keep on. - Eleanor Hayes, editor",
+    "knopych": "Halfway through the block, with the punctuation behaving. Numbers come next; hold your pace until then. - Eleanor Hayes, editor",
+    "klavochka": "Halfway, and the marks no longer trip you. That is steady progress, the kind that lasts. - Eleanor Hayes, editor"
   },
   "phase": 2,
   "rhythmLesson": false,

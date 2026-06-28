@@ -26,11 +26,11 @@
   "tips": [
     {
       "type": "lead",
-      "text": "OKR/KPI writing is the language of modern management"
+      "text": "Goals, targets, owners, risks. This is the plain prose that runs a modern company, and someone types a great deal of it."
     },
     {
       "type": "drop",
-      "text": "Numbered lists with colons have a steady rhythm — drill it"
+      "text": "A numbered list with colons has a beat of its own. Find it once and the whole plan flows in time."
     },
     {
       "type": "exercise",
@@ -40,7 +40,7 @@
     },
     {
       "type": "p",
-      "text": "Train this and you'll write any project plan faster than peers"
+      "text": "Drill this shape and the next project plan writes itself while everyone else is still hunting for the colon."
     },
     {
       "type": "exercise",
@@ -50,10 +50,10 @@
     }
   ],
   "character_tips": {
-    "anna": "Goal-setting at 84 WPM. This is the language of leadership.",
-    "maxim": "Every senior role writes OKRs. Speed here = strategic advantage.",
-    "knopych": "QUEST OBJECTIVES! 🎯 Goals locked in!",
-    "klavochka": "Planning a beautiful future, my dear — structured and hopeful 🌟"
+    "anna": "Planning language at speed. This is how leaders put intent on the page, and clarity counts more than flourish.",
+    "maxim": "Every senior role writes goals like these. Type them cleanly and your thinking shows through, not your typos.",
+    "knopych": "Objectives, then key results. One steady line after another and the plan is done.",
+    "klavochka": "A plan is hope, given structure. Keep the structure neat and the hope reads clearly. - Eleanor Hayes, editor"
   },
   "phase": 6,
   "rhythmLesson": false,

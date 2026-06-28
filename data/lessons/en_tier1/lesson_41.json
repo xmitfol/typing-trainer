@@ -27,11 +27,11 @@
   "tips": [
     {
       "type": "lead",
-      "text": "Capital letters at sentence start (Shift + letter)"
+      "text": "Begin every sentence with a capital - Shift and the letter together, one motion."
     },
     {
       "type": "drop",
-      "text": "Standard email structure: greeting, body, sign-off, name, contact"
+      "text": "A good email has a shape: greeting, the point, sign-off, name, contact. Say it plainly and stop."
     },
     {
       "type": "exercise",
@@ -41,7 +41,7 @@
     },
     {
       "type": "p",
-      "text": "180 chars — typical short professional email"
+      "text": "Around 180 characters - the length of a note someone actually reads. Cut the clutter so the point survives."
     },
     {
       "type": "exercise",
@@ -51,10 +51,10 @@
     }
   ],
   "character_tips": {
-    "anna": "Email is everyday writing — practice this and your work emails fly.",
-    "maxim": "Professional emails: clear, structured, short. This is daily output.",
-    "knopych": "MAIL POWER! Real email writing! 📧⚡",
-    "klavochka": "Beautiful messages to friends and colleagues 💌"
+    "anna": "Email is the writing you do most. Get fluent here and the day moves faster.",
+    "maxim": "Clear, structured, short - the three virtues of a work email. Practice all three at once.",
+    "knopych": "A real message, start to finish. That's the job.",
+    "klavochka": "A note to a colleague is still a note. Write it so they're glad to read it."
   },
   "phase": 3,
   "rhythmLesson": false,

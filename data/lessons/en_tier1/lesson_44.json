@@ -21,11 +21,11 @@
   "tips": [
     {
       "type": "lead",
-      "text": "200 chars across email/code/prose/URL — full Block 3 review"
+      "text": "200 characters of the real thing - email, code, prose, a link, all in one breath. This is Block 3 entire."
     },
     {
       "type": "drop",
-      "text": "If you can type this at 32 WPM, you're ready for Block 4"
+      "text": "Carry it at 32 WPM and Block 4 opens. No shortcuts to it; just the clean run."
     },
     {
       "type": "exercise",
@@ -35,7 +35,7 @@
     },
     {
       "type": "p",
-      "text": "Newlines (\\n) — press Enter when you see them"
+      "text": "When you meet a newline, press Enter. A break in the text is still part of the text."
     },
     {
       "type": "exercise",
@@ -45,10 +45,10 @@
     }
   ],
   "character_tips": {
-    "anna": "Block 3 review — every keyboard skill in one paragraph.",
-    "maxim": "Multi-content typing — real-world digital writing is exactly like this.",
-    "knopych": "FINAL BOSS PREVIEW! All weapons combined! 🐉⚔️",
-    "klavochka": "Everything you've learned, dancing together! 💖✨"
+    "anna": "Block 3 in a single paragraph - every skill you've built, asked for at once.",
+    "maxim": "Mixed content like this is what real digital writing actually looks like. No cleaner test.",
+    "knopych": "A taste of the final run. Everything you've learned, together on one line.",
+    "klavochka": "All of it at once now - and it holds. Look at that."
   },
   "phase": 3,
   "rhythmLesson": false,

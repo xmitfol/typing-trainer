@@ -23,11 +23,11 @@
   "tips": [
     {
       "type": "lead",
-      "text": "75 WPM is faster than most people will ever type"
+      "text": "Seventy-five words a minute is faster than most people will ever manage. Three-quarters of the road is behind you."
     },
     {
       "type": "drop",
-      "text": "Pass this gate = officially in the top 10% globally"
+      "text": "Hold this pace and you are in rare company. Not because of the figure, but because of the steadiness that earned it."
     },
     {
       "type": "exercise",
@@ -37,7 +37,7 @@
     },
     {
       "type": "p",
-      "text": "Block 6 is real-world practice. Block 7 is mastery. You're earning both."
+      "text": "What comes next is real-world copy, then polish. You are earning both the honest way - one clean line at a time."
     },
     {
       "type": "exercise",
@@ -47,10 +47,10 @@
     }
   ],
   "character_tips": {
-    "anna": "🎓 BLOCK 5 FINAL! 75 WPM = top 10%. Block 6 takes you to top 5%.",
-    "maxim": "Sustained 75 WPM is a real career skill. Use it well.",
-    "knopych": "BLOCK 5 BOSS DOWN! 🐉🏆 ELITE TYPIST ACHIEVED!",
-    "klavochka": "My speed star! ⭐⭐⭐ Final 25 lessons make you a legend!"
+    "anna": "Block five, finished clean. Seventy-five sustained is a genuine skill - the kind a newsroom would hire on the spot. - Eleanor Hayes, editor",
+    "maxim": "Seventy-five words a minute, held steady, is a working skill for life. Use it on words worth typing. - Eleanor Hayes, editor",
+    "knopych": "Don't crow about the figure. Notice your hands stayed calm the whole way - that is the real win. - Eleanor Hayes, editor",
+    "klavochka": "Lovely, even work to the last line. The lessons left are polish, not struggle. Keep the rhythm and enjoy them. - Eleanor Hayes, editor"
   },
   "phase": 5,
   "rhythmLesson": false,

@@ -30,11 +30,11 @@
   "tips": [
     {
       "type": "lead",
-      "text": "Semicolons + em-dashes + parens = pro writing toolkit"
+      "text": "Semicolons, dashes, parentheses: the marks that separate plain writing from polished writing. This is the editor's toolkit."
     },
     {
       "type": "drop",
-      "text": "Each mark has its rhythm — semis are sharper, dashes wider"
+      "text": "Each mark keeps its own beat. A semicolon is a clean break; a dash opens a wider pause; the parenthesis tucks an aside out of the way."
     },
     {
       "type": "exercise",
@@ -44,7 +44,7 @@
     },
     {
       "type": "p",
-      "text": "Don't over-think — type, then read for sense"
+      "text": "Don't agonize over each mark as you go. Type the line, then read it back for sense. The hands learn faster than the second-guessing mind."
     },
     {
       "type": "exercise",
@@ -54,10 +54,10 @@
     }
   ],
   "character_tips": {
-    "anna": "Complex punctuation separates beginner from pro. Drill until automatic.",
-    "maxim": "Real reports use all of these. Master them = master business writing.",
-    "knopych": "PUNCTUATION ZOO! 🎢 Semicolons, dashes, parens — all in one!",
-    "klavochka": "Sophisticated writing, my treasure — like a fine dinner 🍽️"
+    "anna": "Punctuation like this is what marks the beginner from the hand who knows the craft. Drill it until it is automatic. - Eleanor Hayes, editor",
+    "maxim": "A serious report uses every one of these marks. Master them and business writing holds no surprises. - Eleanor Hayes, editor",
+    "knopych": "A whole crowd of marks in one line. Take them one at a time, keep the pace even, and none will trip you. - Eleanor Hayes, editor",
+    "klavochka": "This is writing with its good clothes on. Set the marks down with care and the sentence carries real weight. - Eleanor Hayes, editor"
   },
   "phase": 5,
   "rhythmLesson": false,

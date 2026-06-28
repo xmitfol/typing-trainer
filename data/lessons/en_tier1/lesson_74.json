@@ -30,11 +30,11 @@
   "tips": [
     {
       "type": "lead",
-      "text": "Engineers and analysts type this kind of text all day"
+      "text": "Reports, dates, figures, the odd symbol - this is the dense stuff plenty of people type all day long."
     },
     {
       "type": "drop",
-      "text": "Numbers/dates should flow at the same speed as words by now"
+      "text": "By now a date should run off your hands as smoothly as a word. If a digit makes you pause, that is the thing to drill."
     },
     {
       "type": "exercise",
@@ -44,7 +44,7 @@
     },
     {
       "type": "p",
-      "text": "If 74 WPM here is hard, drop to 65 and rebuild rhythm"
+      "text": "If the pace fights you here, ease back to a steadier speed and rebuild the rhythm. Accuracy first; the speed follows."
     },
     {
       "type": "exercise",
@@ -54,10 +54,10 @@
     }
   ],
   "character_tips": {
-    "anna": "Dense data text is real engineering speed. Words and digits = same rhythm.",
-    "maxim": "Real ops writing. Numbers and text at one pace = pro level.",
-    "knopych": "DATA OVERLOAD! 💾 Numbers, dates, symbols — ALL THE THINGS!",
-    "klavochka": "Every kind of character at home, my sunshine 🌞"
+    "anna": "Dense data like this is real working speed. When words and digits share one rhythm, you are ready for the hard copy. - Eleanor Hayes, editor",
+    "maxim": "Numbers and prose at a single, even pace - that is the mark of someone who has done the hours. - Eleanor Hayes, editor",
+    "knopych": "Don't panic at the clutter. Take it one figure at a time and keep the line moving. - Eleanor Hayes, editor",
+    "klavochka": "Letters, digits, symbols - all at home under your hands now. Stay even and trust the keys. - Eleanor Hayes, editor"
   },
   "phase": 5,
   "rhythmLesson": false,

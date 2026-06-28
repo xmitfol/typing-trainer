@@ -44,34 +44,34 @@
   "tips": [
     {
       "type": "lead",
-      "text": "Read the sentence first, then type — better than reading character by character"
+      "text": "Take the sentence in with your eyes before your hands move. Reading one letter at a time is how you lose the thread; read the line, then set it down."
     },
     {
       "type": "drop",
-      "text": "Spaces are part of rhythm — don't pause before them"
+      "text": "The space between words is part of the music, not a stop. Glide into it without pausing and the sentence holds together."
     },
     {
       "type": "exercise",
       "target": "the dog and the cat had a sad day",
       "finger": "blue",
-      "hint": "All alphabet — sentence rhythm"
+      "hint": "All alphabet - sentence rhythm"
     },
     {
       "type": "p",
-      "text": "Aim for steady pace, not bursts"
+      "text": "Steady beats fast. A typist who rushes and stops will always lose to one who keeps an even pace."
     },
     {
       "type": "exercise",
       "target": "they tried hard to win at last and were happy",
       "finger": "green",
-      "hint": "All alphabet — sentence rhythm"
+      "hint": "All alphabet - sentence rhythm"
     }
   ],
   "character_tips": {
-    "anna": "Now you're typing real sentences. Notice how rhythm carries you through.",
-    "maxim": "Read ahead by 2-3 words. Your fingers will follow.",
-    "knopych": "Phrases unlock! Words connect! Combos forever! 🎮",
-    "klavochka": "Real sentences, sweetheart! You're a real writer now! ✨"
+    "anna": "These are real sentences now, not drills. Feel how the rhythm carries you from one word to the next. - Eleanor Hayes, editor",
+    "maxim": "Let your eyes run a word or two ahead of your hands. The fingers do their best work when they already know what is coming. - Eleanor Hayes, editor",
+    "knopych": "Words joined into sentences. That is the whole trade in miniature. Keep the line moving. - Eleanor Hayes, editor",
+    "klavochka": "You are putting words together into something whole. That is writing, plainly. Stay with the rhythm. - Eleanor Hayes, editor"
   },
   "phase": 1,
   "rhythmLesson": false,

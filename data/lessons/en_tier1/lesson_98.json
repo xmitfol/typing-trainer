@@ -28,11 +28,11 @@
   "tips": [
     {
       "type": "lead",
-      "text": "Last lesson before the comprehensive final"
+      "text": "The last page before the final. Think of it as the warmup, not the test."
     },
     {
       "type": "drop",
-      "text": "Pass at 102 WPM = ready for L99 (105 WPM, 400+ chars)"
+      "text": "Hold 102 a minute here and you're set for lesson 99: longer, denser, 105 a minute."
     },
     {
       "type": "exercise",
@@ -42,7 +42,7 @@
     },
     {
       "type": "p",
-      "text": "Hands on home row, breathe, press play"
+      "text": "Hands on the home row, a slow breath, and begin. Calm hands type clean."
     },
     {
       "type": "exercise",
@@ -52,10 +52,10 @@
     }
   ],
   "character_tips": {
-    "anna": "One lesson to go. This is the warmup — make sure your hands are calm.",
-    "maxim": "Final exam tomorrow. Tonight: warmup. Hands ready.",
-    "knopych": "FINAL BOSS APPROACHING! ⚔️ Prepare!",
-    "klavochka": "One step to victory, my hero! Be calm and brave 🌟"
+    "anna": "One page to go. This is the warmup; settle your hands before the real thing.",
+    "maxim": "The final is next. This is how you loosen up for it. Hands easy, eyes ahead.",
+    "knopych": "The last test is close. This is the warmup that makes it feel routine.",
+    "klavochka": "One step from the finish. Stay calm, stay steady; you've nothing left to prove but this."
   },
   "phase": 7,
   "rhythmLesson": false,

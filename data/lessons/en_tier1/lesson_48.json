@@ -15,38 +15,38 @@
     "Space"
   ],
   "new_keys": [],
-  "finger_focus": "Full alphabet — bigger word units",
+  "finger_focus": "Full alphabet - bigger word units",
   "tips": [
     {
       "type": "lead",
-      "text": "4-letter words appear in every English sentence"
+      "text": "These short words carry every sentence you will ever write. Get them clean and the rest follows."
     },
     {
       "type": "drop",
-      "text": "Watch for 'th' bigrams — they should be one motion"
+      "text": "Treat 'th' as one move, not two. Your hands already know the shape; let them."
     },
     {
       "type": "exercise",
       "target": "that with this have from they been more them what some when than time",
       "finger": "purple",
-      "hint": "Full alphabet — bigger word units"
+      "hint": "Full alphabet - bigger word units"
     },
     {
       "type": "p",
-      "text": "Type ahead — read 1-2 words past your cursor"
+      "text": "Read a word or two ahead of your cursor. A good copy editor never types blind; the eyes lead, the hands keep up."
     },
     {
       "type": "exercise",
       "target": "only know also will many like into back over make most well take year",
       "finger": "purple",
-      "hint": "Full alphabet — bigger word units"
+      "hint": "Full alphabet - bigger word units"
     }
   ],
   "character_tips": {
-    "anna": "Reading ahead is the secret of fast typists. Train your eyes to scan forward.",
-    "maxim": "These words are the skeleton of any sentence. Drill them mercilessly.",
-    "knopych": "Four letters, four taps — TAP-TAP-TAP-TAP! ⚡",
-    "klavochka": "Like waves rolling, my sunshine 🌊"
+    "anna": "Reading ahead is the whole trick. Teach your eyes to scan forward and the speed comes on its own. - Eleanor Hayes, editor",
+    "maxim": "These are the load-bearing words. Drill them until they cost you nothing. - Eleanor Hayes, editor",
+    "knopych": "Four letters, four quiet taps, even rhythm. No flourish. - Eleanor Hayes, editor",
+    "klavochka": "Let them roll one into the next, steady as a tide. - Eleanor Hayes, editor"
   },
   "phase": 4,
   "rhythmLesson": false,

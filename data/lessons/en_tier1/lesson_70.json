@@ -23,11 +23,11 @@
   "tips": [
     {
       "type": "lead",
-      "text": "70 WPM = top 15% of typists globally"
+      "text": "Seventy lessons. Count them. That is steady work, and it shows in your hands."
     },
     {
       "type": "drop",
-      "text": "If you pass this gate, you're objectively fast"
+      "text": "Hold seventy words a minute here and you have earned the word fast. No flattery in it - just the figure."
     },
     {
       "type": "exercise",
@@ -37,7 +37,7 @@
     },
     {
       "type": "p",
-      "text": "Last 30 lessons take you to 95-100 WPM if you stay consistent"
+      "text": "Thirty lessons left. Keep showing up and they will take you well past this. Consistency does the work, not heroics."
     },
     {
       "type": "exercise",
@@ -47,10 +47,10 @@
     }
   ],
   "character_tips": {
-    "anna": "🎯 70 WPM gate. If you pass here, you're officially fast. Top 15% of all typists.",
-    "maxim": "70 WPM is the professional threshold. Many writers never get past 60.",
-    "knopych": "70 WPM BOSS DEFEATED! 🏆 PRO LEVEL UNLOCKED!",
-    "klavochka": "My champion! ⭐⭐⭐ You're flying now!"
+    "anna": "Seventy words a minute, sustained. That is the mark of someone who can be handed real work. Take the moment, then carry on. - Eleanor Hayes, editor",
+    "maxim": "Seventy is where typing stops being a chore and starts being a tool. Plenty of able writers never reach it. You have. - Eleanor Hayes, editor",
+    "knopych": "Don't celebrate the number. Notice the calm in your hands - that is what you actually built. - Eleanor Hayes, editor",
+    "klavochka": "Good. Quietly, properly good. Now keep the rhythm even and let the speed look after itself. - Eleanor Hayes, editor"
   },
   "phase": 5,
   "rhythmLesson": false,

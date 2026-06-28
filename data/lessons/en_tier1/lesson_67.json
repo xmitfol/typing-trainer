@@ -22,11 +22,11 @@
   "tips": [
     {
       "type": "lead",
-      "text": "Long sentences = real legal/academic/business writing"
+      "text": "Long sentences are the stuff of contracts, reports, and scholarship. A reader trusts you to hold the thread; so must your hands."
     },
     {
       "type": "drop",
-      "text": "Subclauses (', which ...') need extra rhythm awareness"
+      "text": "A clause set off by 'which' is a side road. Mind the rhythm there so you rejoin the main sentence without losing the thought."
     },
     {
       "type": "exercise",
@@ -36,7 +36,7 @@
     },
     {
       "type": "p",
-      "text": "Don't rush the comma — but don't pause either"
+      "text": "Don't snatch at the comma, and don't stop for it. Let it pass under your hands at the same even speed as the rest."
     },
     {
       "type": "exercise",
@@ -46,10 +46,10 @@
     }
   ],
   "character_tips": {
-    "anna": "Long sentences test sustained focus. Don't lose steam halfway through.",
-    "maxim": "Legal and academic writing lives here. Master this length.",
-    "knopych": "ENDURANCE MODE! 🏃 Marathon sentence!",
-    "klavochka": "Like a long melody, my dear — sustained and steady 🎶"
+    "anna": "A long sentence tests whether you can hold your focus to the end. Don't fade at the midpoint; carry it through. - Eleanor Hayes, editor",
+    "maxim": "Legal and academic writing lives at this length. Learn to sustain it and little will daunt you. - Eleanor Hayes, editor",
+    "knopych": "This one runs on. Pace yourself like a long shift, even and unhurried, and you will reach the full stop with something left. - Eleanor Hayes, editor",
+    "klavochka": "Think of it as a long phrase of music, held steady from first note to last. - Eleanor Hayes, editor"
   },
   "phase": 5,
   "rhythmLesson": false,

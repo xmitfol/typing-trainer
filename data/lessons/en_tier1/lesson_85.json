@@ -22,11 +22,11 @@
   "tips": [
     {
       "type": "lead",
-      "text": "15 lessons left = final stretch"
+      "text": "Eighty-five down, fifteen to go. This is the part of the run where you stop adding and start hardening."
     },
     {
       "type": "drop",
-      "text": "85 WPM = professional writer / programmer speed"
+      "text": "Eighty-five words a minute is working speed for a writer or a programmer. You are no longer learning to type; you are typing."
     },
     {
       "type": "exercise",
@@ -36,7 +36,7 @@
     },
     {
       "type": "p",
-      "text": "The remaining lessons make this speed AUTOMATIC, not effortful"
+      "text": "The lessons that remain do one job: turn earned speed into automatic speed, the kind that holds up on a tired Monday."
     },
     {
       "type": "exercise",
@@ -46,10 +46,10 @@
     }
   ],
   "character_tips": {
-    "anna": "🎯 85 WPM. Fifteen to go. The work now is to make this speed feel effortless.",
-    "maxim": "Pro speed. The final lessons turn it from earned into automatic.",
-    "knopych": "85! FINAL STRETCH! 🏁 Sprint to victory!",
-    "klavochka": "So close to legend, my star ⭐⭐⭐"
+    "anna": "Eighty-five, with fifteen to go. The job now is to make this speed feel like nothing at all.",
+    "maxim": "This is professional speed. The work left is repetition, not revelation. Keep showing up.",
+    "knopych": "The finish line is in view. Hold your rhythm and let it carry you in.",
+    "klavochka": "You have nearly doubled what you started with. Steady the last stretch and it is yours. - Eleanor Hayes, editor"
   },
   "phase": 6,
   "rhythmLesson": false,

@@ -19,34 +19,34 @@
   "tips": [
     {
       "type": "lead",
-      "text": "These 10 words make up ~25% of all English text"
+      "text": "These ten words carry roughly a quarter of all English. Make them reflex and you've bought back time everywhere."
     },
     {
       "type": "drop",
-      "text": "Don't think — let muscle memory drive"
+      "text": "Don't think your way through these. Let the hands run; the thought only slows them down here."
     },
     {
       "type": "exercise",
       "target": "the and you are for not but his she him her our you they the",
       "finger": "purple",
-      "hint": "Full alphabet — speed over thought"
+      "hint": "Full alphabet - speed over thought"
     },
     {
       "type": "p",
-      "text": "If you slow to look at keys, restart the lesson"
+      "text": "The moment you glance down at the keys, you've lost the line. Start it again from the top."
     },
     {
       "type": "exercise",
       "target": "and you are for not but his she him her our you they the and you",
       "finger": "purple",
-      "hint": "Full alphabet — speed over thought"
+      "hint": "Full alphabet - speed over thought"
     }
   ],
   "character_tips": {
-    "anna": "Welcome to Block 4! Speed is muscle memory + confidence. Both grow here.",
-    "maxim": "Top words by frequency. Master these and you handle any English text faster.",
-    "knopych": "SPEED MODE! 🚀 Don't think — just FLY!",
-    "klavochka": "Light fingers, like butterflies! 🦋 Trust your hands."
+    "anna": "Block 4 begins. Speed is memory and nerve together; both grow from here on.",
+    "maxim": "The commonest words there are. Own these and every page goes faster.",
+    "knopych": "Speed work. Stop thinking and let the hands go.",
+    "klavochka": "A light touch now, and trust in the hands. They know the way."
   },
   "phase": 4,
   "rhythmLesson": false,

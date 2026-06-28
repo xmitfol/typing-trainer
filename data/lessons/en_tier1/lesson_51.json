@@ -19,11 +19,11 @@
   "tips": [
     {
       "type": "lead",
-      "text": "'th', 'in', 'er', 'an', 're' = ~20% of all bigrams in English"
+      "text": "These five pairs make up roughly a fifth of every word pairing in English. Worth getting right."
     },
     {
       "type": "drop",
-      "text": "Type each pair as ONE motion, not two separate keys"
+      "text": "Type each pair as a single move, not two separate keys. Smooth the joins and the clutter falls away."
     },
     {
       "type": "exercise",
@@ -33,7 +33,7 @@
     },
     {
       "type": "p",
-      "text": "If your fingers fight a bigram, isolate and drill it 10 times"
+      "text": "If one pair fights you, pull it out and run it a dozen times alone. Fix the snag before it becomes a habit."
     },
     {
       "type": "exercise",
@@ -43,10 +43,10 @@
     }
   ],
   "character_tips": {
-    "anna": "Bigrams are the building blocks of speed. Make each pair feel like one keystroke.",
-    "maxim": "Pros don't think in letters — they think in pairs and clusters.",
-    "knopych": "Combo moves! 🥋 Two keys, ONE motion!",
-    "klavochka": "Like couples dancing, my dear 💑 In step together!"
+    "anna": "Pairs are the bricks of speed. Make each one feel like a single keystroke. - Eleanor Hayes, editor",
+    "maxim": "A practiced typist stops thinking in letters and starts thinking in pairs. - Eleanor Hayes, editor",
+    "knopych": "Two keys, one move. Quiet and clean, no theatrics. - Eleanor Hayes, editor",
+    "klavochka": "Two letters stepping together, never apart. - Eleanor Hayes, editor"
   },
   "phase": 4,
   "rhythmLesson": false,

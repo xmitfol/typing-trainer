@@ -25,11 +25,11 @@
   "tips": [
     {
       "type": "lead",
-      "text": "Marketing copy has a quick, punchy beat — match it with your fingers"
+      "text": "Marketing copy has a quick beat. Short lines, sharp claims. Let your fingers keep time with the prose."
     },
     {
       "type": "drop",
-      "text": "Short emphatic sentences sit between long ones — feel the contrast"
+      "text": "A clipped sentence drops in between the long ones. Feel that contrast in your hands and the rhythm reads as confidence."
     },
     {
       "type": "exercise",
@@ -39,7 +39,7 @@
     },
     {
       "type": "p",
-      "text": "Imagine + dash + benefit = classic marketing rhythm pattern"
+      "text": "Set up the picture, then deliver the payoff. That call-and-answer pattern is the oldest trick in good copy, and it types in one smooth motion."
     },
     {
       "type": "exercise",
@@ -49,10 +49,10 @@
     }
   ],
   "character_tips": {
-    "anna": "Marketing copy is short, rhythmic, persuasive. Type it like a pitch.",
-    "maxim": "Marketers are the fastest typists you'll meet outside of pro stenographers.",
-    "knopych": "AD ATTACK! 📣 Punchy and bold!",
-    "klavochka": "Inspiring others with words, my treasure — beautiful work ✨"
+    "anna": "Marketing copy is short, rhythmic, and meant to persuade. Type it like you mean it.",
+    "maxim": "Good copy earns its speed from clarity. Cut the clutter so the one point that matters survives.",
+    "knopych": "Punchy and bold. Keep the beat quick and the claims will land.",
+    "klavochka": "Words that move people deserve a clean, confident hand. This is fine work. - Eleanor Hayes, editor"
   },
   "phase": 6,
   "rhythmLesson": false,

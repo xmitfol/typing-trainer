@@ -25,11 +25,11 @@
   "tips": [
     {
       "type": "lead",
-      "text": "Quotes appear in 80% of fiction and chat-style writing"
+      "text": "Quotation marks run through fiction, interviews, and half the messages you send. They are worth getting right."
     },
     {
       "type": "drop",
-      "text": "Type the closing quote without thinking — muscle memory"
+      "text": "Open a quote and your hands should already know to close it. Let that pairing become reflex, not a decision."
     },
     {
       "type": "exercise",
@@ -39,7 +39,7 @@
     },
     {
       "type": "p",
-      "text": "Dialogue tags (\"he said\", \"she asked\") should flow without pause"
+      "text": "The little tags, he said and she asked, are the quiet hinges of a scene. Type them without a pause and the conversation keeps its pace."
     },
     {
       "type": "exercise",
@@ -49,10 +49,10 @@
     }
   ],
   "character_tips": {
-    "anna": "Dialogue is the hardest punctuation pattern. Master it = master writing.",
-    "maxim": "Half of business writing is quotes and dialogue. Drill them mercilessly.",
-    "knopych": "TWO PEOPLE TALKING! 💬 Type fast, switch fast!",
-    "klavochka": "A conversation on paper, my treasure 💌"
+    "anna": "Dialogue is the trickiest punctuation there is. Master it and the rest of writing feels easy. - Eleanor Hayes, editor",
+    "maxim": "A good deal of business writing is one person quoting another. Drill these marks until they are automatic. - Eleanor Hayes, editor",
+    "knopych": "Two voices, back and forth. The marks keep them apart, so set them down cleanly and stay in step. - Eleanor Hayes, editor",
+    "klavochka": "A conversation set on the page. Get the quotes right and the reader hears every word. - Eleanor Hayes, editor"
   },
   "phase": 5,
   "rhythmLesson": false,
