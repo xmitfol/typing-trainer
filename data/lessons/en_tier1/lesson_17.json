@@ -9,7 +9,92 @@
   "error_limit_percent": 6,
   "error_limit": 5,
   "text": "really! is that true? yes! when did you know? right now! how amazing! are you sure?",
-  "text_sequence": [],
+  "text_sequence": [
+    {"char": "r", "hand": "left", "finger": "index", "key": "R"},
+    {"char": "e", "hand": "left", "finger": "middle", "key": "E"},
+    {"char": "a", "hand": "left", "finger": "pinky", "key": "A"},
+    {"char": "l", "hand": "right", "finger": "ring", "key": "L"},
+    {"char": "l", "hand": "right", "finger": "ring", "key": "L"},
+    {"char": "y", "hand": "right", "finger": "index", "key": "Y"},
+    {"char": "!", "hand": "right", "finger": "index", "key": "!"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "i", "hand": "right", "finger": "middle", "key": "I"},
+    {"char": "s", "hand": "left", "finger": "ring", "key": "S"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "t", "hand": "left", "finger": "index", "key": "T"},
+    {"char": "h", "hand": "right", "finger": "index", "key": "H"},
+    {"char": "a", "hand": "left", "finger": "pinky", "key": "A"},
+    {"char": "t", "hand": "left", "finger": "index", "key": "T"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "t", "hand": "left", "finger": "index", "key": "T"},
+    {"char": "r", "hand": "left", "finger": "index", "key": "R"},
+    {"char": "u", "hand": "right", "finger": "index", "key": "U"},
+    {"char": "e", "hand": "left", "finger": "middle", "key": "E"},
+    {"char": "?", "hand": "right", "finger": "index", "key": "?"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "y", "hand": "right", "finger": "index", "key": "Y"},
+    {"char": "e", "hand": "left", "finger": "middle", "key": "E"},
+    {"char": "s", "hand": "left", "finger": "ring", "key": "S"},
+    {"char": "!", "hand": "right", "finger": "index", "key": "!"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "w", "hand": "left", "finger": "ring", "key": "W"},
+    {"char": "h", "hand": "right", "finger": "index", "key": "H"},
+    {"char": "e", "hand": "left", "finger": "middle", "key": "E"},
+    {"char": "n", "hand": "right", "finger": "index", "key": "N"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "d", "hand": "left", "finger": "middle", "key": "D"},
+    {"char": "i", "hand": "right", "finger": "middle", "key": "I"},
+    {"char": "d", "hand": "left", "finger": "middle", "key": "D"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "y", "hand": "right", "finger": "index", "key": "Y"},
+    {"char": "o", "hand": "right", "finger": "ring", "key": "O"},
+    {"char": "u", "hand": "right", "finger": "index", "key": "U"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "k", "hand": "right", "finger": "middle", "key": "K"},
+    {"char": "n", "hand": "right", "finger": "index", "key": "N"},
+    {"char": "o", "hand": "right", "finger": "ring", "key": "O"},
+    {"char": "w", "hand": "left", "finger": "ring", "key": "W"},
+    {"char": "?", "hand": "right", "finger": "index", "key": "?"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "r", "hand": "left", "finger": "index", "key": "R"},
+    {"char": "i", "hand": "right", "finger": "middle", "key": "I"},
+    {"char": "g", "hand": "left", "finger": "index", "key": "G"},
+    {"char": "h", "hand": "right", "finger": "index", "key": "H"},
+    {"char": "t", "hand": "left", "finger": "index", "key": "T"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "n", "hand": "right", "finger": "index", "key": "N"},
+    {"char": "o", "hand": "right", "finger": "ring", "key": "O"},
+    {"char": "w", "hand": "left", "finger": "ring", "key": "W"},
+    {"char": "!", "hand": "right", "finger": "index", "key": "!"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "h", "hand": "right", "finger": "index", "key": "H"},
+    {"char": "o", "hand": "right", "finger": "ring", "key": "O"},
+    {"char": "w", "hand": "left", "finger": "ring", "key": "W"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "a", "hand": "left", "finger": "pinky", "key": "A"},
+    {"char": "m", "hand": "right", "finger": "index", "key": "M"},
+    {"char": "a", "hand": "left", "finger": "pinky", "key": "A"},
+    {"char": "z", "hand": "left", "finger": "pinky", "key": "Z"},
+    {"char": "i", "hand": "right", "finger": "middle", "key": "I"},
+    {"char": "n", "hand": "right", "finger": "index", "key": "N"},
+    {"char": "g", "hand": "left", "finger": "index", "key": "G"},
+    {"char": "!", "hand": "right", "finger": "index", "key": "!"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "a", "hand": "left", "finger": "pinky", "key": "A"},
+    {"char": "r", "hand": "left", "finger": "index", "key": "R"},
+    {"char": "e", "hand": "left", "finger": "middle", "key": "E"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "y", "hand": "right", "finger": "index", "key": "Y"},
+    {"char": "o", "hand": "right", "finger": "ring", "key": "O"},
+    {"char": "u", "hand": "right", "finger": "index", "key": "U"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "s", "hand": "left", "finger": "ring", "key": "S"},
+    {"char": "u", "hand": "right", "finger": "index", "key": "U"},
+    {"char": "r", "hand": "left", "finger": "index", "key": "R"},
+    {"char": "e", "hand": "left", "finger": "middle", "key": "E"},
+    {"char": "?", "hand": "right", "finger": "index", "key": "?"}
+  ],
+  "guided": true,
   "keys_trained": [
     "A",
     "B",
@@ -51,27 +136,54 @@
   "tips": [
     {
       "type": "lead",
-      "text": "! is Shift + 1 — hold Shift with right pinky, hit 1 with left pinky"
+      "text": "The period and comma keep order. Now for the marks that carry tone - the exclamation point and the question mark. One raises the voice, the other turns the sentence over to the reader. Both ride a Shift, so this lesson is as much about the two-finger combo as the marks themselves."
     },
     {
       "type": "drop",
-      "text": "? is Shift + / — hold Shift with left pinky, hit / with right pinky"
+      "text": "The exclamation point is Shift + 1: hold Shift with your right pinky, strike 1 with your left pinky. The question mark is Shift + / : hold Shift with your left pinky, strike / (next to the right Shift) with your right pinky. The rule is simple - the Shift comes from the hand opposite the key."
     },
     {
-      "type": "exercise",
-      "target": "really! is that true? yes! when did you",
-      "finger": "blue",
-      "hint": "Shift + 1 = !, Shift + / = ?"
+      "type": "callout",
+      "icon": "⌨️",
+      "title": "Hold Shift, don't stab it",
+      "text": "Press Shift a beat early and keep it down while the other finger taps. A smooth hold beats a quick jab every time - jabbing is how you end up with a stray 1 or a lone slash in your copy."
+    },
+    {
+      "type": "step",
+      "kind": "drill",
+      "target": "! ! ! ! ! ! ! ! ! ! ! ! ! ! !",
+      "finger": "pink",
+      "title": "The exclamation point",
+      "hint": "Right pinky holds Shift, left pinky taps 1. Hold, tap, release."
+    },
+    {
+      "type": "step",
+      "kind": "drill",
+      "target": "? ? ? ? ? ? ? ? ? ? ? ? ? ? ?",
+      "finger": "pink",
+      "title": "The question mark",
+      "hint": "Left pinky holds Shift, right pinky taps the slash. Smooth, not sharp."
     },
     {
       "type": "p",
-      "text": "Practice: hold Shift smoothly, don't stab"
+      "text": "Both marks in hand. Now use them where they belong - a question asks, an exclamation insists. Read each sentence, decide which mark closes it, and type it through. Space follows the mark, same as before."
     },
     {
-      "type": "exercise",
-      "target": "know? right now! how amazing! are you sure?",
+      "type": "pullquote",
+      "text": "An exclamation point is salt: a little sharpens the line, too much spoils the dish.",
+      "by": "Eleanor Hayes, editor"
+    },
+    {
+      "type": "step",
+      "kind": "drill",
+      "target": "really! is that true? yes! when did you know? right now! how amazing! are you sure?",
       "finger": "green",
-      "hint": "Shift + 1 = !, Shift + / = ?"
+      "title": "Tone in sentences",
+      "hint": "Pick the right mark for each line. Hold Shift smoothly, one space after."
+    },
+    {
+      "type": "p",
+      "text": "Steps done? Open the trainer below and take one clean run at the full lesson text. That run saves your progress and unlocks the next lesson."
     }
   ],
   "character_tips": {
@@ -83,5 +195,5 @@
   "phase": 2,
   "rhythmLesson": false,
   "created_at": "2026-05-25",
-  "version": "1.0"
+  "version": "4.0"
 }
