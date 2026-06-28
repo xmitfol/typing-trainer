@@ -5,11 +5,29 @@
   "title": "Rhythm: high-frequency words paragraph",
   "description": "Rhythm exercise — high-frequency words flowing as natural prose",
   "target_wpm": 45,
-  "text_length": 170,
+  "text_length": 17,
   "error_limit_percent": 8,
   "error_limit": 14,
-  "text": "the way we work today is different from the way we worked ten years ago, and the way we will work next year is also going to change with the times.",
-  "text_sequence": [],
+  "text": "work years change",
+  "text_sequence": [
+    {"char": "w", "hand": "left", "finger": "ring", "key": "W"},
+    {"char": "o", "hand": "right", "finger": "ring", "key": "O"},
+    {"char": "r", "hand": "left", "finger": "index", "key": "R"},
+    {"char": "k", "hand": "right", "finger": "middle", "key": "K"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "y", "hand": "right", "finger": "index", "key": "Y"},
+    {"char": "e", "hand": "left", "finger": "middle", "key": "E"},
+    {"char": "a", "hand": "left", "finger": "pinky", "key": "A"},
+    {"char": "r", "hand": "left", "finger": "index", "key": "R"},
+    {"char": "s", "hand": "left", "finger": "ring", "key": "S"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "c", "hand": "left", "finger": "middle", "key": "C"},
+    {"char": "h", "hand": "right", "finger": "index", "key": "H"},
+    {"char": "a", "hand": "left", "finger": "pinky", "key": "A"},
+    {"char": "n", "hand": "right", "finger": "index", "key": "N"},
+    {"char": "g", "hand": "left", "finger": "index", "key": "G"},
+    {"char": "e", "hand": "left", "finger": "middle", "key": "E"}
+  ],
   "keys_trained": [
     "all letters",
     "Space",
@@ -21,27 +39,48 @@
   "tips": [
     {
       "type": "lead",
-      "text": "Read the sentence first, then type it as one continuous flow"
+      "text": "No new keys on this page. We settle into a tempo and let plain words flow, the way good prose does on a quiet morning."
     },
     {
       "type": "drop",
-      "text": "Enable metronome at 45 BPM — match your rhythm to it"
+      "text": "Keep your fingers home and your eyes forward. Repeat each word at one even pace, no rushing, no stalling. The rhythm is the lesson."
     },
     {
-      "type": "exercise",
-      "target": "the way we work today is different from the way we worked ten years ago,",
-      "finger": "purple",
-      "hint": "Flow — natural prose tempo"
+      "type": "callout",
+      "title": "Find the flow",
+      "text": "Hold a steady beat between keystrokes, like a tune you can keep without thinking. Even and calm beats fast and broken. Even keystrokes read like clean copy."
+    },
+    {
+      "type": "step",
+      "kind": "drill",
+      "target": "work work work work work",
+      "finger": "orange",
+      "title": "Rhythm: work",
+      "hint": "Repeat at one even pace: work work work. Hold the same beat from first key to last."
+    },
+    {
+      "type": "step",
+      "kind": "drill",
+      "target": "years years years years",
+      "finger": "blue",
+      "title": "Rhythm: years",
+      "hint": "Repeat at one even pace: years years years. Hold the same beat from first key to last."
+    },
+    {
+      "type": "step",
+      "kind": "drill",
+      "target": "change change change change",
+      "finger": "green",
+      "title": "Rhythm: change",
+      "hint": "Repeat at one even pace: change change change. Hold the same beat from first key to last."
     },
     {
       "type": "p",
-      "text": "Don't pause at commas — they're rhythm beats, not stops"
+      "text": "Prose has a rhythm of its own, and your hands can learn to ride it. Find the even pace here and a full page stops feeling like work and starts to read like flow."
     },
     {
-      "type": "exercise",
-      "target": "and the way we will work next year is also going to change with the times.",
-      "finger": "purple",
-      "hint": "Flow — natural prose tempo"
+      "type": "p",
+      "text": "Worked through every step? Open the trainer below and make one full run on the lesson text. That run saves your progress and unlocks the next lesson."
     }
   ],
   "character_tips": {
@@ -53,5 +92,6 @@
   "phase": 4,
   "rhythmLesson": true,
   "created_at": "2026-05-25",
-  "version": "1.0"
+  "version": "4.0",
+  "guided": true
 }

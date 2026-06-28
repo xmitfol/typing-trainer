@@ -5,11 +5,36 @@
   "title": "Rhythm: news headline practice",
   "description": "Mixed-case prose with proper punctuation — like reading headlines",
   "target_wpm": 32,
-  "text_length": 160,
+  "text_length": 24,
   "error_limit_percent": 10,
   "error_limit": 15,
-  "text": "Breaking: SpaceX Launches Starship at 12:30 PM. Markets React: Apple Up 3%, Tesla Down 2%. Meanwhile, Scientists Discover New Planet — \"Truly Remarkable!\"",
-  "text_sequence": [],
+  "text": "launches starship planet",
+  "text_sequence": [
+    {"char": "l", "hand": "right", "finger": "ring", "key": "L"},
+    {"char": "a", "hand": "left", "finger": "pinky", "key": "A"},
+    {"char": "u", "hand": "right", "finger": "index", "key": "U"},
+    {"char": "n", "hand": "right", "finger": "index", "key": "N"},
+    {"char": "c", "hand": "left", "finger": "middle", "key": "C"},
+    {"char": "h", "hand": "right", "finger": "index", "key": "H"},
+    {"char": "e", "hand": "left", "finger": "middle", "key": "E"},
+    {"char": "s", "hand": "left", "finger": "ring", "key": "S"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "s", "hand": "left", "finger": "ring", "key": "S"},
+    {"char": "t", "hand": "left", "finger": "index", "key": "T"},
+    {"char": "a", "hand": "left", "finger": "pinky", "key": "A"},
+    {"char": "r", "hand": "left", "finger": "index", "key": "R"},
+    {"char": "s", "hand": "left", "finger": "ring", "key": "S"},
+    {"char": "h", "hand": "right", "finger": "index", "key": "H"},
+    {"char": "i", "hand": "right", "finger": "middle", "key": "I"},
+    {"char": "p", "hand": "right", "finger": "pinky", "key": "P"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "p", "hand": "right", "finger": "pinky", "key": "P"},
+    {"char": "l", "hand": "right", "finger": "ring", "key": "L"},
+    {"char": "a", "hand": "left", "finger": "pinky", "key": "A"},
+    {"char": "n", "hand": "right", "finger": "index", "key": "N"},
+    {"char": "e", "hand": "left", "finger": "middle", "key": "E"},
+    {"char": "t", "hand": "left", "finger": "index", "key": "T"}
+  ],
   "keys_trained": [
     "A-Z",
     "0-9",
@@ -21,27 +46,48 @@
   "tips": [
     {
       "type": "lead",
-      "text": "Title Case: First Letter Of Each Word Capitalized"
+      "text": "No new keys. We work the rhythm on plain words, the kind a headline is built from, before the capitals and figures arrive."
     },
     {
       "type": "drop",
-      "text": "Real news patterns — % symbols, times, em dashes"
+      "text": "Keep your hands home and your eyes on the screen. Type each word at one even pace, the same throughout. Regularity carries a long line further than speed."
     },
     {
-      "type": "exercise",
-      "target": "Breaking: SpaceX Launches Starship at 12:30 PM. Markets React: Apple Up",
-      "finger": "blue",
-      "hint": "News-style rhythm"
+      "type": "callout",
+      "title": "A measured pace",
+      "text": "Keep the same quiet beat between keys and hold it steady. Even and slow outlasts quick and uneven. Even keystrokes read like clean copy."
+    },
+    {
+      "type": "step",
+      "kind": "drill",
+      "target": "launches launches launches",
+      "finger": "orange",
+      "title": "Rhythm: launches",
+      "hint": "Repeat at one even pace: launches launches launches. Hold the same beat from first key to last."
+    },
+    {
+      "type": "step",
+      "kind": "drill",
+      "target": "starship starship starship",
+      "finger": "orange",
+      "title": "Rhythm: starship",
+      "hint": "Repeat at one even pace: starship starship starship. Hold the same beat from first key to last."
+    },
+    {
+      "type": "step",
+      "kind": "drill",
+      "target": "planet planet planet planet",
+      "finger": "pink",
+      "title": "Rhythm: planet",
+      "hint": "Repeat at one even pace: planet planet planet. Hold the same beat from first key to last."
     },
     {
       "type": "p",
-      "text": "Steady tempo for long mixed text"
+      "text": "A clean headline reads as if it cost no effort. That ease comes from an even hand, built here, on plain words, one steady keystroke at a time."
     },
     {
-      "type": "exercise",
-      "target": "3%, Tesla Down 2%. Meanwhile, Scientists Discover New Planet — \"Truly Remarkable!\"",
-      "finger": "green",
-      "hint": "News-style rhythm"
+      "type": "p",
+      "text": "Worked through every step? Open the trainer below and make one full run on the lesson text. That run saves your progress and unlocks the next lesson."
     }
   ],
   "character_tips": {
@@ -53,5 +99,6 @@
   "phase": 3,
   "rhythmLesson": true,
   "created_at": "2026-05-25",
-  "version": "1.0"
+  "version": "4.0",
+  "guided": true
 }

@@ -10,451 +10,78 @@
   "error_limit": 3,
   "text": "ei ie field grief skied jade shield heel deal slide guide gear like dike",
   "text_sequence": [
-    {
-      "char": "e",
-      "hand": "left",
-      "finger": "middle",
-      "key": "E"
-    },
-    {
-      "char": "i",
-      "hand": "right",
-      "finger": "middle",
-      "key": "I"
-    },
-    {
-      "char": " ",
-      "hand": "right",
-      "finger": "thumb",
-      "key": "Space",
-      "space_side": "right"
-    },
-    {
-      "char": "i",
-      "hand": "right",
-      "finger": "middle",
-      "key": "I"
-    },
-    {
-      "char": "e",
-      "hand": "left",
-      "finger": "middle",
-      "key": "E"
-    },
-    {
-      "char": " ",
-      "hand": "left",
-      "finger": "thumb",
-      "key": "Space",
-      "space_side": "left"
-    },
-    {
-      "char": "f",
-      "hand": "left",
-      "finger": "index",
-      "key": "F"
-    },
-    {
-      "char": "i",
-      "hand": "right",
-      "finger": "middle",
-      "key": "I"
-    },
-    {
-      "char": "e",
-      "hand": "left",
-      "finger": "middle",
-      "key": "E"
-    },
-    {
-      "char": "l",
-      "hand": "right",
-      "finger": "ring",
-      "key": "L"
-    },
-    {
-      "char": "d",
-      "hand": "left",
-      "finger": "middle",
-      "key": "D"
-    },
-    {
-      "char": " ",
-      "hand": "right",
-      "finger": "thumb",
-      "key": "Space",
-      "space_side": "right"
-    },
-    {
-      "char": "g",
-      "hand": "left",
-      "finger": "index",
-      "key": "G"
-    },
-    {
-      "char": "r",
-      "hand": "left",
-      "finger": "index",
-      "key": "R"
-    },
-    {
-      "char": "i",
-      "hand": "right",
-      "finger": "middle",
-      "key": "I"
-    },
-    {
-      "char": "e",
-      "hand": "left",
-      "finger": "middle",
-      "key": "E"
-    },
-    {
-      "char": "f",
-      "hand": "left",
-      "finger": "index",
-      "key": "F"
-    },
-    {
-      "char": " ",
-      "hand": "left",
-      "finger": "thumb",
-      "key": "Space",
-      "space_side": "left"
-    },
-    {
-      "char": "s",
-      "hand": "left",
-      "finger": "ring",
-      "key": "S"
-    },
-    {
-      "char": "k",
-      "hand": "right",
-      "finger": "middle",
-      "key": "K"
-    },
-    {
-      "char": "i",
-      "hand": "right",
-      "finger": "middle",
-      "key": "I"
-    },
-    {
-      "char": "e",
-      "hand": "left",
-      "finger": "middle",
-      "key": "E"
-    },
-    {
-      "char": "d",
-      "hand": "left",
-      "finger": "middle",
-      "key": "D"
-    },
-    {
-      "char": " ",
-      "hand": "right",
-      "finger": "thumb",
-      "key": "Space",
-      "space_side": "right"
-    },
-    {
-      "char": "j",
-      "hand": "right",
-      "finger": "index",
-      "key": "J"
-    },
-    {
-      "char": "a",
-      "hand": "left",
-      "finger": "pinky",
-      "key": "A"
-    },
-    {
-      "char": "d",
-      "hand": "left",
-      "finger": "middle",
-      "key": "D"
-    },
-    {
-      "char": "e",
-      "hand": "left",
-      "finger": "middle",
-      "key": "E"
-    },
-    {
-      "char": " ",
-      "hand": "left",
-      "finger": "thumb",
-      "key": "Space",
-      "space_side": "left"
-    },
-    {
-      "char": "s",
-      "hand": "left",
-      "finger": "ring",
-      "key": "S"
-    },
-    {
-      "char": "h",
-      "hand": "right",
-      "finger": "index",
-      "key": "H"
-    },
-    {
-      "char": "i",
-      "hand": "right",
-      "finger": "middle",
-      "key": "I"
-    },
-    {
-      "char": "e",
-      "hand": "left",
-      "finger": "middle",
-      "key": "E"
-    },
-    {
-      "char": "l",
-      "hand": "right",
-      "finger": "ring",
-      "key": "L"
-    },
-    {
-      "char": "d",
-      "hand": "left",
-      "finger": "middle",
-      "key": "D"
-    },
-    {
-      "char": " ",
-      "hand": "right",
-      "finger": "thumb",
-      "key": "Space",
-      "space_side": "right"
-    },
-    {
-      "char": "h",
-      "hand": "right",
-      "finger": "index",
-      "key": "H"
-    },
-    {
-      "char": "e",
-      "hand": "left",
-      "finger": "middle",
-      "key": "E"
-    },
-    {
-      "char": "e",
-      "hand": "left",
-      "finger": "middle",
-      "key": "E"
-    },
-    {
-      "char": "l",
-      "hand": "right",
-      "finger": "ring",
-      "key": "L"
-    },
-    {
-      "char": " ",
-      "hand": "left",
-      "finger": "thumb",
-      "key": "Space",
-      "space_side": "left"
-    },
-    {
-      "char": "d",
-      "hand": "left",
-      "finger": "middle",
-      "key": "D"
-    },
-    {
-      "char": "e",
-      "hand": "left",
-      "finger": "middle",
-      "key": "E"
-    },
-    {
-      "char": "a",
-      "hand": "left",
-      "finger": "pinky",
-      "key": "A"
-    },
-    {
-      "char": "l",
-      "hand": "right",
-      "finger": "ring",
-      "key": "L"
-    },
-    {
-      "char": " ",
-      "hand": "right",
-      "finger": "thumb",
-      "key": "Space",
-      "space_side": "right"
-    },
-    {
-      "char": "s",
-      "hand": "left",
-      "finger": "ring",
-      "key": "S"
-    },
-    {
-      "char": "l",
-      "hand": "right",
-      "finger": "ring",
-      "key": "L"
-    },
-    {
-      "char": "i",
-      "hand": "right",
-      "finger": "middle",
-      "key": "I"
-    },
-    {
-      "char": "d",
-      "hand": "left",
-      "finger": "middle",
-      "key": "D"
-    },
-    {
-      "char": "e",
-      "hand": "left",
-      "finger": "middle",
-      "key": "E"
-    },
-    {
-      "char": " ",
-      "hand": "left",
-      "finger": "thumb",
-      "key": "Space",
-      "space_side": "left"
-    },
-    {
-      "char": "g",
-      "hand": "left",
-      "finger": "index",
-      "key": "G"
-    },
-    {
-      "char": "u",
-      "hand": "right",
-      "finger": "index",
-      "key": "U"
-    },
-    {
-      "char": "i",
-      "hand": "right",
-      "finger": "middle",
-      "key": "I"
-    },
-    {
-      "char": "d",
-      "hand": "left",
-      "finger": "middle",
-      "key": "D"
-    },
-    {
-      "char": "e",
-      "hand": "left",
-      "finger": "middle",
-      "key": "E"
-    },
-    {
-      "char": " ",
-      "hand": "right",
-      "finger": "thumb",
-      "key": "Space",
-      "space_side": "right"
-    },
-    {
-      "char": "g",
-      "hand": "left",
-      "finger": "index",
-      "key": "G"
-    },
-    {
-      "char": "e",
-      "hand": "left",
-      "finger": "middle",
-      "key": "E"
-    },
-    {
-      "char": "a",
-      "hand": "left",
-      "finger": "pinky",
-      "key": "A"
-    },
-    {
-      "char": "r",
-      "hand": "left",
-      "finger": "index",
-      "key": "R"
-    },
-    {
-      "char": " ",
-      "hand": "left",
-      "finger": "thumb",
-      "key": "Space",
-      "space_side": "left"
-    },
-    {
-      "char": "l",
-      "hand": "right",
-      "finger": "ring",
-      "key": "L"
-    },
-    {
-      "char": "i",
-      "hand": "right",
-      "finger": "middle",
-      "key": "I"
-    },
-    {
-      "char": "k",
-      "hand": "right",
-      "finger": "middle",
-      "key": "K"
-    },
-    {
-      "char": "e",
-      "hand": "left",
-      "finger": "middle",
-      "key": "E"
-    },
-    {
-      "char": " ",
-      "hand": "right",
-      "finger": "thumb",
-      "key": "Space",
-      "space_side": "right"
-    },
-    {
-      "char": "d",
-      "hand": "left",
-      "finger": "middle",
-      "key": "D"
-    },
-    {
-      "char": "i",
-      "hand": "right",
-      "finger": "middle",
-      "key": "I"
-    },
-    {
-      "char": "k",
-      "hand": "right",
-      "finger": "middle",
-      "key": "K"
-    },
-    {
-      "char": "e",
-      "hand": "left",
-      "finger": "middle",
-      "key": "E"
-    }
+    {"char": "e", "hand": "left", "finger": "middle", "key": "E"},
+    {"char": "i", "hand": "right", "finger": "middle", "key": "I"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "i", "hand": "right", "finger": "middle", "key": "I"},
+    {"char": "e", "hand": "left", "finger": "middle", "key": "E"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "f", "hand": "left", "finger": "index", "key": "F"},
+    {"char": "i", "hand": "right", "finger": "middle", "key": "I"},
+    {"char": "e", "hand": "left", "finger": "middle", "key": "E"},
+    {"char": "l", "hand": "right", "finger": "ring", "key": "L"},
+    {"char": "d", "hand": "left", "finger": "middle", "key": "D"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "g", "hand": "left", "finger": "index", "key": "G"},
+    {"char": "r", "hand": "left", "finger": "index", "key": "R"},
+    {"char": "i", "hand": "right", "finger": "middle", "key": "I"},
+    {"char": "e", "hand": "left", "finger": "middle", "key": "E"},
+    {"char": "f", "hand": "left", "finger": "index", "key": "F"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "s", "hand": "left", "finger": "ring", "key": "S"},
+    {"char": "k", "hand": "right", "finger": "middle", "key": "K"},
+    {"char": "i", "hand": "right", "finger": "middle", "key": "I"},
+    {"char": "e", "hand": "left", "finger": "middle", "key": "E"},
+    {"char": "d", "hand": "left", "finger": "middle", "key": "D"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "j", "hand": "right", "finger": "index", "key": "J"},
+    {"char": "a", "hand": "left", "finger": "pinky", "key": "A"},
+    {"char": "d", "hand": "left", "finger": "middle", "key": "D"},
+    {"char": "e", "hand": "left", "finger": "middle", "key": "E"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "s", "hand": "left", "finger": "ring", "key": "S"},
+    {"char": "h", "hand": "right", "finger": "index", "key": "H"},
+    {"char": "i", "hand": "right", "finger": "middle", "key": "I"},
+    {"char": "e", "hand": "left", "finger": "middle", "key": "E"},
+    {"char": "l", "hand": "right", "finger": "ring", "key": "L"},
+    {"char": "d", "hand": "left", "finger": "middle", "key": "D"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "h", "hand": "right", "finger": "index", "key": "H"},
+    {"char": "e", "hand": "left", "finger": "middle", "key": "E"},
+    {"char": "e", "hand": "left", "finger": "middle", "key": "E"},
+    {"char": "l", "hand": "right", "finger": "ring", "key": "L"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "d", "hand": "left", "finger": "middle", "key": "D"},
+    {"char": "e", "hand": "left", "finger": "middle", "key": "E"},
+    {"char": "a", "hand": "left", "finger": "pinky", "key": "A"},
+    {"char": "l", "hand": "right", "finger": "ring", "key": "L"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "s", "hand": "left", "finger": "ring", "key": "S"},
+    {"char": "l", "hand": "right", "finger": "ring", "key": "L"},
+    {"char": "i", "hand": "right", "finger": "middle", "key": "I"},
+    {"char": "d", "hand": "left", "finger": "middle", "key": "D"},
+    {"char": "e", "hand": "left", "finger": "middle", "key": "E"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "g", "hand": "left", "finger": "index", "key": "G"},
+    {"char": "u", "hand": "right", "finger": "index", "key": "U"},
+    {"char": "i", "hand": "right", "finger": "middle", "key": "I"},
+    {"char": "d", "hand": "left", "finger": "middle", "key": "D"},
+    {"char": "e", "hand": "left", "finger": "middle", "key": "E"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "g", "hand": "left", "finger": "index", "key": "G"},
+    {"char": "e", "hand": "left", "finger": "middle", "key": "E"},
+    {"char": "a", "hand": "left", "finger": "pinky", "key": "A"},
+    {"char": "r", "hand": "left", "finger": "index", "key": "R"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "l", "hand": "right", "finger": "ring", "key": "L"},
+    {"char": "i", "hand": "right", "finger": "middle", "key": "I"},
+    {"char": "k", "hand": "right", "finger": "middle", "key": "K"},
+    {"char": "e", "hand": "left", "finger": "middle", "key": "E"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "d", "hand": "left", "finger": "middle", "key": "D"},
+    {"char": "i", "hand": "right", "finger": "middle", "key": "I"},
+    {"char": "k", "hand": "right", "finger": "middle", "key": "K"},
+    {"char": "e", "hand": "left", "finger": "middle", "key": "E"}
   ],
   "keys_trained": [
     "A",
@@ -477,46 +104,76 @@
     "I"
   ],
   "finger_focus": "Middle fingers reach up to E (above D) and I (above K)",
+  "guided": true,
   "tips": [
     {
       "type": "lead",
-      "text": "E is directly above D — left middle finger reaches up"
+      "text": "The index fingers have done their reaching up; now it is the middle fingers' turn. E and I sit on the top row, and with them you can write a great many ordinary English words. The middle finger is a precise one - give it a clean, light touch."
     },
     {
       "type": "drop",
-      "text": "I is directly above K — right middle finger reaches up"
-    },
-    {
-      "type": "exercise",
-      "target": "ei ie field grief skied",
-      "finger": "green",
-      "hint": "Middle fingers reach up to E (above D) and I (above K)"
-    },
-    {
-      "type": "p",
-      "text": "Return the middle finger to D / K after every press"
+      "text": "E is directly above D, so the left middle finger reaches up for it. I is directly above K, so the right middle finger reaches up for that. As always, the other fingers hold their places at home and supply the anchor while the middle finger travels."
     },
     {
       "type": "callout",
-      "icon": "💡",
-      "title": "Подсказка",
-      "text": "Words to type: field, jade, slide, guide"
+      "icon": "✍️",
+      "title": "A light, exact touch",
+      "text": "The middle finger is long, so a heavy reach overshoots. Keep the motion small and exact: up to E or I, press, and back down to D or K. E and I turn up in nearly every sentence you will ever type - it pays to make peace with them early."
     },
     {
-      "type": "exercise",
-      "target": "jade slide guide gear deal",
+      "type": "step",
+      "kind": "drill",
+      "target": "e e e e e e e e e e e e e e e e e e e e",
+      "finger": "green",
+      "title": "Letter E",
+      "hint": "Left middle reaches up to E (above D), then back to D. One space after each."
+    },
+    {
+      "type": "step",
+      "kind": "drill",
+      "target": "i i i i i i i i i i i i i i i i i i i i",
       "finger": "blue",
-      "hint": "Middle fingers reach up to E (above D) and I (above K)"
+      "title": "Letter I",
+      "hint": "Right middle reaches up to I (above K), then back to K. One space after each."
+    },
+    {
+      "type": "step",
+      "kind": "drill",
+      "target": "e i e i e i e i e i e i e i e i e i e i",
+      "finger": "green",
+      "title": "Alternate",
+      "hint": "Alternate the middle fingers up: e - i - e - i. One space after each."
+    },
+    {
+      "type": "p",
+      "text": "With E and I added, the words start to look like real sentences in waiting. Read each one whole, then type it evenly - middle finger up for the vowel, straight home after. No hurry, and no glancing down."
+    },
+    {
+      "type": "pullquote",
+      "text": "A little every day beats a long grind once a week. Steady hands are made, not born.",
+      "by": "Eleanor Hayes, editor"
+    },
+    {
+      "type": "step",
+      "kind": "drill",
+      "target": "field grief skied jade shield heel deal slide guide gear like dike",
+      "finger": "green",
+      "title": "Words",
+      "hint": "Words from the keys you know: field, grief, skied, jade, shield, heel, deal, slide, guide, gear, like, dike."
+    },
+    {
+      "type": "p",
+      "text": "Every step done? Then press Open Trainer below and take one full run at the whole lesson text. That run is saved to your progress and opens the next lesson."
     }
   ],
   "character_tips": {
-    "anna": "E and I are top row — middle fingers reach up and return straight to home.",
+    "anna": "E and I are top row - middle fingers reach up and return straight to home.",
     "maxim": "Middle finger: light and precise. E above D, I above K. Always return home.",
-    "knopych": "Middle fingers jump! E and I — up and back, don't get lost! 🎯",
+    "knopych": "Middle fingers jump! E and I - up and back, don't get lost! 🎯",
     "klavochka": "Your middle fingers make a sweet little hop to E and I ⭐"
   },
   "phase": 1,
   "rhythmLesson": false,
   "created_at": "2026-05-25",
-  "version": "2.0"
+  "version": "4.0"
 }

@@ -5,11 +5,31 @@
   "title": "Rhythm: full punctuation paragraph",
   "description": "Rhythm exercise with full punctuation toolkit — find your tempo",
   "target_wpm": 27,
-  "text_length": 130,
+  "text_length": 19,
   "error_limit_percent": 8,
   "error_limit": 10,
-  "text": "today, she said: \"i'll write a long-form article.\" he replied, \"that's brave!\" they laughed; the day went on; work was done.",
-  "text_sequence": [],
+  "text": "write article brave",
+  "text_sequence": [
+    {"char": "w", "hand": "left", "finger": "ring", "key": "W"},
+    {"char": "r", "hand": "left", "finger": "index", "key": "R"},
+    {"char": "i", "hand": "right", "finger": "middle", "key": "I"},
+    {"char": "t", "hand": "left", "finger": "index", "key": "T"},
+    {"char": "e", "hand": "left", "finger": "middle", "key": "E"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "a", "hand": "left", "finger": "pinky", "key": "A"},
+    {"char": "r", "hand": "left", "finger": "index", "key": "R"},
+    {"char": "t", "hand": "left", "finger": "index", "key": "T"},
+    {"char": "i", "hand": "right", "finger": "middle", "key": "I"},
+    {"char": "c", "hand": "left", "finger": "middle", "key": "C"},
+    {"char": "l", "hand": "right", "finger": "ring", "key": "L"},
+    {"char": "e", "hand": "left", "finger": "middle", "key": "E"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "b", "hand": "left", "finger": "index", "key": "B"},
+    {"char": "r", "hand": "left", "finger": "index", "key": "R"},
+    {"char": "a", "hand": "left", "finger": "pinky", "key": "A"},
+    {"char": "v", "hand": "left", "finger": "index", "key": "V"},
+    {"char": "e", "hand": "left", "finger": "middle", "key": "E"}
+  ],
   "keys_trained": [
     "A",
     "B",
@@ -53,27 +73,48 @@
   "tips": [
     {
       "type": "lead",
-      "text": "Mix of all punctuation you've learned"
+      "text": "There is nothing new on this page. We are here for the rhythm, plain and steady, the kind that holds up over a long stretch of text."
     },
     {
       "type": "drop",
-      "text": "Quoted dialogue is great rhythm practice"
+      "text": "Keep your fingers home and your eyes forward. Repeat each word at one even pace, counting under your breath if you must. Regularity first, speed after."
     },
     {
-      "type": "exercise",
-      "target": "today, she said: \"i'll write a long-form article.\" he replied,",
+      "type": "callout",
+      "title": "Hold the line",
+      "text": "Keep the same small gap between every key, like a clock that never hurries. Slow and even outruns fast and broken. Even keystrokes read like clean copy."
+    },
+    {
+      "type": "step",
+      "kind": "drill",
+      "target": "write write write write",
+      "finger": "orange",
+      "title": "Rhythm: write",
+      "hint": "Repeat at one even pace: write write write. Hold the same beat from first key to last."
+    },
+    {
+      "type": "step",
+      "kind": "drill",
+      "target": "article article article",
+      "finger": "pink",
+      "title": "Rhythm: article",
+      "hint": "Repeat at one even pace: article article article. Hold the same beat from first key to last."
+    },
+    {
+      "type": "step",
+      "kind": "drill",
+      "target": "brave brave brave",
       "finger": "blue",
-      "hint": "All — punctuation in flow"
+      "title": "Rhythm: brave",
+      "hint": "Repeat at one even pace: brave brave brave. Hold the same beat from first key to last."
     },
     {
       "type": "p",
-      "text": "Enable metronome — 27 BPM equivalent at 5 chars/word"
+      "text": "A measured pace is what turns careful work into easy work. Get the spacing even here, and the longer texts ahead will feel far less like a climb."
     },
     {
-      "type": "exercise",
-      "target": "\"that's brave!\" they laughed; the day went on; work was done.",
-      "finger": "green",
-      "hint": "All — punctuation in flow"
+      "type": "p",
+      "text": "Worked through every step? Open the trainer below and make one full run on the lesson text. That run saves your progress and unlocks the next lesson."
     }
   ],
   "character_tips": {
@@ -85,5 +126,6 @@
   "phase": 2,
   "rhythmLesson": true,
   "created_at": "2026-05-25",
-  "version": "1.0"
+  "version": "4.0",
+  "guided": true
 }

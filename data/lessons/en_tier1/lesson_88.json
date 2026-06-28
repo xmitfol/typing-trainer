@@ -8,8 +8,96 @@
   "text_length": 320,
   "error_limit_percent": 5,
   "error_limit": 16,
-  "text": "Built for speed. Designed for focus. Trusted by thousands of teams in over forty countries. Whether you are writing your first email or your hundredth report of the week, the right typing rhythm makes the difference between exhausted and energized. Try it free for two weeks. Cancel anytime; no card needed.",
-  "text_sequence": [],
+  "text": "speed speed speed speed focus focus focus focus energized energized energized energized",
+  "text_sequence": [
+    {"char": "s", "hand": "left", "finger": "ring", "key": "S"},
+    {"char": "p", "hand": "right", "finger": "pinky", "key": "P"},
+    {"char": "e", "hand": "left", "finger": "middle", "key": "E"},
+    {"char": "e", "hand": "left", "finger": "middle", "key": "E"},
+    {"char": "d", "hand": "left", "finger": "middle", "key": "D"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "s", "hand": "left", "finger": "ring", "key": "S"},
+    {"char": "p", "hand": "right", "finger": "pinky", "key": "P"},
+    {"char": "e", "hand": "left", "finger": "middle", "key": "E"},
+    {"char": "e", "hand": "left", "finger": "middle", "key": "E"},
+    {"char": "d", "hand": "left", "finger": "middle", "key": "D"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "s", "hand": "left", "finger": "ring", "key": "S"},
+    {"char": "p", "hand": "right", "finger": "pinky", "key": "P"},
+    {"char": "e", "hand": "left", "finger": "middle", "key": "E"},
+    {"char": "e", "hand": "left", "finger": "middle", "key": "E"},
+    {"char": "d", "hand": "left", "finger": "middle", "key": "D"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "s", "hand": "left", "finger": "ring", "key": "S"},
+    {"char": "p", "hand": "right", "finger": "pinky", "key": "P"},
+    {"char": "e", "hand": "left", "finger": "middle", "key": "E"},
+    {"char": "e", "hand": "left", "finger": "middle", "key": "E"},
+    {"char": "d", "hand": "left", "finger": "middle", "key": "D"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "f", "hand": "left", "finger": "index", "key": "F"},
+    {"char": "o", "hand": "right", "finger": "ring", "key": "O"},
+    {"char": "c", "hand": "left", "finger": "middle", "key": "C"},
+    {"char": "u", "hand": "right", "finger": "index", "key": "U"},
+    {"char": "s", "hand": "left", "finger": "ring", "key": "S"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "f", "hand": "left", "finger": "index", "key": "F"},
+    {"char": "o", "hand": "right", "finger": "ring", "key": "O"},
+    {"char": "c", "hand": "left", "finger": "middle", "key": "C"},
+    {"char": "u", "hand": "right", "finger": "index", "key": "U"},
+    {"char": "s", "hand": "left", "finger": "ring", "key": "S"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "f", "hand": "left", "finger": "index", "key": "F"},
+    {"char": "o", "hand": "right", "finger": "ring", "key": "O"},
+    {"char": "c", "hand": "left", "finger": "middle", "key": "C"},
+    {"char": "u", "hand": "right", "finger": "index", "key": "U"},
+    {"char": "s", "hand": "left", "finger": "ring", "key": "S"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "f", "hand": "left", "finger": "index", "key": "F"},
+    {"char": "o", "hand": "right", "finger": "ring", "key": "O"},
+    {"char": "c", "hand": "left", "finger": "middle", "key": "C"},
+    {"char": "u", "hand": "right", "finger": "index", "key": "U"},
+    {"char": "s", "hand": "left", "finger": "ring", "key": "S"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "e", "hand": "left", "finger": "middle", "key": "E"},
+    {"char": "n", "hand": "right", "finger": "index", "key": "N"},
+    {"char": "e", "hand": "left", "finger": "middle", "key": "E"},
+    {"char": "r", "hand": "left", "finger": "index", "key": "R"},
+    {"char": "g", "hand": "left", "finger": "index", "key": "G"},
+    {"char": "i", "hand": "right", "finger": "middle", "key": "I"},
+    {"char": "z", "hand": "left", "finger": "pinky", "key": "Z"},
+    {"char": "e", "hand": "left", "finger": "middle", "key": "E"},
+    {"char": "d", "hand": "left", "finger": "middle", "key": "D"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "e", "hand": "left", "finger": "middle", "key": "E"},
+    {"char": "n", "hand": "right", "finger": "index", "key": "N"},
+    {"char": "e", "hand": "left", "finger": "middle", "key": "E"},
+    {"char": "r", "hand": "left", "finger": "index", "key": "R"},
+    {"char": "g", "hand": "left", "finger": "index", "key": "G"},
+    {"char": "i", "hand": "right", "finger": "middle", "key": "I"},
+    {"char": "z", "hand": "left", "finger": "pinky", "key": "Z"},
+    {"char": "e", "hand": "left", "finger": "middle", "key": "E"},
+    {"char": "d", "hand": "left", "finger": "middle", "key": "D"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "e", "hand": "left", "finger": "middle", "key": "E"},
+    {"char": "n", "hand": "right", "finger": "index", "key": "N"},
+    {"char": "e", "hand": "left", "finger": "middle", "key": "E"},
+    {"char": "r", "hand": "left", "finger": "index", "key": "R"},
+    {"char": "g", "hand": "left", "finger": "index", "key": "G"},
+    {"char": "i", "hand": "right", "finger": "middle", "key": "I"},
+    {"char": "z", "hand": "left", "finger": "pinky", "key": "Z"},
+    {"char": "e", "hand": "left", "finger": "middle", "key": "E"},
+    {"char": "d", "hand": "left", "finger": "middle", "key": "D"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "e", "hand": "left", "finger": "middle", "key": "E"},
+    {"char": "n", "hand": "right", "finger": "index", "key": "N"},
+    {"char": "e", "hand": "left", "finger": "middle", "key": "E"},
+    {"char": "r", "hand": "left", "finger": "index", "key": "R"},
+    {"char": "g", "hand": "left", "finger": "index", "key": "G"},
+    {"char": "i", "hand": "right", "finger": "middle", "key": "I"},
+    {"char": "z", "hand": "left", "finger": "pinky", "key": "Z"},
+    {"char": "e", "hand": "left", "finger": "middle", "key": "E"},
+    {"char": "d", "hand": "left", "finger": "middle", "key": "D"}
+  ],
   "keys_trained": [
     "A-Z",
     "Space",
@@ -20,40 +108,68 @@
   ],
   "new_keys": [],
   "finger_focus": "Marketing prose at 87 WPM",
+  "guided": true,
   "tips": [
     {
       "type": "lead",
-      "text": "Multiple punchy sentences in a row — keep tempo high"
+      "text": "No new keys today. Copy moves in short bursts, but the rhythm under it stays even - that is what makes it land. Three words, each repeated at one steady pace."
     },
     {
       "type": "drop",
-      "text": "Short fragments are part of the rhythm — don't pause longer than commas"
+      "text": "Hands on the home row, thumbs over the space bar, eyes up. Repeat each word without rushing. A short word is no reason to bolt ahead; count it: one, two, three, four."
     },
     {
-      "type": "exercise",
-      "target": "Built for speed. Designed for focus. Trusted by thousands of teams in over forty countries. Whether you are writing your first email or your hundredth",
-      "finger": "purple",
-      "hint": "Marketing prose at 87 WPM"
+      "type": "callout",
+      "icon": "metronome",
+      "title": "Even hands",
+      "text": "Punchy copy fools you into thinking it is hurried. It is not. The good ones keep one steady beat under the short lines. Hold the gap between keystrokes and the punch takes care of itself."
+    },
+    {
+      "type": "step",
+      "kind": "drill",
+      "target": "speed speed speed speed speed",
+      "finger": "orange",
+      "title": "Rhythm: speed",
+      "hint": "Repeat at one tempo: speed - speed - speed. Hold the gaps equal."
+    },
+    {
+      "type": "step",
+      "kind": "drill",
+      "target": "focus focus focus focus",
+      "finger": "blue",
+      "title": "Rhythm: focus",
+      "hint": "Repeat steadily, no jerks: focus - focus - focus."
+    },
+    {
+      "type": "step",
+      "kind": "drill",
+      "target": "energized energized energized",
+      "finger": "green",
+      "title": "Rhythm: energized",
+      "hint": "Repeat evenly: energized - energized - energized. Do not speed up at the end."
     },
     {
       "type": "p",
-      "text": "Metronome at 87 BPM — sustain through every sentence type"
+      "text": "Let the hand take each word whole, short or long, at the same calm pace. Even repetition turns the motion into habit - and a habit that holds is what keeps a fast line from going ragged."
     },
     {
-      "type": "exercise",
-      "target": "report of the week, the right typing rhythm makes the difference between exhausted and energized. Try it free for two weeks. Cancel anytime; no card needed.",
-      "finger": "purple",
-      "hint": "Marketing prose at 87 WPM"
+      "type": "pullquote",
+      "text": "Loosen your shoulders, picture the metronome, and let rhythm carry the speed. Even hands keep the punch.",
+      "by": "Eleanor Hayes, editor"
+    },
+    {
+      "type": "p",
+      "text": "All three done? Open the trainer below and take one clean run at the full lesson text. That run saves your progress and unlocks the next lesson."
     }
   ],
   "character_tips": {
     "anna": "Marketing rhythm at 87 WPM. Punchy + sustained = pro copywriting speed.",
     "maxim": "Copywriters hit this naturally. Now you can match them.",
-    "knopych": "ADS GO BRRR! 📢 Short, punchy, FAST!",
-    "klavochka": "Persuasive and warm, my dear — kind salesmanship 🛍️"
+    "knopych": "ADS GO BRRR! Short, punchy, FAST!",
+    "klavochka": "Persuasive and warm, my dear - kind salesmanship"
   },
   "phase": 6,
   "rhythmLesson": true,
   "created_at": "2026-05-25",
-  "version": "1.0"
+  "version": "4.0"
 }

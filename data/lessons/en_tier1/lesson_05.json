@@ -5,11 +5,25 @@
   "title": "Rhythm: build muscle memory",
   "description": "Rhythm exercise — combine all learned keys in a smooth flowing text",
   "target_wpm": 15,
-  "text_length": 60,
+  "text_length": 13,
   "error_limit_percent": 8,
   "error_limit": 5,
-  "text": "she said he is here she likes red dresses had a fair ride",
-  "text_sequence": [],
+  "text": "she said here",
+  "text_sequence": [
+    {"char": "s", "hand": "left", "finger": "ring", "key": "S"},
+    {"char": "h", "hand": "right", "finger": "index", "key": "H"},
+    {"char": "e", "hand": "left", "finger": "middle", "key": "E"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "s", "hand": "left", "finger": "ring", "key": "S"},
+    {"char": "a", "hand": "left", "finger": "pinky", "key": "A"},
+    {"char": "i", "hand": "right", "finger": "middle", "key": "I"},
+    {"char": "d", "hand": "left", "finger": "middle", "key": "D"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "h", "hand": "right", "finger": "index", "key": "H"},
+    {"char": "e", "hand": "left", "finger": "middle", "key": "E"},
+    {"char": "r", "hand": "left", "finger": "index", "key": "R"},
+    {"char": "e", "hand": "left", "finger": "middle", "key": "E"}
+  ],
   "keys_trained": [
     "A",
     "D",
@@ -31,27 +45,48 @@
   "tips": [
     {
       "type": "lead",
-      "text": "Don't stop between words — keep a steady pace"
+      "text": "No new keys today. We hold the line and work on rhythm. Speed comes later; an even keystroke comes first."
     },
     {
       "type": "drop",
-      "text": "If you slow down, that's fine — accuracy first"
+      "text": "Keep your fingers on the home row and your eyes on the screen. Type each word at one steady pace, the way a clock keeps time. Don't rush the last letter."
     },
     {
-      "type": "exercise",
-      "target": "she said he is here she",
+      "type": "callout",
+      "title": "An even hand",
+      "text": "Listen for a regular click between keys. The same small pause every time, no hurry, no stall. Even keystrokes read like clean copy."
+    },
+    {
+      "type": "step",
+      "kind": "drill",
+      "target": "she she she she she",
+      "finger": "orange",
+      "title": "Rhythm: she",
+      "hint": "Repeat at one even pace: she she she. Hold the same beat from first key to last."
+    },
+    {
+      "type": "step",
+      "kind": "drill",
+      "target": "said said said said",
+      "finger": "orange",
+      "title": "Rhythm: said",
+      "hint": "Repeat at one even pace: said said said. Hold the same beat from first key to last."
+    },
+    {
+      "type": "step",
+      "kind": "drill",
+      "target": "here here here",
       "finger": "blue",
-      "hint": "All keys learned — focus on rhythm"
+      "title": "Rhythm: here",
+      "hint": "Repeat at one even pace: here here here. Hold the same beat from first key to last."
     },
     {
       "type": "p",
-      "text": "Real sentence! She said he is here she likes red dresses had a fair ride"
+      "text": "That steady tempo is the whole point. When the spacing between keys stops wandering, your typing reads smooth, and the words start to look after themselves."
     },
     {
-      "type": "exercise",
-      "target": "likes red dresses had a fair ride",
-      "finger": "green",
-      "hint": "All keys learned — focus on rhythm"
+      "type": "p",
+      "text": "Worked through every step? Open the trainer below and make one full run on the lesson text. That run saves your progress and unlocks the next lesson."
     }
   ],
   "character_tips": {
@@ -63,5 +98,6 @@
   "phase": 1,
   "rhythmLesson": true,
   "created_at": "2026-05-25",
-  "version": "1.0"
+  "version": "4.0",
+  "guided": true
 }
