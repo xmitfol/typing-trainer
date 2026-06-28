@@ -8,47 +8,161 @@
   "text_length": 263,
   "error_limit_percent": 4,
   "error_limit": 10,
-  "text": "Вопрос, тогда, не в том, придёт ли перемена — она всегда приходит — а в том, как мы реагируем на неё. Адаптация требует мужества. Адаптация хорошо требует и мужества, и любопытства. Вместе эти два качества определяют каждое поколение, которое формировало будущее.",
-  "text_sequence": [],
+  "text": "перемена перемена перемена мужества мужества мужества будущее будущее будущее будущее",
+  "text_sequence": [
+    {"char": "п", "hand": "left", "finger": "index", "key": "П"},
+    {"char": "е", "hand": "left", "finger": "index", "key": "Е"},
+    {"char": "р", "hand": "right", "finger": "index", "key": "Р"},
+    {"char": "е", "hand": "left", "finger": "index", "key": "Е"},
+    {"char": "м", "hand": "left", "finger": "index", "key": "М"},
+    {"char": "е", "hand": "left", "finger": "index", "key": "Е"},
+    {"char": "н", "hand": "right", "finger": "index", "key": "Н"},
+    {"char": "а", "hand": "left", "finger": "index", "key": "А"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "п", "hand": "left", "finger": "index", "key": "П"},
+    {"char": "е", "hand": "left", "finger": "index", "key": "Е"},
+    {"char": "р", "hand": "right", "finger": "index", "key": "Р"},
+    {"char": "е", "hand": "left", "finger": "index", "key": "Е"},
+    {"char": "м", "hand": "left", "finger": "index", "key": "М"},
+    {"char": "е", "hand": "left", "finger": "index", "key": "Е"},
+    {"char": "н", "hand": "right", "finger": "index", "key": "Н"},
+    {"char": "а", "hand": "left", "finger": "index", "key": "А"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "п", "hand": "left", "finger": "index", "key": "П"},
+    {"char": "е", "hand": "left", "finger": "index", "key": "Е"},
+    {"char": "р", "hand": "right", "finger": "index", "key": "Р"},
+    {"char": "е", "hand": "left", "finger": "index", "key": "Е"},
+    {"char": "м", "hand": "left", "finger": "index", "key": "М"},
+    {"char": "е", "hand": "left", "finger": "index", "key": "Е"},
+    {"char": "н", "hand": "right", "finger": "index", "key": "Н"},
+    {"char": "а", "hand": "left", "finger": "index", "key": "А"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "м", "hand": "left", "finger": "index", "key": "М"},
+    {"char": "у", "hand": "left", "finger": "middle", "key": "У"},
+    {"char": "ж", "hand": "right", "finger": "pinky", "key": "Ж"},
+    {"char": "е", "hand": "left", "finger": "index", "key": "Е"},
+    {"char": "с", "hand": "left", "finger": "middle", "key": "С"},
+    {"char": "т", "hand": "right", "finger": "index", "key": "Т"},
+    {"char": "в", "hand": "left", "finger": "middle", "key": "В"},
+    {"char": "а", "hand": "left", "finger": "index", "key": "А"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "м", "hand": "left", "finger": "index", "key": "М"},
+    {"char": "у", "hand": "left", "finger": "middle", "key": "У"},
+    {"char": "ж", "hand": "right", "finger": "pinky", "key": "Ж"},
+    {"char": "е", "hand": "left", "finger": "index", "key": "Е"},
+    {"char": "с", "hand": "left", "finger": "middle", "key": "С"},
+    {"char": "т", "hand": "right", "finger": "index", "key": "Т"},
+    {"char": "в", "hand": "left", "finger": "middle", "key": "В"},
+    {"char": "а", "hand": "left", "finger": "index", "key": "А"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "м", "hand": "left", "finger": "index", "key": "М"},
+    {"char": "у", "hand": "left", "finger": "middle", "key": "У"},
+    {"char": "ж", "hand": "right", "finger": "pinky", "key": "Ж"},
+    {"char": "е", "hand": "left", "finger": "index", "key": "Е"},
+    {"char": "с", "hand": "left", "finger": "middle", "key": "С"},
+    {"char": "т", "hand": "right", "finger": "index", "key": "Т"},
+    {"char": "в", "hand": "left", "finger": "middle", "key": "В"},
+    {"char": "а", "hand": "left", "finger": "index", "key": "А"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "б", "hand": "right", "finger": "middle", "key": "Б"},
+    {"char": "у", "hand": "left", "finger": "middle", "key": "У"},
+    {"char": "д", "hand": "right", "finger": "ring", "key": "Д"},
+    {"char": "у", "hand": "left", "finger": "middle", "key": "У"},
+    {"char": "щ", "hand": "right", "finger": "ring", "key": "Щ"},
+    {"char": "е", "hand": "left", "finger": "index", "key": "Е"},
+    {"char": "е", "hand": "left", "finger": "index", "key": "Е"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "б", "hand": "right", "finger": "middle", "key": "Б"},
+    {"char": "у", "hand": "left", "finger": "middle", "key": "У"},
+    {"char": "д", "hand": "right", "finger": "ring", "key": "Д"},
+    {"char": "у", "hand": "left", "finger": "middle", "key": "У"},
+    {"char": "щ", "hand": "right", "finger": "ring", "key": "Щ"},
+    {"char": "е", "hand": "left", "finger": "index", "key": "Е"},
+    {"char": "е", "hand": "left", "finger": "index", "key": "Е"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "б", "hand": "right", "finger": "middle", "key": "Б"},
+    {"char": "у", "hand": "left", "finger": "middle", "key": "У"},
+    {"char": "д", "hand": "right", "finger": "ring", "key": "Д"},
+    {"char": "у", "hand": "left", "finger": "middle", "key": "У"},
+    {"char": "щ", "hand": "right", "finger": "ring", "key": "Щ"},
+    {"char": "е", "hand": "left", "finger": "index", "key": "Е"},
+    {"char": "е", "hand": "left", "finger": "index", "key": "Е"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "б", "hand": "right", "finger": "middle", "key": "Б"},
+    {"char": "у", "hand": "left", "finger": "middle", "key": "У"},
+    {"char": "д", "hand": "right", "finger": "ring", "key": "Д"},
+    {"char": "у", "hand": "left", "finger": "middle", "key": "У"},
+    {"char": "щ", "hand": "right", "finger": "ring", "key": "Щ"},
+    {"char": "е", "hand": "left", "finger": "index", "key": "Е"},
+    {"char": "е", "hand": "left", "finger": "index", "key": "Е"}
+  ],
   "keys_trained": [
     "А-Я",
     "Shift",
     "Space",
     ",",
     ".",
-    "—",
+    "-",
     "-"
   ],
   "new_keys": [],
-  "finger_focus": "Поток эссе на 91 WPM",
+  "finger_focus": "Поток эссе на 91 зн/мин",
+  "guided": true,
   "tips": [
     {
       "type": "lead",
-      "text": "Устойчивый темп эссе с тире"
+      "text": "Новых букв нет - ловим ритм эссе. Слова длиннее, скорость выше, но принцип тот же: ровный поток несёт мысль лучше, чем рывки."
     },
     {
       "type": "drop",
-      "text": "Три предложения в одном ритме"
+      "text": "Эссе - это длинные слова в спокойном потоке. Ты уже знаешь все буквы, так что не подглядывай вниз: смотришь на клавиши - теряешь мысль. Ровно, не рывком."
     },
     {
-      "type": "exercise",
-      "target": "Вопрос, тогда, не в том, придёт ли перемена — она всегда приходит — а в том, как мы реагируем на",
+      "type": "callout",
+      "icon": "📝",
+      "title": "Держи мысль в потоке",
+      "text": "Длинное слово не повод ускоряться или тормозить. Один темп от первой буквы до последней - и руки сами держат строку. Ровность тащит скорость."
+    },
+    {
+      "type": "step",
+      "kind": "drill",
+      "target": "перемена перемена перемена",
       "finger": "purple",
-      "hint": "Поток эссе на 91 WPM"
+      "title": "Ритм: перемена",
+      "hint": "В одном темпе: перемена - перемена. Считай ровный бит"
+    },
+    {
+      "type": "step",
+      "kind": "drill",
+      "target": "мужества мужества мужества",
+      "finger": "blue",
+      "title": "Ритм: мужества",
+      "hint": "Без рывков: мужества - мужества. Держи паузы ровными"
+    },
+    {
+      "type": "step",
+      "kind": "drill",
+      "target": "будущее будущее будущее будущее",
+      "finger": "green",
+      "title": "Ритм: будущее",
+      "hint": "Длинное слово в такт: будущее - будущее. Не ускоряйся к концу"
     },
     {
       "type": "p",
-      "text": "Метроном 91 BPM"
+      "text": "Заметил, как длинное слово идёт ровно, если не торопить руки? Вот так поток и держит мысль в эссе целиком."
     },
     {
-      "type": "exercise",
-      "target": "неё. Адаптация требует мужества. Адаптация хорошо требует и мужества, и любопытства. Вместе эти два качества определяют каждое поколение, которое формировало будущее.",
-      "finger": "purple",
-      "hint": "Поток эссе на 91 WPM"
+      "type": "pullquote",
+      "text": "Длинные слова любят ровный темп. Поймай поток - и мысль пойдёт быстрее рук.",
+      "by": "Артём"
+    },
+    {
+      "type": "p",
+      "text": "Прошёл все шаги? Жми «Открыть тренажёр» и пройди весь текст урока целиком. Этот заход сохранится в прогресс и откроет следующий."
     }
   ],
   "character_tips": {
-    "anna": "Поток эссе на 91 WPM. Реальная академическая скорость.",
+    "anna": "Поток эссе на 91 зн/мин. Реальная академическая скорость.",
     "maxim": "Многосентенциальное эссе = устойчивая про-скорость.",
     "knopych": "📝 ПОТОК ЭССЕ! Аргумент-каскад!",
     "klavochka": "Мудрость в предложениях, мой солнечный 🌟"
@@ -56,5 +170,5 @@
   "phase": 5,
   "rhythmLesson": true,
   "created_at": "2026-05-26",
-  "version": "1.0"
+  "version": "4.0"
 }

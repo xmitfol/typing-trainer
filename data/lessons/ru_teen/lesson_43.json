@@ -8,48 +8,148 @@
   "text_length": 103,
   "error_limit_percent": 6,
   "error_limit": 6,
-  "text": "эй во сколько в 19 круто бери снеки ок какие острые обви звучит супер увидимся пока пока ехай аккуратно",
-  "text_sequence": [],
+  "text": "круто круто круто круто снеки снеки снеки снеки супер супер супер супер",
+  "text_sequence": [
+    {"char": "к", "hand": "left", "finger": "index", "key": "К"},
+    {"char": "р", "hand": "right", "finger": "index", "key": "Р"},
+    {"char": "у", "hand": "left", "finger": "middle", "key": "У"},
+    {"char": "т", "hand": "right", "finger": "index", "key": "Т"},
+    {"char": "о", "hand": "right", "finger": "index", "key": "О"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "к", "hand": "left", "finger": "index", "key": "К"},
+    {"char": "р", "hand": "right", "finger": "index", "key": "Р"},
+    {"char": "у", "hand": "left", "finger": "middle", "key": "У"},
+    {"char": "т", "hand": "right", "finger": "index", "key": "Т"},
+    {"char": "о", "hand": "right", "finger": "index", "key": "О"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "к", "hand": "left", "finger": "index", "key": "К"},
+    {"char": "р", "hand": "right", "finger": "index", "key": "Р"},
+    {"char": "у", "hand": "left", "finger": "middle", "key": "У"},
+    {"char": "т", "hand": "right", "finger": "index", "key": "Т"},
+    {"char": "о", "hand": "right", "finger": "index", "key": "О"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "к", "hand": "left", "finger": "index", "key": "К"},
+    {"char": "р", "hand": "right", "finger": "index", "key": "Р"},
+    {"char": "у", "hand": "left", "finger": "middle", "key": "У"},
+    {"char": "т", "hand": "right", "finger": "index", "key": "Т"},
+    {"char": "о", "hand": "right", "finger": "index", "key": "О"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "с", "hand": "left", "finger": "middle", "key": "С"},
+    {"char": "н", "hand": "right", "finger": "index", "key": "Н"},
+    {"char": "е", "hand": "left", "finger": "index", "key": "Е"},
+    {"char": "к", "hand": "left", "finger": "index", "key": "К"},
+    {"char": "и", "hand": "left", "finger": "index", "key": "И"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "с", "hand": "left", "finger": "middle", "key": "С"},
+    {"char": "н", "hand": "right", "finger": "index", "key": "Н"},
+    {"char": "е", "hand": "left", "finger": "index", "key": "Е"},
+    {"char": "к", "hand": "left", "finger": "index", "key": "К"},
+    {"char": "и", "hand": "left", "finger": "index", "key": "И"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "с", "hand": "left", "finger": "middle", "key": "С"},
+    {"char": "н", "hand": "right", "finger": "index", "key": "Н"},
+    {"char": "е", "hand": "left", "finger": "index", "key": "Е"},
+    {"char": "к", "hand": "left", "finger": "index", "key": "К"},
+    {"char": "и", "hand": "left", "finger": "index", "key": "И"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "с", "hand": "left", "finger": "middle", "key": "С"},
+    {"char": "н", "hand": "right", "finger": "index", "key": "Н"},
+    {"char": "е", "hand": "left", "finger": "index", "key": "Е"},
+    {"char": "к", "hand": "left", "finger": "index", "key": "К"},
+    {"char": "и", "hand": "left", "finger": "index", "key": "И"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "с", "hand": "left", "finger": "middle", "key": "С"},
+    {"char": "у", "hand": "left", "finger": "middle", "key": "У"},
+    {"char": "п", "hand": "left", "finger": "index", "key": "П"},
+    {"char": "е", "hand": "left", "finger": "index", "key": "Е"},
+    {"char": "р", "hand": "right", "finger": "index", "key": "Р"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "с", "hand": "left", "finger": "middle", "key": "С"},
+    {"char": "у", "hand": "left", "finger": "middle", "key": "У"},
+    {"char": "п", "hand": "left", "finger": "index", "key": "П"},
+    {"char": "е", "hand": "left", "finger": "index", "key": "Е"},
+    {"char": "р", "hand": "right", "finger": "index", "key": "Р"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "с", "hand": "left", "finger": "middle", "key": "С"},
+    {"char": "у", "hand": "left", "finger": "middle", "key": "У"},
+    {"char": "п", "hand": "left", "finger": "index", "key": "П"},
+    {"char": "е", "hand": "left", "finger": "index", "key": "Е"},
+    {"char": "р", "hand": "right", "finger": "index", "key": "Р"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "с", "hand": "left", "finger": "middle", "key": "С"},
+    {"char": "у", "hand": "left", "finger": "middle", "key": "У"},
+    {"char": "п", "hand": "left", "finger": "index", "key": "П"},
+    {"char": "е", "hand": "left", "finger": "index", "key": "Е"},
+    {"char": "р", "hand": "right", "finger": "index", "key": "Р"}
+  ],
   "keys_trained": [
     "А-Я",
     "Space"
   ],
   "new_keys": [],
   "finger_focus": "Ритм чата",
+  "guided": true,
   "tips": [
     {
       "type": "lead",
-      "text": "Реальный чат = короткие бёрсты, без пунктуации"
+      "text": "Новых букв нет - ловим ритм чата. В переписке слова летят короткими очередями. Цель не разогнаться, а держать ровный поток."
     },
     {
       "type": "drop",
-      "text": "Несколько спикеров в одной строке"
+      "text": "Чат - это короткие бёрсты без пунктуации. Ты уже знаешь все буквы, так что не смотри вниз: смотришь на клавиши - теряешь нить. Поток, а не рывок."
     },
     {
-      "type": "exercise",
-      "target": "эй во сколько в 19 круто бери снеки ок",
+      "type": "callout",
+      "icon": "💬",
+      "title": "Отвечай в такт",
+      "text": "Не выстреливай слово рывком и не зависай. Между словами одинаковая пауза, как ровная переписка с другом. Ровность важнее скорости."
+    },
+    {
+      "type": "step",
+      "kind": "drill",
+      "target": "круто круто круто круто",
       "finger": "blue",
-      "hint": "Ритм чата"
+      "title": "Ритм: круто",
+      "hint": "В одном темпе: круто - круто - круто. Считай ровный бит"
+    },
+    {
+      "type": "step",
+      "kind": "drill",
+      "target": "снеки снеки снеки снеки",
+      "finger": "green",
+      "title": "Ритм: снеки",
+      "hint": "Без рывков: снеки - снеки - снеки. Держи паузы ровными"
+    },
+    {
+      "type": "step",
+      "kind": "drill",
+      "target": "супер супер супер супер",
+      "finger": "indigo",
+      "title": "Ритм: супер",
+      "hint": "Отвечай в такт: супер - супер - супер. Не ускоряйся к концу"
     },
     {
       "type": "p",
-      "text": "Метроном 70 BPM"
+      "text": "Чувствуешь, как ответ вылетает целым словом, без раздумий над буквами? Вот так ровный повтор и превращается в поток чата."
     },
     {
-      "type": "exercise",
-      "target": "какие острые обви звучит супер увидимся пока пока ехай аккуратно",
-      "finger": "green",
-      "hint": "Ритм чата"
+      "type": "pullquote",
+      "text": "Чат - самый частый формат набора. Поймаешь тут ровный поток - и везде станет легче.",
+      "by": "Артём"
+    },
+    {
+      "type": "p",
+      "text": "Прошёл все шаги? Жми «Открыть тренажёр» и пройди весь текст урока целиком. Этот заход сохранится в прогресс и откроет следующий."
     }
   ],
   "character_tips": {
     "anna": "Ритм чата. Короткие бёрсты, без пунктуации, полная скорость.",
-    "maxim": "Чат — самый частопечатаемый формат. Освой ритм.",
+    "maxim": "Чат - самый частопечатаемый формат. Освой ритм.",
     "knopych": "💬 ПОТОК ЧАТА! Быстрый огонь конвы!",
     "klavochka": "Друзья говорят туда-сюда, моё сокровище 💕"
   },
   "phase": 3,
   "rhythmLesson": true,
   "created_at": "2026-05-26",
-  "version": "1.0"
+  "version": "4.0"
 }

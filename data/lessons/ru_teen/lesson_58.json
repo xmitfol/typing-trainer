@@ -8,8 +8,76 @@
   "text_length": 194,
   "error_limit_percent": 5,
   "error_limit": 9,
-  "text": "хороший пойнт но я бы поспорил наоборот. согласимся не согласиться но вот почему я думаю иначе. интересный тейк хотя никогда не думал об этом так. справедливо давай просто двинемся дальше тогда.",
-  "text_sequence": [],
+  "text": "пойнт пойнт пойнт пойнт тейк тейк тейк тейк иначе иначе иначе иначе",
+  "text_sequence": [
+    {"char": "п", "hand": "left", "finger": "index", "key": "П"},
+    {"char": "о", "hand": "right", "finger": "index", "key": "О"},
+    {"char": "й", "hand": "left", "finger": "pinky", "key": "Й"},
+    {"char": "н", "hand": "right", "finger": "index", "key": "Н"},
+    {"char": "т", "hand": "right", "finger": "index", "key": "Т"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "п", "hand": "left", "finger": "index", "key": "П"},
+    {"char": "о", "hand": "right", "finger": "index", "key": "О"},
+    {"char": "й", "hand": "left", "finger": "pinky", "key": "Й"},
+    {"char": "н", "hand": "right", "finger": "index", "key": "Н"},
+    {"char": "т", "hand": "right", "finger": "index", "key": "Т"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "п", "hand": "left", "finger": "index", "key": "П"},
+    {"char": "о", "hand": "right", "finger": "index", "key": "О"},
+    {"char": "й", "hand": "left", "finger": "pinky", "key": "Й"},
+    {"char": "н", "hand": "right", "finger": "index", "key": "Н"},
+    {"char": "т", "hand": "right", "finger": "index", "key": "Т"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "п", "hand": "left", "finger": "index", "key": "П"},
+    {"char": "о", "hand": "right", "finger": "index", "key": "О"},
+    {"char": "й", "hand": "left", "finger": "pinky", "key": "Й"},
+    {"char": "н", "hand": "right", "finger": "index", "key": "Н"},
+    {"char": "т", "hand": "right", "finger": "index", "key": "Т"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "т", "hand": "right", "finger": "index", "key": "Т"},
+    {"char": "е", "hand": "left", "finger": "index", "key": "Е"},
+    {"char": "й", "hand": "left", "finger": "pinky", "key": "Й"},
+    {"char": "к", "hand": "left", "finger": "index", "key": "К"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "т", "hand": "right", "finger": "index", "key": "Т"},
+    {"char": "е", "hand": "left", "finger": "index", "key": "Е"},
+    {"char": "й", "hand": "left", "finger": "pinky", "key": "Й"},
+    {"char": "к", "hand": "left", "finger": "index", "key": "К"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "т", "hand": "right", "finger": "index", "key": "Т"},
+    {"char": "е", "hand": "left", "finger": "index", "key": "Е"},
+    {"char": "й", "hand": "left", "finger": "pinky", "key": "Й"},
+    {"char": "к", "hand": "left", "finger": "index", "key": "К"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "т", "hand": "right", "finger": "index", "key": "Т"},
+    {"char": "е", "hand": "left", "finger": "index", "key": "Е"},
+    {"char": "й", "hand": "left", "finger": "pinky", "key": "Й"},
+    {"char": "к", "hand": "left", "finger": "index", "key": "К"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "и", "hand": "left", "finger": "index", "key": "И"},
+    {"char": "н", "hand": "right", "finger": "index", "key": "Н"},
+    {"char": "а", "hand": "left", "finger": "index", "key": "А"},
+    {"char": "ч", "hand": "left", "finger": "ring", "key": "Ч"},
+    {"char": "е", "hand": "left", "finger": "index", "key": "Е"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "и", "hand": "left", "finger": "index", "key": "И"},
+    {"char": "н", "hand": "right", "finger": "index", "key": "Н"},
+    {"char": "а", "hand": "left", "finger": "index", "key": "А"},
+    {"char": "ч", "hand": "left", "finger": "ring", "key": "Ч"},
+    {"char": "е", "hand": "left", "finger": "index", "key": "Е"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "и", "hand": "left", "finger": "index", "key": "И"},
+    {"char": "н", "hand": "right", "finger": "index", "key": "Н"},
+    {"char": "а", "hand": "left", "finger": "index", "key": "А"},
+    {"char": "ч", "hand": "left", "finger": "ring", "key": "Ч"},
+    {"char": "е", "hand": "left", "finger": "index", "key": "Е"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "и", "hand": "left", "finger": "index", "key": "И"},
+    {"char": "н", "hand": "right", "finger": "index", "key": "Н"},
+    {"char": "а", "hand": "left", "finger": "index", "key": "А"},
+    {"char": "ч", "hand": "left", "finger": "ring", "key": "Ч"},
+    {"char": "е", "hand": "left", "finger": "index", "key": "Е"}
+  ],
   "keys_trained": [
     "А-Я",
     "Space",
@@ -19,40 +87,68 @@
   ],
   "new_keys": [],
   "finger_focus": "Ритм форум-треда",
+  "guided": true,
   "tips": [
     {
       "type": "lead",
-      "text": "Несколько голосов в потоке — чат-подобно"
+      "text": "Новых букв нет - ловим ритм треда. Несколько голосов спорят, а ты держишь один темп для всех. Поток важнее рывка."
     },
     {
       "type": "drop",
-      "text": "Строчные намеренно, апострофы везде"
+      "text": "Форум - это поток коротких ответов подряд. Ты уже знаешь все буквы, так что не смотри на клавиши - так теряется нить. Печатай ровно, в один темп."
     },
     {
-      "type": "exercise",
-      "target": "хороший пойнт но я бы поспорил наоборот. согласимся не согласиться но вот почему я думаю",
+      "type": "callout",
+      "icon": "💬",
+      "title": "Один темп на всех",
+      "text": "Спикеров много, а ритм один. Не дёргай слово рывком и не зависай между ответами. Ровная пауза держит поток - и скорость подтянется."
+    },
+    {
+      "type": "step",
+      "kind": "drill",
+      "target": "пойнт пойнт пойнт пойнт",
       "finger": "purple",
-      "hint": "Ритм форум-треда"
+      "title": "Ритм: пойнт",
+      "hint": "В одном темпе: пойнт - пойнт - пойнт. Считай ровный бит"
+    },
+    {
+      "type": "step",
+      "kind": "drill",
+      "target": "тейк тейк тейк тейк",
+      "finger": "blue",
+      "title": "Ритм: тейк",
+      "hint": "Без рывков: тейк - тейк - тейк. Держи паузы ровными"
+    },
+    {
+      "type": "step",
+      "kind": "drill",
+      "target": "иначе иначе иначе иначе",
+      "finger": "green",
+      "title": "Ритм: иначе",
+      "hint": "Ответ в такт: иначе - иначе - иначе. Не ускоряйся к концу"
     },
     {
       "type": "p",
-      "text": "Метроном 85 BPM"
+      "text": "Чувствуешь, как разные ответы идут в одном потоке? Вот так ровный темп и держит мысль, даже когда голосов много."
     },
     {
-      "type": "exercise",
-      "target": "иначе. интересный тейк хотя никогда не думал об этом так. справедливо давай просто двинемся дальше тогда.",
-      "finger": "purple",
-      "hint": "Ритм форум-треда"
+      "type": "pullquote",
+      "text": "Несколько голосов - один ритм. Держишь поток - и спор печатается сам собой.",
+      "by": "Артём"
+    },
+    {
+      "type": "p",
+      "text": "Прошёл все шаги? Жми «Открыть тренажёр» и пройди весь текст урока целиком. Этот заход сохранится в прогресс и откроет следующий."
     }
   ],
   "character_tips": {
     "anna": "Ритм форум-треда. Несколько голосов, один темп.",
-    "maxim": "Онлайн-дебаты на 85 WPM.",
+    "maxim": "Онлайн-дебаты на 85 зн/мин.",
     "knopych": "💬 ФОРУМ-ДЕБАТЫ! Несколько тейков!",
     "klavochka": "Друзья дебатируют вдумчиво, мой милый 🤔"
   },
   "phase": 4,
   "rhythmLesson": true,
   "created_at": "2026-05-26",
-  "version": "1.0"
+  "version": "4.0"
 }
