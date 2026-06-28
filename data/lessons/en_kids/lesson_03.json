@@ -2,8 +2,8 @@
   "id": "en_kids_lesson_03",
   "tier": "en_kids",
   "lesson_number": 3,
-  "title": "Ring + pinky: S, L, A — first words!",
-  "description": "Ring fingers S and L, and the left pinky A — now you can make real words!",
+  "title": "Ring + pinky: S, L, A - first words!",
+  "description": "Ring fingers S and L, and the left pinky A - now you can make real words!",
   "target_wpm": 10,
   "text_length": 48,
   "error_limit_percent": 10,
@@ -123,9 +123,9 @@
     {"type": "p", "text": "You wrote real words today - hooray! When you are ready, press the button below and try the whole lesson. I am so proud of you, champ!"}
   ],
   "character_tips": {
-    "anna": "S, L and A — now you can write \"ask\" and \"sad\"! Real words ✨",
+    "anna": "S, L and A - now you can write \"ask\" and \"sad\"! Real words ✨",
     "maxim": "With A on board, real words appear: ask, sad, lad, all.",
-    "knopych": "WORDS! 🎉 ask, sad, lad — you're a writer!",
+    "knopych": "WORDS! 🎉 ask, sad, lad - you're a writer!",
     "klavochka": "Real little words now, my treasure 🌟 So clever!"
   },
   "phase": 1,

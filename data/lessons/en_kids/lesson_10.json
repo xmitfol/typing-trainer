@@ -3,13 +3,68 @@
   "tier": "en_kids",
   "lesson_number": 10,
   "title": "KIDS BLOCK 1 FINAL: First letter test",
-  "description": "Show what you learned — a friendly letter test",
+  "description": "Show what you learned - a friendly letter test",
   "target_wpm": 18,
   "text_length": 54,
   "error_limit_percent": 10,
   "error_limit": 5,
   "text": "ask sad lad fall red side like word slow hello our dog",
-  "text_sequence": [],
+  "text_sequence": [
+    {"char": "a", "hand": "left", "finger": "pinky", "key": "A"},
+    {"char": "s", "hand": "left", "finger": "ring", "key": "S"},
+    {"char": "k", "hand": "right", "finger": "middle", "key": "K"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "s", "hand": "left", "finger": "ring", "key": "S"},
+    {"char": "a", "hand": "left", "finger": "pinky", "key": "A"},
+    {"char": "d", "hand": "left", "finger": "middle", "key": "D"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "l", "hand": "right", "finger": "ring", "key": "L"},
+    {"char": "a", "hand": "left", "finger": "pinky", "key": "A"},
+    {"char": "d", "hand": "left", "finger": "middle", "key": "D"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "f", "hand": "left", "finger": "index", "key": "F"},
+    {"char": "a", "hand": "left", "finger": "pinky", "key": "A"},
+    {"char": "l", "hand": "right", "finger": "ring", "key": "L"},
+    {"char": "l", "hand": "right", "finger": "ring", "key": "L"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "r", "hand": "left", "finger": "index", "key": "R"},
+    {"char": "e", "hand": "left", "finger": "middle", "key": "E"},
+    {"char": "d", "hand": "left", "finger": "middle", "key": "D"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "s", "hand": "left", "finger": "ring", "key": "S"},
+    {"char": "i", "hand": "right", "finger": "middle", "key": "I"},
+    {"char": "d", "hand": "left", "finger": "middle", "key": "D"},
+    {"char": "e", "hand": "left", "finger": "middle", "key": "E"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "l", "hand": "right", "finger": "ring", "key": "L"},
+    {"char": "i", "hand": "right", "finger": "middle", "key": "I"},
+    {"char": "k", "hand": "right", "finger": "middle", "key": "K"},
+    {"char": "e", "hand": "left", "finger": "middle", "key": "E"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "w", "hand": "left", "finger": "ring", "key": "W"},
+    {"char": "o", "hand": "right", "finger": "ring", "key": "O"},
+    {"char": "r", "hand": "left", "finger": "index", "key": "R"},
+    {"char": "d", "hand": "left", "finger": "middle", "key": "D"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "s", "hand": "left", "finger": "ring", "key": "S"},
+    {"char": "l", "hand": "right", "finger": "ring", "key": "L"},
+    {"char": "o", "hand": "right", "finger": "ring", "key": "O"},
+    {"char": "w", "hand": "left", "finger": "ring", "key": "W"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "h", "hand": "right", "finger": "index", "key": "H"},
+    {"char": "e", "hand": "left", "finger": "middle", "key": "E"},
+    {"char": "l", "hand": "right", "finger": "ring", "key": "L"},
+    {"char": "l", "hand": "right", "finger": "ring", "key": "L"},
+    {"char": "o", "hand": "right", "finger": "ring", "key": "O"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "o", "hand": "right", "finger": "ring", "key": "O"},
+    {"char": "u", "hand": "right", "finger": "index", "key": "U"},
+    {"char": "r", "hand": "left", "finger": "index", "key": "R"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "d", "hand": "left", "finger": "middle", "key": "D"},
+    {"char": "o", "hand": "right", "finger": "ring", "key": "O"},
+    {"char": "g", "hand": "left", "finger": "index", "key": "G"}
+  ],
   "keys_trained": [
     "A",
     "D",
@@ -34,34 +89,34 @@
   "tips": [
     {
       "type": "lead",
-      "text": "Show off everything you learned!"
+      "text": "Hooray! Today you show all the letters you have learned!"
     },
     {
       "type": "drop",
-      "text": "Accuracy first — take your time"
+      "text": "No rush at all, friend. Slow and neat wins the day."
     },
     {
       "type": "exercise",
       "target": "ask sad lad fall red side",
       "finger": "blue",
-      "hint": "All learned letters"
+      "hint": "All the letters you have learned"
     },
     {
       "type": "p",
-      "text": "You're a real typist now!"
+      "text": "You did it! You are a real little typist now. So proud of you!"
     },
     {
       "type": "exercise",
       "target": "like word slow hello our dog",
       "finger": "green",
-      "hint": "All learned letters"
+      "hint": "All the letters you have learned"
     }
   ],
   "character_tips": {
-    "anna": "Test time! Show everything you learned 🌸 You've got this!",
-    "maxim": "Checkpoint. Accuracy first, speed later.",
-    "knopych": "BOSS LEVEL! 🏆 Show your skills!",
-    "klavochka": "You're ready, my sunshine — go gently and shine ✨"
+    "anna": "Big day! Show all you have learned 🌸 I know you can!",
+    "maxim": "A happy little checkpoint. Go slow and neat, friend.",
+    "knopych": "BOSS LEVEL! 🏆 Show your shiny skills!",
+    "klavochka": "You are ready, my sunshine - go gently and shine ✨"
   },
   "phase": 1,
   "rhythmLesson": false,

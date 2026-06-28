@@ -3,7 +3,7 @@
   "tier": "en_kids",
   "lesson_number": 7,
   "title": "Top row: E and I",
-  "description": "Middle fingers reach UP — E (left) and I (right)",
+  "description": "Middle fingers reach UP - E (left) and I (right)",
   "target_wpm": 13,
   "text_length": 51,
   "error_limit_percent": 10,
@@ -113,10 +113,10 @@
     {"type": "p", "text": "Both middle fingers can reach up now - what a star! When you are ready, press the button below and try the whole lesson. I am so proud of you, friend!"}
   ],
   "character_tips": {
-    "anna": "E and I — now you can write \"like\" and \"ride\"! 🌷",
+    "anna": "E and I - now you can write \"like\" and \"ride\"! 🌷",
     "maxim": "Middle fingers up: E above D, I above K.",
     "knopych": "🤖 E AND I! New buttons up top!",
-    "klavochka": "Two sweet new friends, my dear — E and I 💕"
+    "klavochka": "Two sweet new friends, my dear - E and I 💕"
   },
   "phase": 1,
   "rhythmLesson": false,

@@ -3,7 +3,7 @@
   "tier": "en_kids",
   "lesson_number": 8,
   "title": "Top row: W and O",
-  "description": "Ring fingers reach UP — W (left) and O (right)",
+  "description": "Ring fingers reach UP - W (left) and O (right)",
   "target_wpm": 14,
   "text_length": 47,
   "error_limit_percent": 10,
@@ -144,7 +144,7 @@
     }
   ],
   "character_tips": {
-    "anna": "W and O — now \"hello world\" is possible! 🌸",
+    "anna": "W and O - now \"hello world\" is possible! 🌸",
     "maxim": "Ring fingers up: W above S, O above L. Go gently.",
     "knopych": "🤖 W AND O! Top row almost done!",
     "klavochka": "Gentle ring fingers reach W and O, dear ☀️"

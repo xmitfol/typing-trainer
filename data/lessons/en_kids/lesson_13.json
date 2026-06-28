@@ -3,7 +3,7 @@
   "tier": "en_kids",
   "lesson_number": 13,
   "title": "Last letters: X Z B N",
-  "description": "The last letters — X, Z, B, N. Now you know the whole keyboard!",
+  "description": "The last letters - X, Z, B, N. Now you know the whole keyboard!",
   "target_wpm": 21,
   "text_length": 52,
   "error_limit_percent": 10,
@@ -150,7 +150,7 @@
     }
   ],
   "character_tips": {
-    "anna": "🎓 Last letters! X, Z, B, N — you know the whole keyboard!",
+    "anna": "🎓 Last letters! X, Z, B, N - you know the whole keyboard!",
     "maxim": "Alphabet complete. X/Z left, B/N index reaches.",
     "knopych": "ALPHABET 100%! 🏆 LEVEL UP!",
     "klavochka": "Every key is yours now, my treasure 🎉"

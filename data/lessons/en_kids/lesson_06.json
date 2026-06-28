@@ -3,7 +3,7 @@
   "tier": "en_kids",
   "lesson_number": 6,
   "title": "Top row: R and U",
-  "description": "Reach UP to the top row — R (left index) and U (right index)",
+  "description": "Reach UP to the top row - R (left index) and U (right index)",
   "target_wpm": 12,
   "text_length": 52,
   "error_limit_percent": 10,
@@ -111,9 +111,9 @@
     {"type": "p", "text": "You reached up to the top row today - how brave! When you are ready, press the button below and try the whole lesson. Great job, friend!"}
   ],
   "character_tips": {
-    "anna": "R and U are your first top-row letters — index fingers up! 🌸",
+    "anna": "R and U are your first top-row letters - index fingers up! 🌸",
     "maxim": "Top row begins. R above F, U above J. Index reaches.",
-    "knopych": "LIFT OFF! 🚀 R and U — up and back!",
+    "knopych": "LIFT OFF! 🚀 R and U - up and back!",
     "klavochka": "Up you reach for R and U, then home again ✨"
   },
   "phase": 1,

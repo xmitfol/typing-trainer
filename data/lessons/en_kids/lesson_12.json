@@ -3,7 +3,7 @@
   "tier": "en_kids",
   "lesson_number": 12,
   "title": "Bottom row: V M C",
-  "description": "Go DOWN to the bottom row — V, M (index) and C (middle)",
+  "description": "Go DOWN to the bottom row - V, M (index) and C (middle)",
   "target_wpm": 20,
   "text_length": 48,
   "error_limit_percent": 10,
@@ -143,7 +143,7 @@
     }
   ],
   "character_tips": {
-    "anna": "Down we go! V, M, C — \"move\" and \"come\" now 🌸",
+    "anna": "Down we go! V, M, C - \"move\" and \"come\" now 🌸",
     "maxim": "Bottom row starts: V/M index drops, C left-middle drop.",
     "knopych": "DIVING DOWN! 🌊 V M C!",
     "klavochka": "Fingers dip down for V, M, C, then home 💤"

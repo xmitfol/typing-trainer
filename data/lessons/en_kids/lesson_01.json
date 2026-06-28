@@ -3,7 +3,7 @@
   "tier": "en_kids",
   "lesson_number": 1,
   "title": "Two anchors: F and J",
-  "description": "Your two anchor keys — F (left index) and J (right index). Feel the bumps!",
+  "description": "Your two anchor keys - F (left index) and J (right index). Feel the bumps!",
   "target_wpm": 8,
   "text_length": 41,
   "error_limit_percent": 10,
@@ -98,10 +98,10 @@
     {"type": "p", "text": "You found both your homes! Such a good job. When you are ready, press the button below and try the whole lesson. Take your time - you are already doing great, champ!"}
   ],
   "character_tips": {
-    "anna": "F and J have little bumps — find them with your eyes closed 🌸",
+    "anna": "F and J have little bumps - find them with your eyes closed 🌸",
     "maxim": "Two anchors: F (left), J (right). Strongest fingers go first.",
-    "knopych": "BUMPS FOUND! 🎯 F and J — your two homes!",
-    "klavochka": "Two cozy pillows, my dear — one for each hand 💕"
+    "knopych": "BUMPS FOUND! 🎯 F and J - your two homes!",
+    "klavochka": "Two cozy pillows, my dear - one for each hand 💕"
   },
   "phase": 1,
   "rhythmLesson": false,
