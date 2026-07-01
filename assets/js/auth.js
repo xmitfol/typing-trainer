@@ -243,6 +243,16 @@
         var action = params.get('action');
         var token = params.get('token');
 
+        // OAuth callback вернул ошибку (ADR-007): показать баннер на входе.
+        var oauthError = params.get('error');
+        if (oauthError) {
+            showView('signin');
+            banner('error', oauthError === 'OAUTH_NO_EMAIL'
+                ? 'Провайдер не поделился вашим email. Разрешите доступ к email или войдите по паролю.'
+                : 'Не удалось войти через провайдера. Попробуйте ещё раз или войдите по паролю.');
+            return;
+        }
+
         if (action === 'verify' && token) { handleVerify(token); return; }
         if (action === 'reset' && token) {
             showView('reset');
