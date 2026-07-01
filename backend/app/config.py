@@ -118,6 +118,10 @@ class Settings(BaseSettings):
     # не зависит — фабрика get_payment_provider(settings) отдаёт нужный класс.
     billing_provider: Literal["stub", "yookassa"] = "stub"
     billing_currency: str = "RUB"
+    # Paywall: сколько первых уроков КАЖДОГО тира доступны без подписки.
+    # Серверный gate /lessons/{tier}/{n}/access опирается на это + has_active_subscription.
+    # Совпадает с фронтовым FREE_LIMIT в api-client.js (local fallback).
+    free_lesson_limit: int = 5
 
     # ─── YooKassa (Sprint 6, ADR-005/ADR-008) ──────────────────────
     # None-defaults: без реального shop поля не заданы; YooKassaProvider —
