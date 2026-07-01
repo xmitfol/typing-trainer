@@ -435,6 +435,33 @@
             }
         },
 
+        // ── Billing (ADR-008 / openapi.yaml) — backend-only ──────────────
+        // Биллинг серверный по природе (провайдер, webhook, подписка в БД):
+        // localStorage-fallback неприменим. Методы всегда бьют в backend.
+        // Провайдер выбирается конфигом бэка (stub/yookassa) — фронт не знает.
+
+        /** GET /billing/plans — каталог тарифов + цены (публично). */
+        async getPlans() {
+            return _http('GET', '/billing/plans');
+        },
+        /**
+         * POST /billing/checkout {plan, period, return_url?} — создаёт pending-
+         * подписку + checkout у провайдера. Возвращает {subscription_id,
+         * confirmation_url, amount_kopecks, provider}. Юзера редиректим на
+         * confirmation_url. Требует auth-cookie.
+         */
+        async createCheckout({ plan, period, return_url } = {}) {
+            return _http('POST', '/billing/checkout', { plan, period, return_url });
+        },
+        /** GET /billing/subscription — {has_active, subscription|null}. Требует auth. */
+        async getSubscription() {
+            return _http('GET', '/billing/subscription');
+        },
+        /** POST /billing/subscription/cancel — отмена до end-of-period. Требует auth. */
+        async cancelSubscription() {
+            return _http('POST', '/billing/subscription/cancel');
+        },
+
         // ── Health check (для verify) ────────────────────────────────────
         async health() {
             if (!state.config.useApi) {
