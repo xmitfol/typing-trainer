@@ -186,17 +186,31 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     // Возврат от провайдера (?paid=1): свериться с реальным статусом подписки.
-    // Активна → показать успех; иначе (webhook ещё не пришёл) — «обрабатывается».
-    if (useApi() && new URLSearchParams(window.location.search).has('paid')) {
+    const qs = new URLSearchParams(window.location.search);
+    if (useApi() && qs.has('paid')) {
         setView('payment');
-        apiClient.getSubscription().then((st) => {
-            const done = $('#ppPayDone');
-            if (!done) return;
-            done.textContent = (st && st.has_active)
+        const done = $('#ppPayDone');
+        const show = (text) => { if (done) { done.textContent = text; done.classList.add('pp-pay-done--show'); } };
+
+        // Stub-провайдер (dev): реальный YK шлёт webhook сам, а stub-confirmation
+        // возвращает подписанные сервером параметры (stub_payment_id + stub_sig).
+        // Достраиваем и шлём webhook сами, чтобы завершить оплату без денег —
+        // весь путь кликается в браузере (ADR-008 §2). Подпись валидна только
+        // потому, что её выдал наш сервер; stub в prod не используется.
+        const stubId = qs.get('stub_payment_id');
+        const stubSig = qs.get('stub_sig');
+        const completeStub = (stubId && stubSig)
+            ? apiClient._http('POST', '/billing/webhook/stub', {
+                provider_payment_id: stubId, sig: stubSig, kind: 'payment.succeeded',
+              }).catch(() => {})
+            : Promise.resolve();
+
+        completeStub
+            .then(() => apiClient.getSubscription())
+            .then((st) => show((st && st.has_active)
                 ? 'Подписка активна. Спасибо! Доступ открыт.'
-                : 'Оплата обрабатывается — доступ откроется через пару секунд.';
-            done.classList.add('pp-pay-done--show');
-        }).catch(() => {});
+                : 'Оплата обрабатывается — доступ откроется через пару секунд.'))
+            .catch(() => show('Оплата обрабатывается — доступ откроется через пару секунд.'));
     }
 
     // ─── Promo toggle ────────────────────────────────────────────
