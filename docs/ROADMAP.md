@@ -13,9 +13,9 @@
 | **Контент курса** (6 тиров, 448 уроков) | ✅ Готово — гайдед-формат + эксперт под аудиторию + чистые раскладки |
 | **Тренажёр** (гайдед, отчёт, коуч, детекты, эргономика) | ✅ MVP-полный |
 | **Бэкенд: auth** (Sprint 1) | ✅ Готово (gate 8/8 на Docker-стеке) |
-| **Бэкенд: OAuth** (Sprint 2) | ⏳ Спроектирован (ADR-007), не закодён |
+| **Бэкенд: OAuth** (Sprint 2) | 🟢 Yandex+VK готовы (ADR-007, gate 26/26 VM на mock): start/callback, PKCE, резолвинг, наши cookies. Фронт-кнопки на auth.html. Ждёт реальных кред (S2.1 PO) |
 | **Бэкенд: биллинг/подписка** | 🟢 Scaffold зелёный на стеке (ADR-008, gate 6/6 VM): checkout→webhook→active, идемпотентность, честный period, paywall-гейт. Ждёт реального провайдера (YooKassa shop) |
-| **Синк прогресса на сервер** | 🔴 Всё в localStorage, аккаунт не связан |
+| **Синк прогресса на сервер** | 🟢 Бэкенд готов (gate 45/45 VM): /me/* (profile/settings/progress/history) + guest-migration + серверный paywall-gate /lessons/{n}/access. api-client адаптирован. Осталось развернуть фронт на useApi (сшивка live-приложения) |
 | **Онбординг-редизайн** | 🟡 Запланирован (PO готовит) |
 | **Адаптивный AI-движок** | ⚪ Спек есть, ждёт данных |
 | **Удержание** (стрики/напоминания) | ⚪ Не начато |
@@ -34,9 +34,10 @@
 - **Готово (2026-07-01):** scaffold (ADR-008 + модели + StubProvider + эндпоинты) прогнан на реальном стеке VM — **gate 6/6** (миграция безопасна, checkout→webhook→active, идемпотентность, honest period). Фронт `pricing.js → /billing/checkout → redirect` + сверка статуса подписки подключены.
 - **Ждёт:** (1) реальный YooKassaProvider — нужен подтверждённый YK-shop (PO); (2) решение «что гейтить paywall'ом» (PO/Полина) — сейчас гейт некуда навесить на бэке, т.к. курс ещё не серверный (см. P2 синк); (3) recurring cron (ADR-005), failed/cancel e2e.
 
-### P2 — OAuth + синк прогресса (Sprint 2)
-- OAuth Yandex/VK (ADR-007 готов): `core/oauth.py` → `/auth/oauth/*/start`+`/callback`; guest-migration.
-- Синк прогресса localStorage ↔ сервер (аккаунт держит прогресс/подписку). apiClient-адаптер уже есть.
+### P2 — OAuth + синк прогресса (Sprint 2) 🎯 *почти готов*
+- ✅ OAuth Yandex/VK (ADR-007): `core/oauth.py` + `oauth_service` + `/auth/oauth/*/start|callback`, PKCE, MockStrategy; фронт-кнопки. Gate 26/26 на стеке (mock). Ждёт S2.1 (реальные креды PO).
+- ✅ Серверный синк: `/me/*` (profile/settings/progress/history) + `/auth/migrate-guest` + `/lessons/{n}/access` paywall-gate. Gate 45/45. api-client адаптирован под контракт.
+- ⬜ **Осталось:** развернуть live-приложение на серверный синк — включать `useApi=true` после auth, провести `task.js`-прогресс через `apiClient.saveAttempt`, дёрнуть guest-migration после логина. Это меняет data-path работающего приложения → делать аккуратно, лучше с E2E на стеке.
 
 ### P3 — Онбординг-редизайн
 По фидбэку PO (форма конфлейтит юзера/наставника/возраст). Ждёт макета от PO.
