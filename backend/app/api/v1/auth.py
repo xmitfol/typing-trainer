@@ -22,7 +22,7 @@ from app.core.email_tokens import (
 )
 from app.core.exceptions import EmailTakenError, InvalidCredentialsError
 from app.core.security import create_access_token, create_refresh_token, decode_token
-from app.deps import DbSession, EmailServiceDep, RedisClient
+from app.deps import CurrentUser, DbSession, EmailServiceDep, RedisClient
 from app.schemas.auth import (
     ChallengeResponse,
     ForgotPasswordRequest,
@@ -32,7 +32,8 @@ from app.schemas.auth import (
     UserPublic,
     VerifyEmailRequest,
 )
-from app.services import auth_service
+from app.schemas.me import MigrateCounts, MigrateGuestRequest, MigrateGuestResult
+from app.services import auth_service, me_service
 
 logger = structlog.get_logger(__name__)
 
@@ -367,3 +368,26 @@ async def reset_password(
             detail={"code": "TOKEN_INVALID", "message": "Ссылка недействительна или истекла"},
         )
     await auth_service.set_password(session, user_id, payload.password)
+
+
+@router.post(
+    "/migrate-guest",
+    response_model=MigrateGuestResult,
+    summary="Перенести guest localStorage-прогресс в текущий аккаунт (ADR-007/R-005)",
+)
+async def migrate_guest(
+    payload: MigrateGuestRequest,
+    user: CurrentUser,
+    session: DbSession,
+) -> MigrateGuestResult:
+    """Идемпотентная миграция: max-merge прогресса + append attempts из history.
+
+    Требует авторизации (CurrentUser) — льём в текущего юзера.
+    """
+    progress_count, attempts_count = await me_service.migrate_guest(
+        session, user, payload.guest_data
+    )
+    return MigrateGuestResult(
+        migrated=True,
+        counts=MigrateCounts(progress=progress_count, attempts=attempts_count),
+    )

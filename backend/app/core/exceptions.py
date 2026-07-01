@@ -39,6 +39,12 @@ class OAuthNoEmailError(DomainError):
     code = "OAUTH_NO_EMAIL"
 
 
+class AgeDowngradeForbiddenError(DomainError):
+    """Нельзя «омолодить» аккаунт adult→kid (TSD §4a.3)."""
+
+    code = "AGE_DOWNGRADE_FORBIDDEN"
+
+
 # ─── Billing (ADR-008) ────────────────────────────────────────────────
 
 
