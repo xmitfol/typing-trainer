@@ -2,7 +2,7 @@
   "id": "ru_kids_lesson_05",
   "tier": "ru_kids",
   "lesson_number": 5,
-  "title": "Слова из домашнего ряда",
+  "title": "Слова из среднего ряда",
   "description": "Повторяем А О В Л — настоящие слова без прыжков.",
   "target_wpm": 12,
   "text_length": 42,
@@ -280,7 +280,7 @@
     "Space"
   ],
   "new_keys": [],
-  "finger_focus": "Слова из домашнего ряда",
+  "finger_focus": "Слова из среднего ряда",
   "tips": [
     {
       "type": "lead",
