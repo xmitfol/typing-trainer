@@ -80,6 +80,39 @@
         catch (e) { return false; }
     }
 
+    // ─── Backend-контракт адаптеры (расхождения формы фронт↔сервер) ──────
+    // Сервер /me/settings отдаёт snake_case, фронт исторически camelCase.
+    const SETTINGS_S2C = {
+        keyboard_type: 'keyboardType', keyboard_layout: 'keyboardLayout',
+        finger_hint: 'fingerHint', key_sound: 'keySound', metronome: 'metronome',
+        task_zoom: 'taskZoom', hide_indicator: 'hideIndicator',
+        preview_off: 'previewOff', time_limit_minutes_per_day: 'timeLimitMinutesPerDay',
+    };
+    const SETTINGS_C2S = Object.fromEntries(
+        Object.entries(SETTINGS_S2C).map(([s, c]) => [c, s])
+    );
+    function mapKeys(obj, dict) {
+        if (!obj || typeof obj !== 'object') return obj;
+        const out = {};
+        for (const k of Object.keys(obj)) out[dict[k] || k] = obj[k];
+        return out;
+    }
+    // Активный тир — из currentLesson (как во всех фронт-модулях).
+    function _activeTier() {
+        const cur = readJSON(STORAGE_KEYS.currentLesson) || {};
+        return cur.tier || null;
+    }
+    // Сервер /me/progress группирует по тиру {tier:{lessonNum:{...}}}; фронт
+    // (однотировый) ждёт плоско {lessonNum:{...}} для активного тира.
+    function flattenProgress(byTier) {
+        if (!byTier || typeof byTier !== 'object') return {};
+        const tier = _activeTier();
+        if (tier && byTier[tier]) return byTier[tier];
+        const keys = Object.keys(byTier);
+        if (keys.length === 1) return byTier[keys[0]];  // единственный тир
+        return {};  // для активного тира прогресса ещё нет
+    }
+
     // ─── HTTP wrapper ────────────────────────────────────────────────────
     /**
      * Низкоуровневый fetch с timeout + auth + структурированными ошибками.
@@ -226,7 +259,7 @@
         // таблица user_settings. В localStorage режиме просто patch'им profile.
         async getSettings() {
             return _withFallback(
-                () => _http('GET', '/me/settings'),
+                async () => mapKeys(await _http('GET', '/me/settings'), SETTINGS_S2C),
                 () => {
                     const p = _local.getProfile() || {};
                     return {
@@ -245,7 +278,10 @@
         },
         async updateSettings(patch) {
             return _withFallback(
-                () => _http('PATCH', '/me/settings', patch),
+                async () => mapKeys(
+                    await _http('PATCH', '/me/settings', mapKeys(patch, SETTINGS_C2S)),
+                    SETTINGS_S2C
+                ),
                 () => _local.patchProfile(patch),
                 'updateSettings'
             );
@@ -254,7 +290,7 @@
         // ── Progress (TSD §3.3 /me/progress) ─────────────────────────────
         async getProgress() {
             return _withFallback(
-                () => _http('GET', '/me/progress'),
+                async () => flattenProgress(await _http('GET', '/me/progress')),
                 () => _local.getProgress(),
                 'getProgress'
             );
