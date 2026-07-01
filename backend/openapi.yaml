@@ -26,6 +26,8 @@ servers:
 tags:
   - name: auth
     description: Регистрация, вход, сессии, восстановление пароля
+  - name: billing
+    description: Тарифы, checkout, подписка, webhook провайдера (ADR-008)
 
 paths:
   /auth/challenge:
@@ -297,6 +299,115 @@ paths:
             application/json:
               schema: { $ref: "#/components/schemas/Error" }
 
+  # ─── Billing (ADR-008 — provider-agnostic) ─────────────────────────
+  /billing/plans:
+    get:
+      tags: [billing]
+      summary: Каталог тарифов (публично)
+      description: |
+        Планы (free/pro/family) + цены по периодам (w1/m1/m3/m6/y1). Sync с
+        assets/js/pricing.js. Цены в копейках.
+      operationId: getBillingPlans
+      responses:
+        "200":
+          description: Каталог тарифов + валюта
+          content:
+            application/json:
+              schema: { $ref: "#/components/schemas/PlansResponse" }
+
+  /billing/checkout:
+    post:
+      tags: [billing]
+      summary: Создать оплату — вернуть confirmation_url (auth)
+      description: |
+        Создаёт `Subscription(status=pending)` + checkout у провайдера
+        (выбор по billing_provider). Юзера редиректим на confirmation_url.
+      operationId: createCheckout
+      security: [{ accessCookie: [] }]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { $ref: "#/components/schemas/CheckoutRequest" }
+      responses:
+        "200":
+          description: Checkout создан
+          content:
+            application/json:
+              schema: { $ref: "#/components/schemas/CheckoutResponse" }
+        "401":
+          description: Не авторизован (TOKEN_INVALID).
+          content:
+            application/json:
+              schema: { $ref: "#/components/schemas/Error" }
+        "404":
+          description: Тариф/период не найден (PLAN_NOT_FOUND).
+          content:
+            application/json:
+              schema: { $ref: "#/components/schemas/Error" }
+
+  /billing/webhook/{provider}:
+    post:
+      tags: [billing]
+      summary: Callback провайдера (публично)
+      description: |
+        Сырое тело + headers → provider.parse_webhook (verify+normalize) →
+        apply_webhook (FSM pending→active/failed, идемпотентно). Всегда 200 —
+        невалидную подпись молча игнорируем.
+      operationId: providerWebhook
+      parameters:
+        - { name: provider, in: path, required: true, schema: { type: string, enum: [stub, yookassa] } }
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { type: object, additionalProperties: true }
+      responses:
+        "200":
+          description: Обработано (или проигнорировано, если подпись/провайдер не сошлись).
+
+  /billing/subscription:
+    get:
+      tags: [billing]
+      summary: Текущая подписка + флаг активности (auth)
+      operationId: getSubscription
+      security: [{ accessCookie: [] }]
+      responses:
+        "200":
+          description: Статус подписки (subscription=null если её нет)
+          content:
+            application/json:
+              schema: { $ref: "#/components/schemas/SubscriptionStatus" }
+        "401":
+          description: Не авторизован.
+          content:
+            application/json:
+              schema: { $ref: "#/components/schemas/Error" }
+
+  /billing/subscription/cancel:
+    post:
+      tags: [billing]
+      summary: Отменить подписку — до end-of-period (auth)
+      description: status='cancelled', доступ сохраняется до expires_at.
+      operationId: cancelSubscription
+      security: [{ accessCookie: [] }]
+      responses:
+        "200":
+          description: Подписка отменена
+          content:
+            application/json:
+              schema: { $ref: "#/components/schemas/Subscription" }
+        "401":
+          description: Не авторизован.
+          content:
+            application/json:
+              schema: { $ref: "#/components/schemas/Error" }
+        "404":
+          description: Нет подписки для отмены (SUBSCRIPTION_NOT_FOUND).
+          content:
+            application/json:
+              schema: { $ref: "#/components/schemas/Error" }
+
 components:
   securitySchemes:
     accessCookie:
@@ -451,6 +562,80 @@ components:
         created_at: { type: string, format: date-time }
       description: Публичная проекция User. Без password_hash и служебных полей.
 
+    # ─── Billing (ADR-008) ─────────────────────────────────────────
+    Period:
+      type: object
+      required: [id, label, months, savings, amount_kopecks]
+      properties:
+        id: { type: string, enum: [w1, m1, m3, m6, y1] }
+        label: { type: string }
+        months: { type: number }
+        savings: { type: integer, description: "% экономии относительно m1." }
+        amount_kopecks: { type: integer, description: Цена плана за этот период (копейки). }
+
+    Plan:
+      type: object
+      required: [id, label, tagline, base_price_rub, purchasable, features, periods]
+      properties:
+        id: { type: string, enum: [free, pro, family] }
+        label: { type: string }
+        tagline: { type: string }
+        base_price_rub: { type: integer, description: Базовая цена за 1 месяц (₽). }
+        purchasable: { type: boolean, description: false для free (не оформляется). }
+        features: { type: array, items: { type: string } }
+        periods: { type: array, items: { $ref: "#/components/schemas/Period" } }
+
+    PlansResponse:
+      type: object
+      required: [currency, plans]
+      properties:
+        currency: { type: string, example: RUB }
+        plans: { type: array, items: { $ref: "#/components/schemas/Plan" } }
+
+    CheckoutRequest:
+      type: object
+      required: [plan, period]
+      properties:
+        plan: { type: string, enum: [free, pro, family] }
+        period: { type: string, enum: [w1, m1, m3, m6, y1] }
+        return_url:
+          type: string
+          nullable: true
+          description: Куда провайдер вернёт юзера. null → frontend_base_url.
+
+    CheckoutResponse:
+      type: object
+      required: [subscription_id, confirmation_url, amount_kopecks, provider]
+      properties:
+        subscription_id: { type: string, format: uuid }
+        confirmation_url: { type: string, description: Redirect юзера на оплату. }
+        amount_kopecks: { type: integer }
+        provider: { type: string, enum: [stub, yookassa] }
+
+    Subscription:
+      type: object
+      required: [id, plan, status, provider, amount_kopecks, currency, is_auto_renew]
+      properties:
+        id: { type: string, format: uuid }
+        plan: { type: string }
+        status: { type: string, enum: [pending, active, grace, expired, cancelled, failed] }
+        provider: { type: string, enum: [stub, yookassa] }
+        amount_kopecks: { type: integer }
+        currency: { type: string }
+        started_at: { type: string, format: date-time, nullable: true }
+        expires_at: { type: string, format: date-time, nullable: true }
+        is_auto_renew: { type: boolean }
+        cancelled_at: { type: string, format: date-time, nullable: true }
+
+    SubscriptionStatus:
+      type: object
+      required: [has_active]
+      properties:
+        has_active: { type: boolean, description: Есть ли активный доступ (paywall). }
+        subscription:
+          nullable: true
+          allOf: [{ $ref: "#/components/schemas/Subscription" }]
+
     Error:
       type: object
       required: [error]
@@ -471,6 +656,10 @@ components:
                 - TOKEN_INVALID
                 - RATE_LIMITED
                 - OAUTH_NO_EMAIL
+                - PLAN_NOT_FOUND
+                - SUBSCRIPTION_NOT_FOUND
+                - SUBSCRIPTION_REQUIRED
+                - WEBHOOK_INVALID
             message:
               type: string
               description: Человекочитаемое сообщение (i18n по Accept-Language).

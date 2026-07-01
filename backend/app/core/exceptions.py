@@ -31,3 +31,30 @@ class TokenInvalidError(DomainError):
     """Токен невалиден или истёк."""
 
     code = "TOKEN_INVALID"
+
+
+# ─── Billing (ADR-008) ────────────────────────────────────────────────
+
+
+class PlanNotFoundError(DomainError):
+    """Тариф или период не найден в каталоге."""
+
+    code = "PLAN_NOT_FOUND"
+
+
+class SubscriptionNotFoundError(DomainError):
+    """У пользователя нет подписки."""
+
+    code = "SUBSCRIPTION_NOT_FOUND"
+
+
+class SubscriptionRequiredError(DomainError):
+    """Требуется активная подписка (paywall)."""
+
+    code = "SUBSCRIPTION_REQUIRED"
+
+
+class WebhookInvalidError(DomainError):
+    """Webhook-подпись не прошла проверку или тело невалидно."""
+
+    code = "WEBHOOK_INVALID"
