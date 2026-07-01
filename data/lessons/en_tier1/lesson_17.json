@@ -3,7 +3,7 @@
   "tier": "en_tier1",
   "lesson_number": 17,
   "title": "Punctuation: exclamation and question",
-  "description": "Add expression with ! and ? — both need Shift",
+  "description": "Add expression with ! and ? - both need Shift",
   "target_wpm": 23,
   "text_length": 80,
   "error_limit_percent": 6,
@@ -187,9 +187,9 @@
     }
   ],
   "character_tips": {
-    "anna": "Shift takes practice — hold smoothly, then hit the second key.",
+    "anna": "Shift takes practice - hold smoothly, then hit the second key.",
     "maxim": "! and ? both need Shift. Use the opposite pinky for Shift than the target letter.",
-    "knopych": "SHIFT-COMBO! ! and ? — two-key combos! Quick! 🎮",
+    "knopych": "SHIFT-COMBO! ! and ? - two-key combos! Quick! 🎮",
     "klavochka": "Exclaim joy! Ask softly! Both add feeling 💖"
   },
   "phase": 2,

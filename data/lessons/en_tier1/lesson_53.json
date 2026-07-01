@@ -3,7 +3,7 @@
   "tier": "en_tier1",
   "lesson_number": 53,
   "title": "Rhythm: high-frequency words paragraph",
-  "description": "Rhythm exercise — high-frequency words flowing as natural prose",
+  "description": "Rhythm exercise - high-frequency words flowing as natural prose",
   "target_wpm": 45,
   "text_length": 17,
   "error_limit_percent": 8,
@@ -35,7 +35,7 @@
     "."
   ],
   "new_keys": [],
-  "finger_focus": "Flow — natural prose tempo",
+  "finger_focus": "Flow - natural prose tempo",
   "tips": [
     {
       "type": "lead",
@@ -85,9 +85,9 @@
   ],
   "character_tips": {
     "anna": "Real writing flows. Match the tempo of speech, not single keystrokes.",
-    "maxim": "Prose has its own rhythm — find it and ride it.",
+    "maxim": "Prose has its own rhythm - find it and ride it.",
     "knopych": "FLOW STATE! 🌊 Don't break the wave!",
-    "klavochka": "Like reading aloud, my dear — smooth and steady 📖"
+    "klavochka": "Like reading aloud, my dear - smooth and steady 📖"
   },
   "phase": 4,
   "rhythmLesson": true,

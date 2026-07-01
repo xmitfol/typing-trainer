@@ -3,7 +3,7 @@
   "tier": "en_tier1",
   "lesson_number": 16,
   "title": "Punctuation: period and comma",
-  "description": "Block 2 opens with the two most common punctuation marks — period and comma",
+  "description": "Block 2 opens with the two most common punctuation marks - period and comma",
   "target_wpm": 23,
   "text_length": 85,
   "error_limit_percent": 6,
@@ -184,9 +184,9 @@
     }
   ],
   "character_tips": {
-    "anna": "Punctuation lives on the bottom row. Period — ring finger, comma — middle.",
+    "anna": "Punctuation lives on the bottom row. Period - ring finger, comma - middle.",
     "maxim": "Standard rule: one space after period or comma, never before.",
-    "knopych": "Punctuation power! . and , — unlock real sentences! ⚡",
+    "knopych": "Punctuation power! . and , - unlock real sentences! ⚡",
     "klavochka": "Beautiful pauses, sunshine! Like breathing in writing! 💫"
   },
   "phase": 2,

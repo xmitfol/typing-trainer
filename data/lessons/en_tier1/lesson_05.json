@@ -3,7 +3,7 @@
   "tier": "en_tier1",
   "lesson_number": 5,
   "title": "Rhythm: build muscle memory",
-  "description": "Rhythm exercise — combine all learned keys in a smooth flowing text",
+  "description": "Rhythm exercise - combine all learned keys in a smooth flowing text",
   "target_wpm": 15,
   "text_length": 13,
   "error_limit_percent": 8,
@@ -41,7 +41,7 @@
     "Space"
   ],
   "new_keys": [],
-  "finger_focus": "All keys learned — focus on rhythm",
+  "finger_focus": "All keys learned - focus on rhythm",
   "tips": [
     {
       "type": "lead",
@@ -90,8 +90,8 @@
     }
   ],
   "character_tips": {
-    "anna": "Rhythm lesson! Don't chase speed — find a smooth rhythm. Type musically.",
-    "maxim": "Steady pace. Each symbol — one click. Don't rush, don't stall.",
+    "anna": "Rhythm lesson! Don't chase speed - find a smooth rhythm. Type musically.",
+    "maxim": "Steady pace. Each symbol - one click. Don't rush, don't stall.",
     "knopych": "RHYTHM! Tu-tu-tu! Don't break stride! 🥁",
     "klavochka": "Musically, sunshine! Smoothly, like a dance 💃"
   },

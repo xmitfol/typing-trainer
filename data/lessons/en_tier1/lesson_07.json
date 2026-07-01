@@ -3,7 +3,7 @@
   "tier": "en_tier1",
   "lesson_number": 7,
   "title": "Top row: Q P T Y (pinky + index reach)",
-  "description": "Pinkies reach Q (above A) and P; index fingers stretch up to T and Y — top row complete",
+  "description": "Pinkies reach Q (above A) and P; index fingers stretch up to T and Y - top row complete",
   "target_wpm": 18,
   "text_length": 75,
   "error_limit_percent": 5,
@@ -115,7 +115,7 @@
     "T",
     "Y"
   ],
-  "finger_focus": "Pinky reach Q/P, index reach T/Y — top row finished",
+  "finger_focus": "Pinky reach Q/P, index reach T/Y - top row finished",
   "tips": [
     {
       "type": "lead",
@@ -180,8 +180,8 @@
   "character_tips": {
     "anna": "Q, P, T, Y finish the top row. Pinkies hit the corners, index fingers stretch to the centre.",
     "maxim": "Top row done. Q and P are the corner pinkies; T and Y are index stretches.",
-    "knopych": "Top row CLEARED! Q P T Y — combo complete! 🔥",
-    "klavochka": "Wonderful! The whole top row is yours now — Q, P, T, Y ✨"
+    "knopych": "Top row CLEARED! Q P T Y - combo complete! 🔥",
+    "klavochka": "Wonderful! The whole top row is yours now - Q, P, T, Y ✨"
   },
   "phase": 1,
   "rhythmLesson": false,

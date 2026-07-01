@@ -3,7 +3,7 @@
   "tier": "en_tier1",
   "lesson_number": 9,
   "title": "Bottom row: X Z B N + semicolon",
-  "description": "Finish the bottom row — X, Z (left), B, N (index reach) — plus the semicolon",
+  "description": "Finish the bottom row - X, Z (left), B, N (index reach) - plus the semicolon",
   "target_wpm": 22,
   "text_length": 83,
   "error_limit_percent": 6,
@@ -197,7 +197,7 @@
   "character_tips": {
     "anna": "🎓 The last letters! X, Z, B, N complete the alphabet. Every key is now under your fingers.",
     "maxim": "Bottom row finished. X and Z (left), B and N (index reaches). Full alphabet unlocked.",
-    "knopych": "FINAL LETTERS! X Z B N — alphabet 100%! LEVEL UP! 🏆",
+    "knopych": "FINAL LETTERS! X Z B N - alphabet 100%! LEVEL UP! 🏆",
     "klavochka": "You did it! The whole English alphabet lives on your fingers now 🎉"
   },
   "phase": 1,

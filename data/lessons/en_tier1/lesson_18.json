@@ -3,7 +3,7 @@
   "tier": "en_tier1",
   "lesson_number": 18,
   "title": "Apostrophe and quotes",
-  "description": "Contractions and quoted speech — ' (apostrophe) and \" (Shift + ')",
+  "description": "Contractions and quoted speech - ' (apostrophe) and \" (Shift + ')",
   "target_wpm": 22,
   "text_length": 88,
   "error_limit_percent": 7,
@@ -186,7 +186,7 @@
     }
   ],
   "character_tips": {
-    "anna": "Apostrophe makes contractions. Don't pause inside them — it's one fluid press.",
+    "anna": "Apostrophe makes contractions. Don't pause inside them - it's one fluid press.",
     "maxim": "Quoted speech needs matching pairs. Open with \", close with \".",
     "knopych": "Quote unquote! Apostrophe power! 🤖",
     "klavochka": "Beautiful contractions, sunshine! Like little linked words! ✨"

@@ -100,10 +100,10 @@
     }
   ],
   "character_tips": {
-    "anna": "Real code rhythm — you can type a function now.",
+    "anna": "Real code rhythm - you can type a function now.",
     "maxim": "This is how programmers type all day. Welcome to coding speed.",
-    "knopych": "CODE TYPING! Symbols + numbers + letters — full power! 💻",
-    "klavochka": "Code is like another language — and you speak it now! ✨"
+    "knopych": "CODE TYPING! Symbols + numbers + letters - full power! 💻",
+    "klavochka": "Code is like another language - and you speak it now! ✨"
   },
   "phase": 3,
   "rhythmLesson": true,

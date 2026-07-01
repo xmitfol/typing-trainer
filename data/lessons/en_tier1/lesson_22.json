@@ -3,7 +3,7 @@
   "tier": "en_tier1",
   "lesson_number": 22,
   "title": "Hyphen and dash",
-  "description": "Hyphen (-) joins words, dash (—) sets off ideas. Both use the minus key.",
+  "description": "Hyphen (-) joins words, dash (-) sets off ideas. Both use the minus key.",
   "target_wpm": 25,
   "text_length": 95,
   "error_limit_percent": 7,
@@ -213,7 +213,7 @@
     "anna": "Hyphens glue words. No spaces around them in compounds.",
     "maxim": "Right pinky stretches to minus key. Same key, no shift for hyphen.",
     "knopych": "Hyphen-power! Glue-words! Combo-types! ⚡",
-    "klavochka": "Little dashes link words gently — pretty! 💖"
+    "klavochka": "Little dashes link words gently - pretty! 💖"
   },
   "phase": 2,
   "rhythmLesson": false,

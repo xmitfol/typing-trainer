@@ -3,7 +3,7 @@
   "tier": "en_tier1",
   "lesson_number": 13,
   "title": "Rhythm: morning routine",
-  "description": "Rhythm exercise with a flowing sentence — find your steady tempo",
+  "description": "Rhythm exercise with a flowing sentence - find your steady tempo",
   "target_wpm": 23,
   "text_length": 18,
   "error_limit_percent": 6,
@@ -59,7 +59,7 @@
     "Space"
   ],
   "new_keys": [],
-  "finger_focus": "All — pure rhythm",
+  "finger_focus": "All - pure rhythm",
   "tips": [
     {
       "type": "lead",
@@ -108,7 +108,7 @@
     }
   ],
   "character_tips": {
-    "anna": "Rhythm lesson — turn on the metronome and follow the beat.",
+    "anna": "Rhythm lesson - turn on the metronome and follow the beat.",
     "maxim": "Smooth tempo beats sprint-and-stop. Find your groove.",
     "knopych": "RHYTHM! Tu-tu-tu! Steady drums! 🥁",
     "klavochka": "Like a gentle dance, sunshine 💃"

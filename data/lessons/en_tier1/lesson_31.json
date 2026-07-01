@@ -3,7 +3,7 @@
   "tier": "en_tier1",
   "lesson_number": 31,
   "title": "Shift symbols: ! @ # $ %",
-  "description": "Symbols above 1-5 — all need Shift, left hand letters",
+  "description": "Symbols above 1-5 - all need Shift, left hand letters",
   "target_wpm": 26,
   "text_length": 80,
   "error_limit_percent": 8,
@@ -216,9 +216,9 @@
   ],
   "character_tips": {
     "anna": "Shift symbols on the left side use the right pinky for Shift. Opposite hand rule.",
-    "maxim": "Email and price symbols — daily writing needs these. @ and $ especially.",
-    "knopych": "SHIFT COMBOS! ! @ # $ % — power keys! ⚡",
-    "klavochka": "Special characters open new worlds — like emails and hashtags! 💖"
+    "maxim": "Email and price symbols - daily writing needs these. @ and $ especially.",
+    "knopych": "SHIFT COMBOS! ! @ # $ % - power keys! ⚡",
+    "klavochka": "Special characters open new worlds - like emails and hashtags! 💖"
   },
   "phase": 3,
   "rhythmLesson": false,

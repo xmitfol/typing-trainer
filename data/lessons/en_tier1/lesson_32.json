@@ -3,7 +3,7 @@
   "tier": "en_tier1",
   "lesson_number": 32,
   "title": "Shift symbols: ^ & * ( )",
-  "description": "Symbols above 6-0 — Shift + right-hand digits",
+  "description": "Symbols above 6-0 - Shift + right-hand digits",
   "target_wpm": 26,
   "text_length": 80,
   "error_limit_percent": 8,
@@ -207,10 +207,10 @@
     }
   ],
   "character_tips": {
-    "anna": "Right-side Shift symbols — use LEFT Shift, right-hand digits.",
-    "maxim": "Parentheses ( ) are everywhere — math, code, English. Master them.",
+    "anna": "Right-side Shift symbols - use LEFT Shift, right-hand digits.",
+    "maxim": "Parentheses ( ) are everywhere - math, code, English. Master them.",
     "knopych": "PAREN POWER! ( open ) close ⚡",
-    "klavochka": "Brackets hug ideas — like a gentle embrace 🤗"
+    "klavochka": "Brackets hug ideas - like a gentle embrace 🤗"
   },
   "phase": 3,
   "rhythmLesson": false,

@@ -3,7 +3,7 @@
   "tier": "en_tier1",
   "lesson_number": 36,
   "title": "Code symbols: = + - < > | ~",
-  "description": "Operator and comparison symbols — code and math",
+  "description": "Operator and comparison symbols - code and math",
   "target_wpm": 28,
   "text_length": 100,
   "error_limit_percent": 9,
@@ -135,7 +135,7 @@
     {"char": "s", "hand": "left", "finger": "ring", "key": "S"},
     {"char": ",", "hand": "right", "finger": "middle", "key": ","},
     {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
-    {"char": "~", "hand": "left", "finger": "pinky", "key": "~"},
+    {"char": "~", "hand": "right", "finger": "index", "key": "~"},
     {"char": "n", "hand": "right", "finger": "index", "key": "N"},
     {"char": "u", "hand": "right", "finger": "index", "key": "U"},
     {"char": "l", "hand": "right", "finger": "ring", "key": "L"},
@@ -241,7 +241,7 @@
   "character_tips": {
     "anna": "Math and comparison operators. Used in code daily.",
     "maxim": "These 7 symbols power 90% of programming logic. Master them.",
-    "knopych": "OPERATORS! ==, !=, <=, >= — code combos! ⚔️",
+    "knopych": "OPERATORS! ==, !=, <=, >= - code combos! ⚔️",
     "klavochka": "Like math symbols growing up into code! 🎓"
   },
   "phase": 3,

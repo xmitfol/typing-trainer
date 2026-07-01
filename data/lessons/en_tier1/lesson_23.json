@@ -3,7 +3,7 @@
   "tier": "en_tier1",
   "lesson_number": 23,
   "title": "Rhythm: full punctuation paragraph",
-  "description": "Rhythm exercise with full punctuation toolkit — find your tempo",
+  "description": "Rhythm exercise with full punctuation toolkit - find your tempo",
   "target_wpm": 27,
   "text_length": 19,
   "error_limit_percent": 8,
@@ -69,7 +69,7 @@
     "Space"
   ],
   "new_keys": [],
-  "finger_focus": "All — punctuation in flow",
+  "finger_focus": "All - punctuation in flow",
   "tips": [
     {
       "type": "lead",
@@ -118,8 +118,8 @@
     }
   ],
   "character_tips": {
-    "anna": "All your punctuation — in one paragraph. Stay smooth.",
-    "maxim": "Real writing is mostly this — alternating punctuation and words. Pro-level rhythm.",
+    "anna": "All your punctuation - in one paragraph. Stay smooth.",
+    "maxim": "Real writing is mostly this - alternating punctuation and words. Pro-level rhythm.",
     "knopych": "FLOW! All punctuation marks dancing! 🥁",
     "klavochka": "Like music with pauses, sunshine 🎵"
   },

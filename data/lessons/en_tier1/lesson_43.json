@@ -3,7 +3,7 @@
   "tier": "en_tier1",
   "lesson_number": 43,
   "title": "Rhythm: news headline practice",
-  "description": "Mixed-case prose with proper punctuation — like reading headlines",
+  "description": "Mixed-case prose with proper punctuation - like reading headlines",
   "target_wpm": 32,
   "text_length": 24,
   "error_limit_percent": 10,
@@ -91,10 +91,10 @@
     }
   ],
   "character_tips": {
-    "anna": "News headline style — practice for content writers and journalists.",
+    "anna": "News headline style - practice for content writers and journalists.",
     "maxim": "Title case + numbers + punctuation = professional writing flow.",
     "knopych": "HEADLINE TIME! Big news! BREAKING! 📰⚡",
-    "klavochka": "Like writing the front page — exciting! 📰✨"
+    "klavochka": "Like writing the front page - exciting! 📰✨"
   },
   "phase": 3,
   "rhythmLesson": true,

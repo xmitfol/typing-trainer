@@ -3,7 +3,7 @@
   "tier": "en_tier1",
   "lesson_number": 28,
   "title": "Rhythm: numeric drill",
-  "description": "Rhythm with all 10 digits — build numeric fluency",
+  "description": "Rhythm with all 10 digits - build numeric fluency",
   "target_wpm": 27,
   "text_length": 14,
   "error_limit_percent": 8,
@@ -66,7 +66,7 @@
     "Space"
   ],
   "new_keys": [],
-  "finger_focus": "All digits — rhythm and accuracy",
+  "finger_focus": "All digits - rhythm and accuracy",
   "tips": [
     {
       "type": "lead",
@@ -115,10 +115,10 @@
     }
   ],
   "character_tips": {
-    "anna": "Number rhythm — type sequences without thinking.",
+    "anna": "Number rhythm - type sequences without thinking.",
     "maxim": "Real numbers in real contexts. Phone, zip, year. This is daily typing.",
     "knopych": "NUMBER RHYTHM! 0-9-0-9 forever! 🥁",
-    "klavochka": "Counting like a song — 1, 2, 3 dance! 💃"
+    "klavochka": "Counting like a song - 1, 2, 3 dance! 💃"
   },
   "phase": 3,
   "rhythmLesson": true,
