@@ -112,12 +112,28 @@ Re-hash policy гарантирует постепенную миграцию б
 
 ## Часть 2 · Captcha integration (R-007 mitigation)
 
-### Решение
+> ⚠️ **SUPERSEDED by [ADR-006](../decisions/ADR-006.md) (2026-06-11).**
+> Решением PO выбор провайдера изменён: вместо внешнего **Yandex SmartCaptcha** —
+> **self-hosted anti-bot** (honeypot + proof-of-work + rate-limit), без сторонних API.
+> Ниже секции «Решение» / «Обоснование выбора» / integration-код оставлены как
+> исторический контекст; **актуальная архитектура — в ADR-006**. Таблица endpoint'ов,
+> rate-limit layering и dev-bypass семантика остаются в силе.
+
+### Решение (актуальное, ADR-006)
+
+**Self-hosted, три слоя, без внешних вызовов:**
+1. **Honeypot** — скрытое поле формы; непустое → 403 мгновенно.
+2. **Proof-of-Work** (hashcash) — `GET /auth/challenge` выдаёт HMAC-подписанный challenge;
+   клиент ищет nonce с ≥`difficulty` нулевыми битами `sha256(salt:nonce)`. Stateless
+   (подпись на `jwt_secret_key`), replay-guard через короткоживущий salt в Redis.
+3. **IP rate-limit** — slowapi+Redis (как было).
+
+Параметры/обоснование/трейд-оффы — в [ADR-006](../decisions/ADR-006.md). Код: [captcha.py](../../../../backend/app/core/captcha.py).
+
+<details><summary>Историческое решение (Yandex SmartCaptcha) — superseded</summary>
 
 **Provider**: **Yandex SmartCaptcha** (не Google reCAPTCHA, не hCaptcha).
 **Mode**: Invisible (advanced) — challenge показывается только при подозрительном поведении, не всегда.
-
-### Обоснование выбора
 
 | Provider | Pros | Cons | Verdict |
 |---|---|---|---|
@@ -126,6 +142,8 @@ Re-hash policy гарантирует постепенную миграцию б
 | hCaptcha | EU-альтернатива | Меньше distribution в RU, аналогичные проблемы | ❌ |
 | Cloudflare Turnstile | Хорош, но Cloudflare не RU-юрисдикция | 152-ФЗ surface | ❌ |
 | Custom (PoW / honeypot) | Полный контроль | ML не отслеживает паттерны атакующих | ❌ для v1.0 |
+
+</details>
 
 ### Где интегрируем (по endpoint'ам)
 
@@ -199,13 +217,14 @@ async def signup(
     # ... остальная логика signup
 ```
 
-### Env vars (добавить в .env.example)
+### Env vars (добавить в .env.example) — ADR-006
 
 ```bash
-# Yandex SmartCaptcha (Sprint 1)
-YANDEX_CAPTCHA_SITE_KEY=                  # для frontend, public
-YANDEX_CAPTCHA_SERVER_KEY=                # для backend, secret
-YANDEX_CAPTCHA_FALLBACK_MODE=fail-closed  # 'fail-closed' (deny if Y недоступен) | 'fail-open' (только в dev)
+# Self-hosted anti-bot (Sprint 1)
+CAPTCHA_POW_DIFFICULTY=18           # ведущих нулевых бит; 18≈0.1-0.5s в браузере
+CAPTCHA_CHALLENGE_TTL_SECONDS=600   # время жизни PoW-challenge
+CAPTCHA_HONEYPOT_FIELD=nickname2    # имя скрытого поля формы
+# HMAC-подпись challenge переиспользует JWT_SECRET_KEY (отдельный секрет не вводим)
 ```
 
 ### Dev mode bypass
@@ -241,8 +260,9 @@ Layer 3: Behavioral analytics (Sprint 8) — fraud detection по patterns
 
 ### Open questions для PO
 
-1. **Регистрация Yandex SmartCaptcha shop** — это PO action (как с YK shop). Бесплатно до 10K/мес. **ETA для PO**: 5 минут setup в https://cloud.yandex.ru/services/smartcaptcha.
-2. **Acceptable fail-rate?** — какой % legitimate signup'ов мы готовы потерять при Yandex Captcha outage? Default моё предложение: 0% accepted (fail-closed). Если PO хочет fail-open в outage — нужно явное согласие, потому что это даёт окно атакующим.
+Нет. ADR-006 закрыл оба прежних вопроса:
+- ~~Регистрация Yandex SmartCaptcha shop~~ — отменена (self-hosted, внешней регистрации нет).
+- ~~Acceptable fail-rate при Yandex outage~~ — неприменимо (нет внешнего API → нет outage-сценария). Рантайм-рычаг теперь `CAPTCHA_POW_DIFFICULTY`.
 
 ### Metrics для Sprint 10
 
@@ -263,19 +283,18 @@ Layer 3: Behavioral analytics (Sprint 8) — fraud detection по patterns
 4. Test: hash → verify → success
 5. Test: needs_update returns True при разных параметрах
 
-### S1.4 (signup endpoint — Captcha):
-1. Добавить `YANDEX_CAPTCHA_*` в `.env.example` + `config.py` (Settings class)
-2. Создать `app/core/captcha.py` (см. §2)
-3. В `POST /auth/signup` — `Depends(verify_captcha_dep)` → 403 если fail
-4. Frontend: добавить SmartCaptcha widget в `onboarding.html` (этап до submit)
-5. Verify test: bot без token → 403, legitimate token → 200
+### S1.4 (signup endpoint — Captcha, ADR-006):
+1. `CAPTCHA_POW_*` уже в `config.py` (Settings) ✅; добавить в `.env.example`
+2. `app/core/captcha.py` уже переписан под PoW+honeypot ✅
+3. Добавить `GET /api/v1/auth/challenge` (issue PoW challenge)
+4. В `POST /auth/signup` — `Depends(verify_captcha_dep)` → 403 если honeypot непустой / PoW не решён / replay
+5. Frontend: PoW-solver в Web Worker + honeypot-поле в `onboarding.html` (этап до submit)
+6. Verify test: бот без решения → 403, валидное решение → 200, replay того же salt → 403
 
-### Pre-requisite от PO (parallelable)
+### Pre-requisite от PO
 
-- [ ] PO регистрирует Yandex SmartCaptcha shop (5 мин)
-- [ ] PO предоставляет `YANDEX_CAPTCHA_SITE_KEY` (public) + `YANDEX_CAPTCHA_SERVER_KEY` (secret)
-
-Не блокирует Бориса — он может стартовать с `test-bypass-captcha` в dev mode.
+**Нет.** Self-hosted — внешней регистрации не требуется (ADR-006). Борис не заблокирован;
+dev-bypass `test-bypass-captcha` остаётся для verify-скриптов.
 
 ---
 
@@ -284,3 +303,4 @@ Layer 3: Behavioral analytics (Sprint 8) — fraud detection по patterns
 | Date | Author | Change |
 |---|---|---|
 | 2026-06-07 | Сергей (играл Клод) | Initial: Argon2id params + Yandex SmartCaptcha integration |
+| 2026-06-11 | Клод (по решению PO) | Часть 2 superseded by ADR-006: SmartCaptcha → self-hosted PoW+honeypot. Env vars, PO-prerequisite, S1.4 tasks обновлены. Argon2-часть без изменений. |

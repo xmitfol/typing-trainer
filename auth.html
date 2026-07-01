@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Вход — typing-trainer</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="assets/css/tokens.css">
+    <link rel="stylesheet" href="assets/css/auth.css">
+    <link rel="icon" type="image/x-icon" href="assets/images/favicon.ico">
+</head>
+<body>
+    <main class="auth-shell">
+        <div class="auth-card" id="authCard">
+            <a class="auth-logo" href="index.html">⌨️ Клавиатренажёр</a>
+
+            <!-- Глобальное сообщение (ошибки/статусы) -->
+            <div class="auth-banner" id="authBanner" role="alert" hidden></div>
+
+            <!-- ── SIGN IN ─────────────────────────────────────────── -->
+            <section class="auth-view" data-view="signin">
+                <h1 class="auth-title">Вход</h1>
+                <form id="signinForm" novalidate>
+                    <label class="auth-field">
+                        <span>Email</span>
+                        <input type="email" name="email" autocomplete="email" required>
+                    </label>
+                    <label class="auth-field">
+                        <span>Пароль</span>
+                        <input type="password" name="password" autocomplete="current-password" required>
+                    </label>
+                    <button type="submit" class="auth-btn" data-action="signin-submit">Войти</button>
+                </form>
+                <p class="auth-links">
+                    <a href="#" data-go="forgot">Забыли пароль?</a>
+                    <span>·</span>
+                    Нет аккаунта? <a href="#" data-go="signup">Регистрация</a>
+                </p>
+            </section>
+
+            <!-- ── SIGN UP ─────────────────────────────────────────── -->
+            <section class="auth-view" data-view="signup" hidden>
+                <h1 class="auth-title">Регистрация</h1>
+                <form id="signupForm" novalidate>
+                    <label class="auth-field">
+                        <span>Имя</span>
+                        <input type="text" name="name" maxlength="80" autocomplete="nickname" required>
+                    </label>
+                    <label class="auth-field">
+                        <span>Email</span>
+                        <input type="email" name="email" autocomplete="email" required>
+                    </label>
+                    <label class="auth-field">
+                        <span>Пароль (минимум 8 символов)</span>
+                        <input type="password" name="password" minlength="8" autocomplete="new-password" required>
+                    </label>
+                    <div class="auth-row">
+                        <label class="auth-field">
+                            <span>Кто учится</span>
+                            <select name="audience" required>
+                                <option value="adult">Взрослый</option>
+                                <option value="teen">Подросток</option>
+                                <option value="kid">Ребёнок</option>
+                            </select>
+                        </label>
+                        <label class="auth-field">
+                            <span>Наставник</span>
+                            <select name="character" required>
+                                <option value="anna">Анна</option>
+                                <option value="maxim">Максим</option>
+                                <option value="knopych">Кнопыч</option>
+                                <option value="klavochka">Клавочка</option>
+                            </select>
+                        </label>
+                    </div>
+                    <!-- honeypot: скрыто от людей, ловит ботов (ADR-006). Имя = CAPTCHA_HONEYPOT_FIELD -->
+                    <div class="auth-hp" aria-hidden="true">
+                        <label>Не заполняйте это поле
+                            <input type="text" name="nickname2" tabindex="-1" autocomplete="off">
+                        </label>
+                    </div>
+                    <button type="submit" class="auth-btn" data-action="signup-submit">
+                        <span data-label>Создать аккаунт</span>
+                    </button>
+                </form>
+                <p class="auth-links">
+                    Уже есть аккаунт? <a href="#" data-go="signin">Войти</a>
+                </p>
+            </section>
+
+            <!-- ── FORGOT ──────────────────────────────────────────── -->
+            <section class="auth-view" data-view="forgot" hidden>
+                <h1 class="auth-title">Сброс пароля</h1>
+                <p class="auth-sub">Укажите email — пришлём ссылку для сброса.</p>
+                <form id="forgotForm" novalidate>
+                    <label class="auth-field">
+                        <span>Email</span>
+                        <input type="email" name="email" autocomplete="email" required>
+                    </label>
+                    <div class="auth-hp" aria-hidden="true">
+                        <label>Не заполняйте это поле
+                            <input type="text" name="nickname2" tabindex="-1" autocomplete="off">
+                        </label>
+                    </div>
+                    <button type="submit" class="auth-btn" data-action="forgot-submit">
+                        <span data-label>Отправить ссылку</span>
+                    </button>
+                </form>
+                <p class="auth-links"><a href="#" data-go="signin">← Назад ко входу</a></p>
+            </section>
+
+            <!-- ── RESET (по ссылке из письма) ─────────────────────── -->
+            <section class="auth-view" data-view="reset" hidden>
+                <h1 class="auth-title">Новый пароль</h1>
+                <form id="resetForm" novalidate>
+                    <label class="auth-field">
+                        <span>Новый пароль (минимум 8 символов)</span>
+                        <input type="password" name="password" minlength="8" autocomplete="new-password" required>
+                    </label>
+                    <button type="submit" class="auth-btn" data-action="reset-submit">Сменить пароль</button>
+                </form>
+            </section>
+
+            <!-- ── MESSAGE (verify-результат / generic) ────────────── -->
+            <section class="auth-view" data-view="message" hidden>
+                <h1 class="auth-title" data-msg-title></h1>
+                <p class="auth-sub" data-msg-text></p>
+                <p class="auth-links"><a href="#" data-go="signin">Перейти ко входу</a></p>
+            </section>
+        </div>
+    </main>
+
+    <script src="config/settings.js"></script>
+    <script src="assets/js/api-client.js"></script>
+    <script src="assets/js/auth.js"></script>
+</body>
+</html>

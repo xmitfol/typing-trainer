@@ -1,7 +1,13 @@
-# Local dev — postgres + redis + adminer.
+# Local dev — postgres + redis + adminer + mailpit (dev SMTP).
 # Использование: `make docker-up` (или `docker compose up -d`).
-# Backend сам запускается через `make dev` локально (не в compose),
-# чтобы был hot-reload на изменения кода.
+#
+# Два режима:
+#   1) Inner-loop (hot-reload): `docker compose up -d` поднимает только инфру
+#      (postgres/redis/adminer/mailpit), а backend гоняешь на хосте `make dev`.
+#   2) Single-origin стек (E2E/gate, B1-003): `docker compose --profile app up -d`
+#      дополнительно поднимает контейнер backend + nginx-proxy на :8090, где
+#      фронт и /api живут на ОДНОМ origin (иначе SameSite=Lax cookies не пройдут).
+#      Прогон гейта: BASE=http://localhost:8090 python scripts/verify_signup_flow.py
 
 services:
   postgres:
@@ -50,6 +56,88 @@ services:
     environment:
       ADMINER_DEFAULT_SERVER: postgres
       ADMINER_DESIGN: pepa-linha-dark
+
+  # Dev SMTP-перехватчик (B1-002). Mailpit — поддерживаемый преемник mailhog
+  # (сам mailhog не развивается с 2020). Совместим с config.py:
+  # smtp_host=localhost, smtp_port=1025, smtp_use_tls=False, без creds.
+  #   SMTP  → localhost:1025  (бэкенд шлёт письма сюда)
+  #   Web UI→ http://localhost:8025  (смотрим перехваченные письма)
+  mailpit:
+    image: axllent/mailpit:latest
+    container_name: tt_mailpit
+    restart: unless-stopped
+    ports:
+      - "1025:1025"   # SMTP
+      - "8025:8025"   # Web UI / REST API
+    environment:
+      MP_SMTP_AUTH_ACCEPT_ANY: "true"      # dev: без проверки логина/пароля
+      MP_SMTP_AUTH_ALLOW_INSECURE: "true"  # dev: разрешаем plain SMTP без TLS
+      MP_MAX_MESSAGES: "500"               # кольцевой буфер, не растём бесконечно
+    healthcheck:
+      # У образа есть встроенный wget; /readyz — health-эндпоинт mailpit.
+      test: ["CMD", "wget", "-q", "-O", "-", "http://localhost:8025/readyz"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+
+  # ── Single-origin стек (profile `app`, B1-003) ──────────────────────
+  # Контейнерный backend — для E2E/gate (полный `docker compose up`).
+  # В inner-loop не поднимается (профиль не активен), там — `make dev` на хосте.
+  backend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: tt_backend
+    profiles: ["app"]
+    restart: unless-stopped
+    environment:
+      APP_ENV: dev
+      DB_HOST: postgres
+      DB_PORT: "5432"
+      DB_NAME: typing_trainer
+      DB_USER: tt_user
+      DB_PASSWORD: changeme_local_only
+      REDIS_HOST: redis
+      REDIS_PORT: "6379"
+      SMTP_HOST: mailpit
+      SMTP_PORT: "1025"
+      SMTP_USE_TLS: "false"
+      # Dev-only секрет (≥32 символа). В prod — из секрет-хранилища.
+      JWT_SECRET_KEY: "dev-only-jwt-secret-change-me-32+chars-xx"
+      # Same-origin: фронт и API за nginx на :8090.
+      FRONTEND_BASE_URL: "http://localhost:8090"
+      HTTP_CORS_ORIGINS: '["http://localhost:8090"]'
+      COOKIE_DOMAIN: localhost
+      COOKIE_SECURE: "false"
+      WEB_CONCURRENCY: "2"
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+      mailpit:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "curl", "-fsS", "http://localhost:8000/api/v1/health"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 20s   # запас на alembic upgrade head в start.sh
+
+  # nginx reverse-proxy: один origin для фронта (статика) + /api → backend.
+  proxy:
+    image: nginx:1.27-alpine
+    container_name: tt_proxy
+    profiles: ["app"]
+    restart: unless-stopped
+    ports:
+      - "8090:80"
+    volumes:
+      - ./nginx/dev-proxy.conf:/etc/nginx/conf.d/default.conf:ro
+      - ../:/srv/www:ro        # repo root = статика фронта
+    depends_on:
+      backend:
+        condition: service_healthy
 
 volumes:
   postgres_data:

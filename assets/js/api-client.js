@@ -27,8 +27,11 @@
 
     // ─── Configuration ──────────────────────────────────────────────────
     const DEFAULT_CONFIG = {
-        // Базовый URL backend. На Sprint 3+ переключается на prod.
-        baseUrl: 'http://localhost:8000/api/v1',
+        // Базовый URL backend. ОТНОСИТЕЛЬНЫЙ `/api/v1` → same-origin: работает
+        // и за dev-прокси (nginx :8090, B1-003), и в prod (фронт+API на одном
+        // домене). Cross-origin сломал бы SameSite=Lax auth-cookies. Для
+        // отдельного backend-хоста — setConfig({baseUrl:'https://api.../api/v1'}).
+        baseUrl: '/api/v1',
         // Глобальный switch: false = всегда localStorage. true = пытаемся API
         // с fallback на localStorage при ошибке/offline.
         useApi: false,
@@ -370,35 +373,50 @@
             );
         },
 
-        // ── Auth (TSD §3.2) — все stubs для Sprint 1, в local mode no-op ─
+        // ── Auth (TSD §3.2 / openapi.yaml) — backend-only, всегда через API ──
+        // Auth по своей природе серверный (cookies httpOnly, капча, токены),
+        // localStorage-fallback здесь неприменим. Методы всегда бьют в backend.
+
+        /** GET /auth/challenge — PoW-challenge (ADR-006) для signup/forgot. */
+        async getChallenge() {
+            return _http('GET', '/auth/challenge');
+        },
+        /**
+         * POST /auth/signup. `data` = {email,password,name,audience,character,
+         * gender?,language, captcha_challenge,captcha_signature,captcha_nonce,
+         * nickname2}. При успехе backend ставит httpOnly cookies, возвращает
+         * публичную проекцию user.
+         */
         async signup(data) {
-            if (!state.config.useApi) {
-                // В local mode «signup» = просто save profile с onboardingCompleted=true
-                return _local.setProfile({ ...data, onboardingCompleted: true });
-            }
             return _http('POST', '/auth/signup', data);
         },
-        async signin({ email, password }) {
-            if (!state.config.useApi) {
-                // Локально нет login — просто читаем профиль если он есть
-                const p = _local.getProfile();
-                if (!p) throw new Error('No local profile — нужна signup или migrate');
-                return { user: p };
+        /** POST /auth/signin. captcha_* — только если 403 CAPTCHA_REQUIRED. */
+        async signin({ email, password, captcha_challenge, captcha_signature, captcha_nonce } = {}) {
+            const body = { email, password };
+            if (captcha_challenge) {
+                body.captcha_challenge = captcha_challenge;
+                body.captcha_signature = captcha_signature;
+                body.captcha_nonce = captcha_nonce;
             }
-            return _http('POST', '/auth/signin', { email, password });
+            return _http('POST', '/auth/signin', body);
         },
         async signout() {
-            if (!state.config.useApi) {
-                // В local mode — clear profile flag (но прогресс не трогаем)
-                const p = _local.getProfile();
-                if (p) { delete p.onboardingCompleted; _local.setProfile(p); }
-                return true;
-            }
             return _http('POST', '/auth/signout');
         },
         async refresh() {
-            if (!state.config.useApi) return null;
             return _http('POST', '/auth/refresh');
+        },
+        /** POST /auth/verify-email {token}. 204 при успехе. */
+        async verifyEmail(token) {
+            return _http('POST', '/auth/verify-email', { token });
+        },
+        /** POST /auth/forgot — email + captcha. Всегда 202. */
+        async forgotPassword(data) {
+            return _http('POST', '/auth/forgot', data);
+        },
+        /** POST /auth/reset {token,password}. 204 при успехе. */
+        async resetPassword({ token, password }) {
+            return _http('POST', '/auth/reset', { token, password });
         },
         async migrateGuest(guestData) {
             if (!state.config.useApi) {

@@ -1,0 +1,140 @@
+/* auth.css — страница входа/регистрации (S1.9). Использует tokens.css. */
+
+.auth-shell {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+    background: var(--bg);
+    font-family: var(--font-ui);
+    color: var(--text, #1a1a2e);
+}
+
+.auth-card {
+    width: 100%;
+    max-width: 420px;
+    background: var(--surface);
+    border-radius: var(--radius-lg, 18px);
+    box-shadow: var(--shadow-lg);
+    padding: 32px 30px;
+}
+
+.auth-logo {
+    display: block;
+    text-align: center;
+    font-weight: 800;
+    font-size: 18px;
+    text-decoration: none;
+    color: inherit;
+    margin-bottom: 22px;
+}
+
+.auth-title {
+    font-size: 24px;
+    font-weight: 800;
+    margin: 0 0 6px;
+}
+
+.auth-sub {
+    color: var(--muted, #6b7280);
+    font-size: 14px;
+    margin: 0 0 18px;
+}
+
+.auth-field {
+    display: block;
+    margin-bottom: 14px;
+}
+.auth-field > span {
+    display: block;
+    font-size: 13px;
+    font-weight: 600;
+    margin-bottom: 6px;
+    color: var(--muted, #6b7280);
+}
+.auth-field input,
+.auth-field select {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 11px 13px;
+    font-size: 15px;
+    font-family: inherit;
+    border: 1px solid var(--border, #e5e7eb);
+    border-radius: 10px;
+    background: var(--bg-alt);
+    color: inherit;
+    transition: border-color .15s, box-shadow .15s;
+}
+.auth-field input:focus,
+.auth-field select:focus {
+    outline: none;
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px var(--accent-bg);
+}
+
+.auth-row {
+    display: flex;
+    gap: 12px;
+}
+.auth-row .auth-field { flex: 1; }
+
+/* honeypot — невидимо для людей, но доступно ботам, парсящим DOM */
+.auth-hp {
+    position: absolute;
+    left: -9999px;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+}
+
+.auth-btn {
+    width: 100%;
+    padding: 13px;
+    margin-top: 6px;
+    font-size: 15px;
+    font-weight: 700;
+    font-family: inherit;
+    color: #fff;
+    background: var(--brand-grad, linear-gradient(135deg, #74b9ff, #6c5ce7));
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    box-shadow: var(--shadow-accent);
+    transition: opacity .15s, transform .05s;
+}
+.auth-btn:hover { opacity: .92; }
+.auth-btn:active { transform: translateY(1px); }
+.auth-btn[disabled] { opacity: .6; cursor: progress; }
+
+.auth-links {
+    margin-top: 18px;
+    text-align: center;
+    font-size: 14px;
+    color: var(--muted, #6b7280);
+}
+.auth-links a {
+    color: var(--accent);
+    text-decoration: none;
+    font-weight: 600;
+}
+.auth-links a:hover { text-decoration: underline; }
+
+.auth-banner {
+    padding: 11px 14px;
+    border-radius: 10px;
+    font-size: 14px;
+    margin-bottom: 16px;
+}
+.auth-banner[data-kind="error"] {
+    background: var(--error-bg, #fef2f2);
+    color: var(--error, #ef4444);
+}
+.auth-banner[data-kind="success"] {
+    background: var(--success-bg, #f0fdf4);
+    color: var(--success, #10b981);
+}
+.auth-banner[data-kind="info"] {
+    background: var(--accent-bg);
+    color: var(--accent);
+}

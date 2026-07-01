@@ -12,7 +12,10 @@ RUN pip install --no-cache-dir uv
 COPY pyproject.toml ./
 # Если есть uv.lock — используем для воспроизводимости. Иначе sync без lock.
 COPY uv.loc[k] ./
-RUN uv pip install --system --no-cache --requirement <(uv pip compile pyproject.toml --quiet)
+# Без process substitution <(...): RUN выполняется в /bin/sh (dash), где
+# `<()` не поддерживается (только bash). Компилируем в файл, затем ставим.
+RUN uv pip compile pyproject.toml --quiet --output-file /tmp/requirements.txt && \
+    uv pip install --system --no-cache --requirement /tmp/requirements.txt
 
 # ─── Stage 2: runtime ──────────────────────────────────────────────────
 FROM python:3.12-slim AS runtime

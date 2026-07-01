@@ -3,12 +3,13 @@ pricing, webhooks, events) подключаются здесь."""
 
 from fastapi import APIRouter
 
+from app.api.v1.auth import router as auth_router
 from app.api.v1.health import router as health_router
 
 router = APIRouter()
 router.include_router(health_router, tags=["meta"])
+router.include_router(auth_router, prefix="/auth", tags=["auth"])
 
-# TODO Sprint 1: router.include_router(auth_router, prefix="/auth", tags=["auth"])
 # TODO Sprint 3: router.include_router(me_router, prefix="/me", tags=["me"])
 # TODO Sprint 5: router.include_router(lessons_router, prefix="/lessons", tags=["lessons"])
 # TODO Sprint 6: router.include_router(pricing_router, prefix="/pricing", tags=["pricing"])
