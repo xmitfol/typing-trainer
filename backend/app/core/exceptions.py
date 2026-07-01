@@ -33,6 +33,12 @@ class TokenInvalidError(DomainError):
     code = "TOKEN_INVALID"
 
 
+class OAuthNoEmailError(DomainError):
+    """OAuth-провайдер не отдал email — без него аккаунт не создать (ADR-007 §3)."""
+
+    code = "OAUTH_NO_EMAIL"
+
+
 # ─── Billing (ADR-008) ────────────────────────────────────────────────
 
 
