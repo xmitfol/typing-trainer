@@ -279,6 +279,10 @@
         .course-track { height: 8px; background: var(--divider); border-radius: 999px; overflow: hidden; }
         .course-fill { height: 100%; background: linear-gradient(90deg, var(--f-blue), var(--f-purple)); border-radius: 999px; }
         .report-actions { display: flex; gap: 10px; align-items: center; justify-content: center; margin-top: 30px; flex-wrap: wrap; }
+        /* Видимый фокус на кнопке (юзер продолжает с клавиатуры по Enter/Tab). */
+        .report-actions .btn:focus-visible, #next-btn:focus-visible {
+            outline: 3px solid var(--accent); outline-offset: 3px;
+        }
         /* Режим отчёта: отчёт — самостоятельная карточка, внешняя .task-card без
            своего фона/бордера/тени (иначе карточка в карточке — двойной фон). */
         .task-card.report-mode {

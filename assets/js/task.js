@@ -465,6 +465,7 @@ document.addEventListener('DOMContentLoaded', async function () {
         kbStage.classList.add('hide');
         successEl.classList.add('show');
         spawnConfetti();
+        const nb = $('next-btn'); if (nb) nb.focus();  // фокус на кнопку — Enter продолжает
     }
 
     function finishExercise() {
@@ -575,6 +576,10 @@ document.addEventListener('DOMContentLoaded', async function () {
         toolbar.classList.add('hide');
         kbStage.classList.add('hide');
         successEl.classList.add('show');
+        // Фокус на первичную кнопку («Продолжить»/«Повторить») — пользователь на
+        // клавиатуре, пусть жмёт Enter, а не тянется к мыши. Tab циклит между кнопками.
+        const primaryBtn = successEl.querySelector('.report-actions .btn--lg');
+        if (primaryBtn) requestAnimationFrame(() => primaryBtn.focus());
     }
 
     function spawnConfetti() {
