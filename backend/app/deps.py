@@ -5,6 +5,7 @@ Sprint 1: `db_session` / `redis_client` подключены к реальным
 (Sprint 1-3).
 """
 
+import hmac
 from collections.abc import AsyncIterator
 from typing import Annotated, Callable, Coroutine
 from uuid import UUID
@@ -163,7 +164,7 @@ def require_admin_role(
     """
 
     async def _dep(user: CurrentUser) -> User:
-        if ROLE_RANK.get(user.role, 0) < ROLE_RANK[min_role]:
+        if ROLE_RANK.get(user.role, 0) < ROLE_RANK.get(min_role, 999):
             raise HTTPException(
                 status.HTTP_403_FORBIDDEN,
                 detail={
@@ -215,7 +216,8 @@ async def require_reauth(
             detail={"code": "REAUTH_REQUIRED", "message": "Требуется повторный ввод пароля"},
         )
     stored = await redis.get(f"{REAUTH_PREFIX}{user.id}")
-    if not stored or stored != x_admin_reauth:
+    # constant-time сравнение scope-токена (F1-SEC гигиена денежного контура).
+    if not stored or not hmac.compare_digest(str(stored), x_admin_reauth):
         raise HTTPException(
             status.HTTP_403_FORBIDDEN,
             detail={"code": "REAUTH_REQUIRED", "message": "Требуется повторный ввод пароля"},

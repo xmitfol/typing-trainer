@@ -340,21 +340,25 @@ async def reset_password(
     best-effort: сбой SMTP не валит операцию (аудит фиксируется в любом случае).
     """
     user = await _get_user(session, user_id)
+    email_sent = False
     try:
         token = await issue_token(redis, RESET_PREFIX, user.id, RESET_TTL_SECONDS)
         await emailer.send_password_reset(
             to=user.email, name=user.name, language=user.language, token=token
         )
+        email_sent = True
     except Exception as e:  # noqa: BLE001 — почта/Redis не должны валить admin-action
         logger.warning("admin.reset_password_email_failed", user_id=str(user.id), error=str(e))
 
+    # В аудите честно фиксируем, ушло ли письмо (F1-SEC: не утверждать «done»,
+    # если SMTP упал).
     await audit(
         session,
         actor=actor,
         action="user.reset_password",
         target_type="user",
         target_id=user.id,
-        payload={"email": user.email},
+        payload={"email": user.email, "email_sent": email_sent},
         ip_hash=ip_hash,
     )
     return user

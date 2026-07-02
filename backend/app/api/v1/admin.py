@@ -44,6 +44,11 @@ logger = structlog.get_logger(__name__)
 
 router = APIRouter()
 
+# Rate-limit /admin/reauth от онлайн-брутфорса пароля админа (F1-SEC HIGH).
+# Счётчик неудач на user.id; при превышении — 429 lockout; успех сбрасывает.
+REAUTH_FAIL_LIMIT = 5
+REAUTH_FAIL_WINDOW = 300  # секунд
+
 
 def _ip_hash(request: Request) -> str | None:
     ip = request.client.host if request.client else None
@@ -68,13 +73,24 @@ async def reauth(
     Требует лишь авторизации (CurrentUser) — сам гейт роли на чувствительных
     эндпоинтах (Ф2/Ф4). OAuth-only юзер без пароля → 403 (нечего проверять).
     """
+    fail_key = f"ratelimit:reauth:{user.id}"
+    fails = await redis.get(fail_key)
+    if fails and int(fails) >= REAUTH_FAIL_LIMIT:
+        raise HTTPException(
+            status.HTTP_429_TOO_MANY_REQUESTS,
+            detail={"code": "RATE_LIMITED", "message": "Слишком много попыток, попробуйте позже"},
+        )
     target_hash = user.password_hash or get_dummy_hash()
     ok = verify_password(payload.password, target_hash)
     if not (user.password_hash and ok):
+        cnt = await redis.incr(fail_key)
+        if cnt == 1:
+            await redis.expire(fail_key, REAUTH_FAIL_WINDOW)
         raise HTTPException(
             status.HTTP_403_FORBIDDEN,
             detail={"code": "REAUTH_FAILED", "message": "Неверный пароль"},
         )
+    await redis.delete(fail_key)  # успех сбрасывает счётчик неудач
     token, ttl = await admin_service.issue_reauth_token(redis, user.id)
     logger.info("admin.reauth_issued", user_id=str(user.id))
     return ReauthResponse(reauth_token=token, ttl_seconds=ttl)
