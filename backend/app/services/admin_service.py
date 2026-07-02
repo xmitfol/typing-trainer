@@ -13,6 +13,7 @@ from uuid import UUID
 
 import structlog
 from sqlalchemy import and_, func, or_, select
+from sqlalchemy.exc import IntegrityError
 from sqlalchemy.ext.asyncio import AsyncSession
 
 from app.config import get_settings
@@ -26,6 +27,7 @@ from app.core.billing import (
 from app.core.email_tokens import RESET_PREFIX, RESET_TTL_SECONDS, issue_token
 from app.core.exceptions import (
     PlanNotFoundError,
+    RefundAmountExceedsError,
     SubscriptionNotFoundError,
     UserNotFoundError,
 )
@@ -733,6 +735,12 @@ async def refund(
         # нечего. Явный отказ, а не тихий no-op.
         raise SubscriptionNotFoundError()
 
+    # F2-SEC (Сергей): верхняя граница суммы возврата — нельзя вернуть больше
+    # оплаченного. За вычетом уже возвращённого не усложняем: refund идемпотентен
+    # (один refund-charge на платёж по idempotency_key).
+    if amount_kopecks > sub.amount_kopecks:
+        raise RefundAmountExceedsError()
+
     idempotency_key = f"refund:{payment_id}"
 
     # Идемпотентность: refund-charge с этим ключом уже создан → no-op.
@@ -776,7 +784,32 @@ async def refund(
             "actor_id": str(actor.id),
         },
     )
-    session.add(charge)
+
+    # F2-SEC: гонка. Два параллельных refund с одним idempotency_key прошли
+    # SELECT-проверку выше (existing is None у обоих) → оба дошли до insert.
+    # Partial UNIQUE (uq_sub_charges_refund_idem WHERE status='refunded')
+    # даёт IntegrityError проигравшему. Ловим на savepoint (begin_nested +
+    # flush форсирует constraint здесь, не откладывая до commit) → откат к
+    # «вернуть существующий refund-charge», как при найденном existing.
+    try:
+        async with session.begin_nested():
+            session.add(charge)
+            await session.flush()
+    except IntegrityError:
+        logger.info(
+            "admin.refund_race_duplicate",
+            subscription_id=str(sub.id),
+            idempotency_key=idempotency_key,
+        )
+        existing = (
+            await session.execute(
+                select(SubscriptionCharge).where(
+                    SubscriptionCharge.idempotency_key == idempotency_key,
+                    SubscriptionCharge.status == "refunded",
+                )
+            )
+        ).scalar_one()
+        return existing
 
     # Полный/частичный возврат → закрываем подписку (см. docstring).
     if sub.status not in ("expired", "cancelled"):

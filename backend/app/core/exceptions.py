@@ -72,6 +72,12 @@ class WebhookInvalidError(DomainError):
     code = "WEBHOOK_INVALID"
 
 
+class RefundAmountExceedsError(DomainError):
+    """Сумма возврата больше оплаченной."""
+
+    code = "REFUND_AMOUNT_EXCEEDS"
+
+
 # ─── Admin panel ──────────────────────────────────────────────────────
 
 

@@ -13,8 +13,10 @@ from uuid import UUID
 import structlog
 from fastapi import APIRouter, HTTPException, Query, Request, status
 
+from app.config import get_settings
 from app.core.exceptions import (
     PlanNotFoundError,
+    RefundAmountExceedsError,
     SubscriptionNotFoundError,
     UserNotFoundError,
 )
@@ -29,6 +31,7 @@ from app.deps import (
     RequireSupport,
     RequireSuperadmin,
 )
+from app.models.user import User
 from app.schemas.admin import (
     AdminActionResult,
     AdminAttemptOut,
@@ -70,6 +73,34 @@ REAUTH_FAIL_WINDOW = 300  # секунд
 def _ip_hash(request: Request) -> str | None:
     ip = request.client.host if request.client else None
     return admin_service.hash_ip(ip)
+
+
+# ─── Per-actor rate-limit на мутирующие /admin/* (F2-SEC) ────────────────
+#
+# Находка Сергея: мутации (refund/grant/cancel/block/restore/reset/verify)
+# без лимита → скомпрометированный админ крутит в цикле. Общий guard:
+# incr+expire(60) на actor.id, при превышении config-лимита — 429.
+# READ-эндпоинты (list/detail/overview/analytics) НЕ лимитируются.
+
+_ADMIN_MUTATION_RL_PREFIX = "ratelimit:admin_mut:"
+
+
+async def guard_admin_mutation_rate(actor: User, redis: RedisClient) -> None:
+    """Per-actor лимит мутаций/мин (rate_limit_admin_mutations_per_minute).
+
+    Паттерн me.py progress: incr, на первом — expire(60), при превышении 429
+    RATE_LIMITED. Вызывается из каждого мутирующего эндпоинта первым делом.
+    """
+    limit = get_settings().rate_limit_admin_mutations_per_minute
+    key = f"{_ADMIN_MUTATION_RL_PREFIX}{actor.id}"
+    count = await redis.incr(key)
+    if count == 1:
+        await redis.expire(key, 60)
+    if count > limit:
+        raise HTTPException(
+            status.HTTP_429_TOO_MANY_REQUESTS,
+            detail={"code": "RATE_LIMITED", "message": "Слишком много действий, подождите минуту"},
+        )
 
 
 # ─── Re-auth (analyst; выдаёт scope-токен для чувствительных операций) ───
@@ -229,8 +260,10 @@ async def block_user(
     user_id: UUID,
     actor: RequireSupport,
     session: DbSession,
+    redis: RedisClient,
     request: Request,
 ) -> AdminActionResult:
+    await guard_admin_mutation_rate(actor, redis)
     try:
         await admin_service.block(session, actor, user_id, ip_hash=_ip_hash(request))
     except UserNotFoundError as e:
@@ -247,8 +280,10 @@ async def restore_user(
     user_id: UUID,
     actor: RequireSupport,
     session: DbSession,
+    redis: RedisClient,
     request: Request,
 ) -> AdminActionResult:
+    await guard_admin_mutation_rate(actor, redis)
     try:
         await admin_service.restore(session, actor, user_id, ip_hash=_ip_hash(request))
     except UserNotFoundError as e:
@@ -265,8 +300,10 @@ async def verify_user_email(
     user_id: UUID,
     actor: RequireSupport,
     session: DbSession,
+    redis: RedisClient,
     request: Request,
 ) -> AdminActionResult:
+    await guard_admin_mutation_rate(actor, redis)
     try:
         await admin_service.verify_email(session, actor, user_id, ip_hash=_ip_hash(request))
     except UserNotFoundError as e:
@@ -287,6 +324,7 @@ async def reset_user_password(
     emailer: EmailServiceDep,
     request: Request,
 ) -> AdminActionResult:
+    await guard_admin_mutation_rate(actor, redis)
     try:
         await admin_service.reset_password(
             session,
@@ -358,8 +396,10 @@ async def grant_subscription(
     payload: GrantSubscriptionRequest,
     actor: RequireSupport,
     session: DbSession,
+    redis: RedisClient,
     request: Request,
 ) -> AdminSubActionResult:
+    await guard_admin_mutation_rate(actor, redis)
     try:
         sub = await admin_service.grant(
             session,
@@ -409,8 +449,10 @@ async def cancel_subscription(
     sub_id: UUID,
     actor: RequireSupport,
     session: DbSession,
+    redis: RedisClient,
     request: Request,
 ) -> AdminSubActionResult:
+    await guard_admin_mutation_rate(actor, redis)
     try:
         sub = await admin_service.cancel(
             session, actor, sub_id, ip_hash=_ip_hash(request)
@@ -431,6 +473,7 @@ async def refund_subscription(
     _actor: RequireSuperadmin,
     actor: RequireReauthOnce,
     session: DbSession,
+    redis: RedisClient,
     request: Request,
 ) -> AdminSubActionResult:
     """Возврат: RequireSuperadmin (роль) + RequireReauthOnce (одноразовый токен).
@@ -438,6 +481,7 @@ async def refund_subscription(
     amount_kopecks=None → полная сумма подписки (берём sub.amount_kopecks).
     Идемпотентно по refund:{payment_id} (повтор → тот же charge, no-op).
     """
+    await guard_admin_mutation_rate(actor, redis)
     # Определяем сумму до вызова сервиса (нужна подписка для полного возврата).
     try:
         sub = await admin_service._get_subscription(session, sub_id)
@@ -461,6 +505,12 @@ async def refund_subscription(
                 "code": "REFUND_UNAVAILABLE",
                 "message": "У подписки нет исходного платежа для возврата",
             },
+        ) from e
+    except RefundAmountExceedsError as e:
+        # F2-SEC: сумма возврата больше оплаченной.
+        raise HTTPException(
+            status.HTTP_400_BAD_REQUEST,
+            detail={"code": e.code, "message": "Сумма возврата больше оплаченной"},
         ) from e
     return AdminSubActionResult(
         subscription_id=charge.subscription_id, action="sub.refund"

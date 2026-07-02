@@ -147,6 +147,9 @@ class Settings(BaseSettings):
     rate_limit_signin_per_minute: int = 5
     rate_limit_progress_per_minute: int = 60
     rate_limit_events_per_minute: int = 120   # Ф3-1: /events/batch анти-флуд (на session/ip)
+    # F2-SEC: мутирующие /admin/* (refund/grant/cancel/block/restore/reset/verify)
+    # лимитируются per-actor (скомпрометированный админ не крутит в цикле).
+    rate_limit_admin_mutations_per_minute: int = 30
 
     # ─── Admin analytics (Ф3-5) ────────────────────────────────────
     analytics_cache_ttl_seconds: int = 600    # TTL Redis-кэша тяжёлых агрегатов (10 мин)

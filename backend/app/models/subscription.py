@@ -176,6 +176,15 @@ class SubscriptionCharge(Base):
             postgresql_ops={"attempted_at": "DESC"},
         ),
         Index("ix_sub_charges_idempotency", "idempotency_key"),
+        # F2-SEC: partial UNIQUE на refund-контур — против гонки двойного
+        # admin-refund. Только status='refunded' (не трогает webhook/recurring
+        # SELECT-then-insert путь). См. migration 202607021800.
+        Index(
+            "uq_sub_charges_refund_idem",
+            "idempotency_key",
+            unique=True,
+            postgresql_where=text("status = 'refunded'"),
+        ),
         # Failed/pending — для admin debug + retry анализа
         Index(
             "ix_sub_charges_pending",
