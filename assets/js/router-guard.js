@@ -55,6 +55,15 @@
         }
     } catch (e) { /* migration is best-effort */ }
 
+    // Админка (/admin/*.html) гейтит себя ПО РОЛИ (admin.js читает GET /me),
+    // а не по наличию localStorage-профиля. Не применяем сюда PROTECTED-редирект,
+    // иначе не-залогиненного админа выбросило бы на лендинг ещё до role-гейта
+    // (а «index.html» в /admin/ совпал бы с именем лендинга). admin.js сам
+    // уводит на dashboard/лендинг по результату /me.
+    if (location.pathname.toLowerCase().indexOf('/admin/') !== -1) {
+        return;
+    }
+
     var hasProfile = !!(profile && profile.onboardingCompleted && profile.name);
     var page = (location.pathname.split('/').pop() || 'index.html').toLowerCase();
     var PROTECTED = ['dashboard.html', 'course.html', 'lesson.html', 'task.html', 'settings.html', 'achievements.html', 'builder.html', 'profile.html'];

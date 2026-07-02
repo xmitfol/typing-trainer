@@ -118,11 +118,19 @@
      * Низкоуровневый fetch с timeout + auth + структурированными ошибками.
      * Throws ApiError при не-2xx, NetworkError при сети.
      */
-    async function _http(method, path, body) {
+    async function _http(method, path, body, extraHeaders) {
         const url = state.config.baseUrl.replace(/\/$/, '') + path;
         const headers = { 'Accept': 'application/json' };
         if (body !== undefined) headers['Content-Type'] = 'application/json';
         if (state.accessToken) headers['Authorization'] = `Bearer ${state.accessToken}`;
+        // Необязательные кастомные заголовки (напр. X-Admin-Reauth для refund).
+        // Ставятся ПОСЛЕ базовых, но существующие вызовы шлют extraHeaders=undefined
+        // → поведение не меняется.
+        if (extraHeaders) {
+            for (const k of Object.keys(extraHeaders)) {
+                if (extraHeaders[k] != null) headers[k] = extraHeaders[k];
+            }
+        }
 
         const ctrl = new AbortController();
         const timer = setTimeout(() => ctrl.abort(), state.config.timeout);
@@ -140,7 +148,11 @@
             const data = text ? safeParseJson(text) : null;
             if (!res.ok) {
                 const err = new Error(`HTTP ${res.status}: ${res.statusText}`);
-                err.code = (data && data.code) || `http_${res.status}`;
+                // Доменный код ошибки backend лежит в detail.code (FastAPI
+                // HTTPException(detail={code,message})); реже — в data.code.
+                // Иначе http_<status>. Так err.code сразу = 'REAUTH_REQUIRED'/
+                // 'ADMIN_FORBIDDEN'/… без ручного копания в body у вызывающих.
+                err.code = (data && (data.code || (data.detail && data.detail.code))) || `http_${res.status}`;
                 err.status = res.status;
                 err.body = data;
                 throw err;
@@ -496,6 +508,94 @@
         /** POST /billing/subscription/cancel — отмена до end-of-period. Требует auth. */
         async cancelSubscription() {
             return _http('POST', '/billing/subscription/cancel');
+        },
+
+        // ── Admin (/admin/*) — backend-only, RBAC на сервере ─────────────
+        // Админка бессмысленна оффлайн: без localStorage-fallback, всегда бьёт
+        // в backend. Ошибки пробрасываются с .code/.status (как auth/billing).
+        // credentials:'include' — та же auth-cookie, что у юзеров; роль решает
+        // доступ на сервере (403 ADMIN_FORBIDDEN / REAUTH_REQUIRED).
+
+        /** POST /admin/reauth {password} → {reauth_token, ttl_seconds}. */
+        async adminReauth(password) {
+            return _http('POST', '/admin/reauth', { password });
+        },
+        /** GET /admin/overview?period=7|30|90 → метрики дашборда. */
+        async adminOverview(period) {
+            const p = [7, 30, 90].indexOf(Number(period)) !== -1 ? Number(period) : 30;
+            return _http('GET', `/admin/overview?period=${p}`);
+        },
+        /**
+         * GET /admin/users — список/поиск/фильтр (пагинация).
+         * filters: {search, audience, email_verified, has_subscription, deleted,
+         *           page, page_size}. Пустые/undefined значения не шлём.
+         */
+        async adminListUsers(filters = {}) {
+            const params = new URLSearchParams();
+            const allow = ['search', 'audience', 'email_verified', 'has_subscription', 'deleted', 'page', 'page_size'];
+            for (const k of allow) {
+                const v = filters[k];
+                if (v !== undefined && v !== null && v !== '') params.set(k, String(v));
+            }
+            const qs = params.toString();
+            return _http('GET', `/admin/users${qs ? '?' + qs : ''}`);
+        },
+        /** GET /admin/users/{id} → карточка (профиль+подписки+прогресс+family+oauth). */
+        async adminGetUser(id) {
+            return _http('GET', `/admin/users/${encodeURIComponent(id)}`);
+        },
+        /**
+         * POST /admin/users/{id}/{action} — block | restore | verify-email | reset-password.
+         * → {user_id, action}.
+         */
+        async adminUserAction(id, action) {
+            const allowed = ['block', 'restore', 'verify-email', 'reset-password'];
+            if (allowed.indexOf(action) === -1) {
+                const err = new Error(`unknown admin user action: ${action}`);
+                err.code = 'bad_action';
+                throw err;
+            }
+            return _http('POST', `/admin/users/${encodeURIComponent(id)}/${action}`);
+        },
+        /**
+         * GET /admin/subscriptions — список подписок с фильтрами (пагинация).
+         * filters: {status, plan, provider, period, page, page_size}.
+         */
+        async adminListSubscriptions(filters = {}) {
+            const params = new URLSearchParams();
+            const allow = ['status', 'plan', 'provider', 'period', 'page', 'page_size'];
+            for (const k of allow) {
+                const v = filters[k];
+                if (v !== undefined && v !== null && v !== '') params.set(k, String(v));
+            }
+            const qs = params.toString();
+            return _http('GET', `/admin/subscriptions${qs ? '?' + qs : ''}`);
+        },
+        /** GET /admin/subscriptions/{id} → {subscription, charges:[...]}. */
+        async adminGetSubscription(id) {
+            return _http('GET', `/admin/subscriptions/${encodeURIComponent(id)}`);
+        },
+        /** POST /admin/subscriptions/grant {user_id, plan, period, reason}. */
+        async adminGrant({ user_id, plan, period, reason } = {}) {
+            return _http('POST', '/admin/subscriptions/grant', { user_id, plan, period, reason });
+        },
+        /** POST /admin/subscriptions/{id}/cancel → {subscription_id, action}. */
+        async adminCancelSub(id) {
+            return _http('POST', `/admin/subscriptions/${encodeURIComponent(id)}/cancel`);
+        },
+        /**
+         * POST /admin/subscriptions/{id}/refund {amount_kopecks?, reason}
+         * + заголовок X-Admin-Reauth:<token>. Только superadmin.
+         * Ошибки: 403 ADMIN_FORBIDDEN (не superadmin), 403 REAUTH_REQUIRED
+         * (нет/протух reauth-токен → caller повторяет adminReauth).
+         */
+        async adminRefund(id, { amount_kopecks, reason } = {}, reauthToken) {
+            const body = { reason };
+            if (amount_kopecks !== undefined && amount_kopecks !== null && amount_kopecks !== '') {
+                body.amount_kopecks = Number(amount_kopecks);
+            }
+            return _http('POST', `/admin/subscriptions/${encodeURIComponent(id)}/refund`, body,
+                reauthToken ? { 'X-Admin-Reauth': reauthToken } : undefined);
         },
 
         // ── Health check (для verify) ────────────────────────────────────
