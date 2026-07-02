@@ -16,7 +16,7 @@
 | **Бэкенд: OAuth** (Sprint 2) | 🟢 Yandex+VK готовы (ADR-007, gate 26/26 VM на mock): start/callback, PKCE, резолвинг, наши cookies. Фронт-кнопки на auth.html. Ждёт реальных кред (S2.1 PO) |
 | **Бэкенд: биллинг/подписка** | 🟢 Scaffold зелёный на стеке (ADR-008, gate 6/6 VM): checkout→webhook→active, идемпотентность, честный period, paywall-гейт. Ждёт реального провайдера (YooKassa shop) |
 | **Синк прогресса на сервер** | 🟢 Бэкенд готов (gate 45/45 VM): /me/* (profile/settings/progress/history) + guest-migration + серверный paywall-gate /lessons/{n}/access. api-client адаптирован. Осталось развернуть фронт на useApi (сшивка live-приложения) |
-| **Админ-панель** | 🟢 Ф1 (RBAC/аудит/re-auth/Обзор/Пользователи, 18/18) + Ф2 (Подписки/Возврат, 19/19) готовы и в master; фронт Обзор/Пользователи/Платежи. Осталось Ф3 (Статистика+events), Ф4 (имперсонация), money-hardening к prod. Спека `spec/admin/` |
+| **Админ-панель** | ✅ **Ф1–Ф4 ГОТОВА** в master: Обзор/Пользователи/Платежи(refund)/Статистика(+events)/имперсонация/роли/TOTP-2FA. RBAC 3 роли, аудит, re-auth. Ф4-SEC APPROVE-WITH-FIXES (код-фиксы внесены). Pre-prod: 2 env-переключателя (nginx allowlist + require_superadmin_2fa/TOTP_ENCRYPTION_KEY). Спека `spec/admin/` |
 | **Онбординг-редизайн** | 🟡 Запланирован (PO готовит) |
 | **Адаптивный AI-движок** | ⚪ Спек есть, ждёт данных |
 | **Удержание** (стрики/напоминания) | ⚪ Не начато |
