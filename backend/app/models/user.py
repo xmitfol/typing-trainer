@@ -47,6 +47,12 @@ class User(Base, UUIDPkMixin, TimestampMixin):
     language: Mapped[str] = mapped_column(String(2), nullable=False, default="ru")
     is_anonymous: Mapped[bool] = mapped_column(Boolean, nullable=False, default=False)
 
+    # Admin RBAC (admin-panel TSD §2.1). 'user' = обычный юзер (99.99%),
+    # analyst < support < superadmin — иерархия админ-ролей.
+    role: Mapped[str] = mapped_column(
+        String(12), nullable=False, server_default=text("'user'"), default="user"
+    )
+
     # Family sub-account: parent имеет паблик-подписку, дети — без своей.
     parent_user_id: Mapped[UUID | None] = mapped_column(
         ForeignKey("users.id", ondelete="SET NULL"),
@@ -104,6 +110,20 @@ class User(Base, UUIDPkMixin, TimestampMixin):
             "language IN ('ru', 'en')",
             name="language_valid",
         ),
+        CheckConstraint(
+            "role IN ('user', 'analyst', 'support', 'superadmin')",
+            name="role_valid",
+        ),
+        # Частичный индекс — быстрый список сотрудников (admin TSD §3.1).
+        Index(
+            "ix_users_staff",
+            "role",
+            postgresql_where=text("role <> 'user'"),
+        ),
+        # Поиск юзеров по имени (email уже unique CITEXT). btree — достаточно
+        # для substring-ILIKE с индексом только по префиксу; полнотекст/pg_trgm
+        # — оптимизация позже, если понадобится (admin WORK_PLAN риск G).
+        Index("ix_users_name", "name"),
         Index(
             "ix_users_email_active",
             "email",

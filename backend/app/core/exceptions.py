@@ -70,3 +70,12 @@ class WebhookInvalidError(DomainError):
     """Webhook-подпись не прошла проверку или тело невалидно."""
 
     code = "WEBHOOK_INVALID"
+
+
+# ─── Admin panel ──────────────────────────────────────────────────────
+
+
+class UserNotFoundError(DomainError):
+    """Пользователь не найден (admin-панель)."""
+
+    code = "USER_NOT_FOUND"

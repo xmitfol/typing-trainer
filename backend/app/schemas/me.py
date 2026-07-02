@@ -49,6 +49,9 @@ class ProfileOut(BaseModel):
     gender: Gender | None
     language: Language
     is_anonymous: bool
+    # Admin RBAC (admin-panel TSD §7): фронт скрывает admin-вкладки по роли.
+    # 'user' для обычных юзеров (99.99%). UX-удобство, не защита.
+    role: str = "user"
     created_at: datetime
 
 
