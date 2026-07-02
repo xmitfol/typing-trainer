@@ -82,29 +82,36 @@ document.addEventListener('DOMContentLoaded', async function () {
     $('#dhDate').textContent = dateStr;
     $('#dhWelcomeName').textContent = profile.name;
 
-    // ── Streak (если в history есть дни подряд — пока считаем дешёвой эвристикой) ──
-    const streakDays = computeStreak(history);
+    // ── Retention / стрик + дневная цель (retention.js, fail-safe) ──
+    const rt = (window.retention && window.retention.computeStreak(history, new Date()))
+        || { streakDays: 0, todayMinutes: 0, goalMet: false, longestStreak: 0, activeToday: false };
+    const streakDays = rt.streakDays;
+    const goalMin = (window.retention && window.retention.DAILY_GOAL_MIN) || 10;
+
+    // Бейдж стрика в welcome-strip.
     if (streakDays > 0) {
         $('#dhStreak').hidden = false;
         $('#dhStreakDays').textContent = streakDays;
+        // Стрик «жив, но сегодня ещё не занимался» — мягкая подсказка.
+        const hintEl = $('#dhStreakHint');
+        if (hintEl) hintEl.hidden = rt.activeToday;
     }
-    function computeStreak(items) {
-        if (!Array.isArray(items) || !items.length) return 0;
-        const days = new Set();
-        items.forEach(it => {
-            const t = it && (it.completedAt || it.timestamp);
-            if (t) days.add(new Date(t).toISOString().slice(0, 10));
-        });
-        const sorted = [...days].sort().reverse();
-        if (!sorted.length) return 0;
-        let streak = 1;
-        let prev = new Date(sorted[0]);
-        for (let i = 1; i < sorted.length; i++) {
-            const cur = new Date(sorted[i]);
-            const diff = Math.round((prev - cur) / 86400000);
-            if (diff === 1) { streak++; prev = cur; } else break;
-        }
-        return streak;
+
+    // Дневная цель «X / 10 мин сегодня» (зелёное при goalMet).
+    const goalEl = $('#dhGoal');
+    if (goalEl) {
+        goalEl.hidden = false;
+        const cur = Math.min(rt.todayMinutes, goalMin);
+        const pctGoal = Math.min(100, Math.round((rt.todayMinutes / goalMin) * 100));
+        const barEl = $('#dhGoalBarFill');
+        if (barEl) barEl.style.width = pctGoal + '%';
+        const valEl = $('#dhGoalVal');
+        if (valEl) valEl.textContent = `${rt.todayMinutes} / ${goalMin} мин`;
+        goalEl.classList.toggle('dh-goal--met', rt.goalMet);
+        const capEl = $('#dhGoalCaption');
+        if (capEl) capEl.textContent = rt.goalMet
+            ? 'Дневная цель выполнена ✅'
+            : (rt.todayMinutes > 0 ? 'Ещё чуть-чуть до цели' : 'Дневная цель сегодня');
     }
 
     // ── Language config ────────────────────────────────────────────

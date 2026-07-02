@@ -206,6 +206,7 @@
     -webkit-text-fill-color: transparent;
     background-clip: text;
 }
+.dh-streak-wrap { display: flex; flex-direction: column; align-items: flex-end; gap: 6px; }
 .dh-streak {
     display: flex; align-items: center; gap: 8px;
     padding: 8px 14px;
@@ -214,6 +215,38 @@
     font-family: var(--font-mono); font-size: 12.5px; font-weight: 700;
     color: #92400e;
 }
+.dh-streak-hint {
+    font-size: 11.5px; color: var(--warn); font-weight: 600;
+    max-width: 220px; text-align: right;
+}
+
+/* ── Дневная цель (retention v1) ─────────────────────────────── */
+.dh-goal__hd {
+    display: flex; justify-content: space-between; align-items: baseline;
+    margin-bottom: 10px;
+}
+.dh-goal__label {
+    font-family: var(--font-mono); font-size: 11px; font-weight: 600;
+    letter-spacing: 0.06em; color: var(--faint);
+}
+.dh-goal__val {
+    font-family: var(--font-mono); font-size: 14px; font-weight: 700;
+    color: var(--ink);
+}
+.dh-goal__bar {
+    height: 8px; background: var(--divider);
+    border-radius: 999px; overflow: hidden; margin-bottom: 8px;
+}
+.dh-goal__bar-fill {
+    height: 100%; width: 0;
+    background: linear-gradient(90deg, var(--f-blue) 0%, var(--f-purple) 100%);
+    border-radius: 999px;
+    transition: width 0.4s ease;
+}
+.dh-goal__caption { font-size: 12px; color: var(--sub); }
+.dh-goal--met .dh-goal__val { color: var(--success); }
+.dh-goal--met .dh-goal__caption { color: var(--success); font-weight: 600; }
+.dh-goal--met .dh-goal__bar-fill { background: var(--success); }
 
 /* ─── Main grid ──────────────────────────────────────────────────────────── */
 .dh-main {

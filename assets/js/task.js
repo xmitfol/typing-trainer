@@ -626,6 +626,24 @@ document.addEventListener('DOMContentLoaded', async function () {
         // Порог по звёздам (методспек дизайнера): < 3 звёзд → «с трудом».
         const state = stars >= 3 ? 'success' : 'struggle';
 
+        // ── Retention: строка-поощрение при продлении стрика / достижении
+        // дневной цели В ЭТОМ ЗАХОДЕ (momentum). historyArr — снимок ДО попытки;
+        // добавляем текущую попытку → сравниваем «до/после». Fail-safe.
+        let retentionLine = '';
+        if (!isUserLesson && window.retention) {
+            try {
+                const now = new Date();
+                const before = window.retention.computeStreak(historyArr, now);
+                const thisAttempt = { completedAt: now.toISOString(), duration: elapsed };
+                const after = window.retention.computeStreak(historyArr.concat([thisAttempt]), now);
+                if (after.goalMet && !before.goalMet) {
+                    retentionLine = 'Дневная цель выполнена ✅';
+                } else if (after.streakDays > before.streakDays && after.streakDays >= 2) {
+                    retentionLine = `Серия: ${after.streakDays} дней 🔥`;
+                }
+            } catch (e) { retentionLine = ''; }
+        }
+
         // «Продолжить →» → назад к уроку (теория), читать дальше. Свои уроки → конструктор.
         const continueHref = isUserLesson
             ? 'builder.html'
@@ -645,7 +663,7 @@ document.addEventListener('DOMContentLoaded', async function () {
                 showSpeed: !isUserLesson && lessonNum >= 6,
                 good: ca.good, work: ca.improve, quote,
                 lesson: lessonNum, lessonsTotal: totalLessons,
-                state, continueHref, attempt,
+                state, continueHref, attempt, retentionLine,
             });
             // Отчёт — самостоятельная карточка: убираем хром внешней .task-card
             // (двойной фон) и прячем плавающий бабл наставника (он есть в шапке отчёта).

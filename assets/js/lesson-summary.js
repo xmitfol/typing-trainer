@@ -61,6 +61,7 @@
             <div class="report-kicker" style="color:${isSuccess ? 'var(--success)' : 'var(--warn)'}">${isSuccess ? 'УРОК ПРОЙДЕН ✓' : 'УРОК ЗАВЕРШЁН'}</div>
             <h1 class="report-title">Урок ${r.lessonNum}</h1>
             <div class="report-subtitle">${esc(r.lessonTitle)}</div>
+            ${r.retentionLine ? `<div class="report-retention">${esc(r.retentionLine)}</div>` : ''}
           </div>
         </div>
 
