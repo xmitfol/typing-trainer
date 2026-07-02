@@ -263,6 +263,16 @@ document.addEventListener('DOMContentLoaded', async function () {
         }
     });
 
+    // Адаптив (§5.2): точечный remediation-дрилл на слабую клавишу. В MVP-cut
+    // remediationStep — заглушка (всегда null), поэтому это no-op; точка подключения
+    // готова для 2-й итерации Phase 1 (§4.3). Вставляем как обычный active-step.
+    if (guided && window.adaptiveReps) {
+        try {
+            const rem = window.adaptiveReps.remediationStep(tier, lesson, guidedStepIdx);
+            if (rem) tipsContainer.appendChild(makeGuidedStep(guidedStepIdx + 1, rem, 'active'));
+        } catch (e) { /* fail-safe */ }
+    }
+
     // Pull quote только когда есть >=4 строковых tips (legacy для старых уроков).
     if (tips.filter(t => typeof t === 'string').length >= 4) {
         $('#lpPullQuote').hidden = false;
@@ -287,7 +297,16 @@ document.addEventListener('DOMContentLoaded', async function () {
     //   done   — пройден, ✓ + кнопка (можно повторить);
     //   locked — заблокирован, кнопки нет.
     function makeGuidedStep(num, tip, status) {
-        const target = String(tip.target || '');
+        // Preview-target: для декларативного шага (unit/baseReps) строим из адаптивного
+        // числа повторов, чтобы превью совпадало с тем, что откроется в тренажёре.
+        // Fail-safe/backward-compat: не декларативный шаг / нет движка → legacy tip.target.
+        let target = String(tip.target || '');
+        if (window.adaptiveReps) {
+            try {
+                const at = window.adaptiveReps.targetForStep(tier, tip);
+                if (at != null) target = at;
+            } catch (e) { /* остаёмся на статичном target */ }
+        }
         const fingerColor = tip.finger || 'blue';
         const hint = tip.hint || '';
         const kind = tip.kind || 'drill';

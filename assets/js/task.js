@@ -143,7 +143,26 @@ document.addEventListener('DOMContentLoaded', async function () {
         return;
     }
 
-    let targetText = stepMode ? String(currentStep.target) : lesson.text;
+    // Адаптивный target шага: если шаг декларативный (unit/baseReps) и движок
+    // доступен — число повторов подбирается по слабым клавишам (computeReps).
+    // Backward-compat: не декларативный шаг / нет движка → legacy currentStep.target.
+    // Fail-safe: любой сбой → откат к статичному target.
+    let adaptiveRepsCount = null;  // фактически выданное число групп (для записи на финише)
+    let targetText;
+    if (stepMode) {
+        targetText = String(currentStep.target || '');
+        if (window.adaptiveReps) {
+            try {
+                const r = window.adaptiveReps.computeReps(tier, currentStep);
+                if (r != null && currentStep.unit != null) {
+                    targetText = window.adaptiveReps.buildTarget(currentStep.unit, r);
+                    adaptiveRepsCount = r;
+                }
+            } catch (e) { /* fail-safe: остаёмся на статичном target */ }
+        }
+    } else {
+        targetText = lesson.text;
+    }
     const moduleN = lesson.phase || 1;
     const exId = `${moduleN}.${lessonNum}`;
     numEl.textContent = exId;
@@ -358,6 +377,7 @@ document.addEventListener('DOMContentLoaded', async function () {
         // Ритмичность: интервал с предыдущего нажатия. Игнорируем outliers >2000ms
         // (пауза/мысль) — они портят CV без отражения реального ритма.
         const now = Date.now();
+        const dtSinceLast = lastKeyTime > 0 ? (now - lastKeyTime) : null;  // латентность для адаптива
         if (lastKeyTime > 0) {
             const dt = now - lastKeyTime;
             if (dt > 20 && dt < 2000) keyIntervals.push(dt);
@@ -367,6 +387,8 @@ document.addEventListener('DOMContentLoaded', async function () {
         const expected = targetText[typed];
         if (e.key === expected) {
             // Верная клавиша — двигаем курсор.
+            // Адаптив: верное касание клавиши (per-key attempts++, streak++).
+            if (window.adaptiveReps) { try { window.adaptiveReps.recordKey(tier, expected, e.key, dtSinceLast); } catch (er) {} }
             if (layoutWarned) {  // раскладку починили — вернуть обычную подсказку
                 layoutWarned = false;
                 tipEl.textContent = bubbleDefaultTip;
@@ -418,6 +440,9 @@ document.addEventListener('DOMContentLoaded', async function () {
             if (curEl) curEl.classList.add('char--erred');
             errors++;
             keyErrors[expected] = (keyErrors[expected] || 0) + 1;  // для коуч-разбора
+            // Адаптив: реальная ошибка набора (per-key errors++, streak сброс, confused).
+            // Раскладка/Caps выше сделали return — сюда попадают только настоящие промахи.
+            if (window.adaptiveReps) { try { window.adaptiveReps.recordKey(tier, expected, e.key, dtSinceLast); } catch (er) {} }
             // Наставник реагирует один раз, когда ошибок становится больше половины лимита
             if (!tooManyShown && errors > halfErrorLimit) {
                 tooManyShown = true;
@@ -435,6 +460,23 @@ document.addEventListener('DOMContentLoaded', async function () {
         done = true;
         clearInterval(timer);
         if (window.exerciseProgress) window.exerciseProgress.markStepDone(tier, lessonNum, exerciseIdx);
+        // Адаптив: слить накопленную per-key статистику захода в key_stats.
+        if (window.adaptiveReps) { try { window.adaptiveReps.flushSession(tier); } catch (e) {} }
+        // §3.2 — фактически выданное число повторов + errorRate шага для оффлайн-анализа.
+        // Пишем в lesson_exercises поверх записи markStepDone (не плодим ключей).
+        if (adaptiveRepsCount != null && window.exerciseProgress) {
+            try {
+                const ek = window.exerciseProgress.STORAGE_KEY;
+                const all = JSON.parse(localStorage.getItem(ek) || '{}');
+                const lk = `${tier}:${lessonNum}`;
+                if (all[lk] && all[lk].steps && all[lk].steps[String(exerciseIdx)]) {
+                    const attemptsN = typed + errors;
+                    all[lk].steps[String(exerciseIdx)].reps = adaptiveRepsCount;
+                    all[lk].steps[String(exerciseIdx)].lastErrorRate = attemptsN > 0 ? errors / attemptsN : 0;
+                    localStorage.setItem(ek, JSON.stringify(all));
+                }
+            } catch (e) { /* fail-safe */ }
+        }
 
         $('success-num').textContent = exId;
         $('success-avatar').innerHTML = window.portraits ? window.portraits.mentor(mentorId, 150) : '';
@@ -477,6 +519,8 @@ document.addEventListener('DOMContentLoaded', async function () {
         if (stepMode) { finishStep(); return; }
         done = true;
         clearInterval(timer);
+        // Адаптив: полный заход тоже копит per-key данные — сливаем в key_stats.
+        if (window.adaptiveReps) { try { window.adaptiveReps.flushSession(tier); } catch (e) {} }
         const elapsed = startTime ? (Date.now() - startTime) / 1000 : 0;
         const wpm = calcWpm(elapsed);
         const acc = calcAcc();
