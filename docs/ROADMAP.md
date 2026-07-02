@@ -16,6 +16,7 @@
 | **Бэкенд: OAuth** (Sprint 2) | 🟢 Yandex+VK готовы (ADR-007, gate 26/26 VM на mock): start/callback, PKCE, резолвинг, наши cookies. Фронт-кнопки на auth.html. Ждёт реальных кред (S2.1 PO) |
 | **Бэкенд: биллинг/подписка** | 🟢 Scaffold зелёный на стеке (ADR-008, gate 6/6 VM): checkout→webhook→active, идемпотентность, честный period, paywall-гейт. Ждёт реального провайдера (YooKassa shop) |
 | **Синк прогресса на сервер** | 🟢 Бэкенд готов (gate 45/45 VM): /me/* (profile/settings/progress/history) + guest-migration + серверный paywall-gate /lessons/{n}/access. api-client адаптирован. Осталось развернуть фронт на useApi (сшивка live-приложения) |
+| **Админ-панель** | 🟡 SDD-спека готова ([PRD](spec/admin/01_PRD.md) + [TSD](spec/admin/02_TSD.md)): RBAC 3 роли, юзеры/платежи/статистика, возвраты, имперсонация. Реализация по фазам (Ф1 first) |
 | **Онбординг-редизайн** | 🟡 Запланирован (PO готовит) |
 | **Адаптивный AI-движок** | ⚪ Спек есть, ждёт данных |
 | **Удержание** (стрики/напоминания) | ⚪ Не начато |
@@ -54,6 +55,7 @@
 
 ## Где детали
 - **Бэкенд-решения:** `docs/spec/backend/decisions/ADR-*.md` (006 капча, 007 OAuth, 008 биллинг).
+- **Админ-панель:** `docs/spec/admin/01_PRD.md` + `02_TSD.md` (SDD-спека).
 - **API-контракт:** `backend/openapi.yaml`.
 - **Курс/эксперты:** `docs/spec/methodology/expert_*.md`, memory `project-tier-experts`.
 - **Handoff сессии:** `docs/.sessions/SESSION_HANDOFF.md`.
