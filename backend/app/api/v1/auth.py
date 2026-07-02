@@ -234,11 +234,34 @@ async def refresh(
     session: DbSession,
     redis: RedisClient,
     refresh_token: str | None = Cookie(default=None),
+    access_token: str | None = Cookie(default=None),
 ) -> UserPublic:
     """Ротация: старый refresh-jti отзывается, выдаётся новая пара токенов.
 
     Повторное использование уже ротированного токена → 401 (jti в blocklist'е).
+
+    HIGH-1 (Ф4-SEC): во время имперсонации refresh недоступен. imp-токен живёт
+    в access-cookie, а refresh-cookie остаётся admin'ским → refresh схлопнул бы
+    imp-сессию обратно в свежую admin-пару (баннер думает, что имперсонация ещё
+    идёт). Поэтому: если ТЕКУЩИЙ access_token валиден и несёт claim imp → 409
+    IMPERSONATION_ACTIVE, НЕ ротируем. Так imp-токен честно доживает свои 15м и
+    истекает сам; refresh его не воскрешает. Просроченный/битый access — обычный
+    путь refresh (imp проверяем только если токен декодится).
     """
+    if access_token:
+        try:
+            access_claims = decode_token(access_token, "access")
+        except JWTError:
+            access_claims = None  # просрочен/битый — imp не читаем, обычный путь
+        if access_claims and access_claims.get("imp"):
+            raise HTTPException(
+                status.HTTP_409_CONFLICT,
+                detail={
+                    "code": "IMPERSONATION_ACTIVE",
+                    "message": "Обновление сессии недоступно во время имперсонации",
+                },
+            )
+
     if not refresh_token:
         raise _token_invalid()
     try:

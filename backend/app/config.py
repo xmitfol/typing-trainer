@@ -11,7 +11,7 @@
 from functools import lru_cache
 from typing import Literal
 
-from pydantic import Field, PostgresDsn, RedisDsn, SecretStr, computed_field
+from pydantic import Field, PostgresDsn, RedisDsn, SecretStr, computed_field, model_validator
 from pydantic_settings import BaseSettings, SettingsConfigDict
 
 
@@ -164,6 +164,23 @@ class Settings(BaseSettings):
     # HKDF-SHA256 (см. core/totp.py). PROD ДОЛЖЕН задать явный ключ (ротация без
     # смены jwt_secret_key + отдельный компромат-контур). Ф4-SEC.
     totp_encryption_key: SecretStr | None = None
+
+    @model_validator(mode="after")
+    def _require_totp_key_in_prod(self) -> "Settings":
+        """Fail-fast (Ф4-SEC MED-2): в prod totp_encryption_key ОБЯЗАТЕЛЕН.
+
+        Без явного ключа core/totp.py деривирует Fernet-ключ из jwt_secret_key
+        (HKDF) — тогда ротация jwt_secret_key локаутит всех с включённой 2FA
+        (secret at-rest перестаёт расшифровываться). В prod это недопустимо, в
+        dev/staging HKDF-fallback остаётся (не ломаем стенд).
+        """
+        if self.app_env == "prod" and self.totp_encryption_key is None:
+            raise ValueError(
+                "totp_encryption_key обязателен при app_env=prod "
+                "(base64-urlsafe Fernet-ключ, 32 байта). Без него TOTP-секрет "
+                "деривируется из jwt_secret_key и ротация JWT локаутит 2FA."
+            )
+        return self
 
 
 @lru_cache(maxsize=1)
