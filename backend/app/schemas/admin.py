@@ -251,3 +251,98 @@ class AdminSubActionResult(BaseModel):
     ok: bool = True
     subscription_id: UUID
     action: str
+
+
+# ─── Analytics (admin-panel TSD §6, Ф3-3/Ф3-4) ──────────────────────────
+#
+# Формы контрактов фиксированы для фронта (Алекс). Все — computed dict'ы из
+# analytics_service; response_model валидирует форму. cached — из кэша ли ответ.
+
+
+class HistBucket(BaseModel):
+    """Бакет гистограммы [lo, hi). hi=None → последний открытый бакет [lo, ∞)."""
+
+    lo: int
+    hi: int | None = None
+    count: int
+
+
+class SkillOut(BaseModel):
+    """GET /admin/analytics/skill — распределение WPM/accuracy из progress."""
+
+    tier: str | None = None
+    period: int
+    n: int
+    avg_wpm: float
+    avg_accuracy: float
+    wpm_buckets: list[HistBucket]
+    acc_buckets: list[HistBucket]
+    cached: bool = False
+
+
+class RevenuePoint(BaseModel):
+    """Точка MRR-серии (день)."""
+
+    date: str
+    mrr_kopecks: int
+
+
+class RevenueOut(BaseModel):
+    """GET /admin/analytics/revenue — деньги из subscriptions/charges."""
+
+    period: int
+    mrr_kopecks: int
+    active_subscriptions: int
+    new_subscriptions: int
+    cancelled_subscriptions: int
+    decline_rate: float = Field(description="failed/(success+failed) charges за период")
+    series: list[RevenuePoint]
+    cached: bool = False
+
+
+class FunnelRates(BaseModel):
+    """Конверсии между шагами воронки (0..1)."""
+
+    activation: float
+    subscription: float
+    churn: float
+
+
+class FunnelOut(BaseModel):
+    """GET /admin/analytics/funnel — из наличных таблиц (не ждёт events)."""
+
+    period: int
+    signups: int
+    activated: int
+    subscribed: int
+    churned: int
+    rates: FunnelRates
+    cached: bool = False
+
+
+class RetentionOut(BaseModel):
+    """GET /admin/analytics/retention — D1/D7/D30 доли из attempts."""
+
+    period: int
+    cohort_size: int
+    d1: float
+    d7: float
+    d30: float
+    cached: bool = False
+
+
+class LessonDropoff(BaseModel):
+    """Drop-off одного урока."""
+
+    lesson_num: int
+    reached: int
+    completed: int
+    dropoff_rate: float = Field(description="1 - completed/reached")
+
+
+class LessonsOut(BaseModel):
+    """GET /admin/analytics/lessons — drop-off по урокам из progress/attempts."""
+
+    tier: str | None = None
+    items: list[LessonDropoff]
+    cached: bool = False

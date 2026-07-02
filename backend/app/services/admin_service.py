@@ -8,7 +8,6 @@ email_service, billing_service), не дублируя бизнес-логику
 Каждая мутация пишет запись в admin_audit_log через audit().
 """
 
-import hashlib
 from datetime import UTC, datetime, timedelta
 from uuid import UUID
 
@@ -34,7 +33,7 @@ from app.models.admin import AdminAuditLog
 from app.models.progress import Attempt, Progress
 from app.models.subscription import Subscription, SubscriptionCharge
 from app.models.user import OAuthAccount, User
-from app.services import auth_service
+from app.services import auth_service, event_service
 from app.services.email_service import EmailService
 
 logger = structlog.get_logger(__name__)
@@ -48,10 +47,11 @@ def _now() -> datetime:
 
 
 def hash_ip(ip: str | None) -> str | None:
-    """SHA256(IP) → 64 hex (152-ФЗ, как в events). None → None (CLI/без IP)."""
-    if not ip:
-        return None
-    return hashlib.sha256(ip.encode()).hexdigest()
+    """SHA256(IP) → 64 hex (152-ФЗ, как в events). None → None (CLI/без IP).
+
+    Делегирует единому хелперу event_service.hash_ip (без дублирования).
+    """
+    return event_service.hash_ip(ip)
 
 
 # ─── Audit ──────────────────────────────────────────────────────────────
@@ -596,6 +596,13 @@ async def cancel(
         sub.status = "cancelled"
         sub.is_auto_renew = False
         sub.cancelled_at = _now()
+        # Server-side `churned` — только на реальном переходе в cancelled.
+        await event_service.emit_server(
+            session,
+            type="churned",
+            user_id=sub.user_id,
+            payload={"subscription_id": str(sub.id), "reason": "admin_cancel"},
+        )
 
     await audit(
         session,
@@ -776,6 +783,12 @@ async def refund(
         sub.status = "cancelled"
         sub.is_auto_renew = False
         sub.cancelled_at = _now()
+        await event_service.emit_server(
+            session,
+            type="churned",
+            user_id=sub.user_id,
+            payload={"subscription_id": str(sub.id), "reason": "refund"},
+        )
 
     await audit(
         session,

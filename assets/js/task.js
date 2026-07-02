@@ -510,6 +510,13 @@ document.addEventListener('DOMContentLoaded', async function () {
                         rhythm: rhythm == null ? null : rhythm,
                     });
                 } catch (e) { saved = null; /* saveAttempt внутри уже сделал fallback; на всякий случай */ }
+                // Ф3-2: событие lesson_completed (fail-safe, фоном) — рядом с
+                // saveAttempt, но НЕ блокирует сохранение (свой try, без await).
+                try {
+                    window.apiClient.emitEvent('lesson_completed', {
+                        tier: tier, lesson_num: lessonNum, wpm: wpm, accuracy: acc, stars: stars,
+                    });
+                } catch (e) { /* аналитика не критична */ }
             }
             // Обновляем in-memory progress для рендера отчёта/ачивок. Сервер и local
             // возвращают {progress:{...best..}}; при промахе перечитываем из LS
@@ -831,4 +838,12 @@ document.addEventListener('DOMContentLoaded', async function () {
     renderTarget();
     updateStats();
     capture.focus();
+
+    // Ф3-2: событие lesson_started (fail-safe, фоном). Только полноценный заход
+    // курса — свои уроки (tier=user) и отдельные гайдед-шаги (stepMode, из
+    // lesson.html) не считаем, чтобы не плодить дубли одного урока.
+    if (!isUserLesson && !stepMode && window.apiClient) {
+        try { window.apiClient.emitEvent('lesson_started', { tier: tier, lesson_num: lessonNum }); }
+        catch (e) { /* аналитика не критична */ }
+    }
 });

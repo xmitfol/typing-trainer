@@ -204,13 +204,14 @@
         // Стартовая вкладка: analyst стартует с Обзора (единственная доступная).
         switchTab('overview');
         wireOverview();
+        wireAnalytics();
         wireUsers();
         wireBilling();
     }
 
     function switchTab(tab) {
         // analyst не имеет доступа к users/billing — игнор.
-        var minByTab = { overview: 'analyst', users: 'support', billing: 'support' };
+        var minByTab = { overview: 'analyst', analytics: 'analyst', users: 'support', billing: 'support' };
         if (!hasRole(minByTab[tab] || 'analyst')) return;
         activeTab = tab;
         document.querySelectorAll('#adTabs .ad-tab').forEach(function (t) {
@@ -220,6 +221,7 @@
             p.classList.toggle('ad-panel--active', p.getAttribute('data-panel') === tab);
         });
         if (tab === 'overview' && !overviewLoaded) loadOverview();
+        if (tab === 'analytics' && !analyticsLoaded) loadAnalytics();
         if (tab === 'users' && !usersLoaded) loadUsers();
         if (tab === 'billing' && !subsLoaded) loadSubs();
     }
@@ -259,6 +261,231 @@
         }).catch(function (e) {
             clear(box); box.appendChild(el('div', { class: 'ad-empty', text: errMsg(e) }));
         });
+    }
+
+    // ─── ANALYTICS (Ф3) ───────────────────────────────────────────────────
+    // 5 блоков: воронка / retention / деньги / скилл / drop-off по урокам.
+    // Графики — простые div-бары на токенах (без внешних либ). Устойчиво к
+    // null-полям: любое отсутствующее число рисуем как «—».
+    var analyticsLoaded = false, anlPeriod = 30, anlTier = '';
+
+    function wireAnalytics() {
+        $('adAnlPeriod').querySelectorAll('button').forEach(function (b) {
+            b.addEventListener('click', function () {
+                anlPeriod = Number(b.getAttribute('data-period'));
+                $('adAnlPeriod').querySelectorAll('button').forEach(function (x) {
+                    x.classList.toggle('ad-period--active', x === b);
+                });
+                loadAnalytics();
+            });
+        });
+        var tierSel = $('adAnlTier');
+        if (tierSel) tierSel.addEventListener('change', function () {
+            anlTier = tierSel.value;
+            // Тир влияет только на skill/lessons — перегружаем их точечно.
+            loadAnlSkill();
+            loadAnlLessons();
+        });
+    }
+
+    // num-or-«—»
+    function numOr(v) { return v == null || v === '' || (typeof v === 'number' && !isFinite(v)) ? '—' : String(v); }
+
+    // Горизонтальный бар: value отн. max, подпись слева, число справа.
+    // opts.warn=true → красный (высокий dropoff). opts.tone: 'ok'|'warn'|'err'.
+    function bar(label, value, max, valText, opts) {
+        opts = opts || {};
+        var frac = (max && value != null && isFinite(value)) ? Math.max(0, Math.min(1, value / max)) : 0;
+        var fill = el('div', { class: 'ad-bar__fill' + (opts.tone ? ' ad-bar__fill--' + opts.tone : '') });
+        fill.style.width = (frac * 100).toFixed(1) + '%';
+        return el('div', { class: 'ad-bar' }, [
+            el('div', { class: 'ad-bar__label', text: label }),
+            el('div', { class: 'ad-bar__track' }, fill),
+            el('div', { class: 'ad-bar__val', text: valText != null ? valText : numOr(value) }),
+        ]);
+    }
+
+    // Вертикальная гистограмма из бакетов [{lo,hi,count}].
+    function histogram(buckets, unit) {
+        buckets = buckets || [];
+        var max = 0;
+        buckets.forEach(function (b) { if ((b.count || 0) > max) max = b.count || 0; });
+        var cols = buckets.map(function (b) {
+            var frac = max ? (b.count || 0) / max : 0;
+            var col = el('div', { class: 'ad-hcol' }, [
+                el('div', { class: 'ad-hcol__count', text: numOr(b.count) }),
+                (function () {
+                    var barEl = el('div', { class: 'ad-hcol__bar' });
+                    barEl.style.height = Math.max(2, frac * 100).toFixed(1) + '%';
+                    return el('div', { class: 'ad-hcol__barwrap' }, barEl);
+                })(),
+                el('div', { class: 'ad-hcol__x', text: (numOr(b.lo) + '–' + numOr(b.hi)) }),
+            ]);
+            return col;
+        });
+        if (!cols.length) return el('div', { class: 'ad-mono', text: 'Нет данных.' });
+        var wrap = el('div', { class: 'ad-histogram' }, cols);
+        if (unit) wrap.appendChild(el('div', { class: 'ad-histogram__unit', text: unit }));
+        return wrap;
+    }
+
+    function blockError(id, e) {
+        var box = $(id); if (!box) return;
+        clearBody(box).appendChild(el('div', { class: 'ad-empty', text: errMsg(e) }));
+    }
+
+    // Оставляет .ad-anl-title, чистит остальное тело блока в свежий .ad-anl-body.
+    function clearBody(box) {
+        var title = box.querySelector('.ad-anl-title');
+        clear(box);
+        if (title) box.appendChild(title);
+        box.appendChild(el('div', { class: 'ad-anl-body' }));
+        return box.querySelector('.ad-anl-body');
+    }
+
+    function loadAnalytics() {
+        analyticsLoaded = true;
+        loadAnlFunnel();
+        loadAnlRetention();
+        loadAnlRevenue();
+        loadAnlSkill();
+        loadAnlLessons();
+    }
+
+    function loadAnlFunnel() {
+        var body = clearBody($('adAnlFunnel'));
+        body.appendChild(el('div', { class: 'ad-empty', text: 'Загрузка…' }));
+        api.adminAnalyticsFunnel(anlPeriod).then(function (d) {
+            d = d || {};
+            clear(body);
+            var steps = [
+                ['Регистрации', d.signups],
+                ['Активировались', d.activated],
+                ['Оформили подписку', d.subscribed],
+                ['Отвалились (churn)', d.churned],
+            ];
+            var max = 0;
+            steps.forEach(function (s) { if ((s[1] || 0) > max) max = s[1] || 0; });
+            steps.forEach(function (s, i) {
+                var tone = i === 3 ? 'err' : (i === 2 ? 'ok' : null);
+                body.appendChild(bar(s[0], s[1], max, numOr(s[1]), { tone: tone }));
+            });
+            var rates = d.rates || {};
+            var rk = Object.keys(rates);
+            if (rk.length) {
+                var rl = el('div', { class: 'ad-anl-rates' });
+                rk.forEach(function (k) {
+                    rl.appendChild(el('div', { class: 'ad-anl-rate' }, [
+                        el('span', { class: 'ad-anl-rate__k', text: k }),
+                        el('span', { class: 'ad-anl-rate__v', text: pct(rates[k]) }),
+                    ]));
+                });
+                body.appendChild(rl);
+            }
+        }).catch(function (e) { blockError('adAnlFunnel', e); });
+    }
+
+    function loadAnlRetention() {
+        var body = clearBody($('adAnlRetention'));
+        body.appendChild(el('div', { class: 'ad-empty', text: 'Загрузка…' }));
+        api.adminAnalyticsRetention(anlPeriod).then(function (d) {
+            d = d || {};
+            clear(body);
+            var row = el('div', { class: 'ad-ret-row' });
+            [['D1', d.d1], ['D7', d.d7], ['D30', d.d30]].forEach(function (p) {
+                row.appendChild(el('div', { class: 'ad-ret' }, [
+                    el('div', { class: 'ad-ret__label', text: p[0] }),
+                    el('div', { class: 'ad-ret__val', text: pct(p[1]) }),
+                    (function () {
+                        var ring = el('div', { class: 'ad-ret__bar' });
+                        var fill = el('div', { class: 'ad-ret__bar-fill' });
+                        fill.style.width = ((p[1] != null && isFinite(p[1]) ? Math.max(0, Math.min(1, Number(p[1]))) : 0) * 100).toFixed(1) + '%';
+                        ring.appendChild(fill);
+                        return ring;
+                    })(),
+                ]));
+            });
+            body.appendChild(row);
+        }).catch(function (e) { blockError('adAnlRetention', e); });
+    }
+
+    function loadAnlRevenue() {
+        var body = clearBody($('adAnlRevenue'));
+        body.appendChild(el('div', { class: 'ad-empty', text: 'Загрузка…' }));
+        api.adminAnalyticsRevenue(anlPeriod).then(function (d) {
+            d = d || {};
+            clear(body);
+            var metrics = el('div', { class: 'ad-anl-metrics' }, [
+                miniMetric('MRR', rub(d.mrr_kopecks)),
+                miniMetric('Активные подписки', numOr(d.active_subscriptions)),
+                miniMetric('Новые', numOr(d.new_subscriptions)),
+                miniMetric('Отменённые', numOr(d.cancelled_subscriptions)),
+                miniMetric('Decline', pct(d.decline_rate)),
+            ]);
+            body.appendChild(metrics);
+            // Мини-series MRR (спарклайн из вертикальных баров).
+            var series = d.series || [];
+            if (series.length) {
+                var max = 0;
+                series.forEach(function (p) { if ((p.mrr_kopecks || 0) > max) max = p.mrr_kopecks || 0; });
+                var spark = el('div', { class: 'ad-spark' });
+                series.forEach(function (p) {
+                    var frac = max ? (p.mrr_kopecks || 0) / max : 0;
+                    var b = el('div', { class: 'ad-spark__bar', title: (date(p.date) + ': ' + rub(p.mrr_kopecks)) });
+                    b.style.height = Math.max(2, frac * 100).toFixed(1) + '%';
+                    spark.appendChild(b);
+                });
+                body.appendChild(el('div', { class: 'ad-anl-sub', text: 'MRR по дням' }));
+                body.appendChild(spark);
+            }
+        }).catch(function (e) { blockError('adAnlRevenue', e); });
+    }
+
+    function miniMetric(label, val) {
+        return el('div', { class: 'ad-mini' }, [
+            el('div', { class: 'ad-mini__label', text: label }),
+            el('div', { class: 'ad-mini__val', text: val }),
+        ]);
+    }
+
+    function loadAnlSkill() {
+        var box = $('adAnlSkill');
+        if (!box) return;
+        var body = clearBody(box);
+        body.appendChild(el('div', { class: 'ad-empty', text: 'Загрузка…' }));
+        api.adminAnalyticsSkill(anlPeriod, anlTier).then(function (d) {
+            d = d || {};
+            clear(body);
+            body.appendChild(el('div', { class: 'ad-anl-metrics' }, [
+                miniMetric('Средний WPM', numOr(d.avg_wpm)),
+                miniMetric('Средняя точность', d.avg_accuracy == null ? '—' : (Number(d.avg_accuracy) <= 1 ? pct(d.avg_accuracy) : numOr(d.avg_accuracy) + '%')),
+                miniMetric('Выборка (n)', numOr(d.n)),
+            ]));
+            body.appendChild(el('div', { class: 'ad-anl-sub', text: 'Распределение WPM' }));
+            body.appendChild(histogram(d.wpm_buckets, 'зн/мин'));
+            body.appendChild(el('div', { class: 'ad-anl-sub', text: 'Распределение точности' }));
+            body.appendChild(histogram(d.acc_buckets, '%'));
+        }).catch(function (e) { blockError('adAnlSkill', e); });
+    }
+
+    function loadAnlLessons() {
+        var body = clearBody($('adAnlLessons'));
+        body.appendChild(el('div', { class: 'ad-empty', text: 'Загрузка…' }));
+        api.adminAnalyticsLessons(anlTier).then(function (res) {
+            // Бэк отдаёт {tier, items:[...], cached}; поддержим и голый массив.
+            var rows = res && Array.isArray(res.items) ? res.items : (Array.isArray(res) ? res : []);
+            clear(body);
+            if (!rows.length) { body.appendChild(el('div', { class: 'ad-mono', text: 'Нет данных.' })); return; }
+            var maxReached = 0;
+            rows.forEach(function (r) { if ((r.reached || 0) > maxReached) maxReached = r.reached || 0; });
+            rows.forEach(function (r) {
+                var dr = r.dropoff_rate;
+                var high = dr != null && Number(dr) >= 0.4;  // ≥40% — красный
+                var label = 'Урок ' + numOr(r.lesson_num);
+                var valText = numOr(r.completed) + '/' + numOr(r.reached) + ' · ' + pct(dr);
+                body.appendChild(bar(label, r.reached, maxReached, valText, { tone: high ? 'err' : 'ok' }));
+            });
+        }).catch(function (e) { blockError('adAnlLessons', e); });
     }
 
     // ─── USERS ────────────────────────────────────────────────────────────

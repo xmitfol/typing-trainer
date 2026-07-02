@@ -181,6 +181,13 @@
             data.language = data.language || 'ru';
             return window.apiClient.signup(data);
         }).then(function (user) {
+            // Ф3-2: аналитическое событие signup (fail-safe, фоном — не блокирует).
+            try {
+                window.apiClient.emitEvent('signup', {
+                    audience: data.audience, character: data.character,
+                    language: data.language || 'ru',
+                });
+            } catch (e) { /* аналитика не должна ломать флоу */ }
             afterAuthSuccess(user);
         }).catch(function (err) {
             busy(btn, false);
