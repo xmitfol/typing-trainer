@@ -294,7 +294,7 @@
                     el('td', {}, el('span', { class: 'ad-chip ad-chip--muted', text: esc(u.audience) })),
                     el('td', {}, el('span', { class: 'ad-chip', text: esc(u.role) })),
                     el('td', {}, u.email_verified ? el('span', { class: 'ad-chip ad-chip--ok', text: '✓' }) : el('span', { class: 'ad-chip ad-chip--warn', text: '—' })),
-                    el('td', {}, u.is_deleted ? el('span', { class: 'ad-chip ad-chip--err', text: 'заблокирован' }) : el('span', { class: 'ad-chip ad-chip--ok', text: 'активен' })),
+                    el('td', {}, u.deleted_at ? el('span', { class: 'ad-chip ad-chip--err', text: 'заблокирован' }) : el('span', { class: 'ad-chip ad-chip--ok', text: 'активен' })),
                     el('td', { class: 'ad-mono', text: date(u.created_at) }),
                 ]);
                 body.appendChild(tr);
@@ -333,7 +333,7 @@
                 confirmModal(label + '?', confirmText || '', function () { doUserAction(id, action, label); }, danger);
             } });
         }
-        if (p.is_deleted) actions.appendChild(actBtn('Разблокировать', 'restore', false, 'Снять блокировку и вернуть доступ?'));
+        if (p.deleted_at) actions.appendChild(actBtn('Разблокировать', 'restore', false, 'Снять блокировку и вернуть доступ?'));
         else actions.appendChild(actBtn('Заблокировать', 'block', true, 'Заблокировать (soft-delete)? Юзер потеряет доступ.'));
         if (!p.email_verified) actions.appendChild(actBtn('Подтвердить email', 'verify-email', false, 'Вручную подтвердить email?'));
         actions.appendChild(actBtn('Сбросить пароль', 'reset-password', false, 'Отправить письмо со сбросом пароля?'));
@@ -348,7 +348,7 @@
                 ['ID', p.id || id], ['Email', p.email], ['Имя', p.name],
                 ['Аудитория', p.audience], ['Персонаж', p.character], ['Роль', p.role],
                 ['Язык', p.language], ['Email ✓', p.email_verified ? 'да' : 'нет'],
-                ['Заблокирован', p.is_deleted ? 'да' : 'нет'], ['Создан', dt(p.created_at)],
+                ['Заблокирован', p.deleted_at ? 'да' : 'нет'], ['Создан', dt(p.created_at)],
             ]),
         ]));
 
@@ -364,7 +364,7 @@
         grid.appendChild(el('div', { class: 'ad-detail__section' }, [
             el('h3', { text: 'Прогресс по тирам' }),
             listOrEmpty(d.progress_by_tier, function (t) {
-                return el('li', { text: (esc(t.tier) + ' · уроков: ' + esc(t.lessons) + ' · звёзд: ' + esc(t.stars)) });
+                return el('li', { text: (esc(t.tier) + ' · уроков: ' + esc(t.lessons_completed) + ' · звёзд: ' + esc(t.total_stars)) });
             }, 'Прогресса нет.'),
         ]));
 
@@ -372,7 +372,7 @@
         grid.appendChild(el('div', { class: 'ad-detail__section' }, [
             el('h3', { text: 'Последние попытки' }),
             listOrEmpty(d.recent_attempts, function (a) {
-                return el('li', { text: (esc(a.tier || '') + ' урок ' + esc(a.lesson_num != null ? a.lesson_num : '') + ' · ' + esc(a.wpm != null ? a.wpm + ' зн/мин' : '') + ' · ' + esc(a.accuracy != null ? a.accuracy + '%' : '') + ' · ' + dt(a.completed_at)) });
+                return el('li', { text: (esc(a.tier || '') + ' урок ' + esc(a.lesson_num != null ? a.lesson_num : '') + ' · ' + esc(a.wpm != null ? a.wpm + ' зн/мин' : '') + ' · ' + esc(a.accuracy != null ? a.accuracy + '%' : '') + ' · ' + dt(a.created_at)) });
             }, 'Попыток нет.'),
         ]));
 
@@ -503,7 +503,7 @@
         else {
             var ul = el('ul', { class: 'ad-list-min' });
             charges.forEach(function (c) {
-                var cls = c.status === 'succeeded' || c.status === 'paid' ? 'ad-chip--ok'
+                var cls = c.status === 'success' || c.status === 'succeeded' || c.status === 'paid' ? 'ad-chip--ok'
                     : c.status === 'refunded' ? 'ad-chip--warn'
                         : c.status === 'failed' ? 'ad-chip--err' : 'ad-chip--muted';
                 ul.appendChild(el('li', {}, [
@@ -523,8 +523,8 @@
             submitLabel: 'Выдать',
             fields: [
                 { name: 'user_id', label: 'User ID', placeholder: 'uuid юзера' },
-                { name: 'plan', label: 'План', type: 'select', options: [{ value: 'premium', label: 'premium' }, { value: 'family', label: 'family' }] },
-                { name: 'period', label: 'Период', type: 'select', options: [{ value: 'month', label: 'month' }, { value: 'year', label: 'year' }] },
+                { name: 'plan', label: 'План', type: 'select', options: [{ value: 'pro', label: 'Полный (pro)' }, { value: 'family', label: 'Семейный (family)' }] },
+                { name: 'period', label: 'Период', type: 'select', options: [{ value: 'w1', label: '1 неделя' }, { value: 'm1', label: '1 месяц' }, { value: 'm3', label: '3 месяца' }, { value: 'm6', label: '6 месяцев' }, { value: 'y1', label: '1 год' }] },
                 { name: 'reason', label: 'Причина', placeholder: 'напр. гудвилл по обращению #123' },
             ],
             onSubmit: function (v, ctx) {
