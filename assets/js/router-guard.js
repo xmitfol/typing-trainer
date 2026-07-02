@@ -59,7 +59,14 @@
     var page = (location.pathname.split('/').pop() || 'index.html').toLowerCase();
     var PROTECTED = ['dashboard.html', 'course.html', 'lesson.html', 'task.html', 'settings.html', 'achievements.html', 'builder.html', 'profile.html'];
 
-    if (PROTECTED.indexOf(page) !== -1 && !hasProfile) {
+    // OAuth-bootstrap: auth-sync.js (грузится ДО этого файла) обнаружил приход из
+    // OAuth-callback (httpOnly-cookie есть, localStorage-профиля ещё нет) и
+    // асинхронно тянет /me → мостит профиль. Не редиректим на лендинг в этот
+    // момент — auth-sync сам уведёт на index.html, если /me не подтвердит сессию.
+    var oauthBootstrap = false;
+    try { oauthBootstrap = sessionStorage.getItem('tt_oauth_bootstrap') === '1'; } catch (e) {}
+
+    if (PROTECTED.indexOf(page) !== -1 && !hasProfile && !oauthBootstrap) {
         location.replace('index.html');
         return;
     }

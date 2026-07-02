@@ -30,9 +30,16 @@ document.addEventListener('DOMContentLoaded', async function () {
         return;
     }
 
-    const progress = readJSON(progressKey) || {};
     const currentLesson = readJSON(currentKey) || {};
-    const history = readJSON(historyKey) || [];
+    // Прогресс/история — через apiClient (useApi=true → сервер, иначе localStorage).
+    // currentLesson читаем первым: apiClient.getProgress разворачивает серверный
+    // ответ по активному тиру (currentLesson.tier).
+    const progress = (window.apiClient
+        ? await window.apiClient.getProgress().catch(() => readJSON(progressKey))
+        : readJSON(progressKey)) || {};
+    const history = (window.apiClient
+        ? await window.apiClient.getHistory({ limit: 200 }).then(r => (r && r.items) || []).catch(() => readJSON(historyKey))
+        : readJSON(historyKey)) || [];
 
     // ── Маршрутизация tier (повтор pickInitialTier из main.js) ──────
     function pickTier(prof) {

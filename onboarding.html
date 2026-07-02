@@ -17,16 +17,34 @@
     <!-- Onboarding Overlay v2 — содержимое генерируется assets/js/onboarding.js -->
     <div class="onboarding-v2 active" id="onboardingOverlay"></div>
 
-    <!-- router-guard ПЕРВЫМ: если профиль уже готов → dashboard -->
+    <!-- api-client + auth-sync ПЕРЕД router-guard: OAuth-landing (?oauth=1) включает
+         серверный синк и подтягивает /me; router-guard читает флаг bootstrap. -->
+    <script src="assets/js/api-client.js"></script>
+    <script src="assets/js/auth-sync.js"></script>
+    <!-- router-guard: если профиль уже готов → dashboard -->
     <script src="assets/js/router-guard.js"></script>
     <script src="config/settings.js"></script>
     <script src="assets/js/portraits.js"></script>
     <script src="assets/js/i18n.js"></script>
     <script src="assets/js/onboarding.js"></script>
     <script>
-        // По завершении онбординга → личный кабинет
-        document.addEventListener('typingtrainer:onboardingComplete', function () {
-            window.location.href = 'dashboard.html';
+        // По завершении онбординга → личный кабинет.
+        // При серверном синке (useApi=true, напр. после OAuth-регистрации) —
+        // отправляем выбор наставника/аудитории/языка в аккаунт (PATCH /me) до
+        // перехода. apiClient сам делает fallback на localStorage, если бэк недоступен.
+        document.addEventListener('typingtrainer:onboardingComplete', function (e) {
+            var p = (e && e.detail && e.detail.profile) || {};
+            function go() { window.location.href = 'dashboard.html'; }
+            var useApi = !!(window.apiClient && window.apiClient.getConfig().useApi);
+            if (!useApi) { go(); return; }
+            var patch = {
+                name: p.name, audience: p.audience, character: p.character,
+                gender: p.gender, language: p.language,
+            };
+            var done = false;
+            function finish() { if (!done) { done = true; go(); } }
+            window.apiClient.updateProfile(patch).then(finish, finish);
+            setTimeout(finish, 2000);
         });
     </script>
 </body>

@@ -20,8 +20,11 @@ document.addEventListener('DOMContentLoaded', async function () {
         window.location.href = 'index.html';
         return;
     }
-    const progress = readJSON(progressKey) || {};
     const currentLesson = readJSON(currentKey) || {};
+    // Прогресс — через apiClient (useApi=true → сервер по активному тиру, иначе LS).
+    const progress = (window.apiClient
+        ? await window.apiClient.getProgress().catch(() => readJSON(progressKey))
+        : readJSON(progressKey)) || {};
 
     function pickTier(prof) {
         const lang = prof.language || 'ru';

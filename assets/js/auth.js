@@ -96,6 +96,69 @@
         try { localStorage.setItem(PROFILE_KEY, JSON.stringify(profile)); } catch (e) { /* ignore */ }
     }
 
+    var MIGRATED_KEY = 'typing_trainer_guest_migrated';
+
+    // persona (character+language) → tier (повтор pickTier из course/dashboard).
+    function guestTier(p) {
+        var lang = p.language || 'ru';
+        var ch = p.character;
+        if (lang === 'en') { if (ch === 'knopych') return 'en_teen'; if (ch === 'klavochka') return 'en_kids'; return 'en_tier1'; }
+        if (ch === 'knopych') return 'ru_teen'; if (ch === 'klavochka') return 'ru_kids'; return 'tier1';
+    }
+
+    // Успешный auth → включаем серверный синк. Признак «залогинен» = наличие
+    // валидной сессии (httpOnly cookie не видна JS), поэтому опираемся на факт
+    // успешного signin/signup. На старте страниц auth-sync.js проверит /me и при
+    // 401 (сессия истекла) откатит useApi обратно на localStorage.
+    function enableApiSync() {
+        try { window.apiClient.setConfig({ useApi: true }); } catch (e) { /* ignore */ }
+    }
+
+    // Один раз после первого логина/регистрации перекладываем guest-данные
+    // (progress/history/profile из localStorage) на сервер. Идемпотентно на бэке,
+    // но флаг в localStorage предотвращает лишние вызовы. Не блокируем переход в
+    // dashboard — миграция фоновая (промах не критичен: fallback остаётся local).
+    function migrateGuestOnce() {
+        try {
+            if (localStorage.getItem(MIGRATED_KEY)) return Promise.resolve();
+        } catch (e) { return Promise.resolve(); }
+        function read(k) {
+            try { var r = localStorage.getItem(k); return r ? JSON.parse(r) : null; } catch (e) { return null; }
+        }
+        var progress = read('typing_trainer_lesson_progress');
+        var history = read('typing_trainer_test_history');
+        var profile = read(PROFILE_KEY);
+        var current = read('typing_trainer_current_lesson') || {};
+        // Нечего мигрировать — просто помечаем, чтобы не проверять каждый вход.
+        var hasData = (progress && Object.keys(progress).length) || (Array.isArray(history) && history.length);
+        if (!hasData) {
+            try { localStorage.setItem(MIGRATED_KEY, '1'); } catch (e) {}
+            return Promise.resolve();
+        }
+        // Плоский guest-progress трактуется бэком под default_tier — берём активный
+        // тир из currentLesson, иначе выводим из профиля (persona → tier).
+        var tier = current.tier || guestTier(profile || {});
+        return window.apiClient.migrateGuest({
+            progress: progress || {},
+            history: history || [],
+            profile: profile || {},
+            default_tier: tier,
+        }).then(function () {
+            try { localStorage.setItem(MIGRATED_KEY, '1'); } catch (e) {}
+        }).catch(function () { /* фоновая — промах не критичен, повторим при следующем логине */ });
+    }
+
+    // После успешного password-auth: включить синк, мигрировать guest-данные,
+    // затем в dashboard. Миграцию не ждём дольше 2.5с (UX), но запускаем всегда.
+    function afterAuthSuccess(user) {
+        bridgeProfile(user);
+        enableApiSync();
+        var done = false;
+        function go() { if (!done) { done = true; goDashboard(); } }
+        migrateGuestOnce().then(go);
+        setTimeout(go, 2500);
+    }
+
     function goDashboard() { window.location.href = 'dashboard.html'; }
 
     function formData(form) {
@@ -118,8 +181,7 @@
             data.language = data.language || 'ru';
             return window.apiClient.signup(data);
         }).then(function (user) {
-            bridgeProfile(user);
-            goDashboard();
+            afterAuthSuccess(user);
         }).catch(function (err) {
             busy(btn, false);
             var info = errInfo(err);
@@ -142,7 +204,7 @@
         }
 
         attempt().then(function (user) {
-            bridgeProfile(user); goDashboard();
+            afterAuthSuccess(user);
         }).catch(function (err) {
             var info = errInfo(err);
             // Сервер требует капчу (после серии неудач) — решаем PoW и повторяем
@@ -151,7 +213,7 @@
                 solveCaptcha().then(function (captcha) {
                     return attempt(captcha);
                 }).then(function (user) {
-                    bridgeProfile(user); goDashboard();
+                    afterAuthSuccess(user);
                 }).catch(function (err2) {
                     busy(btn, false);
                     banner('error', errInfo(err2).message || 'Не удалось войти.');

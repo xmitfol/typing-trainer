@@ -22,8 +22,13 @@ document.addEventListener('DOMContentLoaded', async function () {
 
     const profile = readJSON(profileKey);
     if (!profile || !profile.onboardingCompleted || !profile.name) { window.location.href = 'index.html'; return; }
-    const progress = readJSON(progressKey) || {};
     const currentLesson = readJSON(currentKey) || {};
+    // Прогресс — через apiClient (useApi=true → сервер по активному тиру, иначе LS).
+    // Нужен для линейной-прогрессии гейта ниже и для рендера отчёта. currentLesson
+    // читаем первым: apiClient разворачивает серверный прогресс по currentLesson.tier.
+    const progress = (window.apiClient
+        ? await window.apiClient.getProgress().catch(() => readJSON(progressKey))
+        : readJSON(progressKey)) || {};
 
     function pickTier(p) {
         const lang = p.language || 'ru';
@@ -468,7 +473,7 @@ document.addEventListener('DOMContentLoaded', async function () {
         const nb = $('next-btn'); if (nb) nb.focus();  // фокус на кнопку — Enter продолжает
     }
 
-    function finishExercise() {
+    async function finishExercise() {
         if (stepMode) { finishStep(); return; }
         done = true;
         clearInterval(timer);
@@ -476,6 +481,7 @@ document.addEventListener('DOMContentLoaded', async function () {
         const wpm = calcWpm(elapsed);
         const acc = calcAcc();
         const stars = errors === 0 ? 5 : errors <= 2 ? 4 : errors <= 5 ? 3 : errors <= 10 ? 2 : 1;
+        const rhythm = calcRhythm();
 
         // Детекция новых ачивок: snapshot earned-set ДО записи нового прогресса
         const historyKey = (window.Settings && window.Settings.get('storage.keys.testHistory', 'typing_trainer_test_history')) || 'typing_trainer_test_history';
@@ -486,26 +492,60 @@ document.addEventListener('DOMContentLoaded', async function () {
             earnedBefore = window.achievements.earnedIds(window.achievements.getAchievements(statsBefore));
         }
 
-        // Сохранить прогресс (best) — открывает следующий урок.
-        // Свои уроки (tier=user) НЕ влияют на курс: не пишем в lessonProgress / currentLesson
-        // и не пушим в test_history (иначе streak/общее время накручиваются на тренировках).
+        // Сохранить попытку через apiClient.saveAttempt: при useApi=true — атомарно
+        // на сервере (POST /me/progress), при useApi=false/оффлайне — apiClient сам
+        // пишет localStorage (progress + history) в той же форме, что писали раньше.
+        // Свои уроки (tier=user) НЕ влияют на курс: не сохраняем ни на сервер, ни в LS.
         if (!isUserLesson) {
-            const prev = progress[String(lessonNum)] || {};
-            const newProg = {
-                stars: Math.max(stars, prev.stars || 0),
-                bestWPM: Math.min(1500, Math.max(wpm, prev.bestWPM || 0)),  // cap при сохранении — sanity
-                bestAccuracy: Math.max(acc, prev.bestAccuracy || 0),
-                bestTime: prev.bestTime ? Math.min(elapsed, prev.bestTime) : elapsed,
-                completedAt: new Date().toISOString()
-            };
-            progress[String(lessonNum)] = newProg;
-            writeJSON(progressKey, progress);
+            // currentLesson — client-only навигационное состояние (не синкается на
+            // сервер); пишем локально, чтобы dashboard/course знали «где юзер».
             writeJSON(currentKey, { tier, lessonNumber: lessonNum, lastSaved: new Date().toISOString() });
 
-            historyArr.push({ lesson: lessonNum, completedAt: new Date().toISOString(), duration: elapsed, wpm, accuracy: acc });
-            writeJSON(historyKey, historyArr);
+            let saved = null;
+            if (window.apiClient) {
+                try {
+                    saved = await window.apiClient.saveAttempt({
+                        tier, lesson_num: lessonNum, wpm, accuracy: acc,
+                        duration_ms: Math.round(elapsed * 1000), errors,
+                        rhythm: rhythm == null ? null : rhythm,
+                    });
+                } catch (e) { saved = null; /* saveAttempt внутри уже сделал fallback; на всякий случай */ }
+            }
+            // Обновляем in-memory progress для рендера отчёта/ачивок. Сервер и local
+            // возвращают {progress:{...best..}}; при промахе перечитываем из LS
+            // (apiClient-local уже записал), иначе считаем локально как раньше.
+            if (saved && saved.progress) {
+                const sp = saved.progress;
+                progress[String(lessonNum)] = {
+                    stars: sp.stars, bestWPM: sp.bestWPM, bestAccuracy: sp.bestAccuracy,
+                    bestTime: sp.bestTime, completedAt: sp.completedAt || new Date().toISOString(),
+                };
+            } else {
+                const fresh = readJSON(progressKey);
+                if (fresh && fresh[String(lessonNum)]) {
+                    progress[String(lessonNum)] = fresh[String(lessonNum)];
+                } else {
+                    const prev = progress[String(lessonNum)] || {};
+                    progress[String(lessonNum)] = {
+                        stars: Math.max(stars, prev.stars || 0),
+                        bestWPM: Math.min(1500, Math.max(wpm, prev.bestWPM || 0)),
+                        bestAccuracy: Math.max(acc, prev.bestAccuracy || 0),
+                        bestTime: prev.bestTime ? Math.min(elapsed, prev.bestTime) : elapsed,
+                        completedAt: new Date().toISOString(),
+                    };
+                }
+            }
+
+            // Ачивки: снова читаем history из LS (saveAttempt-local туда добавил
+            // запись; при useApi=true LS может быть пуст — тогда используем текущий
+            // historyArr + синтетическую запись, чтобы клиентские toast'ы работали).
+            const historyAfter = readJSON(historyKey) || historyArr.slice();
+            if (window.apiClient && window.apiClient.getConfig().useApi &&
+                historyAfter.length === historyArr.length) {
+                historyAfter.push({ lesson: lessonNum, completedAt: new Date().toISOString(), duration: elapsed, wpm, accuracy: acc });
+            }
             if (window.achievements) {
-                const statsAfter = window.achievements.computeStats(progress, historyArr, totalLessons);
+                const statsAfter = window.achievements.computeStats(progress, historyAfter, totalLessons);
                 const allAfter = window.achievements.getAchievements(statsAfter);
                 const earnedAfter = window.achievements.earnedIds(allAfter);
                 const newlyEarned = allAfter.filter(a => earnedAfter.has(a.id) && !earnedBefore.has(a.id));
@@ -513,7 +553,6 @@ document.addEventListener('DOMContentLoaded', async function () {
             }
         }
 
-        const rhythm = calcRhythm();
         const passed = errors <= errorLimit;
 
         // Коуч-разбор (что хорошо / над чем поработать + топ-ошибка) + мотивация.
