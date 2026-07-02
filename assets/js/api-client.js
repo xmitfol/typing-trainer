@@ -580,9 +580,15 @@
         // credentials:'include' — та же auth-cookie, что у юзеров; роль решает
         // доступ на сервере (403 ADMIN_FORBIDDEN / REAUTH_REQUIRED).
 
-        /** POST /admin/reauth {password} → {reauth_token, ttl_seconds}. */
-        async adminReauth(password) {
-            return _http('POST', '/admin/reauth', { password });
+        /**
+         * POST /admin/reauth {password, totp_code?} → {reauth_token, ttl_seconds}.
+         * totp_code — TOTP или recovery-код (нужен superadmin'у с включённой 2FA).
+         * 403 TOTP_REQUIRED / TOTP_INVALID / TOTP_ENROLLMENT_REQUIRED — см. admin.js.
+         */
+        async adminReauth(password, totpCode) {
+            var body = { password };
+            if (totpCode != null && totpCode !== '') body.totp_code = totpCode;
+            return _http('POST', '/admin/reauth', body);
         },
         /** GET /admin/overview?period=7|30|90 → метрики дашборда. */
         async adminOverview(period) {
@@ -692,6 +698,50 @@
                 body.amount_kopecks = Number(amount_kopecks);
             }
             return _http('POST', `/admin/subscriptions/${encodeURIComponent(id)}/refund`, body,
+                reauthToken ? { 'X-Admin-Reauth': reauthToken } : undefined);
+        },
+
+        // ── Admin impersonation / roles / 2FA (Ф4) ───────────────────────
+        // Все reauth-зависимые методы шлют X-Admin-Reauth:<token> (как refund).
+        // Ошибки пробрасываются с .code/.status; caller (admin.js) их разбирает.
+
+        /**
+         * POST /admin/users/{id}/impersonate + X-Admin-Reauth (support+).
+         * → {impersonated_email, actor_user_id, ttl_seconds}. Ставит cookie
+         * сессии target'а. 403 IMPERSONATE_FORBIDDEN — нельзя (админ/заблокирован).
+         */
+        async adminImpersonate(id, reauthToken) {
+            return _http('POST', `/admin/users/${encodeURIComponent(id)}/impersonate`, undefined,
+                reauthToken ? { 'X-Admin-Reauth': reauthToken } : undefined);
+        },
+        /** POST /admin/impersonate/stop → 204. Возвращает admin-сессию. */
+        async adminImpersonateStop() {
+            return _http('POST', '/admin/impersonate/stop');
+        },
+        /**
+         * POST /admin/users/{id}/role {role} + X-Admin-Reauth (superadmin).
+         * role ∈ {user, analyst, support, superadmin}. → {user_id, action}.
+         * 403 ROLE_SELF_FORBIDDEN — нельзя менять роль себе.
+         */
+        async adminSetRole(id, role, reauthToken) {
+            return _http('POST', `/admin/users/${encodeURIComponent(id)}/role`, { role },
+                reauthToken ? { 'X-Admin-Reauth': reauthToken } : undefined);
+        },
+        /** GET /admin/2fa/status (любой админ) → {enabled}. */
+        async admin2faStatus() {
+            return _http('GET', '/admin/2fa/status');
+        },
+        /** POST /admin/2fa/enroll (superadmin) → {otpauth_uri, secret}. */
+        async admin2faEnroll() {
+            return _http('POST', '/admin/2fa/enroll');
+        },
+        /** POST /admin/2fa/verify {code} (superadmin) → {recovery_codes:[8]}. */
+        async admin2faVerify(code) {
+            return _http('POST', '/admin/2fa/verify', { code });
+        },
+        /** POST /admin/2fa/disable + X-Admin-Reauth (superadmin) → ok. */
+        async admin2faDisable(reauthToken) {
+            return _http('POST', '/admin/2fa/disable', undefined,
                 reauthToken ? { 'X-Admin-Reauth': reauthToken } : undefined);
         },
 

@@ -38,6 +38,69 @@
     // 1. Инициализируем config (синхронно из localStorage).
     window.apiClient.init();
 
+    // ─── Баннер имперсонации (Ф4) ────────────────────────────────────────
+    // Client-side флаг tt_impersonation ставит admin.js при «Войти как юзер».
+    // Реальная сессия — cookie target'а; флаг нужен только для этого баннера.
+    // Рендерим на всех защищённых страницах (auth-sync грузится широко), НЕ на
+    // admin-странице (там своя навигация). Инлайн-стили — чтобы не зависеть от
+    // конкретного CSS страницы. Кнопка «Выйти» всегда чистит флаг, даже если
+    // imp-токен уже истёк (стоп-сессия на бэке best-effort).
+    var IMP_KEY = 'tt_impersonation';
+    (function renderImpersonationBanner() {
+        var raw = null;
+        try { raw = localStorage.getItem(IMP_KEY); } catch (e) { return; }
+        if (!raw) return;
+        var data = null;
+        try { data = JSON.parse(raw); } catch (e) { data = {}; }
+        // На самой админ-странице баннер не нужен (путь содержит /admin/).
+        if (/\/admin\//.test(window.location.pathname)) return;
+        if (document.getElementById('ttImpBanner')) return;
+
+        function build() {
+            var email = (data && data.email) || 'пользователь';
+            var bar = document.createElement('div');
+            bar.id = 'ttImpBanner';
+            bar.setAttribute('role', 'status');
+            bar.style.cssText = [
+                'position:fixed', 'top:0', 'left:0', 'right:0', 'z-index:2147483000',
+                'background:#f59e0b', 'color:#1a1a17',
+                'font:600 13.5px/1.4 system-ui,-apple-system,Segoe UI,Roboto,sans-serif',
+                'padding:8px 16px', 'display:flex', 'align-items:center',
+                'justify-content:center', 'gap:14px', 'flex-wrap:wrap',
+                'box-shadow:0 1px 4px rgba(0,0,0,0.15)',
+            ].join(';');
+            var txt = document.createElement('span');
+            txt.textContent = '⚠ Вы вошли как ' + email + ' (режим имперсонации).';
+            var btn = document.createElement('button');
+            btn.textContent = 'Выйти';
+            btn.style.cssText = [
+                'background:#1a1a17', 'color:#fff', 'border:none', 'border-radius:6px',
+                'padding:5px 14px', 'font:600 12.5px system-ui,sans-serif',
+                'cursor:pointer',
+            ].join(';');
+            btn.addEventListener('click', function () {
+                btn.disabled = true; btn.textContent = '…';
+                function done() {
+                    try { localStorage.removeItem(IMP_KEY); } catch (e) {}
+                    // Вернуться в админку (админ-сессия восстановлена бэком).
+                    window.location.replace('../admin/index.html');
+                }
+                // adminImpersonateStop возвращает admin-сессию; ошибку/истёкший
+                // токен глотаем — флаг всё равно чистим (UX не должен застревать).
+                try {
+                    window.apiClient.adminImpersonateStop().then(done, done);
+                } catch (e) { done(); }
+            });
+            bar.appendChild(txt);
+            bar.appendChild(btn);
+            document.body.appendChild(bar);
+            // Сдвигаем контент вниз, чтобы баннер не перекрывал шапку страницы.
+            try { document.body.style.paddingTop = (bar.offsetHeight || 40) + 'px'; } catch (e) {}
+        }
+        if (document.body) build();
+        else document.addEventListener('DOMContentLoaded', build);
+    })();
+
     var params = new URLSearchParams(window.location.search);
     var isOauthLanding = params.get('oauth') === '1';
 
