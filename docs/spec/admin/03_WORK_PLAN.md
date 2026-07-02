@@ -130,6 +130,20 @@
 - **[LOW]** `require_reauth_once`: getdel «сжигает» валидный токен при неверном заголовке
   (self-inflicted UX, не security) — опционально.
 
+## 5b. Статус реализации (2026-07-02) — Ф1–Ф4 ГОТОВЫ
+
+Всё в master. Gate на реальном стенде VM по каждой фазе:
+- **Ф1** RBAC/аудит/re-auth/Обзор/Пользователи — 18/18 + F1-SEC (фиксы внесены).
+- **Ф2** Подписки/Возврат — 19/19 + F2-SEC; money-hardening (UNIQUE idempotency, rate-limit, amount-guard) — 8/8+7/7.
+- **Ф3** Статистика (из наличных таблиц) + эмиссия events — 34/34.
+- **Ф4** имперсонация + роли + nginx-allowlist (18/18) + TOTP-2FA (26/26) + фронт; **Ф4-SEC APPROVE-WITH-FIXES**, код-фиксы (refresh-гейт 409, imp-аудит middleware, totp-key fail-fast, recovery argon2 64бит) — 13/13.
+
+### Pre-prod операционный чек-лист (НЕ код — на выкатке)
+1. `backend/nginx/admin_allowlist.conf` — заменить `allow all;` на реальные IP/подсети + `deny all;`; включить `real_ip` за LB.
+2. prod-`.env`: `REQUIRE_SUPERADMIN_2FA=true` + `TOTP_ENCRYPTION_KEY=<Fernet-ключ>` (последний форсится fail-fast при `APP_ENV=prod`).
+3. Боевой money-контур (F2-PROD): `YooKassaProvider` create_checkout/refund + `BILLING_PROVIDER=yookassa` + shop-креды — по подтверждению YooKassa-shop (PO).
+4. (fast-follow) реальные OAuth-креды Yandex/VK (S2.1) — сейчас mock.
+
 ## 6. Рекомендация — что первым
 - ✅ **Борис — Ф1-backend немедленно** (независимый трек, не трогает live data-path).
 - ✅ **Алекс — сначала хвост P2-синка**, затем админ-фронт Ф1 (P2 разблокирует эмиссию events для Ф3).
