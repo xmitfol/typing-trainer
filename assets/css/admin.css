@@ -254,6 +254,33 @@
 .ad-hcol__x { font-family: var(--font-mono); font-size: 9.5px; color: var(--faint); text-align: center; white-space: nowrap; }
 .ad-histogram__unit { align-self: flex-end; font-size: 10px; color: var(--faint); font-family: var(--font-mono); }
 
+/* ─── Role control (Ф4) ──────────────────────────────────────────────────── */
+.ad-role-ctl { display: flex; align-items: center; gap: 10px; margin-top: 12px; flex-wrap: wrap; }
+.ad-role-ctl__label { font-size: 12.5px; color: var(--faint); font-family: var(--font-mono); letter-spacing: 0.04em; }
+
+/* ─── Security / 2FA modal (Ф4) ───────────────────────────────────────────── */
+.ad-modal--sec { max-width: 480px; }
+.ad-sec-body { display: flex; flex-direction: column; gap: 12px; }
+.ad-sec-line { margin: 0; font-size: 14px; display: flex; align-items: center; gap: 8px; }
+.ad-sec-body .ad-mono { margin: 0; }
+.ad-sec-uri {
+    display: block; word-break: break-all; font-family: var(--font-mono); font-size: 11.5px;
+    color: var(--accent); background: var(--bg-alt); border-radius: 8px; padding: 8px 10px;
+}
+.ad-sec-secret {
+    background: var(--bg-alt); border: 1px dashed var(--divider); border-radius: 8px;
+    padding: 10px 12px; font-size: 14px; letter-spacing: 0.08em; word-break: break-all;
+}
+.ad-sec-warn {
+    background: var(--warn-bg); color: #92400e; border-radius: 10px; padding: 12px 14px;
+    font-size: 12.5px; line-height: 1.45; margin: 0;
+}
+.ad-sec-codes {
+    display: grid; grid-template-columns: repeat(2, 1fr); gap: 6px 16px;
+    background: var(--bg-alt); border-radius: 10px; padding: 14px 16px; font-size: 14px;
+    letter-spacing: 0.06em;
+}
+
 @media (max-width: 900px) {
     .ad-metrics { grid-template-columns: repeat(2, 1fr); }
     .ad-detail { grid-template-columns: 1fr; }

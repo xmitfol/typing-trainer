@@ -70,6 +70,12 @@
     function errMsg(e) {
         var code = e && e.code, status = e && e.status;
         var bodyMsg = e && e.body && (e.body.message || (e.body.detail && (e.body.detail.message || e.body.detail)));
+        // TOTP/2FA — до общего 403-правила (это ошибки flow, а не «нет прав»).
+        if (code === 'TOTP_REQUIRED') return 'Нужен код 2FA.';
+        if (code === 'TOTP_INVALID') return 'Неверный код 2FA. Попробуйте ещё раз (или recovery-код).';
+        if (code === 'TOTP_ENROLLMENT_REQUIRED') return 'Для этой операции включите 2FA (раздел «Безопасность»).';
+        if (code === 'IMPERSONATE_FORBIDDEN') return 'Нельзя войти под этим пользователем (админ или заблокирован).';
+        if (code === 'ROLE_SELF_FORBIDDEN') return 'Нельзя менять роль самому себе.';
         if (code === 'ADMIN_FORBIDDEN' || (status === 403 && code !== 'REAUTH_REQUIRED')) return 'Недостаточно прав для этой операции.';
         if (code === 'REAUTH_REQUIRED') return 'Требуется повторный ввод пароля.';
         if (status === 401) return 'Сессия истекла. Войдите заново.';
@@ -200,6 +206,13 @@
         $('adLogout').addEventListener('click', function () {
             api.signout().catch(function () {}).then(function () { window.location.replace('../index.html'); });
         });
+
+        // Раздел «Безопасность» (2FA) — только superadmin.
+        var secBtn = $('adSecurity');
+        if (secBtn) {
+            secBtn.hidden = !hasRole('superadmin');
+            secBtn.addEventListener('click', openSecurityModal);
+        }
 
         // Стартовая вкладка: analyst стартует с Обзора (единственная доступная).
         switchTab('overview');
@@ -564,7 +577,20 @@
         else actions.appendChild(actBtn('Заблокировать', 'block', true, 'Заблокировать (soft-delete)? Юзер потеряет доступ.'));
         if (!p.email_verified) actions.appendChild(actBtn('Подтвердить email', 'verify-email', false, 'Вручную подтвердить email?'));
         actions.appendChild(actBtn('Сбросить пароль', 'reset-password', false, 'Отправить письмо со сбросом пароля?'));
+
+        // Имперсонация (support+): только для обычных юзеров и не заблокированных.
+        // Бэк тоже проверяет (403 IMPERSONATE_FORBIDDEN) — это лишь UX-гейт.
+        if (hasRole('support') && p.role === 'user' && !p.deleted_at) {
+            actions.appendChild(el('button', { class: 'ad-btn', text: 'Войти как юзер', onclick: function () {
+                startImpersonation(id, p);
+            } }));
+        }
         box.appendChild(actions);
+
+        // Управление ролью (только superadmin, не себе).
+        if (hasRole('superadmin') && String(p.id || id) !== String(state.me && state.me.id)) {
+            box.appendChild(renderRoleControl(id, p));
+        }
 
         var grid = el('div', { class: 'ad-detail' });
 
@@ -632,6 +658,77 @@
             toast(label + ' — готово', 'ok');
             openUser(id); // рефреш карточки
         }).catch(function (e) { toast(errMsg(e), 'err'); });
+    }
+
+    // Ключ localStorage для client-side флага активной имперсонации.
+    // Реальная сессия — cookie target'а; флаг нужен только для баннера (auth-sync.js).
+    var IMPERSONATION_KEY = 'tt_impersonation';
+
+    // «Войти как юзер»: reauth → adminImpersonate → сохранить флаг → на dashboard.
+    function startImpersonation(id, p) {
+        reauthThen(function (token, mctx) {
+            api.adminImpersonate(id, token).then(function (r) {
+                state.reauthToken = token;
+                var until = null;
+                if (r && r.ttl_seconds) until = Date.now() + Number(r.ttl_seconds) * 1000;
+                try {
+                    localStorage.setItem(IMPERSONATION_KEY, JSON.stringify({
+                        email: (r && r.impersonated_email) || p.email || '',
+                        actor: (r && r.actor_user_id) || (state.me && state.me.id) || null,
+                        until: until,
+                    }));
+                } catch (e) { /* private mode — баннер не покажется, но сессия работает */ }
+                mctx.close();
+                window.location.replace('../dashboard.html');
+            }).catch(function (e) {
+                if (e && e.code === 'REAUTH_REQUIRED') {
+                    state.reauthToken = null;
+                    mctx.setBusy(false);
+                    mctx.setError('Токен подтверждения истёк — введите пароль заново.');
+                    return;
+                }
+                mctx.setBusy(false); mctx.setError(errMsg(e));
+            });
+        });
+    }
+
+    var ROLE_OPTIONS = [
+        { value: 'user', label: 'Пользователь (user)' },
+        { value: 'analyst', label: 'Аналитик (analyst)' },
+        { value: 'support', label: 'Саппорт (support)' },
+        { value: 'superadmin', label: 'Суперадмин (superadmin)' },
+    ];
+
+    // Инлайн-контрол смены роли (superadmin). select + кнопка «Сменить».
+    function renderRoleControl(id, p) {
+        var sel = el('select', { class: 'ad-select' },
+            ROLE_OPTIONS.map(function (o) { return el('option', { value: o.value, text: o.label }); }));
+        sel.value = p.role || 'user';
+        var btn = el('button', { class: 'ad-btn', text: 'Сменить роль' });
+        btn.addEventListener('click', function () {
+            var role = sel.value;
+            if (role === (p.role || 'user')) { toast('Роль не изменилась.', null); return; }
+            reauthThen(function (token, mctx) {
+                api.adminSetRole(id, role, token).then(function () {
+                    state.reauthToken = token;
+                    mctx.close();
+                    toast('Роль изменена на «' + role + '»', 'ok');
+                    openUser(id); // рефреш карточки
+                }).catch(function (e) {
+                    if (e && e.code === 'REAUTH_REQUIRED') {
+                        state.reauthToken = null;
+                        mctx.setBusy(false);
+                        mctx.setError('Токен подтверждения истёк — введите пароль заново.');
+                        return;
+                    }
+                    mctx.setBusy(false); mctx.setError(errMsg(e));
+                });
+            });
+        });
+        return el('div', { class: 'ad-role-ctl' }, [
+            el('label', { class: 'ad-role-ctl__label', text: 'Роль:' }),
+            sel, btn,
+        ]);
     }
 
     // ─── BILLING ──────────────────────────────────────────────────────────
@@ -800,23 +897,170 @@
     }
 
     // Показывает модалку ввода пароля, делает adminReauth, отдаёт token в cb.
-    // cb(token, ctx): ctx = модалка пароля (для повторного показа ошибки/busy).
-    function reauthThen(cb) {
-        modal({
-            title: 'Подтверждение паролем', desc: 'Для чувствительной операции введите свой пароль.',
+    // cb(token, ctx): ctx = модалка (для повторного показа ошибки/busy при
+    //   REAUTH_REQUIRED от последующей операции — как в refund/role/impersonate).
+    //
+    // 2FA (Ф4): если /admin/reauth вернул TOTP_REQUIRED/TOTP_INVALID — superadmin'у
+    // с включённой 2FA нужен код. Поле «Код 2FA (или recovery)» показывается в той
+    // же модалке (пересоздаём её с сохранённым паролем — modal() строит поля один
+    // раз). TOTP_ENROLLMENT_REQUIRED — 2FA не включена: сообщение + отмена.
+    // opts.password/opts.needTotp/opts.err — внутреннее состояние между пересозданиями.
+    function reauthThen(cb, opts) {
+        opts = opts || {};
+        var fields = [{ name: 'password', label: 'Пароль', type: 'password', placeholder: '••••••••', value: opts.password || '' }];
+        if (opts.needTotp) {
+            fields.push({ name: 'totp_code', label: 'Код 2FA (или recovery-код)', type: 'text', placeholder: '123456' });
+        }
+        var ctx = modal({
+            title: 'Подтверждение паролем',
+            desc: opts.needTotp
+                ? 'У вас включена двухфакторная аутентификация — введите код из приложения (или один из recovery-кодов).'
+                : 'Для чувствительной операции введите свой пароль.',
             submitLabel: 'Подтвердить и выполнить', danger: true,
-            fields: [{ name: 'password', label: 'Пароль', type: 'password', placeholder: '••••••••' }],
-            onSubmit: function (v, ctx) {
-                if (!v.password) return ctx.setError('Введите пароль.');
-                ctx.setBusy(true);
-                api.adminReauth(v.password).then(function (r) {
-                    cb(r.reauth_token, ctx);
+            fields: fields,
+            onSubmit: function (v, mctx) {
+                if (!v.password) return mctx.setError('Введите пароль.');
+                if (opts.needTotp && !String(v.totp_code || '').trim()) return mctx.setError('Введите код 2FA или recovery-код.');
+                mctx.setBusy(true);
+                api.adminReauth(v.password, opts.needTotp ? String(v.totp_code).trim() : undefined).then(function (r) {
+                    cb(r.reauth_token, mctx);
                 }).catch(function (e) {
-                    ctx.setBusy(false);
-                    ctx.setError(e && e.status === 401 ? 'Неверный пароль.' : errMsg(e));
+                    var code = e && e.code;
+                    if (code === 'TOTP_REQUIRED' || code === 'TOTP_INVALID') {
+                        // Нужен (или неверен) код 2FA — пересоздаём модалку с TOTP-полем,
+                        // сохраняя уже введённый пароль.
+                        mctx.close();
+                        reauthThen(cb, { password: v.password, needTotp: true, err: errMsg(e) });
+                        return;
+                    }
+                    if (code === 'TOTP_ENROLLMENT_REQUIRED') {
+                        mctx.setBusy(false);
+                        mctx.setError('Включите 2FA в разделе «Безопасность», затем повторите.');
+                        return;
+                    }
+                    mctx.setBusy(false);
+                    mctx.setError(e && e.status === 401 ? 'Неверный пароль.' : errMsg(e));
                 });
             },
         });
+        if (opts.err) ctx.setError(opts.err);
+        return ctx;
+    }
+
+    // ─── SECURITY / 2FA (Ф4, superadmin) ──────────────────────────────────
+    // Кастомная модалка с несколькими состояниями (status → enroll → verify →
+    // recovery-коды). Собственный backdrop (generic modal() рассчитан на один шаг
+    // с фиксированными полями). QR: без внешних либ показываем otpauth_uri
+    // ссылкой/текстом + secret для ручного ввода в приложение.
+    function secModal() {
+        var root = $('adModalRoot');
+        var backdrop = el('div', { class: 'ad-modal-backdrop' });
+        var body = el('div', { class: 'ad-sec-body' });
+        var box = el('div', { class: 'ad-modal ad-modal--sec' }, [
+            el('h3', { text: 'Безопасность · 2FA' }),
+            body,
+        ]);
+        backdrop.appendChild(box);
+        backdrop.addEventListener('click', function (ev) { if (ev.target === backdrop) backdrop.remove(); });
+        root.appendChild(backdrop);
+        return {
+            body: body,
+            close: function () { backdrop.remove(); },
+            render: function (nodes) { clear(body); (Array.isArray(nodes) ? nodes : [nodes]).forEach(function (n) { if (n) body.appendChild(n); }); },
+        };
+    }
+
+    function openSecurityModal() {
+        var m = secModal();
+        m.render(el('div', { class: 'ad-empty', text: 'Загрузка…' }));
+        api.admin2faStatus().then(function (s) {
+            renderSecStatus(m, !!(s && s.enabled));
+        }).catch(function (e) {
+            m.render(el('div', { class: 'ad-empty', text: errMsg(e) }));
+        });
+    }
+
+    function secFoot(buttons) {
+        return el('div', { class: 'ad-modal__foot' }, buttons);
+    }
+
+    function renderSecStatus(m, enabled) {
+        var chip = el('span', { class: 'ad-chip ' + (enabled ? 'ad-chip--ok' : 'ad-chip--warn'), text: enabled ? 'включена' : 'выключена' });
+        var closeBtn = el('button', { class: 'ad-btn', text: 'Закрыть', onclick: m.close });
+        var actionBtn;
+        if (enabled) {
+            actionBtn = el('button', { class: 'ad-btn ad-btn--danger', text: 'Отключить 2FA', onclick: function () {
+                m.close();
+                reauthThen(function (token, mctx) {
+                    api.admin2faDisable(token).then(function () {
+                        state.reauthToken = token; mctx.close(); toast('2FA отключена', 'ok');
+                    }).catch(function (e) {
+                        if (e && e.code === 'REAUTH_REQUIRED') {
+                            state.reauthToken = null; mctx.setBusy(false);
+                            mctx.setError('Токен подтверждения истёк — введите пароль заново.');
+                            return;
+                        }
+                        mctx.setBusy(false); mctx.setError(errMsg(e));
+                    });
+                });
+            } });
+        } else {
+            actionBtn = el('button', { class: 'ad-btn ad-btn--primary', text: 'Включить 2FA', onclick: function () { secEnroll(m); } });
+        }
+        m.render([
+            el('p', { class: 'ad-sec-line' }, [document.createTextNode('Статус двухфакторной аутентификации: '), chip]),
+            el('p', { class: 'ad-mono', text: enabled
+                ? 'Recovery-коды выдаются один раз при включении. Отключение потребует пароль.'
+                : 'Включите 2FA (TOTP) для защиты чувствительных операций (refund, смена ролей, имперсонация).' }),
+            secFoot([closeBtn, actionBtn]),
+        ]);
+    }
+
+    function secEnroll(m) {
+        m.render(el('div', { class: 'ad-empty', text: 'Готовим секрет…' }));
+        api.admin2faEnroll().then(function (d) {
+            d = d || {};
+            var uri = d.otpauth_uri || '';
+            var secret = d.secret || '';
+            var codeInput = el('input', { class: 'ad-input', type: 'text', placeholder: 'Код из приложения' });
+            var errBox = el('div', { class: 'ad-modal__err' });
+            var verifyBtn = el('button', { class: 'ad-btn ad-btn--primary', text: 'Проверить и включить' });
+            var cancelBtn = el('button', { class: 'ad-btn', text: 'Отмена', onclick: m.close });
+            verifyBtn.addEventListener('click', function () {
+                var code = String(codeInput.value || '').trim();
+                if (!code) { errBox.textContent = 'Введите код из приложения.'; return; }
+                verifyBtn.disabled = true; cancelBtn.disabled = true; verifyBtn.textContent = '…'; errBox.textContent = '';
+                api.admin2faVerify(code).then(function (r) {
+                    secRecovery(m, (r && r.recovery_codes) || []);
+                }).catch(function (e) {
+                    verifyBtn.disabled = false; cancelBtn.disabled = false; verifyBtn.textContent = 'Проверить и включить';
+                    errBox.textContent = errMsg(e);
+                });
+            });
+            m.render([
+                el('p', { class: 'ad-mono', text: '1. Отсканируйте ссылку в приложении-аутентификаторе или введите ключ вручную.' }),
+                uri ? el('a', { class: 'ad-sec-uri', href: uri, text: uri }) : null,
+                el('p', { class: 'ad-mono', text: 'Секретный ключ (для ручного ввода):' }),
+                el('div', { class: 'ad-sec-secret ad-mono', text: secret || '—' }),
+                el('p', { class: 'ad-mono', text: '2. Введите 6-значный код из приложения:' }),
+                el('div', { class: 'ad-field' }, [codeInput]),
+                errBox,
+                secFoot([cancelBtn, verifyBtn]),
+            ]);
+        }).catch(function (e) {
+            m.render([el('div', { class: 'ad-empty', text: errMsg(e) }), secFoot([el('button', { class: 'ad-btn', text: 'Закрыть', onclick: m.close })])]);
+        });
+    }
+
+    function secRecovery(m, codes) {
+        var list = el('div', { class: 'ad-sec-codes ad-mono' },
+            (codes && codes.length ? codes : ['—']).map(function (c) { return el('div', { text: c }); }));
+        m.render([
+            el('p', { class: 'ad-sec-line', html: '✅ <b>2FA включена.</b>' }),
+            el('p', { class: 'ad-sec-warn', text: 'Сохраните эти recovery-коды в надёжном месте. Они показываются ОДИН раз и больше не будут доступны. Каждый код одноразовый — используйте, если потеряете доступ к приложению.' }),
+            list,
+            secFoot([el('button', { class: 'ad-btn ad-btn--primary', text: 'Я сохранил коды', onclick: m.close })]),
+        ]);
     }
 
     // ─── Pager ────────────────────────────────────────────────────────────
