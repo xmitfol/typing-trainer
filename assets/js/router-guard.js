@@ -75,7 +75,15 @@
     var oauthBootstrap = false;
     try { oauthBootstrap = sessionStorage.getItem('tt_oauth_bootstrap') === '1'; } catch (e) {}
 
-    if (PROTECTED.indexOf(page) !== -1 && !hasProfile && !oauthBootstrap) {
+    // Имперсонация (Ф4): admin.js ставит tt_impersonation и редиректит на
+    // dashboard под сессией target'а. Профиля target'а в localStorage ещё нет —
+    // не выбрасываем на лендинг (иначе index.html без auth-sync.js → баннер не
+    // отрендерится, а сессия имперсонации приземлится на лендинг). auth-sync.js
+    // подтянет /me target'а и отрисует баннер «Вы вошли как …».
+    var impersonating = false;
+    try { impersonating = !!localStorage.getItem('tt_impersonation'); } catch (e) {}
+
+    if (PROTECTED.indexOf(page) !== -1 && !hasProfile && !oauthBootstrap && !impersonating) {
         location.replace('index.html');
         return;
     }
