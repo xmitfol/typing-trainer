@@ -134,6 +134,7 @@ services:
       - "8090:80"
     volumes:
       - ./nginx/dev-proxy.conf:/etc/nginx/conf.d/default.conf:ro
+      - ./nginx/admin_allowlist.conf:/etc/nginx/admin_allowlist.conf:ro  # Ф4a IP-allowlist (dev=all); ВНЕ conf.d/ — иначе nginx include *.conf применит allow/deny глобально
       - ../:/srv/www:ro        # repo root = статика фронта
     depends_on:
       backend:

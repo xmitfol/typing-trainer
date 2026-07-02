@@ -186,6 +186,42 @@ class AdminActionResult(BaseModel):
     action: str
 
 
+# ─── Impersonation / role (Ф4a — admin-panel TSD §5.1, §4) ──────────────
+
+
+class ImpersonateResult(BaseModel):
+    """Ответ POST /admin/users/{id}/impersonate.
+
+    Токен также ставится в cookie (access_token = imp-токен, admin_return —
+    оригинальная admin-сессия). Тело — для фронта: под кем сессия + TTL, чтобы
+    отрисовать баннер «Вы вошли как {email}».
+    """
+
+    ok: bool = True
+    impersonated_user_id: UUID
+    impersonated_email: str
+    actor_user_id: UUID
+    ttl_seconds: int
+
+
+class RoleSetRequest(BaseModel):
+    """Тело POST /admin/users/{id}/role — назначить роль сотруднику."""
+
+    model_config = ConfigDict(extra="forbid")
+
+    role: AdminRole
+
+
+class RoleSetResult(BaseModel):
+    """Ответ POST /admin/users/{id}/role."""
+
+    ok: bool = True
+    user_id: UUID
+    old_role: str
+    new_role: str
+    action: str = "role.set"
+
+
 # ─── Subscriptions (admin-panel TSD §4, Ф2) ─────────────────────────────
 
 

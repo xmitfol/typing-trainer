@@ -98,12 +98,13 @@ def needs_rehash(stored_hash: str) -> bool:
 # ─── JWT (HS256) ──────────────────────────────────────────────────────
 
 
-class AccessTokenClaims(TypedDict):
+class AccessTokenClaims(TypedDict, total=False):
     sub: str       # user_id (UUID stringified)
     exp: int       # unix timestamp
     iat: int       # issued at
     jti: str       # unique token id (для revocation)
     typ: Literal["access"]
+    imp: str       # impersonation: actor (admin) user_id — опционально (Ф4a)
 
 
 class RefreshTokenClaims(TypedDict):
@@ -118,9 +119,15 @@ def _now_utc() -> datetime:
     return datetime.now(UTC)
 
 
-def create_access_token(user_id: UUID, ttl: timedelta | None = None) -> tuple[str, str]:
+def create_access_token(
+    user_id: UUID, ttl: timedelta | None = None, *, imp_actor_id: UUID | None = None
+) -> tuple[str, str]:
     """Создаёт access-token. Возвращает (token, jti) — jti можно сохранить
     для revocation. Default TTL из settings (15 мин).
+
+    imp_actor_id (Ф4a): если задан — добавляет claim `imp=<actor_id>`, помечая
+    токен как имперсонацию (бэкенд/логи знают, что за целевого юзера действует
+    админ). Валидацию access-токена claim не ломает (decode_token его пропускает).
     """
     settings = get_settings()
     if ttl is None:
@@ -134,6 +141,8 @@ def create_access_token(user_id: UUID, ttl: timedelta | None = None) -> tuple[st
         "jti": jti,
         "typ": "access",
     }
+    if imp_actor_id is not None:
+        claims["imp"] = str(imp_actor_id)
     token = jwt.encode(claims, settings.jwt_secret_key, algorithm=settings.jwt_algorithm)
     return token, jti
 

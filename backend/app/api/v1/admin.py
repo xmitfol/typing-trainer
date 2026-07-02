@@ -8,19 +8,22 @@
 возвраты — Ф2, имперсонация/роли — Ф4.
 """
 
+from datetime import timedelta
 from uuid import UUID
 
 import structlog
-from fastapi import APIRouter, HTTPException, Query, Request, status
+from fastapi import APIRouter, Cookie, HTTPException, Query, Request, Response, status
 
 from app.config import get_settings
 from app.core.exceptions import (
+    ImpersonateForbiddenError,
     PlanNotFoundError,
     RefundAmountExceedsError,
+    RoleSelfForbiddenError,
     SubscriptionNotFoundError,
     UserNotFoundError,
 )
-from app.core.security import get_dummy_hash, verify_password
+from app.core.security import create_access_token, get_dummy_hash, verify_password
 from app.deps import (
     CurrentUser,
     DbSession,
@@ -49,6 +52,7 @@ from app.schemas.admin import (
     AdminUsersPage,
     FunnelOut,
     GrantSubscriptionRequest,
+    ImpersonateResult,
     LessonsOut,
     OverviewMetrics,
     ReauthRequest,
@@ -56,6 +60,8 @@ from app.schemas.admin import (
     RefundRequest,
     RetentionOut,
     RevenueOut,
+    RoleSetRequest,
+    RoleSetResult,
     SkillOut,
 )
 from app.services import admin_service, analytics_service
@@ -68,6 +74,25 @@ router = APIRouter()
 # Счётчик неудач на user.id; при превышении — 429 lockout; успех сбрасывает.
 REAUTH_FAIL_LIMIT = 5
 REAUTH_FAIL_WINDOW = 300  # секунд
+
+# ─── Имперсонация — cookie-механика (Ф4a, TSD §5.1) ──────────────────────
+#
+# РЕШЕНИЕ (наименее инвазивный путь): НЕ трогаем current_user. Вместо этого
+# при старте имперсонации:
+#   1. Сохраняем оригинальный admin access_token в отдельную httpOnly cookie
+#      `admin_return` (короткий TTL = TTL access-токена админа, 15 мин).
+#   2. Перезаписываем access_token = imp-токен (короткий TTL, claim imp=actor,
+#      refresh НЕ трогаем/не выдаём — сессия истечёт сама).
+# current_user_required читает access_token как обычно → отдаёт target-юзера,
+# claim imp виден в токене (для логов/баннера). «Выход» (/impersonate/stop):
+# восстанавливаем access_token из admin_return, чистим admin_return.
+#
+# Почему не отдельная imp-cookie с приоритетом в current_user: это изменило бы
+# current_user (риск для ВСЕХ эндпоинтов). Перезапись access_token изолирована
+# и не требует правок в deps.py.
+ACCESS_COOKIE = "access_token"
+ADMIN_RETURN_COOKIE = "admin_return"
+IMPERSONATE_TTL_MINUTES = 15
 
 
 def _ip_hash(request: Request) -> str | None:
@@ -337,6 +362,156 @@ async def reset_user_password(
     except UserNotFoundError as e:
         raise _not_found(e) from e
     return AdminActionResult(user_id=user_id, action="user.reset_password")
+
+
+# ─── Impersonation + role (Ф4a; support/superadmin + re-auth) ────────────
+
+
+def _impersonate_cookie_kwargs() -> dict:
+    """Общие kwargs httpOnly-cookie (как _set_auth_cookies в auth.py)."""
+    settings = get_settings()
+    return {
+        "httponly": True,
+        "secure": settings.cookie_secure,
+        "samesite": "lax",
+        "domain": settings.cookie_domain,
+        "path": "/",
+    }
+
+
+@router.post(
+    "/users/{user_id}/impersonate",
+    response_model=ImpersonateResult,
+    summary="Войти под юзером — короткий imp-токен (support + re-auth)",
+)
+async def impersonate_user(
+    user_id: UUID,
+    _support: RequireSupport,
+    actor: RequireReauthOnce,
+    session: DbSession,
+    redis: RedisClient,
+    request: Request,
+    response: Response,
+    access_token: str | None = Cookie(default=None),
+) -> ImpersonateResult:
+    """Имперсонация обычного юзера (TSD §5.1).
+
+    Цель обязана быть НЕ заблокированной и role=='user' (иначе 403
+    IMPERSONATE_FORBIDDEN). Выдаём короткий (15 мин) access-токен target'а с
+    claim imp=<actor_id>; refresh НЕ выдаём. Оригинальную admin-сессию кладём
+    в cookie admin_return (для возврата через /impersonate/stop).
+    """
+    await guard_admin_mutation_rate(actor, redis)
+    try:
+        target = await admin_service.impersonate(
+            session, actor, user_id, ip_hash=_ip_hash(request)
+        )
+    except UserNotFoundError as e:
+        raise _not_found(e) from e
+    except ImpersonateForbiddenError as e:
+        raise HTTPException(
+            status.HTTP_403_FORBIDDEN,
+            detail={"code": e.code, "message": "Имперсонация этого юзера запрещена"},
+        ) from e
+
+    imp_token, _ = create_access_token(
+        target.id,
+        ttl=timedelta(minutes=IMPERSONATE_TTL_MINUTES),
+        imp_actor_id=actor.id,
+    )
+    kwargs = _impersonate_cookie_kwargs()
+    # Сохраняем текущий admin access-токен для возврата (TTL = его же ~15 мин).
+    if access_token:
+        response.set_cookie(
+            ADMIN_RETURN_COOKIE,
+            access_token,
+            max_age=get_settings().jwt_access_ttl_minutes * 60,
+            **kwargs,
+        )
+    # Подменяем активную сессию на imp-токен (refresh НЕ трогаем — истечёт сам).
+    response.set_cookie(
+        ACCESS_COOKIE,
+        imp_token,
+        max_age=IMPERSONATE_TTL_MINUTES * 60,
+        **kwargs,
+    )
+    return ImpersonateResult(
+        impersonated_user_id=target.id,
+        impersonated_email=target.email,
+        actor_user_id=actor.id,
+        ttl_seconds=IMPERSONATE_TTL_MINUTES * 60,
+    )
+
+
+@router.post(
+    "/impersonate/stop",
+    status_code=status.HTTP_204_NO_CONTENT,
+    summary="Выйти из имперсонации — вернуть admin-сессию",
+)
+async def impersonate_stop(
+    response: Response,
+    admin_return: str | None = Cookie(default=None),
+) -> None:
+    """Восстанавливает admin_return → access_token, чистит admin_return.
+
+    Без CurrentUser: под imp-токеном current_user отдал бы target-юзера, а не
+    админа. Возврат чисто cookie-операция (admin_return httpOnly, подделать
+    нельзя). Если admin_return нет — просто чистим imp access_token (сессия
+    истечёт), деградация безопасна.
+    """
+    kwargs = _impersonate_cookie_kwargs()
+    settings = get_settings()
+    if admin_return:
+        response.set_cookie(
+            ACCESS_COOKIE,
+            admin_return,
+            max_age=settings.jwt_access_ttl_minutes * 60,
+            **kwargs,
+        )
+    else:
+        response.delete_cookie(
+            ACCESS_COOKIE, domain=settings.cookie_domain, path="/"
+        )
+    response.delete_cookie(
+        ADMIN_RETURN_COOKIE, domain=settings.cookie_domain, path="/"
+    )
+
+
+@router.post(
+    "/users/{user_id}/role",
+    response_model=RoleSetResult,
+    summary="Назначить роль сотруднику (superadmin + re-auth)",
+)
+async def set_user_role(
+    user_id: UUID,
+    payload: RoleSetRequest,
+    _superadmin: RequireSuperadmin,
+    actor: RequireReauthOnce,
+    session: DbSession,
+    redis: RedisClient,
+    request: Request,
+) -> RoleSetResult:
+    """Смена роли (superadmin only). Нельзя менять роль самому себе
+    (403 ROLE_SELF_FORBIDDEN). Выдача superadmin другому разрешена, аудируется.
+    """
+    await guard_admin_mutation_rate(actor, redis)
+    try:
+        target, old_role = await admin_service.set_role(
+            session, actor, user_id, new_role=payload.role, ip_hash=_ip_hash(request)
+        )
+    except RoleSelfForbiddenError as e:
+        raise HTTPException(
+            status.HTTP_403_FORBIDDEN,
+            detail={"code": e.code, "message": "Нельзя менять роль самому себе"},
+        ) from e
+    except UserNotFoundError as e:
+        raise _not_found(e) from e
+    except ImpersonateForbiddenError as e:
+        raise HTTPException(
+            status.HTTP_403_FORBIDDEN,
+            detail={"code": e.code, "message": "Сначала снимите блокировку юзера"},
+        ) from e
+    return RoleSetResult(user_id=target.id, old_role=old_role, new_role=payload.role)
 
 
 # ─── Subscriptions (Ф2) ──────────────────────────────────────────────────
