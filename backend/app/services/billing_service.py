@@ -30,6 +30,7 @@ from app.core.exceptions import (
     SubscriptionNotFoundError,
 )
 from app.models.subscription import Subscription, SubscriptionCharge
+from app.services import event_service
 
 logger = structlog.get_logger(__name__)
 
@@ -166,22 +167,37 @@ async def apply_webhook(
     )
     session.add(charge)
 
+    became_active = False
     if succeeded:
         # pending → active. Срок считаем из sub.period (w1/m1/m3/m6/y1),
         # который зафиксировали при checkout: period_days(sub.period).
         # started_at ставим один раз (renewal продлевает от текущего expires_at).
         if sub.status in ("pending", "grace", "failed"):
+            was_pending = sub.status == "pending"
             sub.status = "active"
             sub.started_at = sub.started_at or _now()
             sub.expires_at = (sub.started_at or _now()) + timedelta(days=period_days(sub.period))
             if event.payment_method_id:
                 sub.payment_method_id = event.payment_method_id
+            # Событие `subscribed` — только на первичной активации (pending→active),
+            # не на recovery из grace/failed (renewal ≠ новая подписка).
+            became_active = was_pending
     else:
         # failed/canceled → initial checkout не удался
         if sub.status == "pending":
             sub.status = "failed"
         sub.last_charge_error = event.kind
         sub.last_charge_attempt_at = _now()
+
+    # Server-side эмиссия `subscribed` (сервер — источник истины оплаты).
+    # commit=False — пишем в ту же транзакцию, коммит ниже.
+    if became_active:
+        await event_service.emit_server(
+            session,
+            type="subscribed",
+            user_id=sub.user_id,
+            payload={"subscription_id": str(sub.id), "plan": sub.plan, "period": sub.period},
+        )
 
     await session.commit()
     logger.info(
@@ -246,6 +262,14 @@ async def cancel_subscription(session: AsyncSession, user_id: UUID) -> Subscript
     sub.status = "cancelled"
     sub.is_auto_renew = False
     sub.cancelled_at = _now()
+
+    await event_service.emit_server(
+        session,
+        type="churned",
+        user_id=sub.user_id,
+        payload={"subscription_id": str(sub.id), "reason": "user_cancel"},
+    )
+
     await session.commit()
     await session.refresh(sub)
 

@@ -31,6 +31,7 @@
             </a>
             <nav class="ad-tabs" id="adTabs">
                 <button class="ad-tab" data-tab="overview">Обзор</button>
+                <button class="ad-tab" data-tab="analytics" data-min-role="analyst">Статистика</button>
                 <button class="ad-tab" data-tab="users" data-min-role="support">Пользователи</button>
                 <button class="ad-tab" data-tab="billing" data-min-role="support">Платежи</button>
             </nav>
@@ -54,6 +55,49 @@
                     </div>
                 </div>
                 <div class="ad-metrics" id="adMetrics"></div>
+            </section>
+
+            <!-- ─── Статистика (analytics) ────────────────────────────── -->
+            <section class="ad-panel" data-panel="analytics">
+                <div class="ad-panel__head">
+                    <h1>Статистика</h1>
+                    <div class="ad-anl-controls">
+                        <select class="ad-select" id="adAnlTier">
+                            <option value="">Тир: все</option>
+                            <option value="tier1">tier1</option>
+                            <option value="ru_kids">ru_kids</option>
+                            <option value="ru_teen">ru_teen</option>
+                        </select>
+                        <div class="ad-period" id="adAnlPeriod">
+                            <button data-period="7">7 дней</button>
+                            <button data-period="30" class="ad-period--active">30 дней</button>
+                            <button data-period="90">90 дней</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="ad-anl-grid">
+                    <div class="ad-card ad-anl-block" id="adAnlFunnel">
+                        <h3 class="ad-anl-title">Воронка</h3>
+                        <div class="ad-empty">Загрузка…</div>
+                    </div>
+                    <div class="ad-card ad-anl-block" id="adAnlRetention">
+                        <h3 class="ad-anl-title">Retention</h3>
+                        <div class="ad-empty">Загрузка…</div>
+                    </div>
+                    <div class="ad-card ad-anl-block ad-anl-block--wide" id="adAnlRevenue">
+                        <h3 class="ad-anl-title">Деньги</h3>
+                        <div class="ad-empty">Загрузка…</div>
+                    </div>
+                    <div class="ad-card ad-anl-block ad-anl-block--wide" id="adAnlSkill">
+                        <h3 class="ad-anl-title">Скилл</h3>
+                        <div class="ad-empty">Загрузка…</div>
+                    </div>
+                    <div class="ad-card ad-anl-block ad-anl-block--wide" id="adAnlLessons">
+                        <h3 class="ad-anl-title">Drop-off по урокам</h3>
+                        <div class="ad-empty">Загрузка…</div>
+                    </div>
+                </div>
             </section>
 
             <!-- ─── Пользователи ──────────────────────────────────────── -->

@@ -160,6 +160,11 @@ document.addEventListener('DOMContentLoaded', function () {
     // бэка) → прежний mock-экран с формой карты.
     const checkoutBtn = $('#ppCheckout');
     checkoutBtn.addEventListener('click', async () => {
+        // Ф3-2: событие checkout_started (fail-safe, фоном). subscribed/churned
+        // эмитит сервер — здесь только намерение оплатить.
+        try {
+            if (window.apiClient) window.apiClient.emitEvent('checkout_started', { plan: state.plan, period: state.period });
+        } catch (e) { /* аналитика не критична */ }
         if (!useApi()) { setView('payment'); return; }
         const label = $('#ppCheckoutLabel');
         const prevLabel = label.textContent;

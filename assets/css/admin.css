@@ -201,8 +201,63 @@
 /* Empty / loading rows */
 .ad-empty { padding: 40px; text-align: center; color: var(--faint); font-size: 14px; }
 
+/* ─── Analytics (Ф3) ─────────────────────────────────────────────────────── */
+.ad-anl-controls { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
+.ad-anl-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.ad-anl-block { display: flex; flex-direction: column; gap: 12px; }
+.ad-anl-block--wide { grid-column: 1 / -1; }
+.ad-anl-title { margin: 0; font-size: 15px; font-weight: 700; }
+.ad-anl-body { display: flex; flex-direction: column; gap: 8px; }
+.ad-anl-sub { font-size: 11px; color: var(--faint); font-family: var(--font-mono); letter-spacing: 0.04em; text-transform: uppercase; margin-top: 6px; }
+
+/* Horizontal bars */
+.ad-bar { display: grid; grid-template-columns: 150px 1fr auto; gap: 12px; align-items: center; }
+.ad-bar__label { font-size: 12.5px; color: var(--sub); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.ad-bar__track { height: 22px; background: var(--bg-alt); border-radius: 6px; overflow: hidden; }
+.ad-bar__fill { height: 100%; background: var(--accent); border-radius: 6px; transition: width 0.3s ease; min-width: 2px; }
+.ad-bar__fill--ok  { background: #10b981; }
+.ad-bar__fill--warn { background: #f59e0b; }
+.ad-bar__fill--err { background: #ef4444; }
+.ad-bar__val { font-family: var(--font-mono); font-size: 12.5px; font-weight: 600; color: var(--ink); white-space: nowrap; }
+
+/* Funnel rates */
+.ad-anl-rates { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 8px; }
+.ad-anl-rate { background: var(--bg-alt); border-radius: 8px; padding: 6px 10px; font-size: 12px; display: flex; gap: 6px; align-items: baseline; }
+.ad-anl-rate__k { color: var(--faint); font-family: var(--font-mono); }
+.ad-anl-rate__v { font-weight: 700; color: var(--ink); }
+
+/* Retention */
+.ad-ret-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+.ad-ret { background: var(--bg-alt); border-radius: 12px; padding: 16px; text-align: center; }
+.ad-ret__label { font-family: var(--font-mono); font-size: 11px; color: var(--faint); letter-spacing: 0.06em; }
+.ad-ret__val { font-size: 26px; font-weight: 800; font-family: var(--font-mono); margin: 6px 0 10px; }
+.ad-ret__bar { height: 6px; background: rgba(0,0,0,0.08); border-radius: 999px; overflow: hidden; }
+.ad-ret__bar-fill { height: 100%; background: var(--accent); border-radius: 999px; }
+
+/* Revenue mini-metrics */
+.ad-anl-metrics { display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 12px; }
+.ad-mini { background: var(--bg-alt); border-radius: 10px; padding: 12px 14px; }
+.ad-mini__label { font-size: 10.5px; color: var(--faint); font-family: var(--font-mono); text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 6px; }
+.ad-mini__val { font-size: 20px; font-weight: 800; font-family: var(--font-mono); letter-spacing: -0.01em; }
+
+/* Sparkline */
+.ad-spark { display: flex; align-items: flex-end; gap: 2px; height: 60px; padding-top: 4px; }
+.ad-spark__bar { flex: 1; background: var(--accent); border-radius: 2px 2px 0 0; min-height: 2px; opacity: 0.75; }
+.ad-spark__bar:hover { opacity: 1; }
+
+/* Histogram */
+.ad-histogram { display: flex; align-items: flex-end; gap: 6px; min-height: 120px; padding-top: 8px; }
+.ad-hcol { flex: 1; display: flex; flex-direction: column; align-items: center; gap: 4px; min-width: 0; }
+.ad-hcol__count { font-family: var(--font-mono); font-size: 10.5px; color: var(--sub); }
+.ad-hcol__barwrap { width: 100%; height: 90px; display: flex; align-items: flex-end; }
+.ad-hcol__bar { width: 100%; background: var(--accent); border-radius: 4px 4px 0 0; min-height: 2px; transition: height 0.3s ease; }
+.ad-hcol__x { font-family: var(--font-mono); font-size: 9.5px; color: var(--faint); text-align: center; white-space: nowrap; }
+.ad-histogram__unit { align-self: flex-end; font-size: 10px; color: var(--faint); font-family: var(--font-mono); }
+
 @media (max-width: 900px) {
     .ad-metrics { grid-template-columns: repeat(2, 1fr); }
     .ad-detail { grid-template-columns: 1fr; }
     .ad-tabs { order: 3; width: 100%; margin-left: 0; }
+    .ad-anl-grid { grid-template-columns: 1fr; }
+    .ad-bar { grid-template-columns: 110px 1fr auto; }
 }

@@ -42,6 +42,10 @@
     };
 
     const CONFIG_KEY = 'typing_trainer_api_client_config';
+    // Ф3-2: устойчивый анонимный session_id (UUID v4). Генерится при первом
+    // визите, живёт в localStorage — связывает pre→post signup события одной
+    // аналитической сессии. НЕ auth-токен, НЕ PII: чисто для склейки воронки.
+    const SESSION_ID_KEY = 'typing_trainer_session_id';
 
     // localStorage ключи фронта (зеркало текущих имён из всех js-модулей).
     // Centralized чтобы при переименовании ключей менять в одном месте.
@@ -111,6 +115,36 @@
         const keys = Object.keys(byTier);
         if (keys.length === 1) return byTier[keys[0]];  // единственный тир
         return {};  // для активного тира прогресса ещё нет
+    }
+
+    // ─── Analytics session_id (Ф3-2) ────────────────────────────────────
+    function uuidv4() {
+        // crypto.randomUUID где есть; иначе getRandomValues; иначе Math.random.
+        try {
+            if (typeof crypto !== 'undefined' && crypto.randomUUID) return crypto.randomUUID();
+            if (typeof crypto !== 'undefined' && crypto.getRandomValues) {
+                const b = new Uint8Array(16);
+                crypto.getRandomValues(b);
+                b[6] = (b[6] & 0x0f) | 0x40;  // version 4
+                b[8] = (b[8] & 0x3f) | 0x80;  // variant 10
+                const h = Array.from(b, x => x.toString(16).padStart(2, '0'));
+                return h[0] + h[1] + h[2] + h[3] + '-' + h[4] + h[5] + '-' + h[6] + h[7] +
+                    '-' + h[8] + h[9] + '-' + h[10] + h[11] + h[12] + h[13] + h[14] + h[15];
+            }
+        } catch (e) { /* fallthrough */ }
+        return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
+            const r = Math.random() * 16 | 0;
+            return (c === 'x' ? r : (r & 0x3 | 0x8)).toString(16);
+        });
+    }
+    function getSessionId() {
+        let id = null;
+        try { id = localStorage.getItem(SESSION_ID_KEY); } catch (e) { /* private mode */ }
+        if (!id) {
+            id = uuidv4();
+            try { localStorage.setItem(SESSION_ID_KEY, id); } catch (e) { /* best-effort */ }
+        }
+        return id;
     }
 
     // ─── HTTP wrapper ────────────────────────────────────────────────────
@@ -249,6 +283,36 @@
             return state.config;
         },
         setAccessToken(token) { state.accessToken = token; },
+
+        // ── Analytics events (Ф3-2) ──────────────────────────────────────
+        // session_id — анонимный склеивающий id (см. SESSION_ID_KEY выше).
+        getSessionId() { return getSessionId(); },
+        /**
+         * POST /events/batch — публичный (current_user_optional), best-effort.
+         * events: [{type, payload}]. session_id проставляется автоматически.
+         * Fail-safe: ошибки/оффлайн/useApi=false ГЛОТАЕМ — аналитика не должна
+         * ломать UX. Возвращает всегда resolved Promise ({ok:bool}).
+         */
+        async emitEvents(events) {
+            const list = (Array.isArray(events) ? events : [events]).filter(Boolean);
+            if (!list.length) return { ok: false, reason: 'empty' };
+            // Без backend событий некуда слать — тихо пропускаем.
+            if (!state.config.useApi) return { ok: false, reason: 'local-mode' };
+            try {
+                await _http('POST', '/events/batch', {
+                    session_id: getSessionId(),
+                    events: list.map(e => ({ type: e.type, payload: e.payload || {} })),
+                });
+                return { ok: true };
+            } catch (e) {
+                warn('emitEvents failed (swallowed)', e && e.code);
+                return { ok: false, reason: (e && e.code) || 'error' };
+            }
+        },
+        /** Удобный шорткат для одного события. */
+        async emitEvent(type, payload) {
+            return this.emitEvents([{ type: type, payload: payload || {} }]);
+        },
 
         // ── Profile (TSD §3.3 /me) ───────────────────────────────────────
         async getProfile() {
@@ -525,6 +589,39 @@
             const p = [7, 30, 90].indexOf(Number(period)) !== -1 ? Number(period) : 30;
             return _http('GET', `/admin/overview?period=${p}`);
         },
+        // ── Admin analytics (/admin/analytics/*) — RequireAnalyst (Ф3) ───
+        // Период 7|30|90 (клампится); tier опционален (skill/lessons). Пустые
+        // фильтры не шлём. Ответы могут содержать null-поля → рендер к «—».
+        _analyticsPeriod(period) {
+            return [7, 30, 90].indexOf(Number(period)) !== -1 ? Number(period) : 30;
+        },
+        /** GET /admin/analytics/skill?tier=&period= → гистограммы WPM/accuracy + средние. */
+        async adminAnalyticsSkill(period, tier) {
+            const params = new URLSearchParams();
+            params.set('period', String(this._analyticsPeriod(period)));
+            if (tier) params.set('tier', String(tier));
+            return _http('GET', `/admin/analytics/skill?${params.toString()}`);
+        },
+        /** GET /admin/analytics/revenue?period= → MRR/подписки/decline/series. */
+        async adminAnalyticsRevenue(period) {
+            return _http('GET', `/admin/analytics/revenue?period=${this._analyticsPeriod(period)}`);
+        },
+        /** GET /admin/analytics/funnel?period= → signups→activated→subscribed→churned + rates. */
+        async adminAnalyticsFunnel(period) {
+            return _http('GET', `/admin/analytics/funnel?period=${this._analyticsPeriod(period)}`);
+        },
+        /** GET /admin/analytics/retention?period= → {d1,d7,d30}. */
+        async adminAnalyticsRetention(period) {
+            return _http('GET', `/admin/analytics/retention?period=${this._analyticsPeriod(period)}`);
+        },
+        /** GET /admin/analytics/lessons?tier= → [{lesson_num, reached, completed, dropoff_rate}]. */
+        async adminAnalyticsLessons(tier) {
+            const params = new URLSearchParams();
+            if (tier) params.set('tier', String(tier));
+            const qs = params.toString();
+            return _http('GET', `/admin/analytics/lessons${qs ? '?' + qs : ''}`);
+        },
+
         /**
          * GET /admin/users — список/поиск/фильтр (пагинация).
          * filters: {search, audience, email_verified, has_subscription, deleted,

@@ -44,13 +44,18 @@ from app.schemas.admin import (
     AdminUserListItem,
     AdminUserProfile,
     AdminUsersPage,
+    FunnelOut,
     GrantSubscriptionRequest,
+    LessonsOut,
     OverviewMetrics,
     ReauthRequest,
     ReauthResponse,
     RefundRequest,
+    RetentionOut,
+    RevenueOut,
+    SkillOut,
 )
-from app.services import admin_service
+from app.services import admin_service, analytics_service
 
 logger = structlog.get_logger(__name__)
 
@@ -460,3 +465,120 @@ async def refund_subscription(
     return AdminSubActionResult(
         subscription_id=charge.subscription_id, action="sub.refund"
     )
+
+
+# ─── Analytics (Ф3-3/Ф3-4; все RequireAnalyst, кэш Redis Ф3-5) ──────────
+#
+# Считаем из наличных таблиц (users/attempts/progress/subscriptions/charges) —
+# не ждём накопления events. Тяжёлые агрегаты кэшируются (analytics_service
+# ._cached, TTL config.analytics_cache_ttl_seconds); поле `cached` в ответе.
+
+
+@router.get(
+    "/analytics/skill",
+    response_model=SkillOut,
+    summary="Распределение WPM/accuracy (гистограммы) из progress (analyst)",
+)
+async def analytics_skill(
+    _actor: RequireAnalyst,
+    session: DbSession,
+    redis: RedisClient,
+    tier: str | None = Query(default=None),
+    period: int = Query(default=30),
+) -> SkillOut:
+    period = analytics_service.normalize_period(period)
+    data, hit = await analytics_service._cached(
+        redis,
+        metric="skill",
+        tier=tier,
+        period=period,
+        compute=lambda: analytics_service.skill(session, tier=tier, period=period),
+    )
+    return SkillOut(**data, cached=hit)
+
+
+@router.get(
+    "/analytics/revenue",
+    response_model=RevenueOut,
+    summary="MRR / подписки / decline rate из subscriptions/charges (analyst)",
+)
+async def analytics_revenue(
+    _actor: RequireAnalyst,
+    session: DbSession,
+    redis: RedisClient,
+    period: int = Query(default=30),
+) -> RevenueOut:
+    period = analytics_service.normalize_period(period)
+    data, hit = await analytics_service._cached(
+        redis,
+        metric="revenue",
+        tier=None,
+        period=period,
+        compute=lambda: analytics_service.revenue(session, period=period),
+    )
+    return RevenueOut(**data, cached=hit)
+
+
+@router.get(
+    "/analytics/funnel",
+    response_model=FunnelOut,
+    summary="Воронка signup→activated→subscribed→churned из таблиц (analyst)",
+)
+async def analytics_funnel(
+    _actor: RequireAnalyst,
+    session: DbSession,
+    redis: RedisClient,
+    period: int = Query(default=30),
+) -> FunnelOut:
+    period = analytics_service.normalize_period(period)
+    data, hit = await analytics_service._cached(
+        redis,
+        metric="funnel",
+        tier=None,
+        period=period,
+        compute=lambda: analytics_service.funnel(session, period=period),
+    )
+    return FunnelOut(**data, cached=hit)
+
+
+@router.get(
+    "/analytics/retention",
+    response_model=RetentionOut,
+    summary="Retention D1/D7/D30 из attempts (analyst)",
+)
+async def analytics_retention(
+    _actor: RequireAnalyst,
+    session: DbSession,
+    redis: RedisClient,
+    period: int = Query(default=30),
+) -> RetentionOut:
+    period = analytics_service.normalize_period(period)
+    data, hit = await analytics_service._cached(
+        redis,
+        metric="retention",
+        tier=None,
+        period=period,
+        compute=lambda: analytics_service.retention(session, period=period),
+    )
+    return RetentionOut(**data, cached=hit)
+
+
+@router.get(
+    "/analytics/lessons",
+    response_model=LessonsOut,
+    summary="Drop-off по урокам из progress/attempts (analyst)",
+)
+async def analytics_lessons(
+    _actor: RequireAnalyst,
+    session: DbSession,
+    redis: RedisClient,
+    tier: str | None = Query(default=None),
+) -> LessonsOut:
+    data, hit = await analytics_service._cached(
+        redis,
+        metric="lessons",
+        tier=tier,
+        period=0,  # lessons не зависит от периода; фикс 0 в ключе кэша
+        compute=lambda: analytics_service.lessons(session, tier=tier),
+    )
+    return LessonsOut(**data, cached=hit)
