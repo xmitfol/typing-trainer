@@ -154,6 +154,17 @@ class Settings(BaseSettings):
     # ─── Admin analytics (Ф3-5) ────────────────────────────────────
     analytics_cache_ttl_seconds: int = 600    # TTL Redis-кэша тяжёлых агрегатов (10 мин)
 
+    # ─── Admin 2FA (Ф4b — TOTP для superadmin) ──────────────────────
+    # require_superadmin_2fa: когда True (prod) — superadmin БЕЗ включённой 2FA
+    # не проходит /admin/reauth (403 TOTP_ENROLLMENT_REQUIRED), т.е. деньги/роли/
+    # имперсонация недоступны до enrollment. В dev (False) — 2FA опциональна.
+    require_superadmin_2fa: bool = False
+    # totp_encryption_key: Fernet-ключ (base64, 32 байта) для шифрования TOTP-
+    # секрета at-rest. Если None (dev) — деривируем из jwt_secret_key через
+    # HKDF-SHA256 (см. core/totp.py). PROD ДОЛЖЕН задать явный ключ (ротация без
+    # смены jwt_secret_key + отдельный компромат-контур). Ф4-SEC.
+    totp_encryption_key: SecretStr | None = None
+
 
 @lru_cache(maxsize=1)
 def get_settings() -> Settings:

@@ -17,11 +17,14 @@ AdminRole = Literal["user", "analyst", "support", "superadmin"]
 
 
 class ReauthRequest(BaseModel):
-    """Тело /admin/reauth — повторный ввод пароля."""
+    """Тело /admin/reauth — повторный ввод пароля (+ TOTP для superadmin с 2FA)."""
 
     model_config = ConfigDict(extra="forbid")
 
     password: str = Field(min_length=1, max_length=256)
+    # Ф4b: TOTP-код (6 цифр) ИЛИ recovery-код. Требуется для superadmin с
+    # включённой 2FA; для остальных — игнорируется.
+    totp_code: str | None = Field(default=None, max_length=32)
 
 
 class ReauthResponse(BaseModel):
@@ -29,6 +32,47 @@ class ReauthResponse(BaseModel):
 
     reauth_token: str
     ttl_seconds: int
+
+
+# ─── Admin 2FA (Ф4b — TOTP для superadmin) ──────────────────────────────
+
+
+class TwoFAEnrollResponse(BaseModel):
+    """POST /admin/2fa/enroll — данные для QR (secret ещё не подтверждён)."""
+
+    otpauth_uri: str = Field(description="otpauth:// URI для QR-кода")
+    secret: str = Field(description="base32 TOTP-секрет (ручной ввод, если нет QR)")
+
+
+class TwoFAVerifyRequest(BaseModel):
+    """POST /admin/2fa/verify — подтверждение enrollment TOTP-кодом."""
+
+    model_config = ConfigDict(extra="forbid")
+
+    code: str = Field(min_length=6, max_length=8, description="TOTP-код с приложения")
+
+
+class TwoFAVerifyResponse(BaseModel):
+    """Ответ verify — recovery-коды показываются PLAINTEXT ОДИН раз."""
+
+    ok: bool = True
+    enabled: bool = True
+    recovery_codes: list[str] = Field(
+        description="Сохраните — больше не покажем. Каждый одноразовый."
+    )
+
+
+class TwoFAStatusResponse(BaseModel):
+    """GET /admin/2fa/status — включена ли 2FA у текущего админа."""
+
+    enabled: bool
+
+
+class TwoFADisableResponse(BaseModel):
+    """POST /admin/2fa/disable."""
+
+    ok: bool = True
+    enabled: bool = False
 
 
 # ─── Overview (GET /admin/overview) ─────────────────────────────────────
