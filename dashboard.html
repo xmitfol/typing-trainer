@@ -74,7 +74,10 @@
                 <div class="dh-welcome__date" id="dhDate">—</div>
                 <h1 class="dh-welcome__h1">С возвращением, <span class="dh-welcome__name" id="dhWelcomeName">—</span>!</h1>
             </div>
-            <div class="dh-streak" id="dhStreak" hidden>🔥 Серия <span id="dhStreakDays">0</span> дней</div>
+            <div class="dh-streak-wrap">
+                <div class="dh-streak" id="dhStreak" hidden>🔥 <span id="dhStreakDays">0</span> дней подряд</div>
+                <div class="dh-streak-hint" id="dhStreakHint" hidden>Позанимайся сегодня, чтобы не потерять серию</div>
+            </div>
         </div>
     </div>
 
@@ -170,6 +173,16 @@
                 </div>
             </section>
 
+            <!-- Daily goal card -->
+            <section class="dh-card dh-goal" id="dhGoal" hidden>
+                <div class="dh-goal__hd">
+                    <span class="dh-goal__label">ДНЕВНАЯ ЦЕЛЬ</span>
+                    <span class="dh-goal__val" id="dhGoalVal">0 / 10 мин</span>
+                </div>
+                <div class="dh-goal__bar"><div class="dh-goal__bar-fill" id="dhGoalBarFill" style="width:0%"></div></div>
+                <div class="dh-goal__caption" id="dhGoalCaption">Дневная цель сегодня</div>
+            </section>
+
             <!-- Stats card -->
             <section class="dh-card">
                 <div class="dh-card__hd">
@@ -232,6 +245,7 @@
     <script src="assets/js/lesson-loader.js"></script>
     <script src="assets/js/achievements.js"></script>
     <script src="assets/js/i18n.js"></script>
+    <script src="assets/js/retention.js"></script>
     <script src="assets/js/dashboard.js"></script>
 </body>
 </html>
