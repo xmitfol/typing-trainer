@@ -3,13 +3,32 @@
   "tier": "en_tier1",
   "lesson_number": 13,
   "title": "Rhythm: morning routine",
-  "description": "Rhythm exercise with a flowing sentence — find your steady tempo",
+  "description": "Rhythm exercise with a flowing sentence - find your steady tempo",
   "target_wpm": 23,
-  "text_length": 80,
+  "text_length": 18,
   "error_limit_percent": 6,
   "error_limit": 5,
-  "text": "i see the sun rise over the hills as morning starts a new day for us to share",
-  "text_sequence": [],
+  "text": "rise morning share",
+  "text_sequence": [
+    {"char": "r", "hand": "left", "finger": "index", "key": "R"},
+    {"char": "i", "hand": "right", "finger": "middle", "key": "I"},
+    {"char": "s", "hand": "left", "finger": "ring", "key": "S"},
+    {"char": "e", "hand": "left", "finger": "middle", "key": "E"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "m", "hand": "right", "finger": "index", "key": "M"},
+    {"char": "o", "hand": "right", "finger": "ring", "key": "O"},
+    {"char": "r", "hand": "left", "finger": "index", "key": "R"},
+    {"char": "n", "hand": "right", "finger": "index", "key": "N"},
+    {"char": "i", "hand": "right", "finger": "middle", "key": "I"},
+    {"char": "n", "hand": "right", "finger": "index", "key": "N"},
+    {"char": "g", "hand": "left", "finger": "index", "key": "G"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "s", "hand": "left", "finger": "ring", "key": "S"},
+    {"char": "h", "hand": "right", "finger": "index", "key": "H"},
+    {"char": "a", "hand": "left", "finger": "pinky", "key": "A"},
+    {"char": "r", "hand": "left", "finger": "index", "key": "R"},
+    {"char": "e", "hand": "left", "finger": "middle", "key": "E"}
+  ],
   "keys_trained": [
     "A",
     "B",
@@ -40,35 +59,56 @@
     "Space"
   ],
   "new_keys": [],
-  "finger_focus": "All — pure rhythm",
+  "finger_focus": "All - pure rhythm",
   "tips": [
     {
       "type": "lead",
-      "text": "Set a tempo in your head — like music"
+      "text": "Nothing new to learn here. We settle into a tempo and let the hands do honest, even work."
     },
     {
       "type": "drop",
-      "text": "If you slow down, that's fine — accuracy first"
+      "text": "Sit square to the keyboard and keep your eyes off your fingers. Repeat each word at one calm pace, counting to yourself if it helps. The goal is regularity, not speed."
     },
     {
-      "type": "exercise",
-      "target": "i see the sun rise over the hills as",
+      "type": "callout",
+      "title": "Keep the beat",
+      "text": "Hold an even spacing between keystrokes, like a metronome you cannot see. Slow and regular beats fast and ragged every time. Even keystrokes read like clean copy."
+    },
+    {
+      "type": "step",
+      "kind": "drill",
+      "target": "rise rise rise rise rise",
       "finger": "blue",
-      "hint": "All — pure rhythm"
+      "title": "Rhythm: rise",
+      "hint": "Repeat at one even pace: rise rise rise. Hold the same beat from first key to last."
+    },
+    {
+      "type": "step",
+      "kind": "drill",
+      "target": "morning morning morning morning",
+      "finger": "blue",
+      "title": "Rhythm: morning",
+      "hint": "Repeat at one even pace: morning morning morning. Hold the same beat from first key to last."
+    },
+    {
+      "type": "step",
+      "kind": "drill",
+      "target": "share share share",
+      "finger": "orange",
+      "title": "Rhythm: share",
+      "hint": "Repeat at one even pace: share share share. Hold the same beat from first key to last."
     },
     {
       "type": "p",
-      "text": "Try the metronome toggle in the toolbar for help"
+      "text": "Repetition at a steady pace is how a movement becomes a habit. Get the rhythm right and the speed arrives on its own, quietly, without being chased."
     },
     {
-      "type": "exercise",
-      "target": "morning starts a new day for us to share",
-      "finger": "green",
-      "hint": "All — pure rhythm"
+      "type": "p",
+      "text": "Worked through every step? Open the trainer below and make one full run on the lesson text. That run saves your progress and unlocks the next lesson."
     }
   ],
   "character_tips": {
-    "anna": "Rhythm lesson — turn on the metronome and follow the beat.",
+    "anna": "Rhythm lesson - turn on the metronome and follow the beat.",
     "maxim": "Smooth tempo beats sprint-and-stop. Find your groove.",
     "knopych": "RHYTHM! Tu-tu-tu! Steady drums! 🥁",
     "klavochka": "Like a gentle dance, sunshine 💃"
@@ -76,5 +116,6 @@
   "phase": 1,
   "rhythmLesson": true,
   "created_at": "2026-05-25",
-  "version": "1.0"
+  "version": "4.0",
+  "guided": true
 }

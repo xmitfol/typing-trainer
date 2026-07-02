@@ -2,14 +2,91 @@
   "id": "en_tier1_lesson_07",
   "tier": "en_tier1",
   "lesson_number": 7,
-  "title": "Add W and N (more frequent letters)",
-  "description": "W (top ring left) and N (right index home-bottom) — both very common",
+  "title": "Top row: Q P T Y (pinky + index reach)",
+  "description": "Pinkies reach Q (above A) and P; index fingers stretch up to T and Y - top row complete",
   "target_wpm": 18,
-  "text_length": 64,
+  "text_length": 75,
   "error_limit_percent": 5,
   "error_limit": 4,
-  "text": "we now then when know own one win two news any easy why see",
-  "text_sequence": [],
+  "text": "qp ty type quiet party tower equip query torque story pretty type the quote",
+  "guided": true,
+  "text_sequence": [
+    {"char": "q", "hand": "left", "finger": "pinky", "key": "Q"},
+    {"char": "p", "hand": "right", "finger": "pinky", "key": "P"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "t", "hand": "left", "finger": "index", "key": "T"},
+    {"char": "y", "hand": "right", "finger": "index", "key": "Y"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "t", "hand": "left", "finger": "index", "key": "T"},
+    {"char": "y", "hand": "right", "finger": "index", "key": "Y"},
+    {"char": "p", "hand": "right", "finger": "pinky", "key": "P"},
+    {"char": "e", "hand": "left", "finger": "middle", "key": "E"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "q", "hand": "left", "finger": "pinky", "key": "Q"},
+    {"char": "u", "hand": "right", "finger": "index", "key": "U"},
+    {"char": "i", "hand": "right", "finger": "middle", "key": "I"},
+    {"char": "e", "hand": "left", "finger": "middle", "key": "E"},
+    {"char": "t", "hand": "left", "finger": "index", "key": "T"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "p", "hand": "right", "finger": "pinky", "key": "P"},
+    {"char": "a", "hand": "left", "finger": "pinky", "key": "A"},
+    {"char": "r", "hand": "left", "finger": "index", "key": "R"},
+    {"char": "t", "hand": "left", "finger": "index", "key": "T"},
+    {"char": "y", "hand": "right", "finger": "index", "key": "Y"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "t", "hand": "left", "finger": "index", "key": "T"},
+    {"char": "o", "hand": "right", "finger": "ring", "key": "O"},
+    {"char": "w", "hand": "left", "finger": "ring", "key": "W"},
+    {"char": "e", "hand": "left", "finger": "middle", "key": "E"},
+    {"char": "r", "hand": "left", "finger": "index", "key": "R"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "e", "hand": "left", "finger": "middle", "key": "E"},
+    {"char": "q", "hand": "left", "finger": "pinky", "key": "Q"},
+    {"char": "u", "hand": "right", "finger": "index", "key": "U"},
+    {"char": "i", "hand": "right", "finger": "middle", "key": "I"},
+    {"char": "p", "hand": "right", "finger": "pinky", "key": "P"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "q", "hand": "left", "finger": "pinky", "key": "Q"},
+    {"char": "u", "hand": "right", "finger": "index", "key": "U"},
+    {"char": "e", "hand": "left", "finger": "middle", "key": "E"},
+    {"char": "r", "hand": "left", "finger": "index", "key": "R"},
+    {"char": "y", "hand": "right", "finger": "index", "key": "Y"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "t", "hand": "left", "finger": "index", "key": "T"},
+    {"char": "o", "hand": "right", "finger": "ring", "key": "O"},
+    {"char": "r", "hand": "left", "finger": "index", "key": "R"},
+    {"char": "q", "hand": "left", "finger": "pinky", "key": "Q"},
+    {"char": "u", "hand": "right", "finger": "index", "key": "U"},
+    {"char": "e", "hand": "left", "finger": "middle", "key": "E"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "s", "hand": "left", "finger": "ring", "key": "S"},
+    {"char": "t", "hand": "left", "finger": "index", "key": "T"},
+    {"char": "o", "hand": "right", "finger": "ring", "key": "O"},
+    {"char": "r", "hand": "left", "finger": "index", "key": "R"},
+    {"char": "y", "hand": "right", "finger": "index", "key": "Y"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "p", "hand": "right", "finger": "pinky", "key": "P"},
+    {"char": "r", "hand": "left", "finger": "index", "key": "R"},
+    {"char": "e", "hand": "left", "finger": "middle", "key": "E"},
+    {"char": "t", "hand": "left", "finger": "index", "key": "T"},
+    {"char": "t", "hand": "left", "finger": "index", "key": "T"},
+    {"char": "y", "hand": "right", "finger": "index", "key": "Y"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "t", "hand": "left", "finger": "index", "key": "T"},
+    {"char": "y", "hand": "right", "finger": "index", "key": "Y"},
+    {"char": "p", "hand": "right", "finger": "pinky", "key": "P"},
+    {"char": "e", "hand": "left", "finger": "middle", "key": "E"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "t", "hand": "left", "finger": "index", "key": "T"},
+    {"char": "h", "hand": "right", "finger": "index", "key": "H"},
+    {"char": "e", "hand": "left", "finger": "middle", "key": "E"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "q", "hand": "left", "finger": "pinky", "key": "Q"},
+    {"char": "u", "hand": "right", "finger": "index", "key": "U"},
+    {"char": "o", "hand": "right", "finger": "ring", "key": "O"},
+    {"char": "t", "hand": "left", "finger": "index", "key": "T"},
+    {"char": "e", "hand": "left", "finger": "middle", "key": "E"}
+  ],
   "keys_trained": [
     "A",
     "D",
@@ -21,8 +98,9 @@
     "J",
     "K",
     "L",
-    "N",
     "O",
+    "P",
+    "Q",
     "R",
     "S",
     "T",
@@ -32,44 +110,81 @@
     "Space"
   ],
   "new_keys": [
-    "W",
-    "N"
+    "Q",
+    "P",
+    "T",
+    "Y"
   ],
-  "finger_focus": "W (top, left ring), N (home-bottom, right index)",
+  "finger_focus": "Pinky reach Q/P, index reach T/Y - top row finished",
   "tips": [
     {
       "type": "lead",
-      "text": "W sits above S — left ring reaches up"
+      "text": "Four letters today, and they finish the top row. Two are corner work for the pinkies: Q sits above A on the left, P sits above the semicolon on the right. The corners are the hardest reach on the board, so we take them first, while the hands are fresh."
     },
     {
       "type": "drop",
-      "text": "N sits below J — right index drops down-left"
+      "text": "The other two, T and Y, live in the dead centre of the top row, and the index fingers stretch up and in to fetch them. T belongs to the left index, Y to the right. Pinkies to the edges, index fingers to the middle - learn the two reaches apart, then put them together."
     },
     {
-      "type": "exercise",
-      "target": "we now then when know own one",
-      "finger": "orange",
-      "hint": "W (top, left ring), N (home-bottom, right index)"
+      "type": "callout",
+      "icon": "🖐",
+      "title": "The pinky is small, not careless",
+      "text": "A weak finger is no excuse for a sloppy keystroke. Q and P are rare letters, so most people never train them and forever hunt and peck for them. Give your pinkies a clean, deliberate tap now and you will never have to look for those corners again."
+    },
+    {
+      "type": "step",
+      "kind": "drill",
+      "target": "q q q q q q q q q q p p p p p p p p p p",
+      "finger": "pink",
+      "title": "Pinkies: Q and P",
+      "hint": "Left pinky up from A to Q; right pinky up from ; to P. The two corners."
+    },
+    {
+      "type": "step",
+      "kind": "drill",
+      "target": "t t t t t t t t t t y y y y y y y y y y",
+      "finger": "blue",
+      "title": "Index: T and Y",
+      "hint": "Left index stretches up to T, right index up to Y. The centre of the top row."
+    },
+    {
+      "type": "step",
+      "kind": "drill",
+      "target": "qp ty qp ty qp ty qp ty qp ty qp ty qp ty",
+      "finger": "blue",
+      "title": "Corners and centre",
+      "hint": "Pair the reaches: pinkies to the corners, then index fingers to the middle."
     },
     {
       "type": "p",
-      "text": "Words become real: we, when, now, one, two"
+      "text": "That is the whole top row under your fingers - every letter of the alphabet that lives up there. From here on the words get longer and the typing gets to feel like real writing. Read each one whole and let the hands find the keys; you have met them all before."
     },
     {
-      "type": "exercise",
-      "target": "win two news any easy why see",
-      "finger": "pink",
-      "hint": "W (top, left ring), N (home-bottom, right index)"
+      "type": "pullquote",
+      "text": "Don't look down. The moment your eyes drop to your hands, the thought you were chasing slips out the door.",
+      "by": "Eleanor Hayes, editor"
+    },
+    {
+      "type": "step",
+      "kind": "drill",
+      "target": "type quiet party tower equip query story pretty quote",
+      "finger": "blue",
+      "title": "Words",
+      "hint": "Words from the keys you know: type, quiet, party, tower, story, quote."
+    },
+    {
+      "type": "p",
+      "text": "Every step typed? Then press Open Trainer below and make one clean run at the whole lesson. That run is the one that counts - it saves your progress and opens the next lesson."
     }
   ],
   "character_tips": {
-    "anna": "W and N are mega-frequent. Words \"we\", \"when\", \"now\" — almost a conversation already.",
-    "maxim": "N is the most common consonant. With it, any English text becomes possible.",
-    "knopych": "Doubling the vocab! W, N — they unlock everything! 🚀",
-    "klavochka": "You're amazing! Now you have \"we\", \"now\", \"when\" — real words! 💖"
+    "anna": "Q, P, T, Y finish the top row. Pinkies hit the corners, index fingers stretch to the centre.",
+    "maxim": "Top row done. Q and P are the corner pinkies; T and Y are index stretches.",
+    "knopych": "Top row CLEARED! Q P T Y - combo complete! 🔥",
+    "klavochka": "Wonderful! The whole top row is yours now - Q, P, T, Y ✨"
   },
   "phase": 1,
   "rhythmLesson": false,
   "created_at": "2026-05-25",
-  "version": "1.0"
+  "version": "4.0"
 }

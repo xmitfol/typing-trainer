@@ -2,14 +2,58 @@
   "id": "tier1_lesson_57",
   "tier": "tier1",
   "lesson_number": 57,
-  "title": "Ритм: проза с диалогом",
-  "description": "Многопредложенческий абзац — устойчивый темп",
+  "title": "Ритм-упражнение: проза с диалогом",
+  "description": "Закрепление через ритм — ровный темп на знакомых словах, без новых букв",
   "target_wpm": 68,
   "text_length": 194,
   "error_limit_percent": 5,
   "error_limit": 9,
-  "text": "Она писала почти час, когда дверь открылась. Брат вошёл с двумя чашками чая и широкой улыбкой. «Как идёт глава?» — спросил он, садясь рядом. «Почти готова», — сказала она, и они оба рассмеялись.",
-  "text_sequence": [],
+  "text": "писала писала час час дверь дверь брат брат",
+  "text_sequence": [
+    {"char": "п", "hand": "left", "finger": "index", "key": "П"},
+    {"char": "и", "hand": "left", "finger": "index", "key": "И"},
+    {"char": "с", "hand": "left", "finger": "middle", "key": "С"},
+    {"char": "а", "hand": "left", "finger": "index", "key": "А"},
+    {"char": "л", "hand": "right", "finger": "middle", "key": "Л"},
+    {"char": "а", "hand": "left", "finger": "index", "key": "А"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "п", "hand": "left", "finger": "index", "key": "П"},
+    {"char": "и", "hand": "left", "finger": "index", "key": "И"},
+    {"char": "с", "hand": "left", "finger": "middle", "key": "С"},
+    {"char": "а", "hand": "left", "finger": "index", "key": "А"},
+    {"char": "л", "hand": "right", "finger": "middle", "key": "Л"},
+    {"char": "а", "hand": "left", "finger": "index", "key": "А"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "ч", "hand": "left", "finger": "ring", "key": "Ч"},
+    {"char": "а", "hand": "left", "finger": "index", "key": "А"},
+    {"char": "с", "hand": "left", "finger": "middle", "key": "С"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "ч", "hand": "left", "finger": "ring", "key": "Ч"},
+    {"char": "а", "hand": "left", "finger": "index", "key": "А"},
+    {"char": "с", "hand": "left", "finger": "middle", "key": "С"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "д", "hand": "right", "finger": "ring", "key": "Д"},
+    {"char": "в", "hand": "left", "finger": "middle", "key": "В"},
+    {"char": "е", "hand": "left", "finger": "index", "key": "Е"},
+    {"char": "р", "hand": "right", "finger": "index", "key": "Р"},
+    {"char": "ь", "hand": "right", "finger": "index", "key": "Ь"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "д", "hand": "right", "finger": "ring", "key": "Д"},
+    {"char": "в", "hand": "left", "finger": "middle", "key": "В"},
+    {"char": "е", "hand": "left", "finger": "index", "key": "Е"},
+    {"char": "р", "hand": "right", "finger": "index", "key": "Р"},
+    {"char": "ь", "hand": "right", "finger": "index", "key": "Ь"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "б", "hand": "right", "finger": "middle", "key": "Б"},
+    {"char": "р", "hand": "right", "finger": "index", "key": "Р"},
+    {"char": "а", "hand": "left", "finger": "index", "key": "А"},
+    {"char": "т", "hand": "right", "finger": "index", "key": "Т"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "б", "hand": "right", "finger": "middle", "key": "Б"},
+    {"char": "р", "hand": "right", "finger": "index", "key": "Р"},
+    {"char": "а", "hand": "left", "finger": "index", "key": "А"},
+    {"char": "т", "hand": "right", "finger": "index", "key": "Т"}
+  ],
   "keys_trained": [
     "А-Я",
     "Space",
@@ -21,41 +65,77 @@
     "Shift"
   ],
   "new_keys": [],
-  "finger_focus": "Диалог + повествование в потоке",
+  "finger_focus": "Все пальцы — фокус на ровном, метрономном ритме",
+  "guided": true,
   "tips": [
     {
       "type": "lead",
-      "text": "Диалог — отличная тренировка ритма: короткие реплики со структурой"
+      "text": "🎵 Новых букв сегодня нет — закрепляем уже освоенные слова через ритм. Главное не скорость, а ровный, одинаковый темп: каждое нажатие через равные промежутки, как удары метронома."
     },
     {
       "type": "drop",
-      "text": "Кавычки ломают поток — тренируй вход и выход плавно"
+      "text": "Руки уже знают все буквы. Поставь пальцы на основной ряд, большие — над пробелом, и не покидай исходную позицию. Повторяй каждое слово ровно, считая про себя: раз-два-три-четыре."
     },
     {
-      "type": "exercise",
-      "target": "Она писала почти час, когда дверь открылась. Брат вошёл с двумя чашками чая и широкой улыбкой.",
-      "finger": "purple",
-      "hint": "Диалог + повествование в потоке"
+      "type": "callout",
+      "icon": "🎶",
+      "title": "Ровный счёт",
+      "text": "Включи внутренний метроном. Печатай не «как получится», а строго в такт: между любыми двумя нажатиями — одинаковая пауза. Темп важнее скорости — лучше медленно и ровно, чем быстро и рвано."
+    },
+    {
+      "type": "step",
+      "kind": "drill",
+      "target": "писала писала писала писала",
+      "finger": "blue",
+      "title": "Ритм: писала",
+      "hint": "Повторяй ровно, в одном темпе: писала — писала — писала. Считай раз-два-три-четыре"
+    },
+    {
+      "type": "step",
+      "kind": "drill",
+      "target": "час час час час час",
+      "finger": "orange",
+      "title": "Ритм: час",
+      "hint": "Повторяй ровно, без рывков: час — час — час. Держи одинаковые паузы"
+    },
+    {
+      "type": "step",
+      "kind": "drill",
+      "target": "дверь дверь дверь дверь",
+      "finger": "orange",
+      "title": "Ритм: дверь",
+      "hint": "Повторяй ровно: дверь — дверь — дверь. Не ускоряйся к концу"
+    },
+    {
+      "type": "step",
+      "kind": "drill",
+      "target": "брат брат брат брат брат",
+      "finger": "green",
+      "title": "Ритм: брат",
+      "hint": "Повторяй ровно: брат — брат — брат. Ровный счёт до самого конца"
     },
     {
       "type": "p",
-      "text": "Метроном на 68 BPM — синхронизируй темп"
+      "text": "Почувствуй, как мышцы запоминают слова целиком: ПИСАЛА-ПИСАЛА, ДВЕРЬ-ДВЕРЬ. Повторение в ровном темпе превращает движения в автоматизм — и тогда любой текст идёт без задержек."
     },
     {
-      "type": "exercise",
-      "target": "«Как идёт глава?» — спросил он, садясь рядом. «Почти готова», — сказала она, и они оба рассмеялись.",
-      "finger": "purple",
-      "hint": "Диалог + повествование в потоке"
+      "type": "pullquote",
+      "text": "Расслабь плечи и запястья, представь метроном — ритм важнее скорости.",
+      "by": "методика курса"
+    },
+    {
+      "type": "p",
+      "text": "Все шаги пройдены? Тогда нажми «Открыть тренажёр» ниже и сделай полный заход на весь текст урока. Этот заход сохраняется в прогресс и открывает следующий урок."
     }
   ],
   "character_tips": {
-    "anna": "Диалог + повествование = настоящее письмо. Освой оба перехода.",
-    "maxim": "Кавычки тестируют тайминг Shift в потоке. Будь плавным.",
-    "knopych": "ИСТОРИЯ! 🎬 Действие + диалог!",
-    "klavochka": "Два голоса в одном абзаце, мой солнечный 🌷"
+    "anna": "Отлично! Ритм-урок на знакомых словах. ПИСАЛА-ПИСАЛА, БРАТ-БРАТ — повторение закрепляет память!",
+    "maxim": "Хорошо! Повторяющиеся слова тренируют автоматизм. Мозг учится предугадывать движения.",
+    "knopych": "Вау! Эхо-челлендж! ЧАС-ЧАС, ДВЕРЬ-ДВЕРЬ! Как эхо в горах — раз-два, раз-два!",
+    "klavochka": "Какой ты молодец! Слова повторяются, пальчики танцуют одинаковые движения! Как красиво!"
   },
   "phase": 5,
   "rhythmLesson": true,
   "created_at": "2026-05-26",
-  "version": "1.0"
+  "version": "4.0"
 }

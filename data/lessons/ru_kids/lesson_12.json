@@ -2,55 +2,133 @@
   "id": "ru_kids_lesson_12",
   "tier": "ru_kids",
   "lesson_number": 12,
-  "title": "Буквы Е и К",
-  "description": "Ещё буквы — Е и К",
+  "title": "Буквы Э и Й",
+  "description": "Э завершает средний ряд, Й - первая буква верхнего ряда.",
   "target_wpm": 20,
-  "text_length": 50,
+  "text_length": 36,
   "error_limit_percent": 10,
   "error_limit": 5,
-  "text": "е е е к к к ел ел ел кот кот кот ока ока кино кино",
-  "text_sequence": [],
+  "text": "э э й й эра пэр правда дрова рай вой",
+  "text_sequence": [
+    {"char": "э", "hand": "right", "finger": "pinky", "key": "Э"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "э", "hand": "right", "finger": "pinky", "key": "Э"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "й", "hand": "left", "finger": "pinky", "key": "Й"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "й", "hand": "left", "finger": "pinky", "key": "Й"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "э", "hand": "right", "finger": "pinky", "key": "Э"},
+    {"char": "р", "hand": "right", "finger": "index", "key": "Р"},
+    {"char": "а", "hand": "left", "finger": "index", "key": "А"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "п", "hand": "left", "finger": "index", "key": "П"},
+    {"char": "э", "hand": "right", "finger": "pinky", "key": "Э"},
+    {"char": "р", "hand": "right", "finger": "index", "key": "Р"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "п", "hand": "left", "finger": "index", "key": "П"},
+    {"char": "р", "hand": "right", "finger": "index", "key": "Р"},
+    {"char": "а", "hand": "left", "finger": "index", "key": "А"},
+    {"char": "в", "hand": "left", "finger": "middle", "key": "В"},
+    {"char": "д", "hand": "right", "finger": "ring", "key": "Д"},
+    {"char": "а", "hand": "left", "finger": "index", "key": "А"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "д", "hand": "right", "finger": "ring", "key": "Д"},
+    {"char": "р", "hand": "right", "finger": "index", "key": "Р"},
+    {"char": "о", "hand": "right", "finger": "index", "key": "О"},
+    {"char": "в", "hand": "left", "finger": "middle", "key": "В"},
+    {"char": "а", "hand": "left", "finger": "index", "key": "А"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "р", "hand": "right", "finger": "index", "key": "Р"},
+    {"char": "а", "hand": "left", "finger": "index", "key": "А"},
+    {"char": "й", "hand": "left", "finger": "pinky", "key": "Й"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "в", "hand": "left", "finger": "middle", "key": "В"},
+    {"char": "о", "hand": "right", "finger": "index", "key": "О"},
+    {"char": "й", "hand": "left", "finger": "pinky", "key": "Й"}
+  ],
   "keys_trained": [
-    "Е",
-    "К",
-    "А-Я"
+    "А",
+    "О",
+    "В",
+    "Л",
+    "Ы",
+    "Д",
+    "Ф",
+    "Ж",
+    "П",
+    "Р",
+    "Э",
+    "Й",
+    "Space"
   ],
   "new_keys": [],
-  "finger_focus": "Е и К",
+  "finger_focus": "Э завершает дом, Й - первый верхний",
+  "guided": true,
   "tips": [
     {
       "type": "lead",
-      "text": "Е — левый средний наверх"
+      "text": "Сегодня две новые буковки - Э и Й. С буквой Э наш нижний домик будет совсем готов, а буква Й позовёт нас наверх! 🌸"
     },
     {
       "type": "drop",
-      "text": "К — правый средний внизу"
+      "text": "Буква Э - справа, её нажимает правый мизинчик. А буква Й живёт повыше - к ней тянется вверх левый мизинчик и сразу возвращается домой."
     },
     {
-      "type": "exercise",
-      "target": "е е е к к к ел ел",
-      "finger": "blue",
-      "hint": "Е и К"
+      "type": "callout",
+      "icon": "⬆️",
+      "title": "Тянемся и домой",
+      "text": "К букве Й надо чуть-чуть потянуться вверх - это не страшно. Нажал и сразу верни пальчик в его домик. Так пальчики не заблудятся."
+    },
+    {
+      "type": "step",
+      "kind": "drill",
+      "target": "э э э э э э э э э э",
+      "finger": "pink",
+      "title": "Буква Э",
+      "hint": "Правый мизинчик находит букву Э. После каждой - пробел"
+    },
+    {
+      "type": "step",
+      "kind": "drill",
+      "target": "й й й й й й й й й й",
+      "finger": "pink",
+      "title": "Буква Й",
+      "hint": "Левый мизинчик тянется вверх к букве Й и сразу домой"
+    },
+    {
+      "type": "step",
+      "kind": "drill",
+      "target": "э й э й э й э й э й",
+      "finger": "pink",
+      "title": "По очереди",
+      "hint": "По очереди: Э - Й - Э - Й. Правый мизинчик, потом левый вверх"
     },
     {
       "type": "p",
-      "text": "Теперь можем «кино», «кот», «ел»"
+      "text": "Ура! Весь нижний домик теперь наш, а буква Й - самая первая на верхнем этаже. Давай попробуем слова. 🌷"
     },
     {
-      "type": "exercise",
-      "target": "ел кот кот кот ока ока кино кино",
-      "finger": "green",
-      "hint": "Е и К"
+      "type": "step",
+      "kind": "drill",
+      "target": "эра пэр правда рай вой",
+      "finger": "pink",
+      "title": "Слова",
+      "hint": "Слова из наших букв: эра, пэр, правда, рай, вой"
+    },
+    {
+      "type": "p",
+      "text": "Все шаги прошёл? Какой ты молодец! Нажми «Открыть тренажёр» и пройди весь урок целиком. Спокойно, не спеша. 💕"
     }
   ],
   "character_tips": {
-    "anna": "Е и К. Слова «кот», «кино» — увидимся в кино! 🌷",
-    "maxim": "Две новые. Кино, кот — приятные слова.",
-    "knopych": "🤖 Е И К! Ещё кнопочки!",
-    "klavochka": "Солнечные буковки, мой милый — Е и К ☀️"
+    "anna": "Э завершает средний ряд, Й - первый верхний 🌷",
+    "maxim": "Э (прав. миз.) - дом готов. Й (лев. миз.) - верхний ряд.",
+    "knopych": "Э-Й! 🤖 Средний ряд ВЕСЬ! Й - вверх! ⬆️",
+    "klavochka": "Весь нижний домик готов, радость моя! А Й - потянулись вверх 🌷⬆️"
   },
   "phase": 2,
   "rhythmLesson": false,
   "created_at": "2026-05-26",
-  "version": "1.0"
+  "version": "4.0"
 }

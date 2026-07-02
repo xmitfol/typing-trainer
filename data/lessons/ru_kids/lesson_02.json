@@ -3,53 +3,101 @@
   "tier": "ru_kids",
   "lesson_number": 2,
   "title": "Буква О",
-  "description": "Буква О — правый средний палец",
+  "description": "Вторая буква - О. Правый указательный. Качаемся: ао-оа.",
   "target_wpm": 9,
-  "text_length": 31,
+  "text_length": 28,
   "error_limit_percent": 10,
   "error_limit": 3,
-  "text": "о о о о о ао ао ао оа оа оа аоа",
-  "text_sequence": [],
+  "text": "о о о о о а о а о а о ао оа аоа",
+  "text_sequence": [
+    {"char": "о", "hand": "right", "finger": "index", "key": "О"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "о", "hand": "right", "finger": "index", "key": "О"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "о", "hand": "right", "finger": "index", "key": "О"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "о", "hand": "right", "finger": "index", "key": "О"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "о", "hand": "right", "finger": "index", "key": "О"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "а", "hand": "left", "finger": "index", "key": "А"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "о", "hand": "right", "finger": "index", "key": "О"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "а", "hand": "left", "finger": "index", "key": "А"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "о", "hand": "right", "finger": "index", "key": "О"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "а", "hand": "left", "finger": "index", "key": "А"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "о", "hand": "right", "finger": "index", "key": "О"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "а", "hand": "left", "finger": "index", "key": "А"},
+    {"char": "о", "hand": "right", "finger": "index", "key": "О"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "о", "hand": "right", "finger": "index", "key": "О"},
+    {"char": "а", "hand": "left", "finger": "index", "key": "А"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "а", "hand": "left", "finger": "index", "key": "А"},
+    {"char": "о", "hand": "right", "finger": "index", "key": "О"},
+    {"char": "а", "hand": "left", "finger": "index", "key": "А"}
+  ],
   "keys_trained": [
     "А",
-    "О"
+    "О",
+    "Space"
   ],
   "new_keys": [],
-  "finger_focus": "Правый средний находит О",
+  "finger_focus": "Правый указательный находит О",
+  "guided": true,
   "tips": [
     {
       "type": "lead",
-      "text": "О на правой руке"
+      "text": "Привет, дружок! Букву А ты уже знаешь. Сегодня к ней придёт подружка - буковка О."
     },
     {
       "type": "drop",
-      "text": "Используй правый средний пальчик"
+      "text": "Букву О жмёт ПРАВЫЙ указательный пальчик. Нащупай её - на ней тоже есть маленький бугорок 🌸"
     },
     {
-      "type": "exercise",
-      "target": "о о о о о ао",
-      "finger": "green",
-      "hint": "Правый средний находит О"
+      "type": "callout",
+      "icon": "🙈",
+      "title": "Не подсматривай",
+      "text": "Пусть глазки смотрят на экран, а пальчики ищут буковки сами. Они уже умные!"
+    },
+    {
+      "type": "step",
+      "kind": "drill",
+      "target": "о о о о о о о о о о о о",
+      "finger": "indigo",
+      "title": "Буква О",
+      "hint": "Правый указательный пальчик - на букву О. Нажимай тихонько, после каждой - пробел."
     },
     {
       "type": "p",
-      "text": "Попробуй \"ао\" и \"оа\" — первые звуки!"
+      "text": "А живёт слева, О - справа. Теперь покачаемся, как на качельках: то одну ручку, то другую."
     },
     {
-      "type": "exercise",
-      "target": "ао ао оа оа оа аоа",
-      "finger": "blue",
-      "hint": "Правый средний находит О"
+      "type": "step",
+      "kind": "drill",
+      "target": "а о а о а о а о а о а о",
+      "finger": "indigo",
+      "title": "Качаемся: А - О",
+      "hint": "Левый пальчик - А, правый - О. Качайся не спеша: А - О - А - О."
+    },
+    {
+      "type": "p",
+      "text": "Какой ты молодец! Нажми «Открыть тренажёр» внизу и пройди весь урок. У тебя всё получится! 💕"
     }
   ],
   "character_tips": {
-    "anna": "О на правой руке. Попробуй «ао» — первое сочетание! 🌸",
-    "maxim": "Две буквы. Возможны первые сочетания.",
-    "knopych": "О разблокирована! 🌟",
-    "klavochka": "Две буквы, два дружка, моё дитя! Как А и О держатся за ручки ✨"
+    "anna": "О - правый указательный. Качаемся: ао-оа 🌷",
+    "maxim": "Вторая буква - О, правый указательный. А и О - два якоря.",
+    "knopych": "О-о-о! 🤖 Теперь две буквы! А-О-А-О!",
+    "klavochka": "Умница моя! Левая ручка - А, правая - О. Покачай пальчики: ао-ао-ао 💕"
   },
   "phase": 1,
   "rhythmLesson": false,
   "created_at": "2026-05-26",
-  "version": "1.0"
+  "version": "4.0"
 }

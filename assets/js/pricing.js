@@ -10,6 +10,10 @@ document.addEventListener('DOMContentLoaded', function () {
     const $ = (sel) => document.querySelector(sel);
     const page = $('#pricingPage');
 
+    // Подгрузить конфиг api-client (useApi/baseUrl). Без него — mock-режим.
+    if (window.apiClient) { try { apiClient.init(); } catch (e) {} }
+    const useApi = () => !!(window.apiClient && apiClient.getConfig().useApi);
+
     // ─── Catalog ─────────────────────────────────────────────────
     const PERIODS = [
         { id: 'w1', short: '1 нед', label: '1 неделя',  months: 0.25, factor: 0.30, savings: 0,  copy: 'попробовать' },
@@ -148,8 +152,66 @@ document.addEventListener('DOMContentLoaded', function () {
     function setView(v) { page.dataset.view = v; window.scrollTo(0, 0); }
     $('#ppOpenSubscription').addEventListener('click', () => setView('subscription'));
     $('#ppSubClose').addEventListener('click', () => setView('paywall'));
-    $('#ppCheckout').addEventListener('click', () => setView('payment'));
     $('#ppPayBack').addEventListener('click', () => setView('subscription'));
+
+    // ─── Checkout ────────────────────────────────────────────────
+    // useApi=true → реальный backend: создаём checkout, редиректим юзера на
+    // confirmation_url провайдера (stub/yookassa). useApi=false (локально без
+    // бэка) → прежний mock-экран с формой карты.
+    const checkoutBtn = $('#ppCheckout');
+    checkoutBtn.addEventListener('click', async () => {
+        if (!useApi()) { setView('payment'); return; }
+        const label = $('#ppCheckoutLabel');
+        const prevLabel = label.textContent;
+        checkoutBtn.disabled = true;
+        label.textContent = 'Создаём оплату…';
+        try {
+            const returnUrl = `${window.location.origin}${window.location.pathname}?paid=1`;
+            const res = await apiClient.createCheckout({
+                plan: state.plan, period: state.period, return_url: returnUrl,
+            });
+            if (res && res.confirmation_url) {
+                window.location.href = res.confirmation_url;  // на страницу провайдера
+                return;
+            }
+            throw new Error('no confirmation_url');
+        } catch (e) {
+            checkoutBtn.disabled = false;
+            label.textContent = prevLabel;
+            const msg = e && e.status === 401
+                ? 'Войдите в аккаунт, чтобы оформить подписку.'
+                : 'Не удалось создать оплату. Попробуйте ещё раз.';
+            alert(msg);  // TODO: заменить на inline-ошибку в дизайне
+        }
+    });
+
+    // Возврат от провайдера (?paid=1): свериться с реальным статусом подписки.
+    const qs = new URLSearchParams(window.location.search);
+    if (useApi() && qs.has('paid')) {
+        setView('payment');
+        const done = $('#ppPayDone');
+        const show = (text) => { if (done) { done.textContent = text; done.classList.add('pp-pay-done--show'); } };
+
+        // Stub-провайдер (dev): реальный YK шлёт webhook сам, а stub-confirmation
+        // возвращает подписанные сервером параметры (stub_payment_id + stub_sig).
+        // Достраиваем и шлём webhook сами, чтобы завершить оплату без денег —
+        // весь путь кликается в браузере (ADR-008 §2). Подпись валидна только
+        // потому, что её выдал наш сервер; stub в prod не используется.
+        const stubId = qs.get('stub_payment_id');
+        const stubSig = qs.get('stub_sig');
+        const completeStub = (stubId && stubSig)
+            ? apiClient._http('POST', '/billing/webhook/stub', {
+                provider_payment_id: stubId, sig: stubSig, kind: 'payment.succeeded',
+              }).catch(() => {})
+            : Promise.resolve();
+
+        completeStub
+            .then(() => apiClient.getSubscription())
+            .then((st) => show((st && st.has_active)
+                ? 'Подписка активна. Спасибо! Доступ открыт.'
+                : 'Оплата обрабатывается — доступ откроется через пару секунд.'))
+            .catch(() => show('Оплата обрабатывается — доступ откроется через пару секунд.'));
+    }
 
     // ─── Promo toggle ────────────────────────────────────────────
     $('#ppPromoToggle').addEventListener('click', () => {

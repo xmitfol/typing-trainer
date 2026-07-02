@@ -9,7 +9,60 @@
   "error_limit_percent": 8,
   "error_limit": 4,
   "text": "6 7 8 9 0 67 78 89 90 66 77 88 99 00 6789 7890 67890",
-  "text_sequence": [],
+  "text_sequence": [
+    {"char": "6", "hand": "right", "finger": "index", "key": "6"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "7", "hand": "right", "finger": "index", "key": "7"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "8", "hand": "right", "finger": "middle", "key": "8"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "9", "hand": "right", "finger": "ring", "key": "9"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "0", "hand": "right", "finger": "pinky", "key": "0"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "6", "hand": "right", "finger": "index", "key": "6"},
+    {"char": "7", "hand": "right", "finger": "index", "key": "7"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "7", "hand": "right", "finger": "index", "key": "7"},
+    {"char": "8", "hand": "right", "finger": "middle", "key": "8"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "8", "hand": "right", "finger": "middle", "key": "8"},
+    {"char": "9", "hand": "right", "finger": "ring", "key": "9"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "9", "hand": "right", "finger": "ring", "key": "9"},
+    {"char": "0", "hand": "right", "finger": "pinky", "key": "0"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "6", "hand": "right", "finger": "index", "key": "6"},
+    {"char": "6", "hand": "right", "finger": "index", "key": "6"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "7", "hand": "right", "finger": "index", "key": "7"},
+    {"char": "7", "hand": "right", "finger": "index", "key": "7"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "8", "hand": "right", "finger": "middle", "key": "8"},
+    {"char": "8", "hand": "right", "finger": "middle", "key": "8"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "9", "hand": "right", "finger": "ring", "key": "9"},
+    {"char": "9", "hand": "right", "finger": "ring", "key": "9"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "0", "hand": "right", "finger": "pinky", "key": "0"},
+    {"char": "0", "hand": "right", "finger": "pinky", "key": "0"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "6", "hand": "right", "finger": "index", "key": "6"},
+    {"char": "7", "hand": "right", "finger": "index", "key": "7"},
+    {"char": "8", "hand": "right", "finger": "middle", "key": "8"},
+    {"char": "9", "hand": "right", "finger": "ring", "key": "9"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "7", "hand": "right", "finger": "index", "key": "7"},
+    {"char": "8", "hand": "right", "finger": "middle", "key": "8"},
+    {"char": "9", "hand": "right", "finger": "ring", "key": "9"},
+    {"char": "0", "hand": "right", "finger": "pinky", "key": "0"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "6", "hand": "right", "finger": "index", "key": "6"},
+    {"char": "7", "hand": "right", "finger": "index", "key": "7"},
+    {"char": "8", "hand": "right", "finger": "middle", "key": "8"},
+    {"char": "9", "hand": "right", "finger": "ring", "key": "9"},
+    {"char": "0", "hand": "right", "finger": "pinky", "key": "0"}
+  ],
   "keys_trained": [
     "6",
     "7",
@@ -23,31 +76,58 @@
   "tips": [
     {
       "type": "lead",
-      "text": "6 with right index, 0 with right pinky"
+      "text": "Right hand finishes the number row: 6 to 0. Same long reach up top, same snap back home. Once these land, all ten digits are yours and you never have to look down for a number again."
     },
     {
       "type": "drop",
-      "text": "Same finger logic as Y-U-I-O-P"
+      "text": "Same finger logic as the Y-U-I-O-P row above. 6 is right index, 7 is right index too, 8 is right middle, 9 is right ring, 0 is right pinky. One finger reaches, the rest stay home, eyes stay up."
     },
     {
-      "type": "exercise",
-      "target": "6 7 8 9 0 67 78 89",
-      "finger": "blue",
-      "hint": "Right number reaches"
+      "type": "callout",
+      "icon": "⬆️",
+      "title": "Anchor, then reach",
+      "text": "Keep your right hand parked on home and just send the one finger up. The pinky reach to 0 is the longest - go easy on it, it's the weak one. Number row, not numpad."
+    },
+    {
+      "type": "step",
+      "kind": "drill",
+      "target": "6 7 8 6 7 8 6 7 8 6 7 8 6 7 8 6 7 8",
+      "finger": "indigo",
+      "title": "Digits 6 7 8",
+      "hint": "6 index, 7 index one over, 8 middle. Reach up, tap, home, space after each."
+    },
+    {
+      "type": "step",
+      "kind": "drill",
+      "target": "9 0 9 0 9 0 9 0 9 0 9 0 9 0 9 0 9 0 9 0",
+      "finger": "pink",
+      "title": "Digits 9 0",
+      "hint": "9 right ring, 0 right pinky - the far corner. Gentle on the pinky stretch."
     },
     {
       "type": "p",
-      "text": "Numbers should flow as fast as letters by the end of the course"
+      "text": "All ten digits are online now. Let's run 6 to 0 the same way - singles, pairs, then longer strings. Even pace, no looking down to check."
     },
     {
-      "type": "exercise",
-      "target": "90 66 77 88 99 00 6789 7890 67890",
+      "type": "pullquote",
+      "text": "By the end of the course numbers should flow as fast as letters. That's the cheat code finishing its install.",
+      "by": "Jordan"
+    },
+    {
+      "type": "step",
+      "kind": "drill",
+      "target": "6 7 8 9 0 67 78 89 90 66 77 88 99 00 6789 7890 67890",
       "finger": "green",
-      "hint": "Right number reaches"
+      "title": "Number runs",
+      "hint": "Singles, pairs, then full runs of 6 to 0. Same finger every time, snap back home."
+    },
+    {
+      "type": "p",
+      "text": "Nailed every step? Hit Open Trainer below and run the full lesson text in one go. That run saves your progress and unlocks the next lesson."
     }
   ],
   "character_tips": {
-    "anna": "Right side numbers — same finger as Y-U-I-O-P column.",
+    "anna": "Right side numbers - same finger as Y-U-I-O-P column.",
     "maxim": "All 10 digits now under your fingers. Time to mix them in.",
     "knopych": "FULL NUMERIC! 🔢 0-9 unlocked!",
     "klavochka": "Counting to ten, my star ⭐"
@@ -55,5 +135,6 @@
   "phase": 1,
   "rhythmLesson": false,
   "created_at": "2026-05-25",
-  "version": "1.0"
+  "version": "4.0",
+  "guided": true
 }

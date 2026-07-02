@@ -5,11 +5,75 @@
   "title": "Rhythm: counting song",
   "description": "Number song with a steady beat",
   "target_wpm": 32,
-  "text_length": 118,
+  "text_length": 57,
   "error_limit_percent": 10,
   "error_limit": 11,
-  "text": "1 little 2 little 3 little stars 4 little 5 little 6 little stars 7 little 8 little 9 little stars 10 stars in the sky",
-  "text_sequence": [],
+  "text": "little little little little stars stars stars stars sky sky sky",
+  "text_sequence": [
+    {"char": "l", "hand": "right", "finger": "ring", "key": "L"},
+    {"char": "i", "hand": "right", "finger": "middle", "key": "I"},
+    {"char": "t", "hand": "left", "finger": "index", "key": "T"},
+    {"char": "t", "hand": "left", "finger": "index", "key": "T"},
+    {"char": "l", "hand": "right", "finger": "ring", "key": "L"},
+    {"char": "e", "hand": "left", "finger": "middle", "key": "E"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "l", "hand": "right", "finger": "ring", "key": "L"},
+    {"char": "i", "hand": "right", "finger": "middle", "key": "I"},
+    {"char": "t", "hand": "left", "finger": "index", "key": "T"},
+    {"char": "t", "hand": "left", "finger": "index", "key": "T"},
+    {"char": "l", "hand": "right", "finger": "ring", "key": "L"},
+    {"char": "e", "hand": "left", "finger": "middle", "key": "E"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "l", "hand": "right", "finger": "ring", "key": "L"},
+    {"char": "i", "hand": "right", "finger": "middle", "key": "I"},
+    {"char": "t", "hand": "left", "finger": "index", "key": "T"},
+    {"char": "t", "hand": "left", "finger": "index", "key": "T"},
+    {"char": "l", "hand": "right", "finger": "ring", "key": "L"},
+    {"char": "e", "hand": "left", "finger": "middle", "key": "E"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "l", "hand": "right", "finger": "ring", "key": "L"},
+    {"char": "i", "hand": "right", "finger": "middle", "key": "I"},
+    {"char": "t", "hand": "left", "finger": "index", "key": "T"},
+    {"char": "t", "hand": "left", "finger": "index", "key": "T"},
+    {"char": "l", "hand": "right", "finger": "ring", "key": "L"},
+    {"char": "e", "hand": "left", "finger": "middle", "key": "E"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "s", "hand": "left", "finger": "ring", "key": "S"},
+    {"char": "t", "hand": "left", "finger": "index", "key": "T"},
+    {"char": "a", "hand": "left", "finger": "pinky", "key": "A"},
+    {"char": "r", "hand": "left", "finger": "index", "key": "R"},
+    {"char": "s", "hand": "left", "finger": "ring", "key": "S"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "s", "hand": "left", "finger": "ring", "key": "S"},
+    {"char": "t", "hand": "left", "finger": "index", "key": "T"},
+    {"char": "a", "hand": "left", "finger": "pinky", "key": "A"},
+    {"char": "r", "hand": "left", "finger": "index", "key": "R"},
+    {"char": "s", "hand": "left", "finger": "ring", "key": "S"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "s", "hand": "left", "finger": "ring", "key": "S"},
+    {"char": "t", "hand": "left", "finger": "index", "key": "T"},
+    {"char": "a", "hand": "left", "finger": "pinky", "key": "A"},
+    {"char": "r", "hand": "left", "finger": "index", "key": "R"},
+    {"char": "s", "hand": "left", "finger": "ring", "key": "S"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "s", "hand": "left", "finger": "ring", "key": "S"},
+    {"char": "t", "hand": "left", "finger": "index", "key": "T"},
+    {"char": "a", "hand": "left", "finger": "pinky", "key": "A"},
+    {"char": "r", "hand": "left", "finger": "index", "key": "R"},
+    {"char": "s", "hand": "left", "finger": "ring", "key": "S"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "s", "hand": "left", "finger": "ring", "key": "S"},
+    {"char": "k", "hand": "right", "finger": "middle", "key": "K"},
+    {"char": "y", "hand": "right", "finger": "index", "key": "Y"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "s", "hand": "left", "finger": "ring", "key": "S"},
+    {"char": "k", "hand": "right", "finger": "middle", "key": "K"},
+    {"char": "y", "hand": "right", "finger": "index", "key": "Y"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "s", "hand": "left", "finger": "ring", "key": "S"},
+    {"char": "k", "hand": "right", "finger": "middle", "key": "K"},
+    {"char": "y", "hand": "right", "finger": "index", "key": "Y"}
+  ],
   "keys_trained": [
     "0-9",
     "A-Z",
@@ -17,30 +81,53 @@
   ],
   "new_keys": [],
   "finger_focus": "Number + word rhythm",
+  "guided": true,
   "tips": [
     {
       "type": "lead",
-      "text": "Number song!"
+      "text": "Today we sing a little counting song with our fingers, friend. We will tap the same word a few times, keeping a happy, steady beat."
     },
     {
       "type": "drop",
-      "text": "Like a counting rhyme"
+      "text": "Picture a tiny drum keeping time: tap-tap, tap-tap. Type one word, then the same word again, and let the beat stay calm and even - no rush at all."
     },
     {
-      "type": "exercise",
-      "target": "1 little 2 little 3 little stars 4 little 5 little 6 little",
+      "type": "callout",
+      "icon": "🥁",
+      "title": "Count the beat",
+      "text": "Say it softly inside: tap-tap, tap-tap. Leave the same little pause between every word, like counting stars one by one in the night sky."
+    },
+    {
+      "type": "step",
+      "kind": "drill",
+      "target": "little little little little",
       "finger": "blue",
-      "hint": "Number + word rhythm"
+      "title": "Rhythm: little",
+      "hint": "Same beat each time: little, little, little. Hear the drum"
+    },
+    {
+      "type": "step",
+      "kind": "drill",
+      "target": "stars stars stars stars",
+      "finger": "blue",
+      "title": "Rhythm: stars",
+      "hint": "Tap-tap, tap-tap: stars, stars, stars. Stay smooth"
+    },
+    {
+      "type": "step",
+      "kind": "drill",
+      "target": "sky sky sky",
+      "finger": "green",
+      "title": "Rhythm: sky",
+      "hint": "Keep the steady beat: sky, sky, sky. No rushing"
     },
     {
       "type": "p",
-      "text": "Steady beat with your fingers"
+      "text": "Well done, champ! Counting words with a steady beat is just like singing. Your fingers learn the song and start to dance on their own."
     },
     {
-      "type": "exercise",
-      "target": "stars 7 little 8 little 9 little stars 10 stars in the sky",
-      "finger": "green",
-      "hint": "Number + word rhythm"
+      "type": "p",
+      "text": "All steps done? Press Open the trainer below and type the whole lesson once. You are trying, so you are already winning."
     }
   ],
   "character_tips": {
@@ -52,5 +139,5 @@
   "phase": 3,
   "rhythmLesson": true,
   "created_at": "2026-05-25",
-  "version": "1.0"
+  "version": "4.0"
 }

@@ -109,7 +109,11 @@
     "lockedTitle": "Too early for this lesson",
     "lockedText": "Lessons open in order — this one will become available after you complete the previous ones. Continue from the last open exercise or pick one from the list.",
     "lockedContinue": "Continue · lesson {n} →",
-    "lockedList": "Lesson list"
+    "lockedList": "Lesson list",
+    "stepLocked": "Finish the previous step first",
+    "stepDone": "Done",
+    "fullRun": "Full run",
+    "fullRunLocked": "Finish all steps above first"
   },
 
   "task": {
@@ -136,6 +140,9 @@
     "continueLesson": "Continue · lesson {n} →",
     "continueList": "Lesson list →",
     "backToBuilder": "← Back to my lessons",
+    "backToLesson": "← Back to lesson",
+    "stepDoneTitle": "Step complete",
+    "stepDoneMsg": "Great! Go back to the lesson and move on to the next step.",
     "successFinalGrade": "GRADE",
     "loadFail": "Lesson not found — may have been deleted.",
     "titles": {

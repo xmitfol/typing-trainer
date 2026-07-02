@@ -144,6 +144,8 @@ const APP_CONFIG = {
             currentLesson: 'typing_trainer_current_lesson',
             // Карта { "1": {stars, bestWPM, bestAccuracy, completedAt}, ... }
             lessonProgress: 'typing_trainer_lesson_progress',
+            // Per-exercise прогресс гайдед-уроков: { "tier1:1": {steps:{...}} }
+            lessonExercises: 'typing_trainer_lesson_exercises',
             certifications: 'typing_trainer_certifications',
             uiLanguage: 'typing_trainer_ui_language',
             displayToggles: 'typing_trainer_display_toggles',

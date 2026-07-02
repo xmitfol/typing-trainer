@@ -2,14 +2,74 @@
   "id": "tier1_lesson_66",
   "tier": "tier1",
   "lesson_number": 66,
-  "title": "Ритм: деловая проза",
-  "description": "Многоабзацный деловой стиль — устойчивый профи-ритм",
+  "title": "Ритм-упражнение: деловая проза",
+  "description": "Закрепление через ритм — ровный темп на знакомых словах, без новых букв",
   "target_wpm": 76,
   "text_length": 239,
   "error_limit_percent": 5,
   "error_limit": 11,
-  "text": "Квартал превысил все наши внутренние цели. Выручка выросла, отток снизился, команда выпустила двенадцать ключевых фич. Впереди — три приоритета: расширение в Европу, найм сеньоров, удвоение контента. Следующие девяносто дней определят год.",
-  "text_sequence": [],
+  "text": "квартал квартал выручка выручка отток отток команда команда",
+  "text_sequence": [
+    {"char": "к", "hand": "left", "finger": "index", "key": "К"},
+    {"char": "в", "hand": "left", "finger": "middle", "key": "В"},
+    {"char": "а", "hand": "left", "finger": "index", "key": "А"},
+    {"char": "р", "hand": "right", "finger": "index", "key": "Р"},
+    {"char": "т", "hand": "right", "finger": "index", "key": "Т"},
+    {"char": "а", "hand": "left", "finger": "index", "key": "А"},
+    {"char": "л", "hand": "right", "finger": "middle", "key": "Л"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "к", "hand": "left", "finger": "index", "key": "К"},
+    {"char": "в", "hand": "left", "finger": "middle", "key": "В"},
+    {"char": "а", "hand": "left", "finger": "index", "key": "А"},
+    {"char": "р", "hand": "right", "finger": "index", "key": "Р"},
+    {"char": "т", "hand": "right", "finger": "index", "key": "Т"},
+    {"char": "а", "hand": "left", "finger": "index", "key": "А"},
+    {"char": "л", "hand": "right", "finger": "middle", "key": "Л"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "в", "hand": "left", "finger": "middle", "key": "В"},
+    {"char": "ы", "hand": "left", "finger": "ring", "key": "Ы"},
+    {"char": "р", "hand": "right", "finger": "index", "key": "Р"},
+    {"char": "у", "hand": "left", "finger": "middle", "key": "У"},
+    {"char": "ч", "hand": "left", "finger": "ring", "key": "Ч"},
+    {"char": "к", "hand": "left", "finger": "index", "key": "К"},
+    {"char": "а", "hand": "left", "finger": "index", "key": "А"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "в", "hand": "left", "finger": "middle", "key": "В"},
+    {"char": "ы", "hand": "left", "finger": "ring", "key": "Ы"},
+    {"char": "р", "hand": "right", "finger": "index", "key": "Р"},
+    {"char": "у", "hand": "left", "finger": "middle", "key": "У"},
+    {"char": "ч", "hand": "left", "finger": "ring", "key": "Ч"},
+    {"char": "к", "hand": "left", "finger": "index", "key": "К"},
+    {"char": "а", "hand": "left", "finger": "index", "key": "А"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "о", "hand": "right", "finger": "index", "key": "О"},
+    {"char": "т", "hand": "right", "finger": "index", "key": "Т"},
+    {"char": "т", "hand": "right", "finger": "index", "key": "Т"},
+    {"char": "о", "hand": "right", "finger": "index", "key": "О"},
+    {"char": "к", "hand": "left", "finger": "index", "key": "К"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "о", "hand": "right", "finger": "index", "key": "О"},
+    {"char": "т", "hand": "right", "finger": "index", "key": "Т"},
+    {"char": "т", "hand": "right", "finger": "index", "key": "Т"},
+    {"char": "о", "hand": "right", "finger": "index", "key": "О"},
+    {"char": "к", "hand": "left", "finger": "index", "key": "К"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "к", "hand": "left", "finger": "index", "key": "К"},
+    {"char": "о", "hand": "right", "finger": "index", "key": "О"},
+    {"char": "м", "hand": "left", "finger": "index", "key": "М"},
+    {"char": "а", "hand": "left", "finger": "index", "key": "А"},
+    {"char": "н", "hand": "right", "finger": "index", "key": "Н"},
+    {"char": "д", "hand": "right", "finger": "ring", "key": "Д"},
+    {"char": "а", "hand": "left", "finger": "index", "key": "А"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "к", "hand": "left", "finger": "index", "key": "К"},
+    {"char": "о", "hand": "right", "finger": "index", "key": "О"},
+    {"char": "м", "hand": "left", "finger": "index", "key": "М"},
+    {"char": "а", "hand": "left", "finger": "index", "key": "А"},
+    {"char": "н", "hand": "right", "finger": "index", "key": "Н"},
+    {"char": "д", "hand": "right", "finger": "ring", "key": "Д"},
+    {"char": "а", "hand": "left", "finger": "index", "key": "А"}
+  ],
   "keys_trained": [
     "А-Я",
     "Space",
@@ -19,41 +79,77 @@
     "Shift"
   ],
   "new_keys": [],
-  "finger_focus": "Деловой темп прозы",
+  "finger_focus": "Все пальцы — фокус на ровном, метрономном ритме",
+  "guided": true,
   "tips": [
     {
       "type": "lead",
-      "text": "Так пишут топ-менеджеры каждый день — тренируй как карьерный навык"
+      "text": "🎵 Новых букв сегодня нет — закрепляем уже освоенные слова через ритм. Главное не скорость, а ровный, одинаковый темп: каждое нажатие через равные промежутки, как удары метронома."
     },
     {
       "type": "drop",
-      "text": "Трёхчастные списки («X, Y и Z») имеют встроенный ритм"
+      "text": "Руки уже знают все буквы. Поставь пальцы на основной ряд, большие — над пробелом, и не покидай исходную позицию. Повторяй каждое слово ровно, считая про себя: раз-два-три-четыре."
     },
     {
-      "type": "exercise",
-      "target": "Квартал превысил все наши внутренние цели. Выручка выросла, отток снизился, команда выпустила двенадцать ключевых фич.",
-      "finger": "purple",
-      "hint": "Деловой темп прозы"
+      "type": "callout",
+      "icon": "🎶",
+      "title": "Ровный счёт",
+      "text": "Включи внутренний метроном. Печатай не «как получится», а строго в такт: между любыми двумя нажатиями — одинаковая пауза. Темп важнее скорости — лучше медленно и ровно, чем быстро и рвано."
+    },
+    {
+      "type": "step",
+      "kind": "drill",
+      "target": "квартал квартал квартал квартал",
+      "finger": "blue",
+      "title": "Ритм: квартал",
+      "hint": "Повторяй ровно, в одном темпе: квартал — квартал — квартал. Считай раз-два-три-четыре"
+    },
+    {
+      "type": "step",
+      "kind": "drill",
+      "target": "выручка выручка выручка выручка",
+      "finger": "green",
+      "title": "Ритм: выручка",
+      "hint": "Повторяй ровно, без рывков: выручка — выручка — выручка. Держи одинаковые паузы"
+    },
+    {
+      "type": "step",
+      "kind": "drill",
+      "target": "отток отток отток отток",
+      "finger": "indigo",
+      "title": "Ритм: отток",
+      "hint": "Повторяй ровно: отток — отток — отток. Не ускоряйся к концу"
+    },
+    {
+      "type": "step",
+      "kind": "drill",
+      "target": "команда команда команда команда",
+      "finger": "blue",
+      "title": "Ритм: команда",
+      "hint": "Повторяй ровно: команда — команда — команда. Ровный счёт до самого конца"
     },
     {
       "type": "p",
-      "text": "Метроном 76 BPM — держи во всех предложениях"
+      "text": "Почувствуй, как мышцы запоминают слова целиком: КВАРТАЛ-КВАРТАЛ, ВЫРУЧКА-ВЫРУЧКА. Повторение в ровном темпе превращает движения в автоматизм — и тогда деловой текст идёт без задержек."
     },
     {
-      "type": "exercise",
-      "target": "Впереди — три приоритета: расширение в Европу, найм сеньоров, удвоение контента. Следующие девяносто дней определят год.",
-      "finger": "purple",
-      "hint": "Деловой темп прозы"
+      "type": "pullquote",
+      "text": "Расслабь плечи и запястья, представь метроном — ритм важнее скорости.",
+      "by": "методика курса"
+    },
+    {
+      "type": "p",
+      "text": "Все шаги пройдены? Тогда нажми «Открыть тренажёр» ниже и сделай полный заход на весь текст урока. Этот заход сохраняется в прогресс и открывает следующий урок."
     }
   ],
   "character_tips": {
-    "anna": "Экзекутив-проза на 76 WPM. Это реальный профессиональный выход.",
-    "maxim": "Держишь эту скорость = печатаешь в темпе делового мышления.",
-    "knopych": "ВКЛЮЧЁН РЕЖИМ ТОПА! 💼 Ты CEO-машинистка!",
-    "klavochka": "Мудро и устойчиво, как старший советник, мой драгоценный 👔"
+    "anna": "Отлично! Ритм-урок на знакомых словах. КВАРТАЛ-КВАРТАЛ, КОМАНДА-КОМАНДА — повторение закрепляет память!",
+    "maxim": "Хорошо! Повторяющиеся слова тренируют автоматизм. Мозг учится предугадывать движения.",
+    "knopych": "Вау! Эхо-челлендж! ОТТОК-ОТТОК, ВЫРУЧКА-ВЫРУЧКА! Как эхо в горах — раз-два, раз-два!",
+    "klavochka": "Какой ты молодец! Слова повторяются, пальчики танцуют одинаковые движения! Как красиво!"
   },
   "phase": 5,
   "rhythmLesson": true,
   "created_at": "2026-05-26",
-  "version": "1.0"
+  "version": "4.0"
 }

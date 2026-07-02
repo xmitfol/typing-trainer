@@ -8,48 +8,135 @@
   "text_length": 124,
   "error_limit_percent": 6,
   "error_limit": 7,
-  "text": "live laugh log on. grind never stop. monday energy hits different fr. no thoughts head empty. good vibes only. literally me.",
-  "text_sequence": [],
+  "text": "live live live live grind grind grind grind only only only only",
+  "text_sequence": [
+    {"char": "l", "hand": "right", "finger": "ring", "key": "L"},
+    {"char": "i", "hand": "right", "finger": "middle", "key": "I"},
+    {"char": "v", "hand": "left", "finger": "index", "key": "V"},
+    {"char": "e", "hand": "left", "finger": "middle", "key": "E"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "l", "hand": "right", "finger": "ring", "key": "L"},
+    {"char": "i", "hand": "right", "finger": "middle", "key": "I"},
+    {"char": "v", "hand": "left", "finger": "index", "key": "V"},
+    {"char": "e", "hand": "left", "finger": "middle", "key": "E"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "l", "hand": "right", "finger": "ring", "key": "L"},
+    {"char": "i", "hand": "right", "finger": "middle", "key": "I"},
+    {"char": "v", "hand": "left", "finger": "index", "key": "V"},
+    {"char": "e", "hand": "left", "finger": "middle", "key": "E"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "l", "hand": "right", "finger": "ring", "key": "L"},
+    {"char": "i", "hand": "right", "finger": "middle", "key": "I"},
+    {"char": "v", "hand": "left", "finger": "index", "key": "V"},
+    {"char": "e", "hand": "left", "finger": "middle", "key": "E"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "g", "hand": "left", "finger": "index", "key": "G"},
+    {"char": "r", "hand": "left", "finger": "index", "key": "R"},
+    {"char": "i", "hand": "right", "finger": "middle", "key": "I"},
+    {"char": "n", "hand": "right", "finger": "index", "key": "N"},
+    {"char": "d", "hand": "left", "finger": "middle", "key": "D"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "g", "hand": "left", "finger": "index", "key": "G"},
+    {"char": "r", "hand": "left", "finger": "index", "key": "R"},
+    {"char": "i", "hand": "right", "finger": "middle", "key": "I"},
+    {"char": "n", "hand": "right", "finger": "index", "key": "N"},
+    {"char": "d", "hand": "left", "finger": "middle", "key": "D"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "g", "hand": "left", "finger": "index", "key": "G"},
+    {"char": "r", "hand": "left", "finger": "index", "key": "R"},
+    {"char": "i", "hand": "right", "finger": "middle", "key": "I"},
+    {"char": "n", "hand": "right", "finger": "index", "key": "N"},
+    {"char": "d", "hand": "left", "finger": "middle", "key": "D"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "g", "hand": "left", "finger": "index", "key": "G"},
+    {"char": "r", "hand": "left", "finger": "index", "key": "R"},
+    {"char": "i", "hand": "right", "finger": "middle", "key": "I"},
+    {"char": "n", "hand": "right", "finger": "index", "key": "N"},
+    {"char": "d", "hand": "left", "finger": "middle", "key": "D"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "o", "hand": "right", "finger": "ring", "key": "O"},
+    {"char": "n", "hand": "right", "finger": "index", "key": "N"},
+    {"char": "l", "hand": "right", "finger": "ring", "key": "L"},
+    {"char": "y", "hand": "right", "finger": "index", "key": "Y"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "o", "hand": "right", "finger": "ring", "key": "O"},
+    {"char": "n", "hand": "right", "finger": "index", "key": "N"},
+    {"char": "l", "hand": "right", "finger": "ring", "key": "L"},
+    {"char": "y", "hand": "right", "finger": "index", "key": "Y"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "o", "hand": "right", "finger": "ring", "key": "O"},
+    {"char": "n", "hand": "right", "finger": "index", "key": "N"},
+    {"char": "l", "hand": "right", "finger": "ring", "key": "L"},
+    {"char": "y", "hand": "right", "finger": "index", "key": "Y"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "o", "hand": "right", "finger": "ring", "key": "O"},
+    {"char": "n", "hand": "right", "finger": "index", "key": "N"},
+    {"char": "l", "hand": "right", "finger": "ring", "key": "L"},
+    {"char": "y", "hand": "right", "finger": "index", "key": "Y"}
+  ],
   "keys_trained": [
     "A-Z",
     "Space"
   ],
   "new_keys": [],
   "finger_focus": "Social feed rhythm",
+  "guided": true,
   "tips": [
     {
       "type": "lead",
-      "text": "Multiple meme phrases back to back"
+      "text": "Same energy as scrolling a feed - same word over and over until it stops feeling like work. No new keys, just flow. Flow, not force."
     },
     {
       "type": "drop",
-      "text": "Find the social-media-scroll rhythm"
+      "text": "Hands on home row, eyes up off the keys. Repeat each word at one even pace - same gap between every tap. Don't sprint, just keep the scroll smooth and steady."
     },
     {
-      "type": "exercise",
-      "target": "live laugh log on. grind never stop. monday energy hits",
+      "type": "callout",
+      "icon": "🎶",
+      "title": "Even beat",
+      "text": "Pick a tempo you can actually hold and stay locked in. Even and smooth beats fast and jerky every single time. Let the rhythm carry your hands."
+    },
+    {
+      "type": "step",
+      "kind": "drill",
+      "target": "live live live live live",
+      "finger": "orange",
+      "title": "Rhythm: live",
+      "hint": "Loop it on the beat: live - live - live. Same gap every time."
+    },
+    {
+      "type": "step",
+      "kind": "drill",
+      "target": "grind grind grind grind",
       "finger": "blue",
-      "hint": "Social feed rhythm"
+      "title": "Rhythm: grind",
+      "hint": "Hold the tempo: grind - grind - grind. Flow, not force."
+    },
+    {
+      "type": "step",
+      "kind": "drill",
+      "target": "only only only only",
+      "finger": "orange",
+      "title": "Rhythm: only",
+      "hint": "Stay even to the end: only - only - only. Don't rush the finish."
     },
     {
       "type": "p",
-      "text": "Metronome at 65 BPM — match it"
+      "text": "Notice your fingers grabbing the whole word in one smooth move? That is the goal - even reps turn conscious effort into reflex, and reflex is where the speed actually comes from."
     },
     {
-      "type": "exercise",
-      "target": "different fr. no thoughts head empty. good vibes only. literally me.",
-      "finger": "green",
-      "hint": "Social feed rhythm"
+      "type": "p",
+      "text": "All three drills done? Hit \"Open trainer\" below and run the full lesson text in one go. That run saves to your progress and unlocks the next lesson."
     }
   ],
   "character_tips": {
     "anna": "Social feed style at 65 WPM. Pure modern rhythm.",
     "maxim": "Scrolling = pattern recognition. Type like you read.",
     "knopych": "📲 SCROLL MODE! Meme after meme!",
-    "klavochka": "Modern poetry, my dear — short and sweet 🌸"
+    "klavochka": "Modern poetry, my dear - short and sweet 🌸"
   },
   "phase": 3,
   "rhythmLesson": true,
   "created_at": "2026-05-25",
-  "version": "1.0"
+  "version": "4.0"
 }

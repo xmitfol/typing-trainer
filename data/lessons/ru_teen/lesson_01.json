@@ -8,55 +8,151 @@
   "text_length": 39,
   "error_limit_percent": 8,
   "error_limit": 3,
-  "text": "фыва олдж фыва олдж фыва олдж фыва олдж",
-  "text_sequence": [],
+  "text": "ф ы в а о л д ж фыва олдж фыва олдж лад вода дала жажда",
+  "text_sequence": [
+    {"char": "ф", "hand": "left", "finger": "pinky", "key": "Ф"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "ы", "hand": "left", "finger": "ring", "key": "Ы"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "в", "hand": "left", "finger": "middle", "key": "В"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "а", "hand": "left", "finger": "index", "key": "А"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "о", "hand": "right", "finger": "index", "key": "О"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "л", "hand": "right", "finger": "middle", "key": "Л"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "д", "hand": "right", "finger": "ring", "key": "Д"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "ж", "hand": "right", "finger": "pinky", "key": "Ж"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "ф", "hand": "left", "finger": "pinky", "key": "Ф"},
+    {"char": "ы", "hand": "left", "finger": "ring", "key": "Ы"},
+    {"char": "в", "hand": "left", "finger": "middle", "key": "В"},
+    {"char": "а", "hand": "left", "finger": "index", "key": "А"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "о", "hand": "right", "finger": "index", "key": "О"},
+    {"char": "л", "hand": "right", "finger": "middle", "key": "Л"},
+    {"char": "д", "hand": "right", "finger": "ring", "key": "Д"},
+    {"char": "ж", "hand": "right", "finger": "pinky", "key": "Ж"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "ф", "hand": "left", "finger": "pinky", "key": "Ф"},
+    {"char": "ы", "hand": "left", "finger": "ring", "key": "Ы"},
+    {"char": "в", "hand": "left", "finger": "middle", "key": "В"},
+    {"char": "а", "hand": "left", "finger": "index", "key": "А"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "о", "hand": "right", "finger": "index", "key": "О"},
+    {"char": "л", "hand": "right", "finger": "middle", "key": "Л"},
+    {"char": "д", "hand": "right", "finger": "ring", "key": "Д"},
+    {"char": "ж", "hand": "right", "finger": "pinky", "key": "Ж"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "л", "hand": "right", "finger": "middle", "key": "Л"},
+    {"char": "а", "hand": "left", "finger": "index", "key": "А"},
+    {"char": "д", "hand": "right", "finger": "ring", "key": "Д"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "в", "hand": "left", "finger": "middle", "key": "В"},
+    {"char": "о", "hand": "right", "finger": "index", "key": "О"},
+    {"char": "д", "hand": "right", "finger": "ring", "key": "Д"},
+    {"char": "а", "hand": "left", "finger": "index", "key": "А"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "д", "hand": "right", "finger": "ring", "key": "Д"},
+    {"char": "а", "hand": "left", "finger": "index", "key": "А"},
+    {"char": "л", "hand": "right", "finger": "middle", "key": "Л"},
+    {"char": "а", "hand": "left", "finger": "index", "key": "А"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "ж", "hand": "right", "finger": "pinky", "key": "Ж"},
+    {"char": "а", "hand": "left", "finger": "index", "key": "А"},
+    {"char": "ж", "hand": "right", "finger": "pinky", "key": "Ж"},
+    {"char": "д", "hand": "right", "finger": "ring", "key": "Д"},
+    {"char": "а", "hand": "left", "finger": "index", "key": "А"}
+  ],
   "keys_trained": [
-    "Ф",
-    "Ы",
-    "В",
     "А",
     "О",
+    "В",
     "Л",
+    "Ы",
     "Д",
+    "Ф",
     "Ж",
     "Space"
   ],
   "new_keys": [],
-  "finger_focus": "Домашний ряд — обе руки",
+  "finger_focus": "Средний ряд - обе руки",
+  "guided": true,
   "tips": [
     {
       "type": "lead",
-      "text": "Эти 8 клавиш — твоя база, возвращайся сюда после каждого нажатия"
+      "text": "Старт. Эти 8 клавиш - твоя исходная база, отсюда дотягиваешься до всего остального. Освоишь её вслепую - считай, полдела сделано."
     },
     {
       "type": "drop",
-      "text": "Чувствуй бугорки на А и О — твои якоря"
+      "text": "Левая рука на Ф Ы В А, правая на О Л Д Ж, большие пальцы над пробелом. На А и О есть бугорки - нащупай их указательными, это твои якоря. Куда бы палец ни ушёл, он всегда возвращается домой."
     },
     {
-      "type": "exercise",
-      "target": "фыва олдж фыва олдж",
+      "type": "callout",
+      "icon": "🙈",
+      "title": "Не подглядывай",
+      "text": "Глянуть на клавиши и потом ткнуть - это самообман, мозг так ничего не запомнит. Ищи буквы вслепую, на ощупь. Палец сам найдёт - это чит, поверь."
+    },
+    {
+      "type": "step",
+      "kind": "placement",
+      "target": "фыва олдж фыва олдж фыва олдж фыва олдж фыва олдж фыва олдж фыва олдж фыва олдж фыва олдж фыва олдж",
       "finger": "blue",
-      "hint": "Домашний ряд — обе руки"
+      "title": "Поставь руки",
+      "hint": "Все 8 пальцев на ФЫВА и ОЛДЖ, жми по порядку вслепую. 10 пар - закрепляем позицию."
     },
     {
       "type": "p",
-      "text": "Не смотри на клавиатуру. Доверяй пальцам."
+      "text": "Руки на месте. Теперь набиваем память по группам - сначала левая, потом правая. Жми ровно, не спеши, на руки не смотри."
     },
     {
-      "type": "exercise",
-      "target": "фыва олдж фыва олдж",
+      "type": "step",
+      "kind": "drill",
+      "target": "ф ы в а ф ы в а ф ы в а ф ы в а ф ы в а",
+      "finger": "blue",
+      "hint": "Левая рука: Ф мизинец, Ы безымянный, В средний, А указательный"
+    },
+    {
+      "type": "step",
+      "kind": "drill",
+      "target": "о л д ж о л д ж о л д ж о л д ж о л д ж",
+      "finger": "indigo",
+      "hint": "Правая рука: О указательный, Л средний, Д безымянный, Ж мизинец"
+    },
+    {
+      "type": "step",
+      "kind": "drill",
+      "target": "фыва олдж фыва олдж фыва олдж фыва олдж фыва олдж",
       "finger": "green",
-      "hint": "Домашний ряд — обе руки"
+      "hint": "Соединяем обе руки: блок ФЫВА, блок ОЛДЖ"
+    },
+    {
+      "type": "pullquote",
+      "text": "Точность вперёд скорости. Скорость придёт сама, без зубрёжки.",
+      "by": "Артём"
+    },
+    {
+      "type": "step",
+      "kind": "drill",
+      "target": "лад вода дала жажда лад вода дала жажда",
+      "finger": "green",
+      "hint": "Первые слова из среднего ряда: лад, вода, дала, жажда"
+    },
+    {
+      "type": "p",
+      "text": "Прошёл все шаги? Жми «Открыть тренажёр» и пройди весь текст урока целиком. Этот заход сохранится в прогресс и откроет следующий."
     }
   ],
   "character_tips": {
-    "anna": "Начинаем с домашнего ряда. Найди А и О на ощупь — это твои якоря.",
-    "maxim": "ФЫВА ОЛДЖ — восемь клавиш, на которые возвращаешься миллион раз. Начни здесь.",
-    "knopych": "БИП-БУП! Домашний ряд активирован! 🤖 Чувствуешь бугорки на А и О? Да? Поехали!",
-    "klavochka": "Эти клавиши — твои подушечки для пальцев, моё дитя! Уютно и удобно 💤"
+    "anna": "Начинаем с среднего ряда. Найди А и О на ощупь - это твои якоря.",
+    "maxim": "ФЫВА ОЛДЖ - восемь клавиш, на которые возвращаешься миллион раз. Старт здесь.",
+    "knopych": "БИП-БУП! Средний ряд активирован! 🤖 Чувствуешь бугорки на А и О? Поехали!",
+    "klavochka": "Эти клавиши - твои подушечки для пальцев, моё дитя! Уютно 💤"
   },
   "phase": 1,
   "rhythmLesson": false,
   "created_at": "2026-05-26",
-  "version": "1.0"
+  "version": "4.0"
 }

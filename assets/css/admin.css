@@ -1,0 +1,208 @@
+/* admin.css — внутренняя админ-панель (ru-only).
+ * Scoped под .admin-page. На дизайн-токенах tokens.css (как dashboard.css).
+ * Без перфекционизма — рабочий инструмент для сотрудников. */
+
+.admin-page {
+    font-family: var(--font-ui);
+    background: var(--bg);
+    color: var(--ink);
+    min-height: 100vh;
+    -webkit-font-smoothing: antialiased;
+}
+.admin-page *, .admin-page *::before, .admin-page *::after { box-sizing: border-box; }
+.admin-page a { color: inherit; text-decoration: none; }
+.admin-page button { font-family: var(--font-ui); }
+[hidden] { display: none !important; }
+
+/* ─── Header ─────────────────────────────────────────────────────────────── */
+.ad-header {
+    position: sticky; top: 0; z-index: 10;
+    background: rgba(245, 244, 240, 0.9);
+    backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--divider);
+    padding: 12px 28px;
+    display: flex; align-items: center; gap: 20px; flex-wrap: wrap;
+}
+.ad-logo { display: flex; align-items: center; gap: 10px; }
+.ad-logo__mark {
+    width: 30px; height: 30px; border-radius: 8px;
+    background: var(--brand-grad);
+    display: grid; place-items: center; color: #fff;
+    font-family: var(--font-mono); font-weight: 700; font-size: 13px;
+}
+.ad-logo__name { font-weight: 800; font-size: 14px; }
+.ad-logo__badge {
+    font-family: var(--font-mono); font-size: 10px; font-weight: 700;
+    padding: 2px 7px; border-radius: 4px; letter-spacing: 0.06em;
+    background: #1a1a17; color: #fff;
+}
+.ad-tabs { display: flex; gap: 4px; margin-left: 8px; }
+.ad-tab {
+    padding: 8px 16px; border-radius: 8px; border: none; background: transparent;
+    color: var(--sub); font-size: 13.5px; font-weight: 600; cursor: pointer;
+}
+.ad-tab:hover { color: var(--ink); }
+.ad-tab--active { background: rgba(0,0,0,0.06); color: var(--ink); font-weight: 700; }
+.ad-spacer { flex: 1; }
+.ad-whoami {
+    display: flex; align-items: center; gap: 10px;
+    font-size: 12.5px; color: var(--sub);
+}
+.ad-whoami__email { font-weight: 600; color: var(--ink); }
+.ad-role-chip {
+    font-family: var(--font-mono); font-size: 10px; font-weight: 700;
+    padding: 3px 8px; border-radius: 999px; letter-spacing: 0.04em;
+    background: var(--accent-bg); color: var(--accent);
+}
+.ad-role-chip[data-role="superadmin"] { background: #fef2f2; color: #b91c1c; }
+.ad-role-chip[data-role="support"]    { background: #f0fdf4; color: #047857; }
+.ad-role-chip[data-role="analyst"]    { background: var(--accent-bg); color: var(--accent); }
+.ad-logout {
+    border: 1px solid var(--divider); background: var(--surface);
+    border-radius: 8px; padding: 6px 12px; font-size: 12.5px; cursor: pointer;
+    color: var(--sub);
+}
+.ad-logout:hover { color: var(--error); }
+
+/* ─── Layout ─────────────────────────────────────────────────────────────── */
+.ad-main { max-width: 1240px; margin: 0 auto; padding: 24px 28px 60px; }
+.ad-panel { display: none; }
+.ad-panel--active { display: block; }
+.ad-panel__head {
+    display: flex; align-items: baseline; justify-content: space-between;
+    gap: 16px; margin-bottom: 18px; flex-wrap: wrap;
+}
+.ad-panel__head h1 { margin: 0; font-size: 24px; font-weight: 800; letter-spacing: -0.02em; }
+
+/* Gate / loading / global states */
+.ad-gate {
+    max-width: 460px; margin: 120px auto; text-align: center;
+    background: var(--surface); border: 1px solid var(--divider);
+    border-radius: 18px; padding: 40px 32px;
+}
+.ad-gate h2 { margin: 0 0 8px; font-size: 20px; }
+.ad-gate p { color: var(--sub); font-size: 14px; margin: 0 0 20px; }
+
+/* ─── Cards / metrics ────────────────────────────────────────────────────── */
+.ad-card {
+    background: var(--surface); border: 1px solid var(--divider);
+    border-radius: 16px; padding: 20px;
+}
+.ad-metrics { display: grid; grid-template-columns: repeat(5, 1fr); gap: 14px; margin-bottom: 20px; }
+.ad-metric {
+    background: var(--surface); border: 1px solid var(--divider);
+    border-radius: 14px; padding: 18px;
+}
+.ad-metric__label {
+    font-size: 11px; color: var(--faint); font-family: var(--font-mono);
+    letter-spacing: 0.04em; text-transform: uppercase; margin-bottom: 8px;
+}
+.ad-metric__val { font-size: 28px; font-weight: 800; font-family: var(--font-mono); letter-spacing: -0.02em; }
+.ad-metric__sub { font-size: 11.5px; color: var(--sub); margin-top: 4px; }
+
+/* Period switch */
+.ad-period { display: inline-flex; border: 1px solid var(--divider); border-radius: 10px; overflow: hidden; background: var(--surface); }
+.ad-period button {
+    border: none; background: transparent; padding: 8px 16px;
+    font-size: 13px; font-weight: 600; color: var(--sub); cursor: pointer;
+    border-right: 1px solid var(--divider);
+}
+.ad-period button:last-child { border-right: none; }
+.ad-period button.ad-period--active { background: var(--accent); color: #fff; }
+
+/* ─── Filters bar ────────────────────────────────────────────────────────── */
+.ad-filters { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 16px; align-items: center; }
+.ad-input, .ad-select {
+    border: 1px solid var(--divider); background: var(--surface); color: var(--ink);
+    border-radius: 10px; padding: 9px 12px; font-size: 13.5px; font-family: var(--font-ui);
+}
+.ad-input { min-width: 240px; }
+.ad-input:focus, .ad-select:focus { outline: none; border-color: var(--accent); }
+
+/* ─── Buttons ────────────────────────────────────────────────────────────── */
+.ad-btn {
+    border: 1px solid var(--divider); background: var(--surface); color: var(--ink);
+    border-radius: 9px; padding: 8px 14px; font-size: 13px; font-weight: 600; cursor: pointer;
+}
+.ad-btn:hover { background: var(--bg-alt); }
+.ad-btn--primary { background: var(--accent); color: #fff; border-color: var(--accent); }
+.ad-btn--primary:hover { filter: brightness(0.95); background: var(--accent); }
+.ad-btn--danger { background: var(--error); color: #fff; border-color: var(--error); }
+.ad-btn--danger:hover { filter: brightness(0.95); background: var(--error); }
+.ad-btn--sm { padding: 6px 10px; font-size: 12px; }
+.ad-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+
+/* ─── Table ──────────────────────────────────────────────────────────────── */
+.ad-table-wrap { background: var(--surface); border: 1px solid var(--divider); border-radius: 14px; overflow: hidden; }
+.ad-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+.ad-table th {
+    text-align: left; padding: 12px 14px; font-size: 11px; text-transform: uppercase;
+    letter-spacing: 0.04em; color: var(--faint); font-family: var(--font-mono);
+    border-bottom: 1px solid var(--divider); background: var(--bg-alt);
+}
+.ad-table td { padding: 12px 14px; border-bottom: 1px solid var(--divider); vertical-align: middle; }
+.ad-table tr:last-child td { border-bottom: none; }
+.ad-table tbody tr.ad-row--click { cursor: pointer; }
+.ad-table tbody tr.ad-row--click:hover { background: var(--accent-bg); }
+.ad-mono { font-family: var(--font-mono); font-size: 12px; color: var(--sub); }
+
+/* Status chips */
+.ad-chip {
+    display: inline-block; font-family: var(--font-mono); font-size: 10.5px; font-weight: 700;
+    padding: 2px 8px; border-radius: 999px; letter-spacing: 0.03em;
+    background: rgba(0,0,0,0.06); color: var(--sub);
+}
+.ad-chip--ok      { background: var(--success-bg); color: #047857; }
+.ad-chip--warn    { background: var(--warn-bg); color: #92400e; }
+.ad-chip--err     { background: var(--error-bg); color: #b91c1c; }
+.ad-chip--muted   { background: rgba(0,0,0,0.06); color: var(--faint); }
+
+/* Pagination */
+.ad-pager { display: flex; align-items: center; gap: 12px; margin-top: 14px; justify-content: flex-end; font-size: 13px; color: var(--sub); }
+
+/* ─── Detail / drawer ────────────────────────────────────────────────────── */
+.ad-detail { margin-top: 18px; display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.ad-detail__section h3 { margin: 0 0 12px; font-size: 15px; font-weight: 700; }
+.ad-kv { display: grid; grid-template-columns: 140px 1fr; gap: 6px 12px; font-size: 13px; }
+.ad-kv dt { color: var(--faint); }
+.ad-kv dd { margin: 0; color: var(--ink); word-break: break-word; }
+.ad-actions { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 14px; }
+.ad-list-min { list-style: none; margin: 0; padding: 0; font-size: 13px; }
+.ad-list-min li { padding: 8px 0; border-bottom: 1px solid var(--divider); }
+.ad-list-min li:last-child { border-bottom: none; }
+.ad-back { font-size: 13px; color: var(--accent); cursor: pointer; font-weight: 600; }
+
+/* ─── Modal ──────────────────────────────────────────────────────────────── */
+.ad-modal-backdrop {
+    position: fixed; inset: 0; background: rgba(0,0,0,0.4); z-index: 100;
+    display: grid; place-items: center; padding: 20px;
+}
+.ad-modal {
+    background: var(--surface); border-radius: 18px; padding: 28px;
+    width: 100%; max-width: 440px; box-shadow: var(--shadow-lg);
+}
+.ad-modal h3 { margin: 0 0 6px; font-size: 18px; }
+.ad-modal p { margin: 0 0 18px; font-size: 13.5px; color: var(--sub); }
+.ad-field { display: flex; flex-direction: column; gap: 6px; margin-bottom: 14px; }
+.ad-field label { font-size: 12px; color: var(--faint); font-family: var(--font-mono); letter-spacing: 0.04em; }
+.ad-field .ad-input, .ad-field .ad-select { min-width: 0; width: 100%; }
+.ad-modal__foot { display: flex; gap: 10px; justify-content: flex-end; margin-top: 8px; }
+.ad-modal__err { color: var(--error); font-size: 12.5px; margin-top: -6px; margin-bottom: 12px; min-height: 16px; }
+
+/* ─── Toast ──────────────────────────────────────────────────────────────── */
+.ad-toast-wrap { position: fixed; bottom: 24px; right: 24px; z-index: 200; display: flex; flex-direction: column; gap: 8px; }
+.ad-toast {
+    background: #1a1a17; color: #fff; padding: 12px 18px; border-radius: 10px;
+    font-size: 13.5px; box-shadow: var(--shadow-md); max-width: 360px;
+}
+.ad-toast--ok  { background: #047857; }
+.ad-toast--err { background: #b91c1c; }
+
+/* Empty / loading rows */
+.ad-empty { padding: 40px; text-align: center; color: var(--faint); font-size: 14px; }
+
+@media (max-width: 900px) {
+    .ad-metrics { grid-template-columns: repeat(2, 1fr); }
+    .ad-detail { grid-template-columns: 1fr; }
+    .ad-tabs { order: 3; width: 100%; margin-left: 0; }
+}

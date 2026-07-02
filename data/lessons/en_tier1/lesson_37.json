@@ -5,11 +5,29 @@
   "title": "Rhythm: code snippet",
   "description": "Rhythm with real code-like syntax",
   "target_wpm": 30,
-  "text_length": 130,
+  "text_length": 17,
   "error_limit_percent": 10,
   "error_limit": 13,
-  "text": "if (x > 0 && y < 10) { return x + y; } else { return 0; } let n = data[i].value; for (i=0; i<n; i++) {}",
-  "text_sequence": [],
+  "text": "return value data",
+  "text_sequence": [
+    {"char": "r", "hand": "left", "finger": "index", "key": "R"},
+    {"char": "e", "hand": "left", "finger": "middle", "key": "E"},
+    {"char": "t", "hand": "left", "finger": "index", "key": "T"},
+    {"char": "u", "hand": "right", "finger": "index", "key": "U"},
+    {"char": "r", "hand": "left", "finger": "index", "key": "R"},
+    {"char": "n", "hand": "right", "finger": "index", "key": "N"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "v", "hand": "left", "finger": "index", "key": "V"},
+    {"char": "a", "hand": "left", "finger": "pinky", "key": "A"},
+    {"char": "l", "hand": "right", "finger": "ring", "key": "L"},
+    {"char": "u", "hand": "right", "finger": "index", "key": "U"},
+    {"char": "e", "hand": "left", "finger": "middle", "key": "E"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "d", "hand": "left", "finger": "middle", "key": "D"},
+    {"char": "a", "hand": "left", "finger": "pinky", "key": "A"},
+    {"char": "t", "hand": "left", "finger": "index", "key": "T"},
+    {"char": "a", "hand": "left", "finger": "pinky", "key": "A"}
+  ],
   "keys_trained": [
     "A-Z",
     "0-9",
@@ -37,37 +55,59 @@
   "tips": [
     {
       "type": "lead",
-      "text": "Real JavaScript syntax"
+      "text": "No new keys today. We drill the rhythm on a few plain words, so the hands stay even when the symbols arrive."
     },
     {
       "type": "drop",
-      "text": "Spaces around operators: x > 0, not x>0"
+      "text": "Keep your fingers home and your eyes on the screen. Type each word at one regular pace, no faster at the end than the start. Tempo before speed."
     },
     {
-      "type": "exercise",
-      "target": "if (x > 0 && y < 10) { return x + y; }",
+      "type": "callout",
+      "title": "Even strokes",
+      "text": "Hold a steady gap between keys and don't let it wander. Calm and regular beats hurried and rough. Even keystrokes read like clean copy."
+    },
+    {
+      "type": "step",
+      "kind": "drill",
+      "target": "return return return",
       "finger": "blue",
-      "hint": "All code symbols in flow"
+      "title": "Rhythm: return",
+      "hint": "Repeat at one even pace: return return return. Hold the same beat from first key to last."
+    },
+    {
+      "type": "step",
+      "kind": "drill",
+      "target": "value value value",
+      "finger": "blue",
+      "title": "Rhythm: value",
+      "hint": "Repeat at one even pace: value value value. Hold the same beat from first key to last."
+    },
+    {
+      "type": "step",
+      "kind": "drill",
+      "target": "data data data data",
+      "finger": "green",
+      "title": "Rhythm: data",
+      "hint": "Repeat at one even pace: data data data. Hold the same beat from first key to last."
     },
     {
       "type": "p",
-      "text": "Brackets, braces, parens all in one paragraph"
+      "text": "Code punishes a ragged hand, where one slip means a broken line. The even rhythm you build on plain words is exactly what carries you cleanly through syntax."
     },
     {
-      "type": "exercise",
-      "target": "else { return 0; } let n = data[i].value; for (i=0; i<n; i++) {}",
-      "finger": "green",
-      "hint": "All code symbols in flow"
+      "type": "p",
+      "text": "Worked through every step? Open the trainer below and make one full run on the lesson text. That run saves your progress and unlocks the next lesson."
     }
   ],
   "character_tips": {
-    "anna": "Real code rhythm — you can type a function now.",
+    "anna": "Real code rhythm - you can type a function now.",
     "maxim": "This is how programmers type all day. Welcome to coding speed.",
-    "knopych": "CODE TYPING! Symbols + numbers + letters — full power! 💻",
-    "klavochka": "Code is like another language — and you speak it now! ✨"
+    "knopych": "CODE TYPING! Symbols + numbers + letters - full power! 💻",
+    "klavochka": "Code is like another language - and you speak it now! ✨"
   },
   "phase": 3,
   "rhythmLesson": true,
   "created_at": "2026-05-25",
-  "version": "1.0"
+  "version": "4.0",
+  "guided": true
 }

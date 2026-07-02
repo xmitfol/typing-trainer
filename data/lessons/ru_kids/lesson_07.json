@@ -2,60 +2,106 @@
   "id": "ru_kids_lesson_07",
   "tier": "ru_kids",
   "lesson_number": 7,
-  "title": "Цифра 1 и слово \"Иван\"",
-  "description": "Заглавная буква и точка — целое предложение!",
+  "title": "Имена и точка",
+  "description": "Большая буква и точка: Вова, Лада. Дала вода.",
   "target_wpm": 13,
-  "text_length": 56,
+  "text_length": 44,
   "error_limit_percent": 10,
   "error_limit": 5,
-  "text": "Иван и Анна. Он на ивах. Она на нивах. Иван, ванна, она.",
-  "text_sequence": [],
+  "text": "Вова. Лада. Дала вода. Вова дала. Лада. Вол.",
+  "text_sequence": [
+    {"char": "В", "hand": "left", "finger": "middle", "key": "В"},
+    {"char": "о", "hand": "right", "finger": "index", "key": "О"},
+    {"char": "в", "hand": "left", "finger": "middle", "key": "В"},
+    {"char": "а", "hand": "left", "finger": "index", "key": "А"},
+    {"char": ".", "hand": "right", "finger": "index", "key": "."},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "Л", "hand": "right", "finger": "middle", "key": "Л"},
+    {"char": "а", "hand": "left", "finger": "index", "key": "А"},
+    {"char": "д", "hand": "right", "finger": "ring", "key": "Д"},
+    {"char": "а", "hand": "left", "finger": "index", "key": "А"},
+    {"char": ".", "hand": "right", "finger": "index", "key": "."},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "Д", "hand": "right", "finger": "ring", "key": "Д"},
+    {"char": "а", "hand": "left", "finger": "index", "key": "А"},
+    {"char": "л", "hand": "right", "finger": "middle", "key": "Л"},
+    {"char": "а", "hand": "left", "finger": "index", "key": "А"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "в", "hand": "left", "finger": "middle", "key": "В"},
+    {"char": "о", "hand": "right", "finger": "index", "key": "О"},
+    {"char": "д", "hand": "right", "finger": "ring", "key": "Д"},
+    {"char": "а", "hand": "left", "finger": "index", "key": "А"},
+    {"char": ".", "hand": "right", "finger": "index", "key": "."},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "В", "hand": "left", "finger": "middle", "key": "В"},
+    {"char": "о", "hand": "right", "finger": "index", "key": "О"},
+    {"char": "в", "hand": "left", "finger": "middle", "key": "В"},
+    {"char": "а", "hand": "left", "finger": "index", "key": "А"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "д", "hand": "right", "finger": "ring", "key": "Д"},
+    {"char": "а", "hand": "left", "finger": "index", "key": "А"},
+    {"char": "л", "hand": "right", "finger": "middle", "key": "Л"},
+    {"char": "а", "hand": "left", "finger": "index", "key": "А"},
+    {"char": ".", "hand": "right", "finger": "index", "key": "."},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "Л", "hand": "right", "finger": "middle", "key": "Л"},
+    {"char": "а", "hand": "left", "finger": "index", "key": "А"},
+    {"char": "д", "hand": "right", "finger": "ring", "key": "Д"},
+    {"char": "а", "hand": "left", "finger": "index", "key": "А"},
+    {"char": ".", "hand": "right", "finger": "index", "key": "."},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "В", "hand": "left", "finger": "middle", "key": "В"},
+    {"char": "о", "hand": "right", "finger": "index", "key": "О"},
+    {"char": "л", "hand": "right", "finger": "middle", "key": "Л"},
+    {"char": ".", "hand": "right", "finger": "index", "key": "."}
+  ],
   "keys_trained": [
     "А",
     "О",
     "В",
-    "Н",
-    "И",
+    "Л",
+    "Ы",
+    "Д",
+    "Space",
     "Shift",
-    ".",
-    ","
+    "."
   ],
   "new_keys": [],
-  "finger_focus": "Shift + точка + запятая",
+  "finger_focus": "Заглавная буква и точка",
   "tips": [
     {
       "type": "lead",
-      "text": "Shift делает заглавную букву"
+      "text": "Имена пишем с большой буквы, а в конце ставим точку!"
     },
     {
       "type": "drop",
-      "text": "Точка в конце предложения"
+      "text": "Хочешь большую буковку? Тихонько придержи мизинчиком клавишу-помощницу 🌸"
     },
     {
       "type": "exercise",
-      "target": "Иван и Анна. Он на ивах.",
-      "finger": "blue",
-      "hint": "Shift + точка + запятая"
+      "target": "Вова Лада Вова Лада",
+      "finger": "green",
+      "hint": "Имена всегда с большой буквы, они важные"
     },
     {
       "type": "p",
-      "text": "Запятая разделяет"
+      "text": "Сказал - поставь точку. Это правый безымянный пальчик тихонько её нажмёт 🌷"
     },
     {
       "type": "exercise",
-      "target": "Она на нивах. Иван, ванна, она.",
-      "finger": "green",
-      "hint": "Shift + точка + запятая"
+      "target": "Дала вода. Вол.",
+      "finger": "orange",
+      "hint": "Маленькое предложение, а в конце - точечка"
     }
   ],
   "character_tips": {
-    "anna": "Первое настоящее предложение! «Иван и Анна» 🌸",
-    "maxim": "Реальное предложение. Первое из многих.",
-    "knopych": "ПРЕДЛОЖЕНИЕ-РАЗБЛОКИРОВКА! 🎉",
-    "klavochka": "Целое предложение, моё сокровище! 💖 Посмотри на себя!"
+    "anna": "Имена пишем с большой буквы, а в конце ставим точку. Вова, Лада 🌷",
+    "maxim": "Не торопись. Большая буква в начале имени, а точечка говорит, что мысль закончилась.",
+    "knopych": "Большая буква в начале! Вова. Лада. А в конце - точечка 🌸",
+    "klavochka": "Имена с большой буковки, малыш: Вова, Лада. А в конце - точечка 🌷"
   },
   "phase": 1,
   "rhythmLesson": false,
   "created_at": "2026-05-26",
-  "version": "1.0"
+  "version": "2.0"
 }

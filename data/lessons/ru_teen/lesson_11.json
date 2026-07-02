@@ -3,13 +3,67 @@
   "tier": "ru_teen",
   "lesson_number": 11,
   "title": "Цифровой ряд: 1-5 (левая рука)",
-  "description": "Тянемся к цифрам — левая сторона",
+  "description": "Тянемся к цифрам - левая сторона",
   "target_wpm": 35,
   "text_length": 52,
   "error_limit_percent": 8,
   "error_limit": 4,
   "text": "1 2 3 4 5 12 23 34 45 11 22 33 44 55 1234 2345 12345",
-  "text_sequence": [],
+  "guided": true,
+  "text_sequence": [
+    {"char": "1", "hand": "left", "finger": "pinky", "key": "1"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "2", "hand": "left", "finger": "ring", "key": "2"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "3", "hand": "left", "finger": "middle", "key": "3"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "4", "hand": "left", "finger": "index", "key": "4"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "5", "hand": "left", "finger": "index", "key": "5"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "1", "hand": "left", "finger": "pinky", "key": "1"},
+    {"char": "2", "hand": "left", "finger": "ring", "key": "2"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "2", "hand": "left", "finger": "ring", "key": "2"},
+    {"char": "3", "hand": "left", "finger": "middle", "key": "3"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "3", "hand": "left", "finger": "middle", "key": "3"},
+    {"char": "4", "hand": "left", "finger": "index", "key": "4"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "4", "hand": "left", "finger": "index", "key": "4"},
+    {"char": "5", "hand": "left", "finger": "index", "key": "5"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "1", "hand": "left", "finger": "pinky", "key": "1"},
+    {"char": "1", "hand": "left", "finger": "pinky", "key": "1"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "2", "hand": "left", "finger": "ring", "key": "2"},
+    {"char": "2", "hand": "left", "finger": "ring", "key": "2"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "3", "hand": "left", "finger": "middle", "key": "3"},
+    {"char": "3", "hand": "left", "finger": "middle", "key": "3"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "4", "hand": "left", "finger": "index", "key": "4"},
+    {"char": "4", "hand": "left", "finger": "index", "key": "4"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "5", "hand": "left", "finger": "index", "key": "5"},
+    {"char": "5", "hand": "left", "finger": "index", "key": "5"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "1", "hand": "left", "finger": "pinky", "key": "1"},
+    {"char": "2", "hand": "left", "finger": "ring", "key": "2"},
+    {"char": "3", "hand": "left", "finger": "middle", "key": "3"},
+    {"char": "4", "hand": "left", "finger": "index", "key": "4"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "2", "hand": "left", "finger": "ring", "key": "2"},
+    {"char": "3", "hand": "left", "finger": "middle", "key": "3"},
+    {"char": "4", "hand": "left", "finger": "index", "key": "4"},
+    {"char": "5", "hand": "left", "finger": "index", "key": "5"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "1", "hand": "left", "finger": "pinky", "key": "1"},
+    {"char": "2", "hand": "left", "finger": "ring", "key": "2"},
+    {"char": "3", "hand": "left", "finger": "middle", "key": "3"},
+    {"char": "4", "hand": "left", "finger": "index", "key": "4"},
+    {"char": "5", "hand": "left", "finger": "index", "key": "5"}
+  ],
   "keys_trained": [
     "1",
     "2",
@@ -23,37 +77,64 @@
   "tips": [
     {
       "type": "lead",
-      "text": "Цифровой ряд — ДАЛЕКО, самая большая растяжка"
+      "text": "Цифры живут на самом верху, над буквами - это самая дальняя растяжка в курсе. Сегодня левая рука: 1 2 3 4 5. Печатать числа вслепую мало кто умеет, так что это реально твоё преимущество."
     },
     {
       "type": "drop",
-      "text": "Тот же палец, что и буква в колонке (1=мизинец, 2=безымянный...)"
+      "text": "Логика простая: цифра жмётся тем же пальцем, что и буква под ней. 1 - мизинец, 2 - безымянный, 3 - средний, 4 и 5 - указательный. Тянись вверх только нужным пальцем и сразу возвращай его на базу."
     },
     {
-      "type": "exercise",
-      "target": "1 2 3 4 5 12 23 34",
+      "type": "callout",
+      "icon": "🔢",
+      "title": "Это не цифровой блок справа",
+      "text": "Мы учим верхний ряд над буквами, а не отдельный блок цифр сбоку. Это разные навыки, и в жизни верхний ряд встречается чаще - пароли, даты, номера набираешь именно им."
+    },
+    {
+      "type": "step",
+      "kind": "drill",
+      "target": "1 2 3 1 2 3 1 2 3 1 2 3 1 2 3 1 2 3",
       "finger": "blue",
-      "hint": "Левые цифры"
+      "title": "Цифры 1 2 3",
+      "hint": "Левая рука вверх: 1 мизинец, 2 безымянный, 3 средний. После каждой - пробел, палец домой."
+    },
+    {
+      "type": "step",
+      "kind": "drill",
+      "target": "4 5 4 5 4 5 4 5 4 5 4 5 4 5 4 5 4 5 4 5",
+      "finger": "green",
+      "title": "Цифры 4 5",
+      "hint": "Обе на указательном: 4 чуть выше, 5 правее. Тянись вверх и сразу обратно на базу."
     },
     {
       "type": "p",
-      "text": "Цифровой ряд, не numpad — другой навык"
+      "text": "Пальцы нащупали цифры - собираем из них числа. Двузначные, потом подлиннее. Не разглядывай клавиши, нащупывай каждую цифру по памяти от своей буквы вверх."
     },
     {
-      "type": "exercise",
-      "target": "45 11 22 33 44 55 1234 2345 12345",
+      "type": "pullquote",
+      "text": "Числа печатают вслепую так же, как буквы - от своей клавиши, без взгляда вниз.",
+      "by": "Артём"
+    },
+    {
+      "type": "step",
+      "kind": "drill",
+      "target": "12 23 34 45 11 22 33 44 55 123 234 345 12345",
       "finger": "green",
-      "hint": "Левые цифры"
+      "title": "Числа",
+      "hint": "Цифры в связках: двойные, тройные, до пяти подряд. Каждый палец - вверх и домой."
+    },
+    {
+      "type": "p",
+      "text": "Прошёл все шаги? Жми «Открыть тренажёр» и пройди весь текст урока целиком. Этот заход сохранится в прогресс и откроет следующий урок."
     }
   ],
   "character_tips": {
     "anna": "Цифры далеко вверху. Тот же палец, что и буква в колонке.",
-    "maxim": "Цифры на основном ряду, не numpad. Это разные навыки.",
+    "maxim": "Цифры на основном ряду, а не на блоке справа. Это разные навыки.",
     "knopych": "ЦИФРЫ! 🔢 1-2-3-4-5, те же пальцы, что Й-Ц-У-К-Е!",
-    "klavochka": "Считаем до пяти, мой милый — как ступеньки! 🪜"
+    "klavochka": "Считаем до пяти, мой милый - как ступеньки! 🪜"
   },
   "phase": 1,
   "rhythmLesson": false,
   "created_at": "2026-05-26",
-  "version": "1.0"
+  "version": "4.0"
 }

@@ -2,57 +2,135 @@
   "id": "ru_kids_lesson_06",
   "tier": "ru_kids",
   "lesson_number": 6,
-  "title": "Буква И и слово «и»",
-  "description": "Буква И — правый средний на верхнем ряду",
+  "title": "Буквы Ы и Д",
+  "description": "Безымянные пальчики: Ы слева, Д справа. Слово «вода»!",
   "target_wpm": 13,
-  "text_length": 48,
+  "text_length": 41,
   "error_limit_percent": 10,
   "error_limit": 4,
-  "text": "и и и и и она и он на и в и о ива иви иван анина",
-  "text_sequence": [],
+  "text": "ы ы ы д д д ы д вода дала лады овал дало вол",
+  "text_sequence": [
+    {"char": "ы", "hand": "left", "finger": "ring", "key": "Ы"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "ы", "hand": "left", "finger": "ring", "key": "Ы"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "ы", "hand": "left", "finger": "ring", "key": "Ы"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "д", "hand": "right", "finger": "ring", "key": "Д"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "д", "hand": "right", "finger": "ring", "key": "Д"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "д", "hand": "right", "finger": "ring", "key": "Д"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "ы", "hand": "left", "finger": "ring", "key": "Ы"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "д", "hand": "right", "finger": "ring", "key": "Д"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "в", "hand": "left", "finger": "middle", "key": "В"},
+    {"char": "о", "hand": "right", "finger": "index", "key": "О"},
+    {"char": "д", "hand": "right", "finger": "ring", "key": "Д"},
+    {"char": "а", "hand": "left", "finger": "index", "key": "А"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "д", "hand": "right", "finger": "ring", "key": "Д"},
+    {"char": "а", "hand": "left", "finger": "index", "key": "А"},
+    {"char": "л", "hand": "right", "finger": "middle", "key": "Л"},
+    {"char": "а", "hand": "left", "finger": "index", "key": "А"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "л", "hand": "right", "finger": "middle", "key": "Л"},
+    {"char": "а", "hand": "left", "finger": "index", "key": "А"},
+    {"char": "д", "hand": "right", "finger": "ring", "key": "Д"},
+    {"char": "ы", "hand": "left", "finger": "ring", "key": "Ы"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "о", "hand": "right", "finger": "index", "key": "О"},
+    {"char": "в", "hand": "left", "finger": "middle", "key": "В"},
+    {"char": "а", "hand": "left", "finger": "index", "key": "А"},
+    {"char": "л", "hand": "right", "finger": "middle", "key": "Л"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "д", "hand": "right", "finger": "ring", "key": "Д"},
+    {"char": "а", "hand": "left", "finger": "index", "key": "А"},
+    {"char": "л", "hand": "right", "finger": "middle", "key": "Л"},
+    {"char": "о", "hand": "right", "finger": "index", "key": "О"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "в", "hand": "left", "finger": "middle", "key": "В"},
+    {"char": "о", "hand": "right", "finger": "index", "key": "О"},
+    {"char": "л", "hand": "right", "finger": "middle", "key": "Л"}
+  ],
   "keys_trained": [
     "А",
     "О",
     "В",
-    "Н",
-    "И"
+    "Л",
+    "Ы",
+    "Д",
+    "Space"
   ],
   "new_keys": [],
-  "finger_focus": "Правый средний наверх — И",
+  "finger_focus": "Безымянные находят Ы и Д",
+  "guided": true,
   "tips": [
     {
       "type": "lead",
-      "text": "И на верхнем ряду — тянись чуть выше"
+      "text": "Здравствуй! Сегодня просыпаются ещё два пальчика - безымянные. С ними придут буковки Ы и Д."
     },
     {
       "type": "drop",
-      "text": "Возвращайся на О после нажатия"
+      "text": "Ы жмёт ЛЕВЫЙ безымянный пальчик, а Д - ПРАВЫЙ безымянный. Они тихонькие, но очень старательные 🌸"
     },
     {
-      "type": "exercise",
-      "target": "и и и и и она и он",
-      "finger": "green",
-      "hint": "Правый средний наверх — И"
+      "type": "callout",
+      "icon": "🐾",
+      "title": "Слабенький пальчик",
+      "text": "Безымянный пальчик слушается похуже других - он ещё маленький. Не дави сильно, нажимай мягко и не спеши."
+    },
+    {
+      "type": "step",
+      "kind": "drill",
+      "target": "ы ы ы ы ы ы ы ы ы ы ы ы",
+      "finger": "orange",
+      "title": "Буква Ы",
+      "hint": "Левый безымянный пальчик - на букву Ы. После каждой - пробел."
+    },
+    {
+      "type": "step",
+      "kind": "drill",
+      "target": "д д д д д д д д д д д д",
+      "finger": "orange",
+      "title": "Буква Д",
+      "hint": "Правый безымянный пальчик - на букву Д. После каждой - пробел."
+    },
+    {
+      "type": "step",
+      "kind": "drill",
+      "target": "ы д ы д ы д ы д ы д ы д",
+      "finger": "orange",
+      "title": "Качаемся: Ы - Д",
+      "hint": "Левый пальчик - Ы, правый - Д. Качайся не спеша: Ы - Д - Ы - Д."
     },
     {
       "type": "p",
-      "text": "«И» — это союз, маленькое слово целиком"
+      "text": "Пальчики проснулись - теперь напишем слова. Налей водички: во-да! 💧"
     },
     {
-      "type": "exercise",
-      "target": "на и в и о ива иви иван анина",
-      "finger": "blue",
-      "hint": "Правый средний наверх — И"
+      "type": "step",
+      "kind": "drill",
+      "target": "вода дала лады овал дало вол",
+      "finger": "orange",
+      "title": "Слова",
+      "hint": "Слова из твоих буковок: вода, дала, лады, овал. Читай целиком и набирай ровно."
+    },
+    {
+      "type": "p",
+      "text": "Ты большая умница! Нажми «Открыть тренажёр» внизу и пройди весь урок до конца 💕"
     }
   ],
   "character_tips": {
-    "anna": "Буква И. Тянись на верхний ряд, потом обратно к О 🌷",
-    "maxim": "Растяжка вверх. Возвращайся в исходную.",
-    "knopych": "ВЕРХНИЙ РЯД! ⬆️ И разблокирована!",
-    "klavochka": "Маленькая буковка И — на цыпочках над О, мой милый 🦋"
+    "anna": "Ы и Д - безымянные пальчики. «вода», «лады» 🌷",
+    "maxim": "Добавили Ы (лев. безым.) и Д (прав. безым.). Дом. ряд растёт.",
+    "knopych": "Ы-Д! 🤖 ВОДА! ЛАДЫ! Безымянные включились!",
+    "klavochka": "Безымянные пальчики проснулись, солнышко! Ы и Д. Налей водички: во-да 💧💕"
   },
   "phase": 1,
   "rhythmLesson": false,
   "created_at": "2026-05-26",
-  "version": "1.0"
+  "version": "4.0"
 }

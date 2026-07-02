@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Админ-панель — typing-trainer</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="../assets/css/tokens.css">
+    <link rel="stylesheet" href="../assets/css/admin.css">
+    <link rel="icon" type="image/x-icon" href="../assets/images/favicon.ico">
+</head>
+<body class="admin-page">
+
+    <!-- ─── Role gate (показывается пока /me не подтвердил админ-роль) ──── -->
+    <div id="adGate" class="ad-gate">
+        <h2>Админ-панель</h2>
+        <p id="adGateMsg">Проверяем доступ…</p>
+    </div>
+
+    <!-- ─── App (скрыт до прохождения гейта) ───────────────────────────── -->
+    <div id="adApp" hidden>
+        <header class="ad-header">
+            <a href="../dashboard.html" class="ad-logo">
+                <span class="ad-logo__mark">Ё</span>
+                <span class="ad-logo__name">typing-trainer</span>
+                <span class="ad-logo__badge">ADMIN</span>
+            </a>
+            <nav class="ad-tabs" id="adTabs">
+                <button class="ad-tab" data-tab="overview">Обзор</button>
+                <button class="ad-tab" data-tab="users" data-min-role="support">Пользователи</button>
+                <button class="ad-tab" data-tab="billing" data-min-role="support">Платежи</button>
+            </nav>
+            <div class="ad-spacer"></div>
+            <div class="ad-whoami">
+                <span class="ad-whoami__email" id="adWhoEmail">—</span>
+                <span class="ad-role-chip" id="adWhoRole">—</span>
+            </div>
+            <button class="ad-logout" id="adLogout">Выйти</button>
+        </header>
+
+        <main class="ad-main">
+            <!-- ─── Обзор ─────────────────────────────────────────────── -->
+            <section class="ad-panel" data-panel="overview">
+                <div class="ad-panel__head">
+                    <h1>Обзор</h1>
+                    <div class="ad-period" id="adPeriod">
+                        <button data-period="7">7 дней</button>
+                        <button data-period="30" class="ad-period--active">30 дней</button>
+                        <button data-period="90">90 дней</button>
+                    </div>
+                </div>
+                <div class="ad-metrics" id="adMetrics"></div>
+            </section>
+
+            <!-- ─── Пользователи ──────────────────────────────────────── -->
+            <section class="ad-panel" data-panel="users">
+                <div id="adUsersList">
+                    <div class="ad-panel__head"><h1>Пользователи</h1></div>
+                    <div class="ad-filters">
+                        <input class="ad-input" id="adUserSearch" placeholder="Поиск по email / имени / id">
+                        <select class="ad-select" id="adUserAudience">
+                            <option value="">Аудитория: любая</option>
+                            <option value="adult">adult</option>
+                            <option value="teen">teen</option>
+                            <option value="kid">kid</option>
+                        </select>
+                        <select class="ad-select" id="adUserVerified">
+                            <option value="">Email: любой</option>
+                            <option value="true">подтверждён</option>
+                            <option value="false">не подтверждён</option>
+                        </select>
+                        <select class="ad-select" id="adUserSub">
+                            <option value="">Подписка: любая</option>
+                            <option value="true">есть активная</option>
+                            <option value="false">нет</option>
+                        </select>
+                        <select class="ad-select" id="adUserDeleted">
+                            <option value="">Статус: все</option>
+                            <option value="false">активные</option>
+                            <option value="true">заблокированные</option>
+                        </select>
+                        <button class="ad-btn ad-btn--primary" id="adUserSearchBtn">Найти</button>
+                    </div>
+                    <div class="ad-table-wrap">
+                        <table class="ad-table">
+                            <thead><tr>
+                                <th>Email</th><th>Имя</th><th>Аудитория</th><th>Роль</th>
+                                <th>Email✓</th><th>Статус</th><th>Создан</th>
+                            </tr></thead>
+                            <tbody id="adUsersBody"></tbody>
+                        </table>
+                    </div>
+                    <div class="ad-pager" id="adUsersPager"></div>
+                </div>
+                <div id="adUserDetail" hidden></div>
+            </section>
+
+            <!-- ─── Платежи ───────────────────────────────────────────── -->
+            <section class="ad-panel" data-panel="billing">
+                <div id="adSubsList">
+                    <div class="ad-panel__head">
+                        <h1>Платежи и подписки</h1>
+                        <button class="ad-btn ad-btn--primary" id="adGrantBtn">+ Выдать подписку</button>
+                    </div>
+                    <div class="ad-filters">
+                        <select class="ad-select" id="adSubStatus">
+                            <option value="">Статус: любой</option>
+                            <option value="pending">pending</option>
+                            <option value="active">active</option>
+                            <option value="grace">grace</option>
+                            <option value="expired">expired</option>
+                            <option value="cancelled">cancelled</option>
+                            <option value="failed">failed</option>
+                        </select>
+                        <select class="ad-select" id="adSubPlan">
+                            <option value="">План: любой</option>
+                            <option value="premium">premium</option>
+                            <option value="family">family</option>
+                        </select>
+                        <select class="ad-select" id="adSubProvider">
+                            <option value="">Провайдер: любой</option>
+                            <option value="yookassa">yookassa</option>
+                            <option value="stub">stub</option>
+                            <option value="manual">manual</option>
+                        </select>
+                        <button class="ad-btn ad-btn--primary" id="adSubSearchBtn">Найти</button>
+                    </div>
+                    <div class="ad-table-wrap">
+                        <table class="ad-table">
+                            <thead><tr>
+                                <th>ID</th><th>User</th><th>План</th><th>Период</th>
+                                <th>Статус</th><th>Провайдер</th><th>Сумма</th><th>Истекает</th>
+                            </tr></thead>
+                            <tbody id="adSubsBody"></tbody>
+                        </table>
+                    </div>
+                    <div class="ad-pager" id="adSubsPager"></div>
+                </div>
+                <div id="adSubDetail" hidden></div>
+            </section>
+        </main>
+    </div>
+
+    <div class="ad-toast-wrap" id="adToasts"></div>
+    <div id="adModalRoot"></div>
+
+    <!-- ─── JS ─────────────────────────────────────────────────────────── -->
+    <script src="../assets/js/api-client.js"></script>
+    <script src="../assets/js/admin.js"></script>
+</body>
+</html>

@@ -2,585 +2,50 @@
   "id": "tier1_lesson_20",
   "tier": 1,
   "lesson_number": 20,
-  "title": "Все 33 буквы - практика",
-  "description": "Финальный урок с практикой всех букв русского алфавита",
-  "target_wpm": 28,
-  "text_length": 150,
+  "title": "Нижний ряд: Ю и Ё — все 33 буквы",
+  "description": "Завершаем алфавит: Ю (безымянный правой) и Ё (мизинец левой)",
+  "target_wpm": 29,
+  "text_length": 30,
   "error_limit_percent": 5,
-  "error_limit": 8,
-  "text": "ёж ёлка поёт полёт семья объём подъём разъём съёмка приём объявление съедобный чёрный зелёный",
+  "error_limit": 3,
+  "text": "ю ю ю ё ё ё юг юла мою пою бюро ёлка",
   "text_sequence": [
-    {
-      "char": "ё",
-      "hand": "left",
-      "finger": "index",
-      "key": "Ё"
-    },
-    {
-      "char": "ж",
-      "hand": "left",
-      "finger": "index",
-      "key": "Ж"
-    },
-    {
-      "char": " ",
-      "hand": "right",
-      "finger": "thumb",
-      "key": "Space",
-      "space_side": "right"
-    },
-    {
-      "char": "ё",
-      "hand": "right",
-      "finger": "index",
-      "key": "Ё"
-    },
-    {
-      "char": "л",
-      "hand": "right",
-      "finger": "middle",
-      "key": "Л"
-    },
-    {
-      "char": "к",
-      "hand": "right",
-      "finger": "middle",
-      "key": "К"
-    },
-    {
-      "char": "а",
-      "hand": "right",
-      "finger": "index",
-      "key": "А"
-    },
-    {
-      "char": " ",
-      "hand": "left",
-      "finger": "thumb",
-      "key": "Space",
-      "space_side": "left"
-    },
-    {
-      "char": "п",
-      "hand": "left",
-      "finger": "ring",
-      "key": "П"
-    },
-    {
-      "char": "о",
-      "hand": "left",
-      "finger": "index",
-      "key": "О"
-    },
-    {
-      "char": "ё",
-      "hand": "left",
-      "finger": "index",
-      "key": "Ё"
-    },
-    {
-      "char": "т",
-      "hand": "left",
-      "finger": "index",
-      "key": "Т"
-    },
-    {
-      "char": " ",
-      "hand": "right",
-      "finger": "thumb",
-      "key": "Space",
-      "space_side": "right"
-    },
-    {
-      "char": "п",
-      "hand": "right",
-      "finger": "ring",
-      "key": "П"
-    },
-    {
-      "char": "о",
-      "hand": "right",
-      "finger": "index",
-      "key": "О"
-    },
-    {
-      "char": "л",
-      "hand": "right",
-      "finger": "middle",
-      "key": "Л"
-    },
-    {
-      "char": "ё",
-      "hand": "right",
-      "finger": "index",
-      "key": "Ё"
-    },
-    {
-      "char": "т",
-      "hand": "right",
-      "finger": "index",
-      "key": "Т"
-    },
-    {
-      "char": " ",
-      "hand": "left",
-      "finger": "thumb",
-      "key": "Space",
-      "space_side": "left"
-    },
-    {
-      "char": "с",
-      "hand": "left",
-      "finger": "middle",
-      "key": "С"
-    },
-    {
-      "char": "е",
-      "hand": "left",
-      "finger": "index",
-      "key": "Е"
-    },
-    {
-      "char": "м",
-      "hand": "left",
-      "finger": "index",
-      "key": "М"
-    },
-    {
-      "char": "ь",
-      "hand": "left",
-      "finger": "middle",
-      "key": "Ь"
-    },
-    {
-      "char": "я",
-      "hand": "left",
-      "finger": "index",
-      "key": "Я"
-    },
-    {
-      "char": " ",
-      "hand": "right",
-      "finger": "thumb",
-      "key": "Space",
-      "space_side": "right"
-    },
-    {
-      "char": "о",
-      "hand": "right",
-      "finger": "index",
-      "key": "О"
-    },
-    {
-      "char": "б",
-      "hand": "right",
-      "finger": "index",
-      "key": "Б"
-    },
-    {
-      "char": "ъ",
-      "hand": "right",
-      "finger": "pinky",
-      "key": "Ъ"
-    },
-    {
-      "char": "ё",
-      "hand": "right",
-      "finger": "index",
-      "key": "Ё"
-    },
-    {
-      "char": "м",
-      "hand": "right",
-      "finger": "index",
-      "key": "М"
-    },
-    {
-      "char": " ",
-      "hand": "left",
-      "finger": "thumb",
-      "key": "Space",
-      "space_side": "left"
-    },
-    {
-      "char": "п",
-      "hand": "left",
-      "finger": "ring",
-      "key": "П"
-    },
-    {
-      "char": "о",
-      "hand": "left",
-      "finger": "index",
-      "key": "О"
-    },
-    {
-      "char": "д",
-      "hand": "left",
-      "finger": "ring",
-      "key": "Д"
-    },
-    {
-      "char": "ъ",
-      "hand": "left",
-      "finger": "pinky",
-      "key": "Ъ"
-    },
-    {
-      "char": "ё",
-      "hand": "left",
-      "finger": "index",
-      "key": "Ё"
-    },
-    {
-      "char": "м",
-      "hand": "left",
-      "finger": "index",
-      "key": "М"
-    },
-    {
-      "char": " ",
-      "hand": "right",
-      "finger": "thumb",
-      "key": "Space",
-      "space_side": "right"
-    },
-    {
-      "char": "р",
-      "hand": "right",
-      "finger": "index",
-      "key": "Р"
-    },
-    {
-      "char": "а",
-      "hand": "right",
-      "finger": "index",
-      "key": "А"
-    },
-    {
-      "char": "з",
-      "hand": "right",
-      "finger": "ring",
-      "key": "З"
-    },
-    {
-      "char": "ъ",
-      "hand": "right",
-      "finger": "pinky",
-      "key": "Ъ"
-    },
-    {
-      "char": "ё",
-      "hand": "right",
-      "finger": "index",
-      "key": "Ё"
-    },
-    {
-      "char": "м",
-      "hand": "right",
-      "finger": "index",
-      "key": "М"
-    },
-    {
-      "char": " ",
-      "hand": "left",
-      "finger": "thumb",
-      "key": "Space",
-      "space_side": "left"
-    },
-    {
-      "char": "с",
-      "hand": "left",
-      "finger": "middle",
-      "key": "С"
-    },
-    {
-      "char": "ъ",
-      "hand": "left",
-      "finger": "pinky",
-      "key": "Ъ"
-    },
-    {
-      "char": "ё",
-      "hand": "left",
-      "finger": "index",
-      "key": "Ё"
-    },
-    {
-      "char": "м",
-      "hand": "left",
-      "finger": "index",
-      "key": "М"
-    },
-    {
-      "char": "к",
-      "hand": "left",
-      "finger": "middle",
-      "key": "К"
-    },
-    {
-      "char": "а",
-      "hand": "left",
-      "finger": "index",
-      "key": "А"
-    },
-    {
-      "char": " ",
-      "hand": "right",
-      "finger": "thumb",
-      "key": "Space",
-      "space_side": "right"
-    },
-    {
-      "char": "п",
-      "hand": "right",
-      "finger": "ring",
-      "key": "П"
-    },
-    {
-      "char": "р",
-      "hand": "right",
-      "finger": "index",
-      "key": "Р"
-    },
-    {
-      "char": "и",
-      "hand": "right",
-      "finger": "index",
-      "key": "И"
-    },
-    {
-      "char": "ё",
-      "hand": "right",
-      "finger": "index",
-      "key": "Ё"
-    },
-    {
-      "char": "м",
-      "hand": "right",
-      "finger": "index",
-      "key": "М"
-    },
-    {
-      "char": " ",
-      "hand": "left",
-      "finger": "thumb",
-      "key": "Space",
-      "space_side": "left"
-    },
-    {
-      "char": "о",
-      "hand": "left",
-      "finger": "index",
-      "key": "О"
-    },
-    {
-      "char": "б",
-      "hand": "left",
-      "finger": "index",
-      "key": "Б"
-    },
-    {
-      "char": "ъ",
-      "hand": "left",
-      "finger": "pinky",
-      "key": "Ъ"
-    },
-    {
-      "char": "я",
-      "hand": "left",
-      "finger": "index",
-      "key": "Я"
-    },
-    {
-      "char": "в",
-      "hand": "left",
-      "finger": "middle",
-      "key": "В"
-    },
-    {
-      "char": "л",
-      "hand": "left",
-      "finger": "middle",
-      "key": "Л"
-    },
-    {
-      "char": "е",
-      "hand": "left",
-      "finger": "index",
-      "key": "Е"
-    },
-    {
-      "char": "н",
-      "hand": "left",
-      "finger": "index",
-      "key": "Н"
-    },
-    {
-      "char": "и",
-      "hand": "left",
-      "finger": "index",
-      "key": "И"
-    },
-    {
-      "char": "е",
-      "hand": "left",
-      "finger": "index",
-      "key": "Е"
-    },
-    {
-      "char": " ",
-      "hand": "right",
-      "finger": "thumb",
-      "key": "Space",
-      "space_side": "right"
-    },
-    {
-      "char": "с",
-      "hand": "right",
-      "finger": "middle",
-      "key": "С"
-    },
-    {
-      "char": "ъ",
-      "hand": "right",
-      "finger": "pinky",
-      "key": "Ъ"
-    },
-    {
-      "char": "е",
-      "hand": "right",
-      "finger": "index",
-      "key": "Е"
-    },
-    {
-      "char": "д",
-      "hand": "right",
-      "finger": "ring",
-      "key": "Д"
-    },
-    {
-      "char": "о",
-      "hand": "right",
-      "finger": "index",
-      "key": "О"
-    },
-    {
-      "char": "б",
-      "hand": "right",
-      "finger": "index",
-      "key": "Б"
-    },
-    {
-      "char": "н",
-      "hand": "right",
-      "finger": "index",
-      "key": "Н"
-    },
-    {
-      "char": "ы",
-      "hand": "right",
-      "finger": "ring",
-      "key": "Ы"
-    },
-    {
-      "char": "й",
-      "hand": "right",
-      "finger": "index",
-      "key": "Й"
-    },
-    {
-      "char": " ",
-      "hand": "left",
-      "finger": "thumb",
-      "key": "Space",
-      "space_side": "left"
-    },
-    {
-      "char": "ч",
-      "hand": "left",
-      "finger": "middle",
-      "key": "Ч"
-    },
-    {
-      "char": "ё",
-      "hand": "left",
-      "finger": "index",
-      "key": "Ё"
-    },
-    {
-      "char": "р",
-      "hand": "left",
-      "finger": "index",
-      "key": "Р"
-    },
-    {
-      "char": "н",
-      "hand": "left",
-      "finger": "index",
-      "key": "Н"
-    },
-    {
-      "char": "ы",
-      "hand": "left",
-      "finger": "ring",
-      "key": "Ы"
-    },
-    {
-      "char": "й",
-      "hand": "left",
-      "finger": "index",
-      "key": "Й"
-    },
-    {
-      "char": " ",
-      "hand": "right",
-      "finger": "thumb",
-      "key": "Space",
-      "space_side": "right"
-    },
-    {
-      "char": "з",
-      "hand": "right",
-      "finger": "ring",
-      "key": "З"
-    },
-    {
-      "char": "е",
-      "hand": "right",
-      "finger": "index",
-      "key": "Е"
-    },
-    {
-      "char": "л",
-      "hand": "right",
-      "finger": "middle",
-      "key": "Л"
-    },
-    {
-      "char": "ё",
-      "hand": "right",
-      "finger": "index",
-      "key": "Ё"
-    },
-    {
-      "char": "н",
-      "hand": "right",
-      "finger": "index",
-      "key": "Н"
-    },
-    {
-      "char": "ы",
-      "hand": "right",
-      "finger": "ring",
-      "key": "Ы"
-    },
-    {
-      "char": "й",
-      "hand": "right",
-      "finger": "index",
-      "key": "Й"
-    }
+    {"char": "ю", "hand": "right", "finger": "ring", "key": "Ю"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "ю", "hand": "right", "finger": "ring", "key": "Ю"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "ю", "hand": "right", "finger": "ring", "key": "Ю"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "ё", "hand": "left", "finger": "pinky", "key": "Ё"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "ё", "hand": "left", "finger": "pinky", "key": "Ё"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "ё", "hand": "left", "finger": "pinky", "key": "Ё"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "ю", "hand": "right", "finger": "ring", "key": "Ю"},
+    {"char": "г", "hand": "right", "finger": "index", "key": "Г"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "ю", "hand": "right", "finger": "ring", "key": "Ю"},
+    {"char": "л", "hand": "right", "finger": "middle", "key": "Л"},
+    {"char": "а", "hand": "left", "finger": "index", "key": "А"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "м", "hand": "left", "finger": "index", "key": "М"},
+    {"char": "о", "hand": "right", "finger": "index", "key": "О"},
+    {"char": "ю", "hand": "right", "finger": "ring", "key": "Ю"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "п", "hand": "left", "finger": "index", "key": "П"},
+    {"char": "о", "hand": "right", "finger": "index", "key": "О"},
+    {"char": "ю", "hand": "right", "finger": "ring", "key": "Ю"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "б", "hand": "right", "finger": "middle", "key": "Б"},
+    {"char": "ю", "hand": "right", "finger": "ring", "key": "Ю"},
+    {"char": "р", "hand": "right", "finger": "index", "key": "Р"},
+    {"char": "о", "hand": "right", "finger": "index", "key": "О"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "ё", "hand": "left", "finger": "pinky", "key": "Ё"},
+    {"char": "л", "hand": "right", "finger": "middle", "key": "Л"},
+    {"char": "к", "hand": "left", "finger": "index", "key": "К"},
+    {"char": "а", "hand": "left", "finger": "index", "key": "А"}
   ],
   "keys_trained": [
     "А",
@@ -618,57 +83,32 @@
     "Я",
     "Space"
   ],
-  "new_keys": [],
-  "finger_focus": "ВСЕ ПАЛЬЦЫ - полный русский алфавит (33 буквы)",
+  "new_keys": [
+    "Ю",
+    "Ё"
+  ],
+  "finger_focus": "Ю (правый безымянный, нижний ряд) и Ё (левый мизинец) — последние буквы алфавита",
+  "guided": true,
   "tips": [
-    {
-      "type": "lead",
-      "text": "🎉 ВСЕ 33 БУКВЫ РУССКОГО АЛФАВИТА!"
-    },
-    {
-      "type": "drop",
-      "text": "Ё - частая в разговорной речи"
-    },
-    {
-      "type": "exercise",
-      "target": "ёж ёлка поёт полёт семья объём подъём",
-      "finger": "blue",
-      "hint": "ВСЕ ПАЛЬЦЫ - полный русский алфавит (33 буквы)"
-    },
-    {
-      "type": "p",
-      "text": "ЁЖ, ЁЛКА, ПОЁТ - знакомые слова"
-    },
-    {
-      "type": "callout",
-      "icon": "💡",
-      "title": "Подсказка",
-      "text": "ОБЪЁМ, ПОДЪЁМ, РАЗЪЁМ - с твёрдым знаком"
-    },
-    {
-      "type": "p",
-      "text": "ЧЁРНЫЙ, ЗЕЛЁНЫЙ - прилагательные с Ё"
-    },
-    {
-      "type": "pullquote",
-      "text": "Алфавит полностью освоен!",
-      "by": "методика курса"
-    },
-    {
-      "type": "exercise",
-      "target": "разъём съёмка приём объявление съедобный чёрный зелёный",
-      "finger": "green",
-      "hint": "ВСЕ ПАЛЬЦЫ - полный русский алфавит (33 буквы)"
-    }
+    {"type": "lead", "text": "Последние две буквы алфавита! Ю — безымянный правой руки, опускается вниз от Д. Ё — мизинец левой руки, в левом верхнем углу над Й. Освоишь их — и все 33 буквы русского алфавита будут твои."},
+    {"type": "drop", "text": "Пальцы на ФЫВА ОЛДЖ, большие — над пробелом. Опусти правый безымянный на Ю, нажми и верни на Д. Ё стоит отдельно, в углу над Й: мизинец тянется далеко вверх-влево, нажимает и сразу возвращается на Ф. Дом не теряй."},
+    {"type": "callout", "icon": "🏁", "title": "Финишная прямая", "text": "Ю требует точного спуска слабым безымянным, Ё — дальнего движения мизинцем в угол. Оба пальца слабые — не спеши, бей точно и возвращай палец домой. После Ю — безымянный на Д, после Ё — мизинец на Ф."},
+    {"type": "step", "kind": "drill", "target": "ю ю ю ю ю ю ю ю ю ю ю ю ю ю ю ю ю ю ю ю", "finger": "orange", "title": "Буква Ю", "hint": "Безымянный палец правой руки вниз — буква Ю, после каждой возвращай палец на Д"},
+    {"type": "step", "kind": "drill", "target": "ё ё ё ё ё ё ё ё ё ё ё ё ё ё ё ё ё ё ё ё", "finger": "pink", "title": "Буква Ё", "hint": "Мизинец левой руки вверх-влево в угол — буква Ё, после каждой возвращай палец на Ф"},
+    {"type": "step", "kind": "drill", "target": "ю ё ю ё ю ё ю ё ю ё ю ё ю ё ю ё ю ё ю ё", "finger": "orange", "title": "Чередование", "hint": "Чередуем последние буквы: Ю — Ё — Ю — Ё, после каждой — домой"},
+    {"type": "p", "text": "Две последние буквы в руках — собираем слова. Это финальный шаг: с Ю и Ё алфавит замыкается. Читай слово целиком и набирай ровно, не глядя на руки, каждый палец после удара — обратно на дом."},
+    {"type": "pullquote", "text": "Все 33 буквы собраны. Постановка рук завершена — дальше только скорость и связные тексты.", "by": "методика курса"},
+    {"type": "step", "kind": "drill", "target": "юг юла мою пою бюро ёлка юг юла мою пою бюро ёлка", "finger": "pink", "title": "Слова", "hint": "Слова с новыми буквами: юг, юла, мою, пою, бюро, ёлка"},
+    {"type": "p", "text": "Поздравляем — это была последняя буква! Все 33 буквы алфавита освоены. Нажми «Открыть тренажёр» ниже и сделай полный заход на весь текст урока: он сохраняется в прогресс и завершает постановку рук."}
   ],
   "character_tips": {
-    "anna": "🎉🎉🎉 БРАВО! ВСЕ 33 БУКВЫ! ЁЖ-ЁЛКА-ПОЛЁТ, ОБЪЁМ-ПОДЪЁМ! Готов к скорости!",
-    "maxim": "🎉🎉🎉 Превосходно! Полный русский алфавит освоен. Теперь фокус на скорость и точность!",
-    "knopych": "🎉🎉🎉 НЕВЕРОЯТНО! ЁЖ-ЁЛКА-ПОЁТ! ЧЁРНЫЙ-ЗЕЛЁНЫЙ! ВСЕ 33 БУКВЫ ТВОИ!",
-    "klavochka": "🎉🎉🎉 Ты просто СУПЕР-ГЕРОЙ! Весь алфавит! ЁЖ-ЁЛКА - милые слова! Ура!"
+    "anna": "Поздравляю! Ю и Ё — последние буквы. Теперь все 33 буквы алфавита твои! ЮГ, ЮЛА, ЁЛКА — постановка рук завершена!",
+    "maxim": "Отличная работа! Алфавит освоен полностью, постановка рук завершена. Все буквы под пальцами — впереди скорость и связные тексты.",
+    "knopych": "Вау-у-у! ВСЕ 33 БУКВЫ! ЮГ-ЮЛА-БЮРО-ЁЛКА! Алфавит покорён целиком — мы это сделали!",
+    "klavochka": "Какой ты молодец! Ю и Ё — и весь алфавит готов! ЁЛКА, БЮРО — праздничные слова на финал!"
   },
-  "phase": 2,
+  "phase": 1,
   "rhythmLesson": false,
   "created_at": "2025-11-19",
-  "version": "2.0"
+  "version": "4.0"
 }

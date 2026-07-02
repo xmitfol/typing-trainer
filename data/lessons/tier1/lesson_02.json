@@ -2,342 +2,79 @@
   "id": "tier1_lesson_02",
   "tier": 1,
   "lesson_number": 2,
-  "title": "Добавляем Л и Д",
-  "description": "Новые буквы: Л (правый средний) и Д (правый безымянный)",
+  "title": "Добавляем Ы и Д",
+  "description": "Новые буквы среднего ряда: Ы (левый безымянный) и Д (правый безымянный)",
   "target_wpm": 12,
-  "text_length": 45,
+  "text_length": 40,
   "error_limit_percent": 5,
   "error_limit": 2,
-  "text": "ал ол ад од лад дол вол дал она лов вон дно",
+  "text": "ы ы ы д д д вода дала овал лады дало вол",
   "text_sequence": [
-    {
-      "char": "а",
-      "hand": "left",
-      "finger": "index",
-      "key": "А"
-    },
-    {
-      "char": "л",
-      "hand": "left",
-      "finger": "middle",
-      "key": "Л"
-    },
-    {
-      "char": " ",
-      "hand": "right",
-      "finger": "thumb",
-      "key": "Space",
-      "space_side": "right"
-    },
-    {
-      "char": "о",
-      "hand": "right",
-      "finger": "index",
-      "key": "О"
-    },
-    {
-      "char": "л",
-      "hand": "right",
-      "finger": "middle",
-      "key": "Л"
-    },
-    {
-      "char": " ",
-      "hand": "left",
-      "finger": "thumb",
-      "key": "Space",
-      "space_side": "left"
-    },
-    {
-      "char": "а",
-      "hand": "left",
-      "finger": "index",
-      "key": "А"
-    },
-    {
-      "char": "д",
-      "hand": "left",
-      "finger": "ring",
-      "key": "Д"
-    },
-    {
-      "char": " ",
-      "hand": "right",
-      "finger": "thumb",
-      "key": "Space",
-      "space_side": "right"
-    },
-    {
-      "char": "о",
-      "hand": "right",
-      "finger": "index",
-      "key": "О"
-    },
-    {
-      "char": "д",
-      "hand": "right",
-      "finger": "ring",
-      "key": "Д"
-    },
-    {
-      "char": " ",
-      "hand": "left",
-      "finger": "thumb",
-      "key": "Space",
-      "space_side": "left"
-    },
-    {
-      "char": "л",
-      "hand": "left",
-      "finger": "middle",
-      "key": "Л"
-    },
-    {
-      "char": "а",
-      "hand": "left",
-      "finger": "index",
-      "key": "А"
-    },
-    {
-      "char": "д",
-      "hand": "left",
-      "finger": "ring",
-      "key": "Д"
-    },
-    {
-      "char": " ",
-      "hand": "right",
-      "finger": "thumb",
-      "key": "Space",
-      "space_side": "right"
-    },
-    {
-      "char": "д",
-      "hand": "right",
-      "finger": "ring",
-      "key": "Д"
-    },
-    {
-      "char": "о",
-      "hand": "right",
-      "finger": "index",
-      "key": "О"
-    },
-    {
-      "char": "л",
-      "hand": "right",
-      "finger": "middle",
-      "key": "Л"
-    },
-    {
-      "char": " ",
-      "hand": "left",
-      "finger": "thumb",
-      "key": "Space",
-      "space_side": "left"
-    },
-    {
-      "char": "в",
-      "hand": "left",
-      "finger": "middle",
-      "key": "В"
-    },
-    {
-      "char": "о",
-      "hand": "left",
-      "finger": "index",
-      "key": "О"
-    },
-    {
-      "char": "л",
-      "hand": "left",
-      "finger": "middle",
-      "key": "Л"
-    },
-    {
-      "char": " ",
-      "hand": "right",
-      "finger": "thumb",
-      "key": "Space",
-      "space_side": "right"
-    },
-    {
-      "char": "д",
-      "hand": "right",
-      "finger": "ring",
-      "key": "Д"
-    },
-    {
-      "char": "а",
-      "hand": "right",
-      "finger": "index",
-      "key": "А"
-    },
-    {
-      "char": "л",
-      "hand": "right",
-      "finger": "middle",
-      "key": "Л"
-    },
-    {
-      "char": " ",
-      "hand": "left",
-      "finger": "thumb",
-      "key": "Space",
-      "space_side": "left"
-    },
-    {
-      "char": "о",
-      "hand": "left",
-      "finger": "index",
-      "key": "О"
-    },
-    {
-      "char": "н",
-      "hand": "left",
-      "finger": "index",
-      "key": "Н"
-    },
-    {
-      "char": "а",
-      "hand": "left",
-      "finger": "index",
-      "key": "А"
-    },
-    {
-      "char": " ",
-      "hand": "right",
-      "finger": "thumb",
-      "key": "Space",
-      "space_side": "right"
-    },
-    {
-      "char": "л",
-      "hand": "right",
-      "finger": "middle",
-      "key": "Л"
-    },
-    {
-      "char": "о",
-      "hand": "right",
-      "finger": "index",
-      "key": "О"
-    },
-    {
-      "char": "в",
-      "hand": "right",
-      "finger": "middle",
-      "key": "В"
-    },
-    {
-      "char": " ",
-      "hand": "left",
-      "finger": "thumb",
-      "key": "Space",
-      "space_side": "left"
-    },
-    {
-      "char": "в",
-      "hand": "left",
-      "finger": "middle",
-      "key": "В"
-    },
-    {
-      "char": "о",
-      "hand": "left",
-      "finger": "index",
-      "key": "О"
-    },
-    {
-      "char": "н",
-      "hand": "left",
-      "finger": "index",
-      "key": "Н"
-    },
-    {
-      "char": " ",
-      "hand": "right",
-      "finger": "thumb",
-      "key": "Space",
-      "space_side": "right"
-    },
-    {
-      "char": "д",
-      "hand": "right",
-      "finger": "ring",
-      "key": "Д"
-    },
-    {
-      "char": "н",
-      "hand": "right",
-      "finger": "index",
-      "key": "Н"
-    },
-    {
-      "char": "о",
-      "hand": "right",
-      "finger": "index",
-      "key": "О"
-    }
+    {"char": "ы", "hand": "left", "finger": "ring", "key": "Ы"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "ы", "hand": "left", "finger": "ring", "key": "Ы"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "ы", "hand": "left", "finger": "ring", "key": "Ы"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "д", "hand": "right", "finger": "ring", "key": "Д"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "д", "hand": "right", "finger": "ring", "key": "Д"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "д", "hand": "right", "finger": "ring", "key": "Д"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "в", "hand": "left", "finger": "middle", "key": "В"},
+    {"char": "о", "hand": "right", "finger": "index", "key": "О"},
+    {"char": "д", "hand": "right", "finger": "ring", "key": "Д"},
+    {"char": "а", "hand": "left", "finger": "index", "key": "А"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "д", "hand": "right", "finger": "ring", "key": "Д"},
+    {"char": "а", "hand": "left", "finger": "index", "key": "А"},
+    {"char": "л", "hand": "right", "finger": "middle", "key": "Л"},
+    {"char": "а", "hand": "left", "finger": "index", "key": "А"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "о", "hand": "right", "finger": "index", "key": "О"},
+    {"char": "в", "hand": "left", "finger": "middle", "key": "В"},
+    {"char": "а", "hand": "left", "finger": "index", "key": "А"},
+    {"char": "л", "hand": "right", "finger": "middle", "key": "Л"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "л", "hand": "right", "finger": "middle", "key": "Л"},
+    {"char": "а", "hand": "left", "finger": "index", "key": "А"},
+    {"char": "д", "hand": "right", "finger": "ring", "key": "Д"},
+    {"char": "ы", "hand": "left", "finger": "ring", "key": "Ы"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "д", "hand": "right", "finger": "ring", "key": "Д"},
+    {"char": "а", "hand": "left", "finger": "index", "key": "А"},
+    {"char": "л", "hand": "right", "finger": "middle", "key": "Л"},
+    {"char": "о", "hand": "right", "finger": "index", "key": "О"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "в", "hand": "left", "finger": "middle", "key": "В"},
+    {"char": "о", "hand": "right", "finger": "index", "key": "О"},
+    {"char": "л", "hand": "right", "finger": "middle", "key": "Л"}
   ],
-  "keys_trained": [
-    "А",
-    "О",
-    "В",
-    "Н",
-    "Л",
-    "Д",
-    "Space"
-  ],
-  "new_keys": [
-    "Л",
-    "Д"
-  ],
-  "finger_focus": "Средние и безымянные пальцы (Л - средний, Д - безымянный)",
+  "keys_trained": ["А", "О", "В", "Л", "Ы", "Д", "Space"],
+  "new_keys": ["Ы", "Д"],
+  "finger_focus": "Безымянные пальцы среднего ряда (Ы — левый, Д — правый)",
+  "guided": true,
   "tips": [
-    {
-      "type": "lead",
-      "text": "Л - средний палец правой руки, основной ряд"
-    },
-    {
-      "type": "drop",
-      "text": "Д - безымянный палец правой руки, основной ряд"
-    },
-    {
-      "type": "exercise",
-      "target": "ал ол ад од лад дол",
-      "finger": "orange",
-      "hint": "Средние и безымянные пальцы (Л - средний, Д - безымянный)"
-    },
-    {
-      "type": "p",
-      "text": "ЛАД, ДОЛ, ВОЛ - первые слова!"
-    },
-    {
-      "type": "callout",
-      "icon": "💡",
-      "title": "Подсказка",
-      "text": "Безымянный палец слабее - не спеши с Д"
-    },
-    {
-      "type": "p",
-      "text": "Возвращай пальцы в исходную позицию после каждой буквы"
-    },
-    {
-      "type": "exercise",
-      "target": "вол дал она лов вон дно",
-      "finger": "pink",
-      "hint": "Средние и безымянные пальцы (Л - средний, Д - безымянный)"
-    }
+    {"type": "lead", "text": "Руки уже знают средний ряд — добавляем две новые буквы: Ы и Д. Обе на среднем ряду, тянуться никуда не нужно. Главное на этом уроке — включить в работу безымянные пальцы."},
+    {"type": "drop", "text": "Ы — безымянный палец левой руки (сразу слева от В), Д — безымянный палец правой (справа от Л). Большие пальцы по-прежнему над пробелом, остальные — на исходной позиции ФЫВА ОЛДЖ. Нащупай Ы и Д, не отрывая других пальцев от дома."},
+    {"type": "callout", "icon": "🖐", "title": "Слабый палец — больше внимания", "text": "Безымянный палец самостоятельно слушается хуже указательного и среднего. Не дави сильно и не спеши: ровный спокойный счёт «раз» на каждое нажатие, и сразу возвращай палец на место."},
+    {"type": "step", "kind": "drill", "target": "ы ы ы ы ы ы ы ы ы ы ы ы ы ы ы ы ы ы ы ы", "finger": "orange", "title": "Буква Ы", "hint": "Безымянный палец левой руки — буква Ы, после каждой — пробел"},
+    {"type": "step", "kind": "drill", "target": "д д д д д д д д д д д д д д д д д д д д", "finger": "orange", "title": "Буква Д", "hint": "Безымянный палец правой руки — буква Д, после каждой — пробел"},
+    {"type": "step", "kind": "drill", "target": "ы д ы д ы д ы д ы д ы д ы д ы д ы д ы д", "finger": "orange", "title": "Чередование", "hint": "Чередуем безымянные: Ы — Д — Ы — Д, после каждой — пробел"},
+    {"type": "p", "text": "Безымянные включились — теперь собираем слова. У нас уже шесть букв (А О В Л Ы Д), и из них складываются настоящие слова среднего ряда. Читай слово целиком и набирай ровно, не глядя на руки."},
+    {"type": "pullquote", "text": "Точность бьёт скорость. Скорость приходит сама, когда точность стабилизируется.", "by": "методика курса"},
+    {"type": "step", "kind": "drill", "target": "вода дала овал лады дало вол вода дала овал лады дало вол", "finger": "orange", "title": "Слова", "hint": "Слова из освоенных букв: вода, дала, овал, лады, дало, вол"},
+    {"type": "p", "text": "Все шаги пройдены? Тогда нажми «Открыть тренажёр» ниже и сделай полный заход на весь текст урока. Этот заход сохраняется в прогресс и открывает следующий урок."}
   ],
   "character_tips": {
-    "anna": "Отлично! Л и Д - новые друзья твоих пальцев. ВОЛ, ДОЛ - уже настоящие слова!",
-    "maxim": "Хорошая работа! Средний и безымянный правой руки - важная пара. Безымянный слабее, ему нужна практика.",
-    "knopych": "Вау! ЛАД-ДОЛ-ВОЛ! Ты печатаешь слова! Это как магия - буквы превращаются в смысл!",
-    "klavochka": "Какой ты умница! Новые пальчики работают! Л и Д - такие важные буквы!"
+    "anna": "Отлично! Ы и Д — новые друзья твоих безымянных пальцев. ВОДА, ОВАЛ — уже настоящие слова среднего ряда!",
+    "maxim": "Хорошая работа! Безымянные пальцы обеих рук включаются в работу. Они слабее — им нужна спокойная практика.",
+    "knopych": "Вау! ВОДА-ДАЛА-ОВАЛ! Ты печатаешь слова, не покидая средний ряд! Это магия!",
+    "klavochka": "Какой ты умница! Безымянные пальчики нашли свои клавиши! Ы и Д — такие важные буквы!"
   },
   "phase": 1,
   "rhythmLesson": false,
   "created_at": "2025-11-19",
-  "version": "2.0"
+  "version": "4.0"
 }

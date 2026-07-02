@@ -8,38 +8,129 @@
   "text_length": 114,
   "error_limit_percent": 6,
   "error_limit": 6,
-  "text": "hey what time at 7 cool bring snacks ok which ones the spicy ones obvi sounds good see you then bye bye drive safe",
-  "text_sequence": [],
+  "text": "cool cool cool cool snacks snacks snacks snacks safe safe safe safe",
+  "text_sequence": [
+    {"char": "c", "hand": "left", "finger": "middle", "key": "C"},
+    {"char": "o", "hand": "right", "finger": "ring", "key": "O"},
+    {"char": "o", "hand": "right", "finger": "ring", "key": "O"},
+    {"char": "l", "hand": "right", "finger": "ring", "key": "L"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "c", "hand": "left", "finger": "middle", "key": "C"},
+    {"char": "o", "hand": "right", "finger": "ring", "key": "O"},
+    {"char": "o", "hand": "right", "finger": "ring", "key": "O"},
+    {"char": "l", "hand": "right", "finger": "ring", "key": "L"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "c", "hand": "left", "finger": "middle", "key": "C"},
+    {"char": "o", "hand": "right", "finger": "ring", "key": "O"},
+    {"char": "o", "hand": "right", "finger": "ring", "key": "O"},
+    {"char": "l", "hand": "right", "finger": "ring", "key": "L"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "c", "hand": "left", "finger": "middle", "key": "C"},
+    {"char": "o", "hand": "right", "finger": "ring", "key": "O"},
+    {"char": "o", "hand": "right", "finger": "ring", "key": "O"},
+    {"char": "l", "hand": "right", "finger": "ring", "key": "L"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "s", "hand": "left", "finger": "ring", "key": "S"},
+    {"char": "n", "hand": "right", "finger": "index", "key": "N"},
+    {"char": "a", "hand": "left", "finger": "pinky", "key": "A"},
+    {"char": "c", "hand": "left", "finger": "middle", "key": "C"},
+    {"char": "k", "hand": "right", "finger": "middle", "key": "K"},
+    {"char": "s", "hand": "left", "finger": "ring", "key": "S"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "s", "hand": "left", "finger": "ring", "key": "S"},
+    {"char": "n", "hand": "right", "finger": "index", "key": "N"},
+    {"char": "a", "hand": "left", "finger": "pinky", "key": "A"},
+    {"char": "c", "hand": "left", "finger": "middle", "key": "C"},
+    {"char": "k", "hand": "right", "finger": "middle", "key": "K"},
+    {"char": "s", "hand": "left", "finger": "ring", "key": "S"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "s", "hand": "left", "finger": "ring", "key": "S"},
+    {"char": "n", "hand": "right", "finger": "index", "key": "N"},
+    {"char": "a", "hand": "left", "finger": "pinky", "key": "A"},
+    {"char": "c", "hand": "left", "finger": "middle", "key": "C"},
+    {"char": "k", "hand": "right", "finger": "middle", "key": "K"},
+    {"char": "s", "hand": "left", "finger": "ring", "key": "S"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "s", "hand": "left", "finger": "ring", "key": "S"},
+    {"char": "n", "hand": "right", "finger": "index", "key": "N"},
+    {"char": "a", "hand": "left", "finger": "pinky", "key": "A"},
+    {"char": "c", "hand": "left", "finger": "middle", "key": "C"},
+    {"char": "k", "hand": "right", "finger": "middle", "key": "K"},
+    {"char": "s", "hand": "left", "finger": "ring", "key": "S"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "s", "hand": "left", "finger": "ring", "key": "S"},
+    {"char": "a", "hand": "left", "finger": "pinky", "key": "A"},
+    {"char": "f", "hand": "left", "finger": "index", "key": "F"},
+    {"char": "e", "hand": "left", "finger": "middle", "key": "E"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "s", "hand": "left", "finger": "ring", "key": "S"},
+    {"char": "a", "hand": "left", "finger": "pinky", "key": "A"},
+    {"char": "f", "hand": "left", "finger": "index", "key": "F"},
+    {"char": "e", "hand": "left", "finger": "middle", "key": "E"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "s", "hand": "left", "finger": "ring", "key": "S"},
+    {"char": "a", "hand": "left", "finger": "pinky", "key": "A"},
+    {"char": "f", "hand": "left", "finger": "index", "key": "F"},
+    {"char": "e", "hand": "left", "finger": "middle", "key": "E"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "s", "hand": "left", "finger": "ring", "key": "S"},
+    {"char": "a", "hand": "left", "finger": "pinky", "key": "A"},
+    {"char": "f", "hand": "left", "finger": "index", "key": "F"},
+    {"char": "e", "hand": "left", "finger": "middle", "key": "E"}
+  ],
   "keys_trained": [
     "A-Z",
     "Space"
   ],
   "new_keys": [],
   "finger_focus": "Chat back-and-forth rhythm",
+  "guided": true,
   "tips": [
     {
       "type": "lead",
-      "text": "Real chat = short bursts, no punctuation"
+      "text": "Chat is the format you type most - so let's make it automatic. Same word on repeat until your fingers fire it without thinking. Flow, not force."
     },
     {
       "type": "drop",
-      "text": "Multiple speakers in one line"
+      "text": "Hands on home row, eyes off the keys. Repeat each word at one even pace - same gap between every tap. Don't rush the reply, just keep the beat steady."
     },
     {
-      "type": "exercise",
-      "target": "hey what time at 7 cool bring snacks ok which ones the",
-      "finger": "blue",
-      "hint": "Chat back-and-forth rhythm"
+      "type": "callout",
+      "icon": "🎶",
+      "title": "Even beat",
+      "text": "Set a tempo you can hold and stay in it. Smooth and even beats fast and jerky every time - in chat, steady hands answer quicker than panicked ones. Let the rhythm lead."
+    },
+    {
+      "type": "step",
+      "kind": "drill",
+      "target": "cool cool cool cool cool",
+      "finger": "green",
+      "title": "Rhythm: cool",
+      "hint": "Loop it on the beat: cool - cool - cool. Same gap every time."
+    },
+    {
+      "type": "step",
+      "kind": "drill",
+      "target": "snacks snacks snacks snacks",
+      "finger": "orange",
+      "title": "Rhythm: snacks",
+      "hint": "Hold the tempo: snacks - snacks - snacks. Flow, not force."
+    },
+    {
+      "type": "step",
+      "kind": "drill",
+      "target": "safe safe safe safe",
+      "finger": "orange",
+      "title": "Rhythm: safe",
+      "hint": "Stay even to the end: safe - safe - safe. Don't rush the finish."
     },
     {
       "type": "p",
-      "text": "Metronome at 70 BPM"
+      "text": "Feel your fingers grabbing the whole word at once? That is exactly it - even reps turn thinking into reflex, and reflex is what lets you fire off a reply without looking down."
     },
     {
-      "type": "exercise",
-      "target": "spicy ones obvi sounds good see you then bye bye drive safe",
-      "finger": "green",
-      "hint": "Chat back-and-forth rhythm"
+      "type": "p",
+      "text": "All three drills done? Hit \"Open trainer\" below and run the full lesson text in one go. That run saves to your progress and unlocks the next lesson."
     }
   ],
   "character_tips": {
@@ -51,5 +142,5 @@
   "phase": 3,
   "rhythmLesson": true,
   "created_at": "2026-05-25",
-  "version": "1.0"
+  "version": "4.0"
 }

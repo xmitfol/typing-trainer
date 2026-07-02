@@ -20,8 +20,11 @@ document.addEventListener('DOMContentLoaded', async function () {
         window.location.href = 'index.html';
         return;
     }
-    const progress = readJSON(progressKey) || {};
     const currentLesson = readJSON(currentKey) || {};
+    // Прогресс — через apiClient (useApi=true → сервер по активному тиру, иначе LS).
+    const progress = (window.apiClient
+        ? await window.apiClient.getProgress().catch(() => readJSON(progressKey))
+        : readJSON(progressKey)) || {};
 
     function pickTier(prof) {
         const lang = prof.language || 'ru';
@@ -191,6 +194,15 @@ document.addEventListener('DOMContentLoaded', async function () {
     const tips = lesson.tips || [];
     // Counter для inline-упражнений (нумерация УПРАЖНЕНИЕ 1/2/3)
     let inlineExIdx = 0;
+    // Гайдед-уроки (lesson.guided): шаги type:"step" гейтятся по порядку —
+    // следующий открывается только после прохождения предыдущего (per-exercise
+    // состояние в window.exerciseProgress). totalSteps нужен для лока финального
+    // захода (#lpOpenTrainer) внизу.
+    const guided = lesson.guided === true;
+    const totalSteps = tips.filter(t => t && t.type === 'step').length;
+    let guidedStepIdx = 0;        // 1-based индекс текущего step при обходе
+    let prevStepsAllDone = true;  // все шаги ДО текущего пройдены
+    let firstIncompleteStep = 0;  // первый непройденный шаг (для «Выполнить задание»)
     tips.forEach((tip, idx) => {
         // Backward compat: строка → параграф (1-й как drop-cap, каждый 3-й как callout).
         // Объект {type, ...} → специальный рендер: callout / pullquote / exercise / figure.
@@ -238,6 +250,16 @@ document.addEventListener('DOMContentLoaded', async function () {
             case 'exercise':
                 tipsContainer.appendChild(makeInlineExercise(++inlineExIdx, tip));
                 break;
+            case 'step': {
+                // Гайдед-шаг (placement/drill): открывает тренажёр на своём тексте.
+                const sIdx = ++guidedStepIdx;
+                const done = !!(window.exerciseProgress && window.exerciseProgress.isStepDone(tier, lessonNum, sIdx));
+                const status = done ? 'done' : (prevStepsAllDone ? 'active' : 'locked');
+                if (!done && firstIncompleteStep === 0) firstIncompleteStep = sIdx;
+                tipsContainer.appendChild(makeGuidedStep(sIdx, tip, status));
+                prevStepsAllDone = prevStepsAllDone && done;
+                break;
+            }
         }
     });
 
@@ -257,6 +279,62 @@ document.addEventListener('DOMContentLoaded', async function () {
             </div>
         `;
         return c;
+    }
+
+    // Гайдед-шаг (lesson.guided): не печатается на месте, а открывает тренажёр
+    // на тексте именно этого шага (task.html?...&exercise=N). Статус:
+    //   active — доступен (предыдущие пройдены), кнопка ведёт в тренажёр;
+    //   done   — пройден, ✓ + кнопка (можно повторить);
+    //   locked — заблокирован, кнопки нет.
+    function makeGuidedStep(num, tip, status) {
+        const target = String(tip.target || '');
+        const fingerColor = tip.finger || 'blue';
+        const hint = tip.hint || '';
+        const kind = tip.kind || 'drill';
+        const badge = tip.title || (kind === 'placement' ? 'Поставь руки' : `Упражнение ${num}`);
+        const t = (k, fb) => (window.i18n ? window.i18n.t(k) : fb) || fb;
+
+        const box = document.createElement('div');
+        box.className = `lp-exercise lp-exercise--step lp-exercise--${status}`;
+        box.dataset.finger = fingerColor;
+        box.dataset.step = num;  // для возврата из тренажёра к этому шагу (?step=N)
+
+        let metaHtml;
+        if (status === 'locked') {
+            metaHtml = `<span class="lp-step__lock">🔒 ${escapeHtml(t('lesson.stepLocked', 'Сначала пройди предыдущий шаг'))}</span>`;
+        } else {
+            const href = `task.html?tier=${encodeURIComponent(tier)}&lesson=${lessonNum}&exercise=${num}`;
+            const doneBadge = status === 'done'
+                ? `<span class="lp-exercise__done-badge">✓ ${escapeHtml(t('lesson.stepDone', 'Пройдено'))}</span>`
+                : '';
+            const btnLabel = t('lesson.openTrainer', 'Открыть тренажёр →');
+            metaHtml = `${doneBadge}<a class="lp-exercise__open lp-step__open" href="${href}">${escapeHtml(btnLabel)}</a>`;
+        }
+
+        box.innerHTML = `
+            <div class="lp-exercise__hd">
+                <div class="lp-exercise__badge"><span class="lp-exercise__badge-text">${escapeHtml(badge)}</span></div>
+                ${hint ? `<div class="lp-exercise__hint">
+                    <span class="lp-exercise__hint-dot"></span>
+                    <span>${escapeHtml(hint)}</span>
+                </div>` : ''}
+            </div>
+            <div class="lp-exercise__target lp-exercise__target--preview">${escapeHtml(target)}</div>
+            <div class="lp-exercise__meta">${metaHtml}</div>
+        `;
+
+        // Клик по кнопке шага — сохранить currentLesson (как у нижнего тренажёра).
+        const openLink = box.querySelector('.lp-step__open');
+        if (openLink) {
+            openLink.addEventListener('click', () => {
+                try {
+                    localStorage.setItem(currentKey, JSON.stringify({
+                        tier, lessonNumber: lessonNum, lastSaved: new Date().toISOString()
+                    }));
+                } catch (err) {}
+            });
+        }
+        return box;
     }
 
     // ExerciseInsert (по design lesson.jsx) — самостоятельная мини-typing задача
@@ -284,7 +362,6 @@ document.addEventListener('DOMContentLoaded', async function () {
             <div class="lp-exercise__meta">
                 <div class="lp-exercise__dots"></div>
                 <div class="lp-exercise__count">0/${total}</div>
-                <button type="button" class="lp-exercise__reset">↻ Заново</button>
             </div>
         `;
 
@@ -329,11 +406,6 @@ document.addEventListener('DOMContentLoaded', async function () {
             badgeText.textContent = done ? badgeDoneText : `${badgeRu} ${num}`;
         }
 
-        function reset() {
-            typed = 0; errors = 0; done = false;
-            render();
-        }
-
         function focus() {
             captureEl.focus({ preventScroll: true });
             box.classList.add('lp-exercise--focus');
@@ -342,14 +414,7 @@ document.addEventListener('DOMContentLoaded', async function () {
 
         captureEl.addEventListener('blur', blur);
         targetEl.addEventListener('click', focus);
-        box.addEventListener('click', (e) => {
-            if (e.target.closest('.lp-exercise__reset')) return;
-            focus();
-        });
-        box.querySelector('.lp-exercise__reset').addEventListener('click', (e) => {
-            e.stopPropagation();
-            reset();
-        });
+        box.addEventListener('click', () => focus());
 
         captureEl.addEventListener('keydown', (e) => {
             if (done) return;
@@ -403,6 +468,14 @@ document.addEventListener('DOMContentLoaded', async function () {
     }
     $('#lpExerciseCount').textContent = `0/${total}`;
 
+    // Гайдед-урок: финальный «полный заход» — заблокирован/затемнён как шаги
+    // выше, пока не пройдены все шаги.
+    const fullRunLocked = guided && totalSteps > 0
+        && !(window.exerciseProgress && window.exerciseProgress.allStepsDone(tier, lessonNum, totalSteps));
+    if (guided && totalSteps > 0) {
+        $('#lpExerciseBadge').textContent = `${exBadge} · ${(window.i18n ? window.i18n.t('lesson.fullRun') : '') || 'Полный заход'}`;
+    }
+
     // «Открыть тренажёр» сохраняет currentLesson и идёт в task.html
     $('#lpOpenTrainer').href = `task.html?tier=${encodeURIComponent(tier)}&lesson=${lessonNum}`;
     $('#lpOpenTrainer').addEventListener('click', (e) => {
@@ -413,9 +486,38 @@ document.addEventListener('DOMContentLoaded', async function () {
         } catch (err) {}
     });
 
-    // «Выполнить задание →» в топбаре — прямой шорткат к практике (повтор/переделка)
+    if (fullRunLocked) {
+        // Закрытый вид как у заблокированных шагов: затемнение блока, без кнопки,
+        // только замок. (Не показываем ✓-бейдж, даже если урок проходили раньше.)
+        $('#lpExercise').classList.add('lp-exercise--locked');
+        const openBtn = $('#lpOpenTrainer');
+        openBtn.style.display = 'none';
+        if (!openBtn.parentElement.querySelector('.lp-step__lock')) {
+            const lock = document.createElement('span');
+            lock.className = 'lp-step__lock';
+            lock.textContent = '🔒 ' + ((window.i18n ? window.i18n.t('lesson.fullRunLocked') : '') || 'Сначала пройди все шаги выше');
+            openBtn.insertAdjacentElement('beforebegin', lock);
+        }
+    } else if (lessonDone) {
+        // Полный заход доступен и урок уже пройден ранее — ✓ рядом с кнопкой.
+        const openBtn = $('#lpOpenTrainer');
+        if (!openBtn.parentElement.querySelector('.lp-exercise__done-badge')) {
+            const badge = document.createElement('span');
+            badge.className = 'lp-exercise__done-badge';
+            badge.textContent = '✓ Пройдено';
+            openBtn.insertAdjacentElement('beforebegin', badge);
+        }
+    }
+
+    // «Выполнить задание →» в топбаре — шорткат к практике.
+    // Гайдед-урок: ведём к первому НЕпройденному шагу (не в полный заход в обход
+    // лестницы). Когда все шаги пройдены (firstIncompleteStep===0) — полный заход.
     const topTask = $('#lpTopTask');
-    if (topTask) topTask.href = `task.html?tier=${encodeURIComponent(tier)}&lesson=${lessonNum}`;
+    if (topTask) {
+        topTask.href = (guided && totalSteps > 0 && firstIncompleteStep > 0)
+            ? `task.html?tier=${encodeURIComponent(tier)}&lesson=${lessonNum}&exercise=${firstIncompleteStep}`
+            : `task.html?tier=${encodeURIComponent(tier)}&lesson=${lessonNum}`;
+    }
 
     // ─── Prev/Next nav ───────────────────────────────────────────
     const prevN = lessonNum - 1;
@@ -457,6 +559,16 @@ document.addEventListener('DOMContentLoaded', async function () {
         $('#lpNavNextHint').textContent = `УРОК ${nextN} →`;
         window.lessonLoader.loadLesson(tier, nextN).then(l => {
             $('#lpNavNextTitle').textContent = (l && l.title) || `Урок ${nextN}`;
+        });
+    }
+
+    // Возврат из тренажёра к пройденному шагу (?step=N) — сразу позиционируем
+    // страницу на этом упражнении, а не в начале текста.
+    const stepParam = parseInt(params.get('step'), 10);
+    if (stepParam > 0) {
+        requestAnimationFrame(() => {
+            const el = document.querySelector(`.lp-exercise--step[data-step="${stepParam}"]`);
+            if (el) el.scrollIntoView({ behavior: 'auto', block: 'center' });
         });
     }
 

@@ -2,14 +2,72 @@
   "id": "tier1_lesson_82",
   "tier": "tier1",
   "lesson_number": 82,
-  "title": "Ритм: маркетинговый поток",
-  "description": "Многосентенциальный маркетинговый отрывок на высокой WPM",
+  "title": "Ритм-упражнение: маркетинговый поток",
+  "description": "Закрепление через ритм — ровный темп на знакомых словах, без новых букв",
   "target_wpm": 90,
   "text_length": 300,
   "error_limit_percent": 4,
   "error_limit": 12,
-  "text": "Создано для скорости. Спроектировано для фокуса. Доверено тысячами команд в более чем сорока странах. Пишешь ли ты своё первое письмо или сотый отчёт за неделю — правильный ритм печати определяет разницу между уставшим и заряженным. Попробуй бесплатно две недели. Отмени когда угодно. Карта не нужна.",
-  "text_sequence": [],
+  "text": "создано создано фокуса фокуса команд команд недели недели",
+  "text_sequence": [
+    {"char": "с", "hand": "left", "finger": "middle", "key": "С"},
+    {"char": "о", "hand": "right", "finger": "index", "key": "О"},
+    {"char": "з", "hand": "right", "finger": "pinky", "key": "З"},
+    {"char": "д", "hand": "right", "finger": "ring", "key": "Д"},
+    {"char": "а", "hand": "left", "finger": "index", "key": "А"},
+    {"char": "н", "hand": "right", "finger": "index", "key": "Н"},
+    {"char": "о", "hand": "right", "finger": "index", "key": "О"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "с", "hand": "left", "finger": "middle", "key": "С"},
+    {"char": "о", "hand": "right", "finger": "index", "key": "О"},
+    {"char": "з", "hand": "right", "finger": "pinky", "key": "З"},
+    {"char": "д", "hand": "right", "finger": "ring", "key": "Д"},
+    {"char": "а", "hand": "left", "finger": "index", "key": "А"},
+    {"char": "н", "hand": "right", "finger": "index", "key": "Н"},
+    {"char": "о", "hand": "right", "finger": "index", "key": "О"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "ф", "hand": "left", "finger": "pinky", "key": "Ф"},
+    {"char": "о", "hand": "right", "finger": "index", "key": "О"},
+    {"char": "к", "hand": "left", "finger": "index", "key": "К"},
+    {"char": "у", "hand": "left", "finger": "middle", "key": "У"},
+    {"char": "с", "hand": "left", "finger": "middle", "key": "С"},
+    {"char": "а", "hand": "left", "finger": "index", "key": "А"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "ф", "hand": "left", "finger": "pinky", "key": "Ф"},
+    {"char": "о", "hand": "right", "finger": "index", "key": "О"},
+    {"char": "к", "hand": "left", "finger": "index", "key": "К"},
+    {"char": "у", "hand": "left", "finger": "middle", "key": "У"},
+    {"char": "с", "hand": "left", "finger": "middle", "key": "С"},
+    {"char": "а", "hand": "left", "finger": "index", "key": "А"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "к", "hand": "left", "finger": "index", "key": "К"},
+    {"char": "о", "hand": "right", "finger": "index", "key": "О"},
+    {"char": "м", "hand": "left", "finger": "index", "key": "М"},
+    {"char": "а", "hand": "left", "finger": "index", "key": "А"},
+    {"char": "н", "hand": "right", "finger": "index", "key": "Н"},
+    {"char": "д", "hand": "right", "finger": "ring", "key": "Д"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "к", "hand": "left", "finger": "index", "key": "К"},
+    {"char": "о", "hand": "right", "finger": "index", "key": "О"},
+    {"char": "м", "hand": "left", "finger": "index", "key": "М"},
+    {"char": "а", "hand": "left", "finger": "index", "key": "А"},
+    {"char": "н", "hand": "right", "finger": "index", "key": "Н"},
+    {"char": "д", "hand": "right", "finger": "ring", "key": "Д"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "н", "hand": "right", "finger": "index", "key": "Н"},
+    {"char": "е", "hand": "left", "finger": "index", "key": "Е"},
+    {"char": "д", "hand": "right", "finger": "ring", "key": "Д"},
+    {"char": "е", "hand": "left", "finger": "index", "key": "Е"},
+    {"char": "л", "hand": "right", "finger": "middle", "key": "Л"},
+    {"char": "и", "hand": "left", "finger": "index", "key": "И"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "н", "hand": "right", "finger": "index", "key": "Н"},
+    {"char": "е", "hand": "left", "finger": "index", "key": "Е"},
+    {"char": "д", "hand": "right", "finger": "ring", "key": "Д"},
+    {"char": "е", "hand": "left", "finger": "index", "key": "Е"},
+    {"char": "л", "hand": "right", "finger": "middle", "key": "Л"},
+    {"char": "и", "hand": "left", "finger": "index", "key": "И"}
+  ],
   "keys_trained": [
     "А-Я",
     "Space",
@@ -19,41 +77,77 @@
     "Shift"
   ],
   "new_keys": [],
-  "finger_focus": "Маркетинговая проза на 90 WPM",
+  "finger_focus": "Все пальцы — фокус на ровном, метрономном ритме",
+  "guided": true,
   "tips": [
     {
       "type": "lead",
-      "text": "Несколько хлёстких предложений подряд — держи темп"
+      "text": "🎵 Новых букв сегодня нет — закрепляем уже освоенные слова через ритм. Главное не скорость, а ровный, одинаковый темп: каждое нажатие через равные промежутки, как удары метронома."
     },
     {
       "type": "drop",
-      "text": "Короткие фрагменты — часть ритма, не дольше запятой"
+      "text": "Руки уже знают все буквы. Поставь пальцы на основной ряд, большие — над пробелом, и не покидай исходную позицию. Повторяй каждое слово ровно, считая про себя: раз-два-три-четыре."
     },
     {
-      "type": "exercise",
-      "target": "Создано для скорости. Спроектировано для фокуса. Доверено тысячами команд в более чем сорока странах. Пишешь ли ты своё первое письмо или сотый",
-      "finger": "purple",
-      "hint": "Маркетинговая проза на 90 WPM"
+      "type": "callout",
+      "icon": "🎶",
+      "title": "Ровный счёт",
+      "text": "Включи внутренний метроном. Печатай не «как получится», а строго в такт: между любыми двумя нажатиями — одинаковая пауза. Темп важнее скорости — лучше медленно и ровно, чем быстро и рвано."
+    },
+    {
+      "type": "step",
+      "kind": "drill",
+      "target": "создано создано создано создано",
+      "finger": "green",
+      "title": "Ритм: создано",
+      "hint": "Повторяй ровно, в одном темпе: создано — создано — создано. Считай раз-два-три-четыре"
+    },
+    {
+      "type": "step",
+      "kind": "drill",
+      "target": "фокуса фокуса фокуса фокуса",
+      "finger": "pink",
+      "title": "Ритм: фокуса",
+      "hint": "Повторяй ровно, без рывков: фокуса — фокуса — фокуса. Держи одинаковые паузы"
+    },
+    {
+      "type": "step",
+      "kind": "drill",
+      "target": "команд команд команд команд",
+      "finger": "blue",
+      "title": "Ритм: команд",
+      "hint": "Повторяй ровно: команд — команд — команд. Не ускоряйся к концу"
+    },
+    {
+      "type": "step",
+      "kind": "drill",
+      "target": "недели недели недели недели",
+      "finger": "indigo",
+      "title": "Ритм: недели",
+      "hint": "Повторяй ровно: недели — недели — недели. Ровный счёт до самого конца"
     },
     {
       "type": "p",
-      "text": "Метроном 90 BPM — выдержи через все типы предложений"
+      "text": "Почувствуй, как мышцы запоминают слова целиком: СОЗДАНО-СОЗДАНО, ФОКУСА-ФОКУСА. Повторение в ровном темпе превращает движения в автоматизм — и тогда любой текст идёт без задержек."
     },
     {
-      "type": "exercise",
-      "target": "отчёт за неделю — правильный ритм печати определяет разницу между уставшим и заряженным. Попробуй бесплатно две недели. Отмени когда угодно. Карта не нужна.",
-      "finger": "purple",
-      "hint": "Маркетинговая проза на 90 WPM"
+      "type": "pullquote",
+      "text": "Расслабь плечи и запястья, представь метроном — ритм важнее скорости.",
+      "by": "методика курса"
+    },
+    {
+      "type": "p",
+      "text": "Все шаги пройдены? Тогда нажми «Открыть тренажёр» ниже и сделай полный заход на весь текст урока. Этот заход сохраняется в прогресс и открывает следующий урок."
     }
   ],
   "character_tips": {
-    "anna": "Маркетинговый ритм на 90 WPM. Хлёстко + устойчиво = скорость про-копирайтера.",
-    "maxim": "Копирайтеры попадают сюда естественно. Теперь и ты.",
-    "knopych": "РЕКЛАМА НА БУСТЕ! 📢 Коротко, хлёстко, БЫСТРО!",
-    "klavochka": "Убедительно и тепло, мой милый — добрая продажа 🛍️"
+    "anna": "Отлично! Ритм-урок на знакомых словах. СОЗДАНО-СОЗДАНО, КОМАНД-КОМАНД — повторение закрепляет память!",
+    "maxim": "Хорошо! Повторяющиеся слова тренируют автоматизм. Мозг учится предугадывать движения.",
+    "knopych": "Вау! Эхо-челлендж! ФОКУСА-ФОКУСА, НЕДЕЛИ-НЕДЕЛИ! Как эхо в горах — раз-два, раз-два!",
+    "klavochka": "Какой ты молодец! Слова повторяются, пальчики танцуют одинаковые движения! Как красиво!"
   },
   "phase": 6,
   "rhythmLesson": true,
   "created_at": "2026-05-26",
-  "version": "1.0"
+  "version": "4.0"
 }

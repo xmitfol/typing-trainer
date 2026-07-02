@@ -2,425 +2,125 @@
   "id": "tier1_lesson_03",
   "tier": 1,
   "lesson_number": 3,
-  "title": "Ритм-упражнение: Закрепление",
-  "description": "Тренировка ритма без новых букв",
-  "target_wpm": 15,
-  "text_length": 55,
+  "title": "Добавляем Ф и Ж",
+  "description": "Мизинцы среднего ряда: Ф (левый мизинец) и Ж (правый мизинец)",
+  "target_wpm": 12,
+  "text_length": 37,
   "error_limit_percent": 5,
-  "error_limit": 3,
-  "text": "ооо ооо ооо ааа ааа ааа оно оно оно она она она он он он",
+  "error_limit": 2,
+  "text": "ф ф ф ж ж ж жало ждал лажа жажда вода",
   "text_sequence": [
-    {
-      "char": "о",
-      "hand": "left",
-      "finger": "index",
-      "key": "О"
-    },
-    {
-      "char": "о",
-      "hand": "left",
-      "finger": "index",
-      "key": "О"
-    },
-    {
-      "char": "о",
-      "hand": "left",
-      "finger": "index",
-      "key": "О"
-    },
-    {
-      "char": " ",
-      "hand": "right",
-      "finger": "thumb",
-      "key": "Space",
-      "space_side": "right"
-    },
-    {
-      "char": "о",
-      "hand": "right",
-      "finger": "index",
-      "key": "О"
-    },
-    {
-      "char": "о",
-      "hand": "right",
-      "finger": "index",
-      "key": "О"
-    },
-    {
-      "char": "о",
-      "hand": "right",
-      "finger": "index",
-      "key": "О"
-    },
-    {
-      "char": " ",
-      "hand": "left",
-      "finger": "thumb",
-      "key": "Space",
-      "space_side": "left"
-    },
-    {
-      "char": "о",
-      "hand": "left",
-      "finger": "index",
-      "key": "О"
-    },
-    {
-      "char": "о",
-      "hand": "left",
-      "finger": "index",
-      "key": "О"
-    },
-    {
-      "char": "о",
-      "hand": "left",
-      "finger": "index",
-      "key": "О"
-    },
-    {
-      "char": " ",
-      "hand": "right",
-      "finger": "thumb",
-      "key": "Space",
-      "space_side": "right"
-    },
-    {
-      "char": "а",
-      "hand": "right",
-      "finger": "index",
-      "key": "А"
-    },
-    {
-      "char": "а",
-      "hand": "right",
-      "finger": "index",
-      "key": "А"
-    },
-    {
-      "char": "а",
-      "hand": "right",
-      "finger": "index",
-      "key": "А"
-    },
-    {
-      "char": " ",
-      "hand": "left",
-      "finger": "thumb",
-      "key": "Space",
-      "space_side": "left"
-    },
-    {
-      "char": "а",
-      "hand": "left",
-      "finger": "index",
-      "key": "А"
-    },
-    {
-      "char": "а",
-      "hand": "left",
-      "finger": "index",
-      "key": "А"
-    },
-    {
-      "char": "а",
-      "hand": "left",
-      "finger": "index",
-      "key": "А"
-    },
-    {
-      "char": " ",
-      "hand": "right",
-      "finger": "thumb",
-      "key": "Space",
-      "space_side": "right"
-    },
-    {
-      "char": "а",
-      "hand": "right",
-      "finger": "index",
-      "key": "А"
-    },
-    {
-      "char": "а",
-      "hand": "right",
-      "finger": "index",
-      "key": "А"
-    },
-    {
-      "char": "а",
-      "hand": "right",
-      "finger": "index",
-      "key": "А"
-    },
-    {
-      "char": " ",
-      "hand": "left",
-      "finger": "thumb",
-      "key": "Space",
-      "space_side": "left"
-    },
-    {
-      "char": "о",
-      "hand": "left",
-      "finger": "index",
-      "key": "О"
-    },
-    {
-      "char": "н",
-      "hand": "left",
-      "finger": "index",
-      "key": "Н"
-    },
-    {
-      "char": "о",
-      "hand": "left",
-      "finger": "index",
-      "key": "О"
-    },
-    {
-      "char": " ",
-      "hand": "right",
-      "finger": "thumb",
-      "key": "Space",
-      "space_side": "right"
-    },
-    {
-      "char": "о",
-      "hand": "right",
-      "finger": "index",
-      "key": "О"
-    },
-    {
-      "char": "н",
-      "hand": "right",
-      "finger": "index",
-      "key": "Н"
-    },
-    {
-      "char": "о",
-      "hand": "right",
-      "finger": "index",
-      "key": "О"
-    },
-    {
-      "char": " ",
-      "hand": "left",
-      "finger": "thumb",
-      "key": "Space",
-      "space_side": "left"
-    },
-    {
-      "char": "о",
-      "hand": "left",
-      "finger": "index",
-      "key": "О"
-    },
-    {
-      "char": "н",
-      "hand": "left",
-      "finger": "index",
-      "key": "Н"
-    },
-    {
-      "char": "о",
-      "hand": "left",
-      "finger": "index",
-      "key": "О"
-    },
-    {
-      "char": " ",
-      "hand": "right",
-      "finger": "thumb",
-      "key": "Space",
-      "space_side": "right"
-    },
-    {
-      "char": "о",
-      "hand": "right",
-      "finger": "index",
-      "key": "О"
-    },
-    {
-      "char": "н",
-      "hand": "right",
-      "finger": "index",
-      "key": "Н"
-    },
-    {
-      "char": "а",
-      "hand": "right",
-      "finger": "index",
-      "key": "А"
-    },
-    {
-      "char": " ",
-      "hand": "left",
-      "finger": "thumb",
-      "key": "Space",
-      "space_side": "left"
-    },
-    {
-      "char": "о",
-      "hand": "left",
-      "finger": "index",
-      "key": "О"
-    },
-    {
-      "char": "н",
-      "hand": "left",
-      "finger": "index",
-      "key": "Н"
-    },
-    {
-      "char": "а",
-      "hand": "left",
-      "finger": "index",
-      "key": "А"
-    },
-    {
-      "char": " ",
-      "hand": "right",
-      "finger": "thumb",
-      "key": "Space",
-      "space_side": "right"
-    },
-    {
-      "char": "о",
-      "hand": "right",
-      "finger": "index",
-      "key": "О"
-    },
-    {
-      "char": "н",
-      "hand": "right",
-      "finger": "index",
-      "key": "Н"
-    },
-    {
-      "char": "а",
-      "hand": "right",
-      "finger": "index",
-      "key": "А"
-    },
-    {
-      "char": " ",
-      "hand": "left",
-      "finger": "thumb",
-      "key": "Space",
-      "space_side": "left"
-    },
-    {
-      "char": "о",
-      "hand": "left",
-      "finger": "index",
-      "key": "О"
-    },
-    {
-      "char": "н",
-      "hand": "left",
-      "finger": "index",
-      "key": "Н"
-    },
-    {
-      "char": " ",
-      "hand": "right",
-      "finger": "thumb",
-      "key": "Space",
-      "space_side": "right"
-    },
-    {
-      "char": "о",
-      "hand": "right",
-      "finger": "index",
-      "key": "О"
-    },
-    {
-      "char": "н",
-      "hand": "right",
-      "finger": "index",
-      "key": "Н"
-    },
-    {
-      "char": " ",
-      "hand": "left",
-      "finger": "thumb",
-      "key": "Space",
-      "space_side": "left"
-    },
-    {
-      "char": "о",
-      "hand": "left",
-      "finger": "index",
-      "key": "О"
-    },
-    {
-      "char": "н",
-      "hand": "left",
-      "finger": "index",
-      "key": "Н"
-    }
+    {"char": "ф", "hand": "left", "finger": "pinky", "key": "Ф"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "ф", "hand": "left", "finger": "pinky", "key": "Ф"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "ф", "hand": "left", "finger": "pinky", "key": "Ф"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "ж", "hand": "right", "finger": "pinky", "key": "Ж"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "ж", "hand": "right", "finger": "pinky", "key": "Ж"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "ж", "hand": "right", "finger": "pinky", "key": "Ж"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "ж", "hand": "right", "finger": "pinky", "key": "Ж"},
+    {"char": "а", "hand": "left", "finger": "index", "key": "А"},
+    {"char": "л", "hand": "right", "finger": "middle", "key": "Л"},
+    {"char": "о", "hand": "right", "finger": "index", "key": "О"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "ж", "hand": "right", "finger": "pinky", "key": "Ж"},
+    {"char": "д", "hand": "right", "finger": "ring", "key": "Д"},
+    {"char": "а", "hand": "left", "finger": "index", "key": "А"},
+    {"char": "л", "hand": "right", "finger": "middle", "key": "Л"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "л", "hand": "right", "finger": "middle", "key": "Л"},
+    {"char": "а", "hand": "left", "finger": "index", "key": "А"},
+    {"char": "ж", "hand": "right", "finger": "pinky", "key": "Ж"},
+    {"char": "а", "hand": "left", "finger": "index", "key": "А"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "ж", "hand": "right", "finger": "pinky", "key": "Ж"},
+    {"char": "а", "hand": "left", "finger": "index", "key": "А"},
+    {"char": "ж", "hand": "right", "finger": "pinky", "key": "Ж"},
+    {"char": "д", "hand": "right", "finger": "ring", "key": "Д"},
+    {"char": "а", "hand": "left", "finger": "index", "key": "А"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "в", "hand": "left", "finger": "middle", "key": "В"},
+    {"char": "о", "hand": "right", "finger": "index", "key": "О"},
+    {"char": "д", "hand": "right", "finger": "ring", "key": "Д"},
+    {"char": "а", "hand": "left", "finger": "index", "key": "А"}
   ],
-  "keys_trained": [
-    "А",
-    "О",
-    "В",
-    "Н",
-    "Л",
-    "Д",
-    "Space"
-  ],
-  "new_keys": [],
-  "finger_focus": "Все изученные пальцы - фокус на ритме и равномерности",
+  "keys_trained": ["А", "О", "В", "Л", "Ы", "Д", "Ф", "Ж", "Space"],
+  "new_keys": ["Ф", "Ж"],
+  "finger_focus": "Мизинцы среднего ряда (Ф — левый, Ж — правый)",
+  "guided": true,
   "tips": [
     {
       "type": "lead",
-      "text": "🎵 Сегодня без новых букв - расслабься!"
+      "text": "Безымянные уже работают — добавляем самые крайние буквы среднего ряда: Ф и Ж. Обе на месте, тянуться не нужно. Главное на этом уроке — разбудить мизинцы, самые слабые пальцы."
     },
     {
       "type": "drop",
-      "text": "Печатай ровно, в одном темпе"
-    },
-    {
-      "type": "exercise",
-      "target": "ооо ооо ооо ааа ааа ааа оно",
-      "finger": "blue",
-      "hint": "Все изученные пальцы - фокус на ритме и равномерности"
-    },
-    {
-      "type": "p",
-      "text": "Это anti-burnout урок - отдых от новых знаний"
+      "text": "Ф — мизинец левой руки (крайняя левая буква, слева от Ы), Ж — мизинец правой (крайняя правая, справа от Д). Большие пальцы над пробелом, остальные на исходной ФЫВА ОЛДЖ. Нащупай Ф и Ж, не отрывая других пальцев от дома."
     },
     {
       "type": "callout",
-      "icon": "💡",
-      "title": "Подсказка",
-      "text": "Цель: равномерность, не скорость"
+      "icon": "🤏",
+      "title": "Мизинец — особое внимание",
+      "text": "Мизинец слушается хуже всех пальцев и быстрее устаёт. Не дави сильно и не спеши: спокойный счёт «раз» на каждое нажатие и сразу возвращай палец на место."
+    },
+    {
+      "type": "step",
+      "kind": "drill",
+      "target": "ф ф ф ф ф ф ф ф ф ф ф ф ф ф ф ф ф ф ф ф",
+      "finger": "pink",
+      "title": "Буква Ф",
+      "hint": "Мизинец левой руки — буква Ф, после каждой — пробел"
+    },
+    {
+      "type": "step",
+      "kind": "drill",
+      "target": "ж ж ж ж ж ж ж ж ж ж ж ж ж ж ж ж ж ж ж ж",
+      "finger": "pink",
+      "title": "Буква Ж",
+      "hint": "Мизинец правой руки — буква Ж, после каждой — пробел"
+    },
+    {
+      "type": "step",
+      "kind": "drill",
+      "target": "ф ж ф ж ф ж ф ж ф ж ф ж ф ж ф ж ф ж ф ж",
+      "finger": "pink",
+      "title": "Чередование",
+      "hint": "Чередуем мизинцы: Ф — Ж — Ф — Ж, после каждой — пробел"
     },
     {
       "type": "p",
-      "text": "Почувствуй ритм: о-о-о, а-а-а, оно-оно-оно"
+      "text": "Мизинцы включились — собираем слова. С Ф и Ж средний ряд почти весь под пальцами, и из освоенных букв складываются настоящие слова. Читай слово целиком и набирай ровно, не глядя на руки."
     },
     {
       "type": "pullquote",
-      "text": "Представь, что печатаешь под метроном",
+      "text": "Точность бьёт скорость. Скорость приходит сама, когда точность стабилизируется.",
       "by": "методика курса"
     },
     {
-      "type": "exercise",
-      "target": "оно оно она она она он он он",
-      "finger": "green",
-      "hint": "Все изученные пальцы - фокус на ритме и равномерности"
+      "type": "step",
+      "kind": "drill",
+      "target": "жало ждал лажа жажда вода жало ждал лажа жажда вода",
+      "finger": "pink",
+      "title": "Слова",
+      "hint": "Слова из освоенных букв: жало, ждал, лажа, жажда, вода"
+    },
+    {
+      "type": "p",
+      "text": "Все шаги пройдены? Тогда нажми «Открыть тренажёр» ниже и сделай полный заход на весь текст урока. Этот заход сохраняется в прогресс и открывает следующий урок."
     }
   ],
   "character_tips": {
-    "anna": "Отлично! Ритм-урок - время закрепить навык. Наслаждайся процессом! Ровный темп важнее быстрых рывков.",
-    "maxim": "Хорошо! Ритм - основа скорости. Равномерные интервалы между нажатиями - признак мастерства.",
-    "knopych": "Вау! Ритм-челлендж! О-О-О, А-А-А, ОНО-ОНО-ОНО! Как музыка - раз-два-три, раз-два-три!",
-    "klavochka": "Какой ты молодец! Пальчики танцуют в ритме! Тик-так, тик-так, как часики!"
+    "anna": "Отлично! Ф и Ж — буквы для мизинцев. ЖАЛО, ЖДАЛ — настоящие слова, и всё ещё средний ряд!",
+    "maxim": "Хорошая работа! Мизинцы — самые слабые пальцы, но без них не обойтись. Тренируй их спокойно и точно.",
+    "knopych": "Вау! Ж-Ж-Ж! Ф-Ф-Ф! ЖАЖДА — слово из одних букв среднего ряда! Здорово!",
+    "klavochka": "Какой ты умница! Даже мизинчики нашли свои клавиши! Ф и Ж — и средний ряд почти весь твой!"
   },
   "phase": 1,
-  "rhythmLesson": true,
+  "rhythmLesson": false,
   "created_at": "2025-11-19",
-  "version": "2.0"
+  "version": "4.0"
 }

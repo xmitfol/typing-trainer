@@ -8,40 +8,135 @@
   "text_length": 118,
   "error_limit_percent": 8,
   "error_limit": 9,
-  "text": "the quick fox jumps over a lazy dog; my brave aunt and gentle uncle keep happy plants in the warm kitchen window today",
-  "text_sequence": [],
+  "text": "the the the the fox fox fox fox dog dog dog dog",
+  "text_sequence": [
+    {"char": "t", "hand": "left", "finger": "index", "key": "T"},
+    {"char": "h", "hand": "right", "finger": "index", "key": "H"},
+    {"char": "e", "hand": "left", "finger": "middle", "key": "E"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "t", "hand": "left", "finger": "index", "key": "T"},
+    {"char": "h", "hand": "right", "finger": "index", "key": "H"},
+    {"char": "e", "hand": "left", "finger": "middle", "key": "E"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "t", "hand": "left", "finger": "index", "key": "T"},
+    {"char": "h", "hand": "right", "finger": "index", "key": "H"},
+    {"char": "e", "hand": "left", "finger": "middle", "key": "E"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "t", "hand": "left", "finger": "index", "key": "T"},
+    {"char": "h", "hand": "right", "finger": "index", "key": "H"},
+    {"char": "e", "hand": "left", "finger": "middle", "key": "E"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "f", "hand": "left", "finger": "index", "key": "F"},
+    {"char": "o", "hand": "right", "finger": "ring", "key": "O"},
+    {"char": "x", "hand": "left", "finger": "ring", "key": "X"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "f", "hand": "left", "finger": "index", "key": "F"},
+    {"char": "o", "hand": "right", "finger": "ring", "key": "O"},
+    {"char": "x", "hand": "left", "finger": "ring", "key": "X"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "f", "hand": "left", "finger": "index", "key": "F"},
+    {"char": "o", "hand": "right", "finger": "ring", "key": "O"},
+    {"char": "x", "hand": "left", "finger": "ring", "key": "X"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "f", "hand": "left", "finger": "index", "key": "F"},
+    {"char": "o", "hand": "right", "finger": "ring", "key": "O"},
+    {"char": "x", "hand": "left", "finger": "ring", "key": "X"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "d", "hand": "left", "finger": "middle", "key": "D"},
+    {"char": "o", "hand": "right", "finger": "ring", "key": "O"},
+    {"char": "g", "hand": "left", "finger": "index", "key": "G"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "d", "hand": "left", "finger": "middle", "key": "D"},
+    {"char": "o", "hand": "right", "finger": "ring", "key": "O"},
+    {"char": "g", "hand": "left", "finger": "index", "key": "G"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "d", "hand": "left", "finger": "middle", "key": "D"},
+    {"char": "o", "hand": "right", "finger": "ring", "key": "O"},
+    {"char": "g", "hand": "left", "finger": "index", "key": "G"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "d", "hand": "left", "finger": "middle", "key": "D"},
+    {"char": "o", "hand": "right", "finger": "ring", "key": "O"},
+    {"char": "g", "hand": "left", "finger": "index", "key": "G"}
+  ],
   "keys_trained": [
-    "A-Z",
-    "Space",
+    "A",
+    "B",
+    "C",
+    "D",
+    "E",
+    "F",
+    "G",
+    "H",
+    "I",
+    "J",
+    "K",
+    "L",
+    "M",
+    "N",
+    "O",
+    "P",
+    "Q",
+    "R",
+    "S",
+    "T",
+    "U",
+    "V",
+    "W",
+    "X",
+    "Y",
+    "Z",
     ";",
-    ","
+    "Space"
   ],
   "new_keys": [],
   "finger_focus": "Full alphabet rhythm",
+  "guided": true,
   "tips": [
     {
       "type": "lead",
-      "text": "All 26 letters in natural sentences"
+      "text": "Your fingers now know every letter on the board. Today is not about new keys, it is about flow - typing short words on a steady beat until they feel automatic. Flow, not force."
     },
     {
       "type": "drop",
-      "text": "Pangram + extra prose = full keyboard test"
+      "text": "Eyes up, hands on home row. Repeat each word at one even pace - same gap between every tap. Don't sprint, just hold the rhythm like a track playing on loop."
     },
     {
-      "type": "exercise",
-      "target": "the quick fox jumps over a lazy dog; my brave aunt",
+      "type": "callout",
+      "icon": "🎶",
+      "title": "Even beat",
+      "text": "Find a tempo you can actually keep and lock in. Steady always beats rushed - smooth and even, not jerky and fast. Let the beat do the work for you."
+    },
+    {
+      "type": "step",
+      "kind": "drill",
+      "target": "the the the the the",
       "finger": "blue",
-      "hint": "Full alphabet rhythm"
+      "title": "Rhythm: the",
+      "hint": "Loop it on a steady beat: the - the - the. Same gap every time."
+    },
+    {
+      "type": "step",
+      "kind": "drill",
+      "target": "fox fox fox fox",
+      "finger": "blue",
+      "title": "Rhythm: fox",
+      "hint": "Hold the tempo: fox - fox - fox. Flow, not force."
+    },
+    {
+      "type": "step",
+      "kind": "drill",
+      "target": "dog dog dog dog",
+      "finger": "green",
+      "title": "Rhythm: dog",
+      "hint": "Keep it even to the end: dog - dog - dog. No speeding up."
     },
     {
       "type": "p",
-      "text": "Metronome at 33 BPM — hold steady"
+      "text": "Notice how your hands start reaching for the whole word at once. That is the point - repetition on an even beat turns thinking into reflex, and reflex is where real speed comes from."
     },
     {
-      "type": "exercise",
-      "target": "and gentle uncle keep happy plants in the warm kitchen window today",
-      "finger": "green",
-      "hint": "Full alphabet rhythm"
+      "type": "p",
+      "text": "All three drills done? Hit \"Open trainer\" below and run the full lesson text in one go. That run saves to your progress and unlocks the next lesson."
     }
   ],
   "character_tips": {
@@ -53,5 +148,5 @@
   "phase": 1,
   "rhythmLesson": true,
   "created_at": "2026-05-25",
-  "version": "1.0"
+  "version": "4.0"
 }

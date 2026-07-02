@@ -332,6 +332,14 @@
     color: var(--sub); margin-left: 12px;
     min-width: 60px; text-align: right;
 }
+.lp-exercise__done-badge {
+    margin-left: 12px;
+    display: inline-flex; align-items: center; gap: 4px;
+    padding: 5px 10px; border-radius: 7px;
+    background: var(--success-bg, #f0fdf4);
+    color: var(--success, #10b981);
+    font-family: var(--font-ui); font-size: 12px; font-weight: 700;
+}
 .lp-exercise__open {
     margin-left: 12px;
     padding: 8px 14px;
@@ -343,6 +351,35 @@
     text-decoration: none;
     display: inline-flex; align-items: center; gap: 6px;
     box-shadow: 0 6px 14px rgba(59,130,246,0.25);
+}
+
+/* ─── Гайдед-шаги (lesson.guided): placement + drill с гейтингом ──── */
+.lp-exercise__target--preview {
+    /* Превью текста шага — не редактируется, без курсора набора. */
+    opacity: 0.85;
+    cursor: default;
+    user-select: none;
+}
+.lp-step__open { margin-left: auto; }
+.lp-exercise--step .lp-exercise__meta { align-items: center; }
+.lp-exercise--done .lp-exercise__target--preview { opacity: 0.5; }
+/* Заблокированный шаг — затемнён, без кнопки. */
+.lp-exercise--locked {
+    opacity: 0.55;
+    filter: grayscale(0.4);
+}
+.lp-step__lock {
+    margin-left: auto;
+    font-size: 12px; font-weight: 600;
+    color: var(--sub, #6b7280);
+    display: inline-flex; align-items: center; gap: 4px;
+}
+/* Заблокированная кнопка финального захода. */
+.lp-exercise__open--locked {
+    background: var(--divider, #d1d5db) !important;
+    box-shadow: none !important;
+    cursor: not-allowed;
+    pointer-events: none;
 }
 
 /* ─── Inline ExerciseInsert (по design lesson.jsx) ───────────────── */

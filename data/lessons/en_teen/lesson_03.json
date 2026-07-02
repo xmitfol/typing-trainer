@@ -5,19 +5,75 @@
   "title": "Home row: short sentences",
   "description": "Practice rhythm with home-row sentences",
   "target_wpm": 22,
-  "text_length": 48,
+  "text_length": 53,
   "error_limit_percent": 8,
   "error_limit": 3,
-  "text": "a sad lad asks dad; a lass falls; dads ask lads;",
-  "text_sequence": [],
+  "text": "a glass had a flash; dad asks a sad lad; halls flash;",
+  "text_sequence": [
+    {"char": "a", "hand": "left", "finger": "pinky", "key": "A"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "g", "hand": "left", "finger": "index", "key": "G"},
+    {"char": "l", "hand": "right", "finger": "ring", "key": "L"},
+    {"char": "a", "hand": "left", "finger": "pinky", "key": "A"},
+    {"char": "s", "hand": "left", "finger": "ring", "key": "S"},
+    {"char": "s", "hand": "left", "finger": "ring", "key": "S"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "h", "hand": "right", "finger": "index", "key": "H"},
+    {"char": "a", "hand": "left", "finger": "pinky", "key": "A"},
+    {"char": "d", "hand": "left", "finger": "middle", "key": "D"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "a", "hand": "left", "finger": "pinky", "key": "A"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "f", "hand": "left", "finger": "index", "key": "F"},
+    {"char": "l", "hand": "right", "finger": "ring", "key": "L"},
+    {"char": "a", "hand": "left", "finger": "pinky", "key": "A"},
+    {"char": "s", "hand": "left", "finger": "ring", "key": "S"},
+    {"char": "h", "hand": "right", "finger": "index", "key": "H"},
+    {"char": ";", "hand": "right", "finger": "pinky", "key": ";"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "d", "hand": "left", "finger": "middle", "key": "D"},
+    {"char": "a", "hand": "left", "finger": "pinky", "key": "A"},
+    {"char": "d", "hand": "left", "finger": "middle", "key": "D"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "a", "hand": "left", "finger": "pinky", "key": "A"},
+    {"char": "s", "hand": "left", "finger": "ring", "key": "S"},
+    {"char": "k", "hand": "right", "finger": "middle", "key": "K"},
+    {"char": "s", "hand": "left", "finger": "ring", "key": "S"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "a", "hand": "left", "finger": "pinky", "key": "A"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "s", "hand": "left", "finger": "ring", "key": "S"},
+    {"char": "a", "hand": "left", "finger": "pinky", "key": "A"},
+    {"char": "d", "hand": "left", "finger": "middle", "key": "D"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "l", "hand": "right", "finger": "ring", "key": "L"},
+    {"char": "a", "hand": "left", "finger": "pinky", "key": "A"},
+    {"char": "d", "hand": "left", "finger": "middle", "key": "D"},
+    {"char": ";", "hand": "right", "finger": "pinky", "key": ";"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "h", "hand": "right", "finger": "index", "key": "H"},
+    {"char": "a", "hand": "left", "finger": "pinky", "key": "A"},
+    {"char": "l", "hand": "right", "finger": "ring", "key": "L"},
+    {"char": "l", "hand": "right", "finger": "ring", "key": "L"},
+    {"char": "s", "hand": "left", "finger": "ring", "key": "S"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "f", "hand": "left", "finger": "index", "key": "F"},
+    {"char": "l", "hand": "right", "finger": "ring", "key": "L"},
+    {"char": "a", "hand": "left", "finger": "pinky", "key": "A"},
+    {"char": "s", "hand": "left", "finger": "ring", "key": "S"},
+    {"char": "h", "hand": "right", "finger": "index", "key": "H"},
+    {"char": ";", "hand": "right", "finger": "pinky", "key": ";"}
+  ],
   "keys_trained": [
     "A",
-    "S",
     "D",
     "F",
+    "G",
+    "H",
     "J",
     "K",
     "L",
+    "S",
     ";",
     "Space"
   ],
@@ -26,37 +82,37 @@
   "tips": [
     {
       "type": "lead",
-      "text": "Sentences with only home-row letters"
+      "text": "Whole sentences without leaving the home row. Yeah, it's possible."
     },
     {
       "type": "drop",
-      "text": "Semicolons live on home row too — pinky right"
+      "text": "The semicolon lives on the home row too, right pinky. Tap it, don't reach for it."
     },
     {
       "type": "exercise",
-      "target": "a sad lad asks dad;",
+      "target": "a glass had a flash;",
       "finger": "blue",
       "hint": "Home row + punctuation intro"
     },
     {
       "type": "p",
-      "text": "Don't break flow at the spaces"
+      "text": "Don't stall at the spaces. The thumb keeps the rhythm rolling."
     },
     {
       "type": "exercise",
-      "target": "a lass falls; dads ask lads;",
+      "target": "dad asks a sad lad; halls flash;",
       "finger": "green",
       "hint": "Home row + punctuation intro"
     }
   ],
   "character_tips": {
-    "anna": "Sentences without leaving home row. Notice how little your hands move?",
-    "maxim": "Efficiency starts with minimal movement. Every keystroke earned.",
-    "knopych": "SENTENCE COMBO! 🎯 Multi-word attack!",
-    "klavochka": "A little story from home row, my sunshine ☀️"
+    "anna": "Full sentences, hands barely moving. That's the whole trick.",
+    "maxim": "Less hand movement, less wasted energy. Keep it tight.",
+    "knopych": "SENTENCE COMBO! Stack those words!",
+    "klavochka": "A little story straight from the home row, no detours."
   },
   "phase": 1,
   "rhythmLesson": false,
   "created_at": "2026-05-25",
-  "version": "1.0"
+  "version": "2.0"
 }

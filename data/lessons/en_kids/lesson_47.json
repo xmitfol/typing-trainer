@@ -5,41 +5,113 @@
   "title": "Rhythm: full alphabet song",
   "description": "Sing the alphabet with a steady beat",
   "target_wpm": 47,
-  "text_length": 98,
+  "text_length": 46,
   "error_limit_percent": 10,
   "error_limit": 9,
-  "text": "a b c d e f g h i j k l m n o p q r s t u v w x y z next time won't you sing with me a b c d e f g",
-  "text_sequence": [],
+  "text": "sing sing sing sing with with with with me me me",
+  "text_sequence": [
+    {"char": "s", "hand": "left", "finger": "ring", "key": "S"},
+    {"char": "i", "hand": "right", "finger": "middle", "key": "I"},
+    {"char": "n", "hand": "right", "finger": "index", "key": "N"},
+    {"char": "g", "hand": "left", "finger": "index", "key": "G"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "s", "hand": "left", "finger": "ring", "key": "S"},
+    {"char": "i", "hand": "right", "finger": "middle", "key": "I"},
+    {"char": "n", "hand": "right", "finger": "index", "key": "N"},
+    {"char": "g", "hand": "left", "finger": "index", "key": "G"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "s", "hand": "left", "finger": "ring", "key": "S"},
+    {"char": "i", "hand": "right", "finger": "middle", "key": "I"},
+    {"char": "n", "hand": "right", "finger": "index", "key": "N"},
+    {"char": "g", "hand": "left", "finger": "index", "key": "G"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "s", "hand": "left", "finger": "ring", "key": "S"},
+    {"char": "i", "hand": "right", "finger": "middle", "key": "I"},
+    {"char": "n", "hand": "right", "finger": "index", "key": "N"},
+    {"char": "g", "hand": "left", "finger": "index", "key": "G"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "w", "hand": "left", "finger": "ring", "key": "W"},
+    {"char": "i", "hand": "right", "finger": "middle", "key": "I"},
+    {"char": "t", "hand": "left", "finger": "index", "key": "T"},
+    {"char": "h", "hand": "right", "finger": "index", "key": "H"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "w", "hand": "left", "finger": "ring", "key": "W"},
+    {"char": "i", "hand": "right", "finger": "middle", "key": "I"},
+    {"char": "t", "hand": "left", "finger": "index", "key": "T"},
+    {"char": "h", "hand": "right", "finger": "index", "key": "H"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "w", "hand": "left", "finger": "ring", "key": "W"},
+    {"char": "i", "hand": "right", "finger": "middle", "key": "I"},
+    {"char": "t", "hand": "left", "finger": "index", "key": "T"},
+    {"char": "h", "hand": "right", "finger": "index", "key": "H"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "w", "hand": "left", "finger": "ring", "key": "W"},
+    {"char": "i", "hand": "right", "finger": "middle", "key": "I"},
+    {"char": "t", "hand": "left", "finger": "index", "key": "T"},
+    {"char": "h", "hand": "right", "finger": "index", "key": "H"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "m", "hand": "right", "finger": "index", "key": "M"},
+    {"char": "e", "hand": "left", "finger": "middle", "key": "E"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "m", "hand": "right", "finger": "index", "key": "M"},
+    {"char": "e", "hand": "left", "finger": "middle", "key": "E"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "m", "hand": "right", "finger": "index", "key": "M"},
+    {"char": "e", "hand": "left", "finger": "middle", "key": "E"}
+  ],
   "keys_trained": [
     "A-Z",
     "Space"
   ],
   "new_keys": [],
   "finger_focus": "Alphabet song rhythm",
+  "guided": true,
   "tips": [
     {
       "type": "lead",
-      "text": "The ABC song!"
+      "text": "Let us sing our favorite song with our fingers, friend. We tap the same little word a few times, keeping a happy beat: tap-tap, tap-tap."
     },
     {
       "type": "drop",
-      "text": "Every letter in song form"
+      "text": "Type one word, then the same word again, at the same easy speed. Let the little drum keep time, and sing along softly in your head."
     },
     {
-      "type": "exercise",
-      "target": "a b c d e f g h i j k l m n o p q r s t",
-      "finger": "purple",
-      "hint": "Alphabet song rhythm"
+      "type": "callout",
+      "icon": "🥁",
+      "title": "Sing the beat",
+      "text": "Hear the drum: tap-tap, tap-tap. Keep the same little pause between every word, just like the steady beat of the ABC song."
+    },
+    {
+      "type": "step",
+      "kind": "drill",
+      "target": "sing sing sing sing",
+      "finger": "blue",
+      "title": "Rhythm: sing",
+      "hint": "Same beat each time: sing, sing, sing. Hear the drum"
+    },
+    {
+      "type": "step",
+      "kind": "drill",
+      "target": "with with with with",
+      "finger": "green",
+      "title": "Rhythm: with",
+      "hint": "Tap-tap, tap-tap: with, with, with. Stay smooth"
+    },
+    {
+      "type": "step",
+      "kind": "drill",
+      "target": "me me me",
+      "finger": "blue",
+      "title": "Rhythm: me",
+      "hint": "Keep the steady beat: me, me, me. No rushing"
     },
     {
       "type": "p",
-      "text": "Sing along in your head"
+      "text": "Beautiful, champ! You sang the whole song with your fingers. When the words come back again and again, your hands learn the tune all by themselves."
     },
     {
-      "type": "exercise",
-      "target": "u v w x y z next time won't you sing with me a b c d e f g",
-      "finger": "purple",
-      "hint": "Alphabet song rhythm"
+      "type": "p",
+      "text": "All steps done? Press Open the trainer below and type the whole lesson once. You are trying, so you are already winning."
     }
   ],
   "character_tips": {
@@ -51,5 +123,5 @@
   "phase": 5,
   "rhythmLesson": true,
   "created_at": "2026-05-25",
-  "version": "1.0"
+  "version": "4.0"
 }

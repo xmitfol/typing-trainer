@@ -2,17 +2,96 @@
   "id": "en_tier1_lesson_08",
   "tier": "en_tier1",
   "lesson_number": 8,
-  "title": "Bottom row: V, B, M, C",
-  "description": "Reach down to bottom row — V, B (index), M (right index), C (left middle)",
+  "title": "Bottom row: V M C (index + middle drop)",
+  "description": "Index fingers drop to V and M; left middle drops to C",
   "target_wpm": 20,
-  "text_length": 70,
+  "text_length": 78,
   "error_limit_percent": 5,
   "error_limit": 4,
-  "text": "vibe move come back voice mind black many simple yes you can do",
-  "text_sequence": [],
+  "text": "vm cv vivid cover mimic vacuum motive comma carve verve cave comic movie voice",
+  "guided": true,
+  "text_sequence": [
+    {"char": "v", "hand": "left", "finger": "index", "key": "V"},
+    {"char": "m", "hand": "right", "finger": "index", "key": "M"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "c", "hand": "left", "finger": "middle", "key": "C"},
+    {"char": "v", "hand": "left", "finger": "index", "key": "V"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "v", "hand": "left", "finger": "index", "key": "V"},
+    {"char": "i", "hand": "right", "finger": "middle", "key": "I"},
+    {"char": "v", "hand": "left", "finger": "index", "key": "V"},
+    {"char": "i", "hand": "right", "finger": "middle", "key": "I"},
+    {"char": "d", "hand": "left", "finger": "middle", "key": "D"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "c", "hand": "left", "finger": "middle", "key": "C"},
+    {"char": "o", "hand": "right", "finger": "ring", "key": "O"},
+    {"char": "v", "hand": "left", "finger": "index", "key": "V"},
+    {"char": "e", "hand": "left", "finger": "middle", "key": "E"},
+    {"char": "r", "hand": "left", "finger": "index", "key": "R"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "m", "hand": "right", "finger": "index", "key": "M"},
+    {"char": "i", "hand": "right", "finger": "middle", "key": "I"},
+    {"char": "m", "hand": "right", "finger": "index", "key": "M"},
+    {"char": "i", "hand": "right", "finger": "middle", "key": "I"},
+    {"char": "c", "hand": "left", "finger": "middle", "key": "C"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "v", "hand": "left", "finger": "index", "key": "V"},
+    {"char": "a", "hand": "left", "finger": "pinky", "key": "A"},
+    {"char": "c", "hand": "left", "finger": "middle", "key": "C"},
+    {"char": "u", "hand": "right", "finger": "index", "key": "U"},
+    {"char": "u", "hand": "right", "finger": "index", "key": "U"},
+    {"char": "m", "hand": "right", "finger": "index", "key": "M"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "m", "hand": "right", "finger": "index", "key": "M"},
+    {"char": "o", "hand": "right", "finger": "ring", "key": "O"},
+    {"char": "t", "hand": "left", "finger": "index", "key": "T"},
+    {"char": "i", "hand": "right", "finger": "middle", "key": "I"},
+    {"char": "v", "hand": "left", "finger": "index", "key": "V"},
+    {"char": "e", "hand": "left", "finger": "middle", "key": "E"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "c", "hand": "left", "finger": "middle", "key": "C"},
+    {"char": "o", "hand": "right", "finger": "ring", "key": "O"},
+    {"char": "m", "hand": "right", "finger": "index", "key": "M"},
+    {"char": "m", "hand": "right", "finger": "index", "key": "M"},
+    {"char": "a", "hand": "left", "finger": "pinky", "key": "A"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "c", "hand": "left", "finger": "middle", "key": "C"},
+    {"char": "a", "hand": "left", "finger": "pinky", "key": "A"},
+    {"char": "r", "hand": "left", "finger": "index", "key": "R"},
+    {"char": "v", "hand": "left", "finger": "index", "key": "V"},
+    {"char": "e", "hand": "left", "finger": "middle", "key": "E"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "v", "hand": "left", "finger": "index", "key": "V"},
+    {"char": "e", "hand": "left", "finger": "middle", "key": "E"},
+    {"char": "r", "hand": "left", "finger": "index", "key": "R"},
+    {"char": "v", "hand": "left", "finger": "index", "key": "V"},
+    {"char": "e", "hand": "left", "finger": "middle", "key": "E"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "c", "hand": "left", "finger": "middle", "key": "C"},
+    {"char": "a", "hand": "left", "finger": "pinky", "key": "A"},
+    {"char": "v", "hand": "left", "finger": "index", "key": "V"},
+    {"char": "e", "hand": "left", "finger": "middle", "key": "E"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "c", "hand": "left", "finger": "middle", "key": "C"},
+    {"char": "o", "hand": "right", "finger": "ring", "key": "O"},
+    {"char": "m", "hand": "right", "finger": "index", "key": "M"},
+    {"char": "i", "hand": "right", "finger": "middle", "key": "I"},
+    {"char": "c", "hand": "left", "finger": "middle", "key": "C"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "m", "hand": "right", "finger": "index", "key": "M"},
+    {"char": "o", "hand": "right", "finger": "ring", "key": "O"},
+    {"char": "v", "hand": "left", "finger": "index", "key": "V"},
+    {"char": "i", "hand": "right", "finger": "middle", "key": "I"},
+    {"char": "e", "hand": "left", "finger": "middle", "key": "E"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "v", "hand": "left", "finger": "index", "key": "V"},
+    {"char": "o", "hand": "right", "finger": "ring", "key": "O"},
+    {"char": "i", "hand": "right", "finger": "middle", "key": "I"},
+    {"char": "c", "hand": "left", "finger": "middle", "key": "C"},
+    {"char": "e", "hand": "left", "finger": "middle", "key": "E"}
+  ],
   "keys_trained": [
     "A",
-    "B",
     "C",
     "D",
     "E",
@@ -24,8 +103,9 @@
     "K",
     "L",
     "M",
-    "N",
     "O",
+    "P",
+    "Q",
     "R",
     "S",
     "T",
@@ -37,45 +117,79 @@
   ],
   "new_keys": [
     "V",
-    "B",
-    "C",
-    "M"
+    "M",
+    "C"
   ],
-  "finger_focus": "Bottom row reaches: V/B (index), C (left middle), M (right index)",
+  "finger_focus": "Bottom row: V/M (index), C (left middle)",
   "tips": [
     {
       "type": "lead",
-      "text": "Index fingers reach down: V (left) and B (left), N (right) — already learned, M (right)"
+      "text": "We have been reaching up; now we drop down. The bottom row begins, and the move is the mirror of the top one - same idea, opposite direction. V sits below F, M sits below J. Both are index work: the finger dips, strikes, and comes home. Down and back, in one motion."
     },
     {
       "type": "drop",
-      "text": "C sits below D — left middle drops"
+      "text": "C sits below D, and it goes to the left middle finger. Watch that one - the natural temptation is to lean the whole hand down after it. Don't. Keep the home keys anchored and let the single finger do the travelling. The rest of the hand stays put as your map."
     },
     {
-      "type": "exercise",
-      "target": "vibe move come back voice mind",
+      "type": "callout",
+      "icon": "🖐",
+      "title": "Down, then straight home",
+      "text": "The bottom row tempts you to leave a finger resting down there between letters. Resist it. Strike and return, every time, so the hand always knows where it is. A finger that wanders is a finger that misses - and a miss costs you more time than the reach ever saved."
+    },
+    {
+      "type": "step",
+      "kind": "drill",
+      "target": "v v v v v v v v v v m m m m m m m m m m",
+      "finger": "blue",
+      "title": "Index: V and M",
+      "hint": "Left index drops from F to V; right index drops from J to M. Down and home."
+    },
+    {
+      "type": "step",
+      "kind": "drill",
+      "target": "c c c c c c c c c c c c c c c c c c c c",
       "finger": "green",
-      "hint": "Буквы: V B C M"
+      "title": "Middle: C",
+      "hint": "Left middle finger drops from D to C, then straight back home."
+    },
+    {
+      "type": "step",
+      "kind": "drill",
+      "target": "vm cv vm cv vm cv vm cv vm cv vm cv vm cv",
+      "finger": "blue",
+      "title": "Down and back",
+      "hint": "Alternate the drops: index to V and M, middle to C. Return home each time."
     },
     {
       "type": "p",
-      "text": "Common letters now possible: vibe, come, voice, mind, black, many"
+      "text": "Three useful letters, and now they go into words. You will see C and V turn up constantly in plain English - cover, voice, carve - so the practice here pays off in every sentence to come. Read each word whole and keep the rhythm even; the bottom row rewards a steady hand."
     },
     {
-      "type": "exercise",
-      "target": "black many simple yes you can do",
+      "type": "pullquote",
+      "text": "A clean, even rhythm beats a fast, ragged one. The reader never sees your speed - only your mistakes.",
+      "by": "Eleanor Hayes, editor"
+    },
+    {
+      "type": "step",
+      "kind": "drill",
+      "target": "vivid cover mimic motive comma carve cave comic movie voice",
       "finger": "blue",
-      "hint": "Буквы: V B C M"
+      "title": "Words",
+      "hint": "Words from the keys you know: cover, motive, carve, comic, movie, voice."
+    },
+    {
+      "type": "p",
+      "text": "Every step typed? Then press Open Trainer below and make one clean run at the whole lesson. That run is the one that counts - it saves your progress and opens the next lesson."
     }
   ],
   "character_tips": {
-    "anna": "Bottom row is harder — you reach down. Return to home after each press.",
-    "maxim": "Bottom row gives you four new letters. English starts to sound real.",
-    "knopych": "Deep dive! V, B, M, C — bottom row! 🌊",
-    "klavochka": "Wonderful! Now you know almost the whole keyboard! 🌟"
+    "anna": "Now we go down. V and M drop with the index fingers, C with the left middle.",
+    "maxim": "Bottom row begins: index fingers drop to V and M, left middle to C.",
+    "knopych": "Going DOWN! V M C - dive and return! 🌊",
+    "klavochka": "Fingers dip down for V, M and C, then back to their cosy home 💤"
   },
   "phase": 1,
   "rhythmLesson": false,
   "created_at": "2026-05-25",
-  "version": "1.0"
+  "version": "4.0"
 }

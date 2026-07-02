@@ -48,7 +48,16 @@ class Subscription(Base, UUIDPkMixin):
         nullable=False,
     )
     plan: Mapped[str] = mapped_column(String(20), nullable=False)
+    period: Mapped[str | None] = mapped_column(String(8))  # w1/m1/m3/m6/y1 - срок подписки
     status: Mapped[str] = mapped_column(String(20), nullable=False)
+
+    # Платёжный провайдер (ADR-008): 'stub' / 'yookassa' / … . server_default
+    # 'stub' — существующие строки (если бы были) считаем stub'ом.
+    provider: Mapped[str] = mapped_column(
+        String(20),
+        nullable=False,
+        server_default=text("'stub'"),
+    )
 
     started_at: Mapped[datetime | None] = mapped_column(TIMESTAMP(timezone=True))
     expires_at: Mapped[datetime | None] = mapped_column(TIMESTAMP(timezone=True))
@@ -155,7 +164,7 @@ class SubscriptionCharge(Base):
 
     __table_args__ = (
         CheckConstraint(
-            "status IN ('success', 'failed', 'pending_3ds', 'pending_yk')",
+            "status IN ('success', 'failed', 'pending_3ds', 'pending_yk', 'refunded')",
             name="charge_status_valid",
         ),
         CheckConstraint("amount_kopecks > 0", name="charge_amount_positive"),

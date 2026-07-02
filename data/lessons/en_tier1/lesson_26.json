@@ -3,13 +3,89 @@
   "tier": "en_tier1",
   "lesson_number": 26,
   "title": "Numbers: 1 2 3 4 5 (left hand)",
-  "description": "Block 3 starts — left-hand number row. Reach up from home row.",
+  "description": "Block 3 starts - left-hand number row. Reach up from home row.",
   "target_wpm": 24,
   "text_length": 90,
   "error_limit_percent": 7,
   "error_limit": 6,
   "text": "12 34 5 12345 11 22 33 44 55 a1 s2 d3 f4 g5 take 1 add 2 see 3 try 4 win 5",
-  "text_sequence": [],
+  "text_sequence": [
+    {"char": "1", "hand": "left", "finger": "pinky", "key": "1"},
+    {"char": "2", "hand": "left", "finger": "ring", "key": "2"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "3", "hand": "left", "finger": "middle", "key": "3"},
+    {"char": "4", "hand": "left", "finger": "index", "key": "4"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "5", "hand": "left", "finger": "index", "key": "5"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "1", "hand": "left", "finger": "pinky", "key": "1"},
+    {"char": "2", "hand": "left", "finger": "ring", "key": "2"},
+    {"char": "3", "hand": "left", "finger": "middle", "key": "3"},
+    {"char": "4", "hand": "left", "finger": "index", "key": "4"},
+    {"char": "5", "hand": "left", "finger": "index", "key": "5"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "1", "hand": "left", "finger": "pinky", "key": "1"},
+    {"char": "1", "hand": "left", "finger": "pinky", "key": "1"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "2", "hand": "left", "finger": "ring", "key": "2"},
+    {"char": "2", "hand": "left", "finger": "ring", "key": "2"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "3", "hand": "left", "finger": "middle", "key": "3"},
+    {"char": "3", "hand": "left", "finger": "middle", "key": "3"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "4", "hand": "left", "finger": "index", "key": "4"},
+    {"char": "4", "hand": "left", "finger": "index", "key": "4"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "5", "hand": "left", "finger": "index", "key": "5"},
+    {"char": "5", "hand": "left", "finger": "index", "key": "5"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "a", "hand": "left", "finger": "pinky", "key": "A"},
+    {"char": "1", "hand": "left", "finger": "pinky", "key": "1"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "s", "hand": "left", "finger": "ring", "key": "S"},
+    {"char": "2", "hand": "left", "finger": "ring", "key": "2"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "d", "hand": "left", "finger": "middle", "key": "D"},
+    {"char": "3", "hand": "left", "finger": "middle", "key": "3"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "f", "hand": "left", "finger": "index", "key": "F"},
+    {"char": "4", "hand": "left", "finger": "index", "key": "4"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "g", "hand": "left", "finger": "index", "key": "G"},
+    {"char": "5", "hand": "left", "finger": "index", "key": "5"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "t", "hand": "left", "finger": "index", "key": "T"},
+    {"char": "a", "hand": "left", "finger": "pinky", "key": "A"},
+    {"char": "k", "hand": "right", "finger": "middle", "key": "K"},
+    {"char": "e", "hand": "left", "finger": "middle", "key": "E"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "1", "hand": "left", "finger": "pinky", "key": "1"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "a", "hand": "left", "finger": "pinky", "key": "A"},
+    {"char": "d", "hand": "left", "finger": "middle", "key": "D"},
+    {"char": "d", "hand": "left", "finger": "middle", "key": "D"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "2", "hand": "left", "finger": "ring", "key": "2"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "s", "hand": "left", "finger": "ring", "key": "S"},
+    {"char": "e", "hand": "left", "finger": "middle", "key": "E"},
+    {"char": "e", "hand": "left", "finger": "middle", "key": "E"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "3", "hand": "left", "finger": "middle", "key": "3"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "t", "hand": "left", "finger": "index", "key": "T"},
+    {"char": "r", "hand": "left", "finger": "index", "key": "R"},
+    {"char": "y", "hand": "right", "finger": "index", "key": "Y"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "4", "hand": "left", "finger": "index", "key": "4"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "w", "hand": "left", "finger": "ring", "key": "W"},
+    {"char": "i", "hand": "right", "finger": "middle", "key": "I"},
+    {"char": "n", "hand": "right", "finger": "index", "key": "N"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "5", "hand": "left", "finger": "index", "key": "5"}
+  ],
+  "guided": true,
   "keys_trained": [
     "A",
     "B",
@@ -56,43 +132,64 @@
   "tips": [
     {
       "type": "lead",
-      "text": "1 is left pinky reach up — above Q"
+      "text": "Letters and punctuation are yours. Now the number row - the figures that turn copy into fact: a date, a count, a page. We start with the left hand, digits 1 through 5. They live two rows up, so the real skill today is reaching the top row by feel and coming straight back home."
     },
     {
       "type": "drop",
-      "text": "2 ring, 3 middle, 4 and 5 both index (4 stretches up-right)"
-    },
-    {
-      "type": "exercise",
-      "target": "12 34 5 12345 11 22 33 44 55 a1 s2 d3",
-      "finger": "pink",
-      "hint": "Буквы: 1 2 3 4 5"
-    },
-    {
-      "type": "p",
-      "text": "Return to home row after each number"
+      "text": "Each digit sits above the finger that already knows the column. 1 is the left pinky (above Q); 2 the ring; 3 the middle; 4 the index, straight up; 5 the same index, stretched up and to the right. Reach with one finger, tap, and return - the other fingers stay on the home row the whole time."
     },
     {
       "type": "callout",
-      "icon": "💡",
-      "title": "Подсказка",
-      "text": "Numbers are a stretch — don't lose home position"
+      "icon": "⬆️",
+      "title": "Reach, don't look",
+      "text": "The numbers are a stretch, and that tempts the eyes downward. Don't. Feel your way up from each finger's letter and trust it. Lose your home position chasing a digit and you lose the next three keys too."
     },
     {
-      "type": "exercise",
-      "target": "f4 g5 take 1 add 2 see 3 try 4 win 5",
-      "finger": "orange",
-      "hint": "Буквы: 1 2 3 4 5"
+      "type": "step",
+      "kind": "drill",
+      "target": "1 2 3 1 2 3 1 2 3 1 2 3 1 2 3",
+      "finger": "pink",
+      "title": "Digits 1-2-3",
+      "hint": "Pinky, ring, middle reach up in turn. Tap and bring the finger home."
+    },
+    {
+      "type": "step",
+      "kind": "drill",
+      "target": "4 5 4 5 4 5 4 5 4 5 4 5 4 5 4 5",
+      "finger": "indigo",
+      "title": "Digits 4-5",
+      "hint": "Both are the left index: 4 straight up, 5 up and to the right."
+    },
+    {
+      "type": "p",
+      "text": "Now mix the digits with letters, the way real text does - a label, a count, a quick tally. Type each chunk, then snap the hand back home. Read the line whole and keep your eyes on it, not on your fingers."
+    },
+    {
+      "type": "pullquote",
+      "text": "Numbers carry the facts. Get a digit wrong and you have not made a typo - you have changed the story.",
+      "by": "Eleanor Hayes, editor"
+    },
+    {
+      "type": "step",
+      "kind": "drill",
+      "target": "12 34 5 12345 a1 s2 d3 f4 g5 take 1 add 2 see 3 try 4 win 5",
+      "finger": "green",
+      "title": "Numbers with letters",
+      "hint": "Reach up for the digit, return home, carry on. One space between groups."
+    },
+    {
+      "type": "p",
+      "text": "Steps done? Open the trainer below and take one clean run at the full lesson text. That run saves your progress and unlocks the next lesson."
     }
   ],
   "character_tips": {
     "anna": "Numbers stretch your fingers up two rows. Return to home immediately.",
     "maxim": "Left-hand numbers: pinky-ring-middle-index-index. Same finger order as letters below.",
-    "knopych": "NUMBER POWER! 1 2 3 4 5 — left hand attack! ⚡",
-    "klavochka": "Counting numbers — like learning to count again, but with fingers! 🌟"
+    "knopych": "NUMBER POWER! 1 2 3 4 5 - left hand attack! ⚡",
+    "klavochka": "Counting numbers - like learning to count again, but with fingers! 🌟"
   },
   "phase": 3,
   "rhythmLesson": false,
   "created_at": "2026-05-25",
-  "version": "1.0"
+  "version": "4.0"
 }

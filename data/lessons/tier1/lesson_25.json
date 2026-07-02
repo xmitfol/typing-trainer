@@ -10,178 +10,100 @@
   "error_limit": 8,
   "text": "Цена 678 рублей. Скидка 90%. Адрес: ул. Мира, дом 6-8, кв. 79. Время: 18:00. Дата: 25.06.2024.",
   "text_sequence": [
-    {
-      "char": "Ц",
-      "hand": "left",
-      "finger": "ring",
-      "key": "Ц"
-    },
-    {
-      "char": "е",
-      "hand": "left",
-      "finger": "index",
-      "key": "Е"
-    },
-    {
-      "char": "н",
-      "hand": "left",
-      "finger": "index",
-      "key": "Н"
-    },
-    {
-      "char": "а",
-      "hand": "left",
-      "finger": "index",
-      "key": "А"
-    },
-    {
-      "char": " ",
-      "hand": "right",
-      "finger": "thumb",
-      "key": "Space",
-      "space_side": "right"
-    },
-    {
-      "char": "6",
-      "hand": "right",
-      "finger": "index",
-      "key": "6"
-    },
-    {
-      "char": "7",
-      "hand": "right",
-      "finger": "index",
-      "key": "7"
-    },
-    {
-      "char": "8",
-      "hand": "right",
-      "finger": "middle",
-      "key": "8"
-    },
-    {
-      "char": " ",
-      "hand": "left",
-      "finger": "thumb",
-      "key": "Space",
-      "space_side": "left"
-    },
-    {
-      "char": "р",
-      "hand": "left",
-      "finger": "index",
-      "key": "Р"
-    },
-    {
-      "char": "у",
-      "hand": "left",
-      "finger": "index",
-      "key": "У"
-    },
-    {
-      "char": "б",
-      "hand": "left",
-      "finger": "index",
-      "key": "Б"
-    },
-    {
-      "char": "л",
-      "hand": "left",
-      "finger": "middle",
-      "key": "Л"
-    },
-    {
-      "char": "е",
-      "hand": "left",
-      "finger": "index",
-      "key": "Е"
-    },
-    {
-      "char": "й",
-      "hand": "left",
-      "finger": "index",
-      "key": "Й"
-    },
-    {
-      "char": ".",
-      "hand": "left",
-      "finger": "ring",
-      "key": "."
-    },
-    {
-      "char": " ",
-      "hand": "right",
-      "finger": "thumb",
-      "key": "Space",
-      "space_side": "right"
-    },
-    {
-      "char": "С",
-      "hand": "right",
-      "finger": "middle",
-      "key": "С"
-    },
-    {
-      "char": "к",
-      "hand": "right",
-      "finger": "middle",
-      "key": "К"
-    },
-    {
-      "char": "и",
-      "hand": "right",
-      "finger": "index",
-      "key": "И"
-    },
-    {
-      "char": "д",
-      "hand": "right",
-      "finger": "ring",
-      "key": "Д"
-    },
-    {
-      "char": "к",
-      "hand": "right",
-      "finger": "middle",
-      "key": "К"
-    },
-    {
-      "char": "а",
-      "hand": "right",
-      "finger": "index",
-      "key": "А"
-    },
-    {
-      "char": " ",
-      "hand": "left",
-      "finger": "thumb",
-      "key": "Space",
-      "space_side": "left"
-    },
-    {
-      "char": "9",
-      "hand": "left",
-      "finger": "middle",
-      "key": "9"
-    },
-    {
-      "char": "0",
-      "hand": "left",
-      "finger": "pinky",
-      "key": "0"
-    },
-    {
-      "char": "%",
-      "hand": "left",
-      "finger": "index",
-      "key": "%"
-    },
-    {
-      "char": ".",
-      "hand": "left",
-      "finger": "ring",
-      "key": "."
-    }
+    {"char": "Ц", "hand": "left", "finger": "ring", "key": "Ц"},
+    {"char": "е", "hand": "left", "finger": "index", "key": "Е"},
+    {"char": "н", "hand": "right", "finger": "index", "key": "Н"},
+    {"char": "а", "hand": "left", "finger": "index", "key": "А"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "6", "hand": "right", "finger": "index", "key": "6"},
+    {"char": "7", "hand": "right", "finger": "index", "key": "7"},
+    {"char": "8", "hand": "right", "finger": "middle", "key": "8"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "р", "hand": "right", "finger": "index", "key": "Р"},
+    {"char": "у", "hand": "left", "finger": "middle", "key": "У"},
+    {"char": "б", "hand": "right", "finger": "middle", "key": "Б"},
+    {"char": "л", "hand": "right", "finger": "middle", "key": "Л"},
+    {"char": "е", "hand": "left", "finger": "index", "key": "Е"},
+    {"char": "й", "hand": "left", "finger": "pinky", "key": "Й"},
+    {"char": ".", "hand": "right", "finger": "pinky", "key": "."},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "С", "hand": "left", "finger": "middle", "key": "С"},
+    {"char": "к", "hand": "left", "finger": "index", "key": "К"},
+    {"char": "и", "hand": "left", "finger": "index", "key": "И"},
+    {"char": "д", "hand": "right", "finger": "ring", "key": "Д"},
+    {"char": "к", "hand": "left", "finger": "index", "key": "К"},
+    {"char": "а", "hand": "left", "finger": "index", "key": "А"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "9", "hand": "right", "finger": "ring", "key": "9"},
+    {"char": "0", "hand": "right", "finger": "pinky", "key": "0"},
+    {"char": "%", "hand": "right", "finger": "pinky", "key": "%"},
+    {"char": ".", "hand": "right", "finger": "pinky", "key": "."},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "А", "hand": "left", "finger": "index", "key": "А"},
+    {"char": "д", "hand": "right", "finger": "ring", "key": "Д"},
+    {"char": "р", "hand": "right", "finger": "index", "key": "Р"},
+    {"char": "е", "hand": "left", "finger": "index", "key": "Е"},
+    {"char": "с", "hand": "left", "finger": "middle", "key": "С"},
+    {"char": ":", "hand": "right", "finger": "pinky", "key": ":"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "у", "hand": "left", "finger": "middle", "key": "У"},
+    {"char": "л", "hand": "right", "finger": "middle", "key": "Л"},
+    {"char": ".", "hand": "right", "finger": "pinky", "key": "."},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "М", "hand": "left", "finger": "index", "key": "М"},
+    {"char": "и", "hand": "left", "finger": "index", "key": "И"},
+    {"char": "р", "hand": "right", "finger": "index", "key": "Р"},
+    {"char": "а", "hand": "left", "finger": "index", "key": "А"},
+    {"char": ",", "hand": "right", "finger": "pinky", "key": ","},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "д", "hand": "right", "finger": "ring", "key": "Д"},
+    {"char": "о", "hand": "right", "finger": "index", "key": "О"},
+    {"char": "м", "hand": "left", "finger": "index", "key": "М"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "6", "hand": "right", "finger": "index", "key": "6"},
+    {"char": "-", "hand": "right", "finger": "pinky", "key": "-"},
+    {"char": "8", "hand": "right", "finger": "middle", "key": "8"},
+    {"char": ",", "hand": "right", "finger": "pinky", "key": ","},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "к", "hand": "left", "finger": "index", "key": "К"},
+    {"char": "в", "hand": "left", "finger": "middle", "key": "В"},
+    {"char": ".", "hand": "right", "finger": "pinky", "key": "."},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "7", "hand": "right", "finger": "index", "key": "7"},
+    {"char": "9", "hand": "right", "finger": "ring", "key": "9"},
+    {"char": ".", "hand": "right", "finger": "pinky", "key": "."},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "В", "hand": "left", "finger": "middle", "key": "В"},
+    {"char": "р", "hand": "right", "finger": "index", "key": "Р"},
+    {"char": "е", "hand": "left", "finger": "index", "key": "Е"},
+    {"char": "м", "hand": "left", "finger": "index", "key": "М"},
+    {"char": "я", "hand": "left", "finger": "pinky", "key": "Я"},
+    {"char": ":", "hand": "right", "finger": "pinky", "key": ":"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "1", "hand": "left", "finger": "pinky", "key": "1"},
+    {"char": "8", "hand": "right", "finger": "middle", "key": "8"},
+    {"char": ":", "hand": "right", "finger": "pinky", "key": ":"},
+    {"char": "0", "hand": "right", "finger": "pinky", "key": "0"},
+    {"char": "0", "hand": "right", "finger": "pinky", "key": "0"},
+    {"char": ".", "hand": "right", "finger": "pinky", "key": "."},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "Д", "hand": "right", "finger": "ring", "key": "Д"},
+    {"char": "а", "hand": "left", "finger": "index", "key": "А"},
+    {"char": "т", "hand": "right", "finger": "index", "key": "Т"},
+    {"char": "а", "hand": "left", "finger": "index", "key": "А"},
+    {"char": ":", "hand": "right", "finger": "pinky", "key": ":"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "2", "hand": "left", "finger": "ring", "key": "2"},
+    {"char": "5", "hand": "left", "finger": "index", "key": "5"},
+    {"char": ".", "hand": "right", "finger": "pinky", "key": "."},
+    {"char": "0", "hand": "right", "finger": "pinky", "key": "0"},
+    {"char": "6", "hand": "right", "finger": "index", "key": "6"},
+    {"char": ".", "hand": "right", "finger": "pinky", "key": "."},
+    {"char": "2", "hand": "left", "finger": "ring", "key": "2"},
+    {"char": "0", "hand": "right", "finger": "pinky", "key": "0"},
+    {"char": "2", "hand": "left", "finger": "ring", "key": "2"},
+    {"char": "4", "hand": "left", "finger": "index", "key": "4"},
+    {"char": ".", "hand": "right", "finger": "pinky", "key": "."}
   ],
   "keys_trained": [
     "А",
@@ -244,56 +166,69 @@
     ":",
     ","
   ],
-  "finger_focus": "Полный цифровой ряд и символы",
+  "finger_focus": "Правая половина цифрового ряда и символы %, двоеточие, запятая",
   "tips": [
     {
       "type": "lead",
-      "text": "ВСЕ ЦИФРЫ 0-9 ОСВОЕНЫ!"
+      "text": "Левую половину цифр ты уже берёшь — закрываем правую: 6, 7, 8, 9. Заодно добавляем три рабочих символа: процент, двоеточие и запятую. С ними получится печатать цены, время, даты и адреса."
     },
     {
       "type": "drop",
-      "text": "6, 7 - правый указательный"
-    },
-    {
-      "type": "exercise",
-      "target": "Цена 678 рублей. Скидка 90%. Адрес: ул. Мира,",
-      "finger": "blue",
-      "hint": "Полный цифровой ряд и символы"
-    },
-    {
-      "type": "p",
-      "text": "8 - правый средний"
+      "text": "6 и 7 — правый указательный, 8 — правый средний, 9 — правый безымянный. Запятая (,) — в нижнем ряду под правым безымянным. Двоеточие (:) — это Shift и клавиша справа, мизинцем. Процент (%) — Shift и 5 левым указательным."
     },
     {
       "type": "callout",
-      "icon": "💡",
-      "title": "Подсказка",
-      "text": "9 - левый средний"
+      "icon": "⬆️",
+      "title": "Симметрия рук",
+      "text": "Правая рука тянется к 6-9 так же, как левая к 1-4: каждый палец вверх от своей буквы и сразу домой. Символы с Shift набирай дальним мизинцем — не выкручивай запястье."
+    },
+    {
+      "type": "step",
+      "kind": "drill",
+      "target": "6 7 8 9 6 7 8 9 6 7 8 9 6 7 8 9 6 7 8 9",
+      "finger": "indigo",
+      "title": "Цифры 6-7-8-9",
+      "hint": "Правая рука вверх: 6-7 указательный, 8 средний, 9 безымянный. После каждой — пробел."
+    },
+    {
+      "type": "step",
+      "kind": "drill",
+      "target": ", , , : : : % % % , : % , : % , : % , :",
+      "finger": "orange",
+      "title": "Символы запятая-двоеточие-процент",
+      "hint": "Запятая — безымянный, двоеточие — Shift мизинцем, процент — Shift и 5."
     },
     {
       "type": "p",
-      "text": "Символы: % (процент), : (двоеточие), , (запятая)"
+      "text": "Все десять цифр и новые символы под пальцами — собираем реальный текст. Цены с процентами, адреса с запятыми, время через двоеточие, даты с точками. Печатай ровно, цифры — вслепую."
     },
     {
       "type": "pullquote",
-      "text": "Практика: цены, даты, время, адреса",
+      "text": "Цена, дата, время — это та печать, которой пользуются каждый день.",
       "by": "методика курса"
     },
     {
-      "type": "exercise",
-      "target": "дом 6-8, кв. 79. Время: 18:00. Дата: 25.06.2024.",
+      "type": "step",
+      "kind": "drill",
+      "target": "Цена 678 рублей. Скидка 90%. Время: 18:00. Дата: 25.06.2024.",
       "finger": "green",
-      "hint": "Полный цифровой ряд и символы"
+      "title": "Цены, время, даты",
+      "hint": "Цифры вперемешку с символами: %, двоеточие во времени, запятые и точки в дате."
+    },
+    {
+      "type": "p",
+      "text": "Все шаги пройдены? Тогда нажми «Открыть тренажёр» ниже и сделай полный заход на весь текст урока. Этот заход сохраняется в прогресс и открывает следующий урок."
     }
   ],
   "character_tips": {
-    "anna": "Отлично! Весь цифровой ряд! ЦЕНА-678, СКИДКА-90%, ВРЕМЯ-18:00 - полезная практика!",
-    "maxim": "Хорошо! Все 10 цифр освоены. Теперь можешь набирать любые числа и даты.",
-    "knopych": "Вау! 678-90%! УЛ.МИРА-6-8, КВ.79! Адреса и цены - как взрослый!",
-    "klavochka": "Какой ты умница! Все цифры! ВРЕМЯ-18:00, ДАТА-25.06.2024 - как настоящее!"
+    "anna": "Отлично! Все десять цифр! ЦЕНА 678, СКИДКА 90%, ВРЕМЯ 18:00 — полезная практика.",
+    "maxim": "Хорошо! Правая половина ряда: 6-7 указательный, 8 средний, 9 безымянный. Символы — через Shift.",
+    "knopych": "Вау! 6-7-8-9! Проценты, двоеточия, запятые! Теперь любое число тебе по плечу!",
+    "klavochka": "Какой ты умница! ВРЕМЯ 18:00, ДАТА 25.06.2024 — всё как по-настоящему!"
   },
   "phase": 2,
   "rhythmLesson": false,
   "created_at": "2025-11-19",
-  "version": "2.0"
+  "version": "4.0",
+  "guided": true
 }

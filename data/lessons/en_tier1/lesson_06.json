@@ -2,343 +2,89 @@
   "id": "en_tier1_lesson_06",
   "tier": "en_tier1",
   "lesson_number": 6,
-  "title": "Add T and Y (top middle index)",
-  "description": "T and Y complete the top middle — frequent letters in English",
+  "title": "Top row: W and O (ring reach up)",
+  "description": "Ring fingers reach up to W (above S) and O (above L)",
   "target_wpm": 16,
-  "text_length": 55,
+  "text_length": 71,
   "error_limit_percent": 5,
   "error_limit": 3,
-  "text": "ty yt try yet they said try a hat at the day or year",
+  "text": "wo ow how low slow word world owl wolf grow show wood shore weird worse",
+  "guided": true,
   "text_sequence": [
-    {
-      "char": "t",
-      "hand": "left",
-      "finger": "index",
-      "key": "T"
-    },
-    {
-      "char": "y",
-      "hand": "right",
-      "finger": "index",
-      "key": "Y"
-    },
-    {
-      "char": " ",
-      "hand": "right",
-      "finger": "thumb",
-      "key": "Space",
-      "space_side": "right"
-    },
-    {
-      "char": "y",
-      "hand": "right",
-      "finger": "index",
-      "key": "Y"
-    },
-    {
-      "char": "t",
-      "hand": "left",
-      "finger": "index",
-      "key": "T"
-    },
-    {
-      "char": " ",
-      "hand": "right",
-      "finger": "thumb",
-      "key": "Space",
-      "space_side": "right"
-    },
-    {
-      "char": "t",
-      "hand": "left",
-      "finger": "index",
-      "key": "T"
-    },
-    {
-      "char": "r",
-      "hand": "left",
-      "finger": "index",
-      "key": "R"
-    },
-    {
-      "char": "y",
-      "hand": "right",
-      "finger": "index",
-      "key": "Y"
-    },
-    {
-      "char": " ",
-      "hand": "right",
-      "finger": "thumb",
-      "key": "Space",
-      "space_side": "right"
-    },
-    {
-      "char": "y",
-      "hand": "right",
-      "finger": "index",
-      "key": "Y"
-    },
-    {
-      "char": "e",
-      "hand": "left",
-      "finger": "middle",
-      "key": "E"
-    },
-    {
-      "char": "t",
-      "hand": "left",
-      "finger": "index",
-      "key": "T"
-    },
-    {
-      "char": " ",
-      "hand": "right",
-      "finger": "thumb",
-      "key": "Space",
-      "space_side": "right"
-    },
-    {
-      "char": "t",
-      "hand": "left",
-      "finger": "index",
-      "key": "T"
-    },
-    {
-      "char": "h",
-      "hand": "right",
-      "finger": "index",
-      "key": "H"
-    },
-    {
-      "char": "e",
-      "hand": "left",
-      "finger": "middle",
-      "key": "E"
-    },
-    {
-      "char": "y",
-      "hand": "right",
-      "finger": "index",
-      "key": "Y"
-    },
-    {
-      "char": " ",
-      "hand": "right",
-      "finger": "thumb",
-      "key": "Space",
-      "space_side": "right"
-    },
-    {
-      "char": "s",
-      "hand": "left",
-      "finger": "ring",
-      "key": "S"
-    },
-    {
-      "char": "a",
-      "hand": "left",
-      "finger": "pinky",
-      "key": "A"
-    },
-    {
-      "char": "i",
-      "hand": "right",
-      "finger": "middle",
-      "key": "I"
-    },
-    {
-      "char": "d",
-      "hand": "left",
-      "finger": "middle",
-      "key": "D"
-    },
-    {
-      "char": " ",
-      "hand": "right",
-      "finger": "thumb",
-      "key": "Space",
-      "space_side": "right"
-    },
-    {
-      "char": "t",
-      "hand": "left",
-      "finger": "index",
-      "key": "T"
-    },
-    {
-      "char": "r",
-      "hand": "left",
-      "finger": "index",
-      "key": "R"
-    },
-    {
-      "char": "y",
-      "hand": "right",
-      "finger": "index",
-      "key": "Y"
-    },
-    {
-      "char": " ",
-      "hand": "right",
-      "finger": "thumb",
-      "key": "Space",
-      "space_side": "right"
-    },
-    {
-      "char": "a",
-      "hand": "left",
-      "finger": "pinky",
-      "key": "A"
-    },
-    {
-      "char": " ",
-      "hand": "right",
-      "finger": "thumb",
-      "key": "Space",
-      "space_side": "right"
-    },
-    {
-      "char": "h",
-      "hand": "right",
-      "finger": "index",
-      "key": "H"
-    },
-    {
-      "char": "a",
-      "hand": "left",
-      "finger": "pinky",
-      "key": "A"
-    },
-    {
-      "char": "t",
-      "hand": "left",
-      "finger": "index",
-      "key": "T"
-    },
-    {
-      "char": " ",
-      "hand": "right",
-      "finger": "thumb",
-      "key": "Space",
-      "space_side": "right"
-    },
-    {
-      "char": "a",
-      "hand": "left",
-      "finger": "pinky",
-      "key": "A"
-    },
-    {
-      "char": "t",
-      "hand": "left",
-      "finger": "index",
-      "key": "T"
-    },
-    {
-      "char": " ",
-      "hand": "right",
-      "finger": "thumb",
-      "key": "Space",
-      "space_side": "right"
-    },
-    {
-      "char": "t",
-      "hand": "left",
-      "finger": "index",
-      "key": "T"
-    },
-    {
-      "char": "h",
-      "hand": "right",
-      "finger": "index",
-      "key": "H"
-    },
-    {
-      "char": "e",
-      "hand": "left",
-      "finger": "middle",
-      "key": "E"
-    },
-    {
-      "char": " ",
-      "hand": "right",
-      "finger": "thumb",
-      "key": "Space",
-      "space_side": "right"
-    },
-    {
-      "char": "d",
-      "hand": "left",
-      "finger": "middle",
-      "key": "D"
-    },
-    {
-      "char": "a",
-      "hand": "left",
-      "finger": "pinky",
-      "key": "A"
-    },
-    {
-      "char": "y",
-      "hand": "right",
-      "finger": "index",
-      "key": "Y"
-    },
-    {
-      "char": " ",
-      "hand": "right",
-      "finger": "thumb",
-      "key": "Space",
-      "space_side": "right"
-    },
-    {
-      "char": "o",
-      "hand": "right",
-      "finger": "ring",
-      "key": "O"
-    },
-    {
-      "char": "r",
-      "hand": "left",
-      "finger": "index",
-      "key": "R"
-    },
-    {
-      "char": " ",
-      "hand": "right",
-      "finger": "thumb",
-      "key": "Space",
-      "space_side": "right"
-    },
-    {
-      "char": "y",
-      "hand": "right",
-      "finger": "index",
-      "key": "Y"
-    },
-    {
-      "char": "e",
-      "hand": "left",
-      "finger": "middle",
-      "key": "E"
-    },
-    {
-      "char": "a",
-      "hand": "left",
-      "finger": "pinky",
-      "key": "A"
-    },
-    {
-      "char": "r",
-      "hand": "left",
-      "finger": "index",
-      "key": "R"
-    }
+    {"char": "w", "hand": "left", "finger": "ring", "key": "W"},
+    {"char": "o", "hand": "right", "finger": "ring", "key": "O"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "o", "hand": "right", "finger": "ring", "key": "O"},
+    {"char": "w", "hand": "left", "finger": "ring", "key": "W"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "h", "hand": "right", "finger": "index", "key": "H"},
+    {"char": "o", "hand": "right", "finger": "ring", "key": "O"},
+    {"char": "w", "hand": "left", "finger": "ring", "key": "W"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "l", "hand": "right", "finger": "ring", "key": "L"},
+    {"char": "o", "hand": "right", "finger": "ring", "key": "O"},
+    {"char": "w", "hand": "left", "finger": "ring", "key": "W"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "s", "hand": "left", "finger": "ring", "key": "S"},
+    {"char": "l", "hand": "right", "finger": "ring", "key": "L"},
+    {"char": "o", "hand": "right", "finger": "ring", "key": "O"},
+    {"char": "w", "hand": "left", "finger": "ring", "key": "W"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "w", "hand": "left", "finger": "ring", "key": "W"},
+    {"char": "o", "hand": "right", "finger": "ring", "key": "O"},
+    {"char": "r", "hand": "left", "finger": "index", "key": "R"},
+    {"char": "d", "hand": "left", "finger": "middle", "key": "D"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "w", "hand": "left", "finger": "ring", "key": "W"},
+    {"char": "o", "hand": "right", "finger": "ring", "key": "O"},
+    {"char": "r", "hand": "left", "finger": "index", "key": "R"},
+    {"char": "l", "hand": "right", "finger": "ring", "key": "L"},
+    {"char": "d", "hand": "left", "finger": "middle", "key": "D"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "o", "hand": "right", "finger": "ring", "key": "O"},
+    {"char": "w", "hand": "left", "finger": "ring", "key": "W"},
+    {"char": "l", "hand": "right", "finger": "ring", "key": "L"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "w", "hand": "left", "finger": "ring", "key": "W"},
+    {"char": "o", "hand": "right", "finger": "ring", "key": "O"},
+    {"char": "l", "hand": "right", "finger": "ring", "key": "L"},
+    {"char": "f", "hand": "left", "finger": "index", "key": "F"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "g", "hand": "left", "finger": "index", "key": "G"},
+    {"char": "r", "hand": "left", "finger": "index", "key": "R"},
+    {"char": "o", "hand": "right", "finger": "ring", "key": "O"},
+    {"char": "w", "hand": "left", "finger": "ring", "key": "W"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "s", "hand": "left", "finger": "ring", "key": "S"},
+    {"char": "h", "hand": "right", "finger": "index", "key": "H"},
+    {"char": "o", "hand": "right", "finger": "ring", "key": "O"},
+    {"char": "w", "hand": "left", "finger": "ring", "key": "W"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "w", "hand": "left", "finger": "ring", "key": "W"},
+    {"char": "o", "hand": "right", "finger": "ring", "key": "O"},
+    {"char": "o", "hand": "right", "finger": "ring", "key": "O"},
+    {"char": "d", "hand": "left", "finger": "middle", "key": "D"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "s", "hand": "left", "finger": "ring", "key": "S"},
+    {"char": "h", "hand": "right", "finger": "index", "key": "H"},
+    {"char": "o", "hand": "right", "finger": "ring", "key": "O"},
+    {"char": "r", "hand": "left", "finger": "index", "key": "R"},
+    {"char": "e", "hand": "left", "finger": "middle", "key": "E"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "w", "hand": "left", "finger": "ring", "key": "W"},
+    {"char": "e", "hand": "left", "finger": "middle", "key": "E"},
+    {"char": "i", "hand": "right", "finger": "middle", "key": "I"},
+    {"char": "r", "hand": "left", "finger": "index", "key": "R"},
+    {"char": "d", "hand": "left", "finger": "middle", "key": "D"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "w", "hand": "left", "finger": "ring", "key": "W"},
+    {"char": "o", "hand": "right", "finger": "ring", "key": "O"},
+    {"char": "r", "hand": "left", "finger": "index", "key": "R"},
+    {"char": "s", "hand": "left", "finger": "ring", "key": "S"},
+    {"char": "e", "hand": "left", "finger": "middle", "key": "E"}
   ],
   "keys_trained": [
     "A",
-    "S",
     "D",
     "E",
     "F",
@@ -350,57 +96,85 @@
     "L",
     "O",
     "R",
-    "T",
+    "S",
     "U",
-    "Y",
+    "W",
     "Space"
   ],
   "new_keys": [
-    "T",
-    "Y",
+    "W",
     "O"
   ],
-  "finger_focus": "Top row: T (left index up-right) and Y (right index up-left), O (right ring up)",
+  "finger_focus": "Ring fingers reach up to W (above S) and O (above L)",
   "tips": [
     {
       "type": "lead",
-      "text": "T is between R and Y on top row — left index reaches up-right"
+      "text": "Two new letters today, and both go to the ring fingers - the ones that least want the job. W sits above S, O sits above L. You reach up, you strike, you come straight back. Mind the return as much as the reach; a finger left hanging up top is a typo waiting to happen."
     },
     {
       "type": "drop",
-      "text": "Y is right of T — right index reaches up-left"
-    },
-    {
-      "type": "exercise",
-      "target": "ty yt try yet they said try",
-      "finger": "orange",
-      "hint": "Буквы: T Y O"
-    },
-    {
-      "type": "p",
-      "text": "O sits above L — right ring reaches up"
+      "text": "Left ring finger lifts off S and taps W. Right ring finger lifts off L and taps O. The other seven fingers stay home on ASDF JKL; - they hold your place while the ring fingers go up and back. Don't tilt the whole hand; just the one finger travels."
     },
     {
       "type": "callout",
-      "icon": "💡",
-      "title": "Подсказка",
-      "text": "Now you can type \"the\", \"they\", \"day\", \"year\""
+      "icon": "🖐",
+      "title": "The weak finger sets the pace",
+      "text": "The ring finger is the slowest of the four, and it will not be hurried. So don't try. Keep an even, unbothered rhythm and let it land cleanly each time. Speed is the one thing on this keyboard you never have to chase - it arrives on its own once the reach is clean."
     },
     {
-      "type": "exercise",
-      "target": "a hat at the day or year",
-      "finger": "pink",
-      "hint": "Буквы: T Y O"
+      "type": "step",
+      "kind": "drill",
+      "target": "w w w w w w w w w w w w w w w w w w w w",
+      "finger": "orange",
+      "title": "The letter W",
+      "hint": "Left ring finger reaches up from S to W, then straight back. Space after each."
+    },
+    {
+      "type": "step",
+      "kind": "drill",
+      "target": "o o o o o o o o o o o o o o o o o o o o",
+      "finger": "orange",
+      "title": "The letter O",
+      "hint": "Right ring finger reaches up from L to O, then straight back. Space after each."
+    },
+    {
+      "type": "step",
+      "kind": "drill",
+      "target": "wo ow wo ow wo ow wo ow wo ow wo ow wo ow",
+      "finger": "orange",
+      "title": "Both rings",
+      "hint": "Alternate the two ring fingers: W up on the left, O up on the right."
+    },
+    {
+      "type": "p",
+      "text": "Both rings are awake now, so let's set them to work. O is one of the busiest letters in the language - you will meet it in nearly every line you ever write, so it pays to make peace with it early. Read each word whole, then type it without glancing down."
+    },
+    {
+      "type": "pullquote",
+      "text": "Accuracy is respect - for the word, for the reader, and for yourself. Speed is just accuracy that stopped being careful.",
+      "by": "Eleanor Hayes, editor"
+    },
+    {
+      "type": "step",
+      "kind": "drill",
+      "target": "how low slow word world owl wolf grow show wood shore weird worse",
+      "finger": "orange",
+      "title": "Words",
+      "hint": "Words from the keys you know: how, low, slow, word, world, grow, show, wolf."
+    },
+    {
+      "type": "p",
+      "text": "Every step typed? Then press Open Trainer below and make one clean run at the whole lesson. That run is the one that counts - it saves your progress and opens the next lesson."
     }
   ],
   "character_tips": {
-    "anna": "T and Y are among the most common English letters. The, they, year, day — all rely on them.",
-    "maxim": "English is T and E. With these letters you can already type almost anything.",
-    "knopych": "Turbo boost! T, Y, O — combo for the whole English language! 🔥",
-    "klavochka": "Wonderful! Now you can write \"the day\" — a whole phrase! ✨"
+    "anna": "W and O use the ring fingers - the trickiest ones. Slow and steady wins here.",
+    "maxim": "Ring fingers are weak; that's why W and O come later. W above S, O above L.",
+    "knopych": "Ring fingers reporting! W and O - careful aim, soldier! 🎮",
+    "klavochka": "Gentle ring fingers reach up for W and O - take your time, dear 💖"
   },
   "phase": 1,
   "rhythmLesson": false,
   "created_at": "2026-05-25",
-  "version": "1.0"
+  "version": "4.0"
 }

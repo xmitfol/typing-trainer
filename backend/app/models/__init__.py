@@ -5,6 +5,7 @@
 резолвятся лениво.
 """
 
+from app.models.admin import AdminAuditLog
 from app.models.base import Base
 from app.models.event import Event
 from app.models.progress import Attempt, Progress
@@ -12,6 +13,7 @@ from app.models.subscription import Subscription, SubscriptionCharge
 from app.models.user import OAuthAccount, User, UserSettings
 
 __all__ = [
+    "AdminAuditLog",
     "Base",
     "Event",
     "OAuthAccount",

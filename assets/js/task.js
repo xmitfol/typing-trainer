@@ -22,8 +22,13 @@ document.addEventListener('DOMContentLoaded', async function () {
 
     const profile = readJSON(profileKey);
     if (!profile || !profile.onboardingCompleted || !profile.name) { window.location.href = 'index.html'; return; }
-    const progress = readJSON(progressKey) || {};
     const currentLesson = readJSON(currentKey) || {};
+    // Прогресс — через apiClient (useApi=true → сервер по активному тиру, иначе LS).
+    // Нужен для линейной-прогрессии гейта ниже и для рендера отчёта. currentLesson
+    // читаем первым: apiClient разворачивает серверный прогресс по currentLesson.tier.
+    const progress = (window.apiClient
+        ? await window.apiClient.getProgress().catch(() => readJSON(progressKey))
+        : readJSON(progressKey)) || {};
 
     function pickTier(p) {
         const lang = p.language || 'ru';
@@ -118,7 +123,27 @@ document.addEventListener('DOMContentLoaded', async function () {
     }
     if (!lesson || !lesson.text) { targetEl.textContent = `Урок ${lessonNum} не загружен`; return; }
 
-    const targetText = lesson.text;
+    // ─── Гайдед-шаг (?exercise=N) ────────────────────────────────
+    // Тренируемся на тексте отдельного шага урока, а не на всём уроке. Финиш
+    // такого шага НЕ пишет lesson_progress (звёзды) — лишь отмечает шаг
+    // пройденным (exerciseProgress) и возвращает в теорию. placement-шаг — это
+    // обычный drill на якорных клавишах (А/О = F/J), отличается лишь инструкцией.
+    const exerciseIdx = parseInt(params.get('exercise'), 10) || 0;
+    let currentStep = null, stepMode = false, totalSteps = 0;
+    if (exerciseIdx > 0 && lesson.guided && Array.isArray(lesson.tips)) {
+        const steps = lesson.tips.filter(tp => tp && tp.type === 'step');
+        totalSteps = steps.length;
+        currentStep = steps[exerciseIdx - 1] || null;
+        stepMode = !!(currentStep && currentStep.target);
+    }
+    // Прямой URL на шаг, чей предыдущий ещё не пройден → назад в теорию.
+    if (stepMode && exerciseIdx > 1 && window.exerciseProgress
+        && !window.exerciseProgress.isStepDone(tier, lessonNum, exerciseIdx - 1)) {
+        window.location.replace(`lesson.html?tier=${encodeURIComponent(tier)}&lesson=${lessonNum}`);
+        return;
+    }
+
+    let targetText = stepMode ? String(currentStep.target) : lesson.text;
     const moduleN = lesson.phase || 1;
     const exId = `${moduleN}.${lessonNum}`;
     numEl.textContent = exId;
@@ -133,10 +158,25 @@ document.addEventListener('DOMContentLoaded', async function () {
         || `Печатай ровно. Цель: ${lesson.target_wpm || '—'} зн/мин, допустимо ошибок: ${Number.isFinite(lesson.error_limit) ? lesson.error_limit : '—'}.`;
     tipEl.textContent = initTip;
     hintEl.textContent = lesson.finger_focus || 'Указательные пальцы — твои якоря на буквах А и О.';
+    // i18n с явным фолбэком (t() возвращает ключ, если перевода нет).
+    const tf = (k, fb) => { const v = t(k); return (v && v !== k) ? v : fb; };
+    // В режиме шага — инструкция шага вместо общей подсказки урока.
+    if (stepMode) {
+        tipEl.textContent = currentStep.hint || initTip;
+        hintEl.textContent = currentStep.kind === 'placement'
+            ? 'Не смотри на руки — нащупай клавиши пальцами.'
+            : (currentStep.hint || '');
+    }
+    // Дефолтные тексты bubble — чтобы вернуть после временной подсказки о раскладке.
+    const bubbleDefaultTip = tipEl.textContent;
+    const bubbleDefaultHint = hintEl.textContent;
+    let layoutWarned = false;
 
     // ─── State ───────────────────────────────────────────────────
     let typed = 0, errors = 0, attempt = 1, startTime = null, timer = null, done = false;
     let tooManyShown = false;  // one-shot per attempt — наставник предупреждает один раз
+    const keyErrors = {};      // ошибки по клавишам (ожидаемый символ → счётчик) — для коуч-разбора
+    const errorPositions = new Set();  // позиции промахов — подчёркиваются до конца захода
     const errorLimit = Number.isFinite(lesson.error_limit) ? lesson.error_limit : 2;
     const halfErrorLimit = Math.max(1, Math.ceil(errorLimit / 2));
 
@@ -184,31 +224,69 @@ document.addEventListener('DOMContentLoaded', async function () {
         }, 4500);
     }
 
+    // ─── Раздельный пробел: какой большой палец жмёт ────────────────
+    // Правило: пробел жмём большим пальцем руки, ПРОТИВОПОЛОЖНОЙ последней
+    // букве (набрал левой → пробел правым, и наоборот). Совпадает со
+    // space_side в lesson.text_sequence. RU + EN раскладки (кириллица и
+    // латиница — разные кодпоинты, в Set'ах не конфликтуют).
+    const LEFT_HAND = new Set('ёйцукефывапячсмиqwertasdfgzxcvb'.split(''));
+    const RIGHT_HAND = new Set('нгшщзхъролджэтьбюyuiophjklnm'.split(''));
+    function spaceSideFor(prevChar) {
+        if (!prevChar) return 'right';
+        const c = prevChar.toLowerCase();
+        if (LEFT_HAND.has(c)) return 'right';
+        if (RIGHT_HAND.has(c)) return 'left';
+        return 'right';  // неизвестная клавиша — дефолт правый палец
+    }
+
     // ─── Render target (слова — неразрывные, перенос целиком) ─────
+    // Карта символ → палец (ЙЦУКЕН) — подсветка ТЕКУЩЕГО символа в цвет его пальца:
+    // взгляд связывает «что печатать» → «каким пальцем» → «какая клавиша горит».
+    const CHAR_FINGER = {
+        'й': 'pink', 'ф': 'pink', 'я': 'pink', 'ё': 'pink',
+        'ц': 'orange', 'ы': 'orange', 'ч': 'orange',
+        'у': 'green', 'в': 'green', 'с': 'green',
+        'к': 'blue', 'а': 'blue', 'м': 'blue', 'е': 'blue', 'п': 'blue', 'и': 'blue',
+        'н': 'indigo', 'р': 'indigo', 'т': 'indigo', 'г': 'indigo', 'о': 'indigo', 'ь': 'indigo',
+        'ш': 'green', 'л': 'green', 'б': 'green',
+        'щ': 'orange', 'д': 'orange', 'ю': 'orange',
+        'з': 'pink', 'ж': 'pink', 'х': 'pink', 'э': 'pink', 'ъ': 'pink',
+        ' ': 'purple',
+    };
+
     function renderTarget() {
         let html = '', openWord = false;
         for (let i = 0; i < targetText.length; i++) {
             const ch = targetText[i];
-            const cls = i < typed ? 'done' : (i === typed && !done ? 'cur' : '');
+            let cls = i < typed ? 'done' : (i === typed && !done ? 'cur' : '');
+            if (errorPositions.has(i)) cls += ' char--erred';  // место промаха — до конца захода
+            const fin = (i === typed && !done) ? CHAR_FINGER[ch.toLowerCase()] : null;
+            const fattr = fin ? ` data-finger="${fin}"` : '';
             if (ch === ' ') {
                 if (openWord) { html += '</span>'; openWord = false; }
-                html += `<span class="space ${cls}"> </span>`;
+                html += `<span class="space ${cls}"${fattr}> </span>`;
             } else {
                 if (!openWord) { html += '<span class="word">'; openWord = true; }
-                html += `<span class="${cls}">${escapeHtml(ch)}</span>`;
+                html += `<span class="${cls}"${fattr}>${escapeHtml(ch)}</span>`;
             }
         }
         if (openWord) html += '</span>';
-        targetEl.innerHTML = html;
+        targetEl.innerHTML = `<div class="target__inner">${html}</div>`;
         countEl.textContent = `${typed}/${targetText.length}`;
         fillEl.style.width = `${(typed / targetText.length) * 100}%`;
 
         const nextCh = targetText[typed];
         // hideIndicator (toolbar) глушит подсветку клавиш + текущего символа.
-        if (!fingerHint || hideIndicator) { kb.removeAttribute('highlight-char'); return; }
-        if (nextCh === ' ') kb.setAttribute('highlight-char', ' ');
-        else if (nextCh) kb.setAttribute('highlight-char', nextCh);
-        else kb.removeAttribute('highlight-char');
+        if (!fingerHint || hideIndicator) { kb.removeAttribute('highlight-char'); kb.removeAttribute('space-half'); return; }
+        if (nextCh === ' ') {
+            kb.setAttribute('highlight-char', ' ');
+            // Подсказка: какой большой палец — противоположный последней букве.
+            kb.setAttribute('space-half', spaceSideFor(targetText[typed - 1]));
+        } else {
+            kb.removeAttribute('space-half');
+            if (nextCh) kb.setAttribute('highlight-char', nextCh);
+            else kb.removeAttribute('highlight-char');
+        }
     }
 
     // ─── Metrics ─────────────────────────────────────────────────
@@ -222,28 +300,16 @@ document.addEventListener('DOMContentLoaded', async function () {
         const minByLen = (targetText && targetText.length) ? targetText.length * 0.1 : 0;
         return Math.max(elapsed, 2.0, minByLen);
     }
+    // Строгий режим: курсор двигается только на верной клавише, поэтому typed =
+    // число верно набранных символов; errors = неверные попытки (могут копиться
+    // на одной позиции). WPM считаем по typed; accuracy = typed / (typed+errors).
     function calcWpm(elapsed) {
-        const correct = Math.max(0, typed - errors);
         const eff = effElapsed(elapsed);
-        return eff > 0 ? Math.round(correct / (eff / 60)) : 0;
+        return eff > 0 ? Math.round(typed / (eff / 60)) : 0;
     }
-    function calcAcc() { return typed > 0 ? Math.max(0, Math.round(((typed - errors) / typed) * 100)) : 100; }
-
-    // SpeedGraph: храним до SPEED_GRAPH_MAX_POINTS последних замеров WPM, рисуем polyline.
-    // viewBox = «0 0 (N*10) 100», max шкалы = 600 зн/мин (как в design SpeedGraph).
-    const SPEED_GRAPH_MAX_POINTS = 30;
-    const SPEED_GRAPH_MAX = 600;
-    const speedSamples = [];
-    const speedLineEl = $('speed-graph-line');
-    function renderSpeedGraph() {
-        if (!speedLineEl) return;
-        if (speedSamples.length === 0) { speedLineEl.setAttribute('points', ''); return; }
-        const pts = speedSamples.map((v, i) => {
-            const x = i * 10;
-            const y = Math.max(0, 100 - Math.min(v, SPEED_GRAPH_MAX) / SPEED_GRAPH_MAX * 100);
-            return `${x},${y.toFixed(1)}`;
-        }).join(' ');
-        speedLineEl.setAttribute('points', pts);
+    function calcAcc() {
+        const total = typed + errors;
+        return total > 0 ? Math.max(0, Math.round((typed / total) * 100)) : 100;
     }
 
     function updateStats() {
@@ -253,12 +319,6 @@ document.addEventListener('DOMContentLoaded', async function () {
         const wpmNow = calcWpm(elapsed);
         statSpeed.innerHTML = `${wpmNow} <span style="font-size:11px;color:var(--faint)">зн/мин</span>`;
         statAcc.innerHTML = `${calcAcc()}<span style="font-size:11px;color:var(--faint)">%</span>`;
-        // Sample WPM, скользящее окно
-        if (startTime && !done) {
-            speedSamples.push(wpmNow);
-            if (speedSamples.length > SPEED_GRAPH_MAX_POINTS) speedSamples.shift();
-            renderSpeedGraph();
-        }
     }
 
     // ─── Caps Lock индикатор ─────────────────────────────────────
@@ -273,6 +333,10 @@ document.addEventListener('DOMContentLoaded', async function () {
         if (done) { syncCapsBadge(e); return; }
         // Caps Lock state — обновляем на любом keydown
         syncCapsBadge(e);
+
+        // Игнорируем автоповтор (зажатая клавиша): одно физическое нажатие =
+        // один шаг. Иначе удержание «пролистывает» упражнение до конца.
+        if (e.repeat) { e.preventDefault(); return; }
 
         if (e.key === 'Backspace') {
             if (typed > 0) { typed--; renderTarget(); updateStats(); }
@@ -302,10 +366,58 @@ document.addEventListener('DOMContentLoaded', async function () {
 
         const expected = targetText[typed];
         if (e.key === expected) {
+            // Верная клавиша — двигаем курсор.
+            if (layoutWarned) {  // раскладку починили — вернуть обычную подсказку
+                layoutWarned = false;
+                tipEl.textContent = bubbleDefaultTip;
+                hintEl.textContent = bubbleDefaultHint;
+            }
             kb.flashActive(e.code, 140);
+            typed++;
+            renderTarget();
+            updateStats();
+            if (typed >= targetText.length) finishExercise();
         } else {
+            // Не та раскладка: ждём кириллицу, а пришла латиница (или наоборот).
+            // Физическая клавиша при этом верная — это не ошибка набора, а раскладка,
+            // поэтому подсказываем и НЕ штрафуем (не трогаем errors/keyErrors).
+            const isLatin = /^[a-zA-Z]$/.test(e.key);
+            const isCyr = /^[а-яёА-ЯЁ]$/.test(e.key);
+            const expectCyr = /[а-яё]/i.test(expected);
+            const expectLatin = /[a-z]/i.test(expected);
+            if ((expectCyr && isLatin) || (expectLatin && isCyr)) {
+                if (!layoutWarned) {
+                    layoutWarned = true;
+                    const wrong = expectCyr ? 'английская' : 'русская';
+                    const right = expectCyr ? 'русскую' : 'английскую';
+                    tipEl.textContent = (profile.name ? profile.name + ', к' : 'К') +
+                        `ажется, включена ${wrong} раскладка.`;
+                    hintEl.textContent = `Переключись на ${right} раскладку (Alt+Shift или Win+Пробел) и продолжай.`;
+                }
+                return;
+            }
+            // Тот же символ, но заглавный (буква верная, регистр нет) → Caps Lock / Shift.
+            // Не штрафуем — подсказываем выключить.
+            if (e.key.length === 1 && e.key !== expected &&
+                e.key.toLowerCase() === String(expected).toLowerCase()) {
+                if (!layoutWarned) {
+                    layoutWarned = true;
+                    const caps = e.getModifierState && e.getModifierState('CapsLock');
+                    tipEl.textContent = (profile.name ? profile.name + ', т' : 'Т') +
+                        (caps ? 'ы набираешь заглавными — включён Caps Lock.' : 'ы набираешь заглавными буквами.');
+                    hintEl.textContent = caps
+                        ? 'Выключи Caps Lock — в уроке строчные буквы.'
+                        : 'В уроке строчные буквы — проверь Caps Lock и Shift.';
+                }
+                return;
+            }
+            // Неверная клавиша — стоим на месте, ждём правильную. Считаем ошибку.
             kb.flashError(e.code);
+            errorPositions.add(typed);  // отметить место промаха (останется до конца захода)
+            const curEl = targetEl.querySelector('.cur');
+            if (curEl) curEl.classList.add('char--erred');
             errors++;
+            keyErrors[expected] = (keyErrors[expected] || 0) + 1;  // для коуч-разбора
             // Наставник реагирует один раз, когда ошибок становится больше половины лимита
             if (!tooManyShown && errors > halfErrorLimit) {
                 tooManyShown = true;
@@ -313,21 +425,63 @@ document.addEventListener('DOMContentLoaded', async function () {
                     { name: profile.name || '', errors, limit: errorLimit },
                     'Не спеши — лучше медленно, но точно.');
             }
+            updateStats();
         }
-        typed++;
-        renderTarget();
-        updateStats();
-        if (typed >= targetText.length) finishExercise();
     }
 
     // ─── Finish ──────────────────────────────────────────────────
-    function finishExercise() {
+    // Гайдед-шаг: отмечаем пройденным, без звёзд/прогресса урока, возврат в теорию.
+    function finishStep() {
+        done = true;
+        clearInterval(timer);
+        if (window.exerciseProgress) window.exerciseProgress.markStepDone(tier, lessonNum, exerciseIdx);
+
+        $('success-num').textContent = exId;
+        $('success-avatar').innerHTML = window.portraits ? window.portraits.mentor(mentorId, 150) : '';
+        $('final-grade').textContent = '✓';
+        $('final-speed').textContent = '—';
+        $('final-acc').textContent = '—';
+        $('final-rhythm').textContent = '—';
+        // Вариант 2 потока: последний шаг ведёт не назад к уроку, а на ФИНАЛЬНЫЙ
+        // ЗАХОД (полный текст урока) → оттуда «Отчёт по уроку».
+        const isLastStep = totalSteps > 0 && exerciseIdx >= totalSteps;
+        const nextBtn = $('next-btn');
+        if (isLastStep) {
+            $('success-title').textContent = 'Все шаги пройдены!';
+            $('success-msg').textContent = 'Отлично! Остался финальный заход — пройди урок целиком.';
+            tipEl.textContent = (profile.name ? profile.name + ', в' : 'В') + 'се шаги позади! Теперь финальный заход на весь урок.';
+            nextBtn.textContent = 'Финальный заход →';
+            nextBtn.href = `task.html?tier=${encodeURIComponent(tier)}&lesson=${lessonNum}`;
+        } else {
+            $('success-title').textContent = tf('task.stepDoneTitle', 'Шаг пройден');
+            $('success-msg').textContent = tf('task.stepDoneMsg', 'Отлично! Вернись к уроку и переходи к следующему шагу.');
+            // Прямой текст без шаблонных переменных: у шага нет оценки/точности,
+            // поэтому НЕ используем реплику lessonCompleteSuccess (в ней {accuracy}).
+            tipEl.textContent = (profile.name ? profile.name + ', ш' : 'Ш') + 'аг пройден! Возвращайся к уроку.';
+            // Возврат к ПРОЙДЕННОМУ шагу на странице урока (не в начало текста).
+            nextBtn.textContent = tf('task.backToLesson', '← Назад к уроку');
+            nextBtn.href = `lesson.html?tier=${encodeURIComponent(tier)}&lesson=${lessonNum}&step=${exerciseIdx}`;
+        }
+        hintEl.textContent = '';
+
+        kb.removeAttribute('highlight-char');
+        taskBody.classList.add('hide');
+        toolbar.classList.add('hide');
+        kbStage.classList.add('hide');
+        successEl.classList.add('show');
+        spawnConfetti();
+        const nb = $('next-btn'); if (nb) nb.focus();  // фокус на кнопку — Enter продолжает
+    }
+
+    async function finishExercise() {
+        if (stepMode) { finishStep(); return; }
         done = true;
         clearInterval(timer);
         const elapsed = startTime ? (Date.now() - startTime) / 1000 : 0;
         const wpm = calcWpm(elapsed);
         const acc = calcAcc();
         const stars = errors === 0 ? 5 : errors <= 2 ? 4 : errors <= 5 ? 3 : errors <= 10 ? 2 : 1;
+        const rhythm = calcRhythm();
 
         // Детекция новых ачивок: snapshot earned-set ДО записи нового прогресса
         const historyKey = (window.Settings && window.Settings.get('storage.keys.testHistory', 'typing_trainer_test_history')) || 'typing_trainer_test_history';
@@ -338,26 +492,60 @@ document.addEventListener('DOMContentLoaded', async function () {
             earnedBefore = window.achievements.earnedIds(window.achievements.getAchievements(statsBefore));
         }
 
-        // Сохранить прогресс (best) — открывает следующий урок.
-        // Свои уроки (tier=user) НЕ влияют на курс: не пишем в lessonProgress / currentLesson
-        // и не пушим в test_history (иначе streak/общее время накручиваются на тренировках).
+        // Сохранить попытку через apiClient.saveAttempt: при useApi=true — атомарно
+        // на сервере (POST /me/progress), при useApi=false/оффлайне — apiClient сам
+        // пишет localStorage (progress + history) в той же форме, что писали раньше.
+        // Свои уроки (tier=user) НЕ влияют на курс: не сохраняем ни на сервер, ни в LS.
         if (!isUserLesson) {
-            const prev = progress[String(lessonNum)] || {};
-            const newProg = {
-                stars: Math.max(stars, prev.stars || 0),
-                bestWPM: Math.min(1500, Math.max(wpm, prev.bestWPM || 0)),  // cap при сохранении — sanity
-                bestAccuracy: Math.max(acc, prev.bestAccuracy || 0),
-                bestTime: prev.bestTime ? Math.min(elapsed, prev.bestTime) : elapsed,
-                completedAt: new Date().toISOString()
-            };
-            progress[String(lessonNum)] = newProg;
-            writeJSON(progressKey, progress);
+            // currentLesson — client-only навигационное состояние (не синкается на
+            // сервер); пишем локально, чтобы dashboard/course знали «где юзер».
             writeJSON(currentKey, { tier, lessonNumber: lessonNum, lastSaved: new Date().toISOString() });
 
-            historyArr.push({ lesson: lessonNum, completedAt: new Date().toISOString(), duration: elapsed, wpm, accuracy: acc });
-            writeJSON(historyKey, historyArr);
+            let saved = null;
+            if (window.apiClient) {
+                try {
+                    saved = await window.apiClient.saveAttempt({
+                        tier, lesson_num: lessonNum, wpm, accuracy: acc,
+                        duration_ms: Math.round(elapsed * 1000), errors,
+                        rhythm: rhythm == null ? null : rhythm,
+                    });
+                } catch (e) { saved = null; /* saveAttempt внутри уже сделал fallback; на всякий случай */ }
+            }
+            // Обновляем in-memory progress для рендера отчёта/ачивок. Сервер и local
+            // возвращают {progress:{...best..}}; при промахе перечитываем из LS
+            // (apiClient-local уже записал), иначе считаем локально как раньше.
+            if (saved && saved.progress) {
+                const sp = saved.progress;
+                progress[String(lessonNum)] = {
+                    stars: sp.stars, bestWPM: sp.bestWPM, bestAccuracy: sp.bestAccuracy,
+                    bestTime: sp.bestTime, completedAt: sp.completedAt || new Date().toISOString(),
+                };
+            } else {
+                const fresh = readJSON(progressKey);
+                if (fresh && fresh[String(lessonNum)]) {
+                    progress[String(lessonNum)] = fresh[String(lessonNum)];
+                } else {
+                    const prev = progress[String(lessonNum)] || {};
+                    progress[String(lessonNum)] = {
+                        stars: Math.max(stars, prev.stars || 0),
+                        bestWPM: Math.min(1500, Math.max(wpm, prev.bestWPM || 0)),
+                        bestAccuracy: Math.max(acc, prev.bestAccuracy || 0),
+                        bestTime: prev.bestTime ? Math.min(elapsed, prev.bestTime) : elapsed,
+                        completedAt: new Date().toISOString(),
+                    };
+                }
+            }
+
+            // Ачивки: снова читаем history из LS (saveAttempt-local туда добавил
+            // запись; при useApi=true LS может быть пуст — тогда используем текущий
+            // historyArr + синтетическую запись, чтобы клиентские toast'ы работали).
+            const historyAfter = readJSON(historyKey) || historyArr.slice();
+            if (window.apiClient && window.apiClient.getConfig().useApi &&
+                historyAfter.length === historyArr.length) {
+                historyAfter.push({ lesson: lessonNum, completedAt: new Date().toISOString(), duration: elapsed, wpm, accuracy: acc });
+            }
             if (window.achievements) {
-                const statsAfter = window.achievements.computeStats(progress, historyArr, totalLessons);
+                const statsAfter = window.achievements.computeStats(progress, historyAfter, totalLessons);
                 const allAfter = window.achievements.getAchievements(statsAfter);
                 const earnedAfter = window.achievements.earnedIds(allAfter);
                 const newlyEarned = allAfter.filter(a => earnedAfter.has(a.id) && !earnedBefore.has(a.id));
@@ -365,48 +553,61 @@ document.addEventListener('DOMContentLoaded', async function () {
             }
         }
 
-        $('success-num').textContent = exId;
-        $('success-avatar').innerHTML = window.portraits ? window.portraits.mentor(mentorId, 150) : '';
-        $('final-grade').textContent = '★'.repeat(stars) + '☆'.repeat(5 - stars);
-        $('final-speed').innerHTML = `${wpm} <span style="font-size:11px;color:var(--faint)">зн/мин</span>`;
-        $('final-acc').innerHTML = `${acc}<span style="font-size:11px;color:var(--faint)">%</span>`;
-        const rhythm = calcRhythm();
-        $('final-rhythm').innerHTML = rhythm == null
-            ? '—'
-            : `${rhythm}<span style="font-size:11px;color:var(--faint)">%</span>`;
-
-        $('success-title').textContent = t(`task.titles.${stars}`);
-        $('success-msg').textContent = acc === 100
-            ? t('task.msgPerfect')
-            : t(stars >= 4 ? 'task.msgGood' : 'task.msgRetry', { acc });
-
-        // Наставник в bubble: успех (errors в пределах лимита) или превышение лимита.
-        const vars = { name: profile.name || '', wpm, accuracy: acc, errors, limit: errorLimit, level: lesson.title || '' };
         const passed = errors <= errorLimit;
-        setBubble(
-            passed ? 'lessonCompleteSuccess' : 'errorLimitExceeded',
-            vars,
-            passed
-                ? (stars >= 4 ? 'Отлично! Ритм уверенный, можно чуть ускориться.'
-                              : 'Неплохо. На следующей попытке целься в 95%+.')
-                : 'Ошибок многовато — попробуем ещё раз?'
-        );
 
-        // «Продолжить» → теория следующего урока (или к списку, если последний).
-        // Для tier=user следующего урока нет — возвращаемся в Конструктор.
-        const nextBtn = $('next-btn');
-        if (isUserLesson) {
-            nextBtn.textContent = t('task.backToBuilder');
-            nextBtn.href = 'builder.html';
-        } else {
-            const nextN = lessonNum + 1;
-            if (nextN <= totalLessons) {
-                nextBtn.textContent = t('task.continueLesson', { n: nextN });
-                nextBtn.href = `lesson.html?tier=${encodeURIComponent(tier)}&lesson=${nextN}`;
-            } else {
-                nextBtn.textContent = t('task.continueList');
-                nextBtn.href = 'course.html';
-            }
+        // Коуч-разбор (что хорошо / над чем поработать + топ-ошибка) + мотивация.
+        let topKey = null, topN = 0;
+        for (const k in keyErrors) {
+            if (k !== ' ' && keyErrors[k] > topN) { topN = keyErrors[k]; topKey = k; }
+        }
+        const ca = window.coach
+            ? window.coach.analyze({ accuracy: acc, wpm, rhythm, targetWpm: lesson.target_wpm, topMistakeKey: topKey })
+            : { good: [], improve: [] };
+        const quote = window.coach ? window.coach.motivate(mentorId, passed) : '';
+
+        // Освоенные клавиши урока → [буква, палец] (CHAR_FINGER).
+        const learnedKeys = (lesson.new_keys || [])
+            .map(k => String(k).toLowerCase())
+            .filter(k => k && k.trim() && k !== 'space')
+            .map(k => [k, CHAR_FINGER[k] || 'blue']);
+        const learnedTotal = (lesson.keys_trained || []).filter(k => k && k !== 'Space' && String(k).trim()).length;
+        const isCyr = (lesson.new_keys || []).some(k => /[а-яё]/i.test(k)) || /[а-яё]/i.test(targetText);
+        // Порог по звёздам (методспек дизайнера): < 3 звёзд → «с трудом».
+        const state = stars >= 3 ? 'success' : 'struggle';
+
+        // «Продолжить →» → назад к уроку (теория), читать дальше. Свои уроки → конструктор.
+        const continueHref = isUserLesson
+            ? 'builder.html'
+            : `lesson.html?tier=${encodeURIComponent(tier)}&lesson=${lessonNum}`;
+        const mentorName = (mentorChar && mentorChar.character && mentorChar.character.name)
+            || ({ anna: 'Анна', maxim: 'Максим', knopych: 'Кнопыч', klavochka: 'Клавочка' }[mentorId]) || '';
+
+        // Богатый «Отчёт по уроку» (экран B). Конец ШАГА остаётся кратким (finishStep).
+        const taskCardEl2 = document.querySelector('.task-card');
+        const mentorEl = document.querySelector('.mentor');
+        if (window.lessonSummary) {
+            window.lessonSummary.render(successEl, {
+                mentor: mentorId, mentorName,
+                lessonNum, lessonTitle: lesson.title || `Урок ${lessonNum}`,
+                keys: learnedKeys, learnedTotal, learnedAll: isCyr ? 33 : 26,
+                stars, acc, rhythm: rhythm == null ? 0 : rhythm, speed: wpm,
+                showSpeed: !isUserLesson && lessonNum >= 6,
+                good: ca.good, work: ca.improve, quote,
+                lesson: lessonNum, lessonsTotal: totalLessons,
+                state, continueHref, attempt,
+            });
+            // Отчёт — самостоятельная карточка: убираем хром внешней .task-card
+            // (двойной фон) и прячем плавающий бабл наставника (он есть в шапке отчёта).
+            if (taskCardEl2) taskCardEl2.classList.add('report-mode');
+            if (mentorEl) mentorEl.style.display = 'none';
+            const rep = $('rep-retry');  // «Повторить» → вернуть тренажёр и сбросить заход
+            if (rep) rep.addEventListener('click', () => {
+                successEl.classList.remove('show');
+                if (taskCardEl2) taskCardEl2.classList.remove('report-mode');
+                if (mentorEl) mentorEl.style.display = '';
+                taskBody.classList.remove('hide'); toolbar.classList.remove('hide'); kbStage.classList.remove('hide');
+                reset();
+            });
         }
 
         kb.removeAttribute('highlight-char');
@@ -414,9 +615,10 @@ document.addEventListener('DOMContentLoaded', async function () {
         toolbar.classList.add('hide');
         kbStage.classList.add('hide');
         successEl.classList.add('show');
-
-        // Confetti — только при successful pass (errors в пределах лимита)
-        if (passed) spawnConfetti();
+        // Фокус на первичную кнопку («Продолжить»/«Повторить») — пользователь на
+        // клавиатуре, пусть жмёт Enter, а не тянется к мыши. Tab циклит между кнопками.
+        const primaryBtn = successEl.querySelector('.report-actions .btn--lg');
+        if (primaryBtn) requestAnimationFrame(() => primaryBtn.focus());
     }
 
     function spawnConfetti() {
@@ -444,7 +646,7 @@ document.addEventListener('DOMContentLoaded', async function () {
         attempt++; attemptEl.textContent = attempt;
         statTime.textContent = '00:00';
         tooManyShown = false;
-        speedSamples.length = 0; renderSpeedGraph();
+        errorPositions.clear();
         keyIntervals.length = 0; lastKeyTime = 0;
         const cf = $('confetti'); if (cf) cf.innerHTML = '';
         // Вернуть стартовую реплику наставника

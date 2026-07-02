@@ -2,14 +2,78 @@
   "id": "tier1_lesson_87",
   "tier": "tier1",
   "lesson_number": 87,
-  "title": "Ритм: литературный поток",
-  "description": "Длинный литературный отрывок — устойчивые 96 WPM",
+  "title": "Ритм-упражнение: литературный поток",
+  "description": "Закрепление через ритм — ровный темп на знакомых словах, без новых букв",
   "target_wpm": 96,
   "text_length": 308,
   "error_limit_percent": 4,
   "error_limit": 12,
-  "text": "В каждой жизни наступает тихая минута, когда старое мастерство становится другом. Ты перестаёшь его замечать. Оно просто движется с тобой — как дыхание, как взмах руки при ходьбе. Клавиатура стала такой. Ты больше не думаешь, какой палец куда идёт или с какой скоростью. Ты просто пишешь, и слова появляются.",
-  "text_sequence": [],
+  "text": "жизни жизни минута минута мастерство мастерство дыхание дыхание",
+  "text_sequence": [
+    {"char": "ж", "hand": "right", "finger": "pinky", "key": "Ж"},
+    {"char": "и", "hand": "left", "finger": "index", "key": "И"},
+    {"char": "з", "hand": "right", "finger": "pinky", "key": "З"},
+    {"char": "н", "hand": "right", "finger": "index", "key": "Н"},
+    {"char": "и", "hand": "left", "finger": "index", "key": "И"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "ж", "hand": "right", "finger": "pinky", "key": "Ж"},
+    {"char": "и", "hand": "left", "finger": "index", "key": "И"},
+    {"char": "з", "hand": "right", "finger": "pinky", "key": "З"},
+    {"char": "н", "hand": "right", "finger": "index", "key": "Н"},
+    {"char": "и", "hand": "left", "finger": "index", "key": "И"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "м", "hand": "left", "finger": "index", "key": "М"},
+    {"char": "и", "hand": "left", "finger": "index", "key": "И"},
+    {"char": "н", "hand": "right", "finger": "index", "key": "Н"},
+    {"char": "у", "hand": "left", "finger": "middle", "key": "У"},
+    {"char": "т", "hand": "right", "finger": "index", "key": "Т"},
+    {"char": "а", "hand": "left", "finger": "index", "key": "А"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "м", "hand": "left", "finger": "index", "key": "М"},
+    {"char": "и", "hand": "left", "finger": "index", "key": "И"},
+    {"char": "н", "hand": "right", "finger": "index", "key": "Н"},
+    {"char": "у", "hand": "left", "finger": "middle", "key": "У"},
+    {"char": "т", "hand": "right", "finger": "index", "key": "Т"},
+    {"char": "а", "hand": "left", "finger": "index", "key": "А"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "м", "hand": "left", "finger": "index", "key": "М"},
+    {"char": "а", "hand": "left", "finger": "index", "key": "А"},
+    {"char": "с", "hand": "left", "finger": "middle", "key": "С"},
+    {"char": "т", "hand": "right", "finger": "index", "key": "Т"},
+    {"char": "е", "hand": "left", "finger": "index", "key": "Е"},
+    {"char": "р", "hand": "right", "finger": "index", "key": "Р"},
+    {"char": "с", "hand": "left", "finger": "middle", "key": "С"},
+    {"char": "т", "hand": "right", "finger": "index", "key": "Т"},
+    {"char": "в", "hand": "left", "finger": "middle", "key": "В"},
+    {"char": "о", "hand": "right", "finger": "index", "key": "О"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "м", "hand": "left", "finger": "index", "key": "М"},
+    {"char": "а", "hand": "left", "finger": "index", "key": "А"},
+    {"char": "с", "hand": "left", "finger": "middle", "key": "С"},
+    {"char": "т", "hand": "right", "finger": "index", "key": "Т"},
+    {"char": "е", "hand": "left", "finger": "index", "key": "Е"},
+    {"char": "р", "hand": "right", "finger": "index", "key": "Р"},
+    {"char": "с", "hand": "left", "finger": "middle", "key": "С"},
+    {"char": "т", "hand": "right", "finger": "index", "key": "Т"},
+    {"char": "в", "hand": "left", "finger": "middle", "key": "В"},
+    {"char": "о", "hand": "right", "finger": "index", "key": "О"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "д", "hand": "right", "finger": "ring", "key": "Д"},
+    {"char": "ы", "hand": "left", "finger": "ring", "key": "Ы"},
+    {"char": "х", "hand": "right", "finger": "pinky", "key": "Х"},
+    {"char": "а", "hand": "left", "finger": "index", "key": "А"},
+    {"char": "н", "hand": "right", "finger": "index", "key": "Н"},
+    {"char": "и", "hand": "left", "finger": "index", "key": "И"},
+    {"char": "е", "hand": "left", "finger": "index", "key": "Е"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "д", "hand": "right", "finger": "ring", "key": "Д"},
+    {"char": "ы", "hand": "left", "finger": "ring", "key": "Ы"},
+    {"char": "х", "hand": "right", "finger": "pinky", "key": "Х"},
+    {"char": "а", "hand": "left", "finger": "index", "key": "А"},
+    {"char": "н", "hand": "right", "finger": "index", "key": "Н"},
+    {"char": "и", "hand": "left", "finger": "index", "key": "И"},
+    {"char": "е", "hand": "left", "finger": "index", "key": "Е"}
+  ],
   "keys_trained": [
     "А-Я",
     "Space",
@@ -17,41 +81,77 @@
     "."
   ],
   "new_keys": [],
-  "finger_focus": "96 WPM литературного мастерства",
+  "finger_focus": "Все пальцы — фокус на ровном, метрономном ритме",
+  "guided": true,
   "tips": [
     {
       "type": "lead",
-      "text": "Многосентенциальный ритм на 96 WPM = свободное владение мирового класса"
+      "text": "🎵 Новых букв сегодня нет — закрепляем уже освоенные слова через ритм. Главное не скорость, а ровный, одинаковый темп: каждое нажатие через равные промежутки, как удары метронома."
     },
     {
       "type": "drop",
-      "text": "Это скорость мышления — не медленнее, не быстрее"
+      "text": "Руки уже знают все буквы. Поставь пальцы на основной ряд, большие — над пробелом, и не покидай исходную позицию. Повторяй каждое слово ровно, считая про себя: раз-два-три-четыре."
     },
     {
-      "type": "exercise",
-      "target": "В каждой жизни наступает тихая минута, когда старое мастерство становится другом. Ты перестаёшь его замечать. Оно просто движется с тобой — как дыхание, как",
-      "finger": "purple",
-      "hint": "96 WPM литературного мастерства"
+      "type": "callout",
+      "icon": "🎶",
+      "title": "Ровный счёт",
+      "text": "Включи внутренний метроном. Печатай не «как получится», а строго в такт: между любыми двумя нажатиями — одинаковая пауза. Темп важнее скорости — лучше медленно и ровно, чем быстро и рвано."
+    },
+    {
+      "type": "step",
+      "kind": "drill",
+      "target": "жизни жизни жизни жизни жизни",
+      "finger": "pink",
+      "title": "Ритм: жизни",
+      "hint": "Повторяй ровно, в одном темпе: жизни — жизни — жизни. Считай раз-два-три-четыре"
+    },
+    {
+      "type": "step",
+      "kind": "drill",
+      "target": "минута минута минута минута",
+      "finger": "blue",
+      "title": "Ритм: минута",
+      "hint": "Повторяй ровно, без рывков: минута — минута — минута. Держи одинаковые паузы"
+    },
+    {
+      "type": "step",
+      "kind": "drill",
+      "target": "мастерство мастерство мастерство",
+      "finger": "blue",
+      "title": "Ритм: мастерство",
+      "hint": "Повторяй ровно: мастерство — мастерство. Не ускоряйся к концу"
+    },
+    {
+      "type": "step",
+      "kind": "drill",
+      "target": "дыхание дыхание дыхание дыхание",
+      "finger": "orange",
+      "title": "Ритм: дыхание",
+      "hint": "Повторяй ровно: дыхание — дыхание — дыхание. Ровный счёт до самого конца"
     },
     {
       "type": "p",
-      "text": "Метроном 96 BPM — держи через каждое предложение"
+      "text": "Почувствуй, как мышцы запоминают слова целиком: ЖИЗНИ-ЖИЗНИ, ДЫХАНИЕ-ДЫХАНИЕ. Повторение в ровном темпе превращает движения в автоматизм — и тогда текст течёт сам собой."
     },
     {
-      "type": "exercise",
-      "target": "взмах руки при ходьбе. Клавиатура стала такой. Ты больше не думаешь, какой палец куда идёт или с какой скоростью. Ты просто пишешь, и слова появляются.",
-      "finger": "purple",
-      "hint": "96 WPM литературного мастерства"
+      "type": "pullquote",
+      "text": "Расслабь плечи и запястья, представь метроном — ритм важнее скорости.",
+      "by": "методика курса"
+    },
+    {
+      "type": "p",
+      "text": "Все шаги пройдены? Тогда нажми «Открыть тренажёр» ниже и сделай полный заход на весь текст урока. Этот заход сохраняется в прогресс и открывает следующий урок."
     }
   ],
   "character_tips": {
-    "anna": "96 WPM в потоке. Ты на верхнем краю того, что люди вообще могут устойчиво.",
-    "maxim": "Держи такой темп на целые страницы — возьмёшь любую писательскую работу.",
-    "knopych": "ВЕЧНЫЙ ПОТОК! 🌊 Ты И ЕСТЬ волна!",
-    "klavochka": "Как танцевать не думая, мой солнечный — чистая грация 💃"
+    "anna": "Отлично! Ритм-урок на знакомых словах. ЖИЗНИ-ЖИЗНИ, МИНУТА-МИНУТА — повторение закрепляет память!",
+    "maxim": "Хорошо! Повторяющиеся слова тренируют автоматизм. Мозг учится предугадывать движения.",
+    "knopych": "Вау! Эхо-челлендж! ДЫХАНИЕ-ДЫХАНИЕ, ЖИЗНИ-ЖИЗНИ! Как эхо в горах — раз-два, раз-два!",
+    "klavochka": "Какой ты молодец! Слова повторяются, пальчики танцуют одинаковые движения! Как красиво!"
   },
   "phase": 7,
   "rhythmLesson": true,
   "created_at": "2026-05-26",
-  "version": "1.0"
+  "version": "4.0"
 }

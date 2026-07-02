@@ -5,57 +5,131 @@
   "title": "Rhythm: home-row flow",
   "description": "Find your rhythm with home-row words",
   "target_wpm": 24,
-  "text_length": 89,
+  "text_length": 77,
   "error_limit_percent": 8,
   "error_limit": 7,
-  "text": "ask ask ask sad sad sad lad lad lad jak jak jak dad dad dad fall fall fall lass lass lass",
-  "text_sequence": [],
+  "text": "ask ask ask ask sad sad sad sad lad lad lad lad",
+  "text_sequence": [
+    {"char": "a", "hand": "left", "finger": "pinky", "key": "A"},
+    {"char": "s", "hand": "left", "finger": "ring", "key": "S"},
+    {"char": "k", "hand": "right", "finger": "middle", "key": "K"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "a", "hand": "left", "finger": "pinky", "key": "A"},
+    {"char": "s", "hand": "left", "finger": "ring", "key": "S"},
+    {"char": "k", "hand": "right", "finger": "middle", "key": "K"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "a", "hand": "left", "finger": "pinky", "key": "A"},
+    {"char": "s", "hand": "left", "finger": "ring", "key": "S"},
+    {"char": "k", "hand": "right", "finger": "middle", "key": "K"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "a", "hand": "left", "finger": "pinky", "key": "A"},
+    {"char": "s", "hand": "left", "finger": "ring", "key": "S"},
+    {"char": "k", "hand": "right", "finger": "middle", "key": "K"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "s", "hand": "left", "finger": "ring", "key": "S"},
+    {"char": "a", "hand": "left", "finger": "pinky", "key": "A"},
+    {"char": "d", "hand": "left", "finger": "middle", "key": "D"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "s", "hand": "left", "finger": "ring", "key": "S"},
+    {"char": "a", "hand": "left", "finger": "pinky", "key": "A"},
+    {"char": "d", "hand": "left", "finger": "middle", "key": "D"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "s", "hand": "left", "finger": "ring", "key": "S"},
+    {"char": "a", "hand": "left", "finger": "pinky", "key": "A"},
+    {"char": "d", "hand": "left", "finger": "middle", "key": "D"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "s", "hand": "left", "finger": "ring", "key": "S"},
+    {"char": "a", "hand": "left", "finger": "pinky", "key": "A"},
+    {"char": "d", "hand": "left", "finger": "middle", "key": "D"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "l", "hand": "right", "finger": "ring", "key": "L"},
+    {"char": "a", "hand": "left", "finger": "pinky", "key": "A"},
+    {"char": "d", "hand": "left", "finger": "middle", "key": "D"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "l", "hand": "right", "finger": "ring", "key": "L"},
+    {"char": "a", "hand": "left", "finger": "pinky", "key": "A"},
+    {"char": "d", "hand": "left", "finger": "middle", "key": "D"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "l", "hand": "right", "finger": "ring", "key": "L"},
+    {"char": "a", "hand": "left", "finger": "pinky", "key": "A"},
+    {"char": "d", "hand": "left", "finger": "middle", "key": "D"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "l", "hand": "right", "finger": "ring", "key": "L"},
+    {"char": "a", "hand": "left", "finger": "pinky", "key": "A"},
+    {"char": "d", "hand": "left", "finger": "middle", "key": "D"}
+  ],
   "keys_trained": [
     "A",
-    "S",
     "D",
     "F",
+    "G",
+    "H",
     "J",
     "K",
     "L",
+    "S",
+    ";",
     "Space"
   ],
   "new_keys": [],
   "finger_focus": "Home row rhythm",
+  "guided": true,
   "tips": [
     {
       "type": "lead",
-      "text": "Each word repeated — focus on rhythm, not novelty"
+      "text": "No new keys today - this one is about flow. Same word, again and again, until your fingers stop thinking and just move. Flow, not force."
     },
     {
       "type": "drop",
-      "text": "Enable metronome at 24 BPM — match your finger tempo"
+      "text": "Hands on the home row, thumbs over the space bar, eyes off the keys. Repeat each word at an even pace - same gap between every tap. Don't chase speed, just lock in the beat."
     },
     {
-      "type": "exercise",
-      "target": "ask ask ask sad sad sad lad lad lad jak",
-      "finger": "blue",
-      "hint": "Home row rhythm"
+      "type": "callout",
+      "icon": "🎶",
+      "title": "Even beat",
+      "text": "Pick a tempo you can hold and stay there. Steady beats fast every time - smooth and even wins, jerky and rushed loses. Let the rhythm carry you."
+    },
+    {
+      "type": "step",
+      "kind": "drill",
+      "target": "ask ask ask ask ask",
+      "finger": "pink",
+      "title": "Rhythm: ask",
+      "hint": "Repeat it like a loop: ask - ask - ask. Same gap every time, no rushing."
+    },
+    {
+      "type": "step",
+      "kind": "drill",
+      "target": "sad sad sad sad",
+      "finger": "orange",
+      "title": "Rhythm: sad",
+      "hint": "Keep the beat steady: sad - sad - sad. Flow, not force."
+    },
+    {
+      "type": "step",
+      "kind": "drill",
+      "target": "lad lad lad lad",
+      "finger": "orange",
+      "title": "Rhythm: lad",
+      "hint": "Hold the tempo to the end: lad - lad - lad. Don't speed up at the finish."
     },
     {
       "type": "p",
-      "text": "Don't speed up — find a steady beat"
+      "text": "Feel it? Your fingers start to grab the whole word at once instead of one letter at a time. That is muscle memory locking in - the quiet payoff of typing the same thing on a steady beat."
     },
     {
-      "type": "exercise",
-      "target": "jak jak dad dad dad fall fall fall lass lass lass",
-      "finger": "green",
-      "hint": "Home row rhythm"
+      "type": "p",
+      "text": "All three drills done? Hit \"Open trainer\" below and run the full lesson text in one go. That run saves to your progress and unlocks the next lesson."
     }
   ],
   "character_tips": {
     "anna": "Repetition builds rhythm. The same word four times = muscle memory.",
-    "maxim": "Boring is gold for typing — repetition cements the path.",
+    "maxim": "Boring is gold for typing - repetition cements the path.",
     "knopych": "REPETITION TRAINING! 🥁 Tap-tap-tap, level up!",
-    "klavochka": "Like a song chorus, my dear — same notes, sweet rhythm 🎶"
+    "klavochka": "Like a song chorus, my dear - same notes, sweet rhythm 🎶"
   },
   "phase": 1,
   "rhythmLesson": true,
   "created_at": "2026-05-25",
-  "version": "1.0"
+  "version": "4.0"
 }

@@ -2,55 +2,154 @@
   "id": "en_kids_lesson_12",
   "tier": "en_kids",
   "lesson_number": 12,
-  "title": "Letters O and U",
-  "description": "More letters — O and U",
+  "title": "Bottom row: V M C",
+  "description": "Go DOWN to the bottom row - V, M (index) and C (middle)",
   "target_wpm": 20,
-  "text_length": 68,
+  "text_length": 48,
   "error_limit_percent": 10,
   "error_limit": 6,
-  "text": "o o o u u u up up up out out out you you you sun sun fun fun cup cup",
-  "text_sequence": [],
-  "keys_trained": [
-    "O",
-    "U",
-    "A-Z"
+  "text": "v m v m c c c move come cave music camp vivid clam",
+  "text_sequence": [
+    {"char": "v", "hand": "left", "finger": "index", "key": "V"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "m", "hand": "right", "finger": "index", "key": "M"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "v", "hand": "left", "finger": "index", "key": "V"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "m", "hand": "right", "finger": "index", "key": "M"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "c", "hand": "left", "finger": "middle", "key": "C"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "c", "hand": "left", "finger": "middle", "key": "C"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "c", "hand": "left", "finger": "middle", "key": "C"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "m", "hand": "right", "finger": "index", "key": "M"},
+    {"char": "o", "hand": "right", "finger": "ring", "key": "O"},
+    {"char": "v", "hand": "left", "finger": "index", "key": "V"},
+    {"char": "e", "hand": "left", "finger": "middle", "key": "E"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "c", "hand": "left", "finger": "middle", "key": "C"},
+    {"char": "o", "hand": "right", "finger": "ring", "key": "O"},
+    {"char": "m", "hand": "right", "finger": "index", "key": "M"},
+    {"char": "e", "hand": "left", "finger": "middle", "key": "E"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "c", "hand": "left", "finger": "middle", "key": "C"},
+    {"char": "a", "hand": "left", "finger": "pinky", "key": "A"},
+    {"char": "v", "hand": "left", "finger": "index", "key": "V"},
+    {"char": "e", "hand": "left", "finger": "middle", "key": "E"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "m", "hand": "right", "finger": "index", "key": "M"},
+    {"char": "u", "hand": "right", "finger": "index", "key": "U"},
+    {"char": "s", "hand": "left", "finger": "ring", "key": "S"},
+    {"char": "i", "hand": "right", "finger": "middle", "key": "I"},
+    {"char": "c", "hand": "left", "finger": "middle", "key": "C"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "c", "hand": "left", "finger": "middle", "key": "C"},
+    {"char": "a", "hand": "left", "finger": "pinky", "key": "A"},
+    {"char": "m", "hand": "right", "finger": "index", "key": "M"},
+    {"char": "p", "hand": "right", "finger": "pinky", "key": "P"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "v", "hand": "left", "finger": "index", "key": "V"},
+    {"char": "i", "hand": "right", "finger": "middle", "key": "I"},
+    {"char": "v", "hand": "left", "finger": "index", "key": "V"},
+    {"char": "i", "hand": "right", "finger": "middle", "key": "I"},
+    {"char": "d", "hand": "left", "finger": "middle", "key": "D"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "c", "hand": "left", "finger": "middle", "key": "C"},
+    {"char": "l", "hand": "right", "finger": "ring", "key": "L"},
+    {"char": "a", "hand": "left", "finger": "pinky", "key": "A"},
+    {"char": "m", "hand": "right", "finger": "index", "key": "M"}
   ],
-  "new_keys": [],
-  "finger_focus": "Top row O and U",
+  "keys_trained": [
+    "A",
+    "C",
+    "D",
+    "E",
+    "F",
+    "G",
+    "H",
+    "I",
+    "J",
+    "K",
+    "L",
+    "M",
+    "O",
+    "P",
+    "Q",
+    "R",
+    "S",
+    "T",
+    "U",
+    "V",
+    "W",
+    "Y",
+    ";",
+    "Space"
+  ],
+  "new_keys": [
+    "V",
+    "M",
+    "C"
+  ],
+  "finger_focus": "Bottom row V/M (index), C (middle)",
+  "guided": true,
   "tips": [
     {
       "type": "lead",
-      "text": "O is right ring finger UP"
+      "text": "Hello again, friend! Today we go DOWN to the bottom row. Three new letters: V, M and C. Down we dip, then back up home!"
     },
     {
       "type": "drop",
-      "text": "U is right index UP"
+      "text": "Your busy index fingers dip down for V (left) and M (right). Your left middle finger dips down for C. Tap, then bring the finger straight back to its home key, like a kitten hopping back to its bed."
     },
     {
-      "type": "exercise",
-      "target": "o o o u u u up up up out",
+      "type": "callout",
+      "icon": "⬇️",
+      "title": "Down, then home",
+      "text": "When a finger dips down, keep your other fingers resting on home. Do not let the whole hand slide. Just one little finger goes down, taps, and comes back. Easy peasy!"
+    },
+    {
+      "type": "step",
+      "kind": "drill",
+      "target": "v m v m v m v m v m v m",
       "finger": "blue",
-      "hint": "Top row O and U"
+      "title": "V and M",
+      "hint": "Index fingers dip down: left to V, right to M. A space after each one."
+    },
+    {
+      "type": "step",
+      "kind": "drill",
+      "target": "c c c c c c c c c c c c",
+      "finger": "green",
+      "title": "The letter C",
+      "hint": "Left middle finger dips down to C, then home. A space after each one."
     },
     {
       "type": "p",
-      "text": "Now you can write \"you\" and \"sun\"!"
+      "text": "Wonderful work! Now you can write fun words like \"move\", \"come\", \"cave\", and \"music\". Read each word first, then tap it nice and slow."
     },
     {
-      "type": "exercise",
-      "target": "out out you you you sun sun fun fun cup cup",
-      "finger": "green",
-      "hint": "Top row O and U"
+      "type": "step",
+      "kind": "drill",
+      "target": "move come cave music camp vivid clam",
+      "finger": "blue",
+      "title": "Little words",
+      "hint": "Words from your letters: move, come, cave, music, camp, vivid, clam."
+    },
+    {
+      "type": "p",
+      "text": "All steps done? You are a star! Press \"Open the trainer\" and type the whole lesson once. Keep going, champ!"
     }
   ],
   "character_tips": {
-    "anna": "O and U. Now you can write \"you\" — say hello to someone!",
-    "maxim": "Vowels online. Words multiply fast.",
-    "knopych": "🤖 O AND U! Even MORE buttons!",
-    "klavochka": "Sunshine letters, my sweet — O and U ☀️"
+    "anna": "Down we go! V, M, C - \"move\" and \"come\" now 🌸",
+    "maxim": "Bottom row starts: V/M index drops, C left-middle drop.",
+    "knopych": "DIVING DOWN! 🌊 V M C!",
+    "klavochka": "Fingers dip down for V, M, C, then home 💤"
   },
   "phase": 2,
   "rhythmLesson": false,
   "created_at": "2026-05-25",
-  "version": "1.0"
+  "version": "4.0"
 }

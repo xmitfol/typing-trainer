@@ -3,13 +3,77 @@
   "tier": "ru_kids",
   "lesson_number": 16,
   "title": "Цвета: красный, синий",
-  "description": "Слова-цвета — нарядные!",
+  "description": "Слова-цвета - нарядные!",
   "target_wpm": 23,
   "text_length": 63,
   "error_limit_percent": 10,
   "error_limit": 6,
   "text": "красный красный синий синий зелёный жёлтый розовый чёрный белый",
-  "text_sequence": [],
+  "text_sequence": [
+    {"char": "к", "hand": "left", "finger": "index", "key": "К"},
+    {"char": "р", "hand": "right", "finger": "index", "key": "Р"},
+    {"char": "а", "hand": "left", "finger": "index", "key": "А"},
+    {"char": "с", "hand": "left", "finger": "middle", "key": "С"},
+    {"char": "н", "hand": "right", "finger": "index", "key": "Н"},
+    {"char": "ы", "hand": "left", "finger": "ring", "key": "Ы"},
+    {"char": "й", "hand": "left", "finger": "pinky", "key": "Й"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "к", "hand": "left", "finger": "index", "key": "К"},
+    {"char": "р", "hand": "right", "finger": "index", "key": "Р"},
+    {"char": "а", "hand": "left", "finger": "index", "key": "А"},
+    {"char": "с", "hand": "left", "finger": "middle", "key": "С"},
+    {"char": "н", "hand": "right", "finger": "index", "key": "Н"},
+    {"char": "ы", "hand": "left", "finger": "ring", "key": "Ы"},
+    {"char": "й", "hand": "left", "finger": "pinky", "key": "Й"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "с", "hand": "left", "finger": "middle", "key": "С"},
+    {"char": "и", "hand": "left", "finger": "index", "key": "И"},
+    {"char": "н", "hand": "right", "finger": "index", "key": "Н"},
+    {"char": "и", "hand": "left", "finger": "index", "key": "И"},
+    {"char": "й", "hand": "left", "finger": "pinky", "key": "Й"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "с", "hand": "left", "finger": "middle", "key": "С"},
+    {"char": "и", "hand": "left", "finger": "index", "key": "И"},
+    {"char": "н", "hand": "right", "finger": "index", "key": "Н"},
+    {"char": "и", "hand": "left", "finger": "index", "key": "И"},
+    {"char": "й", "hand": "left", "finger": "pinky", "key": "Й"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "з", "hand": "right", "finger": "pinky", "key": "З"},
+    {"char": "е", "hand": "left", "finger": "index", "key": "Е"},
+    {"char": "л", "hand": "right", "finger": "middle", "key": "Л"},
+    {"char": "ё", "hand": "left", "finger": "pinky", "key": "Ё"},
+    {"char": "н", "hand": "right", "finger": "index", "key": "Н"},
+    {"char": "ы", "hand": "left", "finger": "ring", "key": "Ы"},
+    {"char": "й", "hand": "left", "finger": "pinky", "key": "Й"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "ж", "hand": "right", "finger": "pinky", "key": "Ж"},
+    {"char": "ё", "hand": "left", "finger": "pinky", "key": "Ё"},
+    {"char": "л", "hand": "right", "finger": "middle", "key": "Л"},
+    {"char": "т", "hand": "right", "finger": "index", "key": "Т"},
+    {"char": "ы", "hand": "left", "finger": "ring", "key": "Ы"},
+    {"char": "й", "hand": "left", "finger": "pinky", "key": "Й"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "р", "hand": "right", "finger": "index", "key": "Р"},
+    {"char": "о", "hand": "right", "finger": "index", "key": "О"},
+    {"char": "з", "hand": "right", "finger": "pinky", "key": "З"},
+    {"char": "о", "hand": "right", "finger": "index", "key": "О"},
+    {"char": "в", "hand": "left", "finger": "middle", "key": "В"},
+    {"char": "ы", "hand": "left", "finger": "ring", "key": "Ы"},
+    {"char": "й", "hand": "left", "finger": "pinky", "key": "Й"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "ч", "hand": "left", "finger": "ring", "key": "Ч"},
+    {"char": "ё", "hand": "left", "finger": "pinky", "key": "Ё"},
+    {"char": "р", "hand": "right", "finger": "index", "key": "Р"},
+    {"char": "н", "hand": "right", "finger": "index", "key": "Н"},
+    {"char": "ы", "hand": "left", "finger": "ring", "key": "Ы"},
+    {"char": "й", "hand": "left", "finger": "pinky", "key": "Й"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "б", "hand": "right", "finger": "middle", "key": "Б"},
+    {"char": "е", "hand": "left", "finger": "index", "key": "Е"},
+    {"char": "л", "hand": "right", "finger": "middle", "key": "Л"},
+    {"char": "ы", "hand": "left", "finger": "ring", "key": "Ы"},
+    {"char": "й", "hand": "left", "finger": "pinky", "key": "Й"}
+  ],
   "keys_trained": [
     "А-Я",
     "Space"
@@ -19,34 +83,34 @@
   "tips": [
     {
       "type": "lead",
-      "text": "Цвета вокруг тебя"
+      "text": "Сколько вокруг тебя цветов!"
     },
     {
       "type": "drop",
-      "text": "Представляй каждый цвет"
+      "text": "Печатаешь слово - и тихонько представляй этот цвет 🌈"
     },
     {
       "type": "exercise",
       "target": "красный красный синий синий",
       "finger": "blue",
-      "hint": "Слова-цвета"
+      "hint": "Красивые слова-цвета"
     },
     {
       "type": "p",
-      "text": "Память любит цвета"
+      "text": "Когда ты представляешь цвет, слово запомнить легче. Попробуй!"
     },
     {
       "type": "exercise",
       "target": "зелёный жёлтый розовый чёрный белый",
       "finger": "green",
-      "hint": "Слова-цвета"
+      "hint": "И ещё немножко цветов"
     }
   ],
   "character_tips": {
-    "anna": "Цвета! Красный как яблоко, синий как небо 🌈",
-    "maxim": "Цветной словарь. Образы помогают помнить.",
-    "knopych": "🌈 РАДУГА-РЕЖИМ! Цвета-коллекционер!",
-    "klavochka": "Все красивые цвета, мой милый 🌈"
+    "anna": "Цвета! Красный как яблочко, синий как небо 🌈",
+    "maxim": "Не торопись. Представляй цвет - и слово запомнится само.",
+    "knopych": "Целая радуга слов! Какие красивые 🌈",
+    "klavochka": "Все красивые цвета, малыш. Печатай и любуйся 🌈"
   },
   "phase": 2,
   "rhythmLesson": false,

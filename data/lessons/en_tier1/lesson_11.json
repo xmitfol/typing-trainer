@@ -9,7 +9,83 @@
   "error_limit_percent": 5,
   "error_limit": 4,
   "text": "the and had has did dad sad fed jak fee see fad lad add age sit ten ape rat",
-  "text_sequence": [],
+  "text_sequence": [
+    {"char": "t", "hand": "left", "finger": "index", "key": "T"},
+    {"char": "h", "hand": "right", "finger": "index", "key": "H"},
+    {"char": "e", "hand": "left", "finger": "middle", "key": "E"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "a", "hand": "left", "finger": "pinky", "key": "A"},
+    {"char": "n", "hand": "right", "finger": "index", "key": "N"},
+    {"char": "d", "hand": "left", "finger": "middle", "key": "D"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "h", "hand": "right", "finger": "index", "key": "H"},
+    {"char": "a", "hand": "left", "finger": "pinky", "key": "A"},
+    {"char": "d", "hand": "left", "finger": "middle", "key": "D"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "h", "hand": "right", "finger": "index", "key": "H"},
+    {"char": "a", "hand": "left", "finger": "pinky", "key": "A"},
+    {"char": "s", "hand": "left", "finger": "ring", "key": "S"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "d", "hand": "left", "finger": "middle", "key": "D"},
+    {"char": "i", "hand": "right", "finger": "middle", "key": "I"},
+    {"char": "d", "hand": "left", "finger": "middle", "key": "D"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "d", "hand": "left", "finger": "middle", "key": "D"},
+    {"char": "a", "hand": "left", "finger": "pinky", "key": "A"},
+    {"char": "d", "hand": "left", "finger": "middle", "key": "D"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "s", "hand": "left", "finger": "ring", "key": "S"},
+    {"char": "a", "hand": "left", "finger": "pinky", "key": "A"},
+    {"char": "d", "hand": "left", "finger": "middle", "key": "D"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "f", "hand": "left", "finger": "index", "key": "F"},
+    {"char": "e", "hand": "left", "finger": "middle", "key": "E"},
+    {"char": "d", "hand": "left", "finger": "middle", "key": "D"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "j", "hand": "right", "finger": "index", "key": "J"},
+    {"char": "a", "hand": "left", "finger": "pinky", "key": "A"},
+    {"char": "k", "hand": "right", "finger": "middle", "key": "K"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "f", "hand": "left", "finger": "index", "key": "F"},
+    {"char": "e", "hand": "left", "finger": "middle", "key": "E"},
+    {"char": "e", "hand": "left", "finger": "middle", "key": "E"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "s", "hand": "left", "finger": "ring", "key": "S"},
+    {"char": "e", "hand": "left", "finger": "middle", "key": "E"},
+    {"char": "e", "hand": "left", "finger": "middle", "key": "E"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "f", "hand": "left", "finger": "index", "key": "F"},
+    {"char": "a", "hand": "left", "finger": "pinky", "key": "A"},
+    {"char": "d", "hand": "left", "finger": "middle", "key": "D"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "l", "hand": "right", "finger": "ring", "key": "L"},
+    {"char": "a", "hand": "left", "finger": "pinky", "key": "A"},
+    {"char": "d", "hand": "left", "finger": "middle", "key": "D"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "a", "hand": "left", "finger": "pinky", "key": "A"},
+    {"char": "d", "hand": "left", "finger": "middle", "key": "D"},
+    {"char": "d", "hand": "left", "finger": "middle", "key": "D"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "a", "hand": "left", "finger": "pinky", "key": "A"},
+    {"char": "g", "hand": "left", "finger": "index", "key": "G"},
+    {"char": "e", "hand": "left", "finger": "middle", "key": "E"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "s", "hand": "left", "finger": "ring", "key": "S"},
+    {"char": "i", "hand": "right", "finger": "middle", "key": "I"},
+    {"char": "t", "hand": "left", "finger": "index", "key": "T"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "t", "hand": "left", "finger": "index", "key": "T"},
+    {"char": "e", "hand": "left", "finger": "middle", "key": "E"},
+    {"char": "n", "hand": "right", "finger": "index", "key": "N"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "a", "hand": "left", "finger": "pinky", "key": "A"},
+    {"char": "p", "hand": "right", "finger": "pinky", "key": "P"},
+    {"char": "e", "hand": "left", "finger": "middle", "key": "E"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "r", "hand": "left", "finger": "index", "key": "R"},
+    {"char": "a", "hand": "left", "finger": "pinky", "key": "A"},
+    {"char": "t", "hand": "left", "finger": "index", "key": "T"}
+  ],
   "keys_trained": [
     "A",
     "B",
@@ -40,38 +116,38 @@
     "Space"
   ],
   "new_keys": [],
-  "finger_focus": "All learned letters — focus on speed",
+  "finger_focus": "All learned letters - focus on speed",
   "tips": [
     {
       "type": "lead",
-      "text": "Short words become muscle memory — type without thinking"
+      "text": "These little words do most of the work in any sentence you will ever write. Learn them by hand and your fingers stop spelling and start typing."
     },
     {
       "type": "drop",
-      "text": "Don't pause between letters of the same word"
+      "text": "A word is one motion, not three. Do not stop between its letters; let it land in a single beat."
     },
     {
       "type": "exercise",
       "target": "the and had has did dad sad fed jak",
       "finger": "blue",
-      "hint": "All learned letters — focus on speed"
+      "hint": "All learned letters - focus on speed"
     },
     {
       "type": "p",
-      "text": "Eyes off keyboard — trust your fingers"
+      "text": "Keep your eyes on the copy, not on the keys. Your fingers know where they live; let them prove it."
     },
     {
       "type": "exercise",
       "target": "fee see fad lad add age sit ten ape rat",
       "finger": "green",
-      "hint": "All learned letters — focus on speed"
+      "hint": "All learned letters - focus on speed"
     }
   ],
   "character_tips": {
-    "anna": "Common short words are the building blocks. Practice them until they flow.",
-    "maxim": "These are the 100 most-used English words. Speed comes from rhythm, not effort.",
-    "knopych": "TURBO MODE! Short words — short typing! Quick-quick! ⚡",
-    "klavochka": "These tiny words are friends — learn them well, sunshine! 💖"
+    "anna": "These small words are the mortar between the bricks. Type them until they come without thought, and the long ones get easier too. - Eleanor Hayes, editor",
+    "maxim": "A handful of short words fills most of every page. Speed here comes from rhythm, not from pressing harder. - Eleanor Hayes, editor",
+    "knopych": "Short words, short reach. Settle into an even beat and they go by quickly enough. - Eleanor Hayes, editor",
+    "klavochka": "Get friendly with these little words. You will meet them in every line you ever set. - Eleanor Hayes, editor"
   },
   "phase": 1,
   "rhythmLesson": false,

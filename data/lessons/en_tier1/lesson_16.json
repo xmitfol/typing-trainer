@@ -3,13 +3,97 @@
   "tier": "en_tier1",
   "lesson_number": 16,
   "title": "Punctuation: period and comma",
-  "description": "Block 2 opens with the two most common punctuation marks — period and comma",
+  "description": "Block 2 opens with the two most common punctuation marks - period and comma",
   "target_wpm": 23,
   "text_length": 85,
   "error_limit_percent": 6,
   "error_limit": 5,
   "text": "yes, it works. she said, this is fine. then, we go. ready, set, type, and breathe.",
-  "text_sequence": [],
+  "text_sequence": [
+    {"char": "y", "hand": "right", "finger": "index", "key": "Y"},
+    {"char": "e", "hand": "left", "finger": "middle", "key": "E"},
+    {"char": "s", "hand": "left", "finger": "ring", "key": "S"},
+    {"char": ",", "hand": "right", "finger": "middle", "key": ","},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "i", "hand": "right", "finger": "middle", "key": "I"},
+    {"char": "t", "hand": "left", "finger": "index", "key": "T"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "w", "hand": "left", "finger": "ring", "key": "W"},
+    {"char": "o", "hand": "right", "finger": "ring", "key": "O"},
+    {"char": "r", "hand": "left", "finger": "index", "key": "R"},
+    {"char": "k", "hand": "right", "finger": "middle", "key": "K"},
+    {"char": "s", "hand": "left", "finger": "ring", "key": "S"},
+    {"char": ".", "hand": "right", "finger": "ring", "key": "."},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "s", "hand": "left", "finger": "ring", "key": "S"},
+    {"char": "h", "hand": "right", "finger": "index", "key": "H"},
+    {"char": "e", "hand": "left", "finger": "middle", "key": "E"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "s", "hand": "left", "finger": "ring", "key": "S"},
+    {"char": "a", "hand": "left", "finger": "pinky", "key": "A"},
+    {"char": "i", "hand": "right", "finger": "middle", "key": "I"},
+    {"char": "d", "hand": "left", "finger": "middle", "key": "D"},
+    {"char": ",", "hand": "right", "finger": "middle", "key": ","},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "t", "hand": "left", "finger": "index", "key": "T"},
+    {"char": "h", "hand": "right", "finger": "index", "key": "H"},
+    {"char": "i", "hand": "right", "finger": "middle", "key": "I"},
+    {"char": "s", "hand": "left", "finger": "ring", "key": "S"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "i", "hand": "right", "finger": "middle", "key": "I"},
+    {"char": "s", "hand": "left", "finger": "ring", "key": "S"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "f", "hand": "left", "finger": "index", "key": "F"},
+    {"char": "i", "hand": "right", "finger": "middle", "key": "I"},
+    {"char": "n", "hand": "right", "finger": "index", "key": "N"},
+    {"char": "e", "hand": "left", "finger": "middle", "key": "E"},
+    {"char": ".", "hand": "right", "finger": "ring", "key": "."},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "t", "hand": "left", "finger": "index", "key": "T"},
+    {"char": "h", "hand": "right", "finger": "index", "key": "H"},
+    {"char": "e", "hand": "left", "finger": "middle", "key": "E"},
+    {"char": "n", "hand": "right", "finger": "index", "key": "N"},
+    {"char": ",", "hand": "right", "finger": "middle", "key": ","},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "w", "hand": "left", "finger": "ring", "key": "W"},
+    {"char": "e", "hand": "left", "finger": "middle", "key": "E"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "g", "hand": "left", "finger": "index", "key": "G"},
+    {"char": "o", "hand": "right", "finger": "ring", "key": "O"},
+    {"char": ".", "hand": "right", "finger": "ring", "key": "."},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "r", "hand": "left", "finger": "index", "key": "R"},
+    {"char": "e", "hand": "left", "finger": "middle", "key": "E"},
+    {"char": "a", "hand": "left", "finger": "pinky", "key": "A"},
+    {"char": "d", "hand": "left", "finger": "middle", "key": "D"},
+    {"char": "y", "hand": "right", "finger": "index", "key": "Y"},
+    {"char": ",", "hand": "right", "finger": "middle", "key": ","},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "s", "hand": "left", "finger": "ring", "key": "S"},
+    {"char": "e", "hand": "left", "finger": "middle", "key": "E"},
+    {"char": "t", "hand": "left", "finger": "index", "key": "T"},
+    {"char": ",", "hand": "right", "finger": "middle", "key": ","},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "t", "hand": "left", "finger": "index", "key": "T"},
+    {"char": "y", "hand": "right", "finger": "index", "key": "Y"},
+    {"char": "p", "hand": "right", "finger": "pinky", "key": "P"},
+    {"char": "e", "hand": "left", "finger": "middle", "key": "E"},
+    {"char": ",", "hand": "right", "finger": "middle", "key": ","},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "a", "hand": "left", "finger": "pinky", "key": "A"},
+    {"char": "n", "hand": "right", "finger": "index", "key": "N"},
+    {"char": "d", "hand": "left", "finger": "middle", "key": "D"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "b", "hand": "left", "finger": "index", "key": "B"},
+    {"char": "r", "hand": "left", "finger": "index", "key": "R"},
+    {"char": "e", "hand": "left", "finger": "middle", "key": "E"},
+    {"char": "a", "hand": "left", "finger": "pinky", "key": "A"},
+    {"char": "t", "hand": "left", "finger": "index", "key": "T"},
+    {"char": "h", "hand": "right", "finger": "index", "key": "H"},
+    {"char": "e", "hand": "left", "finger": "middle", "key": "E"},
+    {"char": ".", "hand": "right", "finger": "ring", "key": "."}
+  ],
+  "guided": true,
   "keys_trained": [
     "A",
     "B",
@@ -49,43 +133,64 @@
   "tips": [
     {
       "type": "lead",
-      "text": "Period (.) — right ring finger, no shift needed"
+      "text": "You can type every letter now. Time for the marks that make copy readable. The period and the comma do more honest work than any other keys on the board - one stops a thought, the other lets it breathe. Get these right and your sentences stop running into each other."
     },
     {
       "type": "drop",
-      "text": "Comma (,) — right middle finger, bottom row"
-    },
-    {
-      "type": "exercise",
-      "target": "yes, it works. she said, this is fine.",
-      "finger": "orange",
-      "hint": "Right ring (period .), right middle (comma ,)"
-    },
-    {
-      "type": "p",
-      "text": "Always space AFTER punctuation, not before"
+      "text": "Both live on the bottom row, no Shift required. The period sits under your right ring finger; the comma under your right middle. Reach straight down from L and K, tap, and bring the finger home. Keep the rest of the hand on its keys - you are nudging two fingers, not lifting the whole hand."
     },
     {
       "type": "callout",
-      "icon": "💡",
-      "title": "Подсказка",
-      "text": "Don't add extra spaces"
+      "icon": "✍️",
+      "title": "Space after, never before",
+      "text": "One space follows a period or comma; nothing comes before it. \"yes, it works\" - not \"yes ,it works\". That single habit separates clean copy from clutter, so build it in now."
     },
     {
-      "type": "exercise",
-      "target": "then, we go. ready, set, type, and breathe.",
-      "finger": "pink",
-      "hint": "Right ring (period .), right middle (comma ,)"
+      "type": "step",
+      "kind": "drill",
+      "target": ". . . . . . . . . . . . . . .",
+      "finger": "orange",
+      "title": "The period",
+      "hint": "Right ring finger drops to the period, then back home. Steady, even taps."
+    },
+    {
+      "type": "step",
+      "kind": "drill",
+      "target": ", , , , , , , , , , , , , , ,",
+      "finger": "orange",
+      "title": "The comma",
+      "hint": "Right middle finger drops to the comma, then home. No hurry."
+    },
+    {
+      "type": "p",
+      "text": "Two marks under control. Now put them to work in real sentences, where the pause matters as much as the words. Read each line whole, then type it - period to stop, comma to breathe, one space after each."
+    },
+    {
+      "type": "pullquote",
+      "text": "Accuracy is respect - for the word, for the reader, and for yourself.",
+      "by": "Eleanor Hayes, editor"
+    },
+    {
+      "type": "step",
+      "kind": "drill",
+      "target": "yes, it works. she said, this is fine. then, we go. ready, set, type, and breathe.",
+      "finger": "green",
+      "title": "Real sentences",
+      "hint": "Mind the spacing: space after every period and comma, never before."
+    },
+    {
+      "type": "p",
+      "text": "Steps done? Open the trainer below and take one clean run at the full lesson text. That run saves your progress and unlocks the next lesson."
     }
   ],
   "character_tips": {
-    "anna": "Punctuation lives on the bottom row. Period — ring finger, comma — middle.",
+    "anna": "Punctuation lives on the bottom row. Period - ring finger, comma - middle.",
     "maxim": "Standard rule: one space after period or comma, never before.",
-    "knopych": "Punctuation power! . and , — unlock real sentences! ⚡",
+    "knopych": "Punctuation power! . and , - unlock real sentences! ⚡",
     "klavochka": "Beautiful pauses, sunshine! Like breathing in writing! 💫"
   },
   "phase": 2,
   "rhythmLesson": false,
   "created_at": "2026-05-25",
-  "version": "1.0"
+  "version": "4.0"
 }

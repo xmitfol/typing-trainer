@@ -5,11 +5,30 @@
   "title": "Rhythm: full markup paragraph",
   "description": "Rhythm exercise with HTML + code + prose mixed",
   "target_wpm": 30,
-  "text_length": 140,
+  "text_length": 18,
   "error_limit_percent": 10,
   "error_limit": 14,
-  "text": "<h1>Welcome!</h1> <p>The site is <strong>open</strong> at https://my.app/start. Type {user: \"name\"} into the box. Press Enter.</p>",
-  "text_sequence": [],
+  "text": "welcome open press",
+  "text_sequence": [
+    {"char": "w", "hand": "left", "finger": "ring", "key": "W"},
+    {"char": "e", "hand": "left", "finger": "middle", "key": "E"},
+    {"char": "l", "hand": "right", "finger": "ring", "key": "L"},
+    {"char": "c", "hand": "left", "finger": "middle", "key": "C"},
+    {"char": "o", "hand": "right", "finger": "ring", "key": "O"},
+    {"char": "m", "hand": "right", "finger": "index", "key": "M"},
+    {"char": "e", "hand": "left", "finger": "middle", "key": "E"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "o", "hand": "right", "finger": "ring", "key": "O"},
+    {"char": "p", "hand": "right", "finger": "pinky", "key": "P"},
+    {"char": "e", "hand": "left", "finger": "middle", "key": "E"},
+    {"char": "n", "hand": "right", "finger": "index", "key": "N"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "p", "hand": "right", "finger": "pinky", "key": "P"},
+    {"char": "r", "hand": "left", "finger": "index", "key": "R"},
+    {"char": "e", "hand": "left", "finger": "middle", "key": "E"},
+    {"char": "s", "hand": "left", "finger": "ring", "key": "S"},
+    {"char": "s", "hand": "left", "finger": "ring", "key": "S"}
+  ],
   "keys_trained": [
     "A-Z",
     "0-9",
@@ -32,31 +51,52 @@
   "tips": [
     {
       "type": "lead",
-      "text": "Real web content: tags + sentences"
+      "text": "Nothing new to learn here. We hold the rhythm on a handful of ordinary words before the markup mixes in."
     },
     {
       "type": "drop",
-      "text": "JSON-like data: {key: \"value\"}"
+      "text": "Keep your fingers on home position and your eyes ahead. Repeat each word at one steady pace, the same beat from first key to last. Don't rush."
     },
     {
-      "type": "exercise",
-      "target": "<h1>Welcome!</h1> <p>The site is <strong>open</strong> at https://my.app/start.",
-      "finger": "blue",
-      "hint": "Markup + prose mix"
+      "type": "callout",
+      "title": "Keep it even",
+      "text": "Listen for a regular click and keep to it, like a clock in a quiet room. Slow and even beats fast and ragged. Even keystrokes read like clean copy."
+    },
+    {
+      "type": "step",
+      "kind": "drill",
+      "target": "welcome welcome welcome welcome",
+      "finger": "orange",
+      "title": "Rhythm: welcome",
+      "hint": "Repeat at one even pace: welcome welcome welcome. Hold the same beat from first key to last."
+    },
+    {
+      "type": "step",
+      "kind": "drill",
+      "target": "open open open open",
+      "finger": "orange",
+      "title": "Rhythm: open",
+      "hint": "Repeat at one even pace: open open open. Hold the same beat from first key to last."
+    },
+    {
+      "type": "step",
+      "kind": "drill",
+      "target": "press press press",
+      "finger": "pink",
+      "title": "Rhythm: press",
+      "hint": "Repeat at one even pace: press press press. Hold the same beat from first key to last."
     },
     {
       "type": "p",
-      "text": "URL inline with prose"
+      "text": "Tags and prose share the same keyboard and the same need for a steady hand. Set the rhythm right on plain words, and the mixed lines will follow it."
     },
     {
-      "type": "exercise",
-      "target": "Type {user: \"name\"} into the box. Press Enter.</p>",
-      "finger": "green",
-      "hint": "Markup + prose mix"
+      "type": "p",
+      "text": "Worked through every step? Open the trainer below and make one full run on the lesson text. That run saves your progress and unlocks the next lesson."
     }
   ],
   "character_tips": {
-    "anna": "Web copy + tags + JSON — a typical webpage source.",
+    "anna": "Web copy + tags + JSON - a typical webpage source.",
     "maxim": "Modern coding = mixed media: markup, prose, data. All in one paragraph.",
     "knopych": "MEGA MIX! Tags + words + data! Web flow! 🌊",
     "klavochka": "All the symbols dancing together! What a show! 🎭"
@@ -64,5 +104,6 @@
   "phase": 3,
   "rhythmLesson": true,
   "created_at": "2026-05-25",
-  "version": "1.0"
+  "version": "4.0",
+  "guided": true
 }

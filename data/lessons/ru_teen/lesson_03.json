@@ -3,61 +3,113 @@
   "tier": "ru_teen",
   "lesson_number": 3,
   "title": "Короткие предложения",
-  "description": "Ритм с предложениями домашнего ряда",
+  "description": "Ритм с предложениями среднего ряда",
   "target_wpm": 22,
-  "text_length": 52,
+  "text_length": 62,
   "error_limit_percent": 8,
   "error_limit": 4,
-  "text": "вода жажда лад дача дала, дала ода жадно жадно ад да",
-  "text_sequence": [],
-  "keys_trained": [
-    "А",
-    "В",
-    "О",
-    "Д",
-    "Ж",
-    "Л",
-    "Ы",
-    "Ф",
-    "Space",
-    ","
+  "text": "вода жажда. лад дал право. повар парад. дрова правда. ода вол.",
+  "text_sequence": [
+    {"char": "в", "hand": "left", "finger": "middle", "key": "В"},
+    {"char": "о", "hand": "right", "finger": "index", "key": "О"},
+    {"char": "д", "hand": "right", "finger": "ring", "key": "Д"},
+    {"char": "а", "hand": "left", "finger": "index", "key": "А"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "ж", "hand": "right", "finger": "pinky", "key": "Ж"},
+    {"char": "а", "hand": "left", "finger": "index", "key": "А"},
+    {"char": "ж", "hand": "right", "finger": "pinky", "key": "Ж"},
+    {"char": "д", "hand": "right", "finger": "ring", "key": "Д"},
+    {"char": "а", "hand": "left", "finger": "index", "key": "А"},
+    {"char": ".", "hand": "right", "finger": "pinky", "key": "."},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "л", "hand": "right", "finger": "middle", "key": "Л"},
+    {"char": "а", "hand": "left", "finger": "index", "key": "А"},
+    {"char": "д", "hand": "right", "finger": "ring", "key": "Д"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "д", "hand": "right", "finger": "ring", "key": "Д"},
+    {"char": "а", "hand": "left", "finger": "index", "key": "А"},
+    {"char": "л", "hand": "right", "finger": "middle", "key": "Л"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "п", "hand": "left", "finger": "index", "key": "П"},
+    {"char": "р", "hand": "right", "finger": "index", "key": "Р"},
+    {"char": "а", "hand": "left", "finger": "index", "key": "А"},
+    {"char": "в", "hand": "left", "finger": "middle", "key": "В"},
+    {"char": "о", "hand": "right", "finger": "index", "key": "О"},
+    {"char": ".", "hand": "right", "finger": "pinky", "key": "."},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "п", "hand": "left", "finger": "index", "key": "П"},
+    {"char": "о", "hand": "right", "finger": "index", "key": "О"},
+    {"char": "в", "hand": "left", "finger": "middle", "key": "В"},
+    {"char": "а", "hand": "left", "finger": "index", "key": "А"},
+    {"char": "р", "hand": "right", "finger": "index", "key": "Р"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "п", "hand": "left", "finger": "index", "key": "П"},
+    {"char": "а", "hand": "left", "finger": "index", "key": "А"},
+    {"char": "р", "hand": "right", "finger": "index", "key": "Р"},
+    {"char": "а", "hand": "left", "finger": "index", "key": "А"},
+    {"char": "д", "hand": "right", "finger": "ring", "key": "Д"},
+    {"char": ".", "hand": "right", "finger": "pinky", "key": "."},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "д", "hand": "right", "finger": "ring", "key": "Д"},
+    {"char": "р", "hand": "right", "finger": "index", "key": "Р"},
+    {"char": "о", "hand": "right", "finger": "index", "key": "О"},
+    {"char": "в", "hand": "left", "finger": "middle", "key": "В"},
+    {"char": "а", "hand": "left", "finger": "index", "key": "А"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "п", "hand": "left", "finger": "index", "key": "П"},
+    {"char": "р", "hand": "right", "finger": "index", "key": "Р"},
+    {"char": "а", "hand": "left", "finger": "index", "key": "А"},
+    {"char": "в", "hand": "left", "finger": "middle", "key": "В"},
+    {"char": "д", "hand": "right", "finger": "ring", "key": "Д"},
+    {"char": "а", "hand": "left", "finger": "index", "key": "А"},
+    {"char": ".", "hand": "right", "finger": "pinky", "key": "."},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "о", "hand": "right", "finger": "index", "key": "О"},
+    {"char": "д", "hand": "right", "finger": "ring", "key": "Д"},
+    {"char": "а", "hand": "left", "finger": "index", "key": "А"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "в", "hand": "left", "finger": "middle", "key": "В"},
+    {"char": "о", "hand": "right", "finger": "index", "key": "О"},
+    {"char": "л", "hand": "right", "finger": "middle", "key": "Л"},
+    {"char": ".", "hand": "right", "finger": "pinky", "key": "."}
   ],
+  "keys_trained": ["А-Я полный", "Space", "Shift", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", ".", ",", ":", ";", "!", "?", "-", "=", "/", "_", "%", "(", ")", "[", "]", "{", "}", "'", "\"", "@", "#", "$", "^", "&", "+", "*", ">", "<", "|", "«", "»"],
   "new_keys": [],
-  "finger_focus": "Домашний ряд + запятая",
+  "finger_focus": "Средний ряд + точка",
   "tips": [
     {
       "type": "lead",
-      "text": "Запятая тоже на домашнем ряду"
+      "text": "Собираем слова в короткие фразы и ставим точку. Чувствуешь, как из букв получается речь?"
     },
     {
       "type": "drop",
-      "text": "Не ломай поток на пробелах"
+      "text": "Точка - правый безымянный. Остальные пальцы при этом базу не отпускают."
     },
     {
       "type": "exercise",
-      "target": "вода жажда лад дача дала,",
-      "finger": "blue",
-      "hint": "Домашний ряд + запятая"
+      "target": "вода жажда. лад дал право.",
+      "finger": "green",
+      "hint": "Слова + точка"
     },
     {
       "type": "p",
-      "text": "Дыхание = ритм"
+      "text": "Точка закрывает мысль. Поставил - пробел, и поехали дальше."
     },
     {
       "type": "exercise",
-      "target": "дала ода жадно жадно ад да",
-      "finger": "green",
-      "hint": "Домашний ряд + запятая"
+      "target": "повар парад. дрова правда.",
+      "finger": "orange",
+      "hint": "Короткие фразы среднего ряда"
     }
   ],
   "character_tips": {
-    "anna": "Предложения, не покидая домашнего ряда. Замечаешь, как мало рук двигаются?",
-    "maxim": "Эффективность начинается с минимума движения.",
-    "knopych": "ПРЕДЛОЖЕНИЕ-КОМБО! 🎯 Многословная атака!",
-    "klavochka": "Маленькая история из домашнего ряда, мой солнечный ☀️"
+    "anna": "Точка закрывает мысль. А пальцы всё это время держат базу.",
+    "maxim": "Добавили точку. Средний ряд плюс пунктуация - и всё без отрыва от базы.",
+    "knopych": "Дрова. Правда. И точка в конце - щёлк, мысль закрыта 🤖",
+    "klavochka": "Закончил мысль - поставь точку, и фраза готова 🌷"
   },
   "phase": 1,
   "rhythmLesson": false,
   "created_at": "2026-05-26",
-  "version": "1.0"
+  "version": "2.0"
 }

@@ -35,6 +35,15 @@
                     </label>
                     <button type="submit" class="auth-btn" data-action="signin-submit">Войти</button>
                 </form>
+                <div class="auth-divider"><span>или</span></div>
+                <div class="auth-oauth">
+                    <a class="auth-oauth__btn auth-oauth__btn--yandex" data-oauth="yandex" href="/api/v1/auth/oauth/yandex/start">
+                        <span class="auth-oauth__icon">Я</span> Войти через Яндекс
+                    </a>
+                    <a class="auth-oauth__btn auth-oauth__btn--vk" data-oauth="vk" href="/api/v1/auth/oauth/vk/start">
+                        <span class="auth-oauth__icon">VK</span> Войти через VK
+                    </a>
+                </div>
                 <p class="auth-links">
                     <a href="#" data-go="forgot">Забыли пароль?</a>
                     <span>·</span>
@@ -87,6 +96,15 @@
                         <span data-label>Создать аккаунт</span>
                     </button>
                 </form>
+                <div class="auth-divider"><span>или</span></div>
+                <div class="auth-oauth">
+                    <a class="auth-oauth__btn auth-oauth__btn--yandex" data-oauth="yandex" href="/api/v1/auth/oauth/yandex/start">
+                        <span class="auth-oauth__icon">Я</span> Регистрация через Яндекс
+                    </a>
+                    <a class="auth-oauth__btn auth-oauth__btn--vk" data-oauth="vk" href="/api/v1/auth/oauth/vk/start">
+                        <span class="auth-oauth__icon">VK</span> Регистрация через VK
+                    </a>
+                </div>
                 <p class="auth-links">
                     Уже есть аккаунт? <a href="#" data-go="signin">Войти</a>
                 </p>

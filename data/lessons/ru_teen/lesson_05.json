@@ -3,62 +3,163 @@
   "tier": "ru_teen",
   "lesson_number": 5,
   "title": "Верхний ряд: ЙЦУКЕ",
-  "description": "Тянемся вверх — левая рука осваивает верх",
+  "description": "Тянемся вверх - левая рука осваивает верх",
   "target_wpm": 26,
-  "text_length": 63,
+  "text_length": 50,
   "error_limit_percent": 8,
   "error_limit": 5,
-  "text": "цена кейс уже кит еле жук куда туда лекция стук цеце ёж ёж улей",
-  "text_sequence": [],
+  "text": "й ц у к е уже куда лук урок рука клей акула пекло улей кулак",
+  "text_sequence": [
+    {"char": "й", "hand": "left", "finger": "pinky", "key": "Й"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "ц", "hand": "left", "finger": "ring", "key": "Ц"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "у", "hand": "left", "finger": "middle", "key": "У"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "к", "hand": "left", "finger": "index", "key": "К"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "е", "hand": "left", "finger": "index", "key": "Е"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "у", "hand": "left", "finger": "middle", "key": "У"},
+    {"char": "ж", "hand": "right", "finger": "pinky", "key": "Ж"},
+    {"char": "е", "hand": "left", "finger": "index", "key": "Е"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "к", "hand": "left", "finger": "index", "key": "К"},
+    {"char": "у", "hand": "left", "finger": "middle", "key": "У"},
+    {"char": "д", "hand": "right", "finger": "ring", "key": "Д"},
+    {"char": "а", "hand": "left", "finger": "index", "key": "А"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "л", "hand": "right", "finger": "middle", "key": "Л"},
+    {"char": "у", "hand": "left", "finger": "middle", "key": "У"},
+    {"char": "к", "hand": "left", "finger": "index", "key": "К"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "у", "hand": "left", "finger": "middle", "key": "У"},
+    {"char": "р", "hand": "right", "finger": "index", "key": "Р"},
+    {"char": "о", "hand": "right", "finger": "index", "key": "О"},
+    {"char": "к", "hand": "left", "finger": "index", "key": "К"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "р", "hand": "right", "finger": "index", "key": "Р"},
+    {"char": "у", "hand": "left", "finger": "middle", "key": "У"},
+    {"char": "к", "hand": "left", "finger": "index", "key": "К"},
+    {"char": "а", "hand": "left", "finger": "index", "key": "А"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "к", "hand": "left", "finger": "index", "key": "К"},
+    {"char": "л", "hand": "right", "finger": "middle", "key": "Л"},
+    {"char": "е", "hand": "left", "finger": "index", "key": "Е"},
+    {"char": "й", "hand": "left", "finger": "pinky", "key": "Й"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "а", "hand": "left", "finger": "index", "key": "А"},
+    {"char": "к", "hand": "left", "finger": "index", "key": "К"},
+    {"char": "у", "hand": "left", "finger": "middle", "key": "У"},
+    {"char": "л", "hand": "right", "finger": "middle", "key": "Л"},
+    {"char": "а", "hand": "left", "finger": "index", "key": "А"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "п", "hand": "left", "finger": "index", "key": "П"},
+    {"char": "е", "hand": "left", "finger": "index", "key": "Е"},
+    {"char": "к", "hand": "left", "finger": "index", "key": "К"},
+    {"char": "л", "hand": "right", "finger": "middle", "key": "Л"},
+    {"char": "о", "hand": "right", "finger": "index", "key": "О"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "у", "hand": "left", "finger": "middle", "key": "У"},
+    {"char": "л", "hand": "right", "finger": "middle", "key": "Л"},
+    {"char": "е", "hand": "left", "finger": "index", "key": "Е"},
+    {"char": "й", "hand": "left", "finger": "pinky", "key": "Й"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "к", "hand": "left", "finger": "index", "key": "К"},
+    {"char": "у", "hand": "left", "finger": "middle", "key": "У"},
+    {"char": "л", "hand": "right", "finger": "middle", "key": "Л"},
+    {"char": "а", "hand": "left", "finger": "index", "key": "А"},
+    {"char": "к", "hand": "left", "finger": "index", "key": "К"}
+  ],
   "keys_trained": [
+    "А",
+    "О",
+    "В",
+    "Л",
+    "Ы",
+    "Д",
+    "Ф",
+    "Ж",
+    "П",
+    "Р",
+    "Э",
     "Й",
     "Ц",
     "У",
     "К",
     "Е",
-    "А",
-    "В",
-    "О",
-    "Д",
-    "Ж",
     "Space"
   ],
   "new_keys": [],
-  "finger_focus": "Левый верхний + домашний",
+  "finger_focus": "Верхний ряд левой руки: ЙЦУКЕ",
+  "guided": true,
   "tips": [
     {
       "type": "lead",
-      "text": "ЙЦУКЕ — тянись ВВЕРХ от домашнего"
+      "text": "Левая рука тянется ВВЕРХ от среднего ряда: Й Ц У К Е. Принцип простой - палец прыгнул наверх, ударил и сразу вернулся домой."
     },
     {
       "type": "drop",
-      "text": "Тем же пальцем, что владеет колонкой"
+      "text": "Каждую верхнюю клавишу берёт тот же палец, что отвечает за свою колонку: Й мизинец, Ц безымянный, У средний, К и Е указательный. После удара палец обязательно возвращается на базу - без этого слепая печать развалится."
     },
     {
-      "type": "exercise",
-      "target": "цена кейс уже кит еле жук куда",
+      "type": "callout",
+      "icon": "⬆️",
+      "title": "Бей и возвращайся",
+      "text": "Не оставляй палец висеть наверху. Удар по верхней - и тут же назад на свою клавишу среднего ряда. На руки не смотри, палец сам найдёт. Это чит, поверь."
+    },
+    {
+      "type": "step",
+      "kind": "drill",
+      "target": "й ц у й ц у й ц у й ц у й ц у й ц у",
       "finger": "blue",
-      "hint": "Левый верхний + домашний"
+      "title": "Левый верх: Й Ц У",
+      "hint": "Мизинец Й, безымянный Ц, средний У. Прыжок вверх и сразу домой"
+    },
+    {
+      "type": "step",
+      "kind": "drill",
+      "target": "к е к е к е к е к е к е к е к е к е к е",
+      "finger": "indigo",
+      "title": "Левый верх: К Е",
+      "hint": "Указательный качается между К и Е. После каждой - возврат на базу"
     },
     {
       "type": "p",
-      "text": "Возвращайся в домашний после каждого нажатия"
+      "text": "Пальцы запомнили дорогу наверх? Теперь склеиваем верх с средним рядом в настоящих словах. Темп не гони, следи, чтобы палец каждый раз возвращался домой."
     },
     {
-      "type": "exercise",
-      "target": "туда лекция стук цеце ёж ёж улей",
+      "type": "step",
+      "kind": "drill",
+      "target": "уже куда лук урок рука уже куда лук урок рука",
       "finger": "green",
-      "hint": "Левый верхний + домашний"
+      "hint": "Слова с верхним и средним: уже, куда, лук, урок, рука"
+    },
+    {
+      "type": "pullquote",
+      "text": "Смотришь на клавиши - теряешь мысль. Доверяй пальцам.",
+      "by": "Артём"
+    },
+    {
+      "type": "step",
+      "kind": "drill",
+      "target": "клей акула пекло улей кулак",
+      "finger": "green",
+      "hint": "Слова длиннее: клей, акула, пекло, улей, кулак"
+    },
+    {
+      "type": "p",
+      "text": "Прошёл все шаги? Жми «Открыть тренажёр» и пройди весь текст урока целиком. Этот заход сохранится в прогресс и откроет следующий."
     }
   ],
   "character_tips": {
-    "anna": "Тянись ВВЕРХ к верхнему ряду, потом сразу обратно в домашний.",
-    "maxim": "ЙЦУКЕ — растяжка левой руки. Каждый машинист учит этот jump.",
+    "anna": "Тянись ВВЕРХ к ЙЦУКЕ и сразу обратно на исходную.",
+    "maxim": "ЙЦУКЕ - растяжка левой руки. Каждый машинист осваивает этот скачок.",
     "knopych": "ВЕРХНИЙ РЯД РАЗБЛОКИРОВАН! ⬆️ Тянись и возвращайся!",
-    "klavochka": "Пальчики на цыпочках, мой милый 🌷"
+    "klavochka": "Пальчики на цыпочках вверх и домой, мой милый 🌷⬆️"
   },
   "phase": 1,
   "rhythmLesson": false,
   "created_at": "2026-05-26",
-  "version": "1.0"
+  "version": "4.0"
 }

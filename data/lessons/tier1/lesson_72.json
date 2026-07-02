@@ -2,14 +2,68 @@
   "id": "tier1_lesson_72",
   "tier": "tier1",
   "lesson_number": 72,
-  "title": "Ритм: новостной поток",
-  "description": "Многопредложенческий новостной абзац — устойчивые 82 WPM",
+  "title": "Ритм-упражнение: новостной поток",
+  "description": "Закрепление через ритм — ровный темп на знакомых словах, без новых букв",
   "target_wpm": 82,
   "text_length": 324,
   "error_limit_percent": 4,
   "error_limit": 12,
-  "text": "Отчёты из Токио в четверг подтвердили запуск новой высокоскоростной железнодорожной линии, соединяющей три крупных города. Проект, занявший шесть лет и обошедшийся в более чем сорок миллиардов иен, как ожидается, сократит время в пути почти вдвое. Власти заявляют, что маршрут перевезёт до девяноста тысяч пассажиров в день.",
-  "text_sequence": [],
+  "text": "отчёты отчёты запуск запуск линии линии города города",
+  "text_sequence": [
+    {"char": "о", "hand": "right", "finger": "index", "key": "О"},
+    {"char": "т", "hand": "right", "finger": "index", "key": "Т"},
+    {"char": "ч", "hand": "left", "finger": "ring", "key": "Ч"},
+    {"char": "ё", "hand": "left", "finger": "pinky", "key": "Ё"},
+    {"char": "т", "hand": "right", "finger": "index", "key": "Т"},
+    {"char": "ы", "hand": "left", "finger": "ring", "key": "Ы"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "о", "hand": "right", "finger": "index", "key": "О"},
+    {"char": "т", "hand": "right", "finger": "index", "key": "Т"},
+    {"char": "ч", "hand": "left", "finger": "ring", "key": "Ч"},
+    {"char": "ё", "hand": "left", "finger": "pinky", "key": "Ё"},
+    {"char": "т", "hand": "right", "finger": "index", "key": "Т"},
+    {"char": "ы", "hand": "left", "finger": "ring", "key": "Ы"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "з", "hand": "right", "finger": "pinky", "key": "З"},
+    {"char": "а", "hand": "left", "finger": "index", "key": "А"},
+    {"char": "п", "hand": "left", "finger": "index", "key": "П"},
+    {"char": "у", "hand": "left", "finger": "middle", "key": "У"},
+    {"char": "с", "hand": "left", "finger": "middle", "key": "С"},
+    {"char": "к", "hand": "left", "finger": "index", "key": "К"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "з", "hand": "right", "finger": "pinky", "key": "З"},
+    {"char": "а", "hand": "left", "finger": "index", "key": "А"},
+    {"char": "п", "hand": "left", "finger": "index", "key": "П"},
+    {"char": "у", "hand": "left", "finger": "middle", "key": "У"},
+    {"char": "с", "hand": "left", "finger": "middle", "key": "С"},
+    {"char": "к", "hand": "left", "finger": "index", "key": "К"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "л", "hand": "right", "finger": "middle", "key": "Л"},
+    {"char": "и", "hand": "left", "finger": "index", "key": "И"},
+    {"char": "н", "hand": "right", "finger": "index", "key": "Н"},
+    {"char": "и", "hand": "left", "finger": "index", "key": "И"},
+    {"char": "и", "hand": "left", "finger": "index", "key": "И"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "л", "hand": "right", "finger": "middle", "key": "Л"},
+    {"char": "и", "hand": "left", "finger": "index", "key": "И"},
+    {"char": "н", "hand": "right", "finger": "index", "key": "Н"},
+    {"char": "и", "hand": "left", "finger": "index", "key": "И"},
+    {"char": "и", "hand": "left", "finger": "index", "key": "И"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "г", "hand": "right", "finger": "index", "key": "Г"},
+    {"char": "о", "hand": "right", "finger": "index", "key": "О"},
+    {"char": "р", "hand": "right", "finger": "index", "key": "Р"},
+    {"char": "о", "hand": "right", "finger": "index", "key": "О"},
+    {"char": "д", "hand": "right", "finger": "ring", "key": "Д"},
+    {"char": "а", "hand": "left", "finger": "index", "key": "А"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "г", "hand": "right", "finger": "index", "key": "Г"},
+    {"char": "о", "hand": "right", "finger": "index", "key": "О"},
+    {"char": "р", "hand": "right", "finger": "index", "key": "Р"},
+    {"char": "о", "hand": "right", "finger": "index", "key": "О"},
+    {"char": "д", "hand": "right", "finger": "ring", "key": "Д"},
+    {"char": "а", "hand": "left", "finger": "index", "key": "А"}
+  ],
   "keys_trained": [
     "А-Я",
     "Space",
@@ -18,41 +72,77 @@
     "Shift"
   ],
   "new_keys": [],
-  "finger_focus": "Устойчивые 82 WPM журналистики",
+  "finger_focus": "Все пальцы — фокус на ровном, метрономном ритме",
+  "guided": true,
   "tips": [
     {
       "type": "lead",
-      "text": "Длинный новостной абзац на 82 WPM = реальная скорость ньюзрума"
+      "text": "🎵 Новых букв сегодня нет — закрепляем уже освоенные слова через ритм. Главное не скорость, а ровный, одинаковый темп: каждое нажатие через равные промежутки, как удары метронома."
     },
     {
       "type": "drop",
-      "text": "Имена и места ломают поток — тренируй вход в них"
+      "text": "Руки уже знают все буквы. Поставь пальцы на основной ряд, большие — над пробелом, и не покидай исходную позицию. Повторяй каждое слово ровно, считая про себя: раз-два-три-четыре."
     },
     {
-      "type": "exercise",
-      "target": "Отчёты из Токио в четверг подтвердили запуск новой высокоскоростной железнодорожной линии, соединяющей три крупных города. Проект, занявший шесть лет и обошедшийся в более",
-      "finger": "purple",
-      "hint": "Устойчивые 82 WPM журналистики"
+      "type": "callout",
+      "icon": "🎶",
+      "title": "Ровный счёт",
+      "text": "Включи внутренний метроном. Печатай не «как получится», а строго в такт: между любыми двумя нажатиями — одинаковая пауза. Темп важнее скорости — лучше медленно и ровно, чем быстро и рвано."
+    },
+    {
+      "type": "step",
+      "kind": "drill",
+      "target": "отчёты отчёты отчёты отчёты",
+      "finger": "indigo",
+      "title": "Ритм: отчёты",
+      "hint": "Повторяй ровно, в одном темпе: отчёты — отчёты — отчёты. Считай раз-два-три-четыре"
+    },
+    {
+      "type": "step",
+      "kind": "drill",
+      "target": "запуск запуск запуск запуск",
+      "finger": "pink",
+      "title": "Ритм: запуск",
+      "hint": "Повторяй ровно, без рывков: запуск — запуск — запуск. Держи одинаковые паузы"
+    },
+    {
+      "type": "step",
+      "kind": "drill",
+      "target": "линии линии линии линии",
+      "finger": "green",
+      "title": "Ритм: линии",
+      "hint": "Повторяй ровно: линии — линии — линии. Не ускоряйся к концу"
+    },
+    {
+      "type": "step",
+      "kind": "drill",
+      "target": "города города города города",
+      "finger": "indigo",
+      "title": "Ритм: города",
+      "hint": "Повторяй ровно: города — города — города. Ровный счёт до самого конца"
     },
     {
       "type": "p",
-      "text": "Метроном 82 BPM — держи через все предложения"
+      "text": "Почувствуй, как мышцы запоминают слова целиком: ОТЧЁТЫ-ОТЧЁТЫ, ГОРОДА-ГОРОДА. Повторение в ровном темпе превращает движения в автоматизм — и тогда новостной поток идёт без задержек."
     },
     {
-      "type": "exercise",
-      "target": "чем сорок миллиардов иен, как ожидается, сократит время в пути почти вдвое. Власти заявляют, что маршрут перевезёт до девяноста тысяч пассажиров в день.",
-      "finger": "purple",
-      "hint": "Устойчивые 82 WPM журналистики"
+      "type": "pullquote",
+      "text": "Расслабь плечи и запястья, представь метроном — ритм важнее скорости.",
+      "by": "методика курса"
+    },
+    {
+      "type": "p",
+      "text": "Все шаги пройдены? Тогда нажми «Открыть тренажёр» ниже и сделай полный заход на весь текст урока. Этот заход сохраняется в прогресс и открывает следующий урок."
     }
   ],
   "character_tips": {
-    "anna": "Скорость ньюзрума на 82 WPM. Так живут журналисты.",
-    "maxim": "82 WPM устойчиво — то, что делают профи-писатели.",
-    "knopych": "СКОРОСТЬ ИНФОРМАГЕНТСТВА! 📰 82 WPM!",
-    "klavochka": "Рассказываешь миру историю на скорости, мой милый ☀️"
+    "anna": "Отлично! Ритм-урок на знакомых словах. ОТЧЁТЫ-ОТЧЁТЫ, ГОРОДА-ГОРОДА — повторение закрепляет память!",
+    "maxim": "Хорошо! Повторяющиеся слова тренируют автоматизм. Мозг учится предугадывать движения.",
+    "knopych": "Вау! Эхо-челлендж! ЗАПУСК-ЗАПУСК, ЛИНИИ-ЛИНИИ! Как эхо в горах — раз-два, раз-два!",
+    "klavochka": "Какой ты молодец! Слова повторяются, пальчики танцуют одинаковые движения! Как красиво!"
   },
   "phase": 6,
   "rhythmLesson": true,
   "created_at": "2026-05-26",
-  "version": "1.0"
+  "version": "4.0"
 }

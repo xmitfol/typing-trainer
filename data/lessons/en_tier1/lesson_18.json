@@ -3,13 +3,95 @@
   "tier": "en_tier1",
   "lesson_number": 18,
   "title": "Apostrophe and quotes",
-  "description": "Contractions and quoted speech — ' (apostrophe) and \" (Shift + ')",
+  "description": "Contractions and quoted speech - ' (apostrophe) and \" (Shift + ')",
   "target_wpm": 22,
   "text_length": 88,
   "error_limit_percent": 7,
   "error_limit": 6,
   "text": "it's a fact. don't worry. she said \"hello\" and smiled. that's the way it's done.",
-  "text_sequence": [],
+  "text_sequence": [
+    {"char": "i", "hand": "right", "finger": "middle", "key": "I"},
+    {"char": "t", "hand": "left", "finger": "index", "key": "T"},
+    {"char": "'", "hand": "right", "finger": "pinky", "key": "'"},
+    {"char": "s", "hand": "left", "finger": "ring", "key": "S"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "a", "hand": "left", "finger": "pinky", "key": "A"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "f", "hand": "left", "finger": "index", "key": "F"},
+    {"char": "a", "hand": "left", "finger": "pinky", "key": "A"},
+    {"char": "c", "hand": "left", "finger": "middle", "key": "C"},
+    {"char": "t", "hand": "left", "finger": "index", "key": "T"},
+    {"char": ".", "hand": "right", "finger": "ring", "key": "."},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "d", "hand": "left", "finger": "middle", "key": "D"},
+    {"char": "o", "hand": "right", "finger": "ring", "key": "O"},
+    {"char": "n", "hand": "right", "finger": "index", "key": "N"},
+    {"char": "'", "hand": "right", "finger": "pinky", "key": "'"},
+    {"char": "t", "hand": "left", "finger": "index", "key": "T"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "w", "hand": "left", "finger": "ring", "key": "W"},
+    {"char": "o", "hand": "right", "finger": "ring", "key": "O"},
+    {"char": "r", "hand": "left", "finger": "index", "key": "R"},
+    {"char": "r", "hand": "left", "finger": "index", "key": "R"},
+    {"char": "y", "hand": "right", "finger": "index", "key": "Y"},
+    {"char": ".", "hand": "right", "finger": "ring", "key": "."},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "s", "hand": "left", "finger": "ring", "key": "S"},
+    {"char": "h", "hand": "right", "finger": "index", "key": "H"},
+    {"char": "e", "hand": "left", "finger": "middle", "key": "E"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "s", "hand": "left", "finger": "ring", "key": "S"},
+    {"char": "a", "hand": "left", "finger": "pinky", "key": "A"},
+    {"char": "i", "hand": "right", "finger": "middle", "key": "I"},
+    {"char": "d", "hand": "left", "finger": "middle", "key": "D"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "\"", "hand": "right", "finger": "index", "key": "\""},
+    {"char": "h", "hand": "right", "finger": "index", "key": "H"},
+    {"char": "e", "hand": "left", "finger": "middle", "key": "E"},
+    {"char": "l", "hand": "right", "finger": "ring", "key": "L"},
+    {"char": "l", "hand": "right", "finger": "ring", "key": "L"},
+    {"char": "o", "hand": "right", "finger": "ring", "key": "O"},
+    {"char": "\"", "hand": "right", "finger": "index", "key": "\""},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "a", "hand": "left", "finger": "pinky", "key": "A"},
+    {"char": "n", "hand": "right", "finger": "index", "key": "N"},
+    {"char": "d", "hand": "left", "finger": "middle", "key": "D"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "s", "hand": "left", "finger": "ring", "key": "S"},
+    {"char": "m", "hand": "right", "finger": "index", "key": "M"},
+    {"char": "i", "hand": "right", "finger": "middle", "key": "I"},
+    {"char": "l", "hand": "right", "finger": "ring", "key": "L"},
+    {"char": "e", "hand": "left", "finger": "middle", "key": "E"},
+    {"char": "d", "hand": "left", "finger": "middle", "key": "D"},
+    {"char": ".", "hand": "right", "finger": "ring", "key": "."},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "t", "hand": "left", "finger": "index", "key": "T"},
+    {"char": "h", "hand": "right", "finger": "index", "key": "H"},
+    {"char": "a", "hand": "left", "finger": "pinky", "key": "A"},
+    {"char": "t", "hand": "left", "finger": "index", "key": "T"},
+    {"char": "'", "hand": "right", "finger": "pinky", "key": "'"},
+    {"char": "s", "hand": "left", "finger": "ring", "key": "S"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "t", "hand": "left", "finger": "index", "key": "T"},
+    {"char": "h", "hand": "right", "finger": "index", "key": "H"},
+    {"char": "e", "hand": "left", "finger": "middle", "key": "E"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "w", "hand": "left", "finger": "ring", "key": "W"},
+    {"char": "a", "hand": "left", "finger": "pinky", "key": "A"},
+    {"char": "y", "hand": "right", "finger": "index", "key": "Y"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "i", "hand": "right", "finger": "middle", "key": "I"},
+    {"char": "t", "hand": "left", "finger": "index", "key": "T"},
+    {"char": "'", "hand": "right", "finger": "pinky", "key": "'"},
+    {"char": "s", "hand": "left", "finger": "ring", "key": "S"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "d", "hand": "left", "finger": "middle", "key": "D"},
+    {"char": "o", "hand": "right", "finger": "ring", "key": "O"},
+    {"char": "n", "hand": "right", "finger": "index", "key": "N"},
+    {"char": "e", "hand": "left", "finger": "middle", "key": "E"},
+    {"char": ".", "hand": "right", "finger": "ring", "key": "."}
+  ],
+  "guided": true,
   "keys_trained": [
     "A",
     "B",
@@ -53,31 +135,58 @@
   "tips": [
     {
       "type": "lead",
-      "text": "Apostrophe (') is next to ; — right pinky"
+      "text": "Two more marks earn their keep every day: the apostrophe and the double quote. The apostrophe builds contractions and shows possession; the quotes wrap anything someone actually said. A newsroom runs on both - get a quote wrong and you have misquoted a person, not just a sentence."
     },
     {
       "type": "drop",
-      "text": "Double quote (\") = Shift + ' — pinky for both"
+      "text": "The apostrophe sits just right of the semicolon, on the home row - your right pinky barely moves to reach it. The double quote is the same key with Shift: hold Shift with your left pinky, tap the quote key with your right. Same finger does both jobs; the only difference is the Shift."
     },
     {
-      "type": "exercise",
-      "target": "it's a fact. don't worry. she said",
+      "type": "callout",
+      "icon": "✍️",
+      "title": "Quotes come in pairs",
+      "text": "Every opening quote needs a closing one. Type both as you go - \"hello\" - so you never leave a quote hanging. And contractions hold no space: it's, don't, that's are single words, fused at the apostrophe."
+    },
+    {
+      "type": "step",
+      "kind": "drill",
+      "target": "' ' ' ' ' ' ' ' ' ' ' ' ' ' '",
       "finger": "pink",
-      "hint": "Буквы: ' \""
+      "title": "The apostrophe",
+      "hint": "Right pinky taps the key right of the semicolon, then home. No Shift."
+    },
+    {
+      "type": "step",
+      "kind": "drill",
+      "target": "\" \" \" \" \" \" \" \" \" \" \" \" \" \" \"",
+      "finger": "pink",
+      "title": "The double quote",
+      "hint": "Left pinky holds Shift, right pinky taps the same key. Hold, tap, release."
     },
     {
       "type": "p",
-      "text": "Contractions don't have spaces: it's, don't, that's"
+      "text": "Now the practical work: contractions that close up tight, and a line of quoted speech with its pair of marks. Read each phrase, then type it - no space inside a contraction, a matched pair around every quote."
     },
     {
-      "type": "exercise",
-      "target": "\"hello\" and smiled. that's the way it's done.",
+      "type": "pullquote",
+      "text": "A quote is a promise: those are the words, in that order. Type them as carefully as you would print them.",
+      "by": "Eleanor Hayes, editor"
+    },
+    {
+      "type": "step",
+      "kind": "drill",
+      "target": "it's a fact. don't worry. she said \"hello\" and smiled. that's the way it's done.",
       "finger": "orange",
-      "hint": "Буквы: ' \""
+      "title": "Contractions and speech",
+      "hint": "No space inside it's or don't; open and close every quote."
+    },
+    {
+      "type": "p",
+      "text": "Steps done? Open the trainer below and take one clean run at the full lesson text. That run saves your progress and unlocks the next lesson."
     }
   ],
   "character_tips": {
-    "anna": "Apostrophe makes contractions. Don't pause inside them — it's one fluid press.",
+    "anna": "Apostrophe makes contractions. Don't pause inside them - it's one fluid press.",
     "maxim": "Quoted speech needs matching pairs. Open with \", close with \".",
     "knopych": "Quote unquote! Apostrophe power! 🤖",
     "klavochka": "Beautiful contractions, sunshine! Like little linked words! ✨"
@@ -85,5 +194,5 @@
   "phase": 2,
   "rhythmLesson": false,
   "created_at": "2026-05-25",
-  "version": "1.0"
+  "version": "4.0"
 }

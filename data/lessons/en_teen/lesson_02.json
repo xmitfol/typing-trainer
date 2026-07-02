@@ -2,60 +2,161 @@
   "id": "en_teen_lesson_02",
   "tier": "en_teen",
   "lesson_number": 2,
-  "title": "Home row: real words",
-  "description": "Build short words from home row keys only",
+  "title": "Home row complete: G and H",
+  "description": "G and H are index-finger reaches that finish the home row",
   "target_wpm": 20,
-  "text_length": 60,
+  "text_length": 66,
   "error_limit_percent": 8,
   "error_limit": 4,
-  "text": "ask sad lad fall sass lass dad fad jak lad dad fall sass ask",
-  "text_sequence": [],
+  "text": "gash glass flash hall had has flag sash gala dash gjf hjk had hall",
+  "text_sequence": [
+    {"char": "g", "hand": "left", "finger": "index", "key": "G"},
+    {"char": "a", "hand": "left", "finger": "pinky", "key": "A"},
+    {"char": "s", "hand": "left", "finger": "ring", "key": "S"},
+    {"char": "h", "hand": "right", "finger": "index", "key": "H"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "g", "hand": "left", "finger": "index", "key": "G"},
+    {"char": "l", "hand": "right", "finger": "ring", "key": "L"},
+    {"char": "a", "hand": "left", "finger": "pinky", "key": "A"},
+    {"char": "s", "hand": "left", "finger": "ring", "key": "S"},
+    {"char": "s", "hand": "left", "finger": "ring", "key": "S"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "f", "hand": "left", "finger": "index", "key": "F"},
+    {"char": "l", "hand": "right", "finger": "ring", "key": "L"},
+    {"char": "a", "hand": "left", "finger": "pinky", "key": "A"},
+    {"char": "s", "hand": "left", "finger": "ring", "key": "S"},
+    {"char": "h", "hand": "right", "finger": "index", "key": "H"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "h", "hand": "right", "finger": "index", "key": "H"},
+    {"char": "a", "hand": "left", "finger": "pinky", "key": "A"},
+    {"char": "l", "hand": "right", "finger": "ring", "key": "L"},
+    {"char": "l", "hand": "right", "finger": "ring", "key": "L"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "h", "hand": "right", "finger": "index", "key": "H"},
+    {"char": "a", "hand": "left", "finger": "pinky", "key": "A"},
+    {"char": "d", "hand": "left", "finger": "middle", "key": "D"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "h", "hand": "right", "finger": "index", "key": "H"},
+    {"char": "a", "hand": "left", "finger": "pinky", "key": "A"},
+    {"char": "s", "hand": "left", "finger": "ring", "key": "S"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "f", "hand": "left", "finger": "index", "key": "F"},
+    {"char": "l", "hand": "right", "finger": "ring", "key": "L"},
+    {"char": "a", "hand": "left", "finger": "pinky", "key": "A"},
+    {"char": "g", "hand": "left", "finger": "index", "key": "G"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "s", "hand": "left", "finger": "ring", "key": "S"},
+    {"char": "a", "hand": "left", "finger": "pinky", "key": "A"},
+    {"char": "s", "hand": "left", "finger": "ring", "key": "S"},
+    {"char": "h", "hand": "right", "finger": "index", "key": "H"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "g", "hand": "left", "finger": "index", "key": "G"},
+    {"char": "a", "hand": "left", "finger": "pinky", "key": "A"},
+    {"char": "l", "hand": "right", "finger": "ring", "key": "L"},
+    {"char": "a", "hand": "left", "finger": "pinky", "key": "A"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "d", "hand": "left", "finger": "middle", "key": "D"},
+    {"char": "a", "hand": "left", "finger": "pinky", "key": "A"},
+    {"char": "s", "hand": "left", "finger": "ring", "key": "S"},
+    {"char": "h", "hand": "right", "finger": "index", "key": "H"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "g", "hand": "left", "finger": "index", "key": "G"},
+    {"char": "j", "hand": "right", "finger": "index", "key": "J"},
+    {"char": "f", "hand": "left", "finger": "index", "key": "F"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "h", "hand": "right", "finger": "index", "key": "H"},
+    {"char": "j", "hand": "right", "finger": "index", "key": "J"},
+    {"char": "k", "hand": "right", "finger": "middle", "key": "K"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "h", "hand": "right", "finger": "index", "key": "H"},
+    {"char": "a", "hand": "left", "finger": "pinky", "key": "A"},
+    {"char": "d", "hand": "left", "finger": "middle", "key": "D"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "h", "hand": "right", "finger": "index", "key": "H"},
+    {"char": "a", "hand": "left", "finger": "pinky", "key": "A"},
+    {"char": "l", "hand": "right", "finger": "ring", "key": "L"},
+    {"char": "l", "hand": "right", "finger": "ring", "key": "L"}
+  ],
   "keys_trained": [
     "A",
-    "S",
     "D",
     "F",
+    "G",
+    "H",
     "J",
     "K",
     "L",
+    "S",
+    ";",
     "Space"
   ],
-  "new_keys": [],
-  "finger_focus": "Home row word formation",
+  "new_keys": [
+    "G",
+    "H"
+  ],
+  "finger_focus": "Index fingers reach to G and H",
+  "guided": true,
   "tips": [
     {
       "type": "lead",
-      "text": "Real words from just home row — you can already write!"
+      "text": "Your hands already own the home row. Now we plug the two gaps in the middle: G and H. Both are short index-finger reaches, then snap straight back home."
     },
     {
       "type": "drop",
-      "text": "Notice your fingers barely move"
+      "text": "G is one key right of F - reach with your left index. H is one key left of J - reach with your right index. Keep every other finger anchored on home base while you do it. This pair finishes the whole home row."
     },
     {
-      "type": "exercise",
-      "target": "ask sad lad fall sass lass dad",
+      "type": "callout",
+      "icon": "🎯",
+      "title": "Reach and return",
+      "text": "The reach is small, so don't overthink it. Stretch the index, tap, come back. If the rest of your hand drifts off home, you've reached too far. Small move, big payoff."
+    },
+    {
+      "type": "step",
+      "kind": "drill",
+      "target": "g g g g g g g g g g g g g g g g g g g g",
       "finger": "blue",
-      "hint": "Home row word formation"
+      "title": "Letter G",
+      "hint": "Left index reaches right to G, then back home"
+    },
+    {
+      "type": "step",
+      "kind": "drill",
+      "target": "h h h h h h h h h h h h h h h h h h h h",
+      "finger": "indigo",
+      "title": "Letter H",
+      "hint": "Right index reaches left to H, then back home"
     },
     {
       "type": "p",
-      "text": "Spaces with thumb — keep it light"
+      "text": "G and H locked in - and now the home row is complete. That means real words. Read each one whole and type it clean, no peeking."
     },
     {
-      "type": "exercise",
-      "target": "fad jak lad dad fall sass ask",
+      "type": "pullquote",
+      "text": "Accuracy beats speed. Speed shows up on its own once your accuracy stops wobbling.",
+      "by": "course method"
+    },
+    {
+      "type": "step",
+      "kind": "drill",
+      "target": "gash glass flash hall had has flag sash gala dash",
       "finger": "green",
-      "hint": "Home row word formation"
+      "title": "Words",
+      "hint": "Home row words: gash, glass, flash, hall, had, has, flag, sash, gala, dash"
+    },
+    {
+      "type": "p",
+      "text": "All steps done? Hit \"Open trainer\" below and do one full run on the whole lesson text. That run saves your progress and unlocks the next lesson."
     }
   ],
   "character_tips": {
-    "anna": "Real words already, just from home row. Your fingers know the pattern.",
-    "maxim": "Eight keys, dozens of words. The keyboard rewards efficiency.",
-    "knopych": "WORDS UNLOCKED! 🎮 Home row OP — overpowered!",
-    "klavochka": "Look at you, writing real words! 🌸 Tiny victory!"
+    "anna": "G and H finish the home row - index-finger reaches, then straight back.",
+    "maxim": "Index fingers are strongest, so G and H slot in easily. Home row done.",
+    "knopych": "G + H! 🤖 Home row 100% - index super-reach!",
+    "klavochka": "Two more cozy keys, my dear - G and H ✨"
   },
   "phase": 1,
   "rhythmLesson": false,
   "created_at": "2026-05-25",
-  "version": "1.0"
+  "version": "4.0"
 }

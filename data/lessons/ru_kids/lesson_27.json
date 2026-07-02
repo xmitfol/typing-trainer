@@ -9,7 +9,80 @@
   "error_limit_percent": 10,
   "error_limit": 7,
   "text": "6 7 8 9 10 шесть семь восемь девять десять 678910 шесть кошек семь собак",
-  "text_sequence": [],
+  "text_sequence": [
+    {"char": "6", "hand": "right", "finger": "index", "key": "6"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "7", "hand": "right", "finger": "index", "key": "7"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "8", "hand": "right", "finger": "middle", "key": "8"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "9", "hand": "right", "finger": "ring", "key": "9"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "1", "hand": "left", "finger": "pinky", "key": "1"},
+    {"char": "0", "hand": "right", "finger": "pinky", "key": "0"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "ш", "hand": "right", "finger": "middle", "key": "Ш"},
+    {"char": "е", "hand": "left", "finger": "index", "key": "Е"},
+    {"char": "с", "hand": "left", "finger": "middle", "key": "С"},
+    {"char": "т", "hand": "right", "finger": "index", "key": "Т"},
+    {"char": "ь", "hand": "right", "finger": "index", "key": "Ь"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "с", "hand": "left", "finger": "middle", "key": "С"},
+    {"char": "е", "hand": "left", "finger": "index", "key": "Е"},
+    {"char": "м", "hand": "left", "finger": "index", "key": "М"},
+    {"char": "ь", "hand": "right", "finger": "index", "key": "Ь"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "в", "hand": "left", "finger": "middle", "key": "В"},
+    {"char": "о", "hand": "right", "finger": "index", "key": "О"},
+    {"char": "с", "hand": "left", "finger": "middle", "key": "С"},
+    {"char": "е", "hand": "left", "finger": "index", "key": "Е"},
+    {"char": "м", "hand": "left", "finger": "index", "key": "М"},
+    {"char": "ь", "hand": "right", "finger": "index", "key": "Ь"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "д", "hand": "right", "finger": "ring", "key": "Д"},
+    {"char": "е", "hand": "left", "finger": "index", "key": "Е"},
+    {"char": "в", "hand": "left", "finger": "middle", "key": "В"},
+    {"char": "я", "hand": "left", "finger": "pinky", "key": "Я"},
+    {"char": "т", "hand": "right", "finger": "index", "key": "Т"},
+    {"char": "ь", "hand": "right", "finger": "index", "key": "Ь"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "д", "hand": "right", "finger": "ring", "key": "Д"},
+    {"char": "е", "hand": "left", "finger": "index", "key": "Е"},
+    {"char": "с", "hand": "left", "finger": "middle", "key": "С"},
+    {"char": "я", "hand": "left", "finger": "pinky", "key": "Я"},
+    {"char": "т", "hand": "right", "finger": "index", "key": "Т"},
+    {"char": "ь", "hand": "right", "finger": "index", "key": "Ь"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "6", "hand": "right", "finger": "index", "key": "6"},
+    {"char": "7", "hand": "right", "finger": "index", "key": "7"},
+    {"char": "8", "hand": "right", "finger": "middle", "key": "8"},
+    {"char": "9", "hand": "right", "finger": "ring", "key": "9"},
+    {"char": "1", "hand": "left", "finger": "pinky", "key": "1"},
+    {"char": "0", "hand": "right", "finger": "pinky", "key": "0"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "ш", "hand": "right", "finger": "middle", "key": "Ш"},
+    {"char": "е", "hand": "left", "finger": "index", "key": "Е"},
+    {"char": "с", "hand": "left", "finger": "middle", "key": "С"},
+    {"char": "т", "hand": "right", "finger": "index", "key": "Т"},
+    {"char": "ь", "hand": "right", "finger": "index", "key": "Ь"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "к", "hand": "left", "finger": "index", "key": "К"},
+    {"char": "о", "hand": "right", "finger": "index", "key": "О"},
+    {"char": "ш", "hand": "right", "finger": "middle", "key": "Ш"},
+    {"char": "е", "hand": "left", "finger": "index", "key": "Е"},
+    {"char": "к", "hand": "left", "finger": "index", "key": "К"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "с", "hand": "left", "finger": "middle", "key": "С"},
+    {"char": "е", "hand": "left", "finger": "index", "key": "Е"},
+    {"char": "м", "hand": "left", "finger": "index", "key": "М"},
+    {"char": "ь", "hand": "right", "finger": "index", "key": "Ь"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "с", "hand": "left", "finger": "middle", "key": "С"},
+    {"char": "о", "hand": "right", "finger": "index", "key": "О"},
+    {"char": "б", "hand": "right", "finger": "middle", "key": "Б"},
+    {"char": "а", "hand": "left", "finger": "index", "key": "А"},
+    {"char": "к", "hand": "left", "finger": "index", "key": "К"}
+  ],
   "keys_trained": [
     "6",
     "7",
@@ -24,33 +97,33 @@
   "tips": [
     {
       "type": "lead",
-      "text": "6 — правый указатель, 0 — правый мизинец"
+      "text": "Теперь цифры справа! Шестёрку нажимает правый указательный пальчик, а ноль - правый мизинчик."
     },
     {
       "type": "drop",
-      "text": "Те же пальцы, что Н-Г-Ш-Щ-З"
+      "text": "Тянутся к ним те же пальчики, что нажимают буквы Н, Г, Ш, Щ, З. Совсем не сложно!"
     },
     {
       "type": "exercise",
       "target": "6 7 8 9 10 шесть семь",
       "finger": "blue",
-      "hint": "Правый цифровой ряд"
+      "hint": "Тянись к цифре спокойно, без спешки"
     },
     {
       "type": "p",
-      "text": "Цифры + слова смешанно"
+      "text": "А теперь смешаем цифры со словами. У тебя обязательно получится!"
     },
     {
       "type": "exercise",
       "target": "восемь девять десять 678910 шесть кошек семь собак",
       "finger": "green",
-      "hint": "Правый цифровой ряд"
+      "hint": "Пальчики уже знают дорогу к цифрам"
     }
   ],
   "character_tips": {
-    "anna": "Правые цифры. Зеркало левых.",
-    "maxim": "Полный цифровой ряд. 10 цифр теперь.",
-    "knopych": "🔢 ЕЩЁ СЧЁТ! 6, 7, 8, 9, 10!",
+    "anna": "Цифры справа - как в зеркале от тех, что слева. Ты быстро запомнишь!",
+    "maxim": "Теперь ты знаешь все десять цифр. Какой ты молодец!",
+    "knopych": "🔢 Считаем дальше! Шесть, семь, восемь, девять, десять!",
     "klavochka": "До десяти, моя звёздочка ⭐"
   },
   "phase": 3,

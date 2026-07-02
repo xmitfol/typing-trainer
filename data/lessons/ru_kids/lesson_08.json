@@ -3,57 +3,121 @@
   "tier": "ru_kids",
   "lesson_number": 8,
   "title": "Ритм: знакомые слова",
-  "description": "Повторяем слова с ритмом",
+  "description": "Печатаем парами в ровном ритме: вода-вода.",
   "target_wpm": 14,
-  "text_length": 53,
+  "text_length": 47,
   "error_limit_percent": 10,
   "error_limit": 5,
-  "text": "она она она он он он на на на ива ива ива вон вон вон",
-  "text_sequence": [],
+  "text": "вода вода дала дала лады лады овал овал вол вол",
+  "text_sequence": [
+    {"char": "в", "hand": "left", "finger": "middle", "key": "В"},
+    {"char": "о", "hand": "right", "finger": "index", "key": "О"},
+    {"char": "д", "hand": "right", "finger": "ring", "key": "Д"},
+    {"char": "а", "hand": "left", "finger": "index", "key": "А"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "в", "hand": "left", "finger": "middle", "key": "В"},
+    {"char": "о", "hand": "right", "finger": "index", "key": "О"},
+    {"char": "д", "hand": "right", "finger": "ring", "key": "Д"},
+    {"char": "а", "hand": "left", "finger": "index", "key": "А"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "д", "hand": "right", "finger": "ring", "key": "Д"},
+    {"char": "а", "hand": "left", "finger": "index", "key": "А"},
+    {"char": "л", "hand": "right", "finger": "middle", "key": "Л"},
+    {"char": "а", "hand": "left", "finger": "index", "key": "А"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "д", "hand": "right", "finger": "ring", "key": "Д"},
+    {"char": "а", "hand": "left", "finger": "index", "key": "А"},
+    {"char": "л", "hand": "right", "finger": "middle", "key": "Л"},
+    {"char": "а", "hand": "left", "finger": "index", "key": "А"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "л", "hand": "right", "finger": "middle", "key": "Л"},
+    {"char": "а", "hand": "left", "finger": "index", "key": "А"},
+    {"char": "д", "hand": "right", "finger": "ring", "key": "Д"},
+    {"char": "ы", "hand": "left", "finger": "ring", "key": "Ы"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "л", "hand": "right", "finger": "middle", "key": "Л"},
+    {"char": "а", "hand": "left", "finger": "index", "key": "А"},
+    {"char": "д", "hand": "right", "finger": "ring", "key": "Д"},
+    {"char": "ы", "hand": "left", "finger": "ring", "key": "Ы"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "о", "hand": "right", "finger": "index", "key": "О"},
+    {"char": "в", "hand": "left", "finger": "middle", "key": "В"},
+    {"char": "а", "hand": "left", "finger": "index", "key": "А"},
+    {"char": "л", "hand": "right", "finger": "middle", "key": "Л"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "о", "hand": "right", "finger": "index", "key": "О"},
+    {"char": "в", "hand": "left", "finger": "middle", "key": "В"},
+    {"char": "а", "hand": "left", "finger": "index", "key": "А"},
+    {"char": "л", "hand": "right", "finger": "middle", "key": "Л"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "в", "hand": "left", "finger": "middle", "key": "В"},
+    {"char": "о", "hand": "right", "finger": "index", "key": "О"},
+    {"char": "л", "hand": "right", "finger": "middle", "key": "Л"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "в", "hand": "left", "finger": "middle", "key": "В"},
+    {"char": "о", "hand": "right", "finger": "index", "key": "О"},
+    {"char": "л", "hand": "right", "finger": "middle", "key": "Л"}
+  ],
   "keys_trained": [
     "А",
     "О",
     "В",
-    "Н",
-    "И",
+    "Л",
+    "Ы",
+    "Д",
     "Space"
   ],
   "new_keys": [],
   "finger_focus": "Ритм знакомых слов",
+  "guided": true,
   "tips": [
     {
       "type": "lead",
-      "text": "Каждое слово трижды — тренировка ритма"
+      "text": "Сегодня новых букв нет - поиграем в ритм! Будем печатать знакомые слова парами, ровно-ровно, как будто тихонько стучим в барабан. 🥁"
     },
     {
       "type": "drop",
-      "text": "Как хлопать в ладоши под песню"
+      "text": "Поставь пальчики на свои домики и не убирай. Каждое слово печатай дважды, спокойно: тук-тук, маленькая пауза, и снова тук-тук."
     },
     {
-      "type": "exercise",
-      "target": "она она она он он он на",
-      "finger": "blue",
-      "hint": "Ритм знакомых слов"
+      "type": "callout",
+      "icon": "🥁",
+      "title": "Ровный стук",
+      "text": "Не спеши и не тороись! Самое главное - стучать ровно, одинаково: между буковками одинаковые шажочки. Медленно и ровно лучше, чем быстро и вперемешку."
+    },
+    {
+      "type": "step",
+      "kind": "drill",
+      "target": "вода вода дала дала вода вода",
+      "finger": "orange",
+      "title": "Ритм: вода",
+      "hint": "Печатай парами, ровно: вода - вода, потом дала - дала. Считай про себя: раз-два"
     },
     {
       "type": "p",
-      "text": "Не торопись — держи устойчиво"
+      "text": "Слышишь свой стук? Тук-тук, пауза, тук-тук. Как красиво пальчики танцуют в такт! 🥁"
     },
     {
-      "type": "exercise",
-      "target": "на на ива ива ива вон вон вон",
-      "finger": "green",
-      "hint": "Ритм знакомых слов"
+      "type": "step",
+      "kind": "drill",
+      "target": "лады лады овал овал вол вол",
+      "finger": "orange",
+      "title": "Ритм: лады",
+      "hint": "Держи ровный ритм до самого конца: лады - лады, овал - овал, вол - вол"
+    },
+    {
+      "type": "p",
+      "text": "Молодец, что старался! Теперь нажми «Открыть тренажёр» и пройди весь урок целиком. Спокойно и ровно - у тебя получится. 🌷"
     }
   ],
   "character_tips": {
-    "anna": "Ритм как песенка — хлоп-хлоп-хлоп, печ-печ-печ 🌷",
-    "maxim": "Повторение + ритм = мышечная память.",
-    "knopych": "РИТМ-ТАЙМ! 🥁 Одни и те же слова, ровный бит!",
-    "klavochka": "Маленькая песенка, мой солнечный 🎵 Тук-тук-тук!"
+    "anna": "Ритм - пары слов. Ровно, как метроном 🌷",
+    "maxim": "Ритм-урок. Одинаковые паузы между словами.",
+    "knopych": "Тук-тук! 🥁 ВОДА-ВОДА! ЛАДЫ-ЛАДЫ! Ритм!",
+    "klavochka": "Постучим пальчиками в такт, дитя: вода-вода, лады-лады 🥁💕"
   },
   "phase": 1,
   "rhythmLesson": true,
   "created_at": "2026-05-26",
-  "version": "1.0"
+  "version": "4.0"
 }

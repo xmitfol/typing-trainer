@@ -2,54 +2,131 @@
   "id": "ru_kids_lesson_09",
   "tier": "ru_kids",
   "lesson_number": 9,
-  "title": "Слова-животные: кот, ит, оса",
-  "description": "Первые забавные слова — животные!",
+  "title": "Буквы Ф и Ж",
+  "description": "Мизинчики: Ф слева, Ж справа. Весь средний ряд почти твой!",
   "target_wpm": 15,
-  "text_length": 53,
+  "text_length": 38,
   "error_limit_percent": 10,
   "error_limit": 5,
-  "text": "кот кот кот оса оса оса конь конь конь сова сова сова",
-  "text_sequence": [],
+  "text": "ф ф ж ж жало жало ждал лажа жажда вода",
+  "text_sequence": [
+    {"char": "ф", "hand": "left", "finger": "pinky", "key": "Ф"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "ф", "hand": "left", "finger": "pinky", "key": "Ф"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "ж", "hand": "right", "finger": "pinky", "key": "Ж"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "ж", "hand": "right", "finger": "pinky", "key": "Ж"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "ж", "hand": "right", "finger": "pinky", "key": "Ж"},
+    {"char": "а", "hand": "left", "finger": "index", "key": "А"},
+    {"char": "л", "hand": "right", "finger": "middle", "key": "Л"},
+    {"char": "о", "hand": "right", "finger": "index", "key": "О"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "ж", "hand": "right", "finger": "pinky", "key": "Ж"},
+    {"char": "а", "hand": "left", "finger": "index", "key": "А"},
+    {"char": "л", "hand": "right", "finger": "middle", "key": "Л"},
+    {"char": "о", "hand": "right", "finger": "index", "key": "О"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "ж", "hand": "right", "finger": "pinky", "key": "Ж"},
+    {"char": "д", "hand": "right", "finger": "ring", "key": "Д"},
+    {"char": "а", "hand": "left", "finger": "index", "key": "А"},
+    {"char": "л", "hand": "right", "finger": "middle", "key": "Л"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "л", "hand": "right", "finger": "middle", "key": "Л"},
+    {"char": "а", "hand": "left", "finger": "index", "key": "А"},
+    {"char": "ж", "hand": "right", "finger": "pinky", "key": "Ж"},
+    {"char": "а", "hand": "left", "finger": "index", "key": "А"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "ж", "hand": "right", "finger": "pinky", "key": "Ж"},
+    {"char": "а", "hand": "left", "finger": "index", "key": "А"},
+    {"char": "ж", "hand": "right", "finger": "pinky", "key": "Ж"},
+    {"char": "д", "hand": "right", "finger": "ring", "key": "Д"},
+    {"char": "а", "hand": "left", "finger": "index", "key": "А"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "в", "hand": "left", "finger": "middle", "key": "В"},
+    {"char": "о", "hand": "right", "finger": "index", "key": "О"},
+    {"char": "д", "hand": "right", "finger": "ring", "key": "Д"},
+    {"char": "а", "hand": "left", "finger": "index", "key": "А"}
+  ],
   "keys_trained": [
-    "А-Я мини",
+    "А",
+    "О",
+    "В",
+    "Л",
+    "Ы",
+    "Д",
+    "Ф",
+    "Ж",
     "Space"
   ],
   "new_keys": [],
-  "finger_focus": "Слова-животные",
+  "finger_focus": "Мизинцы находят Ф и Ж",
+  "guided": true,
   "tips": [
     {
       "type": "lead",
-      "text": "Животных легко представить — весело учиться"
+      "text": "Сегодня знакомимся с двумя новыми буковками - Ф и Ж. Их печатают самые маленькие пальчики - мизинчики. Они крохотные, но очень старательные! 🌸"
     },
     {
       "type": "drop",
-      "text": "Каждое слово повторено — держи ритм"
+      "text": "Буква Ф живёт слева - её нажимает левый мизинчик. А буква Ж справа - её нажимает правый мизинчик. Другие пальчики остаются дома, не убегают."
     },
     {
-      "type": "exercise",
-      "target": "кот кот кот оса оса оса",
-      "finger": "blue",
-      "hint": "Слова-животные"
+      "type": "callout",
+      "icon": "🌸",
+      "title": "Мизинчик - малыш",
+      "text": "Мизинчик самый маленький и слушается похуже других. Не дави сильно, нажимай легонько и спокойно. А потом сразу верни пальчик домой."
+    },
+    {
+      "type": "step",
+      "kind": "drill",
+      "target": "ф ф ф ф ф ф ф ф ф ф",
+      "finger": "pink",
+      "title": "Буква Ф",
+      "hint": "Левый мизинчик находит букву Ф. После каждой - пробел"
+    },
+    {
+      "type": "step",
+      "kind": "drill",
+      "target": "ж ж ж ж ж ж ж ж ж ж",
+      "finger": "pink",
+      "title": "Буква Ж",
+      "hint": "Правый мизинчик находит букву Ж. Нажимай легонько"
+    },
+    {
+      "type": "step",
+      "kind": "drill",
+      "target": "ф ж ф ж ф ж ф ж ф ж",
+      "finger": "pink",
+      "title": "По очереди",
+      "hint": "А теперь по очереди: Ф - Ж - Ф - Ж. Левый мизинчик, потом правый"
     },
     {
       "type": "p",
-      "text": "Аккуратно к новым буковкам (К, С)"
+      "text": "Какой ты молодец! Даже самые маленькие пальчики тебя слушаются. Теперь весь нижний домик почти наш - давай соберём слова! 🌷"
     },
     {
-      "type": "exercise",
-      "target": "конь конь конь сова сова сова",
-      "finger": "green",
-      "hint": "Слова-животные"
+      "type": "step",
+      "kind": "drill",
+      "target": "жало ждал лажа жажда жало ждал",
+      "finger": "pink",
+      "title": "Слова",
+      "hint": "Читай слово целиком и печатай: жало, ждал, лажа, жажда"
+    },
+    {
+      "type": "p",
+      "text": "Все шаги прошёл? Умница! Нажми «Открыть тренажёр» и пройди весь урок целиком. Не подглядывай - пальчики сами вспомнят. 💕"
     }
   ],
   "character_tips": {
-    "anna": "Животные! Кот, оса, конь — представь их 🌸",
-    "maxim": "Забавные слова помогают запоминать. Память любит образы.",
-    "knopych": "ЗООПАРК! 🐱🐝🐎 Печатай и видишь их!",
-    "klavochka": "Все твои зверушки-друзья, мой солнечный 🐝"
+    "anna": "Ф и Ж - мизинчики. Весь дом. ряд почти собран 🌷",
+    "maxim": "Ф (лев. миз.), Ж (прав. миз.). Средний ряд почти полный.",
+    "knopych": "Ф-Ж! 🤖 Самые маленькие пальчики! ЖАЖДА!",
+    "klavochka": "Даже малюсенькие мизинчики работают, умница! Ф и Ж. Жа-жда 💕"
   },
   "phase": 1,
   "rhythmLesson": false,
   "created_at": "2026-05-26",
-  "version": "1.0"
+  "version": "4.0"
 }

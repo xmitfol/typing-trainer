@@ -2,55 +2,135 @@
   "id": "ru_kids_lesson_13",
   "tier": "ru_kids",
   "lesson_number": 13,
-  "title": "Буквы Т и С",
-  "description": "Важные буквы — Т и С",
+  "title": "Верхний ряд: У и К",
+  "description": "Тянемся вверх: У и К. Слова рука, урок, лук!",
   "target_wpm": 21,
-  "text_length": 53,
+  "text_length": 36,
   "error_limit_percent": 10,
   "error_limit": 5,
-  "text": "т т т с с с те те те со со со это это это так так так",
-  "text_sequence": [],
+  "text": "у у к к лук рука урок куда крой укол",
+  "text_sequence": [
+    {"char": "у", "hand": "left", "finger": "middle", "key": "У"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "у", "hand": "left", "finger": "middle", "key": "У"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "к", "hand": "left", "finger": "index", "key": "К"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "к", "hand": "left", "finger": "index", "key": "К"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "л", "hand": "right", "finger": "middle", "key": "Л"},
+    {"char": "у", "hand": "left", "finger": "middle", "key": "У"},
+    {"char": "к", "hand": "left", "finger": "index", "key": "К"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "р", "hand": "right", "finger": "index", "key": "Р"},
+    {"char": "у", "hand": "left", "finger": "middle", "key": "У"},
+    {"char": "к", "hand": "left", "finger": "index", "key": "К"},
+    {"char": "а", "hand": "left", "finger": "index", "key": "А"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "у", "hand": "left", "finger": "middle", "key": "У"},
+    {"char": "р", "hand": "right", "finger": "index", "key": "Р"},
+    {"char": "о", "hand": "right", "finger": "index", "key": "О"},
+    {"char": "к", "hand": "left", "finger": "index", "key": "К"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "к", "hand": "left", "finger": "index", "key": "К"},
+    {"char": "у", "hand": "left", "finger": "middle", "key": "У"},
+    {"char": "д", "hand": "right", "finger": "ring", "key": "Д"},
+    {"char": "а", "hand": "left", "finger": "index", "key": "А"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "к", "hand": "left", "finger": "index", "key": "К"},
+    {"char": "р", "hand": "right", "finger": "index", "key": "Р"},
+    {"char": "о", "hand": "right", "finger": "index", "key": "О"},
+    {"char": "й", "hand": "left", "finger": "pinky", "key": "Й"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "у", "hand": "left", "finger": "middle", "key": "У"},
+    {"char": "к", "hand": "left", "finger": "index", "key": "К"},
+    {"char": "о", "hand": "right", "finger": "index", "key": "О"},
+    {"char": "л", "hand": "right", "finger": "middle", "key": "Л"}
+  ],
   "keys_trained": [
-    "Т",
-    "С",
-    "А-Я"
+    "А",
+    "О",
+    "В",
+    "Л",
+    "Ы",
+    "Д",
+    "Ф",
+    "Ж",
+    "П",
+    "Р",
+    "Э",
+    "Й",
+    "У",
+    "К",
+    "Space"
   ],
   "new_keys": [],
-  "finger_focus": "Т и С",
+  "finger_focus": "Верхний ряд: У и К",
+  "guided": true,
   "tips": [
     {
       "type": "lead",
-      "text": "Т — левый указательный наверх"
+      "text": "Сегодня поднимаемся выше - на верхний этаж! Там живут буковки У и К. С ними получатся слова рука, урок, лук. ⬆️"
     },
     {
       "type": "drop",
-      "text": "С — левый мизинец внизу"
+      "text": "Буква У - её нажимает левый средний пальчик, потянувшись вверх. Буква К - левый указательный, тоже вверх. Нажал - и сразу домой."
     },
     {
-      "type": "exercise",
-      "target": "т т т с с с те те те",
+      "type": "callout",
+      "icon": "⬆️",
+      "title": "Вверх и обратно",
+      "text": "Пальчики тянутся вверх совсем чуть-чуть. Главное - после буковки вернуть их в домик. Тогда они не забудут, где живут."
+    },
+    {
+      "type": "step",
+      "kind": "drill",
+      "target": "у у у у у у у у у у",
+      "finger": "green",
+      "title": "Буква У",
+      "hint": "Левый средний пальчик тянется вверх к букве У и сразу домой"
+    },
+    {
+      "type": "step",
+      "kind": "drill",
+      "target": "к к к к к к к к к к",
       "finger": "blue",
-      "hint": "Т и С"
+      "title": "Буква К",
+      "hint": "Левый указательный тянется вверх к букве К. Нажимай спокойно"
+    },
+    {
+      "type": "step",
+      "kind": "drill",
+      "target": "у к у к у к у к у к",
+      "finger": "blue",
+      "title": "По очереди",
+      "hint": "По очереди: У - К - У - К. Средний пальчик, потом указательный"
     },
     {
       "type": "p",
-      "text": "«Это», «так», «то» — очень частые слова"
+      "text": "Молодец! Пальчики научились тянуться вверх и возвращаться домой. Теперь соберём настоящие слова. 🌷"
     },
     {
-      "type": "exercise",
-      "target": "со со со это это это так так так",
-      "finger": "green",
-      "hint": "Т и С"
+      "type": "step",
+      "kind": "drill",
+      "target": "лук рука урок куда укол",
+      "finger": "blue",
+      "title": "Слова",
+      "hint": "Слова из наших букв: лук, рука, урок, куда, укол"
+    },
+    {
+      "type": "p",
+      "text": "Все шаги прошёл? Умница! Нажми «Открыть тренажёр» и пройди весь урок целиком. Не подглядывай - у тебя получится. 💕"
     }
   ],
   "character_tips": {
-    "anna": "Т и С. «Это», «так» — слова на каждый день 🌷",
-    "maxim": "Т и С — самые частые буквы. Очень важные.",
-    "knopych": "🤖 Т И С! Супер-важные!",
-    "klavochka": "Две сильные буковки, моя радость 💪"
+    "anna": "У и К - верхний ряд левой руки. «рука», «урок» 🌷",
+    "maxim": "У (лев. сред.), К (лев. указ.) - верхний ряд. Возврат домой.",
+    "knopych": "У-К! 🤖 ЛУК! РУКА! УРОК! Верхний ряд растёт! ⬆️",
+    "klavochka": "Рука, урок - тянемся вверх и сразу домой, моё дитя ⬆️💕"
   },
   "phase": 2,
   "rhythmLesson": false,
   "created_at": "2026-05-26",
-  "version": "1.0"
+  "version": "4.0"
 }

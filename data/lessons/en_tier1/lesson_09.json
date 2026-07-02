@@ -2,14 +2,99 @@
   "id": "en_tier1_lesson_09",
   "tier": "en_tier1",
   "lesson_number": 9,
-  "title": "Final letters: P, Q, X, Z, semicolon",
-  "description": "Finish the alphabet with rare-but-needed letters",
+  "title": "Bottom row: X Z B N + semicolon",
+  "description": "Finish the bottom row - X, Z (left), B, N (index reach) - plus the semicolon",
   "target_wpm": 22,
-  "text_length": 75,
+  "text_length": 83,
   "error_limit_percent": 6,
   "error_limit": 5,
-  "text": "quick brown fox jumps over a lazy dog please pass the box zero zip",
-  "text_sequence": [],
+  "text": "xz bn box zinc brave brown number maze blaze bonze; combine; verbs zip; bend; banjo",
+  "guided": true,
+  "text_sequence": [
+    {"char": "x", "hand": "left", "finger": "ring", "key": "X"},
+    {"char": "z", "hand": "left", "finger": "pinky", "key": "Z"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "b", "hand": "left", "finger": "index", "key": "B"},
+    {"char": "n", "hand": "right", "finger": "index", "key": "N"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "b", "hand": "left", "finger": "index", "key": "B"},
+    {"char": "o", "hand": "right", "finger": "ring", "key": "O"},
+    {"char": "x", "hand": "left", "finger": "ring", "key": "X"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "z", "hand": "left", "finger": "pinky", "key": "Z"},
+    {"char": "i", "hand": "right", "finger": "middle", "key": "I"},
+    {"char": "n", "hand": "right", "finger": "index", "key": "N"},
+    {"char": "c", "hand": "left", "finger": "middle", "key": "C"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "b", "hand": "left", "finger": "index", "key": "B"},
+    {"char": "r", "hand": "left", "finger": "index", "key": "R"},
+    {"char": "a", "hand": "left", "finger": "pinky", "key": "A"},
+    {"char": "v", "hand": "left", "finger": "index", "key": "V"},
+    {"char": "e", "hand": "left", "finger": "middle", "key": "E"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "b", "hand": "left", "finger": "index", "key": "B"},
+    {"char": "r", "hand": "left", "finger": "index", "key": "R"},
+    {"char": "o", "hand": "right", "finger": "ring", "key": "O"},
+    {"char": "w", "hand": "left", "finger": "ring", "key": "W"},
+    {"char": "n", "hand": "right", "finger": "index", "key": "N"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "n", "hand": "right", "finger": "index", "key": "N"},
+    {"char": "u", "hand": "right", "finger": "index", "key": "U"},
+    {"char": "m", "hand": "right", "finger": "index", "key": "M"},
+    {"char": "b", "hand": "left", "finger": "index", "key": "B"},
+    {"char": "e", "hand": "left", "finger": "middle", "key": "E"},
+    {"char": "r", "hand": "left", "finger": "index", "key": "R"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "m", "hand": "right", "finger": "index", "key": "M"},
+    {"char": "a", "hand": "left", "finger": "pinky", "key": "A"},
+    {"char": "z", "hand": "left", "finger": "pinky", "key": "Z"},
+    {"char": "e", "hand": "left", "finger": "middle", "key": "E"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "b", "hand": "left", "finger": "index", "key": "B"},
+    {"char": "l", "hand": "right", "finger": "ring", "key": "L"},
+    {"char": "a", "hand": "left", "finger": "pinky", "key": "A"},
+    {"char": "z", "hand": "left", "finger": "pinky", "key": "Z"},
+    {"char": "e", "hand": "left", "finger": "middle", "key": "E"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "b", "hand": "left", "finger": "index", "key": "B"},
+    {"char": "o", "hand": "right", "finger": "ring", "key": "O"},
+    {"char": "n", "hand": "right", "finger": "index", "key": "N"},
+    {"char": "z", "hand": "left", "finger": "pinky", "key": "Z"},
+    {"char": "e", "hand": "left", "finger": "middle", "key": "E"},
+    {"char": ";", "hand": "right", "finger": "pinky", "key": ";"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "c", "hand": "left", "finger": "middle", "key": "C"},
+    {"char": "o", "hand": "right", "finger": "ring", "key": "O"},
+    {"char": "m", "hand": "right", "finger": "index", "key": "M"},
+    {"char": "b", "hand": "left", "finger": "index", "key": "B"},
+    {"char": "i", "hand": "right", "finger": "middle", "key": "I"},
+    {"char": "n", "hand": "right", "finger": "index", "key": "N"},
+    {"char": "e", "hand": "left", "finger": "middle", "key": "E"},
+    {"char": ";", "hand": "right", "finger": "pinky", "key": ";"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "v", "hand": "left", "finger": "index", "key": "V"},
+    {"char": "e", "hand": "left", "finger": "middle", "key": "E"},
+    {"char": "r", "hand": "left", "finger": "index", "key": "R"},
+    {"char": "b", "hand": "left", "finger": "index", "key": "B"},
+    {"char": "s", "hand": "left", "finger": "ring", "key": "S"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "z", "hand": "left", "finger": "pinky", "key": "Z"},
+    {"char": "i", "hand": "right", "finger": "middle", "key": "I"},
+    {"char": "p", "hand": "right", "finger": "pinky", "key": "P"},
+    {"char": ";", "hand": "right", "finger": "pinky", "key": ";"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "b", "hand": "left", "finger": "index", "key": "B"},
+    {"char": "e", "hand": "left", "finger": "middle", "key": "E"},
+    {"char": "n", "hand": "right", "finger": "index", "key": "N"},
+    {"char": "d", "hand": "left", "finger": "middle", "key": "D"},
+    {"char": ";", "hand": "right", "finger": "pinky", "key": ";"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "b", "hand": "left", "finger": "index", "key": "B"},
+    {"char": "a", "hand": "left", "finger": "pinky", "key": "A"},
+    {"char": "n", "hand": "right", "finger": "index", "key": "N"},
+    {"char": "j", "hand": "right", "finger": "index", "key": "J"},
+    {"char": "o", "hand": "right", "finger": "ring", "key": "O"}
+  ],
   "keys_trained": [
     "A",
     "B",
@@ -37,59 +122,86 @@
     "X",
     "Y",
     "Z",
+    ";",
     "Space"
   ],
   "new_keys": [
-    "P",
-    "Q",
     "X",
-    "Z"
+    "Z",
+    "B",
+    "N",
+    ";"
   ],
-  "finger_focus": "All remaining: P (right pinky up), Q (left pinky up), X (left ring bottom), Z (left pinky bottom)",
+  "finger_focus": "Bottom row: X (left ring), Z (left pinky), B/N (index reach), semicolon (right pinky)",
   "tips": [
     {
       "type": "lead",
-      "text": "P — right pinky reach up"
+      "text": "The last of the letters today, and one mark of punctuation. X sits below S on the left ring finger, Z below A on the left pinky - the far corner of the bottom row, the deepest reach you will make. Take them slowly. There is no prize for hurrying the hardest keys on the board."
     },
     {
       "type": "drop",
-      "text": "Q — left pinky reach up (rare!)"
-    },
-    {
-      "type": "exercise",
-      "target": "quick brown fox jumps over a lazy",
-      "finger": "pink",
-      "hint": "Буквы: P Q X Z"
-    },
-    {
-      "type": "p",
-      "text": "X — left ring drops"
+      "text": "B and N are index reaches down and inward: B to the left index, N to the right. And the semicolon - that quiet, underrated mark - rests right under the right pinky on the home row, no reach at all. A useful little key; learn it once and it serves you for life."
     },
     {
       "type": "callout",
-      "icon": "💡",
-      "title": "Подсказка",
-      "text": "Z — left pinky drops (rare!)"
+      "icon": "🖐",
+      "title": "Finish what you started",
+      "text": "These are the letters most people never train, and it shows the moment a Z or an X turns up - the hands stall and the eyes drop. You are about to be done with that for good. Strike each one cleanly and return home. Then the whole alphabet is yours, with nothing left to hunt for."
+    },
+    {
+      "type": "step",
+      "kind": "drill",
+      "target": "x x x x x x x x x x z z z z z z z z z z",
+      "finger": "pink",
+      "title": "Left corner: X and Z",
+      "hint": "Left ring drops from S to X; left pinky drops from A to Z. The deepest reach."
+    },
+    {
+      "type": "step",
+      "kind": "drill",
+      "target": "b b b b b b b b b b n n n n n n n n n n",
+      "finger": "blue",
+      "title": "Index: B and N",
+      "hint": "Left index reaches down to B; right index down to N. Strike and home."
+    },
+    {
+      "type": "step",
+      "kind": "drill",
+      "target": "; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ;",
+      "finger": "pink",
+      "title": "The semicolon",
+      "hint": "Right pinky, resting on the home row. No reach - just press where it already sits."
     },
     {
       "type": "p",
-      "text": "Now you can type the famous: \"the quick brown fox jumps over a lazy dog\""
+      "text": "And there it is - the full alphabet, every letter under your fingers, with nothing left to find by looking. That is the whole keyboard learned. From here the work is no longer about reaching new keys; it is about making the ones you know quick, quiet, and sure. Read each word whole and type it without a glance down."
     },
     {
-      "type": "exercise",
-      "target": "dog please pass the box zero zip",
-      "finger": "orange",
-      "hint": "Буквы: P Q X Z"
+      "type": "pullquote",
+      "text": "The alphabet is the easy part. The craft is in the thousand small, clean keystrokes after it - a little every day, and one morning the keyboard simply disappears.",
+      "by": "Eleanor Hayes, editor"
+    },
+    {
+      "type": "step",
+      "kind": "drill",
+      "target": "box zinc brave brown number maze blaze combine; verbs zip; bend; banjo",
+      "finger": "blue",
+      "title": "Words",
+      "hint": "Words from the keys you know: box, zinc, brown, number, blaze, combine, banjo."
+    },
+    {
+      "type": "p",
+      "text": "Every step typed? Then press Open Trainer below and make one clean run at the whole lesson. That run is the one that counts - it saves your progress and finishes the alphabet for good."
     }
   ],
   "character_tips": {
-    "anna": "Finishing the alphabet! Q, X, Z — rare, but you need their positions.",
-    "maxim": "The full English alphabet is on your fingertips. Final test is near.",
-    "knopych": "ALPHABET! ALL 26 LETTERS ARE YOURS! 🏆",
-    "klavochka": "Well done! All the letters learned — you're a real typist! ⭐"
+    "anna": "🎓 The last letters! X, Z, B, N complete the alphabet. Every key is now under your fingers.",
+    "maxim": "Bottom row finished. X and Z (left), B and N (index reaches). Full alphabet unlocked.",
+    "knopych": "FINAL LETTERS! X Z B N - alphabet 100%! LEVEL UP! 🏆",
+    "klavochka": "You did it! The whole English alphabet lives on your fingers now 🎉"
   },
   "phase": 1,
   "rhythmLesson": false,
   "created_at": "2026-05-25",
-  "version": "1.0"
+  "version": "4.0"
 }

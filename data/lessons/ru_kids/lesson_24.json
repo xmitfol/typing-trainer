@@ -9,7 +9,76 @@
   "error_limit_percent": 10,
   "error_limit": 6,
   "text": "Я вижу кота. Он чёрный? Да! Смотри как он бежит. Куда? Домой! Конец!",
-  "text_sequence": [],
+  "text_sequence": [
+    {"char": "Я", "hand": "left", "finger": "pinky", "key": "Я"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "в", "hand": "left", "finger": "middle", "key": "В"},
+    {"char": "и", "hand": "left", "finger": "index", "key": "И"},
+    {"char": "ж", "hand": "right", "finger": "pinky", "key": "Ж"},
+    {"char": "у", "hand": "left", "finger": "middle", "key": "У"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "к", "hand": "left", "finger": "index", "key": "К"},
+    {"char": "о", "hand": "right", "finger": "index", "key": "О"},
+    {"char": "т", "hand": "right", "finger": "index", "key": "Т"},
+    {"char": "а", "hand": "left", "finger": "index", "key": "А"},
+    {"char": ".", "hand": "right", "finger": "index", "key": "."},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "О", "hand": "right", "finger": "index", "key": "О"},
+    {"char": "н", "hand": "right", "finger": "index", "key": "Н"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "ч", "hand": "left", "finger": "ring", "key": "Ч"},
+    {"char": "ё", "hand": "left", "finger": "pinky", "key": "Ё"},
+    {"char": "р", "hand": "right", "finger": "index", "key": "Р"},
+    {"char": "н", "hand": "right", "finger": "index", "key": "Н"},
+    {"char": "ы", "hand": "left", "finger": "ring", "key": "Ы"},
+    {"char": "й", "hand": "left", "finger": "pinky", "key": "Й"},
+    {"char": "?", "hand": "right", "finger": "index", "key": "?"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "Д", "hand": "right", "finger": "ring", "key": "Д"},
+    {"char": "а", "hand": "left", "finger": "index", "key": "А"},
+    {"char": "!", "hand": "right", "finger": "index", "key": "!"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "С", "hand": "left", "finger": "middle", "key": "С"},
+    {"char": "м", "hand": "left", "finger": "index", "key": "М"},
+    {"char": "о", "hand": "right", "finger": "index", "key": "О"},
+    {"char": "т", "hand": "right", "finger": "index", "key": "Т"},
+    {"char": "р", "hand": "right", "finger": "index", "key": "Р"},
+    {"char": "и", "hand": "left", "finger": "index", "key": "И"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "к", "hand": "left", "finger": "index", "key": "К"},
+    {"char": "а", "hand": "left", "finger": "index", "key": "А"},
+    {"char": "к", "hand": "left", "finger": "index", "key": "К"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "о", "hand": "right", "finger": "index", "key": "О"},
+    {"char": "н", "hand": "right", "finger": "index", "key": "Н"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "б", "hand": "right", "finger": "middle", "key": "Б"},
+    {"char": "е", "hand": "left", "finger": "index", "key": "Е"},
+    {"char": "ж", "hand": "right", "finger": "pinky", "key": "Ж"},
+    {"char": "и", "hand": "left", "finger": "index", "key": "И"},
+    {"char": "т", "hand": "right", "finger": "index", "key": "Т"},
+    {"char": ".", "hand": "right", "finger": "index", "key": "."},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "К", "hand": "left", "finger": "index", "key": "К"},
+    {"char": "у", "hand": "left", "finger": "middle", "key": "У"},
+    {"char": "д", "hand": "right", "finger": "ring", "key": "Д"},
+    {"char": "а", "hand": "left", "finger": "index", "key": "А"},
+    {"char": "?", "hand": "right", "finger": "index", "key": "?"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "Д", "hand": "right", "finger": "ring", "key": "Д"},
+    {"char": "о", "hand": "right", "finger": "index", "key": "О"},
+    {"char": "м", "hand": "left", "finger": "index", "key": "М"},
+    {"char": "о", "hand": "right", "finger": "index", "key": "О"},
+    {"char": "й", "hand": "left", "finger": "pinky", "key": "Й"},
+    {"char": "!", "hand": "right", "finger": "index", "key": "!"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "К", "hand": "left", "finger": "index", "key": "К"},
+    {"char": "о", "hand": "right", "finger": "index", "key": "О"},
+    {"char": "н", "hand": "right", "finger": "index", "key": "Н"},
+    {"char": "е", "hand": "left", "finger": "index", "key": "Е"},
+    {"char": "ц", "hand": "left", "finger": "ring", "key": "Ц"},
+    {"char": "!", "hand": "right", "finger": "index", "key": "!"}
+  ],
   "keys_trained": [
     "А-Я",
     "Shift",
@@ -23,33 +92,33 @@
   "tips": [
     {
       "type": "lead",
-      "text": "Утверждения с ."
+      "text": "Если мы просто о чём-то рассказываем, в конце ставим точку."
     },
     {
       "type": "drop",
-      "text": "Вопросы с ?"
+      "text": "А если спрашиваем - знак вопроса. Видишь, как просто!"
     },
     {
       "type": "exercise",
       "target": "Я вижу кота. Он чёрный? Да!",
       "finger": "blue",
-      "hint": "Три типа предложений"
+      "hint": "Смотри на знаки и печатай спокойно"
     },
     {
       "type": "p",
-      "text": "Радость с !"
+      "text": "А когда радостно - восклицательный знак. Теперь у тебя есть все три знака-друга!"
     },
     {
       "type": "exercise",
       "target": "Смотри как он бежит. Куда? Домой! Конец!",
       "finger": "green",
-      "hint": "Три типа предложений"
+      "hint": "Не подглядывай, пальчики помнят"
     }
   ],
   "character_tips": {
-    "anna": "Три типа предложений. У каждого свой знак.",
-    "maxim": "Три знака конца. Тренируй смешивание.",
-    "knopych": "🎯 ТРИПЛ МИКС! Три типа предложений!",
+    "anna": "Три знака-друга: точка, вопрос и восклицание. У каждого своё дело!",
+    "maxim": "Три знака в конце предложения. Поучимся ставить их вместе - у тебя получится!",
+    "knopych": "🎯 Сразу три знака! Точка, вопрос и восклицание!",
     "klavochka": "Все три друга вместе, мой милый 💖"
   },
   "phase": 3,

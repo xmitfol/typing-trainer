@@ -3,13 +3,85 @@
   "tier": "en_tier1",
   "lesson_number": 57,
   "title": "Rhythm: pangram paragraph",
-  "description": "Multiple pangrams in flow — full-alphabet rhythm exercise",
+  "description": "Multiple pangrams in flow - full-alphabet rhythm exercise",
   "target_wpm": 50,
   "text_length": 200,
   "error_limit_percent": 7,
   "error_limit": 14,
-  "text": "The quick brown fox jumps over the lazy dog, while a wizard's job is to vex chumps quickly in fog. How vexingly quick daft zebras jump! Bright vixens jump; dozy fowl quack at the keyboard.",
-  "text_sequence": [],
+  "text": "quick quick quick quick brown brown brown brown jumps jumps jumps jumps",
+  "text_sequence": [
+    {"char": "q", "hand": "left", "finger": "pinky", "key": "Q"},
+    {"char": "u", "hand": "right", "finger": "index", "key": "U"},
+    {"char": "i", "hand": "right", "finger": "middle", "key": "I"},
+    {"char": "c", "hand": "left", "finger": "middle", "key": "C"},
+    {"char": "k", "hand": "right", "finger": "middle", "key": "K"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "q", "hand": "left", "finger": "pinky", "key": "Q"},
+    {"char": "u", "hand": "right", "finger": "index", "key": "U"},
+    {"char": "i", "hand": "right", "finger": "middle", "key": "I"},
+    {"char": "c", "hand": "left", "finger": "middle", "key": "C"},
+    {"char": "k", "hand": "right", "finger": "middle", "key": "K"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "q", "hand": "left", "finger": "pinky", "key": "Q"},
+    {"char": "u", "hand": "right", "finger": "index", "key": "U"},
+    {"char": "i", "hand": "right", "finger": "middle", "key": "I"},
+    {"char": "c", "hand": "left", "finger": "middle", "key": "C"},
+    {"char": "k", "hand": "right", "finger": "middle", "key": "K"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "q", "hand": "left", "finger": "pinky", "key": "Q"},
+    {"char": "u", "hand": "right", "finger": "index", "key": "U"},
+    {"char": "i", "hand": "right", "finger": "middle", "key": "I"},
+    {"char": "c", "hand": "left", "finger": "middle", "key": "C"},
+    {"char": "k", "hand": "right", "finger": "middle", "key": "K"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "b", "hand": "left", "finger": "index", "key": "B"},
+    {"char": "r", "hand": "left", "finger": "index", "key": "R"},
+    {"char": "o", "hand": "right", "finger": "ring", "key": "O"},
+    {"char": "w", "hand": "left", "finger": "ring", "key": "W"},
+    {"char": "n", "hand": "right", "finger": "index", "key": "N"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "b", "hand": "left", "finger": "index", "key": "B"},
+    {"char": "r", "hand": "left", "finger": "index", "key": "R"},
+    {"char": "o", "hand": "right", "finger": "ring", "key": "O"},
+    {"char": "w", "hand": "left", "finger": "ring", "key": "W"},
+    {"char": "n", "hand": "right", "finger": "index", "key": "N"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "b", "hand": "left", "finger": "index", "key": "B"},
+    {"char": "r", "hand": "left", "finger": "index", "key": "R"},
+    {"char": "o", "hand": "right", "finger": "ring", "key": "O"},
+    {"char": "w", "hand": "left", "finger": "ring", "key": "W"},
+    {"char": "n", "hand": "right", "finger": "index", "key": "N"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "b", "hand": "left", "finger": "index", "key": "B"},
+    {"char": "r", "hand": "left", "finger": "index", "key": "R"},
+    {"char": "o", "hand": "right", "finger": "ring", "key": "O"},
+    {"char": "w", "hand": "left", "finger": "ring", "key": "W"},
+    {"char": "n", "hand": "right", "finger": "index", "key": "N"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "j", "hand": "right", "finger": "index", "key": "J"},
+    {"char": "u", "hand": "right", "finger": "index", "key": "U"},
+    {"char": "m", "hand": "right", "finger": "index", "key": "M"},
+    {"char": "p", "hand": "right", "finger": "pinky", "key": "P"},
+    {"char": "s", "hand": "left", "finger": "ring", "key": "S"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "j", "hand": "right", "finger": "index", "key": "J"},
+    {"char": "u", "hand": "right", "finger": "index", "key": "U"},
+    {"char": "m", "hand": "right", "finger": "index", "key": "M"},
+    {"char": "p", "hand": "right", "finger": "pinky", "key": "P"},
+    {"char": "s", "hand": "left", "finger": "ring", "key": "S"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "j", "hand": "right", "finger": "index", "key": "J"},
+    {"char": "u", "hand": "right", "finger": "index", "key": "U"},
+    {"char": "m", "hand": "right", "finger": "index", "key": "M"},
+    {"char": "p", "hand": "right", "finger": "pinky", "key": "P"},
+    {"char": "s", "hand": "left", "finger": "ring", "key": "S"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "j", "hand": "right", "finger": "index", "key": "J"},
+    {"char": "u", "hand": "right", "finger": "index", "key": "U"},
+    {"char": "m", "hand": "right", "finger": "index", "key": "M"},
+    {"char": "p", "hand": "right", "finger": "pinky", "key": "P"},
+    {"char": "s", "hand": "left", "finger": "ring", "key": "S"}
+  ],
   "keys_trained": [
     "A-Z full",
     "Space",
@@ -22,40 +94,68 @@
   ],
   "new_keys": [],
   "finger_focus": "Full alphabet in flow",
+  "guided": true,
   "tips": [
     {
       "type": "lead",
-      "text": "Three different pangrams back-to-back"
+      "text": "No new keys today. We are after one thing only: an even rhythm. The rare letters - q, z, x - get the same beat as the common ones. No rushing toward the easy stretch, no flinching at the hard one."
     },
     {
       "type": "drop",
-      "text": "Don't slow down on rare letters (z, q, x) — keep the tempo"
+      "text": "Set your hands on the home row, thumbs over the space bar, and stay there. Repeat each word at one steady tempo. Count it out under your breath if it helps: one, two, three, four."
     },
     {
-      "type": "exercise",
-      "target": "The quick brown fox jumps over the lazy dog, while a wizard's job is to vex chumps",
-      "finger": "purple",
-      "hint": "Full alphabet in flow"
+      "type": "callout",
+      "icon": "metronome",
+      "title": "Even hands",
+      "text": "On deadline you learn this fast: the writer who keeps an even pace finishes clean. Same gap between every keystroke. Tempo before speed - slow and even beats fast and ragged every time."
+    },
+    {
+      "type": "step",
+      "kind": "drill",
+      "target": "quick quick quick quick quick",
+      "finger": "pink",
+      "title": "Rhythm: quick",
+      "hint": "Repeat at one tempo: quick - quick - quick. Hold an even gap between each pass."
+    },
+    {
+      "type": "step",
+      "kind": "drill",
+      "target": "brown brown brown brown",
+      "finger": "blue",
+      "title": "Rhythm: brown",
+      "hint": "Repeat steadily, no jerks: brown - brown - brown. Keep the pauses equal."
+    },
+    {
+      "type": "step",
+      "kind": "drill",
+      "target": "jumps jumps jumps jumps",
+      "finger": "blue",
+      "title": "Rhythm: jumps",
+      "hint": "Repeat evenly: jumps - jumps - jumps. Do not speed up toward the end."
     },
     {
       "type": "p",
-      "text": "If your peak hits 55 WPM here, you're ready for Block 5"
+      "text": "Let your fingers take the whole word at once, the way the eye takes a familiar headline. Repetition at an even pace is how a movement turns into habit - and habit is what keeps you steady when the page is due."
     },
     {
-      "type": "exercise",
-      "target": "quickly in fog. How vexingly quick daft zebras jump! Bright vixens jump; dozy fowl quack at the keyboard.",
-      "finger": "purple",
-      "hint": "Full alphabet in flow"
+      "type": "pullquote",
+      "text": "Loosen your shoulders, picture the metronome, and let the rhythm carry the speed. Accuracy is respect - for the word, and for yourself.",
+      "by": "Eleanor Hayes, editor"
+    },
+    {
+      "type": "p",
+      "text": "Worked through all three? Open the trainer below and take one clean run at the full lesson text. That run is what saves your progress and unlocks the next lesson."
     }
   ],
   "character_tips": {
     "anna": "Three pangrams in a row tests every letter under pressure. Stay smooth.",
-    "maxim": "Rare letters break rhythm — practice them in flow, not isolation.",
-    "knopych": "TRIPLE PANGRAM MARATHON! 🏃 Don't stop!",
-    "klavochka": "All letters dancing in harmony, my precious 🎼"
+    "maxim": "Rare letters break rhythm - practice them in flow, not isolation.",
+    "knopych": "TRIPLE PANGRAM MARATHON! Don't stop!",
+    "klavochka": "All letters dancing in harmony, my precious"
   },
   "phase": 4,
   "rhythmLesson": true,
   "created_at": "2026-05-25",
-  "version": "1.0"
+  "version": "4.0"
 }

@@ -5,11 +5,31 @@
   "title": "Rhythm: punctuation flow",
   "description": "Rhythm exercise mixing all punctuation in natural sentences",
   "target_wpm": 24,
-  "text_length": 95,
+  "text_length": 19,
   "error_limit_percent": 7,
   "error_limit": 7,
-  "text": "well, today is great! she said, \"i think so too.\" then we laughed, walked home, and slept well.",
-  "text_sequence": [],
+  "text": "today great laughed",
+  "text_sequence": [
+    {"char": "t", "hand": "left", "finger": "index", "key": "T"},
+    {"char": "o", "hand": "right", "finger": "ring", "key": "O"},
+    {"char": "d", "hand": "left", "finger": "middle", "key": "D"},
+    {"char": "a", "hand": "left", "finger": "pinky", "key": "A"},
+    {"char": "y", "hand": "right", "finger": "index", "key": "Y"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "g", "hand": "left", "finger": "index", "key": "G"},
+    {"char": "r", "hand": "left", "finger": "index", "key": "R"},
+    {"char": "e", "hand": "left", "finger": "middle", "key": "E"},
+    {"char": "a", "hand": "left", "finger": "pinky", "key": "A"},
+    {"char": "t", "hand": "left", "finger": "index", "key": "T"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "l", "hand": "right", "finger": "ring", "key": "L"},
+    {"char": "a", "hand": "left", "finger": "pinky", "key": "A"},
+    {"char": "u", "hand": "right", "finger": "index", "key": "U"},
+    {"char": "g", "hand": "left", "finger": "index", "key": "G"},
+    {"char": "h", "hand": "right", "finger": "index", "key": "H"},
+    {"char": "e", "hand": "left", "finger": "middle", "key": "E"},
+    {"char": "d", "hand": "left", "finger": "middle", "key": "D"}
+  ],
   "keys_trained": [
     "A",
     "B",
@@ -46,41 +66,63 @@
     "Space"
   ],
   "new_keys": [],
-  "finger_focus": "All learned chars — punctuation in flow",
+  "finger_focus": "All learned chars - punctuation in flow",
   "tips": [
     {
       "type": "lead",
-      "text": "Now everything you learned dances together"
+      "text": "No new keys. We hold what you know and tidy up the rhythm, the way you would tidy a sentence before it goes to print."
     },
     {
       "type": "drop",
-      "text": "Don't stop at punctuation — it's part of the rhythm"
+      "text": "Keep your hands on home position and your gaze ahead. Repeat each word evenly, the same pace from first letter to last. Don't speed up near the end."
     },
     {
-      "type": "exercise",
-      "target": "well, today is great! she said, \"i think so",
+      "type": "callout",
+      "title": "A regular pulse",
+      "text": "Set a quiet beat in your head and keep to it. Equal pauses, no sprinting, no stopping. Even keystrokes read like clean copy."
+    },
+    {
+      "type": "step",
+      "kind": "drill",
+      "target": "today today today today",
       "finger": "blue",
-      "hint": "All learned chars — punctuation in flow"
+      "title": "Rhythm: today",
+      "hint": "Repeat at one even pace: today today today. Hold the same beat from first key to last."
+    },
+    {
+      "type": "step",
+      "kind": "drill",
+      "target": "great great great great",
+      "finger": "blue",
+      "title": "Rhythm: great",
+      "hint": "Repeat at one even pace: great great great. Hold the same beat from first key to last."
+    },
+    {
+      "type": "step",
+      "kind": "drill",
+      "target": "laughed laughed laughed",
+      "finger": "orange",
+      "title": "Rhythm: laughed",
+      "hint": "Repeat at one even pace: laughed laughed laughed. Hold the same beat from first key to last."
     },
     {
       "type": "p",
-      "text": "Tip: enable metronome toggle for steady pace"
+      "text": "When every keystroke lands on time, your hands stop thinking and simply work. That calm, regular pulse is what carries you through a long page without tiring."
     },
     {
-      "type": "exercise",
-      "target": "too.\" then we laughed, walked home, and slept well.",
-      "finger": "green",
-      "hint": "All learned chars — punctuation in flow"
+      "type": "p",
+      "text": "Worked through every step? Open the trainer below and make one full run on the lesson text. That run saves your progress and unlocks the next lesson."
     }
   ],
   "character_tips": {
-    "anna": "Punctuation in flow — practice until commas don't break your rhythm.",
+    "anna": "Punctuation in flow - practice until commas don't break your rhythm.",
     "maxim": "Pro typists treat punctuation as just more characters. Same speed.",
     "knopych": "FLOW MODE! Punctuation = no slowdown! 🌊",
-    "klavochka": "Like a song with pauses, sunshine — beautiful and natural! 🎵"
+    "klavochka": "Like a song with pauses, sunshine - beautiful and natural! 🎵"
   },
   "phase": 2,
   "rhythmLesson": true,
   "created_at": "2026-05-25",
-  "version": "1.0"
+  "version": "4.0",
+  "guided": true
 }

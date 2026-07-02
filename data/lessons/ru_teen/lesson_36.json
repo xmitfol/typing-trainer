@@ -8,48 +8,163 @@
   "text_length": 127,
   "error_limit_percent": 6,
   "error_limit": 7,
-  "text": "живи смейся залогинься гриндь не сдавайся понедельник попадает иначе ноль мыслей пустая голова только хорошие вайбы буквально я",
-  "text_sequence": [],
+  "text": "живи живи живи живи смейся смейся смейся смейся голова голова голова вайбы вайбы вайбы",
+  "text_sequence": [
+    {"char": "ж", "hand": "right", "finger": "pinky", "key": "Ж"},
+    {"char": "и", "hand": "left", "finger": "index", "key": "И"},
+    {"char": "в", "hand": "left", "finger": "middle", "key": "В"},
+    {"char": "и", "hand": "left", "finger": "index", "key": "И"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "ж", "hand": "right", "finger": "pinky", "key": "Ж"},
+    {"char": "и", "hand": "left", "finger": "index", "key": "И"},
+    {"char": "в", "hand": "left", "finger": "middle", "key": "В"},
+    {"char": "и", "hand": "left", "finger": "index", "key": "И"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "ж", "hand": "right", "finger": "pinky", "key": "Ж"},
+    {"char": "и", "hand": "left", "finger": "index", "key": "И"},
+    {"char": "в", "hand": "left", "finger": "middle", "key": "В"},
+    {"char": "и", "hand": "left", "finger": "index", "key": "И"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "ж", "hand": "right", "finger": "pinky", "key": "Ж"},
+    {"char": "и", "hand": "left", "finger": "index", "key": "И"},
+    {"char": "в", "hand": "left", "finger": "middle", "key": "В"},
+    {"char": "и", "hand": "left", "finger": "index", "key": "И"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "с", "hand": "left", "finger": "middle", "key": "С"},
+    {"char": "м", "hand": "left", "finger": "index", "key": "М"},
+    {"char": "е", "hand": "left", "finger": "index", "key": "Е"},
+    {"char": "й", "hand": "left", "finger": "pinky", "key": "Й"},
+    {"char": "с", "hand": "left", "finger": "middle", "key": "С"},
+    {"char": "я", "hand": "left", "finger": "pinky", "key": "Я"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "с", "hand": "left", "finger": "middle", "key": "С"},
+    {"char": "м", "hand": "left", "finger": "index", "key": "М"},
+    {"char": "е", "hand": "left", "finger": "index", "key": "Е"},
+    {"char": "й", "hand": "left", "finger": "pinky", "key": "Й"},
+    {"char": "с", "hand": "left", "finger": "middle", "key": "С"},
+    {"char": "я", "hand": "left", "finger": "pinky", "key": "Я"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "с", "hand": "left", "finger": "middle", "key": "С"},
+    {"char": "м", "hand": "left", "finger": "index", "key": "М"},
+    {"char": "е", "hand": "left", "finger": "index", "key": "Е"},
+    {"char": "й", "hand": "left", "finger": "pinky", "key": "Й"},
+    {"char": "с", "hand": "left", "finger": "middle", "key": "С"},
+    {"char": "я", "hand": "left", "finger": "pinky", "key": "Я"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "с", "hand": "left", "finger": "middle", "key": "С"},
+    {"char": "м", "hand": "left", "finger": "index", "key": "М"},
+    {"char": "е", "hand": "left", "finger": "index", "key": "Е"},
+    {"char": "й", "hand": "left", "finger": "pinky", "key": "Й"},
+    {"char": "с", "hand": "left", "finger": "middle", "key": "С"},
+    {"char": "я", "hand": "left", "finger": "pinky", "key": "Я"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "г", "hand": "right", "finger": "index", "key": "Г"},
+    {"char": "о", "hand": "right", "finger": "index", "key": "О"},
+    {"char": "л", "hand": "right", "finger": "middle", "key": "Л"},
+    {"char": "о", "hand": "right", "finger": "index", "key": "О"},
+    {"char": "в", "hand": "left", "finger": "middle", "key": "В"},
+    {"char": "а", "hand": "left", "finger": "index", "key": "А"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "г", "hand": "right", "finger": "index", "key": "Г"},
+    {"char": "о", "hand": "right", "finger": "index", "key": "О"},
+    {"char": "л", "hand": "right", "finger": "middle", "key": "Л"},
+    {"char": "о", "hand": "right", "finger": "index", "key": "О"},
+    {"char": "в", "hand": "left", "finger": "middle", "key": "В"},
+    {"char": "а", "hand": "left", "finger": "index", "key": "А"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "г", "hand": "right", "finger": "index", "key": "Г"},
+    {"char": "о", "hand": "right", "finger": "index", "key": "О"},
+    {"char": "л", "hand": "right", "finger": "middle", "key": "Л"},
+    {"char": "о", "hand": "right", "finger": "index", "key": "О"},
+    {"char": "в", "hand": "left", "finger": "middle", "key": "В"},
+    {"char": "а", "hand": "left", "finger": "index", "key": "А"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "в", "hand": "left", "finger": "middle", "key": "В"},
+    {"char": "а", "hand": "left", "finger": "index", "key": "А"},
+    {"char": "й", "hand": "left", "finger": "pinky", "key": "Й"},
+    {"char": "б", "hand": "right", "finger": "middle", "key": "Б"},
+    {"char": "ы", "hand": "left", "finger": "ring", "key": "Ы"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "в", "hand": "left", "finger": "middle", "key": "В"},
+    {"char": "а", "hand": "left", "finger": "index", "key": "А"},
+    {"char": "й", "hand": "left", "finger": "pinky", "key": "Й"},
+    {"char": "б", "hand": "right", "finger": "middle", "key": "Б"},
+    {"char": "ы", "hand": "left", "finger": "ring", "key": "Ы"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "в", "hand": "left", "finger": "middle", "key": "В"},
+    {"char": "а", "hand": "left", "finger": "index", "key": "А"},
+    {"char": "й", "hand": "left", "finger": "pinky", "key": "Й"},
+    {"char": "б", "hand": "right", "finger": "middle", "key": "Б"},
+    {"char": "ы", "hand": "left", "finger": "ring", "key": "Ы"}
+  ],
   "keys_trained": [
     "А-Я",
     "Space"
   ],
   "new_keys": [],
   "finger_focus": "Ритм скрола",
+  "guided": true,
   "tips": [
     {
       "type": "lead",
-      "text": "Несколько мемных фраз подряд"
+      "text": "Новых букв нет - ловим ритм скрола. Короткие слова летят одно за другим, как мемы в ленте. Цель - ровный поток, а не гонка."
     },
     {
       "type": "drop",
-      "text": "Найди ритм скрола"
+      "text": "Лента - это поток коротких фраз. Ты уже всё знаешь, так что не подглядывай на клавиши, иначе мысль убежит. Держи ровный темп - поток, а не рывок."
     },
     {
-      "type": "exercise",
-      "target": "живи смейся залогинься гриндь не сдавайся понедельник попадает иначе",
+      "type": "callout",
+      "icon": "📲",
+      "title": "Скролишь ровно",
+      "text": "Не дёргай слово рывком. Между словами одинаковая пауза, будто пролистываешь посты один за другим. Ровность сейчас круче скорости."
+    },
+    {
+      "type": "step",
+      "kind": "drill",
+      "target": "живи живи живи живи",
       "finger": "blue",
-      "hint": "Ритм скрола"
+      "title": "Ритм: живи",
+      "hint": "В одном темпе: живи - живи - живи. Считай ровный бит"
+    },
+    {
+      "type": "step",
+      "kind": "drill",
+      "target": "смейся смейся смейся смейся",
+      "finger": "green",
+      "title": "Ритм: смейся",
+      "hint": "Без рывков: смейся - смейся - смейся. Держи паузы ровными"
+    },
+    {
+      "type": "step",
+      "kind": "drill",
+      "target": "голова голова голова вайбы вайбы вайбы",
+      "finger": "indigo",
+      "title": "Ритм: голова, вайбы",
+      "hint": "Два слова в ленту: голова - голова, вайбы - вайбы. Не ускоряйся"
     },
     {
       "type": "p",
-      "text": "Метроном 65 BPM"
+      "text": "Чувствуешь, как пальцы хватают слово целиком, пока ты просто скролишь? Вот так ровный повтор и превращается в поток."
     },
     {
-      "type": "exercise",
-      "target": "ноль мыслей пустая голова только хорошие вайбы буквально я",
-      "finger": "green",
-      "hint": "Ритм скрола"
+      "type": "pullquote",
+      "text": "Не подглядывай на клавиши - смотришь вниз, теряешь мысль. Держи поток глазами на экране.",
+      "by": "Артём"
+    },
+    {
+      "type": "p",
+      "text": "Прошёл все шаги? Жми «Открыть тренажёр» и пройди весь текст урока целиком. Этот заход сохранится в прогресс и откроет следующий."
     }
   ],
   "character_tips": {
-    "anna": "Лента соц-сетей на 65 WPM. Чистый современный ритм.",
+    "anna": "Лента соц-сетей на 65 зн/мин. Чистый современный ритм.",
     "maxim": "Скрол = распознавание паттернов. Печатай как читаешь.",
     "knopych": "📲 РЕЖИМ СКРОЛА! Мем за мемом!",
-    "klavochka": "Современная поэзия, мой милый — коротко и сладко 🌸"
+    "klavochka": "Современная поэзия, мой милый - коротко и сладко 🌸"
   },
   "phase": 3,
   "rhythmLesson": true,
   "created_at": "2026-05-26",
-  "version": "1.0"
+  "version": "4.0"
 }

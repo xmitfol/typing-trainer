@@ -3,13 +3,86 @@
   "tier": "en_tier1",
   "lesson_number": 27,
   "title": "Numbers: 6 7 8 9 0 (right hand)",
-  "description": "Right-hand number row — symmetric to left",
+  "description": "Right-hand number row - symmetric to left",
   "target_wpm": 25,
   "text_length": 95,
   "error_limit_percent": 7,
   "error_limit": 7,
   "text": "67 89 0 67890 66 77 88 99 00 j6 k7 l8 ;9 take 6 add 7 see 8 try 9 win 0",
-  "text_sequence": [],
+  "text_sequence": [
+    {"char": "6", "hand": "right", "finger": "index", "key": "6"},
+    {"char": "7", "hand": "right", "finger": "index", "key": "7"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "8", "hand": "right", "finger": "middle", "key": "8"},
+    {"char": "9", "hand": "right", "finger": "ring", "key": "9"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "0", "hand": "right", "finger": "pinky", "key": "0"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "6", "hand": "right", "finger": "index", "key": "6"},
+    {"char": "7", "hand": "right", "finger": "index", "key": "7"},
+    {"char": "8", "hand": "right", "finger": "middle", "key": "8"},
+    {"char": "9", "hand": "right", "finger": "ring", "key": "9"},
+    {"char": "0", "hand": "right", "finger": "pinky", "key": "0"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "6", "hand": "right", "finger": "index", "key": "6"},
+    {"char": "6", "hand": "right", "finger": "index", "key": "6"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "7", "hand": "right", "finger": "index", "key": "7"},
+    {"char": "7", "hand": "right", "finger": "index", "key": "7"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "8", "hand": "right", "finger": "middle", "key": "8"},
+    {"char": "8", "hand": "right", "finger": "middle", "key": "8"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "9", "hand": "right", "finger": "ring", "key": "9"},
+    {"char": "9", "hand": "right", "finger": "ring", "key": "9"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "0", "hand": "right", "finger": "pinky", "key": "0"},
+    {"char": "0", "hand": "right", "finger": "pinky", "key": "0"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "j", "hand": "right", "finger": "index", "key": "J"},
+    {"char": "6", "hand": "right", "finger": "index", "key": "6"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "k", "hand": "right", "finger": "middle", "key": "K"},
+    {"char": "7", "hand": "right", "finger": "index", "key": "7"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "l", "hand": "right", "finger": "ring", "key": "L"},
+    {"char": "8", "hand": "right", "finger": "middle", "key": "8"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": ";", "hand": "right", "finger": "pinky", "key": ";"},
+    {"char": "9", "hand": "right", "finger": "ring", "key": "9"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "t", "hand": "left", "finger": "index", "key": "T"},
+    {"char": "a", "hand": "left", "finger": "pinky", "key": "A"},
+    {"char": "k", "hand": "right", "finger": "middle", "key": "K"},
+    {"char": "e", "hand": "left", "finger": "middle", "key": "E"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "6", "hand": "right", "finger": "index", "key": "6"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "a", "hand": "left", "finger": "pinky", "key": "A"},
+    {"char": "d", "hand": "left", "finger": "middle", "key": "D"},
+    {"char": "d", "hand": "left", "finger": "middle", "key": "D"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "7", "hand": "right", "finger": "index", "key": "7"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "s", "hand": "left", "finger": "ring", "key": "S"},
+    {"char": "e", "hand": "left", "finger": "middle", "key": "E"},
+    {"char": "e", "hand": "left", "finger": "middle", "key": "E"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "8", "hand": "right", "finger": "middle", "key": "8"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "t", "hand": "left", "finger": "index", "key": "T"},
+    {"char": "r", "hand": "left", "finger": "index", "key": "R"},
+    {"char": "y", "hand": "right", "finger": "index", "key": "Y"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "9", "hand": "right", "finger": "ring", "key": "9"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "w", "hand": "left", "finger": "ring", "key": "W"},
+    {"char": "i", "hand": "right", "finger": "middle", "key": "I"},
+    {"char": "n", "hand": "right", "finger": "index", "key": "N"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "0", "hand": "right", "finger": "pinky", "key": "0"}
+  ],
+  "guided": true,
   "keys_trained": [
     "A",
     "B",
@@ -60,33 +133,54 @@
   "tips": [
     {
       "type": "lead",
-      "text": "6 is right index reach up-left (between Y and H)"
+      "text": "The left hand owns 1 through 5. Now the right hand takes 6 through 0, and the full number row is yours - every figure for a date, a year, a phone number, a price. This half mirrors the last: the same reach up, the same snap back home, the other hand."
     },
     {
       "type": "drop",
-      "text": "7 index, 8 middle, 9 ring, 0 pinky"
-    },
-    {
-      "type": "exercise",
-      "target": "67 89 0 67890 66 77 88 99 00 j6 k7",
-      "finger": "pink",
-      "hint": "Буквы: 6 7 8 9 0"
-    },
-    {
-      "type": "p",
-      "text": "Mirror image of left-hand numbers"
+      "text": "6 is the right index, reached up and to the left (it lands between Y and H). 7 is the index too, straight up; 8 the middle; 9 the ring; 0 the pinky, out at the end of the row. One finger climbs to its digit while the rest hold the home row under J K L and the semicolon."
     },
     {
       "type": "callout",
-      "icon": "💡",
-      "title": "Подсказка",
-      "text": "Return to home row J after each number"
+      "icon": "⬆️",
+      "title": "Anchor on J",
+      "text": "After every digit, bring the index back to J. That one habit keeps the whole hand oriented - lose J and the right hand starts guessing. Reach by feel, return by feel, eyes forward."
     },
     {
-      "type": "exercise",
-      "target": "l8 ;9 take 6 add 7 see 8 try 9 win 0",
-      "finger": "orange",
-      "hint": "Буквы: 6 7 8 9 0"
+      "type": "step",
+      "kind": "drill",
+      "target": "6 7 8 6 7 8 6 7 8 6 7 8 6 7 8",
+      "finger": "indigo",
+      "title": "Digits 6-7-8",
+      "hint": "Index for 6 and 7, middle for 8. Reach up, tap, back to J."
+    },
+    {
+      "type": "step",
+      "kind": "drill",
+      "target": "9 0 9 0 9 0 9 0 9 0 9 0 9 0 9 0",
+      "finger": "pink",
+      "title": "Digits 9-0",
+      "hint": "Ring for 9, pinky for 0 at the end of the row. Return home each time."
+    },
+    {
+      "type": "p",
+      "text": "Now all ten digits work together - the kind of mixing real numbers demand, a year, a count, a quick total. Type each group, snap the hand home, and keep your eyes on the line, not the keys."
+    },
+    {
+      "type": "pullquote",
+      "text": "A reporter who can type the figures without looking down keeps the thought and the number both. That is the whole game.",
+      "by": "Eleanor Hayes, editor"
+    },
+    {
+      "type": "step",
+      "kind": "drill",
+      "target": "67 89 0 67890 j6 k7 l8 take 6 add 7 see 8 try 9 win 0",
+      "finger": "green",
+      "title": "The full number row",
+      "hint": "Right hand reaches up for each digit and returns to J. One space between groups."
+    },
+    {
+      "type": "p",
+      "text": "Steps done? Open the trainer below and take one clean run at the full lesson text. That run saves your progress and unlocks the next lesson."
     }
   ],
   "character_tips": {
@@ -98,5 +192,5 @@
   "phase": 3,
   "rhythmLesson": false,
   "created_at": "2026-05-25",
-  "version": "1.0"
+  "version": "4.0"
 }

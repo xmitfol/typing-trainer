@@ -3,13 +3,66 @@
   "tier": "en_teen",
   "lesson_number": 11,
   "title": "Numbers row: 1-5 (left hand)",
-  "description": "Reach to the numbers row — left side",
+  "description": "Reach to the numbers row - left side",
   "target_wpm": 35,
   "text_length": 52,
   "error_limit_percent": 8,
   "error_limit": 4,
   "text": "1 2 3 4 5 12 23 34 45 11 22 33 44 55 1234 2345 12345",
-  "text_sequence": [],
+  "text_sequence": [
+    {"char": "1", "hand": "left", "finger": "pinky", "key": "1"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "2", "hand": "left", "finger": "ring", "key": "2"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "3", "hand": "left", "finger": "middle", "key": "3"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "4", "hand": "left", "finger": "index", "key": "4"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "5", "hand": "left", "finger": "index", "key": "5"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "1", "hand": "left", "finger": "pinky", "key": "1"},
+    {"char": "2", "hand": "left", "finger": "ring", "key": "2"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "2", "hand": "left", "finger": "ring", "key": "2"},
+    {"char": "3", "hand": "left", "finger": "middle", "key": "3"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "3", "hand": "left", "finger": "middle", "key": "3"},
+    {"char": "4", "hand": "left", "finger": "index", "key": "4"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "4", "hand": "left", "finger": "index", "key": "4"},
+    {"char": "5", "hand": "left", "finger": "index", "key": "5"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "1", "hand": "left", "finger": "pinky", "key": "1"},
+    {"char": "1", "hand": "left", "finger": "pinky", "key": "1"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "2", "hand": "left", "finger": "ring", "key": "2"},
+    {"char": "2", "hand": "left", "finger": "ring", "key": "2"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "3", "hand": "left", "finger": "middle", "key": "3"},
+    {"char": "3", "hand": "left", "finger": "middle", "key": "3"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "4", "hand": "left", "finger": "index", "key": "4"},
+    {"char": "4", "hand": "left", "finger": "index", "key": "4"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "5", "hand": "left", "finger": "index", "key": "5"},
+    {"char": "5", "hand": "left", "finger": "index", "key": "5"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "1", "hand": "left", "finger": "pinky", "key": "1"},
+    {"char": "2", "hand": "left", "finger": "ring", "key": "2"},
+    {"char": "3", "hand": "left", "finger": "middle", "key": "3"},
+    {"char": "4", "hand": "left", "finger": "index", "key": "4"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "2", "hand": "left", "finger": "ring", "key": "2"},
+    {"char": "3", "hand": "left", "finger": "middle", "key": "3"},
+    {"char": "4", "hand": "left", "finger": "index", "key": "4"},
+    {"char": "5", "hand": "left", "finger": "index", "key": "5"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "1", "hand": "left", "finger": "pinky", "key": "1"},
+    {"char": "2", "hand": "left", "finger": "ring", "key": "2"},
+    {"char": "3", "hand": "left", "finger": "middle", "key": "3"},
+    {"char": "4", "hand": "left", "finger": "index", "key": "4"},
+    {"char": "5", "hand": "left", "finger": "index", "key": "5"}
+  ],
   "keys_trained": [
     "1",
     "2",
@@ -23,37 +76,65 @@
   "tips": [
     {
       "type": "lead",
-      "text": "Numbers row is FAR — biggest stretch on the keyboard"
+      "text": "Numbers now - and the number row is the longest reach on the whole keyboard, up top above the letters. Left hand first: 1 to 5. The move is reach up, hit it, snap back home. That snap-back is the whole skill."
     },
     {
       "type": "drop",
-      "text": "Same finger as the column letter (1=pinky, 2=ring, etc.)"
+      "text": "Each digit uses the same finger as the letter below it. 1 is left pinky, 2 is left ring, 3 is left middle, 4 is left index, 5 is left index stretching one over. Reach with one finger only, keep the others on home, no peeking down."
     },
     {
-      "type": "exercise",
-      "target": "1 2 3 4 5 12 23 34",
+      "type": "callout",
+      "icon": "⬆️",
+      "title": "Reach, don't relocate",
+      "text": "Only the finger you need goes up. Don't lift the whole hand off home or you lose your anchor and end up hunting. Use the number row, not the numpad - that is a different skill for another day."
+    },
+    {
+      "type": "step",
+      "kind": "drill",
+      "target": "1 2 3 1 2 3 1 2 3 1 2 3 1 2 3 1 2 3",
+      "finger": "pink",
+      "title": "Digits 1 2 3",
+      "hint": "1 pinky, 2 ring, 3 middle. Reach up, tap, back to home, space after each."
+    },
+    {
+      "type": "step",
+      "kind": "drill",
+      "target": "4 5 4 5 4 5 4 5 4 5 4 5 4 5 4 5 4 5 4 5",
       "finger": "blue",
-      "hint": "Left number reaches"
+      "title": "Digits 4 5",
+      "hint": "Both left index: 4 straight up, 5 one step right. Stretch and return."
     },
     {
       "type": "p",
-      "text": "Use Number Row, NOT numpad — numpad is a different skill"
+      "text": "Fingers know where 1 to 5 live now. Let's chain them - single digits, then pairs, then longer runs. Keep it even, no rushing the stretch."
     },
     {
-      "type": "exercise",
-      "target": "45 11 22 33 44 55 1234 2345 12345",
+      "type": "pullquote",
+      "text": "Numbers type blind just like letters - from their own key, no looking down. It feels weird for a day, then it's automatic.",
+      "by": "Jordan"
+    },
+    {
+      "type": "step",
+      "kind": "drill",
+      "target": "1 2 3 4 5 12 23 34 45 11 22 33 44 55 1234 2345 12345",
       "finger": "green",
-      "hint": "Left number reaches"
+      "title": "Number runs",
+      "hint": "Singles, then pairs, then full runs of 1 to 5. Same finger every time."
+    },
+    {
+      "type": "p",
+      "text": "Nailed every step? Hit Open Trainer below and run the full lesson text in one go. That run saves your progress and unlocks the next lesson."
     }
   ],
   "character_tips": {
     "anna": "Numbers stretch FAR up. Use the same finger as the column letter.",
     "maxim": "Numbers on the main row, not numpad. The latter is a different skill.",
     "knopych": "DIGITS! 🔢 1-2-3-4-5, same fingers as Q-W-E-R-T!",
-    "klavochka": "Counting up to five, my dear — like steps! 🪜"
+    "klavochka": "Counting up to five, my dear - like steps! 🪜"
   },
   "phase": 1,
   "rhythmLesson": false,
   "created_at": "2026-05-25",
-  "version": "1.0"
+  "version": "4.0",
+  "guided": true
 }

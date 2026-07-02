@@ -3,46 +3,88 @@
   "tier": "ru_kids",
   "lesson_number": 1,
   "title": "Здравствуй! Буква А",
-  "description": "Твоя самая первая буква — А. Нажми её левым мизинцем.",
+  "description": "Твоя самая первая буква - А. Нажми её левым указательным.",
   "target_wpm": 8,
   "text_length": 19,
   "error_limit_percent": 10,
   "error_limit": 2,
   "text": "а а а а а а а а а а",
-  "text_sequence": [],
+  "text_sequence": [
+    {"char": "а", "hand": "left", "finger": "index", "key": "А"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "а", "hand": "left", "finger": "index", "key": "А"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "а", "hand": "left", "finger": "index", "key": "А"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "а", "hand": "left", "finger": "index", "key": "А"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "а", "hand": "left", "finger": "index", "key": "А"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "а", "hand": "left", "finger": "index", "key": "А"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "а", "hand": "left", "finger": "index", "key": "А"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "а", "hand": "left", "finger": "index", "key": "А"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "а", "hand": "left", "finger": "index", "key": "А"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "а", "hand": "left", "finger": "index", "key": "А"}
+  ],
   "keys_trained": [
-    "А"
+    "А",
+    "Space"
   ],
   "new_keys": [],
-  "finger_focus": "Левый мизинец находит А",
+  "finger_focus": "Левый указательный находит А",
+  "guided": true,
   "tips": [
     {
       "type": "lead",
-      "text": "Только одна буква — А"
+      "text": "Здравствуй, дружок! Сегодня твоя самая первая буковка - А."
     },
     {
       "type": "drop",
-      "text": "Используй ЛЕВЫЙ мизинчик"
+      "text": "Положи ручки на клавиатуру, как два домика. Пальчики - как сонные котята, им тепло и удобно 🐾"
     },
     {
-      "type": "exercise",
-      "target": "а а а а а а а а а а",
-      "finger": "pink",
-      "hint": "Левый мизинец находит А"
+      "type": "callout",
+      "icon": "🙈",
+      "title": "Глазки на буковки",
+      "text": "Старайся не подсматривать на пальчики. Пальчики умные - они сами найдут букву, ты только спокойно нажми."
+    },
+    {
+      "type": "step",
+      "kind": "placement",
+      "target": "а а а а а а а а",
+      "finger": "blue",
+      "title": "Поставь ручки",
+      "hint": "Нащупай буковки А и О - на них есть маленькие бугорки. Тихонько нажми их по очереди, мягко-мягко, как лапка котёнка."
     },
     {
       "type": "p",
-      "text": "Нажимай мягко, как клавишу пианино"
+      "text": "Молодец! Ручки на месте. Теперь нажмём нашу букву А много-много раз - пусть пальчик её запомнит."
+    },
+    {
+      "type": "step",
+      "kind": "drill",
+      "target": "а а а а а а а а а а а а",
+      "finger": "blue",
+      "title": "Буква А",
+      "hint": "Левый указательный пальчик - на букву А. Нажимай спокойно, после каждой - пробел большим пальчиком."
+    },
+    {
+      "type": "p",
+      "text": "Ты умница, что стараешься! Нажми «Открыть тренажёр» внизу и пройди весь урок до конца. У тебя получится! 🌸"
     }
   ],
   "character_tips": {
-    "anna": "Привет, малыш! Нажми А левым мизинцем 🌸",
-    "maxim": "Первая буква. Мизинец. Мягкое нажатие.",
-    "knopych": "Привет! 🤖 Нажми А! Вот так!",
-    "klavochka": "Здравствуй, моё дитя! 🌷 Сегодня одна буква. Нажми А. Мягкие пальчики!"
+    "anna": "Привет, малыш! Нажми А левым указательным 🌸",
+    "maxim": "Первая буква - А. Левый указательный. Мягкое нажатие.",
+    "knopych": "Привет! 🤖 Нажми А! Вот так! Бип-буп!",
+    "klavochka": "Здравствуй, моё солнышко! 🌷 Сегодня одна буковка - А. Положи левый указательный пальчик и нажми. Молодец!"
   },
   "phase": 1,
   "rhythmLesson": false,
   "created_at": "2026-05-26",
-  "version": "1.0"
+  "version": "4.0"
 }

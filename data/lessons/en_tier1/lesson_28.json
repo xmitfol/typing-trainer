@@ -3,13 +3,28 @@
   "tier": "en_tier1",
   "lesson_number": 28,
   "title": "Rhythm: numeric drill",
-  "description": "Rhythm with all 10 digits — build numeric fluency",
+  "description": "Rhythm with all 10 digits - build numeric fluency",
   "target_wpm": 27,
-  "text_length": 100,
+  "text_length": 14,
   "error_limit_percent": 8,
   "error_limit": 8,
-  "text": "0123456789 9876543210 1357924680 1248163264 phone: 12345 67890 zip: 90210 year: 2025",
-  "text_sequence": [],
+  "text": "phone year zip",
+  "text_sequence": [
+    {"char": "p", "hand": "right", "finger": "pinky", "key": "P"},
+    {"char": "h", "hand": "right", "finger": "index", "key": "H"},
+    {"char": "o", "hand": "right", "finger": "ring", "key": "O"},
+    {"char": "n", "hand": "right", "finger": "index", "key": "N"},
+    {"char": "e", "hand": "left", "finger": "middle", "key": "E"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "y", "hand": "right", "finger": "index", "key": "Y"},
+    {"char": "e", "hand": "left", "finger": "middle", "key": "E"},
+    {"char": "a", "hand": "left", "finger": "pinky", "key": "A"},
+    {"char": "r", "hand": "left", "finger": "index", "key": "R"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "z", "hand": "left", "finger": "pinky", "key": "Z"},
+    {"char": "i", "hand": "right", "finger": "middle", "key": "I"},
+    {"char": "p", "hand": "right", "finger": "pinky", "key": "P"}
+  ],
   "keys_trained": [
     "A",
     "B",
@@ -51,41 +66,63 @@
     "Space"
   ],
   "new_keys": [],
-  "finger_focus": "All digits — rhythm and accuracy",
+  "finger_focus": "All digits - rhythm and accuracy",
   "tips": [
     {
       "type": "lead",
-      "text": "Sequence drills (0-9, 9-0) build muscle memory"
+      "text": "No new keys. We work the rhythm with plain words, so your hands learn an even pace before the figures crowd in."
     },
     {
       "type": "drop",
-      "text": "Phone-style numbers (12345 67890) common in real typing"
+      "text": "Keep your fingers on home position and your eyes up. Repeat each word at one calm tempo, the same beat throughout. Don't let the pace drift."
     },
     {
-      "type": "exercise",
-      "target": "0123456789 9876543210 1357924680 1248163264 phone:",
+      "type": "callout",
+      "title": "Steady count",
+      "text": "Keep equal time between keys, like a metronome ticking quietly behind you. Even and slow beats quick and uneven. Even keystrokes read like clean copy."
+    },
+    {
+      "type": "step",
+      "kind": "drill",
+      "target": "phone phone phone phone phone",
+      "finger": "pink",
+      "title": "Rhythm: phone",
+      "hint": "Repeat at one even pace: phone phone phone. Hold the same beat from first key to last."
+    },
+    {
+      "type": "step",
+      "kind": "drill",
+      "target": "year year year year",
       "finger": "blue",
-      "hint": "All digits — rhythm and accuracy"
+      "title": "Rhythm: year",
+      "hint": "Repeat at one even pace: year year year. Hold the same beat from first key to last."
+    },
+    {
+      "type": "step",
+      "kind": "drill",
+      "target": "zip zip zip zip zip",
+      "finger": "pink",
+      "title": "Rhythm: zip",
+      "hint": "Repeat at one even pace: zip zip zip. Hold the same beat from first key to last."
     },
     {
       "type": "p",
-      "text": "Don't look at the keyboard — feel the position"
+      "text": "Numbers reward a steady hand more than most text does. Build the even rhythm now on simple words, and the rows of digits will hold no fear."
     },
     {
-      "type": "exercise",
-      "target": "12345 67890 zip: 90210 year: 2025",
-      "finger": "green",
-      "hint": "All digits — rhythm and accuracy"
+      "type": "p",
+      "text": "Worked through every step? Open the trainer below and make one full run on the lesson text. That run saves your progress and unlocks the next lesson."
     }
   ],
   "character_tips": {
-    "anna": "Number rhythm — type sequences without thinking.",
+    "anna": "Number rhythm - type sequences without thinking.",
     "maxim": "Real numbers in real contexts. Phone, zip, year. This is daily typing.",
     "knopych": "NUMBER RHYTHM! 0-9-0-9 forever! 🥁",
-    "klavochka": "Counting like a song — 1, 2, 3 dance! 💃"
+    "klavochka": "Counting like a song - 1, 2, 3 dance! 💃"
   },
   "phase": 3,
   "rhythmLesson": true,
   "created_at": "2026-05-25",
-  "version": "1.0"
+  "version": "4.0",
+  "guided": true
 }

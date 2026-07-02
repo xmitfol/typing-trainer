@@ -23,7 +23,7 @@
         }
 
         /* Mentor bubble */
-        .mentor { position: absolute; top: -78px; right: 24px; display: flex; align-items: flex-end; gap: 14px; z-index: 5; }
+        .mentor { position: absolute; top: -88px; right: 60px; display: flex; align-items: flex-end; gap: 14px; z-index: 5; }
         .mentor__bubble {
             background: #fef9c3; border: 1px solid #fde68a;
             border-radius: 14px; padding: 14px 18px; max-width: 520px;
@@ -73,39 +73,35 @@
             background: var(--surface); border: 1px solid var(--divider);
             border-radius: var(--r-md); padding: 26px;
             font-family: var(--font-mono); font-size: 26px; line-height: 1.6;
-            letter-spacing: 0.06em; color: var(--faint); min-height: 200px;
+            letter-spacing: 0.06em; color: var(--faint);
+            /* Не пустует снизу: контент по центру по вертикали, окно тянется в пределах */
+            min-height: 90px; max-height: 220px; overflow-y: auto;
+            display: flex; align-items: center;
             white-space: normal; overflow-wrap: normal; word-break: normal;
         }
+        .target__inner { width: 100%; }
         .target .word { white-space: nowrap; }
         .target .space { white-space: normal; }
         .target .done { color: var(--ink); }
         .target .err  { color: #fff; background: var(--error); padding: 1px 4px; border-radius: 4px; }
         .target .cur  { color: #fff; background: var(--ink); padding: 1px 4px; border-radius: 4px; }
+        /* Текущий символ — в цвет своего пальца (карта CHAR_FINGER в task.js).
+           Светлые пальцы (оранж/голубой/фиол) — тёмный текст для контраста. */
+        .target .cur[data-finger="pink"]   { background: var(--f-pink);   color: #fff; }
+        .target .cur[data-finger="orange"] { background: var(--f-orange); color: var(--ink); }
+        .target .cur[data-finger="green"]  { background: var(--f-green);  color: #fff; }
+        .target .cur[data-finger="blue"]   { background: var(--f-blue);   color: var(--ink); }
+        .target .cur[data-finger="indigo"] { background: var(--f-indigo); color: #fff; }
+        .target .cur[data-finger="purple"] { background: var(--f-purple); color: var(--ink); }
+        /* Места промахов — красная черта снизу, остаётся до конца захода
+           (накапливается: видно все позиции, где ошибся). */
+        .target .char--erred { box-shadow: 0 4px 0 -1px var(--error); }
 
         .progress-row { display: flex; align-items: center; gap: 10px; margin-bottom: 14px; }
         .progress-track { flex: 1; height: 6px; background: var(--divider); border-radius: 999px; overflow: hidden; }
         .progress-fill { height: 100%; width: 0%; background: linear-gradient(90deg, var(--f-blue), var(--f-purple)); border-radius: 999px; transition: width .15s ease; }
 
         .capture { position: absolute; opacity: 0; pointer-events: none; width: 1px; height: 1px; }
-
-        /* Speed graph (live WPM samples) — из design task.jsx SpeedGraph */
-        .speed-graph {
-            height: 92px; margin-top: 14px;
-            background: #fff; border: 1px solid var(--divider);
-            border-radius: 8px; padding: 10px 14px;
-            position: relative;
-        }
-        .speed-graph__yaxis {
-            position: absolute; left: 6px; top: 8px; bottom: 8px;
-            display: flex; flex-direction: column; justify-content: space-between;
-            font-family: var(--font-mono); font-size: 8.5px; color: var(--faint);
-        }
-        .speed-graph__grid {
-            margin-left: 26px; height: 100%;
-            background: repeating-linear-gradient(0deg, transparent 0, transparent 17px, rgba(0,0,0,0.04) 17px, rgba(0,0,0,0.04) 18px);
-            position: relative;
-        }
-        .speed-graph__grid svg { position: absolute; inset: 0; }
 
         /* Confetti celebrate animation на success-экране при errors ≤ limit */
         .confetti {
@@ -193,6 +189,11 @@
         .layout-select:hover { background-color: var(--bg-alt); color: var(--ink); }
         .layout-select:focus { outline: none; border-color: var(--divider); color: var(--ink); }
 
+        /* Контейнер шириной с клавиатуру (fit-content), центрирован в карточке.
+           Тулбар внутри заполняет эту ширину → его группы выравниваются по краям
+           клавиатуры, а не карточки (была дыра: тулбар 1280, клавиатура уже). */
+        .kb-area { width: fit-content; max-width: 100%; margin: 0 auto; }
+        .kb-area > .toolbar { width: 100%; box-sizing: border-box; }
         .kb-stage { display: flex; justify-content: center; overflow: hidden; }
 
         /* Toast разблокировки достижения */
@@ -248,6 +249,51 @@
 
         .success { display: none; }
         .success.show { display: block; }
+
+        /* ─── Отчёт по уроку (lesson summary, экран B) ─────────────────── */
+        .report-card {
+            max-width: 760px; margin: 0 auto;
+            background: var(--surface); border: 1px solid var(--divider);
+            border-radius: var(--r-2xl); box-shadow: var(--shadow-lg);
+            padding: 36px 40px 32px; position: relative; overflow: hidden;
+        }
+        .report-head { display: flex; align-items: center; gap: 22px; margin-bottom: 28px; }
+        .report-avatar { width: 130px; height: 130px; border-radius: 50%; border: 3px solid; display: grid; place-items: center; overflow: hidden; flex-shrink: 0; }
+        .report-kicker { font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.08em; font-weight: 700; margin-bottom: 6px; }
+        .report-title { margin: 0; font-size: 40px; font-weight: 800; letter-spacing: -0.02em; }
+        .report-subtitle { margin-top: 4px; font-size: 17px; color: var(--sub); }
+        .report-block { margin-bottom: 26px; }
+        .report-label { font-family: var(--font-mono); font-size: 10.5px; color: var(--faint); letter-spacing: 0.07em; margin-bottom: 10px; }
+        .report-metrics { display: flex; gap: 28px; align-items: flex-end; padding: 20px 0; border-top: 1px solid var(--divider); border-bottom: 1px solid var(--divider); }
+        .metric--primary .metric-val { font-size: 48px; }
+        .metric-val { font-family: var(--font-mono); font-weight: 800; font-size: 30px; letter-spacing: -0.02em; line-height: 1; }
+        .metric-val span { font-size: 14px; color: var(--faint); margin-left: 3px; }
+        .metric-val--sm { font-size: 26px; color: var(--ink); }
+        .metric-stars { display: flex; }
+        .report-breakdown { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+        .breakdown-head { font-size: 13px; font-weight: 700; margin-bottom: 10px; }
+        .breakdown-item { font-size: 14px; color: var(--ink); line-height: 1.5; padding: 4px 0; }
+        .report-quote { border: 1px solid; border-radius: var(--r-lg); padding: 20px 24px; margin-bottom: 26px; }
+        .report-quote__text { font-family: var(--font-serif); font-size: 19px; line-height: 1.45; color: var(--ink); font-style: italic; }
+        .report-quote__by { font-size: 12.5px; color: var(--sub); margin-top: 10px; font-weight: 600; }
+        .course-track { height: 8px; background: var(--divider); border-radius: 999px; overflow: hidden; }
+        .course-fill { height: 100%; background: linear-gradient(90deg, var(--f-blue), var(--f-purple)); border-radius: 999px; }
+        .report-actions { display: flex; gap: 10px; align-items: center; justify-content: center; margin-top: 30px; flex-wrap: wrap; }
+        /* Видимый фокус на кнопке (юзер продолжает с клавиатуры по Enter/Tab). */
+        .report-actions .btn:focus-visible, #next-btn:focus-visible {
+            outline: 3px solid var(--accent); outline-offset: 3px;
+        }
+        /* Режим отчёта: отчёт — самостоятельная карточка, внешняя .task-card без
+           своего фона/бордера/тени (иначе карточка в карточке — двойной фон). */
+        .task-card.report-mode {
+            background: transparent; border: none; box-shadow: none; padding: 0;
+        }
+        .report-confetti { position: absolute; inset: 0 0 auto 0; height: 6px; background: repeating-linear-gradient(90deg, var(--f-pink) 0 14px, var(--f-orange) 14px 28px, var(--f-green) 28px 42px, var(--f-blue) 42px 56px, var(--f-purple) 56px 70px); }
+        @media (max-width: 640px) {
+            .report-head { flex-direction: column; text-align: center; }
+            .report-breakdown { grid-template-columns: 1fr; gap: 12px; }
+            .report-metrics { gap: 18px; flex-wrap: wrap; }
+        }
         .task-body.hide { display: none; }
         .toolbar.hide, .kb-stage.hide { display: none; }
 
@@ -304,18 +350,6 @@
                     <!-- inputmode="none" → не вызывает системную клавиатуру на touch-устройствах,
                          ввод идёт через физическую клавиатуру или клик/тап по on-screen клавише -->
                     <input class="capture" id="capture" inputmode="none" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false" />
-
-                    <!-- Mini speed graph (live WPM samples, from design task.jsx SpeedGraph) -->
-                    <div class="speed-graph" id="speed-graph" aria-hidden="true">
-                        <div class="speed-graph__yaxis">
-                            <span>600</span><span>300</span><span>100</span>
-                        </div>
-                        <div class="speed-graph__grid">
-                            <svg id="speed-graph-svg" width="100%" height="100%" viewBox="0 0 300 100" preserveAspectRatio="none">
-                                <polyline id="speed-graph-line" fill="none" stroke="var(--accent)" stroke-width="1.5" stroke-linejoin="round" points=""></polyline>
-                            </svg>
-                        </div>
-                    </div>
                 </div>
 
                 <div class="col" style="gap:18px">
@@ -346,7 +380,21 @@
                             <span style="margin-left:auto;padding:4px 12px;background:var(--success);color:#fff;border-radius:999px;font-family:var(--font-mono);font-size:11px;font-weight:700;letter-spacing:0.06em" data-i18n="task.completed">✓ ВЫПОЛНЕНО</span>
                         </div>
                         <h1 class="serif" style="margin:14px 0 14px;font-size:48px;font-weight:700;letter-spacing:-0.02em" id="success-title">Всё верно.</h1>
-                        <p class="serif" style="margin:0 0 24px;font-size:16px;color:var(--sub);line-height:1.55;max-width:420px" id="success-msg">Упражнение пройдено. Идём дальше.</p>
+                        <p class="serif" style="margin:0 0 16px;font-size:16px;color:var(--sub);line-height:1.55;max-width:420px" id="success-msg">Упражнение пройдено. Идём дальше.</p>
+                        <!-- Коуч-панель: разбор захода + мотивация (Phase A, coach.js) -->
+                        <div class="coach" id="coach-panel" hidden>
+                            <div class="coach__cols">
+                                <div class="coach__col">
+                                    <div class="coach__head coach__head--good">💪 Что хорошо</div>
+                                    <ul class="coach__list" id="coach-good"></ul>
+                                </div>
+                                <div class="coach__col">
+                                    <div class="coach__head coach__head--up">🎯 Над чем поработать</div>
+                                    <ul class="coach__list" id="coach-improve"></ul>
+                                </div>
+                            </div>
+                            <div class="coach__quote" id="coach-quote"></div>
+                        </div>
                         <div class="row" style="gap:10px">
                             <button class="btn btn--secondary" id="retry-btn" data-i18n="task.retry">↻ Повторить</button>
                             <a class="btn" id="next-btn" href="#">Продолжить →</a>
@@ -366,6 +414,9 @@
                 </div>
             </div>
 
+            <!-- Тулбар + клавиатура в одном центрированном контейнере (.kb-area),
+                 шириной с клавиатуру: группы тулбара садятся над краями клавиатуры. -->
+            <div class="kb-area">
             <!-- Toolbar -->
             <div class="toolbar" id="toolbar">
                 <button class="tool-btn" id="finger-hint-btn" title="Подсветка расстановки пальцев (вкл.)">
@@ -411,9 +462,12 @@
             <div class="kb-stage" id="kb-stage">
                 <typing-keyboard id="kb" type="classic" unit="40"></typing-keyboard>
             </div>
+            </div><!-- /.kb-area -->
         </div>
     </div>
 
+    <script src="assets/js/api-client.js"></script>
+    <script src="assets/js/auth-sync.js"></script>
     <script src="assets/js/router-guard.js"></script>
     <script src="config/settings.js"></script>
     <script src="assets/js/portraits.js"></script>
@@ -422,6 +476,9 @@
     <script src="assets/js/achievements.js"></script>
     <script src="assets/js/character-system.js"></script>
     <script src="assets/js/i18n.js"></script>
+    <script src="assets/js/exercise-progress.js"></script>
+    <script src="assets/js/coach.js"></script>
+    <script src="assets/js/lesson-summary.js"></script>
     <script src="assets/js/task.js"></script>
 </body>
 </html>

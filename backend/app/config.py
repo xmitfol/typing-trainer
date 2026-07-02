@@ -11,7 +11,7 @@
 from functools import lru_cache
 from typing import Literal
 
-from pydantic import Field, PostgresDsn, RedisDsn, computed_field
+from pydantic import Field, PostgresDsn, RedisDsn, SecretStr, computed_field
 from pydantic_settings import BaseSettings, SettingsConfigDict
 
 
@@ -106,16 +106,29 @@ class Settings(BaseSettings):
     # Базовый URL фронта — для ссылок в письмах (verify-email / reset).
     frontend_base_url: str = "http://localhost:8001"
 
-    # ─── OAuth (Sprint 2) ──────────────────────────────────────────
+    # ─── OAuth (Sprint 2, ADR-007) ─────────────────────────────────
     yandex_oauth_client_id: str = ""
     yandex_oauth_client_secret: str = ""
     vk_oauth_client_id: str = ""
     vk_oauth_client_secret: str = ""
+    # Если провайдерские креды пустые и флаг True (dev/CI) — фабрика отдаёт
+    # MockStrategy (весь flow без регистрации приложений). В prod ставим False
+    # → пустые креды = fail-fast (как get_payment_provider). Аналог billing stub.
+    oauth_allow_mock: bool = True
 
-    # ─── YooKassa (Sprint 6) ───────────────────────────────────────
-    yookassa_shop_id: str = ""
-    yookassa_secret_key: str = ""
-    yookassa_webhook_secret: str = ""
+    # ─── Billing (ADR-008 — provider-agnostic) ─────────────────────
+    # Провайдер выбирается конфигом: 'stub' (дев/тест/CI, без реальных денег)
+    # или 'yookassa' (prod, когда PO подтвердит shop). Бизнес-логика от выбора
+    # не зависит — фабрика get_payment_provider(settings) отдаёт нужный класс.
+    billing_provider: Literal["stub", "yookassa"] = "stub"
+    billing_currency: str = "RUB"
+
+    # ─── YooKassa (Sprint 6, ADR-005/ADR-008) ──────────────────────
+    # None-defaults: без реального shop поля не заданы; YooKassaProvider —
+    # скелет с TODO, включается только при billing_provider='yookassa'.
+    yookassa_shop_id: str | None = None
+    yookassa_secret_key: SecretStr | None = None
+    yookassa_webhook_secret: SecretStr | None = None
     yookassa_test_mode: bool = True
 
     # ─── Self-hosted anti-bot (Sprint 1, R-007 mitigation, ADR-006) ─

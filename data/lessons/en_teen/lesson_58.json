@@ -8,8 +8,80 @@
   "text_length": 182,
   "error_limit_percent": 5,
   "error_limit": 9,
-  "text": "good point but i'd argue the opposite. agree to disagree but here's why i think differently. interesting take though never thought of it that way. fair enough lets just move on then.",
-  "text_sequence": [],
+  "text": "point point point point agree agree agree agree think think think think",
+  "text_sequence": [
+    {"char": "p", "hand": "right", "finger": "pinky", "key": "P"},
+    {"char": "o", "hand": "right", "finger": "ring", "key": "O"},
+    {"char": "i", "hand": "right", "finger": "middle", "key": "I"},
+    {"char": "n", "hand": "right", "finger": "index", "key": "N"},
+    {"char": "t", "hand": "left", "finger": "index", "key": "T"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "p", "hand": "right", "finger": "pinky", "key": "P"},
+    {"char": "o", "hand": "right", "finger": "ring", "key": "O"},
+    {"char": "i", "hand": "right", "finger": "middle", "key": "I"},
+    {"char": "n", "hand": "right", "finger": "index", "key": "N"},
+    {"char": "t", "hand": "left", "finger": "index", "key": "T"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "p", "hand": "right", "finger": "pinky", "key": "P"},
+    {"char": "o", "hand": "right", "finger": "ring", "key": "O"},
+    {"char": "i", "hand": "right", "finger": "middle", "key": "I"},
+    {"char": "n", "hand": "right", "finger": "index", "key": "N"},
+    {"char": "t", "hand": "left", "finger": "index", "key": "T"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "p", "hand": "right", "finger": "pinky", "key": "P"},
+    {"char": "o", "hand": "right", "finger": "ring", "key": "O"},
+    {"char": "i", "hand": "right", "finger": "middle", "key": "I"},
+    {"char": "n", "hand": "right", "finger": "index", "key": "N"},
+    {"char": "t", "hand": "left", "finger": "index", "key": "T"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "a", "hand": "left", "finger": "pinky", "key": "A"},
+    {"char": "g", "hand": "left", "finger": "index", "key": "G"},
+    {"char": "r", "hand": "left", "finger": "index", "key": "R"},
+    {"char": "e", "hand": "left", "finger": "middle", "key": "E"},
+    {"char": "e", "hand": "left", "finger": "middle", "key": "E"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "a", "hand": "left", "finger": "pinky", "key": "A"},
+    {"char": "g", "hand": "left", "finger": "index", "key": "G"},
+    {"char": "r", "hand": "left", "finger": "index", "key": "R"},
+    {"char": "e", "hand": "left", "finger": "middle", "key": "E"},
+    {"char": "e", "hand": "left", "finger": "middle", "key": "E"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "a", "hand": "left", "finger": "pinky", "key": "A"},
+    {"char": "g", "hand": "left", "finger": "index", "key": "G"},
+    {"char": "r", "hand": "left", "finger": "index", "key": "R"},
+    {"char": "e", "hand": "left", "finger": "middle", "key": "E"},
+    {"char": "e", "hand": "left", "finger": "middle", "key": "E"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "a", "hand": "left", "finger": "pinky", "key": "A"},
+    {"char": "g", "hand": "left", "finger": "index", "key": "G"},
+    {"char": "r", "hand": "left", "finger": "index", "key": "R"},
+    {"char": "e", "hand": "left", "finger": "middle", "key": "E"},
+    {"char": "e", "hand": "left", "finger": "middle", "key": "E"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "t", "hand": "left", "finger": "index", "key": "T"},
+    {"char": "h", "hand": "right", "finger": "index", "key": "H"},
+    {"char": "i", "hand": "right", "finger": "middle", "key": "I"},
+    {"char": "n", "hand": "right", "finger": "index", "key": "N"},
+    {"char": "k", "hand": "right", "finger": "middle", "key": "K"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "t", "hand": "left", "finger": "index", "key": "T"},
+    {"char": "h", "hand": "right", "finger": "index", "key": "H"},
+    {"char": "i", "hand": "right", "finger": "middle", "key": "I"},
+    {"char": "n", "hand": "right", "finger": "index", "key": "N"},
+    {"char": "k", "hand": "right", "finger": "middle", "key": "K"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "t", "hand": "left", "finger": "index", "key": "T"},
+    {"char": "h", "hand": "right", "finger": "index", "key": "H"},
+    {"char": "i", "hand": "right", "finger": "middle", "key": "I"},
+    {"char": "n", "hand": "right", "finger": "index", "key": "N"},
+    {"char": "k", "hand": "right", "finger": "middle", "key": "K"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "t", "hand": "left", "finger": "index", "key": "T"},
+    {"char": "h", "hand": "right", "finger": "index", "key": "H"},
+    {"char": "i", "hand": "right", "finger": "middle", "key": "I"},
+    {"char": "n", "hand": "right", "finger": "index", "key": "N"},
+    {"char": "k", "hand": "right", "finger": "middle", "key": "K"}
+  ],
   "keys_trained": [
     "A-Z",
     "Space",
@@ -19,30 +91,53 @@
   ],
   "new_keys": [],
   "finger_focus": "Forum thread rhythm",
+  "guided": true,
   "tips": [
     {
       "type": "lead",
-      "text": "Multiple voices in flow — chat-like"
+      "text": "Typing a sharp reply fast means the words come out as fast as you think them. Loop each one until it is automatic. No new keys here, just flow. Flow, not force."
     },
     {
       "type": "drop",
-      "text": "Lowercase intentional, apostrophes everywhere"
+      "text": "Hands on home row, eyes off the keys. Repeat each word at one even pace - same gap between every tap. Don't rush to fire back, keep the beat steady."
     },
     {
-      "type": "exercise",
-      "target": "good point but i'd argue the opposite. agree to disagree but here's why i think differently.",
-      "finger": "purple",
-      "hint": "Forum thread rhythm"
+      "type": "callout",
+      "icon": "🎶",
+      "title": "Even beat",
+      "text": "Pick a tempo you can hold and stay in it. Smooth and even beats fast and jerky every time - a steady hand makes the better point. Let the rhythm carry you."
+    },
+    {
+      "type": "step",
+      "kind": "drill",
+      "target": "point point point point point",
+      "finger": "pink",
+      "title": "Rhythm: point",
+      "hint": "Loop it on the beat: point - point - point. Same gap every time."
+    },
+    {
+      "type": "step",
+      "kind": "drill",
+      "target": "agree agree agree agree",
+      "finger": "pink",
+      "title": "Rhythm: agree",
+      "hint": "Hold the tempo: agree - agree - agree. Flow, not force."
+    },
+    {
+      "type": "step",
+      "kind": "drill",
+      "target": "think think think think",
+      "finger": "blue",
+      "title": "Rhythm: think",
+      "hint": "Stay even to the end: think - think - think. Don't rush the finish."
     },
     {
       "type": "p",
-      "text": "Metronome at 85 BPM"
+      "text": "Feel the whole word landing in one smooth move? That is the point - even reps turn thinking into reflex, so your fingers can keep up with your argument instead of holding it back."
     },
     {
-      "type": "exercise",
-      "target": "interesting take though never thought of it that way. fair enough lets just move on then.",
-      "finger": "purple",
-      "hint": "Forum thread rhythm"
+      "type": "p",
+      "text": "All three drills done? Hit \"Open trainer\" below and run the full lesson text in one go. That run saves to your progress and unlocks the next lesson."
     }
   ],
   "character_tips": {
@@ -54,5 +149,5 @@
   "phase": 4,
   "rhythmLesson": true,
   "created_at": "2026-05-25",
-  "version": "1.0"
+  "version": "4.0"
 }

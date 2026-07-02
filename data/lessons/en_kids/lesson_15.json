@@ -5,45 +5,112 @@
   "title": "Rhythm: 3-letter words",
   "description": "Repeat words with a steady beat",
   "target_wpm": 22,
-  "text_length": 95,
+  "text_length": 44,
   "error_limit_percent": 10,
   "error_limit": 9,
-  "text": "cat cat cat dog dog dog see see see run run run fun fun fun the the the and and and yes yes yes",
-  "text_sequence": [],
+  "text": "cat cat cat cat dog dog dog dog run run run",
+  "text_sequence": [
+    {"char": "c", "hand": "left", "finger": "middle", "key": "C"},
+    {"char": "a", "hand": "left", "finger": "pinky", "key": "A"},
+    {"char": "t", "hand": "left", "finger": "index", "key": "T"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "c", "hand": "left", "finger": "middle", "key": "C"},
+    {"char": "a", "hand": "left", "finger": "pinky", "key": "A"},
+    {"char": "t", "hand": "left", "finger": "index", "key": "T"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "c", "hand": "left", "finger": "middle", "key": "C"},
+    {"char": "a", "hand": "left", "finger": "pinky", "key": "A"},
+    {"char": "t", "hand": "left", "finger": "index", "key": "T"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "c", "hand": "left", "finger": "middle", "key": "C"},
+    {"char": "a", "hand": "left", "finger": "pinky", "key": "A"},
+    {"char": "t", "hand": "left", "finger": "index", "key": "T"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "d", "hand": "left", "finger": "middle", "key": "D"},
+    {"char": "o", "hand": "right", "finger": "ring", "key": "O"},
+    {"char": "g", "hand": "left", "finger": "index", "key": "G"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "d", "hand": "left", "finger": "middle", "key": "D"},
+    {"char": "o", "hand": "right", "finger": "ring", "key": "O"},
+    {"char": "g", "hand": "left", "finger": "index", "key": "G"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "d", "hand": "left", "finger": "middle", "key": "D"},
+    {"char": "o", "hand": "right", "finger": "ring", "key": "O"},
+    {"char": "g", "hand": "left", "finger": "index", "key": "G"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "d", "hand": "left", "finger": "middle", "key": "D"},
+    {"char": "o", "hand": "right", "finger": "ring", "key": "O"},
+    {"char": "g", "hand": "left", "finger": "index", "key": "G"},
+    {"char": " ", "hand": "right", "finger": "thumb", "key": "Space", "space_side": "right"},
+    {"char": "r", "hand": "left", "finger": "index", "key": "R"},
+    {"char": "u", "hand": "right", "finger": "index", "key": "U"},
+    {"char": "n", "hand": "right", "finger": "index", "key": "N"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "r", "hand": "left", "finger": "index", "key": "R"},
+    {"char": "u", "hand": "right", "finger": "index", "key": "U"},
+    {"char": "n", "hand": "right", "finger": "index", "key": "N"},
+    {"char": " ", "hand": "left", "finger": "thumb", "key": "Space", "space_side": "left"},
+    {"char": "r", "hand": "left", "finger": "index", "key": "R"},
+    {"char": "u", "hand": "right", "finger": "index", "key": "U"},
+    {"char": "n", "hand": "right", "finger": "index", "key": "N"}
+  ],
   "keys_trained": [
     "A-Z",
     "Space"
   ],
   "new_keys": [],
   "finger_focus": "Rhythm with words",
+  "guided": true,
   "tips": [
     {
       "type": "lead",
-      "text": "Same word three times = practice"
+      "text": "Here is a little game, friend: we type the same word a few times in a row. Each time, keep the same happy beat - like a song you already know."
     },
     {
       "type": "drop",
-      "text": "Like a song, my dear"
+      "text": "Think of a tiny drum tapping along with you: tap-tap, tap-tap. Type one word, then the same word again, and let the beat stay steady and calm."
     },
     {
-      "type": "exercise",
-      "target": "cat cat cat dog dog dog see see see run run run",
+      "type": "callout",
+      "icon": "🥁",
+      "title": "Like a song",
+      "text": "When a word comes back again and again, your fingers start to remember it. Keep the same little pause between words, and let the drum lead the way."
+    },
+    {
+      "type": "step",
+      "kind": "drill",
+      "target": "cat cat cat cat",
       "finger": "blue",
-      "hint": "Rhythm with words"
+      "title": "Rhythm: cat",
+      "hint": "Same beat each time: cat, cat, cat. Hear the little drum"
+    },
+    {
+      "type": "step",
+      "kind": "drill",
+      "target": "dog dog dog dog",
+      "finger": "green",
+      "title": "Rhythm: dog",
+      "hint": "Tap-tap, tap-tap: dog, dog, dog. Stay smooth"
+    },
+    {
+      "type": "step",
+      "kind": "drill",
+      "target": "run run run",
+      "finger": "blue",
+      "title": "Rhythm: run",
+      "hint": "Keep the steady beat: run, run, run. No rushing to the end"
     },
     {
       "type": "p",
-      "text": "Steady beat with your fingers"
+      "text": "Lovely, champ! The same word, again and again, like verses in a song. That is how your fingers learn to move all by themselves."
     },
     {
-      "type": "exercise",
-      "target": "fun fun fun the the the and and and yes yes yes",
-      "finger": "green",
-      "hint": "Rhythm with words"
+      "type": "p",
+      "text": "All steps done? Press Open the trainer below and type the whole lesson once. You are doing great."
     }
   ],
   "character_tips": {
-    "anna": "Words like song verses — three times each.",
+    "anna": "Words like song verses - three times each.",
     "maxim": "Repetition + rhythm = muscle memory.",
     "knopych": "🥁 RHYTHM TIME! Same words, steady beat!",
     "klavochka": "Like a little song, my dear 🎶"
@@ -51,5 +118,5 @@
   "phase": 2,
   "rhythmLesson": true,
   "created_at": "2026-05-25",
-  "version": "1.0"
+  "version": "4.0"
 }
