@@ -85,3 +85,15 @@ class UserNotFoundError(DomainError):
     """Пользователь не найден (admin-панель)."""
 
     code = "USER_NOT_FOUND"
+
+
+class ImpersonateForbiddenError(DomainError):
+    """Нельзя имперсонировать: цель — админ, заблокирована или не обычный юзер."""
+
+    code = "IMPERSONATE_FORBIDDEN"
+
+
+class RoleSelfForbiddenError(DomainError):
+    """Нельзя менять роль самому себе (инвариант — защита от само-понижения)."""
+
+    code = "ROLE_SELF_FORBIDDEN"

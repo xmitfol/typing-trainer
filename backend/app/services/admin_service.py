@@ -26,8 +26,10 @@ from app.core.billing import (
 )
 from app.core.email_tokens import RESET_PREFIX, RESET_TTL_SECONDS, issue_token
 from app.core.exceptions import (
+    ImpersonateForbiddenError,
     PlanNotFoundError,
     RefundAmountExceedsError,
+    RoleSelfForbiddenError,
     SubscriptionNotFoundError,
     UserNotFoundError,
 )
@@ -376,6 +378,98 @@ async def reset_password(
         ip_hash=ip_hash,
     )
     return user
+
+
+# ─── Impersonation + role (Ф4a — TSD §5.1, §4) ──────────────────────────
+
+
+async def impersonate(
+    session: AsyncSession,
+    actor: User,
+    user_id: UUID,
+    *,
+    ip_hash: str | None = None,
+) -> User:
+    """Проверить, что цель можно имперсонировать, и записать аудит.
+
+    Инварианты (TSD §5.1):
+      - target существует;
+      - target НЕ заблокирован (deleted_at IS NULL);
+      - target.role == 'user' — имперсонировать любого сотрудника
+        (analyst/support/superadmin) запрещено.
+    Выдачу токена делает api-слой (нужен Response для cookie). Здесь — только
+    доменная проверка + аудит (одна транзакция).
+
+    Raises:
+        UserNotFoundError: цели нет.
+        ImpersonateForbiddenError: цель заблокирована или не обычный юзер.
+    """
+    target = await _get_user(session, user_id)
+    if target.deleted_at is not None or target.role != "user":
+        raise ImpersonateForbiddenError()
+    await audit(
+        session,
+        actor=actor,
+        action="user.impersonate",
+        target_type="user",
+        target_id=target.id,
+        payload={"email": target.email},
+        ip_hash=ip_hash,
+    )
+    return target
+
+
+async def set_role(
+    session: AsyncSession,
+    actor: User,
+    user_id: UUID,
+    *,
+    new_role: str,
+    ip_hash: str | None = None,
+) -> tuple[User, str]:
+    """Назначить роль сотруднику (superadmin). Возвращает (user, old_role).
+
+    Инварианты (PRD §2, Сергей):
+      - actor.id != target.id — нельзя менять роль самому себе (защита от
+        случайного само-понижения) → RoleSelfForbiddenError.
+      - target не заблокирован (deleted_at IS NULL) — сначала restore, потом роль.
+      - new_role — из валидного набора (гарантирует Literal в schema + CHECK в БД).
+    Выдача superadmin другому разрешена (superadmin доверенный) — но аудируется.
+
+    Raises:
+        UserNotFoundError: цели нет.
+        RoleSelfForbiddenError: actor == target.
+        ImpersonateForbiddenError: цель заблокирована (переиспользуем как
+            «действие над заблокированным запрещено»).
+    """
+    if actor.id == user_id:
+        raise RoleSelfForbiddenError()
+    target = await _get_user(session, user_id)
+    if target.deleted_at is not None:
+        # Менять роль заблокированному нельзя — сначала restore.
+        raise ImpersonateForbiddenError()
+    old_role = target.role
+    target.role = new_role
+    await audit(
+        session,
+        actor=actor,
+        action="role.set",
+        target_type="user",
+        target_id=target.id,
+        payload={"email": target.email, "old_role": old_role, "new_role": new_role},
+        ip_hash=ip_hash,
+        commit=False,
+    )
+    await session.commit()
+    await session.refresh(target)
+    logger.info(
+        "admin.role_set",
+        actor=str(actor.id),
+        target=str(target.id),
+        old_role=old_role,
+        new_role=new_role,
+    )
+    return target, old_role
 
 
 # ─── Overview metrics (GET /admin/overview) ─────────────────────────────
