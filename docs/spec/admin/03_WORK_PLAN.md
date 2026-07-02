@@ -112,6 +112,24 @@
 
 ---
 
+## 5a. F2-SEC — must-fix ПЕРЕД боевым денежным контуром (F2-PROD/prod)
+
+Ревью Сергея (2026-07-02): вердикт **APPROVE-WITH-FIXES**, переход к Ф3 разрешён.
+На stub находки безвредны — реальны только при боевом YooKassaProvider, поэтому
+привязаны к F2-PROD (ждёт YooKassa-shop от PO). Закрыть единым gated-заходом
+Бориса (backend + миграция + прогон на стенде):
+- **[HIGH]** `UNIQUE(idempotency_key)` на `subscription_charges` (partial для refund
+  или full) + обработка `IntegrityError` в `refund` → закрыть окно гонки двойного
+  возврата (сейчас только SELECT-проверка, UNIQUE НЕТ; комментарий в коде неверен).
+- **[HIGH]** 2FA/TOTP для `superadmin` до prod (refund = деньги наружу; пароль фишится).
+  Реализация — Ф4/pre-prod.
+- **[MED]** Верхняя граница суммы refund: `amount_kopecks ≤ sub.amount_kopecks`
+  (за вычетом уже возвращённого) — в схеме/сервисе.
+- **[MED]** Rate-limit на сами `refund/grant/cancel` (не только `/reauth`) — defense-in-depth
+  от скомпрометированного админа.
+- **[LOW]** `require_reauth_once`: getdel «сжигает» валидный токен при неверном заголовке
+  (self-inflicted UX, не security) — опционально.
+
 ## 6. Рекомендация — что первым
 - ✅ **Борис — Ф1-backend немедленно** (независимый трек, не трогает live data-path).
 - ✅ **Алекс — сначала хвост P2-синка**, затем админ-фронт Ф1 (P2 разблокирует эмиссию events для Ф3).
