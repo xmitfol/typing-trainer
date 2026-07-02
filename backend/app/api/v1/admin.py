@@ -63,8 +63,13 @@ from app.schemas.admin import (
     RoleSetRequest,
     RoleSetResult,
     SkillOut,
+    TwoFADisableResponse,
+    TwoFAEnrollResponse,
+    TwoFAStatusResponse,
+    TwoFAVerifyRequest,
+    TwoFAVerifyResponse,
 )
-from app.services import admin_service, analytics_service
+from app.services import admin_2fa_service, admin_service, analytics_service
 
 logger = structlog.get_logger(__name__)
 
@@ -139,12 +144,19 @@ async def guard_admin_mutation_rate(actor: User, redis: RedisClient) -> None:
 async def reauth(
     payload: ReauthRequest,
     user: CurrentUser,
+    session: DbSession,
     redis: RedisClient,
 ) -> ReauthResponse:
     """Проверяет пароль (Argon2, как signin) → выдаёт scope-токен в Redis.
 
     Требует лишь авторизации (CurrentUser) — сам гейт роли на чувствительных
     эндпоинтах (Ф2/Ф4). OAuth-only юзер без пароля → 403 (нечего проверять).
+
+    Ф4b (2FA enforcement): для superadmin с включённой 2FA — вдобавок к паролю
+    требуется валидный TOTP-код (payload.totp_code) ИЛИ recovery-код (one-time).
+    Неудачи TOTP тоже инкрементят fail-счётчик (анти-брутфорс кода). Когда
+    require_superadmin_2fa=True (prod) — superadmin БЕЗ 2FA получает 403
+    TOTP_ENROLLMENT_REQUIRED (форс enrollment до денежных операций).
     """
     fail_key = f"ratelimit:reauth:{user.id}"
     fails = await redis.get(fail_key)
@@ -156,17 +168,134 @@ async def reauth(
     target_hash = user.password_hash or get_dummy_hash()
     ok = verify_password(payload.password, target_hash)
     if not (user.password_hash and ok):
-        cnt = await redis.incr(fail_key)
-        if cnt == 1:
-            await redis.expire(fail_key, REAUTH_FAIL_WINDOW)
+        await _bump_reauth_fail(redis, fail_key)
         raise HTTPException(
             status.HTTP_403_FORBIDDEN,
             detail={"code": "REAUTH_FAILED", "message": "Неверный пароль"},
         )
+
+    # Ф4b: enforcement 2FA для superadmin (после успешной проверки пароля).
+    totp_result = await admin_2fa_service.check_reauth_totp(
+        session, user, totp_code=payload.totp_code
+    )
+    if totp_result == "enrollment":
+        # require_superadmin_2fa=True и 2FA не включена — не считаем это неудачей
+        # брутфорса (пароль верный), просто требуем enrollment.
+        raise HTTPException(
+            status.HTTP_403_FORBIDDEN,
+            detail={
+                "code": "TOTP_ENROLLMENT_REQUIRED",
+                "message": "Требуется настройка 2FA для этой операции",
+            },
+        )
+    if totp_result == "required":
+        raise HTTPException(
+            status.HTTP_403_FORBIDDEN,
+            detail={"code": "TOTP_REQUIRED", "message": "Требуется код двухфакторной аутентификации"},
+        )
+    if totp_result == "invalid":
+        # Неверный TOTP/recovery — тоже анти-брутфорс (инкремент счётчика).
+        await _bump_reauth_fail(redis, fail_key)
+        raise HTTPException(
+            status.HTTP_403_FORBIDDEN,
+            detail={"code": "TOTP_INVALID", "message": "Неверный код двухфакторной аутентификации"},
+        )
+
     await redis.delete(fail_key)  # успех сбрасывает счётчик неудач
     token, ttl = await admin_service.issue_reauth_token(redis, user.id)
     logger.info("admin.reauth_issued", user_id=str(user.id))
     return ReauthResponse(reauth_token=token, ttl_seconds=ttl)
+
+
+async def _bump_reauth_fail(redis: RedisClient, fail_key: str) -> None:
+    """Инкремент счётчика неудач reauth (пароль ИЛИ TOTP) с TTL-окном."""
+    cnt = await redis.incr(fail_key)
+    if cnt == 1:
+        await redis.expire(fail_key, REAUTH_FAIL_WINDOW)
+
+
+# ─── Admin 2FA (Ф4b — TOTP для superadmin) ──────────────────────────────
+#
+# enroll → verify включает 2FA (+ recovery-коды); disable выключает (требует
+# re-auth). status — любой админ про себя. Enforcement самой 2FA живёт в
+# /admin/reauth (см. выше) — здесь только управление enrollment'ом.
+
+
+@router.post(
+    "/2fa/enroll",
+    response_model=TwoFAEnrollResponse,
+    summary="Начать enrollment 2FA — secret+QR (superadmin)",
+)
+async def twofa_enroll(
+    actor: RequireSuperadmin,
+    session: DbSession,
+) -> TwoFAEnrollResponse:
+    """Генерит TOTP-секрет (enabled=False), отдаёт otpauth_uri+secret для QR.
+
+    Повторный enroll до подтверждения (или поверх включённой 2FA) — перегенерит
+    секрет и сбрасывает enabled в False (подтвердить заново через /2fa/verify).
+    """
+    uri, secret = await admin_2fa_service.enroll(
+        session, actor, issuer=get_settings().app_name
+    )
+    return TwoFAEnrollResponse(otpauth_uri=uri, secret=secret)
+
+
+@router.post(
+    "/2fa/verify",
+    response_model=TwoFAVerifyResponse,
+    summary="Подтвердить 2FA TOTP-кодом → enabled + recovery-коды (superadmin)",
+)
+async def twofa_verify(
+    payload: TwoFAVerifyRequest,
+    actor: RequireSuperadmin,
+    session: DbSession,
+    request: Request,
+) -> TwoFAVerifyResponse:
+    """Проверяет TOTP-код против secret; при успехе enabled=True + 8 recovery-
+    кодов (PLAINTEXT в ответе ОДИН раз, в БД — только хеши). Неверный код → 403.
+    """
+    recovery = await admin_2fa_service.verify_and_enable(
+        session, actor, code=payload.code, ip_hash=_ip_hash(request)
+    )
+    if recovery is None:
+        raise HTTPException(
+            status.HTTP_403_FORBIDDEN,
+            detail={"code": "TOTP_INVALID", "message": "Неверный код, 2FA не включена"},
+        )
+    return TwoFAVerifyResponse(recovery_codes=recovery)
+
+
+@router.post(
+    "/2fa/disable",
+    response_model=TwoFADisableResponse,
+    summary="Отключить 2FA (superadmin + re-auth)",
+)
+async def twofa_disable(
+    _superadmin: RequireSuperadmin,
+    actor: RequireReauthOnce,
+    session: DbSession,
+    request: Request,
+) -> TwoFADisableResponse:
+    """Выключает 2FA: enabled=False, чистит secret/recovery. Требует one-time
+    re-auth (X-Admin-Reauth) — отключение защиты само по себе чувствительно.
+    """
+    await admin_2fa_service.disable(session, actor, ip_hash=_ip_hash(request))
+    return TwoFADisableResponse()
+
+
+@router.get(
+    "/2fa/status",
+    response_model=TwoFAStatusResponse,
+    summary="Включена ли 2FA у меня (любой админ)",
+)
+async def twofa_status(
+    actor: RequireAnalyst,
+    session: DbSession,
+) -> TwoFAStatusResponse:
+    """Статус 2FA текущего админа про себя (analyst+ — минимальная admin-роль)."""
+    enabled = await admin_2fa_service.is_enabled(session, actor.id)
+    return TwoFAStatusResponse(enabled=enabled)
 
 
 # ─── Overview (analyst) ─────────────────────────────────────────────────

@@ -24,6 +24,7 @@ dependencies = [
     "passlib[argon2]>=1.7.4",
     "python-jose[cryptography]>=3.3.0",
     "argon2-cffi>=23.1.0",
+    "pyotp>=2.9.0",              # TOTP (RFC 6238) — admin 2FA (Ф4b)
     # Cache / Queue
     "redis>=5.2.0",
     "arq>=0.26.3",
@@ -108,6 +109,7 @@ module = [
     "arq.*",
     "apscheduler.*",
     "slowapi.*",
+    "pyotp.*",
 ]
 ignore_missing_imports = true
 
