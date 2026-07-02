@@ -9,14 +9,15 @@
     (info=b"admin-totp-fernet-v1"). Так секрет всё равно шифруется (не plaintext
     в БД), но в prod следует задать totp_encryption_key явно (см. config.py).
 
-Recovery-коды: генерим N случайных читаемых кодов, показываем PLAINTEXT один раз,
-храним только sha256-хеши (hex). Проверка — по хешу; использованный удаляется
-вызывающим кодом (one-time).
+Recovery-коды (Ф4-SEC): генерим N случайных читаемых кодов (64 бита энтропии
+каждый), показываем PLAINTEXT один раз, храним только argon2-хеши. Проверка —
+argon2 verify (constant-time по хешу); использованный удаляется вызывающим кодом
+(one-time). ВНИМАНИЕ: смена схемы хеша (sha256 → argon2) НЕ мигрирует старые
+sha256-хеши — recovery-коды, выданные до этого коммита, станут невалидны. 2FA в
+prod пока никто не включал, поэтому затронуты только тест-юзеры стенда.
 """
 
 import base64
-import hashlib
-import hmac
 import secrets
 
 import pyotp
@@ -25,6 +26,7 @@ from cryptography.hazmat.primitives import hashes
 from cryptography.hazmat.primitives.kdf.hkdf import HKDF
 
 from app.config import get_settings
+from app.core.security import hash_password, verify_password
 
 _HKDF_INFO = b"admin-totp-fernet-v1"
 RECOVERY_CODE_COUNT = 8
@@ -98,37 +100,41 @@ def otpauth_uri(plain_base32_secret: str, account_email: str, issuer: str) -> st
 # ─── Recovery-коды ──────────────────────────────────────────────────────
 
 
-def _hash_recovery(code: str) -> str:
-    """sha256(hex) нормализованного recovery-кода (без дефисов, upper)."""
-    normalized = code.replace("-", "").replace(" ", "").upper()
-    return hashlib.sha256(normalized.encode("utf-8")).hexdigest()
+def _normalize_recovery(code: str) -> str:
+    """Нормализация recovery-кода: без дефисов/пробелов, upper."""
+    return code.replace("-", "").replace(" ", "").upper()
 
 
 def generate_recovery_codes(count: int = RECOVERY_CODE_COUNT) -> tuple[list[str], list[str]]:
     """Сгенерировать N recovery-кодов. Возвращает (plaintext_list, hash_list).
 
-    Plaintext показываем юзеру ОДИН раз; в БД кладём только hash_list.
-    Формат кода: XXXX-XXXX (8 hex-символов, читаемо).
+    Plaintext показываем юзеру ОДИН раз; в БД кладём только hash_list (argon2).
+    Формат кода: XXXX-XXXX-XXXX-XXXX (16 hex-символов = 64 бита энтропии, читаемо).
+    Хеш — argon2 (как пароли), не sha256: длинный дорогой хеш от короткого кода
+    с высокой энтропией; перебор идёт только по recovery-пути (редкий).
     """
     plaintext: list[str] = []
     hashes_: list[str] = []
     for _ in range(count):
-        raw = secrets.token_hex(4).upper()  # 8 hex chars
-        code = f"{raw[:4]}-{raw[4:]}"
+        raw = secrets.token_hex(8).upper()  # 16 hex chars = 64 бита
+        code = "-".join(raw[i : i + 4] for i in range(0, 16, 4))
         plaintext.append(code)
-        hashes_.append(_hash_recovery(code))
+        # Хешируем нормализованную форму — verify нормализует ввод так же.
+        hashes_.append(hash_password(_normalize_recovery(code)))
     return plaintext, hashes_
 
 
 def match_recovery(code: str, stored_hashes: list[str]) -> str | None:
-    """Вернуть совпавший ХЕШ из списка (constant-time сверка) или None.
+    """Вернуть совпавший ХЕШ из списка (argon2 verify) или None.
 
-    Вызывающий удаляет вернувшийся хеш из recovery_codes (one-time).
+    Вызывающий удаляет вернувшийся хеш из recovery_codes (one-time). argon2
+    verify constant-time по каждому хешу; перебор до 8 хешей — только при попытке
+    recovery (не на каждом reauth), argon2-стоимость здесь приемлема.
     """
     if not code:
         return None
-    candidate = _hash_recovery(code)
+    normalized = _normalize_recovery(code)
     for h in stored_hashes:
-        if hmac.compare_digest(candidate, h):
+        if verify_password(normalized, h):
             return h
     return None
