@@ -16,11 +16,23 @@ import structlog
 from sqlalchemy import and_, func, or_, select
 from sqlalchemy.ext.asyncio import AsyncSession
 
+from app.config import get_settings
+from app.core.billing import (
+    get_payment_provider,
+    get_period,
+    get_plan,
+    period_days,
+    price_kopecks,
+)
 from app.core.email_tokens import RESET_PREFIX, RESET_TTL_SECONDS, issue_token
-from app.core.exceptions import UserNotFoundError
+from app.core.exceptions import (
+    PlanNotFoundError,
+    SubscriptionNotFoundError,
+    UserNotFoundError,
+)
 from app.models.admin import AdminAuditLog
 from app.models.progress import Attempt, Progress
-from app.models.subscription import Subscription
+from app.models.subscription import Subscription, SubscriptionCharge
 from app.models.user import OAuthAccount, User
 from app.services import auth_service
 from app.services.email_service import EmailService
@@ -464,3 +476,330 @@ async def issue_reauth_token(redis, user_id: UUID) -> tuple[str, int]:
     token = secrets.token_urlsafe(32)
     await redis.set(f"{REAUTH_PREFIX}{user_id}", token, ex=REAUTH_TTL_SECONDS)
     return token, REAUTH_TTL_SECONDS
+
+
+# ─── Billing: subscriptions (admin-panel TSD §5, Ф2) ────────────────────
+#
+# Список/карточка/charge-лог/cancel/grant/refund. Переиспользует
+# billing_service (cancel_subscription) и core.billing (provider.refund,
+# каталог цен). Каждая мутация → audit.
+
+
+async def _get_subscription(session: AsyncSession, sub_id: UUID) -> Subscription:
+    """Подписка по id или SubscriptionNotFoundError (admin видит любую)."""
+    sub = (
+        await session.execute(select(Subscription).where(Subscription.id == sub_id))
+    ).scalar_one_or_none()
+    if sub is None:
+        raise SubscriptionNotFoundError()
+    return sub
+
+
+async def list_subscriptions(
+    session: AsyncSession,
+    *,
+    status: str | None = None,
+    plan: str | None = None,
+    provider: str | None = None,
+    period: str | None = None,
+    page: int = 1,
+    page_size: int = 20,
+) -> tuple[list[Subscription], int]:
+    """Список подписок с фильтрами (status/plan/provider/period) + пагинация.
+
+    Фильтры комбинируются AND. Возвращает (rows, total). Сортировка — свежие
+    сверху (created_at DESC).
+    """
+    page = max(1, page)
+    page_size = max(1, min(page_size, 100))
+
+    conditions = []
+    if status is not None:
+        conditions.append(Subscription.status == status)
+    if plan is not None:
+        conditions.append(Subscription.plan == plan)
+    if provider is not None:
+        conditions.append(Subscription.provider == provider)
+    if period is not None:
+        conditions.append(Subscription.period == period)
+    where = and_(*conditions) if conditions else None
+
+    count_stmt = select(func.count()).select_from(Subscription)
+    if where is not None:
+        count_stmt = count_stmt.where(where)
+    total = (await session.execute(count_stmt)).scalar_one()
+
+    stmt = select(Subscription)
+    if where is not None:
+        stmt = stmt.where(where)
+    stmt = (
+        stmt.order_by(Subscription.created_at.desc())
+        .offset((page - 1) * page_size)
+        .limit(page_size)
+    )
+    rows = list((await session.execute(stmt)).scalars().all())
+    return rows, total
+
+
+async def get_subscription_detail(session: AsyncSession, sub_id: UUID) -> dict:
+    """Карточка подписки + charge-лог (audit-история списаний/возвратов).
+
+    Возвращает {"subscription": Subscription, "charges": [SubscriptionCharge]}.
+    Charges — все, свежие сверху.
+    """
+    sub = await _get_subscription(session, sub_id)
+    charges = list(
+        (
+            await session.execute(
+                select(SubscriptionCharge)
+                .where(SubscriptionCharge.subscription_id == sub_id)
+                .order_by(SubscriptionCharge.attempted_at.desc())
+            )
+        )
+        .scalars()
+        .all()
+    )
+    return {"subscription": sub, "charges": charges}
+
+
+async def cancel(
+    session: AsyncSession,
+    actor: User,
+    sub_id: UUID,
+    *,
+    ip_hash: str | None = None,
+) -> Subscription:
+    """Отменить КОНКРЕТНУЮ подписку по id (support). status→cancelled,
+    доступ до end-of-period (expires_at не режем) + audit.
+
+    ВАЖНО: billing_service.cancel_subscription работает по user_id (берёт
+    свежую подписку юзера) — для админа это неверно: у юзера может быть
+    несколько подписок (напр. grant + refunded), «свежая» может быть уже
+    cancelled/expired. Поэтому отменяем именно sub_id. Логика идентична
+    billing_service (провайдер-side cancel + флаги), но по id.
+
+    Идемпотентно: если уже cancelled/expired — no-op (audit всё равно пишем).
+
+    Raises:
+        SubscriptionNotFoundError: подписки нет / статус не отменяем
+            (только pending/active/grace).
+    """
+    sub = await _get_subscription(session, sub_id)
+    if sub.status not in ("active", "grace", "pending", "cancelled"):
+        raise SubscriptionNotFoundError()
+
+    if sub.status != "cancelled":
+        settings = get_settings()
+        provider = get_payment_provider(settings)
+        if sub.yookassa_payment_id:
+            provider.cancel(provider_payment_id=sub.yookassa_payment_id)
+        sub.status = "cancelled"
+        sub.is_auto_renew = False
+        sub.cancelled_at = _now()
+
+    await audit(
+        session,
+        actor=actor,
+        action="sub.cancel",
+        target_type="subscription",
+        target_id=sub.id,
+        payload={"user_id": str(sub.user_id), "plan": sub.plan},
+        ip_hash=ip_hash,
+        commit=False,
+    )
+    await session.commit()
+    await session.refresh(sub)
+    logger.info("admin.sub_cancelled", actor=str(actor.id), subscription_id=str(sub.id))
+    return sub
+
+
+async def grant(
+    session: AsyncSession,
+    actor: User,
+    user_id: UUID,
+    *,
+    plan: str,
+    period: str,
+    reason: str,
+    ip_hash: str | None = None,
+) -> Subscription:
+    """Ручная выдача подписки юзеру (support). provider='manual'.
+
+    РЕШЕНИЯ (Ф2, WORK_PLAN риск H):
+      - is_auto_renew=False, payment_method_id=None → НЕ попадает в renewal-cron
+        (ix_subs_due_renewal требует is_auto_renew=TRUE) и в reminder-cron
+        (провайдер manual — recurring не дёргаем).
+      - amount_kopecks = цена по каталогу (price_kopecks). CHECK amount>0
+        запрещает 0, поэтому для free/непокупаемого плана падаем в
+        PlanNotFoundError — ручная выдача только платных планов (pro/family).
+        Это осознанно: grant free-плана бессмыслен (free и так доступен).
+      - started_at=now, expires_at=now+period_days(period).
+      - status='active' → сразу даёт доступ (has_active_subscription=true).
+
+    Raises:
+        UserNotFoundError: юзер не найден.
+        PlanNotFoundError: план/период не в каталоге или не покупаемый.
+    """
+    user = await _get_user(session, user_id)
+
+    plan_obj = get_plan(plan)
+    period_obj = get_period(period)
+    if plan_obj is None or period_obj is None or not plan_obj.purchasable:
+        raise PlanNotFoundError(f"Неизвестный/непокупаемый тариф-период: {plan}/{period}")
+
+    settings = get_settings()
+    amount = price_kopecks(plan_obj, period_obj)
+    now = _now()
+    sub = Subscription(
+        user_id=user.id,
+        plan=plan_obj.id,
+        period=period_obj.id,
+        status="active",
+        provider="manual",
+        amount_kopecks=amount,
+        currency=settings.billing_currency,
+        is_auto_renew=False,  # ручная — без recurring, вне cron
+        payment_method_id=None,
+        started_at=now,
+        expires_at=now + timedelta(days=period_days(period_obj.id)),
+    )
+    session.add(sub)
+    await session.flush()  # получить sub.id для audit
+    await audit(
+        session,
+        actor=actor,
+        action="sub.grant",
+        target_type="subscription",
+        target_id=sub.id,
+        payload={
+            "user_id": str(user.id),
+            "plan": plan_obj.id,
+            "period": period_obj.id,
+            "amount_kopecks": amount,
+            "reason": reason,
+        },
+        ip_hash=ip_hash,
+        commit=False,
+    )
+    await session.commit()
+    await session.refresh(sub)
+    logger.info(
+        "admin.sub_granted",
+        actor=str(actor.id),
+        user_id=str(user.id),
+        subscription_id=str(sub.id),
+        plan=plan_obj.id,
+        period=period_obj.id,
+    )
+    return sub
+
+
+async def refund(
+    session: AsyncSession,
+    actor: User,
+    sub_id: UUID,
+    *,
+    amount_kopecks: int,
+    reason: str,
+    ip_hash: str | None = None,
+) -> SubscriptionCharge:
+    """Возврат средств по подписке (superadmin + one-time re-auth).
+
+    Идемпотентно по idempotency_key=f"refund:{provider_payment_id}": если
+    refund-charge с этим ключом уже есть → no-op, возвращаем существующий
+    (двойной возврат исключён на нашей стороне; провайдеру тот же idempotency_key
+    тоже не даст задвоить).
+
+    РЕШЕНИЕ (Ф2): при возврате переводим подписку в 'cancelled' (доступ
+    прекращаем как при отмене; полный/частичный возврат трактуем одинаково —
+    деньги вернули, подписку закрываем). is_auto_renew=False. Это разумный
+    дефолт; при желании различать полный/частичный — доработать в F2-PROD.
+
+    Raises:
+        SubscriptionNotFoundError: подписки нет / нет provider_payment_id
+            (нечего возвращать — платёж не проходил).
+    """
+    sub = await _get_subscription(session, sub_id)
+    payment_id = sub.yookassa_payment_id
+    if not payment_id:
+        # Нет исходного платежа у провайдера (напр. manual grant) — возвращать
+        # нечего. Явный отказ, а не тихий no-op.
+        raise SubscriptionNotFoundError()
+
+    idempotency_key = f"refund:{payment_id}"
+
+    # Идемпотентность: refund-charge с этим ключом уже создан → no-op.
+    existing = (
+        await session.execute(
+            select(SubscriptionCharge).where(
+                SubscriptionCharge.idempotency_key == idempotency_key
+            )
+        )
+    ).scalar_one_or_none()
+    if existing is not None:
+        logger.info(
+            "admin.refund_duplicate",
+            subscription_id=str(sub.id),
+            idempotency_key=idempotency_key,
+        )
+        return existing
+
+    settings = get_settings()
+    provider = get_payment_provider(settings)
+    result = provider.refund(
+        provider_payment_id=payment_id,
+        amount_kopecks=amount_kopecks,
+        idempotency_key=idempotency_key,
+    )
+
+    charge = SubscriptionCharge(
+        subscription_id=sub.id,
+        # yookassa_payment_id — UNIQUE и уже занят успешным charge'ем платежа.
+        # Refund-charge оставляем NULL (много NULL допустимо); идемпотентность
+        # держит idempotency_key.
+        yookassa_payment_id=None,
+        idempotency_key=idempotency_key,
+        status="refunded",
+        amount_kopecks=amount_kopecks,
+        is_recurring=False,
+        charge_metadata={
+            "refund_id": result.refund_id,
+            "refund_status": result.status,
+            "reason": reason,
+            "actor_id": str(actor.id),
+        },
+    )
+    session.add(charge)
+
+    # Полный/частичный возврат → закрываем подписку (см. docstring).
+    if sub.status not in ("expired", "cancelled"):
+        sub.status = "cancelled"
+        sub.is_auto_renew = False
+        sub.cancelled_at = _now()
+
+    await audit(
+        session,
+        actor=actor,
+        action="sub.refund",
+        target_type="subscription",
+        target_id=sub.id,
+        payload={
+            "user_id": str(sub.user_id),
+            "amount_kopecks": amount_kopecks,
+            "refund_id": result.refund_id,
+            "refund_status": result.status,
+            "reason": reason,
+        },
+        ip_hash=ip_hash,
+        commit=False,
+    )
+    await session.commit()
+    await session.refresh(charge)
+    logger.info(
+        "admin.sub_refunded",
+        actor=str(actor.id),
+        subscription_id=str(sub.id),
+        refund_id=result.refund_id,
+        amount_kopecks=amount_kopecks,
+    )
+    return charge

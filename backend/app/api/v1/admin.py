@@ -13,7 +13,11 @@ from uuid import UUID
 import structlog
 from fastapi import APIRouter, HTTPException, Query, Request, status
 
-from app.core.exceptions import UserNotFoundError
+from app.core.exceptions import (
+    PlanNotFoundError,
+    SubscriptionNotFoundError,
+    UserNotFoundError,
+)
 from app.core.security import get_dummy_hash, verify_password
 from app.deps import (
     CurrentUser,
@@ -21,22 +25,30 @@ from app.deps import (
     EmailServiceDep,
     RedisClient,
     RequireAnalyst,
+    RequireReauthOnce,
     RequireSupport,
+    RequireSuperadmin,
 )
 from app.schemas.admin import (
     AdminActionResult,
     AdminAttemptOut,
+    AdminChargeOut,
     AdminFamilyMember,
     AdminOAuthOut,
+    AdminSubActionResult,
+    AdminSubscriptionDetail,
     AdminSubscriptionOut,
+    AdminSubscriptionsPage,
     AdminTierSummary,
     AdminUserDetail,
     AdminUserListItem,
     AdminUserProfile,
     AdminUsersPage,
+    GrantSubscriptionRequest,
     OverviewMetrics,
     ReauthRequest,
     ReauthResponse,
+    RefundRequest,
 )
 from app.services import admin_service
 
@@ -282,3 +294,169 @@ async def reset_user_password(
     except UserNotFoundError as e:
         raise _not_found(e) from e
     return AdminActionResult(user_id=user_id, action="user.reset_password")
+
+
+# ─── Subscriptions (Ф2) ──────────────────────────────────────────────────
+#
+# list/detail/cancel/grant — support; refund — superadmin + one-time re-auth.
+# grant: РЕШЕНИЕ — user_id в теле (POST /admin/subscriptions/grant), а не
+# {id}/grant. TSD §4 показывает /subscriptions/{id}/grant, но grant создаёт
+# НОВУЮ подписку по user_id (нет sub_id заранее) — путь с {id} семантически
+# неверен. Выбран консистентный `/admin/subscriptions/grant` с user_id в body.
+
+
+def _sub_not_found(e: SubscriptionNotFoundError) -> HTTPException:
+    return HTTPException(
+        status.HTTP_404_NOT_FOUND,
+        detail={"code": e.code, "message": "Подписка не найдена"},
+    )
+
+
+@router.get(
+    "/subscriptions",
+    response_model=AdminSubscriptionsPage,
+    summary="Список подписок (фильтр status/plan/provider/period, support)",
+)
+async def list_subscriptions(
+    _actor: RequireSupport,
+    session: DbSession,
+    status_: str | None = Query(default=None, alias="status"),
+    plan: str | None = Query(default=None),
+    provider: str | None = Query(default=None),
+    period: str | None = Query(default=None),
+    page: int = Query(default=1, ge=1),
+    page_size: int = Query(default=20, ge=1, le=100),
+) -> AdminSubscriptionsPage:
+    rows, total = await admin_service.list_subscriptions(
+        session,
+        status=status_,
+        plan=plan,
+        provider=provider,
+        period=period,
+        page=page,
+        page_size=page_size,
+    )
+    return AdminSubscriptionsPage(
+        items=[AdminSubscriptionOut.model_validate(s) for s in rows],
+        total=total,
+        page=page,
+        page_size=page_size,
+    )
+
+
+@router.post(
+    "/subscriptions/grant",
+    response_model=AdminSubActionResult,
+    summary="Ручная выдача подписки юзеру (support; user_id в теле)",
+)
+async def grant_subscription(
+    payload: GrantSubscriptionRequest,
+    actor: RequireSupport,
+    session: DbSession,
+    request: Request,
+) -> AdminSubActionResult:
+    try:
+        sub = await admin_service.grant(
+            session,
+            actor,
+            payload.user_id,
+            plan=payload.plan,
+            period=payload.period,
+            reason=payload.reason,
+            ip_hash=_ip_hash(request),
+        )
+    except UserNotFoundError as e:
+        raise _not_found(e) from e
+    except PlanNotFoundError as e:
+        raise HTTPException(
+            status.HTTP_400_BAD_REQUEST,
+            detail={"code": e.code, "message": str(e) or "Неизвестный тариф/период"},
+        ) from e
+    return AdminSubActionResult(subscription_id=sub.id, action="sub.grant")
+
+
+@router.get(
+    "/subscriptions/{sub_id}",
+    response_model=AdminSubscriptionDetail,
+    summary="Карточка подписки + charge-лог (support)",
+)
+async def get_subscription_detail(
+    sub_id: UUID,
+    _actor: RequireSupport,
+    session: DbSession,
+) -> AdminSubscriptionDetail:
+    try:
+        d = await admin_service.get_subscription_detail(session, sub_id)
+    except SubscriptionNotFoundError as e:
+        raise _sub_not_found(e) from e
+    return AdminSubscriptionDetail(
+        subscription=AdminSubscriptionOut.model_validate(d["subscription"]),
+        charges=[AdminChargeOut.model_validate(ch) for ch in d["charges"]],
+    )
+
+
+@router.post(
+    "/subscriptions/{sub_id}/cancel",
+    response_model=AdminSubActionResult,
+    summary="Отменить подписку (support)",
+)
+async def cancel_subscription(
+    sub_id: UUID,
+    actor: RequireSupport,
+    session: DbSession,
+    request: Request,
+) -> AdminSubActionResult:
+    try:
+        sub = await admin_service.cancel(
+            session, actor, sub_id, ip_hash=_ip_hash(request)
+        )
+    except SubscriptionNotFoundError as e:
+        raise _sub_not_found(e) from e
+    return AdminSubActionResult(subscription_id=sub.id, action="sub.cancel")
+
+
+@router.post(
+    "/subscriptions/{sub_id}/refund",
+    response_model=AdminSubActionResult,
+    summary="Возврат средств (superadmin + one-time re-auth)",
+)
+async def refund_subscription(
+    sub_id: UUID,
+    payload: RefundRequest,
+    _actor: RequireSuperadmin,
+    actor: RequireReauthOnce,
+    session: DbSession,
+    request: Request,
+) -> AdminSubActionResult:
+    """Возврат: RequireSuperadmin (роль) + RequireReauthOnce (одноразовый токен).
+
+    amount_kopecks=None → полная сумма подписки (берём sub.amount_kopecks).
+    Идемпотентно по refund:{payment_id} (повтор → тот же charge, no-op).
+    """
+    # Определяем сумму до вызова сервиса (нужна подписка для полного возврата).
+    try:
+        sub = await admin_service._get_subscription(session, sub_id)
+    except SubscriptionNotFoundError as e:
+        raise _sub_not_found(e) from e
+    amount = payload.amount_kopecks or sub.amount_kopecks
+    try:
+        charge = await admin_service.refund(
+            session,
+            actor,
+            sub_id,
+            amount_kopecks=amount,
+            reason=payload.reason,
+            ip_hash=_ip_hash(request),
+        )
+    except SubscriptionNotFoundError as e:
+        # Нет provider_payment_id — возвращать нечего.
+        raise HTTPException(
+            status.HTTP_400_BAD_REQUEST,
+            detail={
+                "code": "REFUND_UNAVAILABLE",
+                "message": "У подписки нет исходного платежа для возврата",
+            },
+        ) from e
+    return AdminSubActionResult(
+        subscription_id=charge.subscription_id, action="sub.refund"
+    )

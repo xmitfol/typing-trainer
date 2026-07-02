@@ -164,7 +164,7 @@ class SubscriptionCharge(Base):
 
     __table_args__ = (
         CheckConstraint(
-            "status IN ('success', 'failed', 'pending_3ds', 'pending_yk')",
+            "status IN ('success', 'failed', 'pending_3ds', 'pending_yk', 'refunded')",
             name="charge_status_valid",
         ),
         CheckConstraint("amount_kopecks > 0", name="charge_amount_positive"),

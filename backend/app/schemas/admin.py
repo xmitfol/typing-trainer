@@ -183,3 +183,70 @@ class AdminActionResult(BaseModel):
     ok: bool = True
     user_id: UUID
     action: str
+
+
+# ─── Subscriptions (admin-panel TSD §4, Ф2) ─────────────────────────────
+
+
+class AdminSubscriptionsPage(BaseModel):
+    """GET /admin/subscriptions — offset-пагинация."""
+
+    items: list[AdminSubscriptionOut]
+    total: int
+    page: int
+    page_size: int
+
+
+class AdminChargeOut(BaseModel):
+    """Строка charge-лога подписки (списание/возврат)."""
+
+    model_config = ConfigDict(from_attributes=True)
+
+    id: int
+    status: str
+    amount_kopecks: int
+    attempted_at: datetime
+    is_recurring: bool
+    retry_number: int
+    error_code: str | None = None
+    error_message: str | None = None
+    charge_metadata: dict = Field(default_factory=dict)
+
+
+class AdminSubscriptionDetail(BaseModel):
+    """GET /admin/subscriptions/{id} — подписка + charge-лог."""
+
+    subscription: AdminSubscriptionOut
+    charges: list[AdminChargeOut]
+
+
+class GrantSubscriptionRequest(BaseModel):
+    """Тело grant: ручная выдача подписки (support). user_id — в теле."""
+
+    model_config = ConfigDict(extra="forbid")
+
+    user_id: UUID
+    plan: Literal["pro", "family"] = Field(description="Только покупаемые планы")
+    period: Literal["w1", "m1", "m3", "m6", "y1"]
+    reason: str = Field(min_length=1, max_length=500)
+
+
+class RefundRequest(BaseModel):
+    """Тело refund (superadmin + re-auth-once)."""
+
+    model_config = ConfigDict(extra="forbid")
+
+    amount_kopecks: int | None = Field(
+        default=None,
+        gt=0,
+        description="Сумма возврата; None → полная сумма подписки",
+    )
+    reason: str = Field(min_length=1, max_length=500)
+
+
+class AdminSubActionResult(BaseModel):
+    """Ответ cancel/grant/refund по подписке."""
+
+    ok: bool = True
+    subscription_id: UUID
+    action: str

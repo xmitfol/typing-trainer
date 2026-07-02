@@ -177,6 +177,14 @@ class ChargeResult:
     error_message: str | None = None
 
 
+@dataclass(frozen=True)
+class RefundResult:
+    """Результат возврата (admin-panel TSD §3.3, Ф2)."""
+
+    refund_id: str
+    status: str  # succeeded / pending / failed
+
+
 # ─── Интерфейс провайдера ─────────────────────────────────────────────
 
 
@@ -223,6 +231,21 @@ class PaymentProvider(Protocol):
 
     def cancel(self, *, provider_payment_id: str) -> None:
         """Отмена на стороне провайдера (если нужна). Обычно no-op."""
+        ...
+
+    def refund(
+        self,
+        *,
+        provider_payment_id: str,
+        amount_kopecks: int,
+        idempotency_key: str,
+    ) -> RefundResult:
+        """Возврат средств по платежу (admin-panel TSD §3.3, Ф2).
+
+        `provider_payment_id` — исходный успешный платёж; `amount_kopecks` —
+        сумма возврата (полный/частичный); `idempotency_key` — защита от
+        двойного возврата на стороне провайдера.
+        """
         ...
 
 
@@ -327,6 +350,24 @@ class StubProvider:
         # Нечего отменять на стороне провайдера — no-op.
         return None
 
+    def refund(
+        self,
+        *,
+        provider_payment_id: str,
+        amount_kopecks: int,
+        idempotency_key: str,
+    ) -> RefundResult:
+        """Эмуляция возврата: детерминированный подписанный refund_id, success.
+
+        refund_id = "stub_refund_" + HMAC-SHA256(jwt_secret, provider_payment_id
+        + ":" + idempotency_key)[:24]. Детерминирован по (платёж, ключ) — тот же
+        refund → тот же id (клиентская идемпотентность полагается на charge-
+        уникальность в billing-слое; здесь провайдер стабилен).
+        """
+        material = f"{provider_payment_id}:{idempotency_key}".encode()
+        digest = hmac.new(self._secret, material, sha256).hexdigest()
+        return RefundResult(refund_id=f"stub_refund_{digest[:24]}", status="succeeded")
+
     def make_webhook_body(self, provider_payment_id: str, *, kind: WebhookKind = "payment.succeeded") -> dict:
         """Helper для тестов/эмуляции: собрать подписанное stub-webhook-тело."""
         return {
@@ -423,6 +464,24 @@ class YooKassaProvider:
         # YK: подписки как таковой на стороне провайдера нет (мы сами дёргаем
         # recurring). Отмена = перестать списывать → провайдер-side no-op.
         return None
+
+    def refund(
+        self,
+        *,
+        provider_payment_id: str,
+        amount_kopecks: int,
+        idempotency_key: str,
+    ) -> RefundResult:
+        # TODO (F2-PROD, ждёт подтверждённый shop): реальный YK Refunds API —
+        #   POST https://api.yookassa.ru/v3/refunds
+        #   headers: Idempotence-Key=idempotency_key, Basic auth shop_id:secret_key
+        #   body: { amount:{value: amount_kopecks/100, currency},
+        #           payment_id: provider_payment_id }
+        #   → RefundResult(refund.id, refund.status)  # succeeded / pending / canceled
+        raise NotImplementedError(
+            "YooKassaProvider.refund — реальный вызов YK Refunds API "
+            "(TODO: подтверждённый shop, ADR-008 §Rollout / admin-panel F2-PROD)"
+        )
 
 
 # ─── Фабрика ──────────────────────────────────────────────────────────

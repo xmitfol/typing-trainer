@@ -226,3 +226,35 @@ async def require_reauth(
 
 
 RequireReauth = Annotated[User, Depends(require_reauth)]
+
+
+async def require_reauth_once(
+    user: CurrentUser,
+    redis: RedisClient,
+    x_admin_reauth: str | None = Header(default=None),
+) -> User:
+    """Гейт денежных операций (refund): как require_reauth, но ОДНОРАЗОВЫЙ.
+
+    F1-SEC (Сергей): одно re-auth окно = одна денежная операция, не серия.
+    Токен ПОТРЕБЛЯЕТСЯ через redis.getdel — повторный вызов с тем же токеном
+    → 403 (в отличие от require_reauth с get: TTL-окно для не-денежных).
+
+    getdel атомарен (Redis 6.2+): read+delete без гонки, два параллельных
+    refund'а не пройдут по одному токену.
+    """
+    if not x_admin_reauth:
+        raise HTTPException(
+            status.HTTP_403_FORBIDDEN,
+            detail={"code": "REAUTH_REQUIRED", "message": "Требуется повторный ввод пароля"},
+        )
+    # Атомарно забираем токен (одноразовость). Если валиден — уже удалён.
+    stored = await redis.getdel(f"{REAUTH_PREFIX}{user.id}")
+    if not stored or not hmac.compare_digest(str(stored), x_admin_reauth):
+        raise HTTPException(
+            status.HTTP_403_FORBIDDEN,
+            detail={"code": "REAUTH_REQUIRED", "message": "Требуется повторный ввод пароля"},
+        )
+    return user
+
+
+RequireReauthOnce = Annotated[User, Depends(require_reauth_once)]
