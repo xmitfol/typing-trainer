@@ -81,28 +81,11 @@ def main():
         shot(page, '01_course_intro')
         page.close()
 
-        # ─── QW2: Task SpeedGraph ───
-        page = ctx.new_page()
-        page.goto(f'{BASE}/index.html')
-        seed_profile(page)
-        page.goto(f'{BASE}/task.html?tier=tier1&lesson=1')
-        page.wait_for_selector('#mentor-tip', timeout=5000)
-        page.wait_for_timeout(700)
-        graph_present = page.locator('#speed-graph').count()
-        # Печатаем несколько символов чтобы updateStats запушил sample
-        for ch in 'ааа ооо':
-            press(page, ch)
-        page.wait_for_timeout(600)
-        points_after = page.evaluate("document.getElementById('speed-graph-line')?.getAttribute('points') || ''")
-        print(f'QW2 SpeedGraph:')
-        print(f'   контейнер #speed-graph: {graph_present}')
-        print(f'   polyline points: "{points_after[:80]}"')
-        if graph_present == 1 and points_after and len(points_after.split(' ')) >= 1:
-            print('   ✅ QW2 PASS')
-        else:
-            failed += 1; print('   ❌ QW2 FAIL')
-        shot(page, '02_speedgraph')
-        page.close()
+        # ─── QW2: Task SpeedGraph — УДАЛЁН ───
+        # График скорости в тренажёре убран правками дизайнера (41be324
+        # «design(task): ... убран график») — проверять нечего. Живой график
+        # динамики остался на profile.html (его гоняет verify_profile.py).
+        print('QW2 SpeedGraph: пропущен — фича убрана дизайнером (41be324)')
 
         # ─── QW3: Task celebrate (rhythm + confetti) ───
         page = ctx.new_page()
@@ -117,19 +100,25 @@ def main():
                 return (await r.json()).text;
             })()
         """)
-        # Пройти урок целиком (errors=0 → passed → confetti spawn)
+        # Пройти урок целиком (errors=0 → success-отчёт). Полный забег рендерит
+        # «Отчёт по уроку» (lessonSummary): частичного confetti-спавна больше нет —
+        # у отчёта своя конфетти-полоса .report-confetti (только при success),
+        # ритмичность — метрика РИТМИЧНОСТЬ в .report-metrics.
         for ch in target_full:
             press(page, ch)
         page.wait_for_timeout(700)
-        rhythm = page.evaluate("document.getElementById('final-rhythm')?.innerText || ''")
-        confetti_count = page.evaluate("document.querySelectorAll('#confetti .confetti__p').length")
+        rhythm = page.evaluate("""(() => {
+            const m = [...document.querySelectorAll('#success .metric')].find(x => x.textContent.includes('РИТМИЧНОСТЬ'));
+            return m?.querySelector('.metric-val')?.innerText || '';
+        })()""")
+        confetti_count = page.evaluate("document.querySelectorAll('#success .report-confetti').length")
         success_shown = page.evaluate("document.getElementById('success')?.classList.contains('show')")
         print(f'QW3 Celebrate:')
-        print(f'   final-rhythm: "{rhythm}"')
-        print(f'   confetti particles: {confetti_count}')
+        print(f'   rhythm metric: "{rhythm}"')
+        print(f'   report-confetti strips: {confetti_count}')
         print(f'   success shown: {success_shown}')
-        if success_shown and confetti_count > 20 and ('%' in rhythm or '—' in rhythm):
-            print('   ✅ QW3 PASS (confetti+rhythm рендерятся)')
+        if success_shown and confetti_count >= 1 and ('%' in rhythm or '—' in rhythm):
+            print('   ✅ QW3 PASS (отчёт: конфетти-полоса + ритмичность)')
         else:
             failed += 1; print('   ❌ QW3 FAIL')
         shot(page, '03_celebrate')

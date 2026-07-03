@@ -47,7 +47,10 @@ def press(page, ch):
 
 
 def get_final_wpm(page):
-    return page.evaluate("parseInt((document.getElementById('final-speed')?.innerText||'0').replace(/[^0-9]/g,''),10)||0")
+    # Отчёт урока (lessonSummary) не показывает скорость для уроков < 6, а старый
+    # #final-speed затирается рендером отчёта — читаем живой стат тулбара #stat-speed
+    # (остаётся в DOM под .hide; textContent доступен и у скрытого элемента).
+    return page.evaluate("parseInt((document.getElementById('stat-speed')?.textContent||'0').replace(/[^0-9]/g,''),10)||0")
 
 
 def main():
