@@ -137,6 +137,12 @@ jobs:
           echo "::error::nginx→backend путь :8090 не отвечает"; exit 1
       - name: Run stack gate (verify_signup_flow)
         run: python scripts/ci_run_gate.py --suite stack
+      - name: Run admin gates in-container (ASGI, без браузера)
+        # PYTHONPATH=/app: при `python scripts/x.py` sys.path[0] = /app/scripts,
+        # пакет `app` из /app без этого не импортируется.
+        run: |
+          docker exec -e PYTHONPATH=/app tt_backend python scripts/verify_admin_billing.py
+          docker exec -e PYTHONPATH=/app tt_backend python scripts/verify_admin_2fa.py
       - name: Dump compose logs on failure
         if: failure()
         run: docker compose -f backend/docker-compose.yml --profile app logs --no-color

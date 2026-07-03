@@ -241,6 +241,47 @@ async def main() -> int:
               "detail → 200 with refunded charge in log",
               f"{r.status_code} charges={len(d.get('charges', []))}")
 
+        # ── /billing/charges — сквозной debug-список (support) ──────────
+        r = await client.get("/api/v1/admin/billing/charges?status=refunded",
+                             cookies=cookies_for(support_id))
+        d = r.json() if r.status_code == 200 else {}
+        items = d.get("items", [])
+        ours = [c for c in items if c.get("subscription_id") == str(paid_id)]
+        debug_fields = bool(ours) and all(
+            c.get("idempotency_key") and "subscription_id" in c for c in ours
+        )
+        check(r.status_code == 200 and d.get("total", 0) >= 1 and debug_fields,
+              "charges list status=refunded → 200 + debug-поля (sub_id, idem_key)",
+              f"{r.status_code} total={d.get('total')} ours={len(ours)}")
+
+        # фильтр по subscription_id — только чарджи этой подписки
+        r = await client.get(f"/api/v1/admin/billing/charges?subscription_id={paid_id}",
+                             cookies=cookies_for(support_id))
+        d = r.json() if r.status_code == 200 else {}
+        only_ours = bool(d.get("items")) and all(
+            c["subscription_id"] == str(paid_id) for c in d["items"]
+        )
+        check(r.status_code == 200 and only_ours,
+              "charges list subscription_id-фильтр → только свои",
+              f"{r.status_code} total={d.get('total')}")
+
+        # фильтр по idempotency_key — точечная находка (webhook-раскопки)
+        idem = ours[0]["idempotency_key"] if ours else ""
+        r = await client.get(f"/api/v1/admin/billing/charges?idempotency_key={idem}",
+                             cookies=cookies_for(support_id))
+        d = r.json() if r.status_code == 200 else {}
+        check(r.status_code == 200 and d.get("total") == 1,
+              "charges list idempotency_key-фильтр → ровно 1",
+              f"{r.status_code} total={d.get('total')}")
+
+        # невалидный status → 400; обычный юзер → 403 (RBAC)
+        r = await client.get("/api/v1/admin/billing/charges?status=bogus",
+                             cookies=cookies_for(support_id))
+        check(r.status_code == 400, "charges list status=bogus → 400", f"{r.status_code}")
+        r = await client.get("/api/v1/admin/billing/charges",
+                             cookies=cookies_for(target_id))
+        check(r.status_code == 403, "charges list role=user → 403", f"{r.status_code}")
+
     await redis.aclose()
     await dispose_engine()
 

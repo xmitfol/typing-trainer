@@ -40,6 +40,10 @@ COPY --from=deps /usr/local/bin /usr/local/bin
 COPY --chown=app:app app/ ./app/
 COPY --chown=app:app alembic/ ./alembic/
 COPY --chown=app:app alembic.ini ./
+# Гейт-скрипты (ASGI, без браузера) — гоняются внутри контейнера:
+#   docker exec tt_backend python scripts/verify_admin_billing.py
+# Нужны в образе для CI stack-e2e (на VM их подкладывал override/копирование).
+COPY --chown=app:app scripts/ ./scripts/
 
 # Switch на non-root
 USER app
