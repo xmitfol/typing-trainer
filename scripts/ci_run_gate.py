@@ -72,6 +72,7 @@ STATIC_SUITE = [
 # Проверки против живого стека :8090 (Sprint-1 auth-гейт — флагман).
 STACK_SUITE = [
     "verify_signup_flow.py",
+    "verify_sync_tiers.py",
 ]
 
 SUITES = {"static": STATIC_SUITE, "stack": STACK_SUITE}
