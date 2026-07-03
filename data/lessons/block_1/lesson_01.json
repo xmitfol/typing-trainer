@@ -67,11 +67,17 @@
       "key": "Ж"
     },
     {
-      "char": " ",
+      "char": "а",
       "hand": "left",
+      "finger": "index",
+      "key": "А"
+    },
+    {
+      "char": " ",
+      "hand": "right",
       "finger": "thumb",
       "key": "Space",
-      "space_side": "left"
+      "space_side": "right"
     },
     {
       "char": "ф",
@@ -129,11 +135,17 @@
       "key": "Ж"
     },
     {
-      "char": " ",
+      "char": "а",
       "hand": "left",
+      "finger": "index",
+      "key": "А"
+    },
+    {
+      "char": " ",
+      "hand": "right",
       "finger": "thumb",
       "key": "Space",
-      "space_side": "left"
+      "space_side": "right"
     },
     {
       "char": "ф",
@@ -191,11 +203,17 @@
       "key": "Ж"
     },
     {
-      "char": " ",
+      "char": "а",
       "hand": "left",
+      "finger": "index",
+      "key": "А"
+    },
+    {
+      "char": " ",
+      "hand": "right",
       "finger": "thumb",
       "key": "Space",
-      "space_side": "left"
+      "space_side": "right"
     },
     {
       "char": "ф",
@@ -251,6 +269,12 @@
       "hand": "right",
       "finger": "pinky",
       "key": "Ж"
+    },
+    {
+      "char": "а",
+      "hand": "left",
+      "finger": "index",
+      "key": "А"
     }
   ],
   "keys_trained": [
