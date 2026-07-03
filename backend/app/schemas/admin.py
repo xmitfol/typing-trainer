@@ -301,6 +301,25 @@ class AdminSubscriptionDetail(BaseModel):
     charges: list[AdminChargeOut]
 
 
+class AdminChargeDebugOut(AdminChargeOut):
+    """Строка сквозного charge-лога (/billing/charges) — debug-поля сверх
+    AdminChargeOut: к какой подписке относится и ключи сверки с провайдером
+    (идемпотентность, webhook-раскопки)."""
+
+    subscription_id: UUID
+    idempotency_key: str
+    yookassa_payment_id: str | None = None
+
+
+class AdminChargesPage(BaseModel):
+    """GET /admin/billing/charges — сквозной debug-список списаний."""
+
+    items: list[AdminChargeDebugOut]
+    total: int
+    page: int
+    page_size: int
+
+
 class GrantSubscriptionRequest(BaseModel):
     """Тело grant: ручная выдача подписки (support). user_id — в теле."""
 

@@ -38,7 +38,9 @@ from app.models.user import User
 from app.schemas.admin import (
     AdminActionResult,
     AdminAttemptOut,
+    AdminChargeDebugOut,
     AdminChargeOut,
+    AdminChargesPage,
     AdminFamilyMember,
     AdminOAuthOut,
     AdminSubActionResult,
@@ -741,6 +743,54 @@ async def get_subscription_detail(
     return AdminSubscriptionDetail(
         subscription=AdminSubscriptionOut.model_validate(d["subscription"]),
         charges=[AdminChargeOut.model_validate(ch) for ch in d["charges"]],
+    )
+
+
+_CHARGE_STATUSES = ("success", "failed", "pending_3ds", "pending_yk", "refunded")
+
+
+@router.get(
+    "/billing/charges",
+    response_model=AdminChargesPage,
+    summary="Сквозной debug-список списаний с фильтрами (support)",
+)
+async def list_charges(
+    _actor: RequireSupport,
+    session: DbSession,
+    status_filter: str | None = Query(
+        default=None, alias="status", description=f"один из {_CHARGE_STATUSES}"
+    ),
+    subscription_id: UUID | None = Query(default=None),
+    yookassa_payment_id: str | None = Query(default=None),
+    idempotency_key: str | None = Query(default=None),
+    page: int = Query(default=1, ge=1),
+    page_size: int = Query(default=20, ge=1, le=100),
+) -> AdminChargesPage:
+    """Debug вебхуков/идемпотентности при живом провайдере: найти charge по
+    yookassa_payment_id / idempotency_key, посмотреть свежие failed — без
+    знания subscription_id (карточка подписки требует его заранее)."""
+    if status_filter is not None and status_filter not in _CHARGE_STATUSES:
+        raise HTTPException(
+            status.HTTP_400_BAD_REQUEST,
+            detail={
+                "code": "INVALID_STATUS",
+                "message": f"status должен быть одним из {_CHARGE_STATUSES}",
+            },
+        )
+    rows, total = await admin_service.list_charges(
+        session,
+        status=status_filter,
+        subscription_id=subscription_id,
+        yookassa_payment_id=yookassa_payment_id,
+        idempotency_key=idempotency_key,
+        page=page,
+        page_size=page_size,
+    )
+    return AdminChargesPage(
+        items=[AdminChargeDebugOut.model_validate(ch) for ch in rows],
+        total=total,
+        page=page,
+        page_size=page_size,
     )
 
 

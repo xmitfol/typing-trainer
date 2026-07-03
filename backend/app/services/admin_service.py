@@ -658,6 +658,48 @@ async def get_subscription_detail(session: AsyncSession, sub_id: UUID) -> dict:
     return {"subscription": sub, "charges": charges}
 
 
+async def list_charges(
+    session: AsyncSession,
+    *,
+    status: str | None = None,
+    subscription_id: UUID | None = None,
+    yookassa_payment_id: str | None = None,
+    idempotency_key: str | None = None,
+    page: int = 1,
+    page_size: int = 20,
+) -> tuple[list[SubscriptionCharge], int]:
+    """Сквозной debug-список списаний (без привязки к подписке).
+
+    Для раскопок вебхуков/идемпотентности при живом провайдере: найти charge
+    по yookassa_payment_id или idempotency_key, посмотреть свежие failed —
+    не зная subscription_id (карточка подписки требует его заранее).
+    Свежие сверху. Возвращает (rows, total).
+    """
+    where = []
+    if status is not None:
+        where.append(SubscriptionCharge.status == status)
+    if subscription_id is not None:
+        where.append(SubscriptionCharge.subscription_id == subscription_id)
+    if yookassa_payment_id is not None:
+        where.append(SubscriptionCharge.yookassa_payment_id == yookassa_payment_id)
+    if idempotency_key is not None:
+        where.append(SubscriptionCharge.idempotency_key == idempotency_key)
+
+    count_stmt = select(func.count()).select_from(SubscriptionCharge)
+    stmt = select(SubscriptionCharge)
+    for w in where:
+        count_stmt = count_stmt.where(w)
+        stmt = stmt.where(w)
+    total = int((await session.execute(count_stmt)).scalar_one())
+    stmt = (
+        stmt.order_by(SubscriptionCharge.attempted_at.desc())
+        .offset((page - 1) * page_size)
+        .limit(page_size)
+    )
+    rows = list((await session.execute(stmt)).scalars().all())
+    return rows, total
+
+
 async def cancel(
     session: AsyncSession,
     actor: User,
