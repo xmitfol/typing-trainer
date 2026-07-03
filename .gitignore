@@ -10,6 +10,10 @@ verify-screenshots/
 verify-screenshots-local/
 scripts/screenshots/
 
+# Python bytecode (генерят локальные прогоны verify-скриптов и compileall в CI)
+__pycache__/
+*.pyc
+
 # Local-only artifacts
 # - error/ contains bug-report screenshots collected locally
 # - docs/temp/ holds workshop scratch

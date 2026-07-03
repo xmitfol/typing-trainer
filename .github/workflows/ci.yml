@@ -1,0 +1,196 @@
+# CI — реальный Docker-гейт (инфра-долг Sprint 1, SESSION_HANDOFF §0.1 #1).
+#
+# Урок Sprint 1: unit-CI пропускал баги, которые ловил только полный стек
+# (ROADMAP §Infra). Поэтому ядро CI — те же gate-скрипты, что гонялись на VM,
+# но прямо на раннере: статика :8000 + docker compose --profile app на :8090.
+#
+# Блокирующие джобы:  compile-checks, content-lint, static-e2e, stack-e2e.
+# Наблюдательные:     backend-tests, backend-typecheck (continue-on-error —
+#                     нельзя доказать зелёность локально; повысим до required,
+#                     когда покажут зелёный на реальных прогонах).
+# ruff check/format НЕ включены: сегодня красные (441, в осн. RUF001-003 на
+# кириллице) — сначала механический cleanup-PR, потом гейт (v1.1).
+#
+# Примечание к ADR-004: там CI целил в Yandex Cloud Build; ROADMAP/handoff
+# (новее) требуют GitHub Actions — этот workflow реализует их.
+
+name: CI
+
+on:
+  push:
+    branches: [master]
+    paths-ignore: ['**/*.md', 'docs/**', 'images/**']
+  pull_request:
+    branches: [master]
+    paths-ignore: ['**/*.md', 'docs/**', 'images/**']
+  workflow_dispatch:
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+env:
+  PLAYWRIGHT_VERSION: "1.58.0" # локально проверенная версия; пин против дрейфа браузера
+
+jobs:
+  # ── Быстрый синтаксис-гейт: JS + JSON + Python (секунды, без Docker) ──
+  compile-checks:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: JS syntax (node --check)
+        run: |
+          find assets/js -name '*.js' -print0 | xargs -0 -n1 node --check
+          node --check config/settings.js
+      - name: JSON validity (data/ + config/)
+        run: python scripts/ci_check_json.py
+      - name: Python compile (scripts/ + backend/app)
+        run: python -m compileall -q scripts backend/app
+
+  # ── Контент-линтер: печатаемый текст 459 уроков, HIGH=0 обязателен ──
+  content-lint:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: lint_lessons (exit 1 при HIGH>0; WARN не блокирует)
+        run: python scripts/lint_lessons.py
+
+  # ── 26 статических Playwright-проверок против http.server :8000 ──
+  # Без Docker: скрипты сидируют состояние через localStorage. BASE :8000
+  # захардкожен в части скриптов — сервер обязан жить именно на этом порту.
+  static-e2e:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    needs: compile-checks
+    strategy:
+      fail-fast: false
+      matrix:
+        shard: [1, 2]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install Playwright + chromium
+        run: |
+          pip install "playwright==${PLAYWRIGHT_VERSION}"
+          playwright install --with-deps chromium
+      - name: Start static server :8000
+        run: |
+          nohup python -m http.server 8000 --directory . > /tmp/http8000.log 2>&1 &
+          for i in $(seq 1 30); do
+            curl -fsS http://127.0.0.1:8000/index.html >/dev/null && exit 0
+            sleep 1
+          done
+          echo "::error::static server :8000 не поднялся"; cat /tmp/http8000.log; exit 1
+      - name: Run static gate (shard ${{ matrix.shard }}/2)
+        run: python scripts/ci_run_gate.py --suite static --shard ${{ matrix.shard }}/2
+      - name: Upload screenshots on failure
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: static-e2e-shard${{ matrix.shard }}-screenshots
+          path: |
+            verify-screenshots/
+            scripts/screenshots/
+          if-no-files-found: ignore
+
+  # ── ЯДРО: реальный Docker-стек (модель VM-гейта, без paramiko) ──
+  # compose --profile app: postgres + redis + mailpit + backend(alembic→gunicorn)
+  # + nginx :8090 (single origin — иначе SameSite=Lax cookies не пройдут).
+  stack-e2e:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    needs: compile-checks
+    steps:
+      - uses: actions/checkout@v4 # полный checkout: proxy монтирует ../ = корень репо
+      - name: Docker sanity
+        run: docker --version && docker compose version
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install Playwright + chromium
+        run: |
+          pip install "playwright==${PLAYWRIGHT_VERSION}"
+          playwright install --with-deps chromium
+      - name: Build backend image
+        run: docker compose -f backend/docker-compose.yml --profile app build backend
+      - name: Up stack (wait healthy — backend healthy только после alembic upgrade)
+        run: docker compose -f backend/docker-compose.yml --profile app up -d --wait --wait-timeout 300
+      - name: Readiness gate on public origin :8090
+        run: |
+          for i in $(seq 1 30); do
+            curl -fsS http://localhost:8090/api/v1/health && exit 0
+            sleep 2
+          done
+          echo "::error::nginx→backend путь :8090 не отвечает"; exit 1
+      - name: Run stack gate (verify_signup_flow)
+        run: python scripts/ci_run_gate.py --suite stack
+      - name: Dump compose logs on failure
+        if: failure()
+        run: docker compose -f backend/docker-compose.yml --profile app logs --no-color
+      - name: Upload screenshots on failure
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: stack-e2e-screenshots
+          path: |
+            verify-screenshots/
+            scripts/screenshots/
+          if-no-files-found: ignore
+      - name: Teardown
+        if: always()
+        run: docker compose -f backend/docker-compose.yml --profile app down -v
+
+  # ── Backend pytest (74 теста; Postgres — testcontainers, Redis — fake) ──
+  # НАБЛЮДАТЕЛЬНАЯ в v1: локально недоказуема (py3.13 при пине <3.13).
+  # Повысить до блокирующей после первого зелёного прогона.
+  backend-tests:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    needs: compile-checks
+    continue-on-error: true
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12" # pyproject: >=3.12,<3.13
+      - name: Install deps (PEP 735 groups → pip>=25.1)
+        working-directory: backend
+        run: |
+          python -m pip install --upgrade pip
+          pip install . --group dev
+      - name: pytest (timing-флейк в карантине)
+        working-directory: backend
+        run: pytest -q -k "not anti_timing_attack_pattern"
+
+  # ── mypy strict — проба (непроверяем локально; наблюдаем реальный вывод) ──
+  backend-typecheck:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    needs: compile-checks
+    continue-on-error: true
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install deps
+        working-directory: backend
+        run: |
+          python -m pip install --upgrade pip
+          pip install . --group dev
+      - name: mypy app
+        working-directory: backend
+        run: mypy app
