@@ -161,6 +161,12 @@ jobs:
     timeout-minutes: 20
     needs: compile-checks
     continue-on-error: true
+    env:
+      # Settings() инстанцируется при импорте app.main (conftest) — двум полям
+      # без дефолтов нужны значения. На VM их даёт untracked backend/.env;
+      # здесь — тестовые (conftest всё равно переопределяет через test_settings).
+      DB_PASSWORD: test-only-password
+      JWT_SECRET_KEY: test-only-jwt-secret-change-me-32chars-xx
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
