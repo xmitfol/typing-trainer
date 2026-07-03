@@ -88,6 +88,9 @@
     {
       "type": "step",
       "kind": "drill",
+      "unit": "команда",
+      "baseReps": 4,
+      "keys": ["к", "о", "м", "а", "н", "д"],
       "target": "команда команда команда команда",
       "finger": "blue",
       "title": "Ритм: команда",
@@ -96,6 +99,9 @@
     {
       "type": "step",
       "kind": "drill",
+      "unit": "экраны",
+      "baseReps": 4,
+      "keys": ["э", "к", "р", "а", "н", "ы"],
       "target": "экраны экраны экраны экраны",
       "finger": "pink",
       "title": "Ритм: экраны",
@@ -104,6 +110,9 @@
     {
       "type": "step",
       "kind": "drill",
+      "unit": "баг",
+      "baseReps": 5,
+      "keys": ["б", "а", "г"],
       "target": "баг баг баг баг баг",
       "finger": "green",
       "title": "Ритм: баг",
@@ -112,6 +121,9 @@
     {
       "type": "step",
       "kind": "drill",
+      "unit": "пицца",
+      "baseReps": 4,
+      "keys": ["п", "и", "ц", "а"],
       "target": "пицца пицца пицца пицца",
       "finger": "blue",
       "title": "Ритм: пицца",

@@ -208,6 +208,9 @@
     {
       "type": "step",
       "kind": "drill",
+      "unit": ".",
+      "baseReps": 20,
+      "keys": ["."],
       "target": ". . . . . . . . . . . . . . . . . . . .",
       "finger": "orange",
       "title": "Клавиша точка",

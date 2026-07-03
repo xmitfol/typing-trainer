@@ -111,6 +111,9 @@
     {
       "type": "step",
       "kind": "drill",
+      "unit": "отчёт",
+      "baseReps": 4,
+      "keys": ["о", "т", "ч", "ё"],
       "target": "отчёт отчёт отчёт отчёт",
       "finger": "indigo",
       "title": "Ритм: отчёт",
@@ -119,6 +122,9 @@
     {
       "type": "step",
       "kind": "drill",
+      "unit": "готов",
+      "baseReps": 4,
+      "keys": ["г", "о", "т", "в"],
       "target": "готов готов готов готов",
       "finger": "indigo",
       "title": "Ритм: готов",
@@ -127,6 +133,9 @@
     {
       "type": "step",
       "kind": "drill",
+      "unit": "предложение",
+      "baseReps": 3,
+      "keys": ["п", "р", "е", "д", "л", "о", "ж", "н", "и"],
       "target": "предложение предложение предложение",
       "finger": "blue",
       "title": "Ритм: предложение",
@@ -135,6 +144,9 @@
     {
       "type": "step",
       "kind": "drill",
+      "unit": "дата",
+      "baseReps": 4,
+      "keys": ["д", "а", "т"],
       "target": "дата дата дата дата",
       "finger": "pink",
       "title": "Ритм: дата",

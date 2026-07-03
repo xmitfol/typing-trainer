@@ -99,6 +99,9 @@
     {
       "type": "step",
       "kind": "drill",
+      "unit": "дом",
+      "baseReps": 5,
+      "keys": ["д", "о", "м"],
       "target": "дом дом дом дом дом",
       "finger": "pink",
       "title": "Ритм: дом",
@@ -107,6 +110,9 @@
     {
       "type": "step",
       "kind": "drill",
+      "unit": "урок",
+      "baseReps": 4,
+      "keys": ["у", "р", "о", "к"],
       "target": "урок урок урок урок",
       "finger": "green",
       "title": "Ритм: урок",
@@ -115,6 +121,9 @@
     {
       "type": "step",
       "kind": "drill",
+      "unit": "глава",
+      "baseReps": 4,
+      "keys": ["г", "л", "а", "в"],
       "target": "глава глава глава глава",
       "finger": "indigo",
       "title": "Ритм: глава",
@@ -123,6 +132,9 @@
     {
       "type": "step",
       "kind": "drill",
+      "unit": "квартира",
+      "baseReps": 3,
+      "keys": ["к", "в", "а", "р", "т", "и"],
       "target": "квартира квартира квартира",
       "finger": "blue",
       "title": "Ритм: квартира",

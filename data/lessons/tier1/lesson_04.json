@@ -75,6 +75,9 @@
     {
       "type": "step",
       "kind": "drill",
+      "unit": "п",
+      "baseReps": 20,
+      "keys": ["п"],
       "target": "п п п п п п п п п п п п п п п п п п п п",
       "finger": "blue",
       "title": "Буква П",
@@ -83,6 +86,9 @@
     {
       "type": "step",
       "kind": "drill",
+      "unit": "р",
+      "baseReps": 20,
+      "keys": ["р"],
       "target": "р р р р р р р р р р р р р р р р р р р р",
       "finger": "indigo",
       "title": "Буква Р",

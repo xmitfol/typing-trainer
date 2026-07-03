@@ -85,6 +85,9 @@
     {
       "type": "step",
       "kind": "drill",
+      "unit": "писала",
+      "baseReps": 4,
+      "keys": ["п", "и", "с", "а", "л"],
       "target": "писала писала писала писала",
       "finger": "blue",
       "title": "Ритм: писала",
@@ -93,6 +96,9 @@
     {
       "type": "step",
       "kind": "drill",
+      "unit": "час",
+      "baseReps": 5,
+      "keys": ["ч", "а", "с"],
       "target": "час час час час час",
       "finger": "orange",
       "title": "Ритм: час",
@@ -101,6 +107,9 @@
     {
       "type": "step",
       "kind": "drill",
+      "unit": "дверь",
+      "baseReps": 4,
+      "keys": ["д", "в", "е", "р", "ь"],
       "target": "дверь дверь дверь дверь",
       "finger": "orange",
       "title": "Ритм: дверь",
@@ -109,6 +118,9 @@
     {
       "type": "step",
       "kind": "drill",
+      "unit": "брат",
+      "baseReps": 5,
+      "keys": ["б", "р", "а", "т"],
       "target": "брат брат брат брат брат",
       "finger": "green",
       "title": "Ритм: брат",

@@ -58,6 +58,9 @@
     {
       "type": "step",
       "kind": "drill",
+      "unit": "чужак",
+      "baseReps": 4,
+      "keys": ["ч", "у", "ж", "а", "к"],
       "target": "чужак чужак чужак чужак",
       "finger": "orange",
       "title": "Ритм: чужак",
@@ -66,6 +69,9 @@
     {
       "type": "step",
       "kind": "drill",
+      "unit": "съезд",
+      "baseReps": 4,
+      "keys": ["с", "ъ", "е", "з", "д"],
       "target": "съезд съезд съезд съезд",
       "finger": "green",
       "title": "Ритм: съезд",
@@ -74,6 +80,9 @@
     {
       "type": "step",
       "kind": "drill",
+      "unit": "юный",
+      "baseReps": 4,
+      "keys": ["ю", "н", "ы", "й"],
       "target": "юный юный юный юный",
       "finger": "orange",
       "title": "Ритм: юный",
@@ -82,6 +91,9 @@
     {
       "type": "step",
       "kind": "drill",
+      "unit": "шеф",
+      "baseReps": 4,
+      "keys": ["ш", "е", "ф"],
       "target": "шеф шеф шеф шеф",
       "finger": "green",
       "title": "Ритм: шеф",

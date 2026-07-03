@@ -92,6 +92,9 @@
     {
       "type": "step",
       "kind": "drill",
+      "unit": "отчёты",
+      "baseReps": 4,
+      "keys": ["о", "т", "ч", "ё", "ы"],
       "target": "отчёты отчёты отчёты отчёты",
       "finger": "indigo",
       "title": "Ритм: отчёты",
@@ -100,6 +103,9 @@
     {
       "type": "step",
       "kind": "drill",
+      "unit": "запуск",
+      "baseReps": 4,
+      "keys": ["з", "а", "п", "у", "с", "к"],
       "target": "запуск запуск запуск запуск",
       "finger": "pink",
       "title": "Ритм: запуск",
@@ -108,6 +114,9 @@
     {
       "type": "step",
       "kind": "drill",
+      "unit": "линии",
+      "baseReps": 4,
+      "keys": ["л", "и", "н"],
       "target": "линии линии линии линии",
       "finger": "green",
       "title": "Ритм: линии",
@@ -116,6 +125,9 @@
     {
       "type": "step",
       "kind": "drill",
+      "unit": "города",
+      "baseReps": 4,
+      "keys": ["г", "о", "р", "д", "а"],
       "target": "города города города города",
       "finger": "indigo",
       "title": "Ритм: города",

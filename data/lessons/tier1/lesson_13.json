@@ -102,6 +102,9 @@
     {
       "type": "step",
       "kind": "drill",
+      "unit": "х",
+      "baseReps": 20,
+      "keys": ["х"],
       "target": "х х х х х х х х х х х х х х х х х х х х",
       "finger": "pink",
       "title": "Буква Х",
@@ -110,6 +113,9 @@
     {
       "type": "step",
       "kind": "drill",
+      "unit": "ъ",
+      "baseReps": 20,
+      "keys": ["ъ"],
       "target": "ъ ъ ъ ъ ъ ъ ъ ъ ъ ъ ъ ъ ъ ъ ъ ъ ъ ъ ъ ъ",
       "finger": "pink",
       "title": "Буква Ъ",

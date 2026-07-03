@@ -97,6 +97,9 @@
     {
       "type": "step",
       "kind": "drill",
+      "unit": "гора",
+      "baseReps": 5,
+      "keys": ["г", "о", "р", "а"],
       "target": "гора гора гора гора гора",
       "finger": "indigo",
       "title": "Ритм: гора",
@@ -105,6 +108,9 @@
     {
       "type": "step",
       "kind": "drill",
+      "unit": "роза",
+      "baseReps": 4,
+      "keys": ["р", "о", "з", "а"],
       "target": "роза роза роза роза",
       "finger": "pink",
       "title": "Ритм: роза",
@@ -113,6 +119,9 @@
     {
       "type": "step",
       "kind": "drill",
+      "unit": "гроза",
+      "baseReps": 3,
+      "keys": ["г", "р", "о", "з", "а"],
       "target": "гроза гроза гроза",
       "finger": "indigo",
       "title": "Ритм: гроза",
@@ -121,6 +130,9 @@
     {
       "type": "step",
       "kind": "drill",
+      "unit": "нога",
+      "baseReps": 3,
+      "keys": ["н", "о", "г", "а"],
       "target": "нога нога нога",
       "finger": "indigo",
       "title": "Ритм: нога",

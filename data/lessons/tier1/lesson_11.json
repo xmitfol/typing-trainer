@@ -102,6 +102,9 @@
     {
       "type": "step",
       "kind": "drill",
+      "unit": "щ",
+      "baseReps": 20,
+      "keys": ["щ"],
       "target": "щ щ щ щ щ щ щ щ щ щ щ щ щ щ щ щ щ щ щ щ",
       "finger": "orange",
       "title": "Буква Щ",
@@ -110,6 +113,9 @@
     {
       "type": "step",
       "kind": "drill",
+      "unit": "з",
+      "baseReps": 20,
+      "keys": ["з"],
       "target": "з з з з з з з з з з з з з з з з з з з з",
       "finger": "pink",
       "title": "Буква З",

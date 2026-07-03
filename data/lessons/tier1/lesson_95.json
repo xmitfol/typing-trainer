@@ -93,6 +93,9 @@
     {
       "type": "step",
       "kind": "drill",
+      "unit": "герой",
+      "baseReps": 5,
+      "keys": ["г", "е", "р", "о", "й"],
       "target": "герой герой герой герой герой",
       "finger": "indigo",
       "title": "Ритм: герой",
@@ -101,6 +104,9 @@
     {
       "type": "step",
       "kind": "drill",
+      "unit": "вдох",
+      "baseReps": 5,
+      "keys": ["в", "д", "о", "х"],
       "target": "вдох вдох вдох вдох вдох",
       "finger": "green",
       "title": "Ритм: вдох",
@@ -109,6 +115,9 @@
     {
       "type": "step",
       "kind": "drill",
+      "unit": "пальцы",
+      "baseReps": 4,
+      "keys": ["п", "а", "л", "ь", "ц", "ы"],
       "target": "пальцы пальцы пальцы пальцы",
       "finger": "blue",
       "title": "Ритм: пальцы",
@@ -117,6 +126,9 @@
     {
       "type": "step",
       "kind": "drill",
+      "unit": "загадкой",
+      "baseReps": 3,
+      "keys": ["з", "а", "г", "д", "к", "о", "й"],
       "target": "загадкой загадкой загадкой",
       "finger": "pink",
       "title": "Ритм: загадкой",

@@ -87,6 +87,9 @@
     {
       "type": "step",
       "kind": "drill",
+      "unit": "храм",
+      "baseReps": 4,
+      "keys": ["х", "р", "а", "м"],
       "target": "храм храм храм храм",
       "finger": "pink",
       "title": "Ритм: храм",
@@ -95,6 +98,9 @@
     {
       "type": "step",
       "kind": "drill",
+      "unit": "цель",
+      "baseReps": 4,
+      "keys": ["ц", "е", "л", "ь"],
       "target": "цель цель цель цель",
       "finger": "orange",
       "title": "Ритм: цель",
@@ -103,6 +109,9 @@
     {
       "type": "step",
       "kind": "drill",
+      "unit": "архив",
+      "baseReps": 3,
+      "keys": ["а", "р", "х", "и", "в"],
       "target": "архив архив архив",
       "finger": "blue",
       "title": "Ритм: архив",
@@ -111,6 +120,9 @@
     {
       "type": "step",
       "kind": "drill",
+      "unit": "факт",
+      "baseReps": 4,
+      "keys": ["ф", "а", "к", "т"],
       "target": "факт факт факт факт",
       "finger": "pink",
       "title": "Ритм: факт",

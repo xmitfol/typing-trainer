@@ -108,6 +108,9 @@
     {
       "type": "step",
       "kind": "drill",
+      "unit": "ритм",
+      "baseReps": 5,
+      "keys": ["р", "и", "т", "м"],
       "target": "ритм ритм ритм ритм ритм",
       "finger": "indigo",
       "title": "Ритм: ритм",
@@ -116,6 +119,9 @@
     {
       "type": "step",
       "kind": "drill",
+      "unit": "такт",
+      "baseReps": 5,
+      "keys": ["т", "а", "к"],
       "target": "такт такт такт такт такт",
       "finger": "indigo",
       "title": "Ритм: такт",
@@ -124,6 +130,9 @@
     {
       "type": "step",
       "kind": "drill",
+      "unit": "темп",
+      "baseReps": 5,
+      "keys": ["т", "е", "м", "п"],
       "target": "темп темп темп темп темп",
       "finger": "indigo",
       "title": "Ритм: темп",
@@ -132,6 +141,9 @@
     {
       "type": "step",
       "kind": "drill",
+      "unit": "счёт",
+      "baseReps": 5,
+      "keys": ["с", "ч", "ё", "т"],
       "target": "счёт счёт счёт счёт счёт",
       "finger": "green",
       "title": "Ритм: счёт",

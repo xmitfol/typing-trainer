@@ -110,6 +110,9 @@
     {
       "type": "step",
       "kind": "drill",
+      "unit": "строка",
+      "baseReps": 4,
+      "keys": ["с", "т", "р", "о", "к", "а"],
       "target": "строка строка строка строка",
       "finger": "green",
       "title": "Ритм: строка",
@@ -118,6 +121,9 @@
     {
       "type": "step",
       "kind": "drill",
+      "unit": "число",
+      "baseReps": 4,
+      "keys": ["ч", "и", "с", "л", "о"],
       "target": "число число число число",
       "finger": "green",
       "title": "Ритм: число",
@@ -126,6 +132,9 @@
     {
       "type": "step",
       "kind": "drill",
+      "unit": "формат",
+      "baseReps": 3,
+      "keys": ["ф", "о", "р", "м", "а", "т"],
       "target": "формат формат формат",
       "finger": "green",
       "title": "Ритм: формат",
@@ -134,6 +143,9 @@
     {
       "type": "step",
       "kind": "drill",
+      "unit": "вывод",
+      "baseReps": 4,
+      "keys": ["в", "ы", "о", "д"],
       "target": "вывод вывод вывод вывод",
       "finger": "green",
       "title": "Ритм: вывод",
