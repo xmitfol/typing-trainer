@@ -9,7 +9,7 @@ Verify Lesson Builder end-to-end:
   6. «▶ Тренировать» ведёт на task.html?tier=user&lesson=<id>
   7. task.html для tier=user грузит урок из localStorage (target, mentor bubble)
   8. Прохождение user-урока НЕ пишет в lessonProgress и test_history
-  9. Кнопки task-close + next-btn ведут на builder.html (для user-урока)
+  9. Кнопки task-close + «Продолжить» отчёта ведут на builder.html (для user-урока)
 """
 import io, sys
 from datetime import datetime
@@ -167,7 +167,8 @@ def main():
         progress_after = page.evaluate("localStorage.getItem('typing_trainer_lesson_progress')")
         history_after = page.evaluate("localStorage.getItem('typing_trainer_test_history')")
         current_after = page.evaluate("localStorage.getItem('typing_trainer_current_lesson')")
-        next_btn_href = page.evaluate("document.getElementById('next-btn')?.getAttribute('href')")
+        # Полный забег рендерит «Отчёт по уроку»: «Продолжить →» = a.btn--lg в .report-actions
+        next_btn_href = page.evaluate("document.querySelector('#success .report-actions a.btn--lg')?.getAttribute('href')")
         print(f'8) Финиш user-урока: success={success_shown}')
         print(f'   progress in LS={progress_after!r}, history={history_after!r}, current={current_after!r}')
         print(f'   next→ {next_btn_href}')

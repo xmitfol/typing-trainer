@@ -43,8 +43,11 @@ dependencies = [
 
 [dependency-groups]
 dev = [
-    "pytest>=8.3.0",
-    "pytest-asyncio>=0.24.0",
+    # Капы <9/<1: без lock-файла CI тянет свежие major'ы; pytest-asyncio 1.x
+    # сломал семантику event loop (conftest db-фикстуры ловят «attached to a
+    # different loop» на asyncpg). Снять при переезде на uv.lock + миграции конфтеста.
+    "pytest>=8.3.0,<9",
+    "pytest-asyncio>=0.24.0,<1",
     "pytest-cov>=6.0.0",
     "httpx>=0.27.0",
     "testcontainers[postgres]>=4.8.0",

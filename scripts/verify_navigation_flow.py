@@ -102,22 +102,25 @@ def main():
         check('lpOpenTrainer → task.html', page.locator('#lpOpenTrainer').get_attribute('href'), lambda s: s and 'task.html?tier=' in s)
         page.screenshot(path=str(SHOTS / '7_lesson.png'))
 
-        # 8. lesson -> task (новый task.html с клавиатурой)
-        print("\n=== 8. lesson lesson->task ===")
-        page.click('#lpOpenTrainer')
+        # 8. lesson -> task. Гайдед-урок: полный заход (#lpOpenTrainer) заблокирован
+        # до прохождения шагов (fullRunLocked, display:none) — реальный путь юзера
+        # идёт через топбар «Выполнить задание» → первый непройденный шаг (exercise=1).
+        print("\n=== 8. lesson lesson->task (гайдед-шаг) ===")
+        page.click('#lpTopTask')
         page.wait_for_timeout(900)
-        check('on task.html', page.url, lambda u: 'task.html' in u)
+        check('on task.html (exercise=1)', page.url, lambda u: 'task.html' in u and 'exercise=1' in u)
         page.wait_for_selector('#target .word', timeout=6000)
         page.wait_for_timeout(800)
         check('task target rendered (words)', page.locator('#target .word').count(), lambda n: n > 0)
         check('keyboard rendered', page.evaluate("document.getElementById('kb').shadowRoot.querySelectorAll('.key').length"), lambda n: n and n > 20)
         page.screenshot(path=str(SHOTS / '8_task.png'))
 
-        # 9. Complete exercise -> success Продолжить -> lesson.html (теория следующего)
-        print("\n=== 9. task success ->lesson.html ===")
-        target = page.evaluate("""() => Array.from(document.querySelectorAll('#target > *')).map(node =>
-            node.classList.contains('space') ? ' ' : Array.from(node.querySelectorAll('span')).map(s => s.textContent).join('')
-        ).join('')""")
+        # 9. Завершение ШАГА -> краткий success -> «Назад к уроку» на пройденный шаг
+        # (step-финиш использует статичную разметку #next-btn; отчёт lessonSummary —
+        # только у полного забега). target читаем как textContent .target__inner —
+        # старый обход `#target > *` на новой разметке удваивал буквы.
+        print("\n=== 9. task step success -> lesson.html?step=1 ===")
+        target = page.evaluate("document.querySelector('#target .target__inner').textContent")
         page.evaluate(
             """(txt) => {
                 const cap = document.getElementById('capture');
@@ -128,7 +131,7 @@ def main():
         )
         page.wait_for_timeout(800)
         check('success screen shown', page.locator('#success').get_attribute('class'), lambda s: 'show' in s)
-        check('success Продолжить -> lesson.html', page.locator('#next-btn').get_attribute('href'), lambda s: s.startswith('lesson.html?tier=') and 'lesson=2' in s)
+        check('success Назад к уроку -> lesson.html?step=1', page.locator('#next-btn').get_attribute('href'), lambda s: s.startswith('lesson.html?tier=') and 'lesson=1' in s and 'step=1' in s)
         page.screenshot(path=str(SHOTS / '9_task_success.png'))
 
         ctx.close()

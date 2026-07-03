@@ -117,8 +117,9 @@ def main():
 
         # ─── B. tooManyErrors ───────────────────────────────────────
         # error_limit=2 → halfErrorLimit=1 → срабатывает когда errors>1 (т.е. на 2-й ошибке)
-        # Нажмём 3 неправильных подряд (target[0]='а', посылаем 'x','y','z')
-        for ch in ('x', 'y', 'z'):
+        # Нажимаем 3 неправильных КИРИЛЛИЦЕЙ ('я','ю','ж'): латиница ('x','y','z')
+        # теперь триггерит детект EN-раскладки — реплика сменится, но не той веткой.
+        for ch in ('я', 'ю', 'ж'):
             press_key(page, ch)
         page.wait_for_timeout(300)
         tip_too_many = get_tip(page)
@@ -156,43 +157,42 @@ def main():
         for ch in full_target:
             press_key(page, ch)
         page.wait_for_timeout(600)
-        tip_complete = get_tip(page)
+        # Полный забег рендерит «Отчёт по уроку» (lessonSummary): плавающий бабл
+        # наставника скрыт, его реплика живёт в цитате отчёта .report-quote__text.
+        quote_complete = page.evaluate("document.querySelector('#success .report-quote__text')?.textContent || ''")
         success_visible = page.evaluate("document.getElementById('success')?.classList.contains('show')")
-        print(f'C) lessonCompleteSuccess: success.show={success_visible}, tip="{tip_complete[:100]}"')
+        print(f'C) lessonCompleteSuccess: success.show={success_visible}, quote="{quote_complete[:100]}"')
         shot(page, 'C_lessonCompleteSuccess')
         if not success_visible:
             print(f'   ❌ C fail — success экран не показан')
             failed += 1
-        elif tip_complete == tip_start or tip_complete == tip_too_many:
-            print(f'   ❌ C fail — tip не обновился под завершение')
+        elif len(quote_complete.strip('«» ')) < 5:
+            print(f'   ❌ C fail — цитата наставника в отчёте пуста')
             failed += 1
         else:
-            print('   ✅ C pass')
+            print('   ✅ C pass — отчёт с цитатой наставника')
 
         # ─── D. errorLimitExceeded ───────────────────────────────────
-        # Retry с большим количеством ошибок (> error_limit = 2)
-        page.click('#retry-btn')
+        # Retry с большим количеством ошибок (> error_limit = 2).
+        # «Повторить» в отчёте — #rep-retry (старый #retry-btn затёрт рендером отчёта).
+        page.click('#success #rep-retry')
         page.wait_for_timeout(300)
-        # Печатаем 31 символ, чередуя правильные и неправильные, чтобы errors>2 но typed=length
-        # target = "ааа ооо ввв ннн оно она он ан на" (31 char)
-        # Делаем сначала 5 неправильных, затем правильно остаток
+        # 5 ошибок (неверный символ позицию НЕ двигает), затем весь target
+        # правильно → забег финиширует с errors=5 > limit=2 → struggle-отчёт.
         for _ in range(5):
-            press_key(page, 'q')  # ошибки
-        # Допечатываем правильно с позиции 5
-        for ch in full_target[5:]:
+            press_key(page, 'ъ')  # ошибки кириллицей (латиница триггерит детект раскладки)
+        for ch in full_target:
             press_key(page, ch)
         page.wait_for_timeout(600)
-        tip_fail = get_tip(page)
         success_after_fail = page.evaluate("document.getElementById('success')?.classList.contains('show')")
-        print(f'D) errorLimitExceeded: success.show={success_after_fail}, tip="{tip_fail[:100]}"')
+        quote_fail = page.evaluate("document.querySelector('#success .report-quote__text')?.textContent || ''")
+        print(f'D) errorLimitExceeded: success.show={success_after_fail}, quote="{quote_fail[:100]}"')
         shot(page, 'D_errorLimitExceeded')
-        if tip_fail == tip_complete:
-            print(f'   ⚠️ D — tip совпал с success-репликой; возможно случайно тот же текст из массива')
         if not success_after_fail:
-            print(f'   ❌ D fail — success экран не показан после превышения лимита')
+            print(f'   ❌ D fail — отчёт не показан после превышения лимита')
             failed += 1
         else:
-            print('   ✅ D pass — финиш с превышением лимита показал реплику')
+            print('   ✅ D pass — финиш с превышением лимита показал отчёт')
 
         print()
         print('=' * 60)

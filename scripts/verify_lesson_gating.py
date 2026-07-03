@@ -50,9 +50,11 @@ def main():
         page.wait_for_selector('#lpTitle', timeout=6000)
         page.wait_for_timeout(1200)
 
-        # A. shortcut
-        check('топбар «Выполнить задание» → task.html', page.locator('#lpTopTask').get_attribute('href'),
-              lambda s: s == 'task.html?tier=tier1&lesson=3')
+        # A. shortcut — гайдед-урок без прогресса: шорткат ведёт к первому
+        # НЕпройденному шагу (exercise=1), а не в полный заход в обход лестницы
+        # (lesson-page.js «Выполнить задание →»).
+        check('топбар «Выполнить задание» → первый шаг', page.locator('#lpTopTask').get_attribute('href'),
+              lambda s: s == 'task.html?tier=tier1&lesson=3&exercise=1')
         # next locked
         check('next кнопка disabled (урок не пройден)', page.locator('#lpNavNext').get_attribute('class'),
               lambda s: 'lp-nav__btn--disabled' in s)

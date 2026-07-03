@@ -81,19 +81,19 @@ def main():
 
         # B. Корректный ввод → success
         print("\n=== B. правильный ввод → success 5★ ===")
-        target = page.evaluate("""() => {
-            // восстановить текст из span'ов (пробелы — .space)
-            return Array.from(document.querySelectorAll('#target > *')).map(node => {
-                if (node.classList.contains('space')) return ' ';
-                return Array.from(node.querySelectorAll('span')).map(s => s.textContent).join('');
-            }).join('');
-        }""")
+        # target из DOM: дизайн-апдейт обернул слова в .target__inner — textContent
+        # обёртки даёт точный текст (каждый текстовый узел один раз). Старый обход
+        # `#target > *` на новой разметке удваивал буквы (span слова + span'ы букв).
+        target = page.evaluate("document.querySelector('#target .target__inner').textContent")
         print(f"   target = {target!r}")
         type_text(page, target)
         page.wait_for_timeout(800)
         check('success показан', page.locator('#success').get_attribute('class'), lambda s: 'show' in s)
-        check('5 звёзд (без ошибок)', page.locator('#final-grade').inner_text(), lambda s: s.count('★') == 5)
-        check('«Продолжить» → lesson.html?lesson=2', page.locator('#next-btn').get_attribute('href'), lambda s: 'lesson.html' in s and 'lesson=2' in s)
+        # Полный забег рендерит «Отчёт по уроку» (lessonSummary.render) поверх #success:
+        # звёзды — SVG в .metric-stars (заполненные fill #f59e0b), «Продолжить →» ведёт
+        # назад к теории ЭТОГО урока (workflow: теория → тренажёр → урок).
+        check('5 звёзд (без ошибок)', page.evaluate("""document.querySelectorAll('#success .metric-stars svg path[fill="#f59e0b"]').length"""), 5)
+        check('«Продолжить» → lesson.html (теория урока)', page.locator('#success .report-actions a.btn--lg').get_attribute('href'), lambda s: 'lesson.html' in s and 'lesson=1' in s)
         saved = page.evaluate("JSON.parse(localStorage.getItem('typing_trainer_lesson_progress')||'{}')")
         check('lessonProgress[1].stars=5', saved.get('1', {}).get('stars'), 5)
         page.screenshot(path=str(SHOTS / 'B_success.png'))

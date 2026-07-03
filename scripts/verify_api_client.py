@@ -128,17 +128,21 @@ def main():
         else:
             failed += 1; print('   ❌')
 
-        # ─── 8. Auth в local mode ───
-        signin_result = page.evaluate("(async () => await window.apiClient.signin({email:'x', password:'y'}))()")
-        signout_result = page.evaluate("(async () => await window.apiClient.signout())()")
-        cur_user_after_signout = page.evaluate("(async () => await window.apiClient.getCurrentUser())()")
-        print(f'8) Auth local: signin user={signin_result.get("user",{}).get("name")}, signout={signout_result}')
-        # после signout onboardingCompleted удалён, getCurrentUser возвращает profile без флага
-        ok8 = (signin_result.get('user', {}).get('name') == 'Тест'
-               and signout_result is True
-               and (cur_user_after_signout is None or not cur_user_after_signout.get('onboardingCompleted')))
+        # ─── 8. Auth в local mode: backend-only, без фейкового успеха ───
+        # P2 (6f7fbe7): у signin/signout БОЛЬШЕ НЕТ localStorage-ветки — реальная
+        # авторизация серверная (auth.html + backend, гейт verify_signup_flow).
+        # В local mode ждём честный reject сетевого вызова, а не фейковый успех;
+        # getCurrentUser при useApi=false продолжает отдавать local-профиль.
+        signin_err = page.evaluate("""(async () => {
+            try { await window.apiClient.signin({email:'x', password:'y'}); return null; }
+            catch (e) { return { name: e.name || 'Error', status: e.status ?? null }; }
+        })()""")
+        cur_user_local = page.evaluate("(async () => await window.apiClient.getCurrentUser())()")
+        print(f'8) Auth local: signin rejected={signin_err is not None} ({signin_err}), getCurrentUser.name={(cur_user_local or {}).get("name")}')
+        ok8 = (signin_err is not None
+               and (cur_user_local or {}).get('name') == 'Тест')
         if ok8:
-            print('   ✅ auth local-mode семантика корректна')
+            print('   ✅ auth backend-only: signin честно падает, local-профиль читается')
         else:
             failed += 1; print('   ❌')
 

@@ -99,10 +99,10 @@ def main():
         page.goto(f"{BASE}/task.html?tier=tier1&lesson=1")
         page.wait_for_selector('#target .word', timeout=8000)
         page.wait_for_timeout(400)
-        # Допечатать текст полностью корректно → 5★, 100% точность
-        target = page.evaluate("""() => Array.from(document.querySelectorAll('#target > *')).map(node =>
-            node.classList.contains('space') ? ' ' : Array.from(node.querySelectorAll('span')).map(s => s.textContent).join('')
-        ).join('')""")
+        # Допечатать текст полностью корректно → 5★, 100% точность.
+        # textContent обёртки .target__inner — точный текст забега (старый обход
+        # `#target > *` на новой разметке удваивал буквы).
+        target = page.evaluate("document.querySelector('#target .target__inner').textContent")
         page.evaluate(
             """(txt) => {
                 const cap = document.getElementById('capture'); cap.focus();
