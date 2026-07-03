@@ -49,7 +49,12 @@
 - Контент-QA: вычитка читабельности 448 уроков.
 
 ### Инфра (сквозное)
-- **CI с реальным Docker-прогоном стека** (урок Sprint 1: 2/3 багов прошли бы зелёный unit-CI).
+- ✅ **CI с реальным Docker-прогоном стека** — заведён (PR #45, 2026-07-03): `.github/workflows/ci.yml`.
+  Блокирующие: compile-checks, content-lint (459 уроков HIGH=0), static-e2e ×2 шарда (26 Playwright),
+  stack-e2e (`docker compose --profile app` → auth-гейт 8/8 с реальными mailpit-токенами). Полный ран ~2.5 мин.
+  Наблюдательные (повысить до required после фиксов, владелец Борис): backend-tests 63/72
+  (conftest vs starlette 1.x + 2 email-ассерта), backend-typecheck (strict-долг новых модулей).
+- CI-долг: `uv.lock` (CI и Dockerfile резолвят latest); ruff cleanup-PR → ruff-гейт (сегодня 441, в осн. RUF001-003 кириллица).
 
 ---
 
