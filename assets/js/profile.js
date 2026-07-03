@@ -183,6 +183,46 @@ document.addEventListener('DOMContentLoaded', async function () {
         coursesEl.appendChild(row);
     });
 
+    // ── Weak keys «Клавиши на прокачку» (адаптив-спека §6, только adult) ──
+    // Explainable-вывод движка adaptive-repetition: топ-5 слабых клавиш тира
+    // с errorRate. kids/teen не показываем (§6: для них адаптация невидима).
+    // Нет движка / нет weak-данных → блок не рендерится вовсе. Fail-safe.
+    (function renderWeakKeys() {
+        try {
+            if (!window.adaptiveReps || typeof window.adaptiveReps.weakKeys !== 'function') return;
+            const tier = currentTier || 'tier1';
+            if (window.adaptiveReps.audienceForTier(tier) !== 'adult') return;
+            const weak = window.adaptiveReps.weakKeys(tier, 5);
+            if (!Array.isArray(weak) || !weak.length) return;
+            const panel = document.querySelector('.pp-tabpanel[data-panel="profile"]');
+            if (!panel) return;
+
+            const box = document.createElement('div');
+            box.className = 'pp-weakkeys';
+            box.id = 'ppWeakKeys';
+            box.innerHTML = `
+                <h3 class="pp-h3 pp-h3--spaced">Клавиши на прокачку</h3>
+                <p class="pp-lead">Этим буквам стоит уделить чуть больше внимания —
+                тренажёр сам предложит короткие дриллы в уроках.</p>
+                <div class="pp-weakkeys__row"></div>
+            `;
+            const row = box.querySelector('.pp-weakkeys__row');
+            weak.forEach(w => {
+                const cap = document.createElement('div');
+                cap.className = 'pp-weakkeys__cap';
+                const ch = document.createElement('span');
+                ch.className = 'pp-weakkeys__char';
+                ch.textContent = String(w.key || '').toUpperCase();
+                const rate = document.createElement('span');
+                rate.className = 'pp-weakkeys__rate';
+                rate.textContent = `${Math.round((w.errorRate || 0) * 100)}%`;
+                cap.appendChild(ch); cap.appendChild(rate);
+                row.appendChild(cap);
+            });
+            panel.appendChild(box);
+        } catch (e) { /* fail-safe: блок опционален */ }
+    })();
+
     // ── Certificates tab progress ───────────────────────────────────
     const totalCurrent = counts[currentTier] || 99;
     const certPct = Math.round((completedCount / totalCurrent) * 100);

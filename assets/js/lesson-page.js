@@ -263,9 +263,10 @@ document.addEventListener('DOMContentLoaded', async function () {
         }
     });
 
-    // Адаптив (§5.2): точечный remediation-дрилл на слабую клавишу. В MVP-cut
-    // remediationStep — заглушка (всегда null), поэтому это no-op; точка подключения
-    // готова для 2-й итерации Phase 1 (§4.3). Вставляем как обычный active-step.
+    // Адаптив (§4.3/§5.2): точечный remediation-дрилл на слабую клавишу урока.
+    // Движок сам решает, нужен ли шаг (weak ∩ клавиши урока, cap, persisted weak) —
+    // null означает «нечего лечить». Вставляем в конец лестницы как active-step;
+    // шаг НЕ курсовой (не влияет на totalSteps/гейт полного захода).
     if (guided && window.adaptiveReps) {
         try {
             const rem = window.adaptiveReps.remediationStep(tier, lesson, guidedStepIdx);
@@ -322,7 +323,11 @@ document.addEventListener('DOMContentLoaded', async function () {
         if (status === 'locked') {
             metaHtml = `<span class="lp-step__lock">🔒 ${escapeHtml(t('lesson.stepLocked', 'Сначала пройди предыдущий шаг'))}</span>`;
         } else {
-            const href = `task.html?tier=${encodeURIComponent(tier)}&lesson=${lessonNum}&exercise=${num}`;
+            // Remediation-шаг (§4.3) — НЕ курсовой: exercise=N для него не существует
+            // в JSON урока, тренажёр строит его по ключу (?remediation=<key>).
+            const href = tip.remediation === true
+                ? `task.html?tier=${encodeURIComponent(tier)}&lesson=${lessonNum}&remediation=${encodeURIComponent(tip.key)}`
+                : `task.html?tier=${encodeURIComponent(tier)}&lesson=${lessonNum}&exercise=${num}`;
             const doneBadge = status === 'done'
                 ? `<span class="lp-exercise__done-badge">✓ ${escapeHtml(t('lesson.stepDone', 'Пройдено'))}</span>`
                 : '';
