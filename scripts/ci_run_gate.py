@@ -38,9 +38,10 @@ from pathlib import Path
 
 SCRIPTS_DIR = Path(__file__).resolve().parent
 
-# 26 CI-безопасных статических проверок (Playwright + localStorage, без бэкенда).
+# 27 CI-безопасных статических проверок (Playwright + localStorage, без бэкенда).
 STATIC_SUITE = [
     "verify_achievements.py",
+    "verify_adaptive_phase2.py",
     "verify_all_pages_smoke.py",
     "verify_api_client.py",
     "verify_bestwpm_migration.py",

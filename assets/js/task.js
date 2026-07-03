@@ -137,10 +137,33 @@ document.addEventListener('DOMContentLoaded', async function () {
         stepMode = !!(currentStep && currentStep.target);
     }
     // Прямой URL на шаг, чей предыдущий ещё не пройден → назад в теорию.
+    // (Remediation-режим ниже этим гардом не срезается: у него exercise-параметра
+    // нет, stepMode он включает сам после этой проверки.)
     if (stepMode && exerciseIdx > 1 && window.exerciseProgress
         && !window.exerciseProgress.isStepDone(tier, lessonNum, exerciseIdx - 1)) {
         window.location.replace(`lesson.html?tier=${encodeURIComponent(tier)}&lesson=${lessonNum}`);
         return;
+    }
+
+    // ─── Remediation-дрилл (?remediation=<key>, §4.3 адаптив-спеки) ─────
+    // Точечный шаг на слабую клавишу. НЕ курсовой: не входит в лестницу
+    // exerciseProgress, не трогает lesson_progress/звёзды/totalSteps. Шаг
+    // строится движком по ключу на лету; если построить нельзя (данные
+    // изменились / движок недоступен) → в теорию, как гард прямого URL выше.
+    const remediationKey = params.get('remediation') || '';
+    let remediationMode = false;
+    if (!stepMode && remediationKey && lesson.guided) {
+        let remStep = null;
+        if (window.adaptiveReps && typeof window.adaptiveReps.remediationStepForKey === 'function') {
+            try { remStep = window.adaptiveReps.remediationStepForKey(tier, lessonNum, remediationKey); } catch (e) {}
+        }
+        if (!remStep || !remStep.target) {
+            window.location.replace(`lesson.html?tier=${encodeURIComponent(tier)}&lesson=${lessonNum}`);
+            return;
+        }
+        currentStep = remStep;
+        stepMode = true;
+        remediationMode = true;
     }
 
     // Адаптивный target шага: если шаг декларативный (unit/baseReps) и движок
@@ -151,7 +174,9 @@ document.addEventListener('DOMContentLoaded', async function () {
     let targetText;
     if (stepMode) {
         targetText = String(currentStep.target || '');
-        if (window.adaptiveReps) {
+        // Remediation-шаг не масштабируем: target уже прибит движком
+        // (REMEDIATION_REPS групп, фиксированный короткий дрилл — §4.3).
+        if (!remediationMode && window.adaptiveReps) {
             try {
                 const r = window.adaptiveReps.computeReps(tier, currentStep);
                 if (r != null && currentStep.unit != null) {
@@ -459,23 +484,33 @@ document.addEventListener('DOMContentLoaded', async function () {
     function finishStep() {
         done = true;
         clearInterval(timer);
-        if (window.exerciseProgress) window.exerciseProgress.markStepDone(tier, lessonNum, exerciseIdx);
-        // Адаптив: слить накопленную per-key статистику захода в key_stats.
-        if (window.adaptiveReps) { try { window.adaptiveReps.flushSession(tier); } catch (e) {} }
-        // §3.2 — фактически выданное число повторов + errorRate шага для оффлайн-анализа.
-        // Пишем в lesson_exercises поверх записи markStepDone (не плодим ключей).
-        if (adaptiveRepsCount != null && window.exerciseProgress) {
-            try {
-                const ek = window.exerciseProgress.STORAGE_KEY;
-                const all = JSON.parse(localStorage.getItem(ek) || '{}');
-                const lk = `${tier}:${lessonNum}`;
-                if (all[lk] && all[lk].steps && all[lk].steps[String(exerciseIdx)]) {
-                    const attemptsN = typed + errors;
-                    all[lk].steps[String(exerciseIdx)].reps = adaptiveRepsCount;
-                    all[lk].steps[String(exerciseIdx)].lastErrorRate = attemptsN > 0 ? errors / attemptsN : 0;
-                    localStorage.setItem(ek, JSON.stringify(all));
-                }
-            } catch (e) { /* fail-safe */ }
+        if (remediationMode) {
+            // Remediation-шаг — НЕ курсовой: markStepDone не зовём (лестница шагов
+            // и гейт полного захода не двигаются). Только счётчик заходов (§4.3
+            // cap/persisted weak) + слив per-key статистики.
+            if (window.adaptiveReps) {
+                try { window.adaptiveReps.noteRemediationPass(tier, lessonNum, currentStep.key); } catch (e) {}
+                try { window.adaptiveReps.flushSession(tier); } catch (e) {}
+            }
+        } else {
+            if (window.exerciseProgress) window.exerciseProgress.markStepDone(tier, lessonNum, exerciseIdx);
+            // Адаптив: слить накопленную per-key статистику захода в key_stats.
+            if (window.adaptiveReps) { try { window.adaptiveReps.flushSession(tier); } catch (e) {} }
+            // §3.2 — фактически выданное число повторов + errorRate шага для оффлайн-анализа.
+            // Пишем в lesson_exercises поверх записи markStepDone (не плодим ключей).
+            if (adaptiveRepsCount != null && window.exerciseProgress) {
+                try {
+                    const ek = window.exerciseProgress.STORAGE_KEY;
+                    const all = JSON.parse(localStorage.getItem(ek) || '{}');
+                    const lk = `${tier}:${lessonNum}`;
+                    if (all[lk] && all[lk].steps && all[lk].steps[String(exerciseIdx)]) {
+                        const attemptsN = typed + errors;
+                        all[lk].steps[String(exerciseIdx)].reps = adaptiveRepsCount;
+                        all[lk].steps[String(exerciseIdx)].lastErrorRate = attemptsN > 0 ? errors / attemptsN : 0;
+                        localStorage.setItem(ek, JSON.stringify(all));
+                    }
+                } catch (e) { /* fail-safe */ }
+            }
         }
 
         $('success-num').textContent = exId;
@@ -486,7 +521,9 @@ document.addEventListener('DOMContentLoaded', async function () {
         $('final-rhythm').textContent = '—';
         // Вариант 2 потока: последний шаг ведёт не назад к уроку, а на ФИНАЛЬНЫЙ
         // ЗАХОД (полный текст урока) → оттуда «Отчёт по уроку».
-        const isLastStep = totalSteps > 0 && exerciseIdx >= totalSteps;
+        // Remediation-шаг не в лестнице (exerciseIdx=0/totalSteps=0) → всегда
+        // «Назад к уроку», причём БЕЗ step-параметра (скроллить не к чему).
+        const isLastStep = !remediationMode && totalSteps > 0 && exerciseIdx >= totalSteps;
         const nextBtn = $('next-btn');
         if (isLastStep) {
             $('success-title').textContent = 'Все шаги пройдены!';
@@ -500,9 +537,12 @@ document.addEventListener('DOMContentLoaded', async function () {
             // Прямой текст без шаблонных переменных: у шага нет оценки/точности,
             // поэтому НЕ используем реплику lessonCompleteSuccess (в ней {accuracy}).
             tipEl.textContent = (profile.name ? profile.name + ', ш' : 'Ш') + 'аг пройден! Возвращайся к уроку.';
-            // Возврат к ПРОЙДЕННОМУ шагу на странице урока (не в начало текста).
+            // Возврат к ПРОЙДЕННОМУ шагу на странице урока (не в начало текста);
+            // remediation — просто к уроку, без step= (шаг не из лестницы).
             nextBtn.textContent = tf('task.backToLesson', '← Назад к уроку');
-            nextBtn.href = `lesson.html?tier=${encodeURIComponent(tier)}&lesson=${lessonNum}&step=${exerciseIdx}`;
+            nextBtn.href = remediationMode
+                ? `lesson.html?tier=${encodeURIComponent(tier)}&lesson=${lessonNum}`
+                : `lesson.html?tier=${encodeURIComponent(tier)}&lesson=${lessonNum}&step=${exerciseIdx}`;
         }
         hintEl.textContent = '';
 

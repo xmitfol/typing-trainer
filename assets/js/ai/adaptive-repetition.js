@@ -4,17 +4,17 @@
  * Спека: docs/spec/methodology/adaptive_repetition_spec.md (owner: Ася).
  * Rule-based, client-side, offline. Чистые функции + local-хранилище per-key статистики.
  *
- * MVP-cut scope (§7 spec, Phase 1 «Входит минимально»):
+ * Phase 1 scope (§7 spec, MVP-cut + 2-я итерация):
  *   1. Сбор per-key статистики (recordKey + key_stats ключ).
  *   2. computeReps — mastery/weak (§4.1) → множитель (§4.2) → clamp.
  *   3. Декларативная модель урока unit/baseReps/keys (подключена в lesson_01).
  *   4. flushSession — персист накопленной за сессию статистики.
- *   5. weakKeys — базовый выборщик (для remediation/дашборда 2-й итерации).
+ *   5. weakKeys — выборщик слабых клавиш (remediation + профиль).
+ *   6. decay (§4.4): затухание мастерства на чтение (2-я итерация).
+ *   7. remediationStep/remediationStepForKey/noteRemediationPass (§4.3):
+ *      точечный дрилл на слабую клавишу, cap на урок, «не зацикливать» (2-я итерация).
  *
- * ОТЛОЖЕНО во 2-ю итерацию Phase 1 (не входит в этот файл как активная логика):
- *   - remediationStep (§4.3): точечный дрилл. Заглушка возвращает null.
- *   - decay (§4.4): затухание мастерства. НЕ применяется на чтение (помечено ниже).
- *   - weak-keys в профиле (§6, adult explainable).
+ * Weak-keys в профиле (§6, adult explainable) — рендер в profile.js через weakKeys().
  *
  * Backward-compat: модуль fail-safe. Нет данных / битый стор → status "unknown" →
  * factor 1.0 → computeReps возвращает baseReps без изменений. Урок без unit/baseReps
@@ -48,14 +48,20 @@
         REPS_MIN: 2,             // никогда не 0 (переопределяется audience)
         REPS_MAX_MULT: 2.5,      // REPS_MAX = baseReps * mult (переопределяется audience)
         LAT_OUTLIER_MS: 2000,    // отсев outlier-латентностей (как в task.js)
+        // decay (§4.4) [TUNE]
+        DECAY_IDLE_DAYS: 7,      // дней без практики клавиши → streak затухает
+        DECAY_STREAK_FACTOR: 0.5,// half-life: effectiveStreak = floor(streak * 0.5)
+        // remediation (§4.3) [TUNE]
+        REMEDIATION_REPS: 3,     // групп в remediation-дрилле (короткий, анти-фрустрация)
+        REMEDIATION_MAX_PASSES: 2, // заходов на клавишу в уроке; дальше — persisted weak, не зацикливаем
     };
 
     // audience-профиль порогов (§6 spec). Ключ — audience (не tier), маппинг tier→audience ниже.
     // [TUNE] значения из таблицы §6.
     const AUDIENCE = {
-        kids:  { REPS_MIN: 3, REPS_MAX_MULT: 2.0, WEAK_ERR: 0.15 },
-        teen:  { REPS_MIN: 2, REPS_MAX_MULT: 2.5, WEAK_ERR: 0.12 },
-        adult: { REPS_MIN: 2, REPS_MAX_MULT: 3.0, WEAK_ERR: 0.10 },
+        kids:  { REPS_MIN: 3, REPS_MAX_MULT: 2.0, WEAK_ERR: 0.15, MAX_REMEDIATION: 1 },
+        teen:  { REPS_MIN: 2, REPS_MAX_MULT: 2.5, WEAK_ERR: 0.12, MAX_REMEDIATION: 2 },
+        adult: { REPS_MIN: 2, REPS_MAX_MULT: 3.0, WEAK_ERR: 0.10, MAX_REMEDIATION: 2 },
     };
 
     // tier → audience. ru_kids/en_kids → kids; ru_teen/en_teen → teen; tier1/en_tier1 → adult.
@@ -133,9 +139,18 @@
         // latRatio: 1.0 = норма. Нет данных о личной медиане → нейтрально (1.0).
         const latRatio = (med != null && pMedian != null && pMedian > 0) ? (med / pMedian) : 1.0;
 
-        // NOTE(Ася §4.4 decay): здесь во 2-й итерации применить half-life к correctStreak
-        // по daysIdle. В MVP-cut decay отложен — effectiveStreak = correctStreak (на чтение).
-        const effectiveStreak = rec.correctStreak;
+        // Decay (§4.4): навык деградирует без практики. daysIdle > DECAY_IDLE_DAYS →
+        // streak затухает (half-life). ТОЛЬКО на чтение — хранимые счётчики не
+        // переписываем; mastered может откатиться в learning → вернутся базовые
+        // повторы (re-warmup). Невалидный/отсутствующий lastSeenAt → без decay.
+        let effectiveStreak = rec.correctStreak || 0;
+        const seenTs = rec.lastSeenAt ? Date.parse(rec.lastSeenAt) : NaN;
+        if (Number.isFinite(seenTs)) {
+            const daysIdle = (Date.now() - seenTs) / 86400000;
+            if (daysIdle > cfg.DECAY_IDLE_DAYS) {
+                effectiveStreak = Math.floor(effectiveStreak * cfg.DECAY_STREAK_FACTOR);
+            }
+        }
 
         const mastered = errorRate < cfg.MASTERED_ERR
             && effectiveStreak >= cfg.MASTERED_STREAK
@@ -167,6 +182,50 @@
     }
 
     function clamp(v, lo, hi) { return Math.max(lo, Math.min(hi, v)); }
+
+    // ─── Remediation (§4.3) ───────────────────────────────────────────────────
+    // Карта символ → палец постановки ЙЦУКЕН. Компактный дубль CHAR_FINGER из
+    // task.js (~строка 264, рендер текущего символа) — для finger remediation-шага.
+    // При изменении раскладки синхронизировать с task.js.
+    const CHAR_FINGER = {
+        'й': 'pink', 'ф': 'pink', 'я': 'pink', 'ё': 'pink',
+        'ц': 'orange', 'ы': 'orange', 'ч': 'orange',
+        'у': 'green', 'в': 'green', 'с': 'green',
+        'к': 'blue', 'а': 'blue', 'м': 'blue', 'е': 'blue', 'п': 'blue', 'и': 'blue',
+        'н': 'indigo', 'р': 'indigo', 'т': 'indigo', 'г': 'indigo', 'о': 'indigo', 'ь': 'indigo',
+        'ш': 'green', 'л': 'green', 'б': 'green',
+        'щ': 'orange', 'д': 'orange', 'ю': 'orange',
+        'з': 'pink', 'ж': 'pink', 'х': 'pink', 'э': 'pink', 'ъ': 'pink',
+    };
+
+    // Трекинг заходов remediation в tier-bucket:
+    //   bucket.remediation = { "<lessonNum>": { "<key>": passes } }
+    // Fail-safe при чтении битого стора: любой не-объект/не-число → 0.
+    function remediationPasses(bucket, lessonNum, key) {
+        try {
+            const rem = bucket.remediation;
+            if (!rem || typeof rem !== 'object') return 0;
+            const perLesson = rem[String(lessonNum)];
+            if (!perLesson || typeof perLesson !== 'object') return 0;
+            const n = Number(perLesson[normKey(key)]);
+            return (Number.isFinite(n) && n > 0) ? Math.floor(n) : 0;
+        } catch (e) { return 0; }
+    }
+    // Сумма заходов по всем клавишам урока (для cap MAX_REMEDIATION).
+    function remediationTotal(bucket, lessonNum) {
+        try {
+            const rem = bucket.remediation;
+            if (!rem || typeof rem !== 'object') return 0;
+            const perLesson = rem[String(lessonNum)];
+            if (!perLesson || typeof perLesson !== 'object') return 0;
+            let total = 0;
+            for (const k in perLesson) {
+                const n = Number(perLesson[k]);
+                if (Number.isFinite(n) && n > 0) total += Math.floor(n);
+            }
+            return total;
+        } catch (e) { return 0; }
+    }
 
     const adaptiveReps = {
         STORAGE_KEY: KEY,
@@ -247,6 +306,10 @@
             try {
                 if (!step || step.unit == null || !Number.isFinite(Number(step.baseReps))) return null;
                 const baseReps = Math.max(1, Math.round(Number(step.baseReps)));
+                // Remediation-шаг (§4.3): короткий фиксированный дрилл, НЕ масштабируем
+                // адаптивом (weak-клавиша дала бы factor 1.6-2.0 — анти-фрустрация).
+                // Заодно превью в lesson-page и target в task.js гарантированно совпадают.
+                if (step.remediation === true) return baseReps;
                 const cfg = profileForTier(tier);
 
                 const all = readAll();
@@ -332,13 +395,128 @@
         },
 
         /**
-         * remediationStep(tier, lesson, doneSteps) -> step | null
-         * ОТЛОЖЕНО во 2-ю итерацию Phase 1 (§4.3 spec). Заглушка: всегда null,
-         * чтобы точки подключения в lesson-page.js уже существовали и были no-op.
+         * remediationStepForKey(tier, lessonNum, key) -> step | null
+         * Построить точечный remediation-шаг (§4.3) на конкретную клавишу.
+         * unit: если топ-конфузия клавиши mastered — чередование k+c+k («нан»,
+         * методика «чередование с ближайшей освоенной»), иначе изоляция k+k+k («ннн»).
+         * Тон §6: kids — нейтральный title/hint без «слабая/ошибки».
          */
-        remediationStep(/* tier, lesson, doneSteps */) {
-            return null;
+        remediationStepForKey(tier, lessonNum, key) {
+            try {
+                const k = normKey(key);
+                if (!k || k === ' ') return null;
+                const cfg = profileForTier(tier);
+                const all = readAll();
+                const bucket = tierBucket(all, tier);
+                const rec = bucket.keys[k];
+
+                // unit: чередование с топ-конфузией со статусом mastered, иначе изоляция.
+                let unit = k + k + k;
+                if (rec && rec.confused && typeof rec.confused === 'object') {
+                    let top = null, topN = 0;
+                    for (const c in rec.confused) {
+                        const n = Number(rec.confused[c]);
+                        if (Number.isFinite(n) && n > topN) { top = normKey(c); topN = n; }
+                    }
+                    if (top && top !== k
+                        && keyStatus(bucket.keys[top], personalMedianLatency(bucket), cfg) === 'mastered') {
+                        unit = k + top + k;
+                    }
+                }
+
+                const up = k.toUpperCase();
+                const aud = audienceForTier(tier);
+                // Тон §6: для kids — нейтрально (без намёка на слабость/ошибки),
+                // для teen/adult — мягко, без «слабая/ошибки».
+                const title = aud === 'kids' ? `Ещё разок: «${up}»` : `Дожмём букву «${up}»`;
+                const hint = aud === 'kids'
+                    ? `Потренируем букву ${up} ещё немного — спокойно, в своём темпе.`
+                    : `Короткий дополнительный дрилл: буква ${up} просит чуть больше внимания. Не спеши, ровный ритм важнее скорости.`;
+
+                return {
+                    type: 'step', kind: 'drill', remediation: true,
+                    key: k, unit, baseReps: TUNE.REMEDIATION_REPS, keys: [k],
+                    // target прибит заранее: computeReps для remediation не масштабирует.
+                    target: this.buildTarget(unit, TUNE.REMEDIATION_REPS),
+                    finger: CHAR_FINGER[k] || 'blue',
+                    title, hint,
+                };
+            } catch (e) { return null; }
         },
+
+        /**
+         * remediationStep(tier, lesson, doneSteps) -> step | null
+         * Выбрать remediation-шаг для лестницы урока (§4.3):
+         *   кандидаты = weak-клавиши тира ∩ клавиши шагов урока;
+         *   − клавиши с passes >= REMEDIATION_MAX_PASSES (persisted weak — не зацикливаем);
+         *   cap по уроку: суммарно выдано >= MAX_REMEDIATION → null;
+         *   из оставшихся — худшая по errorRate.
+         * doneSteps сейчас не участвует в решении (контракт §5.2 — на будущее).
+         */
+        remediationStep(tier, lesson, doneSteps) {
+            try {
+                if (!lesson || lesson.guided !== true || !Array.isArray(lesson.tips)) return null;
+                const lessonNum = Number(lesson.lesson_number);
+                if (!Number.isFinite(lessonNum) || lessonNum <= 0) return null;
+
+                const all = readAll();
+                const bucket = tierBucket(all, tier);
+                // Нет накопленных adaptiveReps-данных → нечего лечить.
+                if (!Object.keys(bucket.keys).length) return null;
+
+                // Cap на урок (§4.3, анти-фрустрация): суммарно уже выдано >= MAX_REMEDIATION
+                // заходов — новый НЕ выдаём (проверка на выдачу, счётчики не трогаем).
+                const cfg = profileForTier(tier);
+                if (remediationTotal(bucket, lessonNum) >= cfg.MAX_REMEDIATION) return null;
+
+                // Клавиши шагов урока (union stepKeys по всем tips type='step').
+                const lessonKeys = {};
+                for (const tp of lesson.tips) {
+                    if (tp && tp.type === 'step') {
+                        const ks = stepKeys(tp);
+                        for (let i = 0; i < ks.length; i++) lessonKeys[ks[i]] = true;
+                    }
+                }
+
+                // weak/weak_high_lat ∩ клавиши урока, минус persisted weak.
+                // weakKeys уже отсортирован по errorRate desc → первый прошедший = худший.
+                const candidates = this.weakKeys(tier);
+                for (const w of candidates) {
+                    if (!lessonKeys[w.key]) continue;
+                    if (remediationPasses(bucket, lessonNum, w.key) >= cfg.REMEDIATION_MAX_PASSES) {
+                        // Explainability (§4.3/§9): дрилл не помог за N заходов — пропускаем
+                        // вперёд, не превращаем урок в наказание.
+                        console.info('adaptive: persisted weak', w.key);
+                        continue;
+                    }
+                    return this.remediationStepForKey(tier, lessonNum, w.key);
+                }
+                return null;
+            } catch (e) { return null; }
+        },
+
+        /**
+         * noteRemediationPass(tier, lessonNum, key) — заход на remediation-шаг
+         * завершён (вызывает task.js на финише). passes++ в bucket.remediation.
+         */
+        noteRemediationPass(tier, lessonNum, key) {
+            try {
+                const k = normKey(key);
+                if (!k) return;
+                const all = readAll();
+                const bucket = tierBucket(all, tier);
+                if (!bucket.remediation || typeof bucket.remediation !== 'object') bucket.remediation = {};
+                const lk = String(lessonNum);
+                if (!bucket.remediation[lk] || typeof bucket.remediation[lk] !== 'object') bucket.remediation[lk] = {};
+                const cur = Number(bucket.remediation[lk][k]);
+                bucket.remediation[lk][k] = ((Number.isFinite(cur) && cur > 0) ? Math.floor(cur) : 0) + 1;
+                bucket.updatedAt = new Date().toISOString();
+                writeAll(all);
+            } catch (e) { /* fail-safe */ }
+        },
+
+        /** audienceForTier(tier) -> 'kids'|'teen'|'adult' — для UI (§6 видимость). */
+        audienceForTier(tier) { return audienceForTier(tier); },
 
         /** keyStatusFor(tier, key) — для тестов/дашборда. */
         keyStatusFor(tier, key) {
