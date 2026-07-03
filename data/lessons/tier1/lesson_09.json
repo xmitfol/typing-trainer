@@ -91,6 +91,9 @@
     {
       "type": "step",
       "kind": "drill",
+      "unit": "е",
+      "baseReps": 20,
+      "keys": ["е"],
       "target": "е е е е е е е е е е е е е е е е е е е е",
       "finger": "blue",
       "title": "Буква Е",
@@ -99,6 +102,9 @@
     {
       "type": "step",
       "kind": "drill",
+      "unit": "н",
+      "baseReps": 20,
+      "keys": ["н"],
       "target": "н н н н н н н н н н н н н н н н н н н н",
       "finger": "indigo",
       "title": "Буква Н",

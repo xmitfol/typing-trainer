@@ -96,6 +96,9 @@
     {
       "type": "step",
       "kind": "drill",
+      "unit": "г",
+      "baseReps": 20,
+      "keys": ["г"],
       "target": "г г г г г г г г г г г г г г г г г г г г",
       "finger": "indigo",
       "title": "Буква Г",
@@ -104,6 +107,9 @@
     {
       "type": "step",
       "kind": "drill",
+      "unit": "ш",
+      "baseReps": 20,
+      "keys": ["ш"],
       "target": "ш ш ш ш ш ш ш ш ш ш ш ш ш ш ш ш ш ш ш ш",
       "finger": "green",
       "title": "Буква Ш",

@@ -64,6 +64,9 @@
     {
       "type": "step",
       "kind": "drill",
+      "unit": "сегодня",
+      "baseReps": 4,
+      "keys": ["с", "е", "г", "о", "д", "н", "я"],
       "target": "сегодня сегодня сегодня сегодня",
       "finger": "green",
       "title": "Ритм: сегодня",
@@ -72,6 +75,9 @@
     {
       "type": "step",
       "kind": "drill",
+      "unit": "солнце",
+      "baseReps": 4,
+      "keys": ["с", "о", "л", "н", "ц", "е"],
       "target": "солнце солнце солнце солнце",
       "finger": "green",
       "title": "Ритм: солнце",
@@ -80,6 +86,9 @@
     {
       "type": "step",
       "kind": "drill",
+      "unit": "кофе",
+      "baseReps": 4,
+      "keys": ["к", "о", "ф", "е"],
       "target": "кофе кофе кофе кофе",
       "finger": "blue",
       "title": "Ритм: кофе",
@@ -88,6 +97,9 @@
     {
       "type": "step",
       "kind": "drill",
+      "unit": "марафон",
+      "baseReps": 3,
+      "keys": ["м", "а", "р", "ф", "о", "н"],
       "target": "марафон марафон марафон",
       "finger": "blue",
       "title": "Ритм: марафон",

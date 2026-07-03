@@ -111,6 +111,9 @@
     {
       "type": "step",
       "kind": "drill",
+      "unit": "освоил",
+      "baseReps": 4,
+      "keys": ["о", "с", "в", "и", "л"],
       "target": "освоил освоил освоил освоил",
       "finger": "indigo",
       "title": "Ритм: освоил",
@@ -119,6 +122,9 @@
     {
       "type": "step",
       "kind": "drill",
+      "unit": "печать",
+      "baseReps": 4,
+      "keys": ["п", "е", "ч", "а", "т", "ь"],
       "target": "печать печать печать печать",
       "finger": "blue",
       "title": "Ритм: печать",
@@ -127,6 +133,9 @@
     {
       "type": "step",
       "kind": "drill",
+      "unit": "буквы",
+      "baseReps": 4,
+      "keys": ["б", "у", "к", "в", "ы"],
       "target": "буквы буквы буквы буквы",
       "finger": "green",
       "title": "Ритм: буквы",
@@ -135,6 +144,9 @@
     {
       "type": "step",
       "kind": "drill",
+      "unit": "спасибо",
+      "baseReps": 3,
+      "keys": ["с", "п", "а", "и", "б", "о"],
       "target": "спасибо спасибо спасибо",
       "finger": "green",
       "title": "Ритм: спасибо",

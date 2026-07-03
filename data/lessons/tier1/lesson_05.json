@@ -72,6 +72,9 @@
     {
       "type": "step",
       "kind": "drill",
+      "unit": "э",
+      "baseReps": 20,
+      "keys": ["э"],
       "target": "э э э э э э э э э э э э э э э э э э э э",
       "finger": "pink",
       "title": "Буква Э",

@@ -80,6 +80,9 @@
     {
       "type": "step",
       "kind": "drill",
+      "unit": "вода",
+      "baseReps": 5,
+      "keys": ["в", "о", "д", "а"],
       "target": "вода вода вода вода вода",
       "finger": "green",
       "title": "Ритм: вода",
@@ -88,6 +91,9 @@
     {
       "type": "step",
       "kind": "drill",
+      "unit": "дрова",
+      "baseReps": 4,
+      "keys": ["д", "р", "о", "в", "а"],
       "target": "дрова дрова дрова дрова",
       "finger": "indigo",
       "title": "Ритм: дрова",
@@ -96,6 +102,9 @@
     {
       "type": "step",
       "kind": "drill",
+      "unit": "правда",
+      "baseReps": 3,
+      "keys": ["п", "р", "а", "в", "д"],
       "target": "правда правда правда",
       "finger": "blue",
       "title": "Ритм: правда",
@@ -104,6 +113,9 @@
     {
       "type": "step",
       "kind": "drill",
+      "unit": "повар",
+      "baseReps": 3,
+      "keys": ["п", "о", "в", "а", "р"],
       "target": "повар повар повар",
       "finger": "blue",
       "title": "Ритм: повар",

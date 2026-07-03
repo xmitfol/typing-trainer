@@ -135,6 +135,9 @@
     {
       "type": "step",
       "kind": "drill",
+      "unit": "мастер",
+      "baseReps": 4,
+      "keys": ["м", "а", "с", "т", "е", "р"],
       "target": "мастер мастер мастер мастер",
       "finger": "blue",
       "title": "Ритм: мастер",
@@ -143,6 +146,9 @@
     {
       "type": "step",
       "kind": "drill",
+      "unit": "уроков",
+      "baseReps": 4,
+      "keys": ["у", "р", "о", "к", "в"],
       "target": "уроков уроков уроков уроков",
       "finger": "green",
       "title": "Ритм: уроков",
@@ -151,6 +157,9 @@
     {
       "type": "step",
       "kind": "drill",
+      "unit": "буквы",
+      "baseReps": 4,
+      "keys": ["б", "у", "к", "в", "ы"],
       "target": "буквы буквы буквы буквы",
       "finger": "green",
       "title": "Ритм: буквы",
@@ -159,6 +168,9 @@
     {
       "type": "step",
       "kind": "drill",
+      "unit": "успех",
+      "baseReps": 4,
+      "keys": ["у", "с", "п", "е", "х"],
       "target": "успех успех успех успех",
       "finger": "green",
       "title": "Ритм: успех",
