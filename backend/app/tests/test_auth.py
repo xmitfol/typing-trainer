@@ -352,6 +352,50 @@ async def test_verify_email_flow(db_client: httpx.AsyncClient, redis_fake) -> No
     assert second.status_code == 400
 
 
+class _FailingEmailService:
+    """Эмулятор сбоя SMTP: любой send_* падает (ConnectionRefused-подобно)."""
+
+    async def send_welcome(self, **kwargs) -> None:
+        raise ConnectionError("SMTP down (test)")
+
+    async def send_verification(self, **kwargs) -> None:
+        raise ConnectionError("SMTP down (test)")
+
+    async def send_password_reset(self, **kwargs) -> None:
+        raise ConnectionError("SMTP down (test)")
+
+
+@requires_db
+async def test_signup_smtp_down_still_issues_verify_token(
+    db_client: httpx.AsyncClient,
+    redis_fake,  # type: ignore[no-untyped-def]
+) -> None:
+    """Регресс: сбой SMTP на welcome НЕ должен оставлять юзера без verify-токена.
+
+    issue_token стоит ПЕРВЫМ в best-effort блоке signup (как в forgot) — иначе
+    ConnectionError от send_welcome прерывал блок до записи email_verify:* и
+    юзеру было нечего подтверждать до Sprint-2 resend.
+    """
+    from app.deps import email_sender
+    from app.main import app
+
+    prev = app.dependency_overrides.get(email_sender)
+    app.dependency_overrides[email_sender] = lambda: _FailingEmailService()
+    try:
+        before = {k for k in redis_fake.store if k.startswith("email_verify:")}
+        r = await db_client.post(
+            "/api/v1/auth/signup", json=await _valid_signup_payload_async(db_client)
+        )
+        assert r.status_code == 201  # best-effort: сбой почты не валит signup
+        issued = {k for k in redis_fake.store if k.startswith("email_verify:")} - before
+        assert issued, "verify-токен должен быть выдан несмотря на сбой SMTP"
+    finally:
+        if prev is not None:
+            app.dependency_overrides[email_sender] = prev
+        else:
+            app.dependency_overrides.pop(email_sender, None)
+
+
 @requires_db
 async def test_forgot_reset_flow(db_client: httpx.AsyncClient, redis_fake) -> None:  # type: ignore[no-untyped-def]
     """signup → forgot (202) → reset по токену (204) → signin новым паролем (200)."""
