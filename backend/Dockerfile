@@ -9,12 +9,12 @@ WORKDIR /build
 # Installer (uv быстрее pip для CI); fallback на pip если uv недоступен.
 RUN pip install --no-cache-dir uv
 
-COPY pyproject.toml ./
-# Если есть uv.lock — используем для воспроизводимости. Иначе sync без lock.
-COPY uv.loc[k] ./
-# Без process substitution <(...): RUN выполняется в /bin/sh (dash), где
-# `<()` не поддерживается (только bash). Компилируем в файл, затем ставим.
-RUN uv pip compile pyproject.toml --quiet --output-file /tmp/requirements.txt && \
+COPY pyproject.toml uv.lock ./
+# Воспроизводимость: ставим РОВНО версии из uv.lock (--frozen: lock не
+# пересобирается; --no-dev: только runtime-зависимости). Экспорт в
+# requirements + install --system — минимальный дифф к прежней схеме
+# «compile → install» (та резолвила latest на каждом билде).
+RUN uv export --frozen --no-dev --no-emit-project --output-file /tmp/requirements.txt && \
     uv pip install --system --no-cache --requirement /tmp/requirements.txt
 
 # ─── Stage 2: runtime ──────────────────────────────────────────────────
