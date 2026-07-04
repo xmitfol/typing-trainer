@@ -125,6 +125,12 @@ ignore_missing_imports = true
 [tool.pytest.ini_options]
 testpaths = ["app/tests"]
 asyncio_mode = "auto"
+# Явный контракт event loop'ов: async-фикстуры (db_engine/db_session_fixture)
+# и async-тесты живут в ОДНОМ function-scoped loop'е — обязательное условие
+# для asyncpg (db_client в conftest ходит через httpx.ASGITransport в том же
+# loop'е). Опция есть с pytest-asyncio 0.24 (пин >=0.24,<1 — безопасно при
+# --strict-config); заодно гасит DeprecationWarning 0.26 про unset scope.
+asyncio_default_fixture_loop_scope = "function"
 addopts = "-ra --strict-markers --strict-config"
 markers = [
     "integration: integration tests, требуют запущенной БД",

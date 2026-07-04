@@ -12,6 +12,7 @@
 import hashlib
 from collections.abc import Iterator
 
+import httpx
 import pytest
 from fastapi.testclient import TestClient
 
@@ -91,8 +92,7 @@ def client(test_settings: Settings, fake_redis: _FakeRedis) -> Iterator[TestClie
         app.dependency_overrides.clear()
 
 
-def _valid_signup_payload(client: TestClient) -> dict:
-    ch = client.get("/api/v1/auth/challenge").json()
+def _signup_payload_from(ch: dict) -> dict:
     return {
         "email": "user@example.com",
         "password": "correct horse battery",
@@ -105,6 +105,15 @@ def _valid_signup_payload(client: TestClient) -> dict:
         "captcha_nonce": _solve_from_challenge(ch),
         "nickname2": "",
     }
+
+
+def _valid_signup_payload(client: TestClient) -> dict:
+    return _signup_payload_from(client.get("/api/v1/auth/challenge").json())
+
+
+async def _valid_signup_payload_async(client: httpx.AsyncClient) -> dict:
+    """То же для async db_client (httpx.AsyncClient, см. conftest)."""
+    return _signup_payload_from((await client.get("/api/v1/auth/challenge")).json())
 
 
 def _solve_from_challenge(ch: dict) -> str:
@@ -160,9 +169,11 @@ def test_signup_validation_422(client: TestClient) -> None:
 
 
 @requires_db
-def test_signup_happy_path_201(db_client: TestClient) -> None:
+async def test_signup_happy_path_201(db_client: httpx.AsyncClient) -> None:
     """signup с валидным PoW → 201 + auth-cookies + публичная проекция."""
-    r = db_client.post("/api/v1/auth/signup", json=_valid_signup_payload(db_client))
+    r = await db_client.post(
+        "/api/v1/auth/signup", json=await _valid_signup_payload_async(db_client)
+    )
     assert r.status_code == 201, r.text
     body = r.json()
     assert body["email"] == "user@example.com"
@@ -173,11 +184,15 @@ def test_signup_happy_path_201(db_client: TestClient) -> None:
 
 
 @requires_db
-def test_signup_duplicate_email_409(db_client: TestClient) -> None:
+async def test_signup_duplicate_email_409(db_client: httpx.AsyncClient) -> None:
     """Повторный signup тем же email → 409 EMAIL_TAKEN (второй challenge свежий)."""
-    first = db_client.post("/api/v1/auth/signup", json=_valid_signup_payload(db_client))
+    first = await db_client.post(
+        "/api/v1/auth/signup", json=await _valid_signup_payload_async(db_client)
+    )
     assert first.status_code == 201, first.text
-    second = db_client.post("/api/v1/auth/signup", json=_valid_signup_payload(db_client))
+    second = await db_client.post(
+        "/api/v1/auth/signup", json=await _valid_signup_payload_async(db_client)
+    )
     assert second.status_code == 409
     assert second.json()["detail"]["code"] == "EMAIL_TAKEN"
 
@@ -199,13 +214,13 @@ def test_signin_captcha_required_after_threshold(
 
 
 @requires_db
-def test_signin_happy_path_200(db_client: TestClient) -> None:
+async def test_signin_happy_path_200(db_client: httpx.AsyncClient) -> None:
     """Регистрируем юзера, затем валидный signin → 200 + cookies."""
-    payload = _valid_signup_payload(db_client)
-    assert db_client.post("/api/v1/auth/signup", json=payload).status_code == 201
+    payload = await _valid_signup_payload_async(db_client)
+    assert (await db_client.post("/api/v1/auth/signup", json=payload)).status_code == 201
     db_client.cookies.clear()  # уберём cookies от signup — проверяем чистый signin
 
-    r = db_client.post(
+    r = await db_client.post(
         "/api/v1/auth/signin",
         json={"email": payload["email"], "password": payload["password"]},
     )
@@ -215,13 +230,13 @@ def test_signin_happy_path_200(db_client: TestClient) -> None:
 
 
 @requires_db
-def test_signin_invalid_credentials_401(db_client: TestClient) -> None:
+async def test_signin_invalid_credentials_401(db_client: httpx.AsyncClient) -> None:
     """Неверный пароль → 401 INVALID_CREDENTIALS."""
-    payload = _valid_signup_payload(db_client)
-    assert db_client.post("/api/v1/auth/signup", json=payload).status_code == 201
+    payload = await _valid_signup_payload_async(db_client)
+    assert (await db_client.post("/api/v1/auth/signup", json=payload)).status_code == 201
     db_client.cookies.clear()
 
-    r = db_client.post(
+    r = await db_client.post(
         "/api/v1/auth/signin",
         json={"email": payload["email"], "password": "wrong-password"},
     )
@@ -252,22 +267,25 @@ def test_signout_clears_cookies_204(client: TestClient) -> None:
 
 
 @requires_db
-def test_refresh_rotation_revokes_old_jti(db_client: TestClient) -> None:
+async def test_refresh_rotation_revokes_old_jti(db_client: httpx.AsyncClient) -> None:
     """Валидный refresh → новая пара; повтор старого refresh-токена → 401."""
-    assert (
-        db_client.post("/api/v1/auth/signup", json=_valid_signup_payload(db_client)).status_code
-        == 201
+    signup = await db_client.post(
+        "/api/v1/auth/signup", json=await _valid_signup_payload_async(db_client)
     )
+    assert signup.status_code == 201
     old_refresh = db_client.cookies.get("refresh_token")
     assert old_refresh
 
     # Первый refresh с R1 → 200 + новая пара (R2 в cookies клиента)
-    r1 = db_client.post("/api/v1/auth/refresh")
+    r1 = await db_client.post("/api/v1/auth/refresh")
     assert r1.status_code == 200, r1.text
 
-    # Повторный refresh со СТАРЫМ R1 → 401 (jti отозван при ротации)
+    # Повторный refresh со СТАРЫМ R1 → 401 (jti отозван при ротации).
+    # Сначала удаляем R2 из джара: set() с дефолтным domain="" НЕ перезаписал
+    # бы запись с Domain=testserver.local — ушли бы ДВА refresh_token cookie.
+    db_client.cookies.delete("refresh_token")
     db_client.cookies.set("refresh_token", old_refresh)
-    r2 = db_client.post("/api/v1/auth/refresh")
+    r2 = await db_client.post("/api/v1/auth/refresh")
     assert r2.status_code == 401
     assert r2.json()["detail"]["code"] == "TOKEN_INVALID"
 
@@ -275,8 +293,7 @@ def test_refresh_rotation_revokes_old_jti(db_client: TestClient) -> None:
 # ─── S1.8: verify-email / forgot / reset ──────────────────────────────
 
 
-def _forgot_payload(client: TestClient, email: str) -> dict:
-    ch = client.get("/api/v1/auth/challenge").json()
+def _forgot_payload_from(ch: dict, email: str) -> dict:
     return {
         "email": email,
         "captcha_challenge": ch["challenge"],
@@ -284,6 +301,14 @@ def _forgot_payload(client: TestClient, email: str) -> dict:
         "captcha_nonce": _solve_from_challenge(ch),
         "nickname2": "",
     }
+
+
+def _forgot_payload(client: TestClient, email: str) -> dict:
+    return _forgot_payload_from(client.get("/api/v1/auth/challenge").json(), email)
+
+
+async def _forgot_payload_async(client: httpx.AsyncClient, email: str) -> dict:
+    return _forgot_payload_from((await client.get("/api/v1/auth/challenge")).json(), email)
 
 
 def test_verify_email_invalid_token_400(client: TestClient) -> None:
@@ -313,38 +338,38 @@ def test_forgot_bad_captcha_403(client: TestClient) -> None:
 
 
 @requires_db
-def test_verify_email_flow(db_client: TestClient, redis_fake) -> None:  # type: ignore[no-untyped-def]
+async def test_verify_email_flow(db_client: httpx.AsyncClient, redis_fake) -> None:  # type: ignore[no-untyped-def]
     """signup выдаёт verify-токен в Redis → verify-email 204; повтор → 400 (one-time)."""
-    assert (
-        db_client.post("/api/v1/auth/signup", json=_valid_signup_payload(db_client)).status_code
-        == 201
+    signup = await db_client.post(
+        "/api/v1/auth/signup", json=await _valid_signup_payload_async(db_client)
     )
+    assert signup.status_code == 201
     token = next(k.split(":", 1)[1] for k in redis_fake.store if k.startswith("email_verify:"))
-    assert db_client.post("/api/v1/auth/verify-email", json={"token": token}).status_code == 204
+    first = await db_client.post("/api/v1/auth/verify-email", json={"token": token})
+    assert first.status_code == 204
     # Токен одноразовый — повтор отвергается
-    assert db_client.post("/api/v1/auth/verify-email", json={"token": token}).status_code == 400
+    second = await db_client.post("/api/v1/auth/verify-email", json={"token": token})
+    assert second.status_code == 400
 
 
 @requires_db
-def test_forgot_reset_flow(db_client: TestClient, redis_fake) -> None:  # type: ignore[no-untyped-def]
+async def test_forgot_reset_flow(db_client: httpx.AsyncClient, redis_fake) -> None:  # type: ignore[no-untyped-def]
     """signup → forgot (202) → reset по токену (204) → signin новым паролем (200)."""
-    signup = _valid_signup_payload(db_client)
-    assert db_client.post("/api/v1/auth/signup", json=signup).status_code == 201
+    signup = await _valid_signup_payload_async(db_client)
+    assert (await db_client.post("/api/v1/auth/signup", json=signup)).status_code == 201
     db_client.cookies.clear()
 
-    assert (
-        db_client.post(
-            "/api/v1/auth/forgot", json=_forgot_payload(db_client, signup["email"])
-        ).status_code
-        == 202
+    forgot = await db_client.post(
+        "/api/v1/auth/forgot", json=await _forgot_payload_async(db_client, signup["email"])
     )
+    assert forgot.status_code == 202
     token = next(k.split(":", 1)[1] for k in redis_fake.store if k.startswith("pwd_reset:"))
 
     new_pw = "brand-new-password-9"
-    assert (
-        db_client.post("/api/v1/auth/reset", json={"token": token, "password": new_pw}).status_code
-        == 204
-    )
+    reset = await db_client.post("/api/v1/auth/reset", json={"token": token, "password": new_pw})
+    assert reset.status_code == 204
 
-    r = db_client.post("/api/v1/auth/signin", json={"email": signup["email"], "password": new_pw})
+    r = await db_client.post(
+        "/api/v1/auth/signin", json={"email": signup["email"], "password": new_pw}
+    )
     assert r.status_code == 200, r.text
