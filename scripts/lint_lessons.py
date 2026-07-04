@@ -26,6 +26,10 @@ import sys
 import unicodedata
 from pathlib import Path
 
+# Канон ЙЦУКЕН (символ → (hand, finger)) — единый источник в регенераторе.
+# Запуск `python scripts/lint_lessons.py` кладёт scripts/ в sys.path[0].
+from regen_text_sequence import FINGER_MAP
+
 LESSONS_DIR = Path(__file__).resolve().parent.parent / "data" / "lessons"
 
 # RU-тиры печатают кириллицу; всё, что начинается с en_ — латиницу.
@@ -97,13 +101,26 @@ def _check_sequence_sync(lesson: dict) -> list[str]:
     text = lesson.get("text")
     if not isinstance(seq, list) or not seq or not isinstance(text, str):
         return []
+    problems: list[str] = []
     try:
         joined = "".join(str(item.get("char", "")) for item in seq if isinstance(item, dict))
     except Exception:
         return ["text_sequence: не читается"]
     if joined and joined != text:
-        return ["text ≠ склейка text_sequence[].char (рассинхрон отображения и трека)"]
-    return []
+        problems.append("text ≠ склейка text_sequence[].char (рассинхрон отображения и трека)")
+    # Руки/пальцы против канона ЙЦУКЕН (болезнь block_1 до PR #47/#62: рука
+    # зеркально перепутана при верном char-слое — склейкой не ловится).
+    # Символы вне FINGER_MAP (цифры/пунктуация/латиница EN-тиров) не проверяем.
+    off_canon = 0
+    for item in seq:
+        if not isinstance(item, dict):
+            continue
+        canon = FINGER_MAP.get(str(item.get("char", "")).lower())
+        if canon and (item.get("hand"), item.get("finger")) != canon:
+            off_canon += 1
+    if off_canon:
+        problems.append(f"text_sequence: {off_canon} элементов с hand/finger не по канону ЙЦУКЕН")
+    return problems
 
 
 def main() -> int:

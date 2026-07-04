@@ -13,8 +13,13 @@ block_1-файлов руки исторически перепутаны (см.
 Правило space_side: рука, противоположная предыдущему символу (в существующих
 данных выполняется 207/207); для пробела в начале текста — right.
 
-Запуск:  python scripts/regen_text_sequence.py [--check] [файлы...]
+Запуск:  python scripts/regen_text_sequence.py [--check] [--force] [файлы...]
   --check      только проверить, exit 1 при рассинхроне (для отладки)
+  --force      структурное сравнение build_sequence(text) != text_sequence
+               вместо склейки char — ловит перепутанные руки/пальцы/space_side
+               при синхронном char-слое (болезнь block_1). Только с явным
+               списком файлов, где FINGER_MAP покрывает все символы: на
+               tier1/ru_teen (цифры/пунктуация вне канона) упадёт SystemExit.
   без файлов   все data/lessons/*/lesson_*.json, у которых есть text_sequence
 Перезаписывает text_sequence только в файлах с фактическим рассинхроном.
 """
@@ -75,7 +80,9 @@ def main() -> int:
         pass
     args = [a for a in sys.argv[1:] if not a.startswith("--")]
     check_only = "--check" in sys.argv
-    files = [Path(a) for a in args] if args else sorted(LESSONS_DIR.glob("*/lesson_*.json"))
+    force = "--force" in sys.argv
+    # resolve() — иначе относительные пути из аргументов роняют relative_to(ROOT)
+    files = [Path(a).resolve() for a in args] if args else sorted(LESSONS_DIR.glob("*/lesson_*.json"))
     desynced = 0
     for path in files:
         # newline='' — иначе read_text нормализует \r\n в \n и CRLF-детект слепнет
@@ -86,9 +93,14 @@ def main() -> int:
         text = data.get("text")
         if not isinstance(seq, list) or not seq or not isinstance(text, str):
             continue
-        joined = "".join(str(i.get("char", "")) for i in seq if isinstance(i, dict))
-        if joined == text:
-            continue
+        if force:
+            # Полный канон, а не только char-слой: руки/пальцы/space_side.
+            if seq == build_sequence(text):
+                continue
+        else:
+            joined = "".join(str(i.get("char", "")) for i in seq if isinstance(i, dict))
+            if joined == text:
+                continue
         desynced += 1
         rel = path.relative_to(ROOT)
         if check_only:
