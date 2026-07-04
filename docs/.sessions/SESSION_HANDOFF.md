@@ -22,10 +22,17 @@ PO спросил, что доделать до финала БЕЗ данных
    stack-e2e (`docker compose --profile app` → auth-гейт **8/8 с реальными mailpit-токенами**); ран ~2.5 мин.
    Попутно актуализированы 10 протухших verify-скриптов (редизайн отчёта урока, гайдед tier1,
    `.target__inner`, backend-only auth, убранный график) — статик-сьюта 26/26.
-   **CI-долг (Борис):** повысить до required наблюдательные backend-tests (63/72: conftest vs starlette 1.x
-   + 2 email-ассерта разошлись с шаблоном) и backend-typecheck (mypy strict-долг admin/me/events);
-   `uv.lock` (CI и Dockerfile резолвят latest); ruff cleanup-PR → ruff-гейт (441, в осн. RUF001-003).
-   Детали: PR #45 + комментарий-итог.
+   **CI-долг — ЗАКРЫТ (2026-07-04, PR #55–#58), кроме mypy:**
+   - PR #55 ruff 448→0 (RUF001-003 кириллица → ignore; 0 noqa) + **блокирующий backend-lint** (ruff==0.8.6);
+   - PR #56 **backend-tests зелёная и блокирующая**: db-тесты на httpx.ASGITransport (loop starlette 1.x),
+     cookie dotted-domain (http.cookiejar не берёт Domain без точки), Noop-emailer DI, email-ассерты под
+     Jinja2-autoescape (&amp;);
+   - PR #57 **продуктовый фикс, найденный тестами**: verify-токен выдаётся ДО писем в signup (сбой SMTP
+     оставлял юзера без токена; в forgot порядок был верным) + регресс-тест;
+   - PR #58 **uv.lock**: CI (uv sync --frozen) и Dockerfile (uv export --frozen --no-dev) ставят ровно
+     зафиксированные версии — конец дрейфу latest; бонус — backend-тесты гоняются локально (uv-питон 3.12).
+   Остался только **backend-typecheck** (наблюдательная): mypy strict-долг новых модулей admin/me/events —
+   осмысленная типизация, не механика (Борис, отдельной итерацией).
 2. ✅ **Адаптив Phase 2 — движок — ЗАКРЫТ** (2026-07-03, PR #50, спека §4.3/§4.4/§6, пороги = spec-дефолт [TUNE] до калибровки):
    - decay на чтение (daysIdle>7 → streak×0.5, re-warmup); remediation-дрилл в лестнице урока
      (weak ∩ клавиши урока, cap kids 1/teen 2/adult 2, «2 захода не помогло → не зацикливать»,
