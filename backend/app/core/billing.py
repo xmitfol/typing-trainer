@@ -16,8 +16,10 @@ assets/js/pricing.js (планы free/pro/family; периоды w1/m1/m3/m6/y1 
 from __future__ import annotations
 
 import hmac
+import json
 import secrets
 from dataclasses import dataclass, field
+from decimal import Decimal, InvalidOperation
 from hashlib import sha256
 from typing import TYPE_CHECKING, Literal, Protocol, runtime_checkable
 from uuid import UUID
@@ -373,13 +375,45 @@ class StubProvider:
 
 # ─── YooKassaProvider — СКЕЛЕТ (prod, ADR-005) ───────────────────────
 
+# Событие YK-notification → наш WebhookKind. payment.waiting_for_capture
+# не маппим: платим с capture:true, capture-flow не используется.
+# refund.succeeded → "refund" (object там — refund, см. normalize_webhook).
+_YK_EVENT_TO_KIND: dict[str, WebhookKind] = {
+    "payment.succeeded": "payment.succeeded",
+    "payment.canceled": "payment.canceled",
+    "refund.succeeded": "refund",
+}
+
+
+def _yk_amount_to_kopecks(amount: object) -> int | None:
+    """YK-сумма `{"value": "490.00", "currency": "RUB"}` → копейки (49000).
+
+    Через Decimal — без float-дрейфа ("489.99" → 48999 ровно). Отсутствующее
+    поле, кривое значение, отрицательная или дробная-в-копейках сумма → None.
+    """
+    if not isinstance(amount, dict):
+        return None
+    value = amount.get("value")
+    if isinstance(value, bool) or not isinstance(value, str | int):
+        return None
+    try:
+        kopecks = Decimal(str(value)) * 100
+    except InvalidOperation:
+        return None
+    if not kopecks.is_finite() or kopecks < 0 or kopecks != int(kopecks):
+        return None
+    return int(kopecks)
+
 
 class YooKassaProvider:
     """Реальный провайдер YooKassa (ADR-005 Hybrid recurring).
 
-    СКЕЛЕТ: сигнатуры готовы, структура вызовов и проверка webhook-подписи
-    намечены, но тело реальных HTTP-вызовов — TODO (включается при
-    подтверждённом shop; интеграционный тест на VM, как auth в Sprint 1).
+    СКЕЛЕТ: сигнатуры готовы, но тело реальных HTTP-вызовов — TODO
+    (включается при подтверждённом shop; интеграционный тест на VM, как auth
+    в Sprint 1). Исключение — `normalize_webhook`: оффлайн-нормализация
+    notification-payload'ов реализована и покрыта юнит-тестами
+    (разрешение Ники, handoff 2026-07-04 §0.1а); верификация источника
+    webhook'а (`_verify_webhook_source`) остаётся припаркованной.
 
     Подставляем shop_id/secret_key → заработает без изменений бизнес-логики.
     """
@@ -424,18 +458,86 @@ class YooKassaProvider:
         )
 
     def parse_webhook(self, *, headers: dict[str, str], raw_body: bytes) -> WebhookEvent | None:
-        # YooKassa шлёт notification без HMAC-подписи в заголовке: рекомендованная
-        # защита — проверять source IP (allowlist YK) + повторно запрашивать
-        # payment по id (GET /v3/payments/{id}) для верификации статуса.
-        # TODO:
-        #   1. verify source (IP allowlist или webhook_secret если настроен)
-        #   2. json.loads(raw_body) → event = {"event": "payment.succeeded", "object": {...}}
-        #   3. (рекомендация YK) повторный GET payment по object.id — не доверять телу
-        #   4. нормализовать в WebhookEvent(kind, provider_payment_id=object.id,
-        #      status, amount_kopecks=int(object.amount.value*100),
-        #      payment_method_id=object.payment_method.id)
+        # Верификация источника ОБЯЗАТЕЛЬНА до нормализации: YooKassa шлёт
+        # notification без HMAC-подписи, доверять телу нельзя. Пока она
+        # припаркована (NotImplementedError ниже) — боевой парсинг невозможен,
+        # fail-fast by design.
+        self._verify_webhook_source(headers=headers)
+        return self.normalize_webhook(raw_body)
+
+    def _verify_webhook_source(self, *, headers: dict[str, str]) -> None:
+        # TODO (подтверждённый shop, ADR-008 §Rollout шаг 3):
+        #   1. source IP против официального allowlist YK (за LB — real_ip)
+        #      и/или webhook_secret, если настроен в кабинете;
+        #   2. (рекомендация YK) контрольный GET /v3/payments/{object.id} —
+        #      статус брать из ответа API, не из тела notification.
         raise NotImplementedError(
-            "YooKassaProvider.parse_webhook — verify + normalize YK notification (TODO)"
+            "YooKassaProvider._verify_webhook_source — verify YK notification source "
+            "(TODO: подтверждённый shop, ADR-008 §Rollout шаг 3)"
+        )
+
+    @staticmethod
+    def normalize_webhook(raw_body: bytes) -> WebhookEvent | None:
+        """Нормализовать тело YK-notification в `WebhookEvent`. Оффлайн, без HTTP.
+
+        Формат (YK API v3): `{"type": "notification", "event": <имя>,
+        "object": {payment | refund}}`. Битый JSON, незнакомое событие или
+        отсутствие обязательных полей → None (эндпоинт молча игнорирует,
+        отвечая 200).
+
+        Особенности маппинга:
+        - refund.succeeded: object — это refund; в `provider_payment_id`
+          кладём `object.payment_id` (исходный платёж) — `apply_webhook`
+          ищет подписку по `yookassa_payment_id`.
+        - `payment_method_id` берём только у payment.succeeded и только при
+          `saved: true` — несохранённый метод бесполезен для recurring
+          (ADR-005 Hybrid).
+        - Суммы: `{"value": "490.00", ...}` → копейки через Decimal (без
+          float-дрейфа); некорректная/дробная-в-копейках сумма → None в
+          `amount_kopecks` (apply_webhook подставит сумму подписки).
+        """
+        try:
+            body = json.loads(raw_body or b"{}")
+        except (ValueError, TypeError):
+            return None
+        if not isinstance(body, dict):
+            return None
+
+        event_name = body.get("event")
+        if not isinstance(event_name, str):
+            return None
+        kind = _YK_EVENT_TO_KIND.get(event_name)
+        if kind is None:
+            return None
+
+        obj = body.get("object")
+        if not isinstance(obj, dict):
+            return None
+
+        # Для refund событие привязываем к ИСХОДНОМУ платежу, не к id возврата.
+        payment_id = obj.get("payment_id") if kind == "refund" else obj.get("id")
+        if not isinstance(payment_id, str) or not payment_id:
+            return None
+
+        status = obj.get("status")
+        if not isinstance(status, str) or not status:
+            return None
+
+        payment_method_id: str | None = None
+        if kind == "payment.succeeded":
+            pm = obj.get("payment_method")
+            if isinstance(pm, dict) and pm.get("saved") is True:
+                pm_id = pm.get("id")
+                if isinstance(pm_id, str) and pm_id:
+                    payment_method_id = pm_id
+
+        return WebhookEvent(
+            kind=kind,
+            provider_payment_id=payment_id,
+            status=status,
+            amount_kopecks=_yk_amount_to_kopecks(obj.get("amount")),
+            payment_method_id=payment_method_id,
+            raw=body,
         )
 
     def charge_recurring(
