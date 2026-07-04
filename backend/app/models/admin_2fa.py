@@ -17,7 +17,8 @@ from datetime import datetime
 from uuid import UUID
 
 from sqlalchemy import Boolean, ForeignKey, String, text
-from sqlalchemy.dialects.postgresql import JSONB, TIMESTAMP, UUID as PG_UUID
+from sqlalchemy.dialects.postgresql import JSONB, TIMESTAMP
+from sqlalchemy.dialects.postgresql import UUID as PG_UUID
 from sqlalchemy.orm import Mapped, mapped_column
 
 from app.models.base import Base
@@ -50,6 +51,4 @@ class Admin2FA(Base):
         nullable=False,
         server_default=text("now()"),
     )
-    confirmed_at: Mapped[datetime | None] = mapped_column(
-        TIMESTAMP(timezone=True), nullable=True
-    )
+    confirmed_at: Mapped[datetime | None] = mapped_column(TIMESTAMP(timezone=True), nullable=True)

@@ -13,7 +13,7 @@ PII: IP в plain не храним (152-ФЗ) — sha256 hash (`hash_ip`, еди
 """
 
 import hashlib
-from uuid import UUID, uuid5, NAMESPACE_URL
+from uuid import NAMESPACE_URL, UUID, uuid5
 
 import structlog
 from sqlalchemy.ext.asyncio import AsyncSession
@@ -131,7 +131,14 @@ async def emit_server(
             payload=body,
             commit=commit,
         )
-    except Exception as e:  # noqa: BLE001 — аналитика не должна ломать billing
-        logger.warning("event.emit_server_failed", type=type, user_id=str(user_id) if user_id else None, error=str(e))
+    except Exception as e:  # аналитика не должна ломать billing
+        logger.warning(
+            "event.emit_server_failed",
+            type=type,
+            user_id=str(user_id) if user_id else None,
+            error=str(e),
+        )
         # Пустой transient-объект чтобы сигнатура не падала у вызывающего.
-        return Event(user_id=user_id, session_id=server_session_id(user_id), type=type, payload=body)
+        return Event(
+            user_id=user_id, session_id=server_session_id(user_id), type=type, payload=body
+        )

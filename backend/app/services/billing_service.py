@@ -16,14 +16,14 @@ from sqlalchemy.ext.asyncio import AsyncSession
 
 from app.config import get_settings
 from app.core.billing import (
-    Plan,
     Period,
+    Plan,
     WebhookEvent,
     get_payment_provider,
     get_period,
     get_plan,
-    price_kopecks,
     period_days,
+    price_kopecks,
 )
 from app.core.exceptions import (
     PlanNotFoundError,
@@ -110,9 +110,7 @@ async def create_checkout(
     return sub, result.confirmation_url
 
 
-async def apply_webhook(
-    session: AsyncSession, provider_name: str, event: WebhookEvent
-) -> None:
+async def apply_webhook(session: AsyncSession, provider_name: str, event: WebhookEvent) -> None:
     """Применить нормализованное webhook-событие (FSM + audit). ИДЕМПОТЕНТНО.
 
     FSM: pending → active (payment.succeeded) / failed (payment.failed|canceled).
@@ -121,9 +119,7 @@ async def apply_webhook(
     уникальному charge).
     """
     # Найти подписку по provider_payment_id (у нас = yookassa_payment_id).
-    stmt = select(Subscription).where(
-        Subscription.yookassa_payment_id == event.provider_payment_id
-    )
+    stmt = select(Subscription).where(Subscription.yookassa_payment_id == event.provider_payment_id)
     sub = (await session.execute(stmt)).scalar_one_or_none()
     if sub is None:
         logger.warning(
@@ -209,9 +205,7 @@ async def apply_webhook(
     )
 
 
-async def get_subscription(
-    session: AsyncSession, user_id: UUID
-) -> Subscription | None:
+async def get_subscription(session: AsyncSession, user_id: UUID) -> Subscription | None:
     """Самая свежая подписка юзера (любой статус) или None."""
     stmt = (
         select(Subscription)

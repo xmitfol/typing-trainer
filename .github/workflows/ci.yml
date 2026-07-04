@@ -4,12 +4,13 @@
 # (ROADMAP §Infra). Поэтому ядро CI — те же gate-скрипты, что гонялись на VM,
 # но прямо на раннере: статика :8000 + docker compose --profile app на :8090.
 #
-# Блокирующие джобы:  compile-checks, content-lint, static-e2e, stack-e2e.
+# Блокирующие джобы:  compile-checks, content-lint, backend-lint, static-e2e,
+#                     stack-e2e.
 # Наблюдательные:     backend-tests, backend-typecheck (continue-on-error —
 #                     нельзя доказать зелёность локально; повысим до required,
 #                     когда покажут зелёный на реальных прогонах).
-# ruff check/format НЕ включены: сегодня красные (441, в осн. RUF001-003 на
-# кириллице) — сначала механический cleanup-PR, потом гейт (v1.1).
+# backend-lint (ruff check + format) включён после механического cleanup-PR
+# (chore/ruff-cleanup): RUF001-003 в ignore (кириллица), остальное вычищено.
 #
 # Примечание к ADR-004: там CI целил в Yandex Cloud Build; ROADMAP/handoff
 # (новее) требуют GitHub Actions — этот workflow реализует их.
@@ -65,6 +66,26 @@ jobs:
           python-version: "3.12"
       - name: lint_lessons (exit 1 при HIGH>0; WARN не блокирует)
         run: python scripts/lint_lessons.py
+
+  # ── Ruff-гейт бэкенда: lint + format, БЛОКИРУЮЩИЙ (CI-долг §0.1 #1) ──
+  backend-lint:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    needs: compile-checks
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install ruff
+        # Пин = версия, которой вычищали код локально (chore/ruff-cleanup);
+        # дрейф ruff между minor'ами меняет правила/формат → красный CI на ровном месте.
+        run: pip install "ruff==0.8.6"
+      - name: ruff check + format gate
+        working-directory: backend
+        run: |
+          ruff check .
+          ruff format --check .
 
   # ── 26 статических Playwright-проверок против http.server :8000 ──
   # Без Docker: скрипты сидируют состояние через localStorage. BASE :8000

@@ -162,7 +162,7 @@ async def signup(
         await emailer.send_verification(
             to=user.email, name=user.name, language=user.language, token=token
         )
-    except Exception as e:  # noqa: BLE001 — почта/Redis не должны ломать signup
+    except Exception as e:  # почта/Redis не должны ломать signup
         logger.warning("signup.post_email_failed", user_id=str(user.id), error=str(e))
 
     _set_auth_cookies(response, user.id)
@@ -279,9 +279,7 @@ async def refresh(
 
     # Отзываем старый jti (TTL = срок жизни refresh), выдаём новую пару
     settings = get_settings()
-    await redis.set(
-        REVOKED_PREFIX + jti, "1", ex=settings.jwt_refresh_ttl_days * 24 * 3600
-    )
+    await redis.set(REVOKED_PREFIX + jti, "1", ex=settings.jwt_refresh_ttl_days * 24 * 3600)
     _set_auth_cookies(response, user.id)
     return UserPublic.model_validate(user)
 
@@ -364,7 +362,7 @@ async def forgot_password(
             await emailer.send_password_reset(
                 to=user.email, name=user.name, language=user.language, token=token
             )
-        except Exception as e:  # noqa: BLE001 — сбой почты/Redis не раскрываем клиенту
+        except Exception as e:  # сбой почты/Redis не раскрываем клиенту
             logger.warning("forgot.email_failed", error=str(e))
     # 202 в любом случае (status_code в декораторе)
 

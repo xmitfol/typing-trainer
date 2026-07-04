@@ -99,12 +99,12 @@ def needs_rehash(stored_hash: str) -> bool:
 
 
 class AccessTokenClaims(TypedDict, total=False):
-    sub: str       # user_id (UUID stringified)
-    exp: int       # unix timestamp
-    iat: int       # issued at
-    jti: str       # unique token id (для revocation)
+    sub: str  # user_id (UUID stringified)
+    exp: int  # unix timestamp
+    iat: int  # issued at
+    jti: str  # unique token id (для revocation)
     typ: Literal["access"]
-    imp: str       # impersonation: actor (admin) user_id — опционально (Ф4a)
+    imp: str  # impersonation: actor (admin) user_id — опционально (Ф4a)
 
 
 class RefreshTokenClaims(TypedDict):

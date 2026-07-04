@@ -334,9 +334,7 @@ def get_oauth_strategy(provider: str, settings: Settings) -> OAuthStrategy:
     if provider not in _REAL_STRATEGIES:
         raise ValueError(f"Unknown OAuth provider: {provider!r}")
 
-    redirect_uri = (
-        f"{settings.frontend_base_url}/api/v1/auth/oauth/{provider}/callback"
-    )
+    redirect_uri = f"{settings.frontend_base_url}/api/v1/auth/oauth/{provider}/callback"
 
     if provider == "yandex":
         client_id = settings.yandex_oauth_client_id

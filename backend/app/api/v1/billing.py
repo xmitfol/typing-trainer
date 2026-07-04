@@ -10,8 +10,8 @@ from fastapi import APIRouter, HTTPException, Request, status
 
 from app.config import get_settings
 from app.core.billing import (
-    PLAN_CATALOG,
     PERIODS,
+    PLAN_CATALOG,
     get_payment_provider,
     price_kopecks,
 )

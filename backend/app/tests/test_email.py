@@ -64,12 +64,8 @@ def test_render_verify_contains_url() -> None:
 
 @pytest.mark.asyncio
 async def test_send_welcome_calls_smtp(settings: Settings) -> None:
-    with patch(
-        "app.services.email_service.aiosmtplib.send", new=AsyncMock()
-    ) as mock_send:
-        await EmailService(settings).send_welcome(
-            to="user@example.com", name="Иван", language="ru"
-        )
+    with patch("app.services.email_service.aiosmtplib.send", new=AsyncMock()) as mock_send:
+        await EmailService(settings).send_welcome(to="user@example.com", name="Иван", language="ru")
     mock_send.assert_awaited_once()
     msg: EmailMessage = mock_send.call_args.args[0]
     assert msg["To"] == "user@example.com"
@@ -83,9 +79,7 @@ async def test_send_welcome_calls_smtp(settings: Settings) -> None:
 
 @pytest.mark.asyncio
 async def test_send_verification_url_has_token(settings: Settings) -> None:
-    with patch(
-        "app.services.email_service.aiosmtplib.send", new=AsyncMock()
-    ) as mock_send:
+    with patch("app.services.email_service.aiosmtplib.send", new=AsyncMock()) as mock_send:
         await EmailService(settings).send_verification(
             to="u@e.com", name="X", language="en", token="TKN123"
         )
@@ -96,9 +90,7 @@ async def test_send_verification_url_has_token(settings: Settings) -> None:
 
 @pytest.mark.asyncio
 async def test_send_password_reset_url_has_token(settings: Settings) -> None:
-    with patch(
-        "app.services.email_service.aiosmtplib.send", new=AsyncMock()
-    ) as mock_send:
+    with patch("app.services.email_service.aiosmtplib.send", new=AsyncMock()) as mock_send:
         await EmailService(settings).send_password_reset(
             to="u@e.com", name="X", language="ru", token="RST456"
         )

@@ -55,7 +55,9 @@ def issue_challenge() -> dict:
         "exp": now + settings.captcha_challenge_ttl_seconds,
         "difficulty": settings.captcha_pow_difficulty,
     }
-    payload_b64 = base64.urlsafe_b64encode(json.dumps(payload, separators=(",", ":")).encode()).decode()
+    payload_b64 = base64.urlsafe_b64encode(
+        json.dumps(payload, separators=(",", ":")).encode()
+    ).decode()
     return {
         "challenge": payload_b64,
         "signature": _sign(payload_b64, settings.jwt_secret_key),

@@ -52,9 +52,7 @@ class EmailService:
         )
         await self._send(to, subject, html)
 
-    async def send_verification(
-        self, *, to: str, name: str, language: str, token: str
-    ) -> None:
+    async def send_verification(self, *, to: str, name: str, language: str, token: str) -> None:
         url = f"{self._s.frontend_base_url}/auth.html?action=verify&token={token}"
         subject, html = render_email(
             "verify_email",
@@ -65,9 +63,7 @@ class EmailService:
         )
         await self._send(to, subject, html)
 
-    async def send_password_reset(
-        self, *, to: str, name: str, language: str, token: str
-    ) -> None:
+    async def send_password_reset(self, *, to: str, name: str, language: str, token: str) -> None:
         url = f"{self._s.frontend_base_url}/auth.html?action=reset&token={token}"
         subject, html = render_email(
             "password_reset",

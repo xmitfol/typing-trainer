@@ -109,7 +109,7 @@ async def oauth_callback(
     try:
         token = await strategy.exchange_code(code, code_verifier)
         info = await strategy.fetch_userinfo(token)
-    except Exception as e:  # noqa: BLE001 — сбой httpx/сети/провайдера → редирект с ошибкой
+    except Exception as e:
         # Провайдер/сеть — не 500 юзеру, а мягкий редирект на auth с ошибкой.
         logger.warning("oauth.callback.provider_error", provider=provider, error=str(e))
         return RedirectResponse(
@@ -126,11 +126,7 @@ async def oauth_callback(
         )
 
     # ── Наши httpOnly cookies + редирект на фронт ─────────────────────
-    target = (
-        f"{frontend}/onboarding.html?oauth=1&new=1"
-        if is_new
-        else f"{frontend}/dashboard.html"
-    )
+    target = f"{frontend}/onboarding.html?oauth=1&new=1" if is_new else f"{frontend}/dashboard.html"
     response = RedirectResponse(target, status_code=status.HTTP_302_FOUND)
     _set_auth_cookies(response, user.id)
     logger.info("oauth.callback.ok", provider=provider, user_id=str(user.id), is_new=is_new)

@@ -35,7 +35,7 @@ class _FakeRedis:
     def __init__(self) -> None:
         self.store: dict[str, str] = {}
 
-    async def set(self, key, val, nx=False, ex=None):  # noqa: A003
+    async def set(self, key, val, nx=False, ex=None):
         if nx and key in self.store:
             return None
         self.store[key] = str(val)
@@ -254,9 +254,10 @@ def test_signout_clears_cookies_204(client: TestClient) -> None:
 @requires_db
 def test_refresh_rotation_revokes_old_jti(db_client: TestClient) -> None:
     """Валидный refresh → новая пара; повтор старого refresh-токена → 401."""
-    assert db_client.post(
-        "/api/v1/auth/signup", json=_valid_signup_payload(db_client)
-    ).status_code == 201
+    assert (
+        db_client.post("/api/v1/auth/signup", json=_valid_signup_payload(db_client)).status_code
+        == 201
+    )
     old_refresh = db_client.cookies.get("refresh_token")
     assert old_refresh
 
@@ -292,9 +293,7 @@ def test_verify_email_invalid_token_400(client: TestClient) -> None:
 
 
 def test_reset_invalid_token_400(client: TestClient) -> None:
-    r = client.post(
-        "/api/v1/auth/reset", json={"token": "nope", "password": "long-enough-pw"}
-    )
+    r = client.post("/api/v1/auth/reset", json={"token": "nope", "password": "long-enough-pw"})
     assert r.status_code == 400
     assert r.json()["detail"]["code"] == "TOKEN_INVALID"
 
@@ -316,12 +315,11 @@ def test_forgot_bad_captcha_403(client: TestClient) -> None:
 @requires_db
 def test_verify_email_flow(db_client: TestClient, redis_fake) -> None:  # type: ignore[no-untyped-def]
     """signup выдаёт verify-токен в Redis → verify-email 204; повтор → 400 (one-time)."""
-    assert db_client.post(
-        "/api/v1/auth/signup", json=_valid_signup_payload(db_client)
-    ).status_code == 201
-    token = next(
-        k.split(":", 1)[1] for k in redis_fake.store if k.startswith("email_verify:")
+    assert (
+        db_client.post("/api/v1/auth/signup", json=_valid_signup_payload(db_client)).status_code
+        == 201
     )
+    token = next(k.split(":", 1)[1] for k in redis_fake.store if k.startswith("email_verify:"))
     assert db_client.post("/api/v1/auth/verify-email", json={"token": token}).status_code == 204
     # Токен одноразовый — повтор отвергается
     assert db_client.post("/api/v1/auth/verify-email", json={"token": token}).status_code == 400
@@ -334,19 +332,19 @@ def test_forgot_reset_flow(db_client: TestClient, redis_fake) -> None:  # type: 
     assert db_client.post("/api/v1/auth/signup", json=signup).status_code == 201
     db_client.cookies.clear()
 
-    assert db_client.post(
-        "/api/v1/auth/forgot", json=_forgot_payload(db_client, signup["email"])
-    ).status_code == 202
-    token = next(
-        k.split(":", 1)[1] for k in redis_fake.store if k.startswith("pwd_reset:")
+    assert (
+        db_client.post(
+            "/api/v1/auth/forgot", json=_forgot_payload(db_client, signup["email"])
+        ).status_code
+        == 202
     )
+    token = next(k.split(":", 1)[1] for k in redis_fake.store if k.startswith("pwd_reset:"))
 
     new_pw = "brand-new-password-9"
-    assert db_client.post(
-        "/api/v1/auth/reset", json={"token": token, "password": new_pw}
-    ).status_code == 204
-
-    r = db_client.post(
-        "/api/v1/auth/signin", json={"email": signup["email"], "password": new_pw}
+    assert (
+        db_client.post("/api/v1/auth/reset", json={"token": token, "password": new_pw}).status_code
+        == 204
     )
+
+    r = db_client.post("/api/v1/auth/signin", json={"email": signup["email"], "password": new_pw})
     assert r.status_code == 200, r.text

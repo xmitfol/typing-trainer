@@ -56,9 +56,7 @@ async def resolve_oauth_login(
     if account is not None:
         user = await session.get(User, account.user_id)
         assert user is not None  # FK cascade гарантирует существование
-        logger.info(
-            "oauth.login.existing", provider=provider, user_id=str(user.id)
-        )
+        logger.info("oauth.login.existing", provider=provider, user_id=str(user.id))
         return user, False
 
     # Дальше нужен email (создание/линк). Провайдер обязан был его отдать.
@@ -67,11 +65,7 @@ async def resolve_oauth_login(
         raise OAuthNoEmailError()
 
     # ── 2. Линк к активному юзеру с тем же email ──────────────────────
-    user_stmt = (
-        select(User)
-        .where(User.email == info.email, User.deleted_at.is_(None))
-        .limit(1)
-    )
+    user_stmt = select(User).where(User.email == info.email, User.deleted_at.is_(None)).limit(1)
     existing = (await session.execute(user_stmt)).scalar_one_or_none()
     if existing is not None:
         session.add(
@@ -85,24 +79,22 @@ async def resolve_oauth_login(
         # Провайдер подтвердил владение email → верифицируем (ADR-007 §3).
         existing.email_verified = True
         await session.commit()
-        logger.info(
-            "oauth.login.linked", provider=provider, user_id=str(existing.id)
-        )
+        logger.info("oauth.login.linked", provider=provider, user_id=str(existing.id))
         return existing, False
 
     # ── 3. Новый юзер с провизорными дефолтами (ADR-007 §4) ───────────
     name = info.name or info.email.split("@", 1)[0]
     user = User(
         email=info.email,
-        password_hash=None,          # OAuth-only, без пароля
+        password_hash=None,  # OAuth-only, без пароля
         name=name[:80],
-        audience="adult",            # провизорный дефолт, донастроит в onboarding
+        audience="adult",  # провизорный дефолт, донастроит в onboarding
         character="maxim",
         language=info.locale if info.locale in ("ru", "en") else "ru",
-        email_verified=True,         # провайдер подтвердил email
+        email_verified=True,  # провайдер подтвердил email
         is_anonymous=False,
     )
-    user.settings = UserSettings()   # cascade — персистится вместе с user
+    user.settings = UserSettings()  # cascade — персистится вместе с user
     user.oauth_accounts.append(
         OAuthAccount(
             provider=provider,

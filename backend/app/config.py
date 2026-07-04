@@ -97,11 +97,11 @@ class Settings(BaseSettings):
     # PO-решение 2026-06-11: реальная Y360-интеграция отложена. На dev —
     # mailhog (SMTP localhost:1025, web UI :8025, без TLS/creds). Prod-креды
     # Y360 (noreply@typing-trainer.ru) подставляются позже (Sprint 1 day 4+).
-    smtp_host: str = "localhost"   # dev: mailhog | prod: smtp.yandex.ru
-    smtp_port: int = 1025          # dev: mailhog | prod: 465
+    smtp_host: str = "localhost"  # dev: mailhog | prod: smtp.yandex.ru
+    smtp_port: int = 1025  # dev: mailhog | prod: 465
     smtp_username: str = ""
     smtp_password: str = ""
-    smtp_use_tls: bool = False     # dev: mailhog (no TLS) | prod: True
+    smtp_use_tls: bool = False  # dev: mailhog (no TLS) | prod: True
     smtp_from: str = "typing-trainer <noreply@typing-trainer.ru>"
     # Базовый URL фронта — для ссылок в письмах (verify-email / reset).
     frontend_base_url: str = "http://localhost:8001"
@@ -132,27 +132,27 @@ class Settings(BaseSettings):
     yookassa_test_mode: bool = True
 
     # ─── Self-hosted anti-bot (Sprint 1, R-007 mitigation, ADR-006) ─
-    captcha_pow_difficulty: int = 18           # ведущих нулевых бит; 18≈0.1-0.5s в браузере
-    captcha_challenge_ttl_seconds: int = 600   # время жизни PoW-challenge
+    captcha_pow_difficulty: int = 18  # ведущих нулевых бит; 18≈0.1-0.5s в браузере
+    captcha_challenge_ttl_seconds: int = 600  # время жизни PoW-challenge
     captcha_honeypot_field: str = "nickname2"  # имя скрытого поля формы
     # HMAC-подпись challenge переиспользует jwt_secret_key (отдельный секрет не вводим)
 
     # ─── Business rules (фиксированные ADR/PRD) ────────────────────
-    free_lesson_limit: int = 5            # PRD Q1
-    anonymous_ttl_days: int = 3           # ADR-001
-    family_max_subaccounts: int = 4       # ADR-003
+    free_lesson_limit: int = 5  # PRD Q1
+    anonymous_ttl_days: int = 3  # ADR-001
+    family_max_subaccounts: int = 4  # ADR-003
 
     # ─── Rate limits ───────────────────────────────────────────────
     rate_limit_signup_per_hour: int = 3
     rate_limit_signin_per_minute: int = 5
     rate_limit_progress_per_minute: int = 60
-    rate_limit_events_per_minute: int = 120   # Ф3-1: /events/batch анти-флуд (на session/ip)
+    rate_limit_events_per_minute: int = 120  # Ф3-1: /events/batch анти-флуд (на session/ip)
     # F2-SEC: мутирующие /admin/* (refund/grant/cancel/block/restore/reset/verify)
     # лимитируются per-actor (скомпрометированный админ не крутит в цикле).
     rate_limit_admin_mutations_per_minute: int = 30
 
     # ─── Admin analytics (Ф3-5) ────────────────────────────────────
-    analytics_cache_ttl_seconds: int = 600    # TTL Redis-кэша тяжёлых агрегатов (10 мин)
+    analytics_cache_ttl_seconds: int = 600  # TTL Redis-кэша тяжёлых агрегатов (10 мин)
 
     # ─── Admin 2FA (Ф4b — TOTP для superadmin) ──────────────────────
     # require_superadmin_2fa: когда True (prod) — superadmin БЕЗ включённой 2FA

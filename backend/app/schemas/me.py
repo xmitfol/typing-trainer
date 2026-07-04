@@ -118,10 +118,10 @@ class ProgressEntry(BaseModel):
     """
 
     stars: int
-    bestWPM: int  # noqa: N815 — camelCase намеренно (контракт фронта)
-    bestAccuracy: int  # noqa: N815
-    bestTime: float  # noqa: N815 — секунды
-    completedAt: datetime  # noqa: N815
+    bestWPM: int  # camelCase намеренно (контракт фронта)
+    bestAccuracy: int
+    bestTime: float  # секунды
+    completedAt: datetime
 
 
 # GET /me/progress → {tier: {lesson_num(str): ProgressEntry}}
@@ -165,8 +165,8 @@ class HistoryItem(BaseModel):
 
     lesson: int
     tier: str
-    completedAt: datetime  # noqa: N815
-    duration: float  # noqa: N815 — секунды
+    completedAt: datetime
+    duration: float  # секунды
     wpm: int
     accuracy: int
     errors: int

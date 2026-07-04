@@ -99,9 +99,7 @@ async def verify_and_enable(
     return plaintext
 
 
-async def disable(
-    session: AsyncSession, actor: User, *, ip_hash: str | None = None
-) -> None:
+async def disable(session: AsyncSession, actor: User, *, ip_hash: str | None = None) -> None:
     """Отключить 2FA: enabled=False + чистка secret/recovery. Аудит 2fa.disabled."""
     row = await get_2fa(session, actor.id)
     if row is not None:
@@ -120,9 +118,7 @@ async def disable(
     logger.info("admin.2fa_disabled", user_id=str(actor.id))
 
 
-async def check_reauth_totp(
-    session: AsyncSession, user: User, *, totp_code: str | None
-) -> str:
+async def check_reauth_totp(session: AsyncSession, user: User, *, totp_code: str | None) -> str:
     """Enforcement на /admin/reauth для superadmin (Ф4b).
 
     Возвращает код-результат:
