@@ -6,7 +6,7 @@ DDL: TSD §2.2 + §5 (Hybrid renewal flow из ADR-005).
 """
 
 from datetime import datetime
-from typing import TYPE_CHECKING
+from typing import TYPE_CHECKING, Any
 from uuid import UUID
 
 from sqlalchemy import (
@@ -153,7 +153,7 @@ class SubscriptionCharge(Base):
     # 0..3 — counter retry'ев из ADR-005 Q2 (3 max попытки)
     retry_number: Mapped[int] = mapped_column(SmallInteger, nullable=False, default=0)
 
-    charge_metadata: Mapped[dict] = mapped_column(
+    charge_metadata: Mapped[dict[str, Any]] = mapped_column(
         JSONB,
         nullable=False,
         default=dict,

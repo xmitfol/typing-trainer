@@ -5,10 +5,9 @@
 # но прямо на раннере: статика :8000 + docker compose --profile app на :8090.
 #
 # Блокирующие джобы:  compile-checks, content-lint, backend-lint, static-e2e,
-#                     stack-e2e, backend-tests.
-# Наблюдательные:     backend-typecheck (continue-on-error — нельзя доказать
-#                     зелёность локально; повысим до required, когда покажет
-#                     зелёный на реальных прогонах).
+#                     stack-e2e, backend-tests, backend-typecheck.
+# Наблюдательных джоб нет — весь CI блокирующий (mypy strict-долг закрыт
+# в chore/mypy-strict-cleanup: 92→0 ошибок).
 # backend-lint (ruff check + format) включён после механического cleanup-PR
 # (chore/ruff-cleanup): RUF001-003 в ignore (кириллица), остальное вычищено.
 #
@@ -210,12 +209,11 @@ jobs:
         working-directory: backend
         run: uv run pytest -q -k "not anti_timing_attack_pattern"
 
-  # ── mypy strict — проба (непроверяем локально; наблюдаем реальный вывод) ──
+  # ── mypy strict — БЛОКИРУЮЩАЯ (strict-долг закрыт: 92→0, mypy app чист) ──
   backend-typecheck:
     runs-on: ubuntu-latest
     timeout-minutes: 15
     needs: compile-checks
-    continue-on-error: true
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5

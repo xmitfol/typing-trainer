@@ -19,7 +19,7 @@ Enum'ы совпадают с CHECK-constraints моделей User/UserSettings
 """
 
 from datetime import datetime
-from typing import Literal
+from typing import Any, Literal
 from uuid import UUID
 
 from pydantic import BaseModel, ConfigDict, Field
@@ -153,7 +153,7 @@ class SaveAttemptResult(BaseModel):
     """POST /me/progress response (TSD §3.7)."""
 
     progress: ProgressEntry
-    newly_earned: list[dict] = Field(default_factory=list)  # ачивки — TODO (клиентские)
+    newly_earned: list[dict[str, Any]] = Field(default_factory=list)  # ачивки — TODO (клиентские)
     next_unlocked: NextUnlocked | None = None
 
 
@@ -204,9 +204,9 @@ class GuestData(BaseModel):
     profile:  опц. поля профиля (заполняем только пустые — не перезаписываем).
     """
 
-    progress: dict | None = None
-    history: list[dict] | None = None
-    profile: dict | None = None
+    progress: dict[str, Any] | None = None
+    history: list[dict[str, Any]] | None = None
+    profile: dict[str, Any] | None = None
     default_tier: str = Field(default="tier1", max_length=20)
 
 

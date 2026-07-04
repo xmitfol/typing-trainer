@@ -12,11 +12,14 @@ TTL из config.analytics_cache_ttl_seconds). Инвалидация — по TT
 """
 
 import json
+from collections.abc import Awaitable, Callable
 from datetime import UTC, date, datetime, timedelta
-from typing import Any
+from typing import Any, TypedDict
+from uuid import UUID
 
 import structlog
-from sqlalchemy import and_, func, or_, select
+from redis.asyncio import Redis
+from sqlalchemy import and_, func, or_, select, true
 from sqlalchemy.ext.asyncio import AsyncSession
 
 from app.config import get_settings
@@ -45,13 +48,13 @@ def normalize_period(period: int) -> int:
 
 
 async def _cached(
-    redis,
+    redis: Redis,
     *,
     metric: str,
     tier: str | None,
     period: int,
-    compute,
-) -> tuple[dict, bool]:
+    compute: Callable[[], Awaitable[dict[str, Any]]],
+) -> tuple[dict[str, Any], bool]:
     """Обёртка кэша: ключ admin:analytics:{metric}:{tier}:{period}.
 
     Возвращает (data, cache_hit). При недоступности Redis — считаем напрямую
@@ -81,14 +84,25 @@ _WPM_EDGES = [0, 20, 40, 60, 80, 100, 120, 150, 200]  # знаков/мин
 _ACC_EDGES = [0, 50, 70, 80, 85, 90, 95, 98, 100]  # проценты
 
 
-def _buckets(edges: list[int], value_counts: list[tuple[int, int]]) -> list[dict]:
+class _Bucket(TypedDict):
+    """Бакет гистограммы: [lo, hi); последний — открытый (hi=None)."""
+
+    lo: int
+    hi: int | None
+    count: int
+
+
+def _buckets(edges: list[int], value_counts: list[tuple[int, int]]) -> list[_Bucket]:
     """Разложить (value, count) по бакетам [lo, hi). Последний бакет [lo, ∞)."""
-    out = [{"lo": edges[i], "hi": edges[i + 1], "count": 0} for i in range(len(edges) - 1)]
+    out: list[_Bucket] = [
+        {"lo": edges[i], "hi": edges[i + 1], "count": 0} for i in range(len(edges) - 1)
+    ]
     out.append({"lo": edges[-1], "hi": None, "count": 0})
     for value, cnt in value_counts:
         placed = False
         for b in out[:-1]:
-            if b["lo"] <= value < b["hi"]:
+            hi = b["hi"]
+            if hi is not None and b["lo"] <= value < hi:
                 b["count"] += cnt
                 placed = True
                 break
@@ -97,7 +111,7 @@ def _buckets(edges: list[int], value_counts: list[tuple[int, int]]) -> list[dict
     return out
 
 
-async def skill(session: AsyncSession, *, tier: str | None, period: int) -> dict:
+async def skill(session: AsyncSession, *, tier: str | None, period: int) -> dict[str, Any]:
     """Распределение WPM/accuracy (гистограммы) + средние — из `progress`.
 
     Из best_wpm/best_accuracy per (user,tier,lesson). Фильтр по tier опционален.
@@ -158,7 +172,7 @@ def _mrr_kopecks(subs: list[Subscription]) -> int:
     return total
 
 
-async def revenue(session: AsyncSession, *, period: int) -> dict:
+async def revenue(session: AsyncSession, *, period: int) -> dict[str, Any]:
     """MRR / активные / новые / отменённые подписки + decline rate + серия.
 
     - mrr_kopecks: Σ активных сейчас, нормировано на месяц.
@@ -224,7 +238,9 @@ async def revenue(session: AsyncSession, *, period: int) -> dict:
     }
 
 
-def _mrr_series(*, session_subs: list[Subscription], since: date, until: date) -> list[dict]:
+def _mrr_series(
+    *, session_subs: list[Subscription], since: date, until: date
+) -> list[dict[str, str | int]]:
     """MRR-снимок на конец каждого дня [since..until] по текущим активным.
 
     Упрощение: используем множество сейчас-активных подписок и их интервалы
@@ -232,7 +248,7 @@ def _mrr_series(*, session_subs: list[Subscription], since: date, until: date) -
     не попадут (нет исторической выборки) — это осознанный дефолт для v1; точная
     историческая MRR-серия — оптимизация (материализованная вью) при росте.
     """
-    out: list[dict] = []
+    out: list[dict[str, str | int]] = []
     d = since
     while d <= until:
         day_end = datetime(d.year, d.month, d.day, 23, 59, 59, tzinfo=UTC)
@@ -250,7 +266,7 @@ def _mrr_series(*, session_subs: list[Subscription], since: date, until: date) -
 # ─── Ф3-4: Воронка (из наличных таблиц) ─────────────────────────────────
 
 
-async def funnel(session: AsyncSession, *, period: int) -> dict:
+async def funnel(session: AsyncSession, *, period: int) -> dict[str, Any]:
     """signup → activated → subscribed → churned за период (из таблиц).
 
     - signups: users.created_at в периоде (не soft-deleted).
@@ -332,7 +348,7 @@ async def funnel(session: AsyncSession, *, period: int) -> dict:
 # ─── Ф3-4: Retention (D1/D7/D30 из attempts) ────────────────────────────
 
 
-async def retention(session: AsyncSession, *, period: int) -> dict:
+async def retention(session: AsyncSession, *, period: int) -> dict[str, Any]:
     """Доли вернувшихся D1/D7/D30 (по attempts относительно первого attempt).
 
     Когорта: юзеры, чей ПЕРВЫЙ attempt попал в период. dN = доля из них, у кого
@@ -351,16 +367,22 @@ async def retention(session: AsyncSession, *, period: int) -> dict:
         .group_by(Attempt.user_id)
         .subquery()
     )
+    # .tuples(): Row → tuple-вид (typing-адаптер, рантайм тот же) — иначе
+    # mypy не принимает dict(rows) (Row не Iterable[tuple[K, V]]).
     cohort_rows = (
-        await session.execute(
-            select(first_sq.c.uid, first_sq.c.first_at).where(first_sq.c.first_at >= since)
+        (
+            await session.execute(
+                select(first_sq.c.uid, first_sq.c.first_at).where(first_sq.c.first_at >= since)
+            )
         )
-    ).all()
+        .tuples()
+        .all()
+    )
     cohort_size = len(cohort_rows)
     if cohort_size == 0:
         return {"period": period, "cohort_size": 0, "d1": 0.0, "d7": 0.0, "d30": 0.0}
 
-    first_by_user = dict(cohort_rows)
+    first_by_user: dict[UUID, datetime] = dict(cohort_rows)
     uids = list(first_by_user.keys())
 
     # Все attempts когорты (один запрос) → считаем возвраты в памяти.
@@ -372,7 +394,7 @@ async def retention(session: AsyncSession, *, period: int) -> dict:
 
     def _returned_on(day: int) -> int:
         cnt = 0
-        by_user: dict[Any, list[datetime]] = {}
+        by_user: dict[UUID, list[datetime]] = {}
         for uid, ts in attempts:
             by_user.setdefault(uid, []).append(ts)
         for uid, first_at in first_by_user.items():
@@ -394,7 +416,7 @@ async def retention(session: AsyncSession, *, period: int) -> dict:
 # ─── Ф3-4: Drop-off по урокам ───────────────────────────────────────────
 
 
-async def lessons(session: AsyncSession, *, tier: str | None) -> dict:
+async def lessons(session: AsyncSession, *, tier: str | None) -> dict[str, Any]:
     """Drop-off по урокам из `attempts`/`progress`.
 
     Для каждого урока N в тире:
@@ -410,17 +432,18 @@ async def lessons(session: AsyncSession, *, tier: str | None) -> dict:
         reached_conds.append(Attempt.tier == tier)
         prog_conds.append(Progress.tier == tier)
 
+    # true() вместо литерала True: .where() принимает ColumnElement[bool].
     reached_rows = (
         await session.execute(
             select(Attempt.lesson_num, func.count(func.distinct(Attempt.user_id)))
-            .where(and_(*reached_conds) if reached_conds else True)
+            .where(and_(*reached_conds) if reached_conds else true())
             .group_by(Attempt.lesson_num)
         )
     ).all()
     completed_rows = (
         await session.execute(
             select(Progress.lesson_num, func.count(func.distinct(Progress.user_id)))
-            .where(and_(*prog_conds) if prog_conds else True)
+            .where(and_(*prog_conds) if prog_conds else true())
             .group_by(Progress.lesson_num)
         )
     ).all()

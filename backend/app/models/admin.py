@@ -6,6 +6,7 @@ reset-password/verify-email/role/refund/impersonate/…) пишет запись
 """
 
 from datetime import datetime
+from typing import Any
 from uuid import UUID
 
 from sqlalchemy import BigInteger, ForeignKey, Index, String, text
@@ -35,7 +36,7 @@ class AdminAuditLog(Base):
     action: Mapped[str] = mapped_column(String(48), nullable=False)
     target_type: Mapped[str] = mapped_column(String(24), nullable=False)
     target_id: Mapped[str] = mapped_column(String(64), nullable=False)
-    payload: Mapped[dict] = mapped_column(
+    payload: Mapped[dict[str, Any]] = mapped_column(
         JSONB,
         nullable=False,
         default=dict,

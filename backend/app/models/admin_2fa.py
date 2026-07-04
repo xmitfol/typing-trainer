@@ -40,7 +40,7 @@ class Admin2FA(Base):
         Boolean, nullable=False, default=False, server_default=text("false")
     )
     # Список sha256-хешей recovery-кодов (hex). Использованный — удаляется.
-    recovery_codes: Mapped[list] = mapped_column(
+    recovery_codes: Mapped[list[str]] = mapped_column(
         JSONB,
         nullable=False,
         default=list,

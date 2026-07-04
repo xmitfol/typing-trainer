@@ -4,11 +4,13 @@
 Бизнес-логика — в services/auth_service.py.
 """
 
+from typing import Literal, TypedDict
 from uuid import UUID
 
 import structlog
 from fastapi import APIRouter, Cookie, HTTPException, Request, Response, status
 from jose import JWTError
+from redis.asyncio import Redis
 
 from app.config import get_settings
 from app.core.captcha import issue_challenge, verify_captcha
@@ -59,7 +61,7 @@ def _captcha_failed() -> HTTPException:
 
 
 async def _require_captcha(
-    *, challenge: str, signature: str, nonce: str, honeypot: str, ip: str | None, redis
+    *, challenge: str, signature: str, nonce: str, honeypot: str, ip: str | None, redis: Redis
 ) -> None:
     """honeypot + PoW gate (ADR-006). 403 CAPTCHA_FAILED при провале."""
     if honeypot:
@@ -69,12 +71,26 @@ async def _require_captcha(
         raise _captcha_failed()
 
 
-def _set_auth_cookies(response: Response, user_id) -> None:
+class CookieKwargs(TypedDict):
+    """Общие kwargs httpOnly-cookie для Response.set_cookie (auth + admin).
+
+    TypedDict вместо dict[str, object]: mypy проверяет типы каждого kwarg'а
+    при **-распаковке в set_cookie.
+    """
+
+    httponly: bool
+    secure: bool
+    samesite: Literal["lax", "strict", "none"]
+    domain: str | None
+    path: str
+
+
+def _set_auth_cookies(response: Response, user_id: UUID) -> None:
     """Устанавливает httpOnly access+refresh cookies (SameSite=Lax)."""
     settings = get_settings()
     access_token, _ = create_access_token(user_id)
     refresh_token, _ = create_refresh_token(user_id)
-    common = {
+    common: CookieKwargs = {
         "httponly": True,
         "secure": settings.cookie_secure,
         "samesite": "lax",

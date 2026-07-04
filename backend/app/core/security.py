@@ -10,7 +10,7 @@
 """
 
 from datetime import UTC, datetime, timedelta
-from typing import Literal, TypedDict
+from typing import Any, Literal, TypedDict, cast
 from uuid import UUID, uuid4
 
 from jose import JWTError, jwt
@@ -22,7 +22,9 @@ from app.config import get_settings
 
 # Production params: OWASP 2025 minimum для interactive login.
 # На 2-vCPU pod'е (TSD §6.1) — ~250ms на hash, что укладывается в UX budget < 500ms.
-_PROD_HASHER = argon2.using(
+# types-passlib не аннотирует using()/hash()/verify() (динамический backend-прокси
+# _NoBackend) — точечные ignore[no-untyped-call] по файлу, типы держим явными.
+_PROD_HASHER: type[argon2] = argon2.using(  # type: ignore[no-untyped-call]
     type="ID",
     time_cost=3,
     memory_cost=65536,  # 64 MiB
@@ -32,7 +34,7 @@ _PROD_HASHER = argon2.using(
 )
 
 # Test params: быстрее для test runs — НЕ использовать в prod.
-_TEST_HASHER = argon2.using(
+_TEST_HASHER: type[argon2] = argon2.using(  # type: ignore[no-untyped-call]
     type="ID",
     time_cost=1,
     memory_cost=8192,  # 8 MiB
@@ -47,7 +49,7 @@ _TEST_HASHER = argon2.using(
 _DUMMY_HASH: str | None = None
 
 
-def _get_hasher() -> argon2:
+def _get_hasher() -> type[argon2]:
     """Возвращает hasher по env (test = быстрый, остальное = prod)."""
     settings = get_settings()
     is_test = settings.app_env == "dev" and "PYTEST_CURRENT_TEST" in __import__("os").environ
@@ -58,7 +60,10 @@ def get_dummy_hash() -> str:
     """Singleton dummy hash для constant-time login. Lazy-init."""
     global _DUMMY_HASH
     if _DUMMY_HASH is None:
-        _DUMMY_HASH = _get_hasher().hash("dummy-password-for-timing-attack-protection")
+        _DUMMY_HASH = cast(
+            str,
+            _get_hasher().hash("dummy-password-for-timing-attack-protection"),  # type: ignore[no-untyped-call]
+        )
     return _DUMMY_HASH
 
 
@@ -66,7 +71,8 @@ def hash_password(plain: str) -> str:
     """Хэширует пароль Argon2id с params из get_hasher()."""
     if not plain:
         raise ValueError("Password cannot be empty")
-    return _get_hasher().hash(plain)
+    hashed: str = _get_hasher().hash(plain)  # type: ignore[no-untyped-call]
+    return hashed
 
 
 def verify_password(plain: str, stored_hash: str) -> bool:
@@ -82,7 +88,8 @@ def verify_password(plain: str, stored_hash: str) -> bool:
     if not stored_hash:
         return False
     try:
-        return _get_hasher().verify(plain, stored_hash)
+        ok: bool = _get_hasher().verify(plain, stored_hash)  # type: ignore[no-untyped-call]
+        return ok
     except (ValueError, TypeError):
         # Невалидный hash (corrupted DB row) — считаем как fail
         return False
@@ -143,7 +150,11 @@ def create_access_token(
     }
     if imp_actor_id is not None:
         claims["imp"] = str(imp_actor_id)
-    token = jwt.encode(claims, settings.jwt_secret_key, algorithm=settings.jwt_algorithm)
+    # TypedDict несовместим с MutableMapping[str, Any] (инвариантность значений);
+    # в рантайме claims — обычный dict.
+    token = jwt.encode(
+        cast("dict[str, Any]", claims), settings.jwt_secret_key, algorithm=settings.jwt_algorithm
+    )
     return token, jti
 
 
@@ -163,11 +174,13 @@ def create_refresh_token(user_id: UUID, ttl: timedelta | None = None) -> tuple[s
         "jti": jti,
         "typ": "refresh",
     }
-    token = jwt.encode(claims, settings.jwt_secret_key, algorithm=settings.jwt_algorithm)
+    token = jwt.encode(
+        cast("dict[str, Any]", claims), settings.jwt_secret_key, algorithm=settings.jwt_algorithm
+    )
     return token, jti
 
 
-def decode_token(token: str, expected_type: Literal["access", "refresh"]) -> dict:
+def decode_token(token: str, expected_type: Literal["access", "refresh"]) -> dict[str, Any]:
     """Decode + validate JWT. Throws при невалидном/истёкшем/wrong type.
 
     Returns: словарь claims (для дальнейшей логики).

@@ -23,7 +23,7 @@ from app.models.user import OAuthAccount, User, UserSettings
 logger = structlog.get_logger(__name__)
 
 
-def _raw_payload(info: OAuthUserInfo) -> dict:
+def _raw_payload(info: OAuthUserInfo) -> dict[str, str]:
     """Снапшот userinfo для oauth_accounts.raw_payload (НЕ токен, ADR-007 §5)."""
     return {
         "external_id": info.external_id,

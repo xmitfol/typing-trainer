@@ -110,17 +110,18 @@ async def signin(session: AsyncSession, email: str, password: str) -> User:
     error для всех веток.
     """
     user = await find_active_by_email(session, email)
-    has_password = bool(user and user.password_hash)
-    target_hash = user.password_hash if has_password else get_dummy_hash()
+    # stored_hash: None/"" — нет юзера или OAuth-юзер без пароля → dummy-hash.
+    # Гард видим mypy: после raise ниже user — User, stored_hash — непустой str.
+    stored_hash = user.password_hash if user is not None else None
+    target_hash = stored_hash if stored_hash else get_dummy_hash()
 
-    ok = verify_password(password, target_hash)  # type: ignore[arg-type]
-    if not (has_password and ok):
+    ok = verify_password(password, target_hash)
+    if user is None or not stored_hash or not ok:
         logger.info("signin.invalid", email=email)
         raise InvalidCredentialsError()
 
-    assert user is not None and user.password_hash is not None  # для mypy после has_password
     # Прозрачный re-hash при усилении Argon2-параметров (security spec §1)
-    if needs_rehash(user.password_hash):
+    if needs_rehash(stored_hash):
         user.password_hash = hash_password(password)
         await session.commit()
         logger.info("signin.password_rehash", user_id=str(user.id))

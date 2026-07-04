@@ -14,6 +14,7 @@ from uuid import UUID
 import structlog
 from fastapi import APIRouter, Cookie, HTTPException, Query, Request, Response, status
 
+from app.api.v1.auth import CookieKwargs
 from app.config import get_settings
 from app.core.exceptions import (
     ImpersonateForbiddenError,
@@ -495,7 +496,7 @@ async def reset_user_password(
 # ─── Impersonation + role (Ф4a; support/superadmin + re-auth) ────────────
 
 
-def _impersonate_cookie_kwargs() -> dict:
+def _impersonate_cookie_kwargs() -> CookieKwargs:
     """Общие kwargs httpOnly-cookie (как _set_auth_cookies в auth.py)."""
     settings = get_settings()
     return {

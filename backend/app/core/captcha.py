@@ -22,8 +22,10 @@ import hmac
 import json
 import secrets
 import time
+from typing import Any
 
 import structlog
+from redis.asyncio import Redis
 
 from app.config import get_settings
 
@@ -41,7 +43,7 @@ def _sign(payload_b64: str, secret: str) -> str:
     return hmac.new(secret.encode(), payload_b64.encode(), hashlib.sha256).hexdigest()
 
 
-def issue_challenge() -> dict:
+def issue_challenge() -> dict[str, Any]:
     """Выдать новый PoW-challenge (GET /api/v1/auth/challenge).
 
     Stateless: ничего не пишем в БД/Redis на этом шаге. Аутентичность и
@@ -91,7 +93,7 @@ async def verify_captcha(
     nonce: str,
     *,
     ip: str | None = None,
-    redis=None,
+    redis: Redis | None = None,
 ) -> bool:
     """Проверить решение PoW-challenge. True если человек, False если бот/fail.
 

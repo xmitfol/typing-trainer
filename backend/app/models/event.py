@@ -7,6 +7,7 @@ PII: IP в plain не храним (152-ФЗ) — sha256 hash.
 """
 
 from datetime import datetime
+from typing import Any
 from uuid import UUID
 
 from sqlalchemy import BigInteger, ForeignKey, Index, String, text
@@ -34,7 +35,7 @@ class Event(Base):
     )
     session_id: Mapped[UUID] = mapped_column(PG_UUID(as_uuid=True), nullable=False)
     type: Mapped[str] = mapped_column(String(40), nullable=False)
-    payload: Mapped[dict] = mapped_column(
+    payload: Mapped[dict[str, Any]] = mapped_column(
         JSONB,
         nullable=False,
         default=dict,

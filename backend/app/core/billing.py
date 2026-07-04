@@ -21,7 +21,7 @@ import secrets
 from dataclasses import dataclass, field
 from decimal import Decimal, InvalidOperation
 from hashlib import sha256
-from typing import TYPE_CHECKING, Literal, Protocol, runtime_checkable
+from typing import TYPE_CHECKING, Any, Literal, Protocol, runtime_checkable
 from uuid import UUID
 
 if TYPE_CHECKING:
@@ -164,7 +164,7 @@ class WebhookEvent:
     status: str
     amount_kopecks: int | None = None
     payment_method_id: str | None = None
-    raw: dict = field(default_factory=dict)
+    raw: dict[str, Any] = field(default_factory=dict)
 
 
 @dataclass(frozen=True)
@@ -364,7 +364,7 @@ class StubProvider:
 
     def make_webhook_body(
         self, provider_payment_id: str, *, kind: WebhookKind = "payment.succeeded"
-    ) -> dict:
+    ) -> dict[str, str]:
         """Helper для тестов/эмуляции: собрать подписанное stub-webhook-тело."""
         return {
             "provider_payment_id": provider_payment_id,

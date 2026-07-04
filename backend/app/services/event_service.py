@@ -13,6 +13,7 @@ PII: IP в plain не храним (152-ФЗ) — sha256 hash (`hash_ip`, еди
 """
 
 import hashlib
+from typing import Any
 from uuid import NAMESPACE_URL, UUID, uuid5
 
 import structlog
@@ -78,7 +79,7 @@ async def emit(
     type: str,
     session_id: UUID,
     user_id: UUID | None = None,
-    payload: dict | None = None,
+    payload: dict[str, Any] | None = None,
     ip_hash: str | None = None,
     user_agent: str | None = None,
     commit: bool = False,
@@ -111,7 +112,7 @@ async def emit_server(
     *,
     type: str,
     user_id: UUID | None,
-    payload: dict | None = None,
+    payload: dict[str, Any] | None = None,
     commit: bool = False,
 ) -> Event:
     """Эмиссия server-side события (billing subscribed/churned).
