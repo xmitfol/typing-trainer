@@ -1,8 +1,13 @@
-# Session Handoff — 2026-07-02 (SaaS-бэкенд + Админка + Качество закрыты)
+# Session Handoff — 2026-07-04 (борд «финал без платежей» + CI-долг закрыты)
 
-> **Last session**: 2026-07-01 → 2026-07-02 — большая автономная сессия (координатор + команда агентов).
+> **Last session**: 2026-07-03 → 2026-07-04 — координатор + фоновые агенты (Алекс/Полина/Борис), scope-развилки через Нику.
 > **For**: следующий Клод или Иван (PO).
-> **TL;DR**: `master = d6621e2`. Весь **автономный объём закрыт** и в master (PR #26–#45): P1 биллинг + P2 OAuth/серверный синк + **админ-панель Ф1–Ф4** (пользователи/платежи/статистика/имперсонация/роли/2FA) + волна качества (адаптив Phase 1, контент-линтер, удержание/стрики, **голос Якимова на весь tier1**) + **CI real-Docker на GitHub Actions** (PR #45, план §0.1 #1). Гейты гоняются и на VM, и в CI. Следующие автономные треки: §0.1 #2 (адаптив-движок) и #3 (мелкий долг); PO-блокеры — §2.
+> **TL;DR**: `master = 20805b3`, PR #26–#59. **Борд Ники §0.1 закрыт целиком (#1–#5)** и **CI-долг закрыт**:
+> CI real-Docker (7 блокирующих джоб ~2.5 мин: compile / content-lint / static ×2 / stack / backend-lint /
+> backend-tests; наблюдательная только mypy) + адаптив Phase 2 (remediation/decay/weak-keys) + раскатка
+> unit/baseReps tier1 + E2E-синк 6 тиров (18/18) + мелкий долг + ruff 448→0 + uv.lock + **продуктовый фикс,
+> пойманный тестами** (verify-токен до писем в signup, PR #57). Дальше двигаться — по PO-блокерам (§2)
+> или малым автономным хвостам (§0.1а).
 >
 > *(Предыдущие handoff'ы — в git-истории этого файла.)*
 
@@ -11,6 +16,13 @@
 ## 0. Как продолжить (читать первым)
 
 **Всё, что можно было сделать без тебя, — сделано.** Ветки от свежего `master`, паттерн: фича → ветка → PR → merge (не копим на длинной ветке). Следующий шаг определяется тем, что разблокирует PO (§2) — или мелким продуктовым решением (§3).
+
+### 0.1а Доступное автономное (если PO ещё думает)
+- **YooKassa `parse_webhook` offline юнит-тест** — Ника явно разрешила достать вперёд (см. ниже про YooKassaProvider); только нормализация payload'ов, БЕЗ HTTP-методов.
+- **mypy-типизация** admin/me/events (Борис) → повысить backend-typecheck до блокирующей (последняя наблюдательная).
+- **Observation block_1**: руки в text_sequence местами перепутаны (~4К конфликтов метадаты; поле тренажёром не читается) — решение Полины/Ники: чинить `scripts/regen_text_sequence.py` или дропнуть поле.
+- **Расширения раскатки** (по желанию): unit>1 токена («а о а о», ~17 шагов tier1); остальные тиры — тем же `scripts/migrate_steps_declarative.py`.
+- **i18n блока «Клавиши на прокачку»** в профиле — в парк-карточку onboarding/pricing i18n.
 
 **Режим работы:** автономно, sequencing через **Нику** (PM), продуктовые/архитектурные/необратимые развилки — за **Иваном** (PO). Команда агентов: Борис (backend+DevOps, gate на VM), Алекс (frontend), Полина (product/контент), Сергей (security), Ася (адаптив-спека), Ника (PM). См. memory `feedback_autonomous_with_nika`, `project_team`.
 
@@ -109,8 +121,9 @@ PO спросил, что доделать до финала БЕЗ данных
 ## 4. Инфра / как гонять
 
 - **Тест-стек:** VM cme-server (192.168.7.115), Docker; `docker compose --profile app up -d` (backend+nginx :8090, postgres, redis, mailpit). На VM untracked `backend/docker-compose.override.yml` (`!override []` на host-порты — закрывает конфликт с нативными PG/Redis). Паттерн gate/браузер-E2E — memory `vm-playwright-pattern`.
-- **Линтер контента:** `python scripts/lint_lessons.py` (HIGH=0 обязателен; 2 WARN в block_1 — предсуществующий text_sequence-долг, метадата, не блокер). ✅ Теперь CI-гейт (content-lint).
-- **CI (GitHub Actions):** на каждый push/PR в master — `.github/workflows/ci.yml` (~2.5 мин). Локальный прогон статик-гейта: `python -m http.server 8000` + `python scripts/ci_run_gate.py --suite static [--only x.py]`. Стек-гейт локально — только на VM (Docker); на раннере — сам. ADR-004 CI-часть superseded (см. status update в ADR).
+- **Линтер контента:** `python scripts/lint_lessons.py` — **459 уроков, HIGH 0, WARN 0**. ✅ CI-гейт (content-lint).
+- **CI (GitHub Actions):** на каждый push/PR в master — `.github/workflows/ci.yml` (~2.5 мин, 7 блокирующих джоб). Локальный прогон статик-гейта: `python -m http.server 8000` + `python scripts/ci_run_gate.py --suite static [--only x.py]`. Стек-гейт (auth 8/8 + синк 18/18 + admin-гейты в контейнере) локально — только на VM; на раннере — сам. ADR-004 CI-часть superseded (см. status update в ADR).
+- **Backend локально (НОВОЕ, PR #58):** `cd backend && uv sync --frozen && uv run pytest -q -k "not anti_timing_attack_pattern"` — uv сам ставит CPython 3.12 из uv.lock; без Docker db-тесты корректно скипаются (65 passed / 8 skipped). Ruff: `ruff check .` + `ruff format --check .` (пин 0.8.6 = CI). Обновление зависимостей — через `uv lock` осознанным PR.
 
 ## 5. Где детали
 - **ROADMAP:** `docs/ROADMAP.md` (единый план, приоритеты).
