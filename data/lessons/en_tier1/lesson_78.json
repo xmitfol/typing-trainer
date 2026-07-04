@@ -146,6 +146,9 @@
     {
       "type": "step",
       "kind": "drill",
+      "unit": "reports",
+      "baseReps": 5,
+      "keys": ["r", "e", "p", "o", "t", "s"],
       "target": "reports reports reports reports reports",
       "finger": "blue",
       "title": "Rhythm: reports",
@@ -154,6 +157,9 @@
     {
       "type": "step",
       "kind": "drill",
+      "unit": "project",
+      "baseReps": 4,
+      "keys": ["p", "r", "o", "j", "e", "c", "t"],
       "target": "project project project project",
       "finger": "pink",
       "title": "Rhythm: project",
@@ -162,6 +168,9 @@
     {
       "type": "step",
       "kind": "drill",
+      "unit": "passengers",
+      "baseReps": 3,
+      "keys": ["p", "a", "s", "e", "n", "g", "r"],
       "target": "passengers passengers passengers",
       "finger": "pink",
       "title": "Rhythm: passengers",

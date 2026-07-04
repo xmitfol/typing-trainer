@@ -120,6 +120,9 @@
     {
       "type": "step",
       "kind": "drill",
+      "unit": "c",
+      "baseReps": 12,
+      "keys": ["c"],
       "target": "c c c c c c c c c c c c",
       "finger": "green",
       "title": "The letter C",

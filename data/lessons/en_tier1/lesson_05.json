@@ -59,6 +59,9 @@
     {
       "type": "step",
       "kind": "drill",
+      "unit": "she",
+      "baseReps": 5,
+      "keys": ["s", "h", "e"],
       "target": "she she she she she",
       "finger": "orange",
       "title": "Rhythm: she",
@@ -67,6 +70,9 @@
     {
       "type": "step",
       "kind": "drill",
+      "unit": "said",
+      "baseReps": 4,
+      "keys": ["s", "a", "i", "d"],
       "target": "said said said said",
       "finger": "orange",
       "title": "Rhythm: said",
@@ -75,6 +81,9 @@
     {
       "type": "step",
       "kind": "drill",
+      "unit": "here",
+      "baseReps": 3,
+      "keys": ["h", "e", "r"],
       "target": "here here here",
       "finger": "blue",
       "title": "Rhythm: here",

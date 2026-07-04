@@ -144,6 +144,9 @@
     {
       "type": "step",
       "kind": "drill",
+      "unit": "lessons",
+      "baseReps": 5,
+      "keys": ["l", "e", "s", "o", "n"],
       "target": "lessons lessons lessons lessons lessons",
       "finger": "blue",
       "title": "Rhythm: lessons",
@@ -152,6 +155,9 @@
     {
       "type": "step",
       "kind": "drill",
+      "unit": "perspective",
+      "baseReps": 3,
+      "keys": ["p", "e", "r", "s", "c", "t", "i", "v"],
       "target": "perspective perspective perspective",
       "finger": "pink",
       "title": "Rhythm: perspective",
@@ -160,6 +166,9 @@
     {
       "type": "step",
       "kind": "drill",
+      "unit": "tempo",
+      "baseReps": 4,
+      "keys": ["t", "e", "m", "p", "o"],
       "target": "tempo tempo tempo tempo",
       "finger": "blue",
       "title": "Rhythm: tempo",

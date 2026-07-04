@@ -123,6 +123,9 @@
     {
       "type": "step",
       "kind": "drill",
+      "unit": "markets",
+      "baseReps": 5,
+      "keys": ["m", "a", "r", "k", "e", "t", "s"],
       "target": "markets markets markets markets markets",
       "finger": "blue",
       "title": "Rhythm: markets",
@@ -131,6 +134,9 @@
     {
       "type": "step",
       "kind": "drill",
+      "unit": "cloud",
+      "baseReps": 4,
+      "keys": ["c", "l", "o", "u", "d"],
       "target": "cloud cloud cloud cloud",
       "finger": "green",
       "title": "Rhythm: cloud",
@@ -139,6 +145,9 @@
     {
       "type": "step",
       "kind": "drill",
+      "unit": "growth",
+      "baseReps": 4,
+      "keys": ["g", "r", "o", "w", "t", "h"],
       "target": "growth growth growth growth",
       "finger": "blue",
       "title": "Rhythm: growth",

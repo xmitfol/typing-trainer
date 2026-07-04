@@ -110,6 +110,9 @@
     {
       "type": "step",
       "kind": "drill",
+      "unit": "point",
+      "baseReps": 5,
+      "keys": ["p", "o", "i", "n", "t"],
       "target": "point point point point point",
       "finger": "pink",
       "title": "Rhythm: point",
@@ -118,6 +121,9 @@
     {
       "type": "step",
       "kind": "drill",
+      "unit": "agree",
+      "baseReps": 4,
+      "keys": ["a", "g", "r", "e"],
       "target": "agree agree agree agree",
       "finger": "pink",
       "title": "Rhythm: agree",
@@ -126,6 +132,9 @@
     {
       "type": "step",
       "kind": "drill",
+      "unit": "think",
+      "baseReps": 4,
+      "keys": ["t", "h", "i", "n", "k"],
       "target": "think think think think",
       "finger": "blue",
       "title": "Rhythm: think",

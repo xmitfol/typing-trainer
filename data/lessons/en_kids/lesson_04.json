@@ -124,9 +124,9 @@
     {"type": "lead", "text": "Hello, friend! Today we finish the whole middle row - hooray! We add three new keys: the semicolon, and G and H. After this, every key on the home row is your friend."},
     {"type": "drop", "text": "Your right pinky reaches a tiny bit to tap the semicolon. For G, your left pointer finger leans in from F. For H, your right pointer finger leans in from J. Just a little reach, then back home."},
     {"type": "callout", "icon": "🐥", "title": "Reach and come back", "text": "G and H are in the middle, so your pointer fingers stretch over to say hello, then hop right back to F and J. Quick and gentle, like a little bunny."},
-    {"type": "step", "kind": "drill", "target": "; ; ; ; ; ; ; ; ; ;", "finger": "pink", "title": "The semicolon", "hint": "Right pinky taps the semicolon. Just a soft little touch, friend."},
-    {"type": "step", "kind": "drill", "target": "g g g g g g g g g g", "finger": "blue", "title": "Letter G", "hint": "Left pointer finger leans over to G, then back to F. Well done!"},
-    {"type": "step", "kind": "drill", "target": "h h h h h h h h h h", "finger": "indigo", "title": "Letter H", "hint": "Right pointer finger leans over to H, then back to J. Gentle reach!"},
+    {"type": "step", "kind": "drill", "unit": ";", "baseReps": 10, "keys": [";"], "target": "; ; ; ; ; ; ; ; ; ;", "finger": "pink", "title": "The semicolon", "hint": "Right pinky taps the semicolon. Just a soft little touch, friend."},
+    {"type": "step", "kind": "drill", "unit": "g", "baseReps": 10, "keys": ["g"], "target": "g g g g g g g g g g", "finger": "blue", "title": "Letter G", "hint": "Left pointer finger leans over to G, then back to F. Well done!"},
+    {"type": "step", "kind": "drill", "unit": "h", "baseReps": 10, "keys": ["h"], "target": "h h h h h h h h h h", "finger": "indigo", "title": "Letter H", "hint": "Right pointer finger leans over to H, then back to J. Gentle reach!"},
     {"type": "p", "text": "Now let's make words with your new letters. Read each one, then tap it slowly. Look how many words you can spell!"},
     {"type": "step", "kind": "drill", "target": "had has gash hall flash glass", "finger": "green", "title": "Words", "hint": "Real words: had, has, gash, hall, flash, glass. So clever, champ!"},
     {"type": "p", "text": "The whole home row is yours now - what a big day! When you are ready, press the button below and try the whole lesson. I am so proud of you, friend!"}

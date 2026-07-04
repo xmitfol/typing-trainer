@@ -118,6 +118,9 @@
     {
       "type": "step",
       "kind": "drill",
+      "unit": "тишине",
+      "baseReps": 4,
+      "keys": ["т", "и", "ш", "н", "е"],
       "target": "тишине тишине тишине тишине",
       "finger": "purple",
       "title": "Ритм: тишине",
@@ -126,6 +129,9 @@
     {
       "type": "step",
       "kind": "drill",
+      "unit": "коридору",
+      "baseReps": 3,
+      "keys": ["к", "о", "р", "и", "д", "у"],
       "target": "коридору коридору коридору",
       "finger": "blue",
       "title": "Ритм: коридору",
@@ -134,6 +140,9 @@
     {
       "type": "step",
       "kind": "drill",
+      "unit": "свет",
+      "baseReps": 5,
+      "keys": ["с", "в", "е", "т"],
       "target": "свет свет свет свет свет",
       "finger": "green",
       "title": "Ритм: свет",

@@ -139,6 +139,9 @@
     {
       "type": "step",
       "kind": "drill",
+      "unit": "evening",
+      "baseReps": 5,
+      "keys": ["e", "v", "n", "i", "g"],
       "target": "evening evening evening evening evening",
       "finger": "green",
       "title": "Rhythm: evening",
@@ -147,6 +150,9 @@
     {
       "type": "step",
       "kind": "drill",
+      "unit": "keyboard",
+      "baseReps": 4,
+      "keys": ["k", "e", "y", "b", "o", "a", "r", "d"],
       "target": "keyboard keyboard keyboard keyboard",
       "finger": "green",
       "title": "Rhythm: keyboard",
@@ -155,6 +161,9 @@
     {
       "type": "step",
       "kind": "drill",
+      "unit": "feature",
+      "baseReps": 4,
+      "keys": ["f", "e", "a", "t", "u", "r"],
       "target": "feature feature feature feature",
       "finger": "blue",
       "title": "Rhythm: feature",

@@ -150,6 +150,9 @@
     {
       "type": "step",
       "kind": "drill",
+      "unit": "'",
+      "baseReps": 15,
+      "keys": ["'"],
       "target": "' ' ' ' ' ' ' ' ' ' ' ' ' ' '",
       "finger": "pink",
       "title": "The apostrophe",
@@ -158,6 +161,9 @@
     {
       "type": "step",
       "kind": "drill",
+      "unit": "\"",
+      "baseReps": 15,
+      "keys": ["\""],
       "target": "\" \" \" \" \" \" \" \" \" \" \" \" \" \" \"",
       "finger": "pink",
       "title": "The double quote",

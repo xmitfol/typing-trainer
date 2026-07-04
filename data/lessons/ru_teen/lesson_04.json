@@ -114,6 +114,9 @@
     {
       "type": "step",
       "kind": "drill",
+      "unit": "вода",
+      "baseReps": 5,
+      "keys": ["в", "о", "д", "а"],
       "target": "вода вода вода вода вода",
       "finger": "blue",
       "title": "Ритм: вода",
@@ -122,6 +125,9 @@
     {
       "type": "step",
       "kind": "drill",
+      "unit": "жажда",
+      "baseReps": 4,
+      "keys": ["ж", "а", "д"],
       "target": "жажда жажда жажда жажда",
       "finger": "indigo",
       "title": "Ритм: жажда",

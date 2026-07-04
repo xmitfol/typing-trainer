@@ -115,9 +115,9 @@
     {"type": "lead", "text": "Hello again, friend! Today we wake up three more fingers, and something magical happens - you get to spell real words! We learn S, L, and A."},
     {"type": "drop", "text": "Your ring fingers are next to your middle fingers. The left ring finger taps S, and the right ring finger taps L. Your left pinky, the littlest finger, reaches just a tiny bit to tap A. Keep your other fingers cozy at home."},
     {"type": "callout", "icon": "🐥", "title": "Little finger, little tap", "text": "Your pinky is small, like a baby chick, so it just needs a soft little tap. Be gentle and kind to it, friend - it is learning too!"},
-    {"type": "step", "kind": "drill", "target": "s s s s s s s s s s", "finger": "orange", "title": "Letter S", "hint": "Left ring finger taps S. A soft little tap - it is right next to D."},
-    {"type": "step", "kind": "drill", "target": "l l l l l l l l l l", "finger": "orange", "title": "Letter L", "hint": "Right ring finger taps L. Gentle and easy - right next to K."},
-    {"type": "step", "kind": "drill", "target": "a a a a a a a a a a", "finger": "pink", "title": "Letter A", "hint": "Your little left pinky taps A. Just a tiny press, friend - well done!"},
+    {"type": "step", "kind": "drill", "unit": "s", "baseReps": 10, "keys": ["s"], "target": "s s s s s s s s s s", "finger": "orange", "title": "Letter S", "hint": "Left ring finger taps S. A soft little tap - it is right next to D."},
+    {"type": "step", "kind": "drill", "unit": "l", "baseReps": 10, "keys": ["l"], "target": "l l l l l l l l l l", "finger": "orange", "title": "Letter L", "hint": "Right ring finger taps L. Gentle and easy - right next to K."},
+    {"type": "step", "kind": "drill", "unit": "a", "baseReps": 10, "keys": ["a"], "target": "a a a a a a a a a a", "finger": "pink", "title": "Letter A", "hint": "Your little left pinky taps A. Just a tiny press, friend - well done!"},
     {"type": "p", "text": "And now, the magic! With your new letters you can spell real words. Read each little word, then tap it out slowly. Look - you are writing!"},
     {"type": "step", "kind": "drill", "target": "as ask sad lad all fall", "finger": "pink", "title": "First words", "hint": "Your very first words: as, ask, sad, lad, all, fall. So clever!"},
     {"type": "p", "text": "You wrote real words today - hooray! When you are ready, press the button below and try the whole lesson. I am so proud of you, champ!"}

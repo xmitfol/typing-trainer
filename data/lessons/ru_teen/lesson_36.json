@@ -122,6 +122,9 @@
     {
       "type": "step",
       "kind": "drill",
+      "unit": "живи",
+      "baseReps": 4,
+      "keys": ["ж", "и", "в"],
       "target": "живи живи живи живи",
       "finger": "blue",
       "title": "Ритм: живи",
@@ -130,6 +133,9 @@
     {
       "type": "step",
       "kind": "drill",
+      "unit": "смейся",
+      "baseReps": 4,
+      "keys": ["с", "м", "е", "й", "я"],
       "target": "смейся смейся смейся смейся",
       "finger": "green",
       "title": "Ритм: смейся",

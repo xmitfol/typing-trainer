@@ -127,6 +127,9 @@
     {
       "type": "step",
       "kind": "drill",
+      "unit": "speed",
+      "baseReps": 5,
+      "keys": ["s", "p", "e", "d"],
       "target": "speed speed speed speed speed",
       "finger": "orange",
       "title": "Rhythm: speed",
@@ -135,6 +138,9 @@
     {
       "type": "step",
       "kind": "drill",
+      "unit": "focus",
+      "baseReps": 4,
+      "keys": ["f", "o", "c", "u", "s"],
       "target": "focus focus focus focus",
       "finger": "blue",
       "title": "Rhythm: focus",
@@ -143,6 +149,9 @@
     {
       "type": "step",
       "kind": "drill",
+      "unit": "energized",
+      "baseReps": 3,
+      "keys": ["e", "n", "r", "g", "i", "z", "d"],
       "target": "energized energized energized",
       "finger": "green",
       "title": "Rhythm: energized",

@@ -135,6 +135,9 @@
     {
       "type": "step",
       "kind": "drill",
+      "unit": "revenue",
+      "baseReps": 5,
+      "keys": ["r", "e", "v", "n", "u"],
       "target": "revenue revenue revenue revenue revenue",
       "finger": "blue",
       "title": "Rhythm: revenue",
@@ -143,6 +146,9 @@
     {
       "type": "step",
       "kind": "drill",
+      "unit": "targets",
+      "baseReps": 4,
+      "keys": ["t", "a", "r", "g", "e", "s"],
       "target": "targets targets targets targets",
       "finger": "blue",
       "title": "Rhythm: targets",
@@ -151,6 +157,9 @@
     {
       "type": "step",
       "kind": "drill",
+      "unit": "content",
+      "baseReps": 4,
+      "keys": ["c", "o", "n", "t", "e"],
       "target": "content content content content",
       "finger": "green",
       "title": "Rhythm: content",

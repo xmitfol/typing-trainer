@@ -79,6 +79,9 @@
     {
       "type": "step",
       "kind": "drill",
+      "unit": "cat",
+      "baseReps": 4,
+      "keys": ["c", "a", "t"],
       "target": "cat cat cat cat",
       "finger": "blue",
       "title": "Rhythm: cat",
@@ -87,6 +90,9 @@
     {
       "type": "step",
       "kind": "drill",
+      "unit": "dog",
+      "baseReps": 4,
+      "keys": ["d", "o", "g"],
       "target": "dog dog dog dog",
       "finger": "green",
       "title": "Rhythm: dog",
@@ -95,6 +101,9 @@
     {
       "type": "step",
       "kind": "drill",
+      "unit": "run",
+      "baseReps": 3,
+      "keys": ["r", "u", "n"],
       "target": "run run run",
       "finger": "blue",
       "title": "Rhythm: run",

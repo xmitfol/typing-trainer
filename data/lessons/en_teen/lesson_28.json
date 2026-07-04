@@ -115,6 +115,9 @@
     {
       "type": "step",
       "kind": "drill",
+      "unit": "tonight",
+      "baseReps": 5,
+      "keys": ["t", "o", "n", "i", "g", "h"],
       "target": "tonight tonight tonight tonight tonight",
       "finger": "blue",
       "title": "Rhythm: tonight",
@@ -123,6 +126,9 @@
     {
       "type": "step",
       "kind": "drill",
+      "unit": "city",
+      "baseReps": 4,
+      "keys": ["c", "i", "t", "y"],
       "target": "city city city city",
       "finger": "green",
       "title": "Rhythm: city",
@@ -131,6 +137,9 @@
     {
       "type": "step",
       "kind": "drill",
+      "unit": "lights",
+      "baseReps": 4,
+      "keys": ["l", "i", "g", "h", "t", "s"],
       "target": "lights lights lights lights",
       "finger": "orange",
       "title": "Rhythm: lights",

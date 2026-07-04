@@ -68,6 +68,9 @@
     {
       "type": "step",
       "kind": "drill",
+      "unit": "о",
+      "baseReps": 12,
+      "keys": ["о"],
       "target": "о о о о о о о о о о о о",
       "finger": "indigo",
       "title": "Буква О",

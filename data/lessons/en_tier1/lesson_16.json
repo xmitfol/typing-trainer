@@ -148,6 +148,9 @@
     {
       "type": "step",
       "kind": "drill",
+      "unit": ".",
+      "baseReps": 15,
+      "keys": ["."],
       "target": ". . . . . . . . . . . . . . .",
       "finger": "orange",
       "title": "The period",
@@ -156,6 +159,9 @@
     {
       "type": "step",
       "kind": "drill",
+      "unit": ",",
+      "baseReps": 15,
+      "keys": [","],
       "target": ", , , , , , , , , , , , , , ,",
       "finger": "orange",
       "title": "The comma",

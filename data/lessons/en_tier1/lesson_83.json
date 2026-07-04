@@ -146,6 +146,9 @@
     {
       "type": "step",
       "kind": "drill",
+      "unit": "latency",
+      "baseReps": 5,
+      "keys": ["l", "a", "t", "e", "n", "c", "y"],
       "target": "latency latency latency latency latency",
       "finger": "orange",
       "title": "Rhythm: latency",
@@ -154,6 +157,9 @@
     {
       "type": "step",
       "kind": "drill",
+      "unit": "baseline",
+      "baseReps": 4,
+      "keys": ["b", "a", "s", "e", "l", "i", "n"],
       "target": "baseline baseline baseline baseline",
       "finger": "blue",
       "title": "Rhythm: baseline",
@@ -162,6 +168,9 @@
     {
       "type": "step",
       "kind": "drill",
+      "unit": "restoring",
+      "baseReps": 3,
+      "keys": ["r", "e", "s", "t", "o", "i", "n", "g"],
       "target": "restoring restoring restoring",
       "finger": "blue",
       "title": "Rhythm: restoring",

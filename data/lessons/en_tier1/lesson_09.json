@@ -167,6 +167,9 @@
     {
       "type": "step",
       "kind": "drill",
+      "unit": ";",
+      "baseReps": 20,
+      "keys": [";"],
       "target": "; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ;",
       "finger": "pink",
       "title": "The semicolon",

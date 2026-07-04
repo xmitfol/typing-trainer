@@ -85,6 +85,9 @@
     {
       "type": "step",
       "kind": "drill",
+      "unit": "ы",
+      "baseReps": 12,
+      "keys": ["ы"],
       "target": "ы ы ы ы ы ы ы ы ы ы ы ы",
       "finger": "orange",
       "title": "Буква Ы",
@@ -93,6 +96,9 @@
     {
       "type": "step",
       "kind": "drill",
+      "unit": "д",
+      "baseReps": 12,
+      "keys": ["д"],
       "target": "д д д д д д д д д д д д",
       "finger": "orange",
       "title": "Буква Д",

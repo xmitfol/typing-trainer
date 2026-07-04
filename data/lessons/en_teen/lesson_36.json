@@ -99,6 +99,9 @@
     {
       "type": "step",
       "kind": "drill",
+      "unit": "live",
+      "baseReps": 5,
+      "keys": ["l", "i", "v", "e"],
       "target": "live live live live live",
       "finger": "orange",
       "title": "Rhythm: live",
@@ -107,6 +110,9 @@
     {
       "type": "step",
       "kind": "drill",
+      "unit": "grind",
+      "baseReps": 4,
+      "keys": ["g", "r", "i", "n", "d"],
       "target": "grind grind grind grind",
       "finger": "blue",
       "title": "Rhythm: grind",
@@ -115,6 +121,9 @@
     {
       "type": "step",
       "kind": "drill",
+      "unit": "only",
+      "baseReps": 4,
+      "keys": ["o", "n", "l", "y"],
       "target": "only only only only",
       "finger": "orange",
       "title": "Rhythm: only",

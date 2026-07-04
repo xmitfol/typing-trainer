@@ -55,6 +55,9 @@
     {
       "type": "step",
       "kind": "placement",
+      "unit": "а",
+      "baseReps": 8,
+      "keys": ["а"],
       "target": "а а а а а а а а",
       "finger": "blue",
       "title": "Поставь ручки",
@@ -67,6 +70,9 @@
     {
       "type": "step",
       "kind": "drill",
+      "unit": "а",
+      "baseReps": 12,
+      "keys": ["а"],
       "target": "а а а а а а а а а а а а",
       "finger": "blue",
       "title": "Буква А",

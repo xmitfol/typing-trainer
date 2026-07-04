@@ -87,6 +87,9 @@
     {
       "type": "step",
       "kind": "drill",
+      "unit": "write",
+      "baseReps": 4,
+      "keys": ["w", "r", "i", "t", "e"],
       "target": "write write write write",
       "finger": "orange",
       "title": "Rhythm: write",
@@ -95,6 +98,9 @@
     {
       "type": "step",
       "kind": "drill",
+      "unit": "article",
+      "baseReps": 3,
+      "keys": ["a", "r", "t", "i", "c", "l", "e"],
       "target": "article article article",
       "finger": "pink",
       "title": "Rhythm: article",
@@ -103,6 +109,9 @@
     {
       "type": "step",
       "kind": "drill",
+      "unit": "brave",
+      "baseReps": 3,
+      "keys": ["b", "r", "a", "v", "e"],
       "target": "brave brave brave",
       "finger": "blue",
       "title": "Rhythm: brave",

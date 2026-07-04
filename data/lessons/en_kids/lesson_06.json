@@ -104,8 +104,8 @@
     {"type": "lead", "text": "Hello, friend! Today your fingers learn to reach UP to the top row. We tap two new keys: R and U. Up we go, like little birds hopping to a higher branch!"},
     {"type": "drop", "text": "Your left pointer finger reaches up and over to R, which sits right above F. Your right pointer finger reaches up to U, right above J. A little stretch up, then straight back down home."},
     {"type": "callout", "icon": "🐦", "title": "Up and back home", "text": "Reach up softly for R and U, then let your finger flutter right back to F or J. Do not look down, friend - your fingers remember the way home all by themselves."},
-    {"type": "step", "kind": "drill", "target": "r r r r r r r r r r", "finger": "blue", "title": "Letter R", "hint": "Left pointer finger reaches up to R, then back to F. Lovely reach!"},
-    {"type": "step", "kind": "drill", "target": "u u u u u u u u u u", "finger": "green", "title": "Letter U", "hint": "Right pointer finger reaches up to U, then back to J. Gentle and easy!"},
+    {"type": "step", "kind": "drill", "unit": "r", "baseReps": 10, "keys": ["r"], "target": "r r r r r r r r r r", "finger": "blue", "title": "Letter R", "hint": "Left pointer finger reaches up to R, then back to F. Lovely reach!"},
+    {"type": "step", "kind": "drill", "unit": "u", "baseReps": 10, "keys": ["u"], "target": "u u u u u u u u u u", "finger": "green", "title": "Letter U", "hint": "Right pointer finger reaches up to U, then back to J. Gentle and easy!"},
     {"type": "p", "text": "Now let's make new words with R and U. Read each one, then tap it slowly. You can spell so many words now!"},
     {"type": "step", "kind": "drill", "target": "rug fur surf guard rush hard", "finger": "green", "title": "Words", "hint": "New words: rug, fur, surf, guard, rush, hard. Well done, champ!"},
     {"type": "p", "text": "You reached up to the top row today - how brave! When you are ready, press the button below and try the whole lesson. Great job, friend!"}

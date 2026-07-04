@@ -113,6 +113,9 @@
     {
       "type": "step",
       "kind": "drill",
+      "unit": "quick",
+      "baseReps": 5,
+      "keys": ["q", "u", "i", "c", "k"],
       "target": "quick quick quick quick quick",
       "finger": "pink",
       "title": "Rhythm: quick",
@@ -121,6 +124,9 @@
     {
       "type": "step",
       "kind": "drill",
+      "unit": "brown",
+      "baseReps": 4,
+      "keys": ["b", "r", "o", "w", "n"],
       "target": "brown brown brown brown",
       "finger": "blue",
       "title": "Rhythm: brown",
@@ -129,6 +135,9 @@
     {
       "type": "step",
       "kind": "drill",
+      "unit": "jumps",
+      "baseReps": 4,
+      "keys": ["j", "u", "m", "p", "s"],
       "target": "jumps jumps jumps jumps",
       "finger": "blue",
       "title": "Rhythm: jumps",

@@ -84,6 +84,9 @@
     {
       "type": "step",
       "kind": "drill",
+      "unit": "sing",
+      "baseReps": 4,
+      "keys": ["s", "i", "n", "g"],
       "target": "sing sing sing sing",
       "finger": "blue",
       "title": "Rhythm: sing",
@@ -92,6 +95,9 @@
     {
       "type": "step",
       "kind": "drill",
+      "unit": "with",
+      "baseReps": 4,
+      "keys": ["w", "i", "t", "h"],
       "target": "with with with with",
       "finger": "green",
       "title": "Rhythm: with",
@@ -100,6 +106,9 @@
     {
       "type": "step",
       "kind": "drill",
+      "unit": "me",
+      "baseReps": 3,
+      "keys": ["m", "e"],
       "target": "me me me",
       "finger": "blue",
       "title": "Rhythm: me",

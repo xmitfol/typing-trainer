@@ -53,6 +53,9 @@
     {
       "type": "step",
       "kind": "drill",
+      "unit": "work",
+      "baseReps": 5,
+      "keys": ["w", "o", "r", "k"],
       "target": "work work work work work",
       "finger": "orange",
       "title": "Rhythm: work",
@@ -61,6 +64,9 @@
     {
       "type": "step",
       "kind": "drill",
+      "unit": "years",
+      "baseReps": 4,
+      "keys": ["y", "e", "a", "r", "s"],
       "target": "years years years years",
       "finger": "blue",
       "title": "Rhythm: years",
@@ -69,6 +75,9 @@
     {
       "type": "step",
       "kind": "drill",
+      "unit": "change",
+      "baseReps": 4,
+      "keys": ["c", "h", "a", "n", "g", "e"],
       "target": "change change change change",
       "finger": "green",
       "title": "Rhythm: change",

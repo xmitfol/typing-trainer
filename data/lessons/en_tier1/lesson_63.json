@@ -128,6 +128,9 @@
     {
       "type": "step",
       "kind": "drill",
+      "unit": "writing",
+      "baseReps": 5,
+      "keys": ["w", "r", "i", "t", "n", "g"],
       "target": "writing writing writing writing writing",
       "finger": "blue",
       "title": "Rhythm: writing",
@@ -136,6 +139,9 @@
     {
       "type": "step",
       "kind": "drill",
+      "unit": "brother",
+      "baseReps": 4,
+      "keys": ["b", "r", "o", "t", "h", "e"],
       "target": "brother brother brother brother",
       "finger": "blue",
       "title": "Rhythm: brother",
@@ -144,6 +150,9 @@
     {
       "type": "step",
       "kind": "drill",
+      "unit": "smile",
+      "baseReps": 4,
+      "keys": ["s", "m", "i", "l", "e"],
       "target": "smile smile smile smile",
       "finger": "orange",
       "title": "Rhythm: smile",

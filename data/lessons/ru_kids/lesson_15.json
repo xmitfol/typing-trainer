@@ -95,6 +95,9 @@
     {
       "type": "step",
       "kind": "drill",
+      "unit": "кот",
+      "baseReps": 4,
+      "keys": ["к", "о", "т"],
       "target": "кот кот кот кот",
       "finger": "blue",
       "title": "Ритм: кот",
@@ -107,6 +110,9 @@
     {
       "type": "step",
       "kind": "drill",
+      "unit": "ест",
+      "baseReps": 4,
+      "keys": ["е", "с", "т"],
       "target": "ест ест ест ест",
       "finger": "green",
       "title": "Ритм: ест",

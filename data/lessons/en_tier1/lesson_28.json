@@ -84,6 +84,9 @@
     {
       "type": "step",
       "kind": "drill",
+      "unit": "phone",
+      "baseReps": 5,
+      "keys": ["p", "h", "o", "n", "e"],
       "target": "phone phone phone phone phone",
       "finger": "pink",
       "title": "Rhythm: phone",
@@ -92,6 +95,9 @@
     {
       "type": "step",
       "kind": "drill",
+      "unit": "year",
+      "baseReps": 4,
+      "keys": ["y", "e", "a", "r"],
       "target": "year year year year",
       "finger": "blue",
       "title": "Rhythm: year",
@@ -100,6 +106,9 @@
     {
       "type": "step",
       "kind": "drill",
+      "unit": "zip",
+      "baseReps": 5,
+      "keys": ["z", "i", "p"],
       "target": "zip zip zip zip zip",
       "finger": "pink",
       "title": "Rhythm: zip",
