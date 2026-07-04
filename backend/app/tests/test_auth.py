@@ -280,7 +280,10 @@ async def test_refresh_rotation_revokes_old_jti(db_client: httpx.AsyncClient) ->
     r1 = await db_client.post("/api/v1/auth/refresh")
     assert r1.status_code == 200, r1.text
 
-    # Повторный refresh со СТАРЫМ R1 → 401 (jti отозван при ротации)
+    # Повторный refresh со СТАРЫМ R1 → 401 (jti отозван при ротации).
+    # Сначала удаляем R2 из джара: set() с дефолтным domain="" НЕ перезаписал
+    # бы запись с Domain=testserver.local — ушли бы ДВА refresh_token cookie.
+    db_client.cookies.delete("refresh_token")
     db_client.cookies.set("refresh_token", old_refresh)
     r2 = await db_client.post("/api/v1/auth/refresh")
     assert r2.status_code == 401

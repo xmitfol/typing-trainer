@@ -142,6 +142,8 @@ def _migrated_db(postgres_container) -> Iterator[dict[str, str]]:  # type: ignor
             "DB_PASSWORD",
             "JWT_SECRET_KEY",
             "TEST_DATABASE_URL",
+            "COOKIE_DOMAIN",
+            "COOKIE_SECURE",
         )
     }
     os.environ.update(
@@ -152,6 +154,12 @@ def _migrated_db(postgres_container) -> Iterator[dict[str, str]]:  # type: ignor
             "DB_USER": "tt_user",
             "DB_PASSWORD": "test-pw",
             "JWT_SECRET_KEY": "x" * 64,
+            # Cookie-атрибуты под httpx-джар db_client (см. docstring db_client):
+            # http.cookiejar ОТБРАСЫВАЕТ/не возвращает Set-Cookie с Domain без
+            # точки внутри (дефолтный "localhost" из config.py не работает ни
+            # при каком base_url) — нужен dotted-домен, равный хосту клиента.
+            "COOKIE_DOMAIN": "testserver.local",
+            "COOKIE_SECURE": "false",  # base_url http:// — джар не отдал бы secure-cookie
         }
     )
     # Для обратной совместимости со старым skipif-маркером в test_auth.py.
@@ -265,12 +273,34 @@ async def redis_fake():  # type: ignore[no-untyped-def]
     return _FakeRedis()
 
 
+class _NoopEmailService:
+    """Заглушка EmailService для db-тестов (тот же duck-typing контракт).
+
+    В юнит-CI нет SMTP (mailpit только в docker-стеке) — реальный EmailService
+    падает ConnectionRefused. Для forgot это безвредно (issue_token до send),
+    но в signup send_welcome стоит ПЕРЕД issue_token в одном try-блоке
+    (api/v1/auth.py) — сбой SMTP не даёт выдать verify-токен, и
+    test_verify_email_flow не находит email_verify:* в redis_fake.
+    Подменяем через DI (deps.email_sender) — как redis_fake для Redis.
+    """
+
+    async def send_welcome(self, **kwargs) -> None:
+        return None
+
+    async def send_verification(self, **kwargs) -> None:
+        return None
+
+    async def send_password_reset(self, **kwargs) -> None:
+        return None
+
+
 @pytest.fixture
 async def db_client(  # type: ignore[no-untyped-def]
     db_session_fixture, redis_fake
 ) -> AsyncIterator[httpx.AsyncClient]:
     """Async-клиент для integration-тестов: db_session/redis_client → реальный
-    Postgres-сеанс + fake Redis. settings берёт env (выставлены _migrated_db).
+    Postgres-сеанс + fake Redis, email_sender → no-op. settings берёт env
+    (выставлены _migrated_db, включая COOKIE_DOMAIN/COOKIE_SECURE).
 
     ПОЧЕМУ httpx.AsyncClient + ASGITransport, а не sync TestClient:
     в starlette 1.x sync TestClient гоняет app в СВОЁМ event loop (anyio
@@ -282,23 +312,28 @@ async def db_client(  # type: ignore[no-untyped-def]
     логирование на старте + dispose ГЛОБАЛЬНЫХ engine/redis, которые здесь
     подменены через dependency_overrides).
 
-    base_url="http://testserver" — паритет со starlette TestClient (host в
-    cookie-jar и request.client тот же).
+    base_url="http://testserver.local" — РОВНО COOKIE_DOMAIN из _migrated_db:
+    _set_auth_cookies шлёт Set-Cookie с Domain=<cookie_domain>, а стандартный
+    http.cookiejar (джар httpx) принимает и возвращает domain-cookie только
+    для dotted-домена, совпадающего с хостом запроса. С дефолтным
+    Domain=localhost джар остаётся пуст при ЛЮБОМ base_url (проверено на
+    starlette 1.3.1 + httpx 0.28) — поэтому testserver.local, а не testserver.
 
     Использование в test_auth.py (happy-path/duplicate/refresh):
         async def test_signup_happy_path_201(db_client):
             r = await db_client.post("/api/v1/auth/signup", json=...)
             assert r.status_code == 201
     """
-    from app.deps import db_session, redis_client
+    from app.deps import db_session, email_sender, redis_client
 
     app = create_app()
     app.dependency_overrides[db_session] = lambda: db_session_fixture
     app.dependency_overrides[redis_client] = lambda: redis_fake
+    app.dependency_overrides[email_sender] = lambda: _NoopEmailService()
     try:
         async with httpx.AsyncClient(
             transport=httpx.ASGITransport(app=app),
-            base_url="http://testserver",
+            base_url="http://testserver.local",
         ) as c:
             yield c
     finally:
