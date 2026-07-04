@@ -9,9 +9,11 @@ email_service, billing_service), не дублируя бизнес-логику
 """
 
 from datetime import UTC, datetime, timedelta
+from typing import Any
 from uuid import UUID
 
 import structlog
+from redis.asyncio import Redis
 from sqlalchemy import and_, func, or_, select
 from sqlalchemy.exc import IntegrityError
 from sqlalchemy.ext.asyncio import AsyncSession
@@ -67,13 +69,15 @@ async def audit(
     actor: User | None,
     action: str,
     target_type: str,
-    target_id: str,
-    payload: dict | None = None,
+    target_id: UUID | str,
+    payload: dict[str, Any] | None = None,
     ip_hash: str | None = None,
     commit: bool = True,
 ) -> AdminAuditLog:
     """Записать действие сотрудника в admin_audit_log.
 
+    target_id принимает UUID | str — нормализация в str здесь (одно место),
+    вызывающие передают доменные id (user.id/sub.id) как есть.
     commit=False — если вызывающая мутация коммитит сама (одна транзакция).
     """
     entry = AdminAuditLog(
@@ -172,7 +176,7 @@ async def list_users(
     return rows, total
 
 
-async def get_user_detail(session: AsyncSession, user_id: UUID) -> dict:
+async def get_user_detail(session: AsyncSession, user_id: UUID) -> dict[str, Any]:
     """Агрегат карточки: профиль + подписки + прогресс по тирам + последние
     attempts + family + oauth_accounts.
 
@@ -230,7 +234,7 @@ async def get_user_detail(session: AsyncSession, user_id: UUID) -> dict:
     )
 
     # Family (ADR-003): родитель + дети.
-    family: list[dict] = []
+    family: list[dict[str, Any]] = []
     if user.parent_user_id is not None:
         parent = (
             await session.execute(select(User).where(User.id == user.parent_user_id))
@@ -330,7 +334,7 @@ async def reset_password(
     actor: User,
     user_id: UUID,
     *,
-    redis,
+    redis: Redis,
     emailer: EmailService,
     ip_hash: str | None = None,
 ) -> User:
@@ -459,7 +463,7 @@ async def set_role(
 # ─── Overview metrics (GET /admin/overview) ─────────────────────────────
 
 
-async def overview(session: AsyncSession, *, period_days: int = 30) -> dict:
+async def overview(session: AsyncSession, *, period_days: int = 30) -> dict[str, Any]:
     """Ключевые метрики дашборда за период (admin PRD §4.1).
 
     - active_users: уникальных юзеров с attempt за период.
@@ -542,7 +546,7 @@ async def overview(session: AsyncSession, *, period_days: int = 30) -> dict:
 # ─── Re-auth token issuance ─────────────────────────────────────────────
 
 
-async def issue_reauth_token(redis, user_id: UUID) -> tuple[str, int]:
+async def issue_reauth_token(redis: Redis, user_id: UUID) -> tuple[str, int]:
     """Выдать scope-токен re-auth в Redis admin:reauth:{user_id} (TTL-окно).
 
     Возвращает (token, ttl_seconds). Пароль проверяется в endpoint'е (как signin).
@@ -619,7 +623,7 @@ async def list_subscriptions(
     return rows, total
 
 
-async def get_subscription_detail(session: AsyncSession, sub_id: UUID) -> dict:
+async def get_subscription_detail(session: AsyncSession, sub_id: UUID) -> dict[str, Any]:
     """Карточка подписки + charge-лог (audit-история списаний/возвратов).
 
     Возвращает {"subscription": Subscription, "charges": [SubscriptionCharge]}.

@@ -5,7 +5,7 @@
 """
 
 from datetime import datetime
-from typing import Literal
+from typing import Any, Literal
 from uuid import UUID
 
 from pydantic import BaseModel, ConfigDict, Field
@@ -291,7 +291,7 @@ class AdminChargeOut(BaseModel):
     retry_number: int
     error_code: str | None = None
     error_message: str | None = None
-    charge_metadata: dict = Field(default_factory=dict)
+    charge_metadata: dict[str, Any] = Field(default_factory=dict)
 
 
 class AdminSubscriptionDetail(BaseModel):

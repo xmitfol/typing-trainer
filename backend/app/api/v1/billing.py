@@ -112,7 +112,7 @@ async def provider_webhook(
     provider: str,
     request: Request,
     session: DbSession,
-) -> dict:
+) -> dict[str, str]:
     """Сырое тело + headers → provider.parse_webhook → apply_webhook (FSM).
 
     Всегда 200 (провайдеры ретраят на не-2xx). Невалидную подпись/чужой

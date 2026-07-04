@@ -12,6 +12,7 @@ from app.config import get_settings
 from app.core.exceptions import AgeDowngradeForbiddenError
 from app.deps import CurrentUser, DbSession, RedisClient
 from app.schemas.me import (
+    AchievementOut,
     AttemptCreate,
     HistoryPage,
     ProfileOut,
@@ -130,7 +131,7 @@ async def get_my_history(
 
 
 @router.get("/achievements", response_model=list, summary="Server-computed ачивки (пока [])")
-async def get_my_achievements(user: CurrentUser, session: DbSession) -> list:
+async def get_my_achievements(user: CurrentUser, session: DbSession) -> list[AchievementOut]:
     return await me_service.get_achievements(session, user.id)
 
 

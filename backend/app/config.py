@@ -50,7 +50,7 @@ class Settings(BaseSettings):
     @property
     def database_url(self) -> PostgresDsn:
         """SQLAlchemy async URL."""
-        return PostgresDsn.build(  # type: ignore[return-value]
+        return PostgresDsn.build(
             scheme="postgresql+asyncpg",
             username=self.db_user,
             password=self.db_password,
@@ -77,7 +77,7 @@ class Settings(BaseSettings):
     @computed_field  # type: ignore[prop-decorator]
     @property
     def redis_url(self) -> RedisDsn:
-        return RedisDsn.build(  # type: ignore[return-value]
+        return RedisDsn.build(
             scheme="redis",
             password=self.redis_password,
             host=self.redis_host,
@@ -186,4 +186,4 @@ class Settings(BaseSettings):
 @lru_cache(maxsize=1)
 def get_settings() -> Settings:
     """Singleton-доступ к настройкам (читается один раз на процесс)."""
-    return Settings()  # type: ignore[call-arg]
+    return Settings()

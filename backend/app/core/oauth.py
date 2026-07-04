@@ -318,7 +318,12 @@ class OAuthProviderError(Exception):
 # ─── Фабрика ──────────────────────────────────────────────────────────
 
 
-_REAL_STRATEGIES = {"yandex": YandexStrategy, "vk": VKStrategy}
+# Явная аннотация: без неё mypy выводит общий предок значений как object,
+# и вызов конструктора в get_oauth_strategy теряет тип.
+_REAL_STRATEGIES: dict[str, type[YandexStrategy] | type[VKStrategy]] = {
+    "yandex": YandexStrategy,
+    "vk": VKStrategy,
+}
 
 
 def get_oauth_strategy(provider: str, settings: Settings) -> OAuthStrategy:

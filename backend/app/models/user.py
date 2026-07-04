@@ -4,7 +4,7 @@ DDL: TSD §2.2 + ADR-002 (profile mutation) + ADR-003 (family parent_user_id).
 """
 
 from datetime import datetime
-from typing import TYPE_CHECKING
+from typing import TYPE_CHECKING, Any
 from uuid import UUID
 
 from sqlalchemy import (
@@ -214,7 +214,7 @@ class OAuthAccount(Base, UUIDPkMixin):
     )
     provider: Mapped[str] = mapped_column(String(10), nullable=False)
     external_id: Mapped[str] = mapped_column(String(255), nullable=False)
-    raw_payload: Mapped[dict] = mapped_column(JSONB, nullable=False)
+    raw_payload: Mapped[dict[str, Any]] = mapped_column(JSONB, nullable=False)
     linked_at: Mapped[datetime] = mapped_column(
         TIMESTAMP(timezone=True),
         nullable=False,

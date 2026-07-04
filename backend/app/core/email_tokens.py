@@ -9,6 +9,8 @@
 import secrets
 from uuid import UUID
 
+from redis.asyncio import Redis
+
 VERIFY_PREFIX = "email_verify:"
 RESET_PREFIX = "pwd_reset:"
 
@@ -16,14 +18,14 @@ VERIFY_TTL_SECONDS = 24 * 3600  # 24 ч
 RESET_TTL_SECONDS = 3600  # 1 ч
 
 
-async def issue_token(redis, prefix: str, user_id: UUID, ttl: int) -> str:
+async def issue_token(redis: Redis, prefix: str, user_id: UUID, ttl: int) -> str:
     """Сгенерировать и сохранить одноразовый токен, вернуть его."""
     token = secrets.token_urlsafe(32)
     await redis.set(f"{prefix}{token}", str(user_id), ex=ttl)
     return token
 
 
-async def consume_token(redis, prefix: str, token: str | None) -> UUID | None:
+async def consume_token(redis: Redis, prefix: str, token: str | None) -> UUID | None:
     """Извлечь и инвалидировать токен (GETDEL). None если нет/истёк/использован."""
     if not token:
         return None
