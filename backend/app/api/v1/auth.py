@@ -156,9 +156,11 @@ async def signup(
 
     # S1.7/S1.8: welcome + verification email — best-effort, сбой SMTP/Redis
     # не валит регистрацию (юзер создан; повторную отправку добавим в Sprint 2).
+    # ВАЖНО: issue_token — ПЕРВЫМ (до писем): сбой SMTP на welcome не должен
+    # оставлять юзера без verify-токена в Redis (как в forgot: токен до send).
     try:
-        await emailer.send_welcome(to=user.email, name=user.name, language=user.language)
         token = await issue_token(redis, VERIFY_PREFIX, user.id, VERIFY_TTL_SECONDS)
+        await emailer.send_welcome(to=user.email, name=user.name, language=user.language)
         await emailer.send_verification(
             to=user.email, name=user.name, language=user.language, token=token
         )
