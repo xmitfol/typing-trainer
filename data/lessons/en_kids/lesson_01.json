@@ -93,8 +93,8 @@
     {"type": "callout", "icon": "🐱", "title": "Sleepy kittens", "text": "Let your hands rest soft and round, like sleepy kittens curled up for a nap. No need to look down, friend - just feel the bumps with the tips of your fingers."},
     {"type": "step", "kind": "placement", "target": "f j f j f j f j f j", "finger": "blue", "title": "Find your anchors", "hint": "Close your eyes and feel the bumps on F and J. Press them softly, back and forth, about ten times. Your fingers are saying hello to their new homes!"},
     {"type": "p", "text": "Did you feel them? Wonderful! Now we will tap F all by itself. Left pointer finger, press gently - it will find the key. After each letter, a little tap of the space bar with your thumb."},
-    {"type": "step", "kind": "drill", "target": "f f f f f f f f f f f f", "finger": "blue", "title": "Letter F", "hint": "Left pointer finger taps F. Press gently, friend! Your finger will find it."},
-    {"type": "step", "kind": "drill", "target": "j j j j j j j j j j j j", "finger": "indigo", "title": "Letter J", "hint": "Right pointer finger taps J. Soft and easy - feel the little bump."},
+    {"type": "step", "kind": "drill", "unit": "f", "baseReps": 12, "keys": ["f"], "target": "f f f f f f f f f f f f", "finger": "blue", "title": "Letter F", "hint": "Left pointer finger taps F. Press gently, friend! Your finger will find it."},
+    {"type": "step", "kind": "drill", "unit": "j", "baseReps": 12, "keys": ["j"], "target": "j j j j j j j j j j j j", "finger": "indigo", "title": "Letter J", "hint": "Right pointer finger taps J. Soft and easy - feel the little bump."},
     {"type": "p", "text": "You found both your homes! Such a good job. When you are ready, press the button below and try the whole lesson. Take your time - you are already doing great, champ!"}
   ],
   "character_tips": {

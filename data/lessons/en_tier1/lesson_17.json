@@ -151,6 +151,9 @@
     {
       "type": "step",
       "kind": "drill",
+      "unit": "!",
+      "baseReps": 15,
+      "keys": ["!"],
       "target": "! ! ! ! ! ! ! ! ! ! ! ! ! ! !",
       "finger": "pink",
       "title": "The exclamation point",
@@ -159,6 +162,9 @@
     {
       "type": "step",
       "kind": "drill",
+      "unit": "?",
+      "baseReps": 15,
+      "keys": ["?"],
       "target": "? ? ? ? ? ? ? ? ? ? ? ? ? ? ?",
       "finger": "pink",
       "title": "The question mark",

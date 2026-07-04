@@ -68,6 +68,9 @@
     {
       "type": "step",
       "kind": "drill",
+      "unit": "в",
+      "baseReps": 12,
+      "keys": ["в"],
       "target": "в в в в в в в в в в в в",
       "finger": "green",
       "title": "Буква В",

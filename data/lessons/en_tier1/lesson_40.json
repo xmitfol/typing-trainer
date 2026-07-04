@@ -65,6 +65,9 @@
     {
       "type": "step",
       "kind": "drill",
+      "unit": "welcome",
+      "baseReps": 4,
+      "keys": ["w", "e", "l", "c", "o", "m"],
       "target": "welcome welcome welcome welcome",
       "finger": "orange",
       "title": "Rhythm: welcome",
@@ -73,6 +76,9 @@
     {
       "type": "step",
       "kind": "drill",
+      "unit": "open",
+      "baseReps": 4,
+      "keys": ["o", "p", "e", "n"],
       "target": "open open open open",
       "finger": "orange",
       "title": "Rhythm: open",
@@ -81,6 +87,9 @@
     {
       "type": "step",
       "kind": "drill",
+      "unit": "press",
+      "baseReps": 3,
+      "keys": ["p", "r", "e", "s"],
       "target": "press press press",
       "finger": "pink",
       "title": "Rhythm: press",

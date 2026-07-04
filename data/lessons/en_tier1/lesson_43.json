@@ -60,6 +60,9 @@
     {
       "type": "step",
       "kind": "drill",
+      "unit": "launches",
+      "baseReps": 3,
+      "keys": ["l", "a", "u", "n", "c", "h", "e", "s"],
       "target": "launches launches launches",
       "finger": "orange",
       "title": "Rhythm: launches",
@@ -68,6 +71,9 @@
     {
       "type": "step",
       "kind": "drill",
+      "unit": "starship",
+      "baseReps": 3,
+      "keys": ["s", "t", "a", "r", "h", "i", "p"],
       "target": "starship starship starship",
       "finger": "orange",
       "title": "Rhythm: starship",
@@ -76,6 +82,9 @@
     {
       "type": "step",
       "kind": "drill",
+      "unit": "planet",
+      "baseReps": 4,
+      "keys": ["p", "l", "a", "n", "e", "t"],
       "target": "planet planet planet planet",
       "finger": "pink",
       "title": "Rhythm: planet",

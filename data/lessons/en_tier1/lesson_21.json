@@ -157,6 +157,9 @@
     {
       "type": "step",
       "kind": "drill",
+      "unit": ";",
+      "baseReps": 15,
+      "keys": [";"],
       "target": "; ; ; ; ; ; ; ; ; ; ; ; ; ; ;",
       "finger": "pink",
       "title": "The semicolon",
@@ -165,6 +168,9 @@
     {
       "type": "step",
       "kind": "drill",
+      "unit": ":",
+      "baseReps": 15,
+      "keys": [":"],
       "target": ": : : : : : : : : : : : : : :",
       "finger": "pink",
       "title": "The colon",

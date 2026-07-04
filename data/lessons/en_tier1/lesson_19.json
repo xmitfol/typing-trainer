@@ -84,6 +84,9 @@
     {
       "type": "step",
       "kind": "drill",
+      "unit": "today",
+      "baseReps": 4,
+      "keys": ["t", "o", "d", "a", "y"],
       "target": "today today today today",
       "finger": "blue",
       "title": "Rhythm: today",
@@ -92,6 +95,9 @@
     {
       "type": "step",
       "kind": "drill",
+      "unit": "great",
+      "baseReps": 4,
+      "keys": ["g", "r", "e", "a", "t"],
       "target": "great great great great",
       "finger": "blue",
       "title": "Rhythm: great",
@@ -100,6 +106,9 @@
     {
       "type": "step",
       "kind": "drill",
+      "unit": "laughed",
+      "baseReps": 3,
+      "keys": ["l", "a", "u", "g", "h", "e", "d"],
       "target": "laughed laughed laughed",
       "finger": "orange",
       "title": "Rhythm: laughed",

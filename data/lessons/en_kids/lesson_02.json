@@ -95,8 +95,8 @@
     {"type": "lead", "text": "Welcome back, friend! Today your two tall middle fingers get to play. They will tap two new keys: D and K. They live right next to F and J, so they are easy to find."},
     {"type": "drop", "text": "Keep your pointer fingers resting on F and J. Now your left middle finger reaches over to D, and your right middle finger reaches over to K. Just a tiny step to the side - they are very close to home."},
     {"type": "callout", "icon": "🏠", "title": "Always come home", "text": "After your middle fingers tap a key, let them tiptoe right back to D and K, and your pointers stay snug on F and J. Home is where your fingers love to rest."},
-    {"type": "step", "kind": "drill", "target": "d d d d d d d d d d d d", "finger": "green", "title": "Letter D", "hint": "Left middle finger taps D. Press gently, friend - it is right beside F."},
-    {"type": "step", "kind": "drill", "target": "k k k k k k k k k k k k", "finger": "green", "title": "Letter K", "hint": "Right middle finger taps K. Soft and easy - right beside J."},
+    {"type": "step", "kind": "drill", "unit": "d", "baseReps": 12, "keys": ["d"], "target": "d d d d d d d d d d d d", "finger": "green", "title": "Letter D", "hint": "Left middle finger taps D. Press gently, friend - it is right beside F."},
+    {"type": "step", "kind": "drill", "unit": "k", "baseReps": 12, "keys": ["k"], "target": "k k k k k k k k k k k k", "finger": "green", "title": "Letter K", "hint": "Right middle finger taps K. Soft and easy - right beside J."},
     {"type": "p", "text": "Now let's swap back and forth, D then K, like two little feet taking turns walking. Slow and steady, no need to hurry."},
     {"type": "step", "kind": "drill", "target": "d k d k d k d k d k", "finger": "green", "title": "D and K together", "hint": "Take turns: D, then K, then D again. Tap, tap, tap - lovely!"},
     {"type": "p", "text": "Look at you go! Four keys already. When you feel ready, press the button below and try the whole lesson. You are doing wonderfully, champ!"}

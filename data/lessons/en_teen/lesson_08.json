@@ -127,6 +127,9 @@
     {
       "type": "step",
       "kind": "drill",
+      "unit": "x",
+      "baseReps": 20,
+      "keys": ["x"],
       "target": "x x x x x x x x x x x x x x x x x x x x",
       "finger": "orange",
       "title": "Ring: X",
@@ -135,6 +138,9 @@
     {
       "type": "step",
       "kind": "drill",
+      "unit": "z",
+      "baseReps": 20,
+      "keys": ["z"],
       "target": "z z z z z z z z z z z z z z z z z z z z",
       "finger": "pink",
       "title": "Pinky: Z",

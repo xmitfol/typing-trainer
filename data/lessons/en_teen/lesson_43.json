@@ -103,6 +103,9 @@
     {
       "type": "step",
       "kind": "drill",
+      "unit": "cool",
+      "baseReps": 5,
+      "keys": ["c", "o", "l"],
       "target": "cool cool cool cool cool",
       "finger": "green",
       "title": "Rhythm: cool",
@@ -111,6 +114,9 @@
     {
       "type": "step",
       "kind": "drill",
+      "unit": "snacks",
+      "baseReps": 4,
+      "keys": ["s", "n", "a", "c", "k"],
       "target": "snacks snacks snacks snacks",
       "finger": "orange",
       "title": "Rhythm: snacks",
@@ -119,6 +125,9 @@
     {
       "type": "step",
       "kind": "drill",
+      "unit": "safe",
+      "baseReps": 4,
+      "keys": ["s", "a", "f", "e"],
       "target": "safe safe safe safe",
       "finger": "orange",
       "title": "Rhythm: safe",

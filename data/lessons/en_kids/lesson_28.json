@@ -100,6 +100,9 @@
     {
       "type": "step",
       "kind": "drill",
+      "unit": "little",
+      "baseReps": 4,
+      "keys": ["l", "i", "t", "e"],
       "target": "little little little little",
       "finger": "blue",
       "title": "Rhythm: little",
@@ -108,6 +111,9 @@
     {
       "type": "step",
       "kind": "drill",
+      "unit": "stars",
+      "baseReps": 4,
+      "keys": ["s", "t", "a", "r"],
       "target": "stars stars stars stars",
       "finger": "blue",
       "title": "Rhythm: stars",
@@ -116,6 +122,9 @@
     {
       "type": "step",
       "kind": "drill",
+      "unit": "sky",
+      "baseReps": 3,
+      "keys": ["s", "k", "y"],
       "target": "sky sky sky",
       "finger": "green",
       "title": "Rhythm: sky",

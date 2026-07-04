@@ -92,6 +92,9 @@
     {
       "type": "step",
       "kind": "drill",
+      "unit": "ask",
+      "baseReps": 5,
+      "keys": ["a", "s", "k"],
       "target": "ask ask ask ask ask",
       "finger": "pink",
       "title": "Rhythm: ask",
@@ -100,6 +103,9 @@
     {
       "type": "step",
       "kind": "drill",
+      "unit": "sad",
+      "baseReps": 4,
+      "keys": ["s", "a", "d"],
       "target": "sad sad sad sad",
       "finger": "orange",
       "title": "Rhythm: sad",
@@ -108,6 +114,9 @@
     {
       "type": "step",
       "kind": "drill",
+      "unit": "lad",
+      "baseReps": 4,
+      "keys": ["l", "a", "d"],
       "target": "lad lad lad lad",
       "finger": "orange",
       "title": "Rhythm: lad",

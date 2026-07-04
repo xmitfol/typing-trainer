@@ -86,6 +86,9 @@
     {
       "type": "step",
       "kind": "drill",
+      "unit": "fox",
+      "baseReps": 4,
+      "keys": ["f", "o", "x"],
       "target": "fox fox fox fox",
       "finger": "blue",
       "title": "Rhythm: fox",
@@ -94,6 +97,9 @@
     {
       "type": "step",
       "kind": "drill",
+      "unit": "bear",
+      "baseReps": 4,
+      "keys": ["b", "e", "a", "r"],
       "target": "bear bear bear bear",
       "finger": "blue",
       "title": "Rhythm: bear",
@@ -102,6 +108,9 @@
     {
       "type": "step",
       "kind": "drill",
+      "unit": "runs",
+      "baseReps": 3,
+      "keys": ["r", "u", "n", "s"],
       "target": "runs runs runs",
       "finger": "blue",
       "title": "Rhythm: runs",

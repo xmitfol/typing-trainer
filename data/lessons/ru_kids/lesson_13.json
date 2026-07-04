@@ -85,6 +85,9 @@
     {
       "type": "step",
       "kind": "drill",
+      "unit": "у",
+      "baseReps": 10,
+      "keys": ["у"],
       "target": "у у у у у у у у у у",
       "finger": "green",
       "title": "Буква У",
@@ -93,6 +96,9 @@
     {
       "type": "step",
       "kind": "drill",
+      "unit": "к",
+      "baseReps": 10,
+      "keys": ["к"],
       "target": "к к к к к к к к к к",
       "finger": "blue",
       "title": "Буква К",

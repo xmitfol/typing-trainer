@@ -78,6 +78,9 @@
     {
       "type": "step",
       "kind": "drill",
+      "unit": "л",
+      "baseReps": 12,
+      "keys": ["л"],
       "target": "л л л л л л л л л л л л",
       "finger": "green",
       "title": "Буква Л",

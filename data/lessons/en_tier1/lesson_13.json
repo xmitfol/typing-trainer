@@ -77,6 +77,9 @@
     {
       "type": "step",
       "kind": "drill",
+      "unit": "rise",
+      "baseReps": 5,
+      "keys": ["r", "i", "s", "e"],
       "target": "rise rise rise rise rise",
       "finger": "blue",
       "title": "Rhythm: rise",
@@ -85,6 +88,9 @@
     {
       "type": "step",
       "kind": "drill",
+      "unit": "morning",
+      "baseReps": 4,
+      "keys": ["m", "o", "r", "n", "i", "g"],
       "target": "morning morning morning morning",
       "finger": "blue",
       "title": "Rhythm: morning",
@@ -93,6 +99,9 @@
     {
       "type": "step",
       "kind": "drill",
+      "unit": "share",
+      "baseReps": 3,
+      "keys": ["s", "h", "a", "r", "e"],
       "target": "share share share",
       "finger": "orange",
       "title": "Rhythm: share",

@@ -128,6 +128,9 @@
     {
       "type": "step",
       "kind": "drill",
+      "unit": "change",
+      "baseReps": 5,
+      "keys": ["c", "h", "a", "n", "g", "e"],
       "target": "change change change change change",
       "finger": "green",
       "title": "Rhythm: change",
@@ -136,6 +139,9 @@
     {
       "type": "step",
       "kind": "drill",
+      "unit": "courage",
+      "baseReps": 4,
+      "keys": ["c", "o", "u", "r", "a", "g", "e"],
       "target": "courage courage courage courage",
       "finger": "green",
       "title": "Rhythm: courage",
@@ -144,6 +150,9 @@
     {
       "type": "step",
       "kind": "drill",
+      "unit": "future",
+      "baseReps": 4,
+      "keys": ["f", "u", "t", "r", "e"],
       "target": "future future future future",
       "finger": "blue",
       "title": "Rhythm: future",

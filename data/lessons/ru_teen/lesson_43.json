@@ -107,6 +107,9 @@
     {
       "type": "step",
       "kind": "drill",
+      "unit": "круто",
+      "baseReps": 4,
+      "keys": ["к", "р", "у", "т", "о"],
       "target": "круто круто круто круто",
       "finger": "blue",
       "title": "Ритм: круто",
@@ -115,6 +118,9 @@
     {
       "type": "step",
       "kind": "drill",
+      "unit": "снеки",
+      "baseReps": 4,
+      "keys": ["с", "н", "е", "к", "и"],
       "target": "снеки снеки снеки снеки",
       "finger": "green",
       "title": "Ритм: снеки",
@@ -123,6 +129,9 @@
     {
       "type": "step",
       "kind": "drill",
+      "unit": "супер",
+      "baseReps": 4,
+      "keys": ["с", "у", "п", "е", "р"],
       "target": "супер супер супер супер",
       "finger": "indigo",
       "title": "Ритм: супер",

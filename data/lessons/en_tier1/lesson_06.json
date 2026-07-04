@@ -124,6 +124,9 @@
     {
       "type": "step",
       "kind": "drill",
+      "unit": "w",
+      "baseReps": 20,
+      "keys": ["w"],
       "target": "w w w w w w w w w w w w w w w w w w w w",
       "finger": "orange",
       "title": "The letter W",
@@ -132,6 +135,9 @@
     {
       "type": "step",
       "kind": "drill",
+      "unit": "o",
+      "baseReps": 20,
+      "keys": ["o"],
       "target": "o o o o o o o o o o o o o o o o o o o o",
       "finger": "orange",
       "title": "The letter O",

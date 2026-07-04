@@ -106,6 +106,9 @@
     {
       "type": "step",
       "kind": "drill",
+      "unit": "пойнт",
+      "baseReps": 4,
+      "keys": ["п", "о", "й", "н", "т"],
       "target": "пойнт пойнт пойнт пойнт",
       "finger": "purple",
       "title": "Ритм: пойнт",
@@ -114,6 +117,9 @@
     {
       "type": "step",
       "kind": "drill",
+      "unit": "тейк",
+      "baseReps": 4,
+      "keys": ["т", "е", "й", "к"],
       "target": "тейк тейк тейк тейк",
       "finger": "blue",
       "title": "Ритм: тейк",
@@ -122,6 +128,9 @@
     {
       "type": "step",
       "kind": "drill",
+      "unit": "иначе",
+      "baseReps": 4,
+      "keys": ["и", "н", "а", "ч", "е"],
       "target": "иначе иначе иначе иначе",
       "finger": "green",
       "title": "Ритм: иначе",

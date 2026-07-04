@@ -126,6 +126,9 @@
     {
       "type": "step",
       "kind": "drill",
+      "unit": "walked",
+      "baseReps": 5,
+      "keys": ["w", "a", "l", "k", "e", "d"],
       "target": "walked walked walked walked walked",
       "finger": "orange",
       "title": "Rhythm: walked",
@@ -134,6 +137,9 @@
     {
       "type": "step",
       "kind": "drill",
+      "unit": "silence",
+      "baseReps": 4,
+      "keys": ["s", "i", "l", "e", "n", "c"],
       "target": "silence silence silence silence",
       "finger": "orange",
       "title": "Rhythm: silence",
@@ -142,6 +148,9 @@
     {
       "type": "step",
       "kind": "drill",
+      "unit": "garden",
+      "baseReps": 4,
+      "keys": ["g", "a", "r", "d", "e", "n"],
       "target": "garden garden garden garden",
       "finger": "blue",
       "title": "Rhythm: garden",

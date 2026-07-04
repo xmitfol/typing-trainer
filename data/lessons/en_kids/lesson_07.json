@@ -106,8 +106,8 @@
     {"type": "lead", "text": "Hello, friend! Today your tall middle fingers learn to reach UP too. We tap two new keys: E and I. Up they hop to the top row, just like the pointer fingers did!"},
     {"type": "drop", "text": "Your left middle finger reaches up to E, which sits above D. Your right middle finger reaches up to I, above K. A gentle stretch up, then back down to D and K, their cozy homes."},
     {"type": "callout", "icon": "🐱", "title": "Soft little hop", "text": "Reach up softly for E and I, like a kitten patting a feather, then let your finger hop right back home. No peeking, friend - your fingers know the way."},
-    {"type": "step", "kind": "drill", "target": "e e e e e e e e e e", "finger": "green", "title": "Letter E", "hint": "Left middle finger reaches up to E, then back to D. Lovely hop!"},
-    {"type": "step", "kind": "drill", "target": "i i i i i i i i i i", "finger": "blue", "title": "Letter I", "hint": "Right middle finger reaches up to I, then back to K. Soft and easy!"},
+    {"type": "step", "kind": "drill", "unit": "e", "baseReps": 10, "keys": ["e"], "target": "e e e e e e e e e e", "finger": "green", "title": "Letter E", "hint": "Left middle finger reaches up to E, then back to D. Lovely hop!"},
+    {"type": "step", "kind": "drill", "unit": "i", "baseReps": 10, "keys": ["i"], "target": "i i i i i i i i i i", "finger": "blue", "title": "Letter I", "hint": "Right middle finger reaches up to I, then back to K. Soft and easy!"},
     {"type": "p", "text": "Now let's make sweet little words with E and I. Read each one, then tap it slowly. You can spell so many lovely words now!"},
     {"type": "step", "kind": "drill", "target": "red fire side like ride life", "finger": "blue", "title": "Words", "hint": "New words: red, fire, side, like, ride, life. So clever, champ!"},
     {"type": "p", "text": "Both middle fingers can reach up now - what a star! When you are ready, press the button below and try the whole lesson. I am so proud of you, friend!"}

@@ -69,6 +69,9 @@
     {
       "type": "step",
       "kind": "drill",
+      "unit": "return",
+      "baseReps": 3,
+      "keys": ["r", "e", "t", "u", "n"],
       "target": "return return return",
       "finger": "blue",
       "title": "Rhythm: return",
@@ -77,6 +80,9 @@
     {
       "type": "step",
       "kind": "drill",
+      "unit": "value",
+      "baseReps": 3,
+      "keys": ["v", "a", "l", "u", "e"],
       "target": "value value value",
       "finger": "blue",
       "title": "Rhythm: value",
@@ -85,6 +91,9 @@
     {
       "type": "step",
       "kind": "drill",
+      "unit": "data",
+      "baseReps": 4,
+      "keys": ["d", "a", "t"],
       "target": "data data data data",
       "finger": "green",
       "title": "Rhythm: data",

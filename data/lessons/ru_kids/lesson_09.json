@@ -81,6 +81,9 @@
     {
       "type": "step",
       "kind": "drill",
+      "unit": "ф",
+      "baseReps": 10,
+      "keys": ["ф"],
       "target": "ф ф ф ф ф ф ф ф ф ф",
       "finger": "pink",
       "title": "Буква Ф",
@@ -89,6 +92,9 @@
     {
       "type": "step",
       "kind": "drill",
+      "unit": "ж",
+      "baseReps": 10,
+      "keys": ["ж"],
       "target": "ж ж ж ж ж ж ж ж ж ж",
       "finger": "pink",
       "title": "Буква Ж",

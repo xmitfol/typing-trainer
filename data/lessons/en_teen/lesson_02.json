@@ -114,6 +114,9 @@
     {
       "type": "step",
       "kind": "drill",
+      "unit": "g",
+      "baseReps": 20,
+      "keys": ["g"],
       "target": "g g g g g g g g g g g g g g g g g g g g",
       "finger": "blue",
       "title": "Letter G",
@@ -122,6 +125,9 @@
     {
       "type": "step",
       "kind": "drill",
+      "unit": "h",
+      "baseReps": 20,
+      "keys": ["h"],
       "target": "h h h h h h h h h h h h h h h h h h h h",
       "finger": "indigo",
       "title": "Letter H",
