@@ -5,10 +5,10 @@
 # но прямо на раннере: статика :8000 + docker compose --profile app на :8090.
 #
 # Блокирующие джобы:  compile-checks, content-lint, backend-lint, static-e2e,
-#                     stack-e2e.
-# Наблюдательные:     backend-tests, backend-typecheck (continue-on-error —
-#                     нельзя доказать зелёность локально; повысим до required,
-#                     когда покажут зелёный на реальных прогонах).
+#                     stack-e2e, backend-tests.
+# Наблюдательные:     backend-typecheck (continue-on-error — нельзя доказать
+#                     зелёность локально; повысим до required, когда покажет
+#                     зелёный на реальных прогонах).
 # backend-lint (ruff check + format) включён после механического cleanup-PR
 # (chore/ruff-cleanup): RUF001-003 в ignore (кириллица), остальное вычищено.
 #
@@ -181,13 +181,15 @@ jobs:
         run: docker compose -f backend/docker-compose.yml --profile app down -v
 
   # ── Backend pytest (74 теста; Postgres — testcontainers, Redis — fake) ──
-  # НАБЛЮДАТЕЛЬНАЯ в v1: локально недоказуема (py3.13 при пине <3.13).
-  # Повысить до блокирующей после первого зелёного прогона.
+  # БЛОКИРУЮЩАЯ: повышена после фиксов conftest/email под свежий резолв
+  # (starlette 1.x): db-тесты переведены на httpx.ASGITransport (один event
+  # loop с pytest-asyncio фикстурами), email-ассерты приведены к фактическому
+  # HTML (&amp; из Jinja2-autoescape). Timing-флейк остаётся в карантине (-k
+  # ниже) — отдельный вопрос, не связанный с этим повышением.
   backend-tests:
     runs-on: ubuntu-latest
     timeout-minutes: 20
     needs: compile-checks
-    continue-on-error: true
     env:
       # Settings() инстанцируется при импорте app.main (conftest) — двум полям
       # без дефолтов нужны значения. На VM их даёт untracked backend/.env;
