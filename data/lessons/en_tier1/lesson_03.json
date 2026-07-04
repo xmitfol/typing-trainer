@@ -141,6 +141,9 @@
     {
       "type": "step",
       "kind": "drill",
+      "unit": "r u",
+      "baseReps": 10,
+      "keys": ["r", "u"],
       "target": "r u r u r u r u r u r u r u r u r u r u",
       "finger": "blue",
       "title": "Alternate",

@@ -107,6 +107,9 @@
     {
       "type": "step",
       "kind": "drill",
+      "unit": "ы д",
+      "baseReps": 6,
+      "keys": ["ы", "д"],
       "target": "ы д ы д ы д ы д ы д ы д",
       "finger": "orange",
       "title": "Качаемся: Ы - Д",

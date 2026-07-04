@@ -112,6 +112,9 @@
     {
       "type": "step",
       "kind": "drill",
+      "unit": "v m",
+      "baseReps": 6,
+      "keys": ["v", "m"],
       "target": "v m v m v m v m v m v m",
       "finger": "blue",
       "title": "V and M",

@@ -83,6 +83,9 @@
     {
       "type": "step",
       "kind": "drill",
+      "unit": "а о",
+      "baseReps": 6,
+      "keys": ["а", "о"],
       "target": "а о а о а о а о а о а о",
       "finger": "indigo",
       "title": "Качаемся: А - О",

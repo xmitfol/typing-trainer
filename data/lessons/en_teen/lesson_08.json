@@ -149,6 +149,9 @@
     {
       "type": "step",
       "kind": "drill",
+      "unit": "x z",
+      "baseReps": 10,
+      "keys": ["x", "z"],
       "target": "x z x z x z x z x z x z x z x z x z x z",
       "finger": "orange",
       "title": "Alternate X and Z",

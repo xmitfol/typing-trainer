@@ -130,6 +130,9 @@
     {
       "type": "step",
       "kind": "drill",
+      "unit": "r u",
+      "baseReps": 10,
+      "keys": ["r", "u"],
       "target": "r u r u r u r u r u r u r u r u r u r u",
       "finger": "blue",
       "title": "R and U",
@@ -138,6 +141,9 @@
     {
       "type": "step",
       "kind": "drill",
+      "unit": "e i",
+      "baseReps": 10,
+      "keys": ["e", "i"],
       "target": "e i e i e i e i e i e i e i e i e i e i",
       "finger": "green",
       "title": "E and I",
@@ -146,6 +152,9 @@
     {
       "type": "step",
       "kind": "drill",
+      "unit": "t y",
+      "baseReps": 10,
+      "keys": ["t", "y"],
       "target": "t y t y t y t y t y t y t y t y t y t y",
       "finger": "indigo",
       "title": "T and Y",

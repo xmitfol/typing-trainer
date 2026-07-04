@@ -125,6 +125,9 @@
     {
       "type": "step",
       "kind": "drill",
+      "unit": "w o",
+      "baseReps": 10,
+      "keys": ["w", "o"],
       "target": "w o w o w o w o w o w o w o w o w o w o",
       "finger": "orange",
       "title": "W and O",
@@ -133,6 +136,9 @@
     {
       "type": "step",
       "kind": "drill",
+      "unit": "q p",
+      "baseReps": 10,
+      "keys": ["q", "p"],
       "target": "q p q p q p q p q p q p q p q p q p q p",
       "finger": "pink",
       "title": "Q and P",

@@ -98,7 +98,7 @@
     {"type": "step", "kind": "drill", "unit": "d", "baseReps": 12, "keys": ["d"], "target": "d d d d d d d d d d d d", "finger": "green", "title": "Letter D", "hint": "Left middle finger taps D. Press gently, friend - it is right beside F."},
     {"type": "step", "kind": "drill", "unit": "k", "baseReps": 12, "keys": ["k"], "target": "k k k k k k k k k k k k", "finger": "green", "title": "Letter K", "hint": "Right middle finger taps K. Soft and easy - right beside J."},
     {"type": "p", "text": "Now let's swap back and forth, D then K, like two little feet taking turns walking. Slow and steady, no need to hurry."},
-    {"type": "step", "kind": "drill", "target": "d k d k d k d k d k", "finger": "green", "title": "D and K together", "hint": "Take turns: D, then K, then D again. Tap, tap, tap - lovely!"},
+    {"type": "step", "kind": "drill", "unit": "d k", "baseReps": 5, "keys": ["d", "k"], "target": "d k d k d k d k d k", "finger": "green", "title": "D and K together", "hint": "Take turns: D, then K, then D again. Tap, tap, tap - lovely!"},
     {"type": "p", "text": "Look at you go! Four keys already. When you feel ready, press the button below and try the whole lesson. You are doing wonderfully, champ!"}
   ],
   "character_tips": {

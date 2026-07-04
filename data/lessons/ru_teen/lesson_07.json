@@ -116,6 +116,9 @@
     {
       "type": "step",
       "kind": "drill",
+      "unit": "я ч с",
+      "baseReps": 6,
+      "keys": ["я", "ч", "с"],
       "target": "я ч с я ч с я ч с я ч с я ч с я ч с",
       "finger": "blue",
       "title": "Группа я ч с",
@@ -124,6 +127,9 @@
     {
       "type": "step",
       "kind": "drill",
+      "unit": "м и т",
+      "baseReps": 6,
+      "keys": ["м", "и", "т"],
       "target": "м и т м и т м и т м и т м и т м и т",
       "finger": "green",
       "title": "Группа м и т",

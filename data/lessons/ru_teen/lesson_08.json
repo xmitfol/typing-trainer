@@ -128,6 +128,9 @@
     {
       "type": "step",
       "kind": "drill",
+      "unit": "ь б ю",
+      "baseReps": 6,
+      "keys": ["ь", "б", "ю"],
       "target": "ь б ю ь б ю ь б ю ь б ю ь б ю ь б ю",
       "finger": "blue",
       "title": "Группа ь б ю",
@@ -136,6 +139,9 @@
     {
       "type": "step",
       "kind": "drill",
+      "unit": "ё ж",
+      "baseReps": 9,
+      "keys": ["ё", "ж"],
       "target": "ё ж ё ж ё ж ё ж ё ж ё ж ё ж ё ж ё ж",
       "finger": "orange",
       "title": "Группа ё ж",
