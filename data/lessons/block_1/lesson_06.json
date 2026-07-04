@@ -13,7 +13,7 @@
   "text_sequence": [
     {
       "char": "д",
-      "hand": "left",
+      "hand": "right",
       "finger": "ring",
       "key": "Д"
     },
@@ -25,7 +25,7 @@
     },
     {
       "char": "л",
-      "hand": "left",
+      "hand": "right",
       "finger": "middle",
       "key": "Л"
     },
@@ -44,13 +44,13 @@
     },
     {
       "char": "п",
-      "hand": "right",
+      "hand": "left",
       "finger": "index",
       "key": "П"
     },
     {
       "char": "а",
-      "hand": "right",
+      "hand": "left",
       "finger": "index",
       "key": "А"
     },
@@ -62,20 +62,20 @@
     },
     {
       "char": "а",
-      "hand": "right",
+      "hand": "left",
       "finger": "index",
       "key": "А"
     },
     {
       "char": " ",
-      "hand": "left",
+      "hand": "right",
       "finger": "thumb",
       "key": "Space",
-      "space_side": "left"
+      "space_side": "right"
     },
     {
       "char": "ж",
-      "hand": "left",
+      "hand": "right",
       "finger": "pinky",
       "key": "Ж"
     },
@@ -87,26 +87,26 @@
     },
     {
       "char": "л",
-      "hand": "left",
+      "hand": "right",
       "finger": "middle",
       "key": "Л"
     },
     {
       "char": "о",
-      "hand": "left",
+      "hand": "right",
       "finger": "index",
       "key": "О"
     },
     {
       "char": " ",
-      "hand": "right",
+      "hand": "left",
       "finger": "thumb",
       "key": "Space",
-      "space_side": "right"
+      "space_side": "left"
     },
     {
       "char": "в",
-      "hand": "right",
+      "hand": "left",
       "finger": "middle",
       "key": "В"
     },
@@ -124,20 +124,20 @@
     },
     {
       "char": "а",
-      "hand": "right",
+      "hand": "left",
       "finger": "index",
       "key": "А"
     },
     {
       "char": " ",
-      "hand": "left",
+      "hand": "right",
       "finger": "thumb",
       "key": "Space",
-      "space_side": "left"
+      "space_side": "right"
     },
     {
       "char": "д",
-      "hand": "left",
+      "hand": "right",
       "finger": "ring",
       "key": "Д"
     },
@@ -149,7 +149,7 @@
     },
     {
       "char": "л",
-      "hand": "left",
+      "hand": "right",
       "finger": "middle",
       "key": "Л"
     },
@@ -168,13 +168,13 @@
     },
     {
       "char": "п",
-      "hand": "right",
+      "hand": "left",
       "finger": "index",
       "key": "П"
     },
     {
       "char": "а",
-      "hand": "right",
+      "hand": "left",
       "finger": "index",
       "key": "А"
     },
@@ -186,20 +186,20 @@
     },
     {
       "char": "а",
-      "hand": "right",
+      "hand": "left",
       "finger": "index",
       "key": "А"
     },
     {
       "char": " ",
-      "hand": "left",
+      "hand": "right",
       "finger": "thumb",
       "key": "Space",
-      "space_side": "left"
+      "space_side": "right"
     },
     {
       "char": "ж",
-      "hand": "left",
+      "hand": "right",
       "finger": "pinky",
       "key": "Ж"
     },
@@ -211,26 +211,26 @@
     },
     {
       "char": "л",
-      "hand": "left",
+      "hand": "right",
       "finger": "middle",
       "key": "Л"
     },
     {
       "char": "о",
-      "hand": "left",
+      "hand": "right",
       "finger": "index",
       "key": "О"
     },
     {
       "char": " ",
-      "hand": "right",
+      "hand": "left",
       "finger": "thumb",
       "key": "Space",
-      "space_side": "right"
+      "space_side": "left"
     },
     {
       "char": "в",
-      "hand": "right",
+      "hand": "left",
       "finger": "middle",
       "key": "В"
     },
@@ -248,20 +248,20 @@
     },
     {
       "char": "а",
-      "hand": "right",
+      "hand": "left",
       "finger": "index",
       "key": "А"
     },
     {
       "char": " ",
-      "hand": "left",
+      "hand": "right",
       "finger": "thumb",
       "key": "Space",
-      "space_side": "left"
+      "space_side": "right"
     },
     {
       "char": "д",
-      "hand": "left",
+      "hand": "right",
       "finger": "ring",
       "key": "Д"
     },
@@ -273,7 +273,7 @@
     },
     {
       "char": "л",
-      "hand": "left",
+      "hand": "right",
       "finger": "middle",
       "key": "Л"
     },
@@ -292,7 +292,7 @@
     },
     {
       "char": "в",
-      "hand": "right",
+      "hand": "left",
       "finger": "middle",
       "key": "В"
     },
@@ -310,16 +310,16 @@
     },
     {
       "char": "а",
-      "hand": "right",
+      "hand": "left",
       "finger": "index",
       "key": "А"
     },
     {
       "char": " ",
-      "hand": "left",
+      "hand": "right",
       "finger": "thumb",
       "key": "Space",
-      "space_side": "left"
+      "space_side": "right"
     },
     {
       "char": "п",
@@ -335,7 +335,7 @@
     },
     {
       "char": "р",
-      "hand": "left",
+      "hand": "right",
       "finger": "index",
       "key": "Р"
     },
@@ -360,7 +360,7 @@
     },
     {
       "char": "а",
-      "hand": "right",
+      "hand": "left",
       "finger": "index",
       "key": "А"
     },
@@ -372,20 +372,20 @@
     },
     {
       "char": "а",
-      "hand": "right",
+      "hand": "left",
       "finger": "index",
       "key": "А"
     },
     {
       "char": " ",
-      "hand": "left",
+      "hand": "right",
       "finger": "thumb",
       "key": "Space",
-      "space_side": "left"
+      "space_side": "right"
     },
     {
       "char": "д",
-      "hand": "left",
+      "hand": "right",
       "finger": "ring",
       "key": "Д"
     },
@@ -397,22 +397,22 @@
     },
     {
       "char": "л",
-      "hand": "left",
+      "hand": "right",
       "finger": "middle",
       "key": "Л"
     },
     {
       "char": "о",
-      "hand": "left",
+      "hand": "right",
       "finger": "index",
       "key": "О"
     },
     {
       "char": " ",
-      "hand": "right",
+      "hand": "left",
       "finger": "thumb",
       "key": "Space",
-      "space_side": "right"
+      "space_side": "left"
     },
     {
       "char": "ж",
@@ -422,7 +422,7 @@
     },
     {
       "char": "а",
-      "hand": "right",
+      "hand": "left",
       "finger": "index",
       "key": "А"
     },
@@ -434,16 +434,16 @@
     },
     {
       "char": "а",
-      "hand": "right",
+      "hand": "left",
       "finger": "index",
       "key": "А"
     },
     {
       "char": " ",
-      "hand": "left",
+      "hand": "right",
       "finger": "thumb",
       "key": "Space",
-      "space_side": "left"
+      "space_side": "right"
     },
     {
       "char": "в",
@@ -453,13 +453,13 @@
     },
     {
       "char": "о",
-      "hand": "left",
+      "hand": "right",
       "finger": "index",
       "key": "О"
     },
     {
       "char": "р",
-      "hand": "left",
+      "hand": "right",
       "finger": "index",
       "key": "Р"
     },
@@ -484,7 +484,7 @@
     },
     {
       "char": "а",
-      "hand": "right",
+      "hand": "left",
       "finger": "index",
       "key": "А"
     },
@@ -496,20 +496,20 @@
     },
     {
       "char": "а",
-      "hand": "right",
+      "hand": "left",
       "finger": "index",
       "key": "А"
     },
     {
       "char": " ",
-      "hand": "left",
+      "hand": "right",
       "finger": "thumb",
       "key": "Space",
-      "space_side": "left"
+      "space_side": "right"
     },
     {
       "char": "д",
-      "hand": "left",
+      "hand": "right",
       "finger": "ring",
       "key": "Д"
     },
@@ -521,7 +521,7 @@
     },
     {
       "char": "л",
-      "hand": "left",
+      "hand": "right",
       "finger": "middle",
       "key": "Л"
     },
@@ -540,7 +540,7 @@
     },
     {
       "char": "в",
-      "hand": "right",
+      "hand": "left",
       "finger": "middle",
       "key": "В"
     },
@@ -558,16 +558,16 @@
     },
     {
       "char": "а",
-      "hand": "right",
+      "hand": "left",
       "finger": "index",
       "key": "А"
     },
     {
       "char": " ",
-      "hand": "left",
+      "hand": "right",
       "finger": "thumb",
       "key": "Space",
-      "space_side": "left"
+      "space_side": "right"
     },
     {
       "char": "п",
@@ -583,7 +583,7 @@
     },
     {
       "char": "р",
-      "hand": "left",
+      "hand": "right",
       "finger": "index",
       "key": "Р"
     },
@@ -608,7 +608,7 @@
     },
     {
       "char": "а",
-      "hand": "right",
+      "hand": "left",
       "finger": "index",
       "key": "А"
     },
@@ -620,7 +620,7 @@
     },
     {
       "char": "а",
-      "hand": "right",
+      "hand": "left",
       "finger": "index",
       "key": "А"
     }
