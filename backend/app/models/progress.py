@@ -113,6 +113,8 @@ class Attempt(Base):
         CheckConstraint("accuracy BETWEEN 0 AND 100", name="accuracy_range"),
         CheckConstraint("duration_ms >= 0", name="duration_nonneg"),
         CheckConstraint("errors >= 0", name="errors_nonneg"),
-        Index("ix_attempts_user_date", "user_id", "created_at", postgresql_ops={"created_at": "DESC"}),
+        Index(
+            "ix_attempts_user_date", "user_id", "created_at", postgresql_ops={"created_at": "DESC"}
+        ),
         Index("ix_attempts_user_tier", "user_id", "tier", "lesson_num"),
     )

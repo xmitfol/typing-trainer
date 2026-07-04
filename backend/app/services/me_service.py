@@ -335,9 +335,7 @@ def _normalize_progress_bundle(progress: dict, default_tier: str) -> list[dict]:
     return records
 
 
-async def migrate_guest(
-    session: AsyncSession, user: User, guest_data
-) -> tuple[int, int]:
+async def migrate_guest(session: AsyncSession, user: User, guest_data) -> tuple[int, int]:
     """Залить guest localStorage-прогресс в аккаунт (ADR-007/R-005).
 
     Идемпотентно по прогрессу (max-merge не задваивает). Attempts из history —
@@ -423,11 +421,10 @@ async def migrate_guest(
 
     # 3. Профиль — заполняем только пустые поля (не перезаписываем существующее).
     prof = guest_data.profile or {}
-    if isinstance(prof, dict):
-        # Только gender может быть пуст у существующего юзера (остальные NOT NULL
-        # и заданы при signup). Осторожно, чтобы не сломать CHECK.
-        if user.gender is None and prof.get("gender") in ("m", "f"):
-            user.gender = prof["gender"]
+    # Только gender может быть пуст у существующего юзера (остальные NOT NULL
+    # и заданы при signup). Осторожно, чтобы не сломать CHECK.
+    if isinstance(prof, dict) and user.gender is None and prof.get("gender") in ("m", "f"):
+        user.gender = prof["gender"]
 
     await session.commit()
     logger.info(

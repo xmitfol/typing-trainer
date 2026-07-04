@@ -37,7 +37,7 @@ from app.models.admin import AdminAuditLog
 from app.models.progress import Attempt, Progress
 from app.models.subscription import Subscription, SubscriptionCharge
 from app.models.user import OAuthAccount, User
-from app.services import auth_service, event_service
+from app.services import event_service
 from app.services.email_service import EmailService
 
 logger = structlog.get_logger(__name__)
@@ -102,9 +102,7 @@ async def audit(
 
 async def _get_user(session: AsyncSession, user_id: UUID) -> User:
     """Юзер по id (включая soft-deleted — админ видит заблокированных)."""
-    user = (
-        await session.execute(select(User).where(User.id == user_id))
-    ).scalar_one_or_none()
+    user = (await session.execute(select(User).where(User.id == user_id))).scalar_one_or_none()
     if user is None:
         raise UserNotFoundError()
     return user
@@ -169,11 +167,7 @@ async def list_users(
     stmt = select(User)
     if where is not None:
         stmt = stmt.where(where)
-    stmt = (
-        stmt.order_by(User.created_at.desc())
-        .offset((page - 1) * page_size)
-        .limit(page_size)
-    )
+    stmt = stmt.order_by(User.created_at.desc()).offset((page - 1) * page_size).limit(page_size)
     rows = list((await session.execute(stmt)).scalars().all())
     return rows, total
 
@@ -230,11 +224,7 @@ async def get_user_detail(session: AsyncSession, user_id: UUID) -> dict:
     )
 
     oauth_accounts = list(
-        (
-            await session.execute(
-                select(OAuthAccount).where(OAuthAccount.user_id == user_id)
-            )
-        )
+        (await session.execute(select(OAuthAccount).where(OAuthAccount.user_id == user_id)))
         .scalars()
         .all()
     )
@@ -250,13 +240,7 @@ async def get_user_detail(session: AsyncSession, user_id: UUID) -> dict:
                 {"id": parent.id, "email": parent.email, "name": parent.name, "relation": "parent"}
             )
     children = list(
-        (
-            await session.execute(
-                select(User).where(User.parent_user_id == user_id)
-            )
-        )
-        .scalars()
-        .all()
+        (await session.execute(select(User).where(User.parent_user_id == user_id))).scalars().all()
     )
     family.extend(
         {"id": c.id, "email": c.email, "name": c.name, "relation": "child"} for c in children
@@ -363,7 +347,7 @@ async def reset_password(
             to=user.email, name=user.name, language=user.language, token=token
         )
         email_sent = True
-    except Exception as e:  # noqa: BLE001 — почта/Redis не должны валить admin-action
+    except Exception as e:  # почта/Redis не должны валить admin-action
         logger.warning("admin.reset_password_email_failed", user_id=str(user.id), error=str(e))
 
     # В аудите честно фиксируем, ушло ли письмо (F1-SEC: не утверждать «done»,
@@ -491,9 +475,7 @@ async def overview(session: AsyncSession, *, period_days: int = 30) -> dict:
 
     active_users = (
         await session.execute(
-            select(func.count(func.distinct(Attempt.user_id))).where(
-                Attempt.created_at >= since
-            )
+            select(func.count(func.distinct(Attempt.user_id))).where(Attempt.created_at >= since)
         )
     ).scalar_one()
 
@@ -882,9 +864,7 @@ async def refund(
     # Идемпотентность: refund-charge с этим ключом уже создан → no-op.
     existing = (
         await session.execute(
-            select(SubscriptionCharge).where(
-                SubscriptionCharge.idempotency_key == idempotency_key
-            )
+            select(SubscriptionCharge).where(SubscriptionCharge.idempotency_key == idempotency_key)
         )
     ).scalar_one_or_none()
     if existing is not None:

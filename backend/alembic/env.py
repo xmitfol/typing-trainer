@@ -6,15 +6,15 @@
 
 from logging.config import fileConfig
 
-from alembic import context
 from sqlalchemy import engine_from_config, pool
+
+# Загружаем все модели — реальный import регистрирует их в Base.metadata.
+import app.models  # noqa: F401
+from alembic import context
 
 # Импорт нужен чтобы Base.metadata содержал все таблицы (для autogenerate)
 from app.config import get_settings
 from app.models.base import Base
-
-# Загружаем все модели — реальный import регистрирует их в Base.metadata.
-import app.models  # noqa: F401
 
 config = context.config
 

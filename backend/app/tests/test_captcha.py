@@ -70,9 +70,7 @@ async def test_issue_and_verify_roundtrip(fake_settings) -> None:
     challenge = issue_challenge()
     salt = _decode_salt(challenge["challenge"])
     nonce = _solve(salt, challenge["difficulty"])
-    ok = await verify_captcha(
-        challenge["challenge"], challenge["signature"], nonce, redis=None
-    )
+    ok = await verify_captcha(challenge["challenge"], challenge["signature"], nonce, redis=None)
     assert ok is True
 
 
@@ -130,7 +128,9 @@ async def test_replay_rejected_with_redis(fake_settings) -> None:
     nonce = _solve(salt, challenge["difficulty"])
 
     first = await verify_captcha(challenge["challenge"], challenge["signature"], nonce, redis=redis)
-    second = await verify_captcha(challenge["challenge"], challenge["signature"], nonce, redis=redis)
+    second = await verify_captcha(
+        challenge["challenge"], challenge["signature"], nonce, redis=redis
+    )
     assert first is True
     assert second is False
 

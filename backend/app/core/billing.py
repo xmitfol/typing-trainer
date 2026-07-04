@@ -138,9 +138,7 @@ def period_days(period_id: str | None) -> int:
 
 # ─── Доменные типы (нормализованные, provider-agnostic) ──────────────
 
-WebhookKind = Literal[
-    "payment.succeeded", "payment.failed", "payment.canceled", "refund"
-]
+WebhookKind = Literal["payment.succeeded", "payment.failed", "payment.canceled", "refund"]
 
 
 @dataclass(frozen=True)
@@ -212,9 +210,7 @@ class PaymentProvider(Protocol):
         """Создать платёж у провайдера, вернуть confirmation_url."""
         ...
 
-    def parse_webhook(
-        self, *, headers: dict[str, str], raw_body: bytes
-    ) -> WebhookEvent | None:
+    def parse_webhook(self, *, headers: dict[str, str], raw_body: bytes) -> WebhookEvent | None:
         """Проверить подпись + нормализовать webhook. None если не наш/невалиден."""
         ...
 
@@ -290,18 +286,14 @@ class StubProvider:
         # confirmation_url ведёт на локальную эмуляцию: фронт открывает,
         # видит успех, дёргает webhook сам (или сервер симулирует — см. service).
         sep = "&" if "?" in return_url else "?"
-        confirmation_url = (
-            f"{return_url}{sep}stub_payment_id={payment_id}&stub_sig={sig}"
-        )
+        confirmation_url = f"{return_url}{sep}stub_payment_id={payment_id}&stub_sig={sig}"
         return CheckoutResult(
             provider_payment_id=payment_id,
             confirmation_url=confirmation_url,
             status="pending",
         )
 
-    def parse_webhook(
-        self, *, headers: dict[str, str], raw_body: bytes
-    ) -> WebhookEvent | None:
+    def parse_webhook(self, *, headers: dict[str, str], raw_body: bytes) -> WebhookEvent | None:
         """Stub-webhook: JSON {provider_payment_id, sig, [kind, amount_kopecks]}.
 
         Подпись HMAC-SHA256 проверяется constant-time. Kind по умолчанию —
@@ -368,7 +360,9 @@ class StubProvider:
         digest = hmac.new(self._secret, material, sha256).hexdigest()
         return RefundResult(refund_id=f"stub_refund_{digest[:24]}", status="succeeded")
 
-    def make_webhook_body(self, provider_payment_id: str, *, kind: WebhookKind = "payment.succeeded") -> dict:
+    def make_webhook_body(
+        self, provider_payment_id: str, *, kind: WebhookKind = "payment.succeeded"
+    ) -> dict:
         """Helper для тестов/эмуляции: собрать подписанное stub-webhook-тело."""
         return {
             "provider_payment_id": provider_payment_id,
@@ -429,9 +423,7 @@ class YooKassaProvider:
             "(TODO: подтверждённый shop, ADR-008 §Rollout шаг 3)"
         )
 
-    def parse_webhook(
-        self, *, headers: dict[str, str], raw_body: bytes
-    ) -> WebhookEvent | None:
+    def parse_webhook(self, *, headers: dict[str, str], raw_body: bytes) -> WebhookEvent | None:
         # YooKassa шлёт notification без HMAC-подписи в заголовке: рекомендованная
         # защита — проверять source IP (allowlist YK) + повторно запрашивать
         # payment по id (GET /v3/payments/{id}) для верификации статуса.
@@ -456,9 +448,7 @@ class YooKassaProvider:
     ) -> ChargeResult:
         # TODO: POST /v3/payments с payment_method_id (без confirmation) —
         #   off-session списание сохранённым методом (ADR-005 Hybrid renewal).
-        raise NotImplementedError(
-            "YooKassaProvider.charge_recurring — off-session charge (TODO)"
-        )
+        raise NotImplementedError("YooKassaProvider.charge_recurring — off-session charge (TODO)")
 
     def cancel(self, *, provider_payment_id: str) -> None:
         # YK: подписки как таковой на стороне провайдера нет (мы сами дёргаем

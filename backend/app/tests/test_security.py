@@ -9,7 +9,6 @@ from jose import JWTError
 
 from app.core import security
 
-
 # ─── Password hashing ──────────────────────────────────────────────────
 
 

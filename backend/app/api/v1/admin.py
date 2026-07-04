@@ -31,8 +31,8 @@ from app.deps import (
     RedisClient,
     RequireAnalyst,
     RequireReauthOnce,
-    RequireSupport,
     RequireSuperadmin,
+    RequireSupport,
 )
 from app.models.user import User
 from app.schemas.admin import (
@@ -193,7 +193,10 @@ async def reauth(
     if totp_result == "required":
         raise HTTPException(
             status.HTTP_403_FORBIDDEN,
-            detail={"code": "TOTP_REQUIRED", "message": "Требуется код двухфакторной аутентификации"},
+            detail={
+                "code": "TOTP_REQUIRED",
+                "message": "Требуется код двухфакторной аутентификации",
+            },
         )
     if totp_result == "invalid":
         # Неверный TOTP/recovery — тоже анти-брутфорс (инкремент счётчика).
@@ -237,9 +240,7 @@ async def twofa_enroll(
     Повторный enroll до подтверждения (или поверх включённой 2FA) — перегенерит
     секрет и сбрасывает enabled в False (подтвердить заново через /2fa/verify).
     """
-    uri, secret = await admin_2fa_service.enroll(
-        session, actor, issuer=get_settings().app_name
-    )
+    uri, secret = await admin_2fa_service.enroll(session, actor, issuer=get_settings().app_name)
     return TwoFAEnrollResponse(otpauth_uri=uri, secret=secret)
 
 
@@ -390,9 +391,7 @@ async def get_user_detail(
         ],
         family=[AdminFamilyMember(**m) for m in d["family"]],
         oauth_accounts=[
-            AdminOAuthOut(
-                provider=o.provider, external_id=o.external_id, linked_at=o.linked_at
-            )
+            AdminOAuthOut(provider=o.provider, external_id=o.external_id, linked_at=o.linked_at)
             for o in d["oauth_accounts"]
         ],
     )
@@ -402,9 +401,7 @@ async def get_user_detail(
 
 
 def _not_found(e: UserNotFoundError) -> HTTPException:
-    return HTTPException(
-        status.HTTP_404_NOT_FOUND, detail={"code": e.code, "message": e.message}
-    )
+    return HTTPException(status.HTTP_404_NOT_FOUND, detail={"code": e.code, "message": e.message})
 
 
 @router.post(
@@ -534,9 +531,7 @@ async def impersonate_user(
     """
     await guard_admin_mutation_rate(actor, redis)
     try:
-        target = await admin_service.impersonate(
-            session, actor, user_id, ip_hash=_ip_hash(request)
-        )
+        target = await admin_service.impersonate(session, actor, user_id, ip_hash=_ip_hash(request))
     except UserNotFoundError as e:
         raise _not_found(e) from e
     except ImpersonateForbiddenError as e:
@@ -600,12 +595,8 @@ async def impersonate_stop(
             **kwargs,
         )
     else:
-        response.delete_cookie(
-            ACCESS_COOKIE, domain=settings.cookie_domain, path="/"
-        )
-    response.delete_cookie(
-        ADMIN_RETURN_COOKIE, domain=settings.cookie_domain, path="/"
-    )
+        response.delete_cookie(ACCESS_COOKIE, domain=settings.cookie_domain, path="/")
+    response.delete_cookie(ADMIN_RETURN_COOKIE, domain=settings.cookie_domain, path="/")
 
 
 @router.post(
@@ -808,9 +799,7 @@ async def cancel_subscription(
 ) -> AdminSubActionResult:
     await guard_admin_mutation_rate(actor, redis)
     try:
-        sub = await admin_service.cancel(
-            session, actor, sub_id, ip_hash=_ip_hash(request)
-        )
+        sub = await admin_service.cancel(session, actor, sub_id, ip_hash=_ip_hash(request))
     except SubscriptionNotFoundError as e:
         raise _sub_not_found(e) from e
     return AdminSubActionResult(subscription_id=sub.id, action="sub.cancel")
@@ -866,9 +855,7 @@ async def refund_subscription(
             status.HTTP_400_BAD_REQUEST,
             detail={"code": e.code, "message": "Сумма возврата больше оплаченной"},
         ) from e
-    return AdminSubActionResult(
-        subscription_id=charge.subscription_id, action="sub.refund"
-    )
+    return AdminSubActionResult(subscription_id=charge.subscription_id, action="sub.refund")
 
 
 # ─── Analytics (Ф3-3/Ф3-4; все RequireAnalyst, кэш Redis Ф3-5) ──────────

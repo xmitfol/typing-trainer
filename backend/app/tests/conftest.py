@@ -210,7 +210,7 @@ async def db_session_fixture(db_engine) -> AsyncIterator["AsyncSession"]:  # typ
     Откат вместо TRUNCATE — между тестами БД остаётся чистой, миграцию
     гоняем один раз на сессию.
     """
-    from sqlalchemy.ext.asyncio import AsyncSession, async_sessionmaker
+    from sqlalchemy.ext.asyncio import async_sessionmaker
 
     connection = await db_engine.connect()
     trans = await connection.begin()
@@ -237,7 +237,7 @@ async def redis_fake():  # type: ignore[no-untyped-def]
         def __init__(self) -> None:
             self.store: dict[str, str] = {}
 
-        async def set(self, key, val, nx=False, ex=None):  # noqa: A002
+        async def set(self, key, val, nx=False, ex=None):
             if nx and key in self.store:
                 return None
             self.store[key] = str(val)

@@ -6,8 +6,8 @@ Sprint 1: `db_session` / `redis_client` подключены к реальным
 """
 
 import hmac
-from collections.abc import AsyncIterator
-from typing import Annotated, Callable, Coroutine
+from collections.abc import AsyncIterator, Callable, Coroutine
+from typing import Annotated
 from uuid import UUID
 
 from fastapi import Cookie, Depends, Header, HTTPException, status

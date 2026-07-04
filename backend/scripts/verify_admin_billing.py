@@ -25,7 +25,6 @@ from sqlalchemy import select, text
 from app.core.db import dispose_engine, get_sessionmaker
 from app.core.redis import get_redis
 from app.core.security import create_access_token, hash_password
-from app.deps import REAUTH_PREFIX
 from app.main import app
 from app.models.subscription import Subscription, SubscriptionCharge
 from app.models.user import User
@@ -74,36 +73,50 @@ async def main() -> int:
 
     base = "http://gate"
     async with httpx.AsyncClient(transport=transport, base_url=base) as client:
-
         # ── grant (support) ────────────────────────────────────────────
         r = await client.post(
             "/api/v1/admin/subscriptions/grant",
             cookies=cookies_for(support_id),
-            json={"user_id": str(target_id), "plan": "pro", "period": "m1",
-                  "reason": "gate grant"},
+            json={"user_id": str(target_id), "plan": "pro", "period": "m1", "reason": "gate grant"},
         )
         check(r.status_code == 200, "grant support → 200", f"got {r.status_code} {r.text[:160]}")
         granted_sub_id = r.json().get("subscription_id") if r.status_code == 200 else None
 
         # DB assertions on granted sub
         async with factory() as s:
-            sub = (await s.execute(
-                select(Subscription).where(Subscription.user_id == target_id)
-                .order_by(Subscription.created_at.desc()).limit(1)
-            )).scalar_one_or_none()
-        check(sub is not None and sub.status == "active", "grant → status active",
-              f"status={getattr(sub,'status',None)}")
-        check(sub is not None and sub.provider == "manual", "grant → provider manual",
-              f"provider={getattr(sub,'provider',None)}")
-        check(sub is not None and sub.is_auto_renew is False, "grant → is_auto_renew False",
-              f"auto_renew={getattr(sub,'is_auto_renew',None)}")
+            sub = (
+                await s.execute(
+                    select(Subscription)
+                    .where(Subscription.user_id == target_id)
+                    .order_by(Subscription.created_at.desc())
+                    .limit(1)
+                )
+            ).scalar_one_or_none()
+        check(
+            sub is not None and sub.status == "active",
+            "grant → status active",
+            f"status={getattr(sub,'status',None)}",
+        )
+        check(
+            sub is not None and sub.provider == "manual",
+            "grant → provider manual",
+            f"provider={getattr(sub,'provider',None)}",
+        )
+        check(
+            sub is not None and sub.is_auto_renew is False,
+            "grant → is_auto_renew False",
+            f"auto_renew={getattr(sub,'is_auto_renew',None)}",
+        )
         check(sub is not None and sub.payment_method_id is None, "grant → payment_method_id None")
 
         # paywall: lesson 6 access after grant
-        r = await client.get(f"/api/v1/lessons/tier1/6/access", cookies=cookies_for(target_id))
+        r = await client.get("/api/v1/lessons/tier1/6/access", cookies=cookies_for(target_id))
         allowed = r.status_code == 200 and r.json().get("allowed") is True
-        check(allowed, "paywall lesson6 access → allowed after grant",
-              f"{r.status_code} {r.text[:120]}")
+        check(
+            allowed,
+            "paywall lesson6 access → allowed after grant",
+            f"{r.status_code} {r.text[:120]}",
+        )
 
         # ── set up a real checkout-based sub for refund (needs payment_id) ──
         # StubProvider create_checkout → active via billing_service webhook path.
@@ -112,9 +125,15 @@ async def main() -> int:
         pay_id = f"stub_{uuid.uuid4().hex[:20]}"
         async with factory() as s:
             paid = Subscription(
-                user_id=target_id, plan="pro", period="m1", status="active",
-                provider="stub", amount_kopecks=49000, currency="RUB",
-                is_auto_renew=True, yookassa_payment_id=pay_id,
+                user_id=target_id,
+                plan="pro",
+                period="m1",
+                status="active",
+                provider="stub",
+                amount_kopecks=49000,
+                currency="RUB",
+                is_auto_renew=True,
+                yookassa_payment_id=pay_id,
             )
             s.add(paid)
             await s.flush()
@@ -127,9 +146,16 @@ async def main() -> int:
             cookies=cookies_for(support_id),
             json={"reason": "x"},
         )
-        code = (r.json().get("detail", {}) or {}).get("code") if r.headers.get("content-type","").startswith("application/json") else None
-        check(r.status_code == 403 and code == "ADMIN_FORBIDDEN",
-              "support → refund 403 ADMIN_FORBIDDEN", f"{r.status_code} code={code}")
+        code = (
+            (r.json().get("detail", {}) or {}).get("code")
+            if r.headers.get("content-type", "").startswith("application/json")
+            else None
+        )
+        check(
+            r.status_code == 403 and code == "ADMIN_FORBIDDEN",
+            "support → refund 403 ADMIN_FORBIDDEN",
+            f"{r.status_code} code={code}",
+        )
 
         # ── superadmin WITHOUT reauth → 403 REAUTH_REQUIRED ────────────
         r = await client.post(
@@ -138,8 +164,11 @@ async def main() -> int:
             json={"reason": "x"},
         )
         code = (r.json().get("detail", {}) or {}).get("code")
-        check(r.status_code == 403 and code == "REAUTH_REQUIRED",
-              "superadmin no-reauth → 403 REAUTH_REQUIRED", f"{r.status_code} code={code}")
+        check(
+            r.status_code == 403 and code == "REAUTH_REQUIRED",
+            "superadmin no-reauth → 403 REAUTH_REQUIRED",
+            f"{r.status_code} code={code}",
+        )
 
         # ── issue one-time reauth token via /admin/reauth, then refund ──
         r = await client.post(
@@ -147,8 +176,11 @@ async def main() -> int:
             cookies=cookies_for(super_id),
             json={"password": "Sup3rPass!"},
         )
-        check(r.status_code == 200 and "reauth_token" in r.json(),
-              "reauth issue → 200 token", f"{r.status_code} {r.text[:120]}")
+        check(
+            r.status_code == 200 and "reauth_token" in r.json(),
+            "reauth issue → 200 token",
+            f"{r.status_code} {r.text[:120]}",
+        )
         reauth_tok = r.json().get("reauth_token")
 
         # refund WITH one-time token → 200
@@ -158,24 +190,39 @@ async def main() -> int:
             headers={"X-Admin-Reauth": reauth_tok},
             json={"reason": "gate refund"},
         )
-        check(r.status_code == 200, "superadmin + one-time reauth → refund 200",
-              f"{r.status_code} {r.text[:160]}")
+        check(
+            r.status_code == 200,
+            "superadmin + one-time reauth → refund 200",
+            f"{r.status_code} {r.text[:160]}",
+        )
 
         # ── refund charge created, status refunded, refund_id present ──
         async with factory() as s:
-            ch = (await s.execute(
-                select(SubscriptionCharge).where(
-                    SubscriptionCharge.subscription_id == paid_id,
-                    SubscriptionCharge.status == "refunded",
+            ch = (
+                (
+                    await s.execute(
+                        select(SubscriptionCharge).where(
+                            SubscriptionCharge.subscription_id == paid_id,
+                            SubscriptionCharge.status == "refunded",
+                        )
+                    )
                 )
-            )).scalars().all()
+                .scalars()
+                .all()
+            )
         check(len(ch) == 1, "refund → exactly 1 'refunded' charge", f"count={len(ch)}")
         if ch:
             meta = ch[0].charge_metadata or {}
-            check(bool(meta.get("refund_id")), "refund → charge has refund_id",
-                  f"refund_id={meta.get('refund_id')}")
-            check(meta.get("refund_id","").startswith("stub_refund_"),
-                  "refund_id is stub-signed", meta.get("refund_id",""))
+            check(
+                bool(meta.get("refund_id")),
+                "refund → charge has refund_id",
+                f"refund_id={meta.get('refund_id')}",
+            )
+            check(
+                meta.get("refund_id", "").startswith("stub_refund_"),
+                "refund_id is stub-signed",
+                meta.get("refund_id", ""),
+            )
 
         # ── one-time token CONSUMED: reuse same token → 403 ────────────
         r = await client.post(
@@ -185,12 +232,16 @@ async def main() -> int:
             json={"reason": "reuse token"},
         )
         code = (r.json().get("detail", {}) or {}).get("code")
-        check(r.status_code == 403 and code == "REAUTH_REQUIRED",
-              "reuse same one-time token → 403 (getdel consumed)", f"{r.status_code} code={code}")
+        check(
+            r.status_code == 403 and code == "REAUTH_REQUIRED",
+            "reuse same one-time token → 403 (getdel consumed)",
+            f"{r.status_code} code={code}",
+        )
 
         # ── idempotency: fresh reauth + refund same sub → no new charge ─
-        r = await client.post("/api/v1/admin/reauth", cookies=cookies_for(super_id),
-                              json={"password": "Sup3rPass!"})
+        r = await client.post(
+            "/api/v1/admin/reauth", cookies=cookies_for(super_id), json={"password": "Sup3rPass!"}
+        )
         reauth_tok2 = r.json().get("reauth_token")
         r = await client.post(
             f"/api/v1/admin/subscriptions/{paid_id}/refund",
@@ -200,22 +251,35 @@ async def main() -> int:
         )
         second_ok = r.status_code == 200
         async with factory() as s:
-            cnt = (await s.execute(
-                select(SubscriptionCharge).where(
-                    SubscriptionCharge.subscription_id == paid_id,
-                    SubscriptionCharge.status == "refunded",
+            cnt = (
+                (
+                    await s.execute(
+                        select(SubscriptionCharge).where(
+                            SubscriptionCharge.subscription_id == paid_id,
+                            SubscriptionCharge.status == "refunded",
+                        )
+                    )
                 )
-            )).scalars().all()
-        check(second_ok and len(cnt) == 1,
-              "repeat refund (same idempotency_key) → no-op, charge not doubled",
-              f"http={r.status_code} charges={len(cnt)}")
+                .scalars()
+                .all()
+            )
+        check(
+            second_ok and len(cnt) == 1,
+            "repeat refund (same idempotency_key) → no-op, charge not doubled",
+            f"http={r.status_code} charges={len(cnt)}",
+        )
 
         # ── audit: sub.refund present ──────────────────────────────────
         async with factory() as s:
-            audit_cnt = (await s.execute(text(
-                "SELECT count(*) FROM admin_audit_log WHERE action='sub.refund' "
-                "AND target_id=:tid"
-            ), {"tid": str(paid_id)})).scalar_one()
+            audit_cnt = (
+                await s.execute(
+                    text(
+                        "SELECT count(*) FROM admin_audit_log WHERE action='sub.refund' "
+                        "AND target_id=:tid"
+                    ),
+                    {"tid": str(paid_id)},
+                )
+            ).scalar_one()
         check(audit_cnt >= 1, "audit sub.refund recorded", f"count={audit_cnt}")
 
         # ── cancel (support) → 200 ─────────────────────────────────────
@@ -226,60 +290,79 @@ async def main() -> int:
         check(r.status_code == 200, "cancel support → 200", f"{r.status_code} {r.text[:120]}")
 
         # ── list (support) ─────────────────────────────────────────────
-        r = await client.get("/api/v1/admin/subscriptions?plan=pro",
-                             cookies=cookies_for(support_id))
+        r = await client.get(
+            "/api/v1/admin/subscriptions?plan=pro", cookies=cookies_for(support_id)
+        )
         ok_list = r.status_code == 200 and r.json().get("total", 0) >= 1
-        check(ok_list, "list subscriptions → 200 non-empty",
-              f"{r.status_code} total={r.json().get('total') if r.status_code==200 else '?'}")
+        check(
+            ok_list,
+            "list subscriptions → 200 non-empty",
+            f"{r.status_code} total={r.json().get('total') if r.status_code==200 else '?'}",
+        )
 
         # ── detail (support) + charge-log ──────────────────────────────
-        r = await client.get(f"/api/v1/admin/subscriptions/{paid_id}",
-                             cookies=cookies_for(super_id))
+        r = await client.get(
+            f"/api/v1/admin/subscriptions/{paid_id}", cookies=cookies_for(super_id)
+        )
         d = r.json() if r.status_code == 200 else {}
-        has_charges = bool(d.get("charges")) and any(c["status"] == "refunded" for c in d.get("charges", []))
-        check(r.status_code == 200 and has_charges,
-              "detail → 200 with refunded charge in log",
-              f"{r.status_code} charges={len(d.get('charges', []))}")
+        has_charges = bool(d.get("charges")) and any(
+            c["status"] == "refunded" for c in d.get("charges", [])
+        )
+        check(
+            r.status_code == 200 and has_charges,
+            "detail → 200 with refunded charge in log",
+            f"{r.status_code} charges={len(d.get('charges', []))}",
+        )
 
         # ── /billing/charges — сквозной debug-список (support) ──────────
-        r = await client.get("/api/v1/admin/billing/charges?status=refunded",
-                             cookies=cookies_for(support_id))
+        r = await client.get(
+            "/api/v1/admin/billing/charges?status=refunded", cookies=cookies_for(support_id)
+        )
         d = r.json() if r.status_code == 200 else {}
         items = d.get("items", [])
         ours = [c for c in items if c.get("subscription_id") == str(paid_id)]
         debug_fields = bool(ours) and all(
             c.get("idempotency_key") and "subscription_id" in c for c in ours
         )
-        check(r.status_code == 200 and d.get("total", 0) >= 1 and debug_fields,
-              "charges list status=refunded → 200 + debug-поля (sub_id, idem_key)",
-              f"{r.status_code} total={d.get('total')} ours={len(ours)}")
+        check(
+            r.status_code == 200 and d.get("total", 0) >= 1 and debug_fields,
+            "charges list status=refunded → 200 + debug-поля (sub_id, idem_key)",
+            f"{r.status_code} total={d.get('total')} ours={len(ours)}",
+        )
 
         # фильтр по subscription_id — только чарджи этой подписки
-        r = await client.get(f"/api/v1/admin/billing/charges?subscription_id={paid_id}",
-                             cookies=cookies_for(support_id))
+        r = await client.get(
+            f"/api/v1/admin/billing/charges?subscription_id={paid_id}",
+            cookies=cookies_for(support_id),
+        )
         d = r.json() if r.status_code == 200 else {}
         only_ours = bool(d.get("items")) and all(
             c["subscription_id"] == str(paid_id) for c in d["items"]
         )
-        check(r.status_code == 200 and only_ours,
-              "charges list subscription_id-фильтр → только свои",
-              f"{r.status_code} total={d.get('total')}")
+        check(
+            r.status_code == 200 and only_ours,
+            "charges list subscription_id-фильтр → только свои",
+            f"{r.status_code} total={d.get('total')}",
+        )
 
         # фильтр по idempotency_key — точечная находка (webhook-раскопки)
         idem = ours[0]["idempotency_key"] if ours else ""
-        r = await client.get(f"/api/v1/admin/billing/charges?idempotency_key={idem}",
-                             cookies=cookies_for(support_id))
+        r = await client.get(
+            f"/api/v1/admin/billing/charges?idempotency_key={idem}", cookies=cookies_for(support_id)
+        )
         d = r.json() if r.status_code == 200 else {}
-        check(r.status_code == 200 and d.get("total") == 1,
-              "charges list idempotency_key-фильтр → ровно 1",
-              f"{r.status_code} total={d.get('total')}")
+        check(
+            r.status_code == 200 and d.get("total") == 1,
+            "charges list idempotency_key-фильтр → ровно 1",
+            f"{r.status_code} total={d.get('total')}",
+        )
 
         # невалидный status → 400; обычный юзер → 403 (RBAC)
-        r = await client.get("/api/v1/admin/billing/charges?status=bogus",
-                             cookies=cookies_for(support_id))
+        r = await client.get(
+            "/api/v1/admin/billing/charges?status=bogus", cookies=cookies_for(support_id)
+        )
         check(r.status_code == 400, "charges list status=bogus → 400", f"{r.status_code}")
-        r = await client.get("/api/v1/admin/billing/charges",
-                             cookies=cookies_for(target_id))
+        r = await client.get("/api/v1/admin/billing/charges", cookies=cookies_for(target_id))
         check(r.status_code == 403, "charges list role=user → 403", f"{r.status_code}")
 
     await redis.aclose()

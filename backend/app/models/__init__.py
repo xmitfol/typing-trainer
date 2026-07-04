@@ -16,11 +16,11 @@ from app.models.user import OAuthAccount, User, UserSettings
 __all__ = [
     "Admin2FA",
     "AdminAuditLog",
+    "Attempt",
     "Base",
     "Event",
     "OAuthAccount",
     "Progress",
-    "Attempt",
     "Subscription",
     "SubscriptionCharge",
     "User",

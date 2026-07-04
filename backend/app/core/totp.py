@@ -21,7 +21,7 @@ import base64
 import secrets
 
 import pyotp
-from cryptography.fernet import Fernet, InvalidToken
+from cryptography.fernet import Fernet
 from cryptography.hazmat.primitives import hashes
 from cryptography.hazmat.primitives.kdf.hkdf import HKDF
 
@@ -86,15 +86,13 @@ def verify_totp(plain_base32_secret: str, code: str) -> bool:
         return False
     try:
         return pyotp.TOTP(plain_base32_secret).verify(code.strip(), valid_window=TOTP_VALID_WINDOW)
-    except Exception:  # noqa: BLE001 — любой сбой pyotp = невалидный код
+    except Exception:  # любой сбой pyotp = невалидный код
         return False
 
 
 def otpauth_uri(plain_base32_secret: str, account_email: str, issuer: str) -> str:
     """otpauth://-URI для QR (Google Authenticator и т.п.)."""
-    return pyotp.TOTP(plain_base32_secret).provisioning_uri(
-        name=account_email, issuer_name=issuer
-    )
+    return pyotp.TOTP(plain_base32_secret).provisioning_uri(name=account_email, issuer_name=issuer)
 
 
 # ─── Recovery-коды ──────────────────────────────────────────────────────

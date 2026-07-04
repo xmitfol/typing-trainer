@@ -63,13 +63,13 @@ async def _cached(
         raw = await redis.get(key)
         if raw is not None:
             return json.loads(raw), True
-    except Exception as e:  # noqa: BLE001 — кэш best-effort
+    except Exception as e:  # кэш best-effort
         logger.warning("analytics.cache_get_failed", key=key, error=str(e))
 
     data = await compute()
     try:
         await redis.set(key, json.dumps(data), ex=ttl)
-    except Exception as e:  # noqa: BLE001
+    except Exception as e:
         logger.warning("analytics.cache_set_failed", key=key, error=str(e))
     return data, False
 
@@ -77,8 +77,8 @@ async def _cached(
 # ─── Ф3-3: Скилл (распределение WPM/accuracy) ───────────────────────────
 
 # Границы бакетов гистограмм (правый край не включается, последний — открытый).
-_WPM_EDGES = [0, 20, 40, 60, 80, 100, 120, 150, 200]      # знаков/мин
-_ACC_EDGES = [0, 50, 70, 80, 85, 90, 95, 98, 100]         # проценты
+_WPM_EDGES = [0, 20, 40, 60, 80, 100, 120, 150, 200]  # знаков/мин
+_ACC_EDGES = [0, 50, 70, 80, 85, 90, 95, 98, 100]  # проценты
 
 
 def _buckets(edges: list[int], value_counts: list[tuple[int, int]]) -> list[dict]:
@@ -118,7 +118,9 @@ async def skill(session: AsyncSession, *, tier: str | None, period: int) -> dict
     ).all()
     acc_rows = (
         await session.execute(
-            select(Progress.best_accuracy, func.count()).where(where).group_by(Progress.best_accuracy)
+            select(Progress.best_accuracy, func.count())
+            .where(where)
+            .group_by(Progress.best_accuracy)
         )
     ).all()
 
@@ -304,7 +306,10 @@ async def funnel(session: AsyncSession, *, period: int) -> dict:
     ).scalar_one()
 
     signups, activated, subscribed, churned = (
-        int(signups), int(activated), int(subscribed), int(churned)
+        int(signups),
+        int(activated),
+        int(subscribed),
+        int(churned),
     )
 
     def _rate(num: int, den: int) -> float:
@@ -355,7 +360,7 @@ async def retention(session: AsyncSession, *, period: int) -> dict:
     if cohort_size == 0:
         return {"period": period, "cohort_size": 0, "d1": 0.0, "d7": 0.0, "d30": 0.0}
 
-    first_by_user = {uid: first_at for uid, first_at in cohort_rows}
+    first_by_user = dict(cohort_rows)
     uids = list(first_by_user.keys())
 
     # Все attempts когорты (один запрос) → считаем возвраты в памяти.
