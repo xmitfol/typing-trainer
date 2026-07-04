@@ -98,8 +98,9 @@ def main() -> int:
         # ── 3. saveAttempt по остальным тирам через живой api-client ────
         print("\n=== 3. saveAttempt по 5 тирам через api-client ===")
         for i, tier in enumerate(API_TIERS):
+            # ВАЖНО: функцию НЕ самовызываем — playwright сам вызовет её с арг.
             r = page.evaluate(
-                """(async ([tier, wpm]) => {
+                """async ([tier, wpm]) => {
                     try {
                         const r = await window.apiClient.saveAttempt({
                             tier, lesson_num: 1, wpm, accuracy: 95,
@@ -107,7 +108,7 @@ def main() -> int:
                         });
                         return (r && r.progress && (r.progress.tier || tier)) || null;
                     } catch (e) { return 'ERR:' + (e && e.message); }
-                })()""",
+                }""",
                 [tier, 30 + i])
             check(f'saveAttempt {tier}', r, lambda v, t=tier: v is not None and not str(v).startswith('ERR:'))
 
@@ -122,12 +123,13 @@ def main() -> int:
         # ── 5. разворот по активному тиру (изоляция) ─────────────────────
         print("\n=== 5. getProgress() разворачивает по активному тиру ===")
         def flat_for(tier):
+            # Функцию НЕ самовызываем — playwright вызовет её с аргументом.
             return page.evaluate(
-                """(async (tier) => {
+                """async (tier) => {
                     localStorage.setItem('typing_trainer_current_lesson',
                         JSON.stringify({tier, lessonNumber: 1}));
                     try { return await window.apiClient.getProgress(); } catch (e) { return {}; }
-                })()""", tier) or {}
+                }""", tier) or {}
         kids = flat_for('ru_kids')
         t1 = flat_for('tier1')
         kids_wpm = (kids.get('1') or {}).get('bestWPM')
