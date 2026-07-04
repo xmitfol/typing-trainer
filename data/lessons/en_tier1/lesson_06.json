@@ -146,6 +146,9 @@
     {
       "type": "step",
       "kind": "drill",
+      "unit": "wo ow",
+      "baseReps": 7,
+      "keys": ["w", "o"],
       "target": "wo ow wo ow wo ow wo ow wo ow wo ow wo ow",
       "finger": "orange",
       "title": "Both rings",

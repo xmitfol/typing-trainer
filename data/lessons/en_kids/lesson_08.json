@@ -127,6 +127,9 @@
     {
       "type": "step",
       "kind": "drill",
+      "unit": "w o",
+      "baseReps": 6,
+      "keys": ["w", "o"],
       "target": "w o w o w o w o w o w o",
       "finger": "orange",
       "title": "Take turns",

@@ -185,6 +185,9 @@
     {
       "type": "step",
       "kind": "drill",
+      "unit": "6 7 8 9",
+      "baseReps": 5,
+      "keys": ["6", "7", "8", "9"],
       "target": "6 7 8 9 6 7 8 9 6 7 8 9 6 7 8 9 6 7 8 9",
       "finger": "indigo",
       "title": "Цифры 6-7-8-9",

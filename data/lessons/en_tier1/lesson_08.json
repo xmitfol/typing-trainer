@@ -158,6 +158,9 @@
     {
       "type": "step",
       "kind": "drill",
+      "unit": "vm cv",
+      "baseReps": 7,
+      "keys": ["v", "m", "c"],
       "target": "vm cv vm cv vm cv vm cv vm cv vm cv vm cv",
       "finger": "blue",
       "title": "Down and back",

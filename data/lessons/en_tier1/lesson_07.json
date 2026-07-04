@@ -150,6 +150,9 @@
     {
       "type": "step",
       "kind": "drill",
+      "unit": "qp ty",
+      "baseReps": 7,
+      "keys": ["q", "p", "t", "y"],
       "target": "qp ty qp ty qp ty qp ty qp ty qp ty qp ty",
       "finger": "blue",
       "title": "Corners and centre",

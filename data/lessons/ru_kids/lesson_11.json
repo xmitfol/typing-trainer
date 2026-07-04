@@ -104,6 +104,9 @@
     {
       "type": "step",
       "kind": "drill",
+      "unit": "п р",
+      "baseReps": 5,
+      "keys": ["п", "р"],
       "target": "п р п р п р п р п р",
       "finger": "indigo",
       "title": "По очереди",

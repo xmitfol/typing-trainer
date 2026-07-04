@@ -96,6 +96,9 @@
     {
       "type": "step",
       "kind": "placement",
+      "unit": "asdf jkl",
+      "baseReps": 10,
+      "keys": ["a", "s", "d", "f", "j", "k", "l"],
       "target": "asdf jkl asdf jkl asdf jkl asdf jkl asdf jkl asdf jkl asdf jkl asdf jkl asdf jkl asdf jkl",
       "finger": "blue",
       "title": "Set your hands",
@@ -108,6 +111,9 @@
     {
       "type": "step",
       "kind": "drill",
+      "unit": "a s d f",
+      "baseReps": 6,
+      "keys": ["a", "s", "d", "f"],
       "target": "a s d f a s d f a s d f a s d f a s d f a s d f",
       "finger": "blue",
       "title": "Left hand",
@@ -116,6 +122,9 @@
     {
       "type": "step",
       "kind": "drill",
+      "unit": "j k l",
+      "baseReps": 8,
+      "keys": ["j", "k", "l"],
       "target": "j k l j k l j k l j k l j k l j k l j k l j k l",
       "finger": "indigo",
       "title": "Right hand",

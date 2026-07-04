@@ -119,6 +119,9 @@
     {
       "type": "step",
       "kind": "drill",
+      "unit": "x z",
+      "baseReps": 6,
+      "keys": ["x", "z"],
       "target": "x z x z x z x z x z x z",
       "finger": "orange",
       "title": "X and Z",
@@ -127,6 +130,9 @@
     {
       "type": "step",
       "kind": "drill",
+      "unit": "b n",
+      "baseReps": 6,
+      "keys": ["b", "n"],
       "target": "b n b n b n b n b n b n",
       "finger": "blue",
       "title": "B and N",

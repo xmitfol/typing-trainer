@@ -125,6 +125,9 @@
     {
       "type": "step",
       "kind": "drill",
+      "unit": "н г",
+      "baseReps": 10,
+      "keys": ["н", "г"],
       "target": "н г н г н г н г н г н г н г н г н г н г",
       "finger": "blue",
       "title": "Правый верх: Н Г",
@@ -133,6 +136,9 @@
     {
       "type": "step",
       "kind": "drill",
+      "unit": "ш щ",
+      "baseReps": 9,
+      "keys": ["ш", "щ"],
       "target": "ш щ ш щ ш щ ш щ ш щ ш щ ш щ ш щ ш щ",
       "finger": "indigo",
       "title": "Правый верх: Ш Щ",
@@ -141,6 +147,9 @@
     {
       "type": "step",
       "kind": "drill",
+      "unit": "з х",
+      "baseReps": 10,
+      "keys": ["з", "х"],
       "target": "з х з х з х з х з х з х з х з х з х з х",
       "finger": "orange",
       "title": "Правый верх: З Х",

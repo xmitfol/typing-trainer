@@ -111,6 +111,9 @@
     {
       "type": "step",
       "kind": "drill",
+      "unit": "й ц у",
+      "baseReps": 6,
+      "keys": ["й", "ц", "у"],
       "target": "й ц у й ц у й ц у й ц у й ц у й ц у",
       "finger": "blue",
       "title": "Левый верх: Й Ц У",
@@ -119,6 +122,9 @@
     {
       "type": "step",
       "kind": "drill",
+      "unit": "к е",
+      "baseReps": 10,
+      "keys": ["к", "е"],
       "target": "к е к е к е к е к е к е к е к е к е к е",
       "finger": "indigo",
       "title": "Левый верх: К Е",

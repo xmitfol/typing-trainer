@@ -147,6 +147,9 @@
     {
       "type": "step",
       "kind": "drill",
+      "unit": "1 2 3",
+      "baseReps": 5,
+      "keys": ["1", "2", "3"],
       "target": "1 2 3 1 2 3 1 2 3 1 2 3 1 2 3",
       "finger": "pink",
       "title": "Digits 1-2-3",
@@ -155,6 +158,9 @@
     {
       "type": "step",
       "kind": "drill",
+      "unit": "4 5",
+      "baseReps": 8,
+      "keys": ["4", "5"],
       "target": "4 5 4 5 4 5 4 5 4 5 4 5 4 5 4 5",
       "finger": "indigo",
       "title": "Digits 4-5",

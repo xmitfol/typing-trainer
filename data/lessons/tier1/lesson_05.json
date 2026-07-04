@@ -83,6 +83,9 @@
     {
       "type": "step",
       "kind": "drill",
+      "unit": "э а",
+      "baseReps": 10,
+      "keys": ["э", "а"],
       "target": "э а э а э а э а э а э а э а э а э а э а",
       "finger": "pink",
       "title": "Чередование",

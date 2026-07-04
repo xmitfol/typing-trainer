@@ -110,6 +110,9 @@
     {
       "type": "step",
       "kind": "drill",
+      "unit": "t y",
+      "baseReps": 6,
+      "keys": ["t", "y"],
       "target": "t y t y t y t y t y t y",
       "finger": "blue",
       "title": "T and Y",
@@ -118,6 +121,9 @@
     {
       "type": "step",
       "kind": "drill",
+      "unit": "q p",
+      "baseReps": 6,
+      "keys": ["q", "p"],
       "target": "q p q p q p q p q p q p",
       "finger": "pink",
       "title": "Q and P",

@@ -124,6 +124,9 @@
     {
       "type": "step",
       "kind": "drill",
+      "unit": "щ з",
+      "baseReps": 10,
+      "keys": ["щ", "з"],
       "target": "щ з щ з щ з щ з щ з щ з щ з щ з щ з щ з",
       "finger": "orange",
       "title": "Чередование",
